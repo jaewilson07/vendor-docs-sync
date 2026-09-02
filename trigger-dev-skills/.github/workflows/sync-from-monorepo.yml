@@ -1,0 +1,77 @@
+name: Sync skills from monorepo
+
+on:
+  schedule:
+    # Monthly, at a non-round minute to avoid the thundering herd.
+    - cron: "37 6 1 * *"
+  workflow_dispatch:
+  # Let the monorepo trigger an instant sync when skills change.
+  # Monorepo side sends: POST /repos/triggerdotdev/skills/dispatches {"event_type":"skills-updated"}
+  repository_dispatch:
+    types: [skills-updated]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-monorepo-skills
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: github.repository == 'triggerdotdev/skills'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch monorepo skills
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --filter=blob:none --no-checkout \
+            https://github.com/triggerdotdev/trigger.dev.git monorepo
+          git -C monorepo sparse-checkout set --no-cone \
+            packages/trigger-sdk/skills \
+            packages/cli-v3/skills \
+            packages/trigger-sdk/package.json
+          git -C monorepo checkout
+          echo "MONOREPO_SHA=$(git -C monorepo rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Mirror skills + regenerate README
+        run: |
+          set -euo pipefail
+          node scripts/mirror-skills.mjs monorepo
+          node scripts/build-readme.mjs
+          rm -rf monorepo
+
+      - name: Open or update the single sync PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to sync."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B sync/monorepo-skills
+          git add -A
+          git commit -m "chore: sync skills from triggerdotdev/trigger.dev@${MONOREPO_SHA:0:7}"
+          git push --force-with-lease origin sync/monorepo-skills
+          body="Automated mirror sync from [\`triggerdotdev/trigger.dev@${MONOREPO_SHA:0:7}\`](https://github.com/triggerdotdev/trigger.dev/commit/${MONOREPO_SHA}).
+
+          Full skill guides are mirrored per \`sync-map.json\` and the README skills list is regenerated from frontmatter. **Edit skills in the monorepo, not here.**
+
+          This is the single standing sync PR — it is force-updated on every sync, so merging it whenever you like always ships the latest skills. Check the run logs for any \`unmapped upstream skill\` warnings (a new monorepo skill you may want to publish here)."
+          existing=$(gh pr list --head sync/monorepo-skills --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh pr edit "$existing" --body "$body"
+          else
+            gh pr create --head sync/monorepo-skills --base main \
+              --title "chore: sync skills from monorepo" --body "$body"
+          fi
