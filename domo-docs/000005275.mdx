@@ -1,0 +1,42 @@
+---
+title: "Zalando Connector"
+excerpt: "Use Domo's Zalando Connector to retrieve orders, products, brands, countries, and sales channel data from Zalando into a DataSet."
+---
+
+## Intro
+
+Zalando is an online fashion and lifestyle retailer that offers a wide range of clothing, accessories, and footwear. It provides a convenient and user-friendly platform for customers to browse and purchase fashion items from various brands. For more information, refer to the API documentation [https://developers.merchants.zalando.com/docs/api-ref-intro.html](https://developers.merchants.zalando.com/docs/api-ref-intro.html "https://developers.merchants.zalando.com/docs/api-ref-intro.html").
+
+This topic discusses the fields and menus that are specific to the Zalando Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Zalando account and create a DataSet, you must have the following:
+
+* Account Name
+* Client ID
+* Client Secret
+
+## Connecting to Your Zalando Account
+
+Zalando uses OAuth 2.0 for authentication.
+
+This section enumerates the options in the Credentials and Details panes in the Zalando Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account as well as your LYNX Fleet account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account Name </td><td colspan="1" rowspan="1"> Enter a custom name you want to use for this account in Domo. </td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"> Enter the client ID associated with the Zalando account. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter your Client Secret associated with the Zalando account. </td></tr></tbody></table>
+
+Once you have entered valid Zalando credentials, you can use the same account any time you go to create a new Zalando DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><th colspan="1" rowspan="1"> Report </th><th colspan="1" rowspan="1"> Description </th></tr><tr><td colspan="1" rowspan="1"><p> Brands </p></td><td colspan="1" rowspan="1"> List the brands available for the selected merchant ids. </td></tr><tr><td colspan="1" rowspan="1"><p> Countries </p></td><td colspan="1" rowspan="1"> List the countries available for the selected merchant ids. </td></tr><tr><td colspan="1" rowspan="1"><p> Orders </p></td><td colspan="1" rowspan="1"> Use the Orders report for order fulfillment (Partner Fulfillment) or to get order processing status and information from Zalando. </td></tr><tr><td colspan="1" rowspan="1"><p> Products </p></td><td colspan="1" rowspan="1"> Use the Products report to get up-to-date information about your products, such as validation status, current price, and available stock. </td></tr><tr><td colspan="1" rowspan="1"><p> Sales Channel </p></td><td colspan="1" rowspan="1"> Lists the sales channels. </td></tr><tr><td colspan="1" rowspan="1"><p> Status Codes </p></td><td colspan="1" rowspan="1"> Lists the details of status codes. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Merchant IDs </p></td><td colspan="1" rowspan="1"> Select all the merchant ids across which the data needs to be fetched. </td></tr><tr><td colspan="1" rowspan="1"><p> Countries Filter </p></td><td colspan="1" rowspan="1"> Select whether to retrieve data for all countries or only for the selected countries. </td></tr><tr><td colspan="1" rowspan="1"><p> Countries </p></td><td colspan="1" rowspan="1"> Select the countries for which the data needs to be retrieved. </td></tr><tr><td colspan="1" rowspan="1"><p> Date </p></td><td colspan="1" rowspan="1"> Select the start and end dates between which the data is to be fetched. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

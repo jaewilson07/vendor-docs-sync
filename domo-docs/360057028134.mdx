@@ -1,0 +1,44 @@
+---
+title: "Azure DataLake Gen2 SAS Token Writeback Connector"
+excerpt: "Configure the Azure Data Lake Gen2 SAS Token Writeback connector to export Domo DataSets to an Azure Data Lake Gen2 file system container."
+---
+
+## Intro
+
+Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Azure Data Lake Storage Gen2 is the result of converging the capabilities of the two existing storage services, Azure Blob Storage and Azure Data Lake Storage Gen1. Use Domo's Azure Data Lake Gen2 SAS Token Writeback connector to export your data from a Domo dataset to your Azure Data Lake Gen2 container. For more information about Azure Data Lake Gen2, see [https://docs.microsoft.com/en-us/azu...ta-lake-store/](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction "https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction").
+
+You export data to an Azure Data Lake Gen2 in the Data Center. This topic discusses the fields and menus that are specific to the Azure Data Lake Gen2 Writeback connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+
+</Note>
+
+## Prerequisites
+
+To configure this connector, you need the following:
+
+* Your Azure Data Lake storage account name
+* The Shared Access Signature (SAS) Token
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Azure Data Lake Gen2 SAS Token Writeback Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Azure Data Lake file system (container). The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account Name </td><td colspan="1" rowspan="1"> Enter your Azure Data Lake storage account name. </td></tr><tr><td colspan="1" rowspan="1"> Shared Access Signature (SAS) Token </td><td colspan="1" rowspan="1"> Enter the shared access signature token. </td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-Azure Data Lake Storage Gen2 connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Input DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to the selected Azure Data Lake Storage file system (container). You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following datasources/. Example, in the URL <span class="nowiki"><span class="mt-font-courier-new"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4. </p></td></tr><tr><td colspan="1" rowspan="1"> File System Name </td><td colspan="1" rowspan="1"> Enter the file system name where you wish to upload the file. A file system acts as a container for your files. </td></tr><tr><td colspan="1" rowspan="1"> Select Filename </td><td colspan="1" rowspan="1"> Select whether you want to reference your DataSet using the <b><b><b><b><b><b><b><b> Input DataSet ID </b></b></b></b></b></b></b></b> or an output file name. </td></tr><tr><td colspan="1" rowspan="1"> Filename </td><td colspan="1" rowspan="1"> Enter the output file name for your data. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

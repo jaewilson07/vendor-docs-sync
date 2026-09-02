@@ -1,0 +1,58 @@
+---
+title: "Dropdown Selector Card"
+excerpt: "Build a Dropdown Selector Card to display values from a DataSet column and filter other Cards on a Dashboard by single or multiple selections."
+---
+
+## Intro
+
+Dropdown Selector Cards display values from a selected DataSet column. When you add them to a Dashboard in Domo, users visiting that Dashboard can click on values to filter the other Cards on the Dashboard. You can set up the Dropdown Selector Card to filter on a single value or multiple values at once.
+
+For example, you could build a Dropdown Selector Card with names of U.S. states and add it to a Dashboard. If you then clicked "Texas" and "Oklahoma," all of the Cards in the Dashboard would be filtered to show only data for those states. Filter Cards only work when Interaction Filters are turned on. If Interaction Filters are not turned on, clicking a filter opens the Details view for the Card instead of applying the filter. For more information about using Filter Cards on a Dashboard, see [Applying Page-Level Filters with Filter Views](/s/article/360042923914 "Applying Page-Level Filters"). All Dropdown Selector Cards have a 25,000 row limit.
+
+<Note>
+  **Note:**
+  In order to use a Beast Mode as the column in the "Items" section to power your Dropdown Selector Card, you must share the Beast Mode to the DataSet.
+
+</Note>
+
+<Frame><img alt="Dropdown_Selector_Example.gif" src="/images/kb/ka0Vq00000017p3-00N5w00000Ri7BU-0EM5w000005vP2s.gif"/></Frame>
+You can also use a Dropdown Selector filter in the Card Details view to filter data to a specific column value before applying a drill path.
+
+Dropdown Selector and Checkbox Selector cards are essentially the same. The only difference is that the filters in Dropdown Selector Cards are represented as a searchable list...
+
+<Frame><img alt="Searchable_List.png" src="/images/kb/ka0Vq00000017p3-00N5w00000Ri7BU-0EM5w000005vP2o.png"/></Frame>
+...and the filters in Checkbox Cards use checkboxes.
+
+<Frame><img alt="filter_card_checkbox.png" src="/images/kb/ka0Vq00000017p3-00N5w00000Ri7BU-0EM5w000005vP2t.png"/></Frame>
+<Note>
+  **Note:**
+  You can select multiple options from the Dropdown Selector list if you have enabled the Allow Multiple Selections Chart Property. You will know this has been enabled if there are checkboxes next to the list of items.
+
+  <Frame><img alt="Select_Multiple.png" src="/images/kb/ka0Vq00000017p3-00N5w00000Ri7BU-0EM5w000005vP2n.png"/></Frame>
+</Note>
+
+Radio Button Cards are similar to both of the above but use radio buttons instead of buttons or checkboxes, meaning users can filter on only one value at a time.
+
+For information about other Filter Card types, see the following:
+
+* [Slicer, Checkbox Selector, and Radio Button](/s/article/360043429313)
+  [Selector](/s/article/360043429313) [Cards](/s/article/360043429313)
+* [Date Selector Card](/s/article/360042924474 "Date Selector Card")
+* [Range Selector Card](/s/article/360042924954 "Range Card")
+
+Powering Dropdown Selector Cards
+
+Dropdown Selector Cards require two columns or rows of data from your DataSet. One of these contains the category values you want to use as filters. You drop this column into the "Items" field in Analyzer.
+
+<Frame><img alt="Selector_Card_Data.png" src="/images/kb/ka0Vq00000017p3-00N5w00000Ri7BU-0EM5w000005vP2r.png"/></Frame>
+The other field is called "Group By." Though this field is required to power up the Card, in general, it doesn't matter what column you drop here. If you need to aggregate the data, you can use this column to do so. For example, if the column with the filter names is duplicated in your DataSet, you can make the filter names unique by aggregating.
+
+For more information about choosing data columns, see [Applying DataSet Columns to Your Chart](/s/article/360043428713 "Applying DataSet Columns to Your Chart").
+
+For more information about formatting charts in the Analyzer, see [Visualization Card Building Part 2: The Analyzer](/s/article/360043428673 "KPI Card Building Part 2: The Card Builder").
+
+Customizing Dropdown Selector Cards
+
+You can customize the layout of filters in a Dropdown Selector Card by editing its **Chart Properties**. For information about all chart properties, see [Chart Properties](/s/article/360042925334 "Chart Properties"). Unique properties of Dropdown Selector Cards include the following.
+
+<table border="1" data-aura-rendered-by="33:209;a"><thead><tr><td colspan="1" rowspan="1"><b> Property </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr></thead><tbody><tr><td colspan="1" rowspan="1"> General &gt; Allow Multiple Selections </td><td colspan="1" rowspan="1"> When set, the selector will allow you to select more than one item from the list. </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Label Text </td><td colspan="1" rowspan="1"> Optional label displayed with the dropdown selector. </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Label Position </td><td colspan="1" rowspan="1"> Sets the position for the label associated with the dropdown selector. </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Default Select Text </td><td colspan="1" rowspan="1"> This is the text that will be displayed by default when nothing is selected. The default is Select. </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Vertical Alignment </td><td colspan="1" rowspan="1"> Determines where the selector will be displayed within the Card. </td></tr><tr><td colspan="1" rowspan="1"> Full Size Settings </td><td colspan="1" rowspan="1"> Lets you specify the width and height to use when "full" size is selected on a page of cards. For reference, a medium card is 1x1 and a large card is 2x2. </td></tr></tbody></table>

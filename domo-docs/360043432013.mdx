@@ -1,0 +1,41 @@
+---
+title: "SpyFu Connector"
+excerpt: "Connect Domo to SpyFu using an API ID and secret key to pull competitor PPC and SEO keyword research data into a DataSet."
+---
+
+## Intro
+
+SpyFu provides competitor keyword research tools to help you learn your competitors' PPC and SEO tricks and avoid their mistakes. To learn more about the SpyFu API, visit their page ([https://www.spyfu.com/api](https://www.spyfu.com/api "https://www.spyfu.com/api") ).
+
+You connect to your SpyFu account in the Data Center. This topic discusses the fields and menus that are specific to the SpyFu connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your SpyFu account and create a DataSet, you must have the following:
+
+* A SpyFu API ID
+* A SpyFu secret key
+
+For information about obtaining credentials, visit [https://www.spyfu.com/api/authentication](https://www.spyfu.com/api/authentication "https://www.spyfu.com/api/authentication").
+
+## Connecting to Your SpyFu Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SpyFu Connector page. The components of the other panes on this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your SpyFu account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> SpyFu API ID </td><td colspan="1" rowspan="1"> Enter your SpyFu API ID. </td></tr><tr><td colspan="1" rowspan="1"> SpyFu Secret Key </td><td colspan="1" rowspan="1"> Enter your SpyFu secret key. </td></tr></tbody></table>
+
+Once you have entered valid SpyFu credentials, you can use the same account any time you go to create a new SpyFu DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the SpyFu report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Contact Card </td><td colspan="1" rowspan="1"> Returns a list of contacts. </td></tr><tr><td colspan="1" rowspan="1"> Domain Budget History UK </td><td colspan="1" rowspan="1"> Returns the budget history for the given UK domain. </td></tr><tr><td colspan="1" rowspan="1"> Domain Budget History US </td><td colspan="1" rowspan="1"> Returns the budget history for the given US domain. </td></tr><tr><td colspan="1" rowspan="1"> Domain Metrics UK </td><td colspan="1" rowspan="1"> Returns metrics for the given UK domain. </td></tr><tr><td colspan="1" rowspan="1"> Domain Metrics US </td><td colspan="1" rowspan="1"> Returns metrics for the given US domain. </td></tr><tr><td colspan="1" rowspan="1"> Grid </td><td colspan="1" rowspan="1"> Returns lead data for the specified domain. </td></tr><tr><td colspan="1" rowspan="1"> Keyword Smart Search </td><td colspan="1" rowspan="1"> Returns a list of related keywords for a given query. </td></tr><tr><td colspan="1" rowspan="1"> Organic Keywords </td><td colspan="1" rowspan="1"> Returns organic keywords data for the given URL. </td></tr><tr><td colspan="1" rowspan="1"> Paid Keywords </td><td colspan="1" rowspan="1"> Returns paid keywords data for the given URL. </td></tr><tr><td colspan="1" rowspan="1"> Term Metrics Bulk UK </td><td colspan="1" rowspan="1"> Returns bulk term metrics for the provided term in the UK. </td></tr><tr><td colspan="1" rowspan="1"> Term Metrics Bulk US </td><td colspan="1" rowspan="1"> Returns bulk term metrics for the provided term in the US. </td></tr><tr><td colspan="1" rowspan="1"> Term Metrics UK </td><td colspan="1" rowspan="1"> Returns term metrics for the provided term in the UK. </td></tr><tr><td colspan="1" rowspan="1"> Term Metrics US </td><td colspan="1" rowspan="1"> Returns term metrics for the provided term in the US. </td></tr><tr><td colspan="1" rowspan="1"> Term Ranking URLs UK </td><td colspan="1" rowspan="1"> Returns URL rankings for the provided term in the UK. </td></tr><tr><td colspan="1" rowspan="1"> Term Ranking URLs US </td><td colspan="1" rowspan="1"> Returns URL rankings for the provided term in the US. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the keywords you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> Enter the domain you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> URL or Domain </p></td><td colspan="1" rowspan="1"><p> Enter the URL or domain you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Max Rows </p></td><td colspan="1" rowspan="1"><p> Enter the number of rows of data you want to retrieve. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Term </p></td><td colspan="1" rowspan="1"><p> Enter the term you want to retrieve data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

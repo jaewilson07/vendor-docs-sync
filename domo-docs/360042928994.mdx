@@ -1,0 +1,71 @@
+---
+title: "Pingdom Connector"
+excerpt: "Use Domo's Pingdom connector to pull site and server monitoring data, including probe servers, maintenance occurrences, and checks, into a DataSet."
+---
+
+## Intro
+
+Pingdom monitors sites and servers on the Internet and alerts the site owners if any problems are detected. Use the Domo's Pingdom Connector to receive details about probe servers, maintenance occurrences, checks, and more. To learn more about the Pingdom API, visit their page (https://docs.pingdom.com/api/).
+
+You connect to your Pingdom account in the Data Center. This topic discusses the fields and menus that are specific to the Pingdom connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Pingdom account and create a DataSet, you must have your Pingdom Access token.
+
+## Connecting to Your Pingdom Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Pingdom Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Pingdom account. The following table describes what is needed for each field:
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr><tr><td colspan="1" rowspan="1"> Access Token </td><td colspan="1" rowspan="1"><span> Enter your Pingdom Access Token. </span></td></tr></tbody></table>
+
+Once you have entered valid Pingdom credentials, you can use the same account any time you go to create a new Pingdom DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Pingdom report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Actions </td><td colspan="1" rowspan="1"> This Report returns a list of actions (alerts) that have been generated for your account. </td></tr><tr><td colspan="1" rowspan="1"> Check Information </td><td colspan="1" rowspan="1"> This report returns a detailed description of a specified check. </td></tr><tr><td colspan="1" rowspan="1"> Check List </td><td colspan="1" rowspan="1"> This report returns a list overview of all checks. </td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> Returns a list of all contacts with their contact methods. </td></tr><tr><td colspan="1" rowspan="1"> Credits List </td><td colspan="1" rowspan="1"> This report returns information about remaining checks, SMS credits and SMS auto-refill status. </td></tr><tr><td colspan="1" rowspan="1"> Maintenance Occurrence </td><td colspan="1" rowspan="1"> Gets maintenance occurrence details specified by its identifier. </td></tr><tr><td colspan="1" rowspan="1"> Maintenance Occurrences List </td><td colspan="1" rowspan="1"> This report returns a list of maintenance occurrences. </td></tr><tr><td colspan="1" rowspan="1"> Maintenance Windows Detail </td><td colspan="1" rowspan="1"> This report returns the maintenance window specified by its id. </td></tr><tr><td colspan="1" rowspan="1"> Maintenance Windows List </td><td colspan="1" rowspan="1"> This report returns a list of user's maintenance windows. </td></tr><tr><td colspan="1" rowspan="1"> Probe Server List </td><td colspan="1" rowspan="1"> This report returns a list of all Pingdom probe servers for Uptime and Transaction checks. </td></tr><tr><td colspan="1" rowspan="1"> Raw Check Results </td><td colspan="1" rowspan="1"> This report return a list of raw test results for a specified check. </td></tr><tr><td colspan="1" rowspan="1"> Reference </td><td colspan="1" rowspan="1"> This report returns a reference of regions, time zones and date/time/number formats, and their identifiers. </td></tr><tr><td colspan="1" rowspan="1"> Root Cause Analysis Results </td><td colspan="1" rowspan="1"> This report returns a list of the latest root cause analysis results for a specified check. </td></tr><tr><td colspan="1" rowspan="1"> Summary Average </td><td colspan="1" rowspan="1"> This report returns the average time/uptime value for a specified check and time period. </td></tr><tr><td colspan="1" rowspan="1"> Summary Hours Of the Day </td><td colspan="1" rowspan="1"> This report returns the average response time for each hour of the day (0-23) for a specific check over a selected time period. </td></tr><tr><td colspan="1" rowspan="1"> Summary Outage </td><td colspan="1" rowspan="1"> This report returns a list of status changes for a specified check and time period. </td></tr><tr><td colspan="1" rowspan="1"> Summary Performance </td><td colspan="1" rowspan="1"> This report returns a list of subintervals with the given resolution. </td></tr><tr><td colspan="1" rowspan="1"> Summary Probes </td><td colspan="1" rowspan="1"> Get a list of probes that performed tests for a specified check during a specified period. </td></tr><tr><td colspan="1" rowspan="1"> Teams </td><td colspan="1" rowspan="1"> Returns a list of all teams and their members. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Retrieve All Data? </p></td><td colspan="1" rowspan="1"><p> Select <b> Yes </b> to import all available data. Select <b> No </b> if you want to retrieve specific data based on IDs. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Check ID </p></td><td colspan="1" rowspan="1"><p> Select the ID of the check you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Occurrence ID </p></td><td colspan="1" rowspan="1"><p> Select the occurrence ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Maintenance ID </p></td><td colspan="1" rowspan="1"><p> Select the maintenance ID you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Resolution </p></td><td colspan="1" rowspan="1"><p> Select the resolution you want to return subintervals for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Pingdom API does this connector use?">
+
+This connector uses version 3.1 of the Pingdom API (https://api.pingdom.com/api/3.1).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> Actions </td><td colspan="1" rowspan="1"> /actions </td></tr><tr><td colspan="1" rowspan="1"> Check Information </td><td colspan="1" rowspan="1"> /checks/{checkid} </td></tr><tr><td colspan="1" rowspan="1"> Check List </td><td colspan="1" rowspan="1"> /checks </td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> /alerting/contacts </td></tr><tr><td colspan="1" rowspan="1"> Credits List </td><td colspan="1" rowspan="1"> /credits </td></tr><tr><td colspan="1" rowspan="1"> Maintenance Occurrence </td><td colspan="1" rowspan="1"> /maintenance.occurrences/{occurrenceId} </td></tr><tr><td colspan="1" rowspan="1"> Maintenance Occurrences List </td><td colspan="1" rowspan="1"> /maintenance.occurrences </td></tr><tr><td colspan="1" rowspan="1"> Maintenance Windows Detail </td><td colspan="1" rowspan="1"> /maintenance/{maintainence_Id} </td></tr><tr><td colspan="1" rowspan="1"> Maintenance Windows List </td><td colspan="1" rowspan="1"> /maintenance </td></tr><tr><td colspan="1" rowspan="1"> Probe Server List </td><td colspan="1" rowspan="1"> /probes </td></tr><tr><td colspan="1" rowspan="1"> Raw Check Results </td><td colspan="1" rowspan="1"> /results/{checkId} </td></tr><tr><td colspan="1" rowspan="1"> Reference </td><td colspan="1" rowspan="1"> /reference </td></tr><tr><td colspan="1" rowspan="1"> Root Cause Analysis Results </td><td colspan="1" rowspan="1"> /analysis/{checkId} </td></tr><tr><td colspan="1" rowspan="1"> Summary Average </td><td colspan="1" rowspan="1"> /summary.average/{checkId} </td></tr><tr><td colspan="1" rowspan="1"> Summary Hours Of the Day </td><td colspan="1" rowspan="1"> /summary.hoursofday/{checkId} </td></tr><tr><td colspan="1" rowspan="1"> Summary Outage </td><td colspan="1" rowspan="1"> /summary.outage/{checkId} </td></tr><tr><td colspan="1" rowspan="1"> Summary Performance </td><td colspan="1" rowspan="1"> /summary.performance/{checkId} </td></tr><tr><td colspan="1" rowspan="1"> Summary Probes </td><td colspan="1" rowspan="1"> /summary.probes/{checkId} </td></tr><tr><td colspan="1" rowspan="1"> Teams </td><td colspan="1" rowspan="1"> /alerting/teams </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the access token associated with your Pingdom account.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+Limits may vary with different accounts.
+
+</Accordion>
+</AccordionGroup>
+

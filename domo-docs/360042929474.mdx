@@ -1,0 +1,41 @@
+---
+title: "STAT Search Analytics Connector"
+excerpt: "Use Domo's STAT Search Analytics connector to retrieve keyword rankings, SERPs, share of voice, and ranking distribution data into a DataSet."
+---
+
+## Intro
+
+STAT Search Analytics is a rank-tracking and SERP (search engine result page) analytics provider for enterprises and digital agencies. To learn more about the STAT Search Analytics API, visit their page ([https://getstat.com/optional-api-services/](https://getstat.com/optional-api-services/ "https://getstat.com/optional-api-services/") ).
+
+You connect to your STAT Search Analytics account in the Data Center. This topic discusses the fields and menus that are specific to the STAT Search Analytics connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your STAT Search Analytics account and create a DataSet, you must have the following:
+
+* A STAT Search Analytics API key
+* The subdomain for your account. For example, if your instance was mycompany.getstat,com, the subdomain would be getstat.
+
+For more information about obtaining these credentials, please reach out to your STAT Search Analytics account representative.
+
+## Connecting to Your STAT Search Analytics Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the STAT Search Analytics Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your STAT Search Analytics account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter your STAT Search Analytics API key. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Subdomain </p></td><td colspan="1" rowspan="1"><p> Enter the subdomain for your STAT Search Analytics instance. </p></td></tr></tbody></table>
+
+Once you have entered valid STAT Search Analytics credentials, you can use the same account any time you go to create a new STAT Search Analytics DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the STAT Search Analytics report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Keywords </p></td><td colspan="1" rowspan="1"><p> Returns information about keywords for the selected sites. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Most frequent domains per site </p></td><td colspan="1" rowspan="1"><p> Returns the competitor domains most frequently in the top 10 for the site specified for the engine specified. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Most frequent domains per tag </p></td><td colspan="1" rowspan="1"><p> Returns the competitor domains most frequently in the top 10 for the tag specified for the engine specified. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Projects </p></td><td colspan="1" rowspan="1"><p> Returns all projects saved in an account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ranking distributions per site </p></td><td colspan="1" rowspan="1"><p> Returns all ranking distribution records for Google and Bing for the selected sites. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ranking distributions per tag </p></td><td colspan="1" rowspan="1"><p> Returns all ranking distribution records for Google and Bing for the selected tags. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Rankings per keyword </p></td><td colspan="1" rowspan="1"><p> Returns all rankings archived for the selected keywords and date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> SERPs </p></td><td colspan="1" rowspan="1"><p> Returns the archived SERPs for the specified search engine and date for the specified keywords. </p></td></tr><tr><td colspan="1" rowspan="1"><p> SERPs via optional bulk service </p></td><td colspan="1" rowspan="1"><p> Returns SERPS information via the optional, paid, bulk service. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Share of Voice per site </p></td><td colspan="1" rowspan="1"><p> Returns the SoV score for each competitor domain that appears on the SERP for the selected sites. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Share of Voice per tag </p></td><td colspan="1" rowspan="1"><p> Returns the SoV score for each competitor domain that appears on the SERP for the selected tags. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sites list </p></td><td colspan="1" rowspan="1"><p> Returns a list of all sites. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tags </p></td><td colspan="1" rowspan="1"><p> Returns information about tags for the selected sites. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Tags Selection </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for all tags or specified tags for the selected site. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sites Selection </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for all sites, all sites for a specific project, or specific sites only. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Site ID </p></td><td colspan="1" rowspan="1"><p> Select the sites you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Project ID </p></td><td colspan="1" rowspan="1"><p> Select the project you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Keywords Selection </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for all keywords or specified keywords for the selected site. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Keyword ID </p></td><td colspan="1" rowspan="1"><p> Select the keywords you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tag ID </p></td><td colspan="1" rowspan="1"><p> Select the tags you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Engine </p></td><td colspan="1" rowspan="1"><p> Select the search engine you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Backfill Start Date </p></td><td colspan="1" rowspan="1"><p> Select the date for which you want to retrieve backfill data. Subsequent runs will automatically fetch the previous day's data. The data will be appended to the report. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

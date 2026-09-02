@@ -1,0 +1,166 @@
+---
+title: "Workbench 5 Training Topics"
+excerpt: "Training overview covering Workbench 5 migration, version checks, updates, and related Workbench tasks."
+---
+
+## Intro
+
+This article provides information on Domo Workbench training.
+
+---
+
+## Migration and Updates
+
+There are many reasons to upgrade to the latest version of Workbench, including bug fixes, performance improvements, and new features. Consider upgrading to the latest version whenever possible to get the best possible experience with Workbench.
+
+### Check My Current Version
+
+To identify the version of Workbench you're currently running, look for a blue icon in the system tray of your machine. Hovering over the icon displays your Workbench version.
+
+<Frame><img alt="/hc/article_attachments/360059707153/wb5_workbenchtraining_migrate1.png" src="/images/kb/ka05w00000123s9-00N5w00000Ri7BU-0EM5w000005vPOH.png"/></Frame>
+
+Depending on how your system tray is configured, you may need to expand the <img src="/images/kb/ka05w00000123rQ-00N5w00000Ri7BU-0EM5w000005vPKu.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
+
+arrow to access the blue icon. The version number is also contained in the Workbench 4 log files, whose default location is as follows:
+
+```
+%PROGRAMDATA%\Domo\Workbench\Logs
+```
+
+<Note>
+**Note:** You may see multiple Workbench monitors in the system tray. You only need to run one monitor, and you can close all the others.
+</Note>
+
+### Automatic Updates
+
+By default, automatic updates are enabled and apply to the latest major version. We recommend that you leave automatic updates turned on for the best performance of your Workbench application.
+
+Automatic updates involve restarting the Workbench service. If you want change control and scheduled maintenance, you may want to disable automatic updates, as shown in the following image:
+
+<Frame><img alt="wb5_workbenchtraining_migrate2.png" src="/images/kb/ka05w00000123s9-00N5w00000Ri7BU-0EM5w000005vPOG.png"/></Frame>
+
+### Upgrade to Workbench 5
+
+The latest version of Workbench—Workbench 5—is available in Domo.
+
+For Workbench 4 users, the latest version installs on top of Workbench 4. When you install the latest version, your jobs are automatically migrated for you.
+
+To learn more about Workbench 5, see our article about [Understanding the Workbench 5 User Interface](/s/article/360042932654).
+
+## Manage the Job Queue
+
+To optimize the usage of your Workbench computer, you can restrict how Workbench jobs are run. The following are tips to help you manage your computer:
+
+### Limit Concurrent Jobs
+
+Selecting this option limits the number of jobs that can run at the same time. In this case, jobs wait in a queue until a slot becomes available for them to run.
+
+1. In the side panel of Workbench, select
+   <img src="/images/kb/ka05w00000128TW-00N5w00000Ri7BU-0EM5w000006ufbv.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **More**.
+     
+   <Frame><img alt="image.png" src="/images/kb/ka05w00000128TW-00N5w00000Ri7BU-0EM5w000006ufd3.jpg"/></Frame>
+
+2. Go to the
+   **Settings** section.
+3. Under
+   **Jobs**, select the **Limit concurrent jobs** checkbox.
+     
+   <Frame><img alt="image.png" src="/images/kb/ka05w00000128TW-00N5w00000Ri7BU-0EM5w000006ufdI.jpg"/></Frame>
+
+   A field displays under the checkbox.
+     
+   <Frame><img alt="image.png" src="/images/kb/ka05w00000128TW-00N5w00000Ri7BU-0EM5w000006ufdN.jpg"/></Frame>
+
+4. Enter the limit for Workbench jobs in the field.
+5. To save the settings, select
+   <img src="/images/kb/ka05w00000128TW-00N5w00000Ri7BU-0EM5w000006ufdc.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Save**.
+     
+   <Frame><img alt="image.png" src="/images/kb/ka05w00000128TW-00N5w00000Ri7BU-0EM5w000006ufdX.jpg"/></Frame>
+
+### Run Job Process at Below Normal Priority
+
+If your Workbench machine is using a lot of CPU, you can free up CPU for other applications by running Workbench jobs at a lower priority than normal. This limits the resources Workbench uses to run your jobs and allows other applications to run normally. When this option is enabled, job execution is typically slightly slower.
+
+1. Go to the
+   [**Settings** section](#Settings) of the **More** menu in Workbench.
+2. Under
+   **Jobs**, select the **Run job process as Below Normal priority** checkbox.
+     
+   <Frame><img alt="image.png" src="/images/kb/ka05w00000128TW-00N5w00000Ri7BU-0EM5w000006ufeL.jpg"/></Frame>
+
+3. To save the settings, select
+   <img src="/images/kb/ka05w00000128TW-00N5w00000Ri7BU-0EM5w000006ufdc.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Save**.
+
+### Cancel a Currently Running Job
+
+There are a number of reasons why you might want to stop a Workbench job. For example, you may encounter a long-running query, or a job may be stuck in an error state. In either case, you can stop the job by following these steps:
+
+1. Open the preview pane for the job you want to stop.
+2. Select the
+   <img src="/images/kb/ka05w00000123tG-00N5w00000Ri7BU-0EM5w000005vPPb.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> button at the top.
+     
+   <Frame><img alt="wb5_workbenchtraining_managequeue_3.png" src="/images/kb/ka05w00000123tG-00N5w00000Ri7BU-0EM5w000005vPPj.png"/></Frame>
+
+### Manually Run a Job
+
+If you want to update your data outside of the normal schedule, you can run the job manually.
+
+1. In the
+   **Jobs** list, open the job you would like to run.
+2. Click the
+   <img src="/images/kb/ka05w00000123tG-00N5w00000Ri7BU-0EM5w000005vPPk.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> button at the top.
+     
+   <Frame><img alt="wb5_workbenchtraining_managequeue_4.png" src="/images/kb/ka05w00000123tG-00N5w00000Ri7BU-0EM5w000005vPPi.png"/></Frame>
+
+## Impersonation
+
+**What is impersonation?**
+
+Impersonation allows Workbench to run jobs as a specified user to allow access to restricted resources.
+
+**When should I use impersonation?**
+
+When running a job on a schedule, if the file is not located on the local machine Workbench is running on, you must set up impersonation for access rights.
+
+**Does Workbench impersonation support MFA?**
+
+No.
+
+The following notes provide more information about impersonation:
+
+* **Connecting to a network file —**
+  When you connect to a file that is stored on a network location, the file is usually only accessible to a few users. When you turn on on impersonation, the Workbench job will run as the user specified, allowing access to the file.
+* **Connecting to an ODBC/OLAP connection that requires NT Authentication —**
+  When you connect to a database that uses NT Authentication, the database tables are usually only accessible to a limited number of users. By turning on impersonation, the Workbench job will run as the specified user, allowing access to the database.
+* **QuickBooks jobs —**
+  QuickBooks requires an interactive user session for Workbench to connect. Workbench will use the impersonation credentials to find the correct user session. This will allow your QuickBooks jobs to run consistently.
+* **Connecting through a proxy —**
+  Some proxies restrict access to the Internet by user. When you turn on impersonation, the Workbench job will run as the specified user, allowing access to the Internet through the proxy server.
+
+### Turn On Impersonation
+
+1. In the
+   **Configure** subtab for the job, expand the **Impersonation** section, then turn on **Requires Impersonation**.
+2. Enter the
+   **Domain** and **Username** and **Password** information.
+3. Click
+   **Validate**.
+     
+   <Frame><img alt="wb5_workbenchtrainingtopic_3_1.png" src="/images/kb/ka05w00000123tG-00N5w00000Ri7BU-0EM5w000005vPPd.png"/></Frame>
+
+## Troubleshoot Failed Jobs
+
+You may find that a job runs for a specific number of minutes and then fails each time.
+
+Follows these steps to fix this problem:
+
+1. Check the logs for the Job.
+2. Find the point in the logs at which the query starts (look for the query string), and make note of the time stamp.
+3. Go down the log to the point of the error and find the time stamp there.
+4. Compare the difference.
+
+If it's five minutes, then there is a good chance that the execution query time needs to be increased in your Workbench Job because it is taking longer than five minutes to be passed. (Workbench has a default query execution timeout of 300 seconds/5 minutes.) You can change the timeout value by opening the **Configuration** subtab for your ODBC/OLEDB job, clicking the **Edit** button under "Processing," then configuring the value in the **Query Execution Timeout** menu.
+
+<Note>
+**Note:** There may be additional points of configuration for query timeout in your ODBC driver settings.
+</Note>

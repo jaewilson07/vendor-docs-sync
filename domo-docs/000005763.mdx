@@ -1,0 +1,37 @@
+---
+title: "Amazon Web Service (AWS) EC2 Monitoring Connector"
+excerpt: "Configure the AWS EC2 Monitoring Connector to ingest EC2 instance metrics into Domo for real-time visualization and alerts."
+---
+
+## Intro
+
+Amazon EC2 Monitoring is a service that provides users with data and actionable insights to monitor their EC2 Instances, understand and respond to performance changes, optimize resource utilization, and get a unified view of operational health. Domo delivers the information you need in real-time visualizations, making analysis faster, easier, and more effective. With your EC2 Monitoring data in Domo, you can use Domo's alerts feature to receive notifications when a key metric deviates from your thresholds and needs your attention.
+
+You can connect to your Amazon Web Service (AWS) EC2 Monitoring account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon Web Service (AWS) EC2 Monitoring connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Amazon Web Service (AWS) EC2 Monitoring account and create a DataSet, you need the following:
+
+* Amazon Web Services account's Access Key ID
+* Amazon Web Services account's Secret Key
+
+## Connecting to Your Amazon Web Service (AWS) EC2 Monitoring Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Amazon Web Service (AWS) EC2 Monitoring Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Amazon Web Service (AWS) EC2 Monitoring account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> Enter the Amazon Web Services account's Access Key ID. </td></tr><tr><td colspan="1" rowspan="1"> AWS Secret Key </td><td colspan="1" rowspan="1"> Enter the Amazon Web Services account's Secret Key. </td></tr></tbody></table>
+
+Once you have entered valid Amazon Web Service (AWS) EC2 Monitoring credentials, you can use the same account at any time to create a new Amazon Web Service (AWS) EC2 Monitoring DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"> Select the Report Type from the drop-down list. </td></tr><tr><td colspan="1" rowspan="1"> Instance Id </td><td colspan="1" rowspan="1"> Enter the EC2 Instance Id for which the information needs to be retrieved. Leave this field as blank or enter 'ALL' to see records for all the instances in your AWS account. </td></tr><tr><td colspan="1" rowspan="1"> Metric </td><td colspan="1" rowspan="1"> Select the Metric Type. </td></tr><tr><td colspan="1" rowspan="1"> Start Time </td><td colspan="1" rowspan="1"> Enter the start time for retrieving monitoring records. Valid formats are now, now-Xsecond(s), now-Xminute(s), now-Xhour(s), now-Xday(s), today, today-X and yyyy-MM-dd. Start and end times must be within the last 14 days. </td></tr><tr><td colspan="1" rowspan="1"> End Time </td><td colspan="1" rowspan="1"> Enter the end time for retrieving monitoring records. Valid formats are now, now-Xsecond(s), now-Xminute(s), now-Xhour(s), now-Xday(s), today, today-X and yyyy-MM-dd. Start and end times must be within the last 14 days. </td></tr><tr><td colspan="1" rowspan="1"> Period </td><td colspan="1" rowspan="1"> Enter the Period (in minutes) for which monitoring records need to be retrieved, for example: 2 (in Minutes). </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

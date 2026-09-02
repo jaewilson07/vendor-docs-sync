@@ -1,0 +1,186 @@
+---
+title: "File Upload Connector"
+excerpt: "Use Domo's File Upload Connector to bring CSV, XLS, and XLSX spreadsheets into Domo as a DataSet using a guided wizard or legacy options."
+---
+
+## Intro
+
+The File Upload Connector allows you to easily bring your important spreadsheet files into Domo and begin making decisions faster. Regardless of the file type you choose (CSV, XLS, or XLSX), there are a wide range of configuration options to meet your custom file needs.
+
+As of our February 2018 release, there are two versions of the File Upload connector available in Domo:
+
+* The newer—and recommended—version of the connector provides an intuitive workflow to make even the most complicated Excel or CSV files usable within Domo. It lets you maintain all of the organization and configuration of your custom Excel or CSV files and still have usable data within Domo. Requiring virtually no input, this version does the heavy lifting for you.
+* The legacy version of this connector is also still available. This version requires you to configure a number of advanced settings (most of which are set for you automatically when using the new version of the connector).
+
+You can begin the process of creating a File Upload DataSet in one of several different ways:
+
+* By going into the Data Center and choosing the
+  **File** option from the toolbar at the top of the screen.
+* By clicking the <i className="icon-plus sm" aria-hidden="true" /> icon in the upper right corner of the **Dashboards** tab, selecting **Create new Card**, selecting **Visualization**, then clicking **Upload**.
+* By clicking <i className="icon-plus-circle sm" aria-hidden="true" /> in the upper right corner of the screen from anywhere in Domo, selecting **Card**, selecting **Visualization**, then clicking **Upload**.
+
+This topic discusses the fields and menus that are specific to the File Upload connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+**Video - File Upload Connector**
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/JZ6svntEL5E" width="560"></iframe>
+
+## Prerequisites
+
+If you are connecting to an Excel file that is password-protected, you will need to know the password. Otherwise, no credentials are required to use either version of this connector.
+
+## Using the new ("wizard") File Upload connector
+
+This section enumerates the options in the File Upload wizard. The components of the other pane in this page, **Name & Describe Your DataSet**, are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+### "Upload spreadsheet" screen
+
+In the first page of the File Upload connector wizard, you simply drag and drop an XLS, XLSX, or CSV file from your computer into the box or select the desired file from your computer. Once you've dragged or selected your file, the next pane in the wizard opens automatically.
+
+### "Select tables" screen
+
+This screen displays a preview of the selected file and provides options for selecting and formatting the data. Options for configuring the file may appear depending on the file type (Excel or CSV) and properties (such as whether your Excel file is password-protected).
+
+### Options for Excel files
+
+#### Data selection
+
+By default, when the **Select Tables** screen opens for an Excel spreadsheet, all of the cells in Row 1 of your spreadsheet are considered column headers, indicated by dark blue highlighting, and the rest of the data in the spreadsheet is considered to be your selected "body" data, indicated by light blue highlighting. This means that if you were to create a DataSet from this data, all of the data would be imported into the DataSet, with the Row 1 cells acting as the column headers. This is also reflected in the **Column Headers** and **Selection** fields under "Data Grid," in which **Column Headers** shows the coordinates for the first and last cells in the first row, and **Selection** shows the coordinates for the first and last cells in the body.
+
+The following screenshot shows an example of this initial selection. Note that the column header cells in the preview appear unselected (as these are considered separate from the "body" of the spreadsheet). Also note that the **Column Headers** fields in the bottom left read "A1" to "G1" and the **Selection** fields read "A2" to "G51" (which are the first and last selected cells in the body).
+
+<Frame><img alt="file_upload_selection_2020.png" src="/images/kb/ka0Vq0000001g5F-00N5w00000Ri7BU-0EM5w000005vO7z.png"/></Frame>
+
+If a user then selects a different block of data by mousing over it, the **Selection** fields update to reflect this. Note that the **Column Headers** fields are *not* updated. If you want to update the selected column headers, you can do so by either...
+
+* setting the coordinates manually in the **Column Headers** fields, or
+* clicking within either **Column Headers** field *then* clicking and dragging over the desired column headers in the preview.
+
+This latter concept is very important. If you click anywhere in the **Column Headers** fields, any cells you select in the preview are considered to be column headers (and the coordinates in the **Column Headers** fields will update) whereas if you click in the **Selection** fields, all cells you select in the preview are considered to be "body" data (and the coordinates in the **Selection** fields will update). In other words, you can toggle the "active" selection method by clicking in the field that corresponds to that selection method.
+
+In the following screenshot, the user highlights cell "A2" to cell "E10." By default, the **Selection** toggle is active, so these cells are considered to be body cells, and the **Selection** fields update to reflect the change.
+  
+<Frame><img alt="file_upload_selection2_2020.png" src="/images/kb/ka0Vq0000001g5F-00N5w00000Ri7BU-0EM5w000005vO82.png"/></Frame>
+
+But, if the user clicks in either **Column Headers** cell, then that toggle becomes active. The user then selects the top two rows of data in the preview, and the change is reflected in the **Column Headers** fields.
+
+<Frame><img alt="file_upload_selection3.png" src="/images/kb/ka0Vq0000001g5F-00N5w00000Ri7BU-0EM5w000005vO7y.png"/></Frame>
+
+#### Format
+
+As mentioned above, by default all Excel spreadsheets brought into Domo are assumed to have column headers instead of row headers or a cross-tab (pivot) layout. If this is not the case for your data, you can select the correct format in the **Format** menu. For more information about the different kinds of data layouts, see [Understanding Chart Data](/s/article/360043428693 "Understanding Chart Data").
+
+#### Sheet selection
+
+If your Excel file consists of more than one sheet, you can select the desired sheet in the menu just above the preview.
+
+<Frame><img alt="file_upload_sheet_menu.png" src="/images/kb/ka0Vq0000001g5F-00N5w00000Ri7BU-0EM5w000005vO7n.png"/></Frame>
+
+#### Generating headers
+
+If you check the **Generate Headers** box, a row (or column, if you have selected **Row Headers**) of headers is automatically generated with generic names such as "\_Column\_1," "\_Column\_2," etc.
+
+If your spreadsheet is missing any column or row headers, these will be generated automatically when you click **Preview**. For example, in the following screenshot, a header was missing in the fourth column, so the header "\_COLUMN\_4" was generated automatically.
+
+<Frame><img alt="file_upload_missing_header.png" src="/images/kb/ka0Vq0000001g5F-00N5w00000Ri7BU-0EM5w000005vO80.png"/></Frame>
+
+#### Keep Leading Zeroes
+
+Select this checkbox if you want to keep leading zeros in numeric values like '0123'.
+
+**Note**: The connector will parse the values with leading zeroes as text.
+
+### Options for CSV files
+
+#### Data selection
+
+All data from a CSV file is imported into a DataSet when you build it, even if you click and drag to highlight a specific portion.
+
+#### Generating headers
+
+By default, the top row in your CSV sheet is considered to be the header row. You can automatically generate a new header row with generic names such as "\_COLUMN\_1," "\_COLUMN\_2," etc. by checking the **Generate headers** box.
+
+#### File encoding
+
+By default, UTF-8 encoding is used for your CSV file. If desired you can select a different encoding type in the **File Encoding** menu.
+
+#### Delimiter
+
+By default, a comma is used as the delimiter for your CSV file. If desired you can select a different delimiter in the **Delimiter** menu.
+
+## Using the legacy File Upload connector
+
+This section enumerates the options in **Details** and **Advanced** panes in the File Upload Connector page. The components of the other pane in this page, **Name & Describe Your DataSet**, are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Details pane
+
+In this pane you select the file you want to upload and the file type. If you are uploading an Excel file, you may also enter the password and sheet name, if applicable.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Select File </p></td><td colspan="1" rowspan="1"><p> Select the Excel or CSV file from your machine or network you want to upload. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Choose File Type </p></td><td colspan="1" rowspan="1"><p> Select whether the file you have selected is a CSV, XLS, or XLSX file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Password (Optional) </p></td><td colspan="1" rowspan="1"><p> If the Excel file you are uploading is password-protected, enter the password here. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sheet Name (Optional) </p></td><td colspan="1" rowspan="1"><p> If the Excel file you are uploading is found on a specific sheet, enter the sheet name here. Be sure to check the sheet name for accidental spaces. If you do not enter a sheet name, the first sheet of the workbook will be used. </p></td></tr></tbody></table>
+
+### Advanced pane - Excel
+
+In this pane you configure advanced options for the Excel you have uploaded.
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Layout </p></td><td colspan="1" rowspan="1"><p> Select the layout of your Excel file. The following options are available: </p><ul><li><p><b> Column as Header </b>. Indicates that your Excel data uses a column-based layout (i.e. each column has a header). </p></li><li><p><b> Row as Header </b>. Indicates that your Excel data uses a row-based layout (i.e. each row has a header). </p></li><li><p><b> Cross Tab </b>. Indicates that your Excel data uses a cross-tab (pivot) layout. </p></li><li><p><b> Raw </b>. Indicates that your Excel data is raw (unformatted). </p></li><li><p><b> Advanced </b>. Use this option if you want to configure advanced layout options such as header and data start rows, footer rows to skip, date format, etc. </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Mode </p></td><td colspan="1" rowspan="1"><p> Select how the cell range of your Excel data will be determined. If you select <b> Auto </b>, the range is determined automatically. If you select <b> Manual </b>, you will be asked to enter the column header and data ranges manually. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Column Header Range </p></td><td colspan="1" rowspan="1"><p> Enter the range for the column headers in your Excel sheet. For example: <span class="mt-font-courier-new"> A2:F8 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Row Header Range </p></td><td colspan="1" rowspan="1"><p> Enter the range for the row headers in your Excel sheet. For example: <span class="mt-font-courier-new"> A2:A8 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Range </p></td><td colspan="1" rowspan="1"><p> Enter the range for the data (non-header) cells in your Excel sheet. For example: <span class="mt-font-courier-new"> A3:F20 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Header Start Row (Advanced only) (optional) </p></td><td colspan="1" rowspan="1"><p> Enter the header row number. If you do not enter a number, the first row is considered the header row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Start Row (Advanced only) (optional) </p></td><td colspan="1" rowspan="1"><p> Enter the starting data row number. If you do not enter a number, the first row after the header row is considered the starting row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Footer Rows to Skip (Advanced only) (optional) </p></td><td colspan="1" rowspan="1"><p> If there are one or more rows at the bottom of the file you do not want to import, enter the number of rows to skip. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Format (Advanced only) (optional) </p></td><td colspan="1" rowspan="1"><p> Select the date format used in the Excel data. If you want dates to be represented as text, select <b> Show Dates as Strings </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blank Rows (Advanced only) (optional) </p></td><td colspan="1" rowspan="1"><p> Select the desired outcome if blank rows are encountered in the Excel file. If you select <b> Skip blank rows </b>, the file is processed as normal without the blank rows. If you select <b> Stop at the first blank row </b>, everything is pulled up until the first blank row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Empty Column Headers (Advanced only) (optional) </p></td><td colspan="1" rowspan="1"><p> Select the desired outcome if empty column headers are encountered in Excel. If you select <b> Add </b><b> blank columns </b>, new columns are generated with default names applied. If you select <b> Stop at the first blank column </b>, everything is pulled up until the first column with an empty header. </p></td></tr></tbody></table>
+
+### Advanced pane - CSV
+
+In this pane you configure advanced options for the CSV file you have uploaded.
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Delimiter </p></td><td colspan="1" rowspan="1"><p> Select the desired delimiter for parsing your CSV file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Quote Character </p></td><td colspan="1" rowspan="1"><p> Select the desired quote character for parsing your CSV file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Escape Character </p></td><td colspan="1" rowspan="1"><p> Select the desired escape character for parsing your CSV file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Encoding </p></td><td colspan="1" rowspan="1"><p> Select the desired file encoding for your CSV file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Add Filename Column? </p></td><td colspan="1" rowspan="1"><p> Select whether or not a BATCH_FILE_NAME_ column should be added to the final DataSet for your CSV file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Header Start Row (optional) </p></td><td colspan="1" rowspan="1"><p> Enter the header row number. If you do not enter a number, the first row is considered the header row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Start Row (optional) </p></td><td colspan="1" rowspan="1"><p> Enter the starting data row number. If you do not enter a number, the first row after the header row is considered the starting row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Footer Rows to Skip (optional) </p></td><td colspan="1" rowspan="1"><p> If there are one or more rows at the bottom of the file you do not want to import, enter the number of rows to skip. </p></td></tr></tbody></table>
+
+### Other panes
+
+For information about the remaining sections of the connector interface, including how to configure retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Editing your configuration
+
+As with all connector DataSets, you can edit your uploaded Excel or CSV DataSet configuration in the details view for the DataSet.
+
+**To edit your Excel or CSV DataSet configuration,**
+
+1. Open the Data Center.
+2. Use the search and filter options to locate the DataSet you want to edit.
+3. Click on the DataSet to open its details view.
+4. Click on the **Settings** tab.
+5. Make changes as desired.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What is the file size limit for this connector?">
+
+- **Newer version**: The File Upload connector can handle files up to **3 GB**.  
+- **Legacy version**: The File Upload connector can handle files up to **250 MB**.  
+
+</Accordion>
+
+<Accordion title="Why am I getting an error saying my file is not supported?">
+
+The file you are trying to upload contains features not currently supported by the connector.  
+Try using the **File Upload Legacy** connector instead.
+
+</Accordion>
+
+<Accordion title="How can I easily update an existing File Upload DataSet?">
+
+You can update a File Upload DataSet by doing the following:
+
+1. Navigate to the DataSet in the **Data Center**.  
+2. Open the **Settings** tab for the DataSet.  
+3. Upload the new version of the file using the **Upload** field.  
+
+The DataSet will be replaced with the new version of the file, and any Cards built off of the DataSet will automatically update.
+
+</Accordion>
+
+<Accordion title="Why am I getting updates with the previously uploaded file?">
+
+When you update the existing dataset by uploading a file, a preview screen appears in the **Select tables** pane after the file is uploaded.  
+
+If you click **SAVE** before the preview screen appears, then the file will be updated using the previously uploaded file.  
+It is recommended that you wait until the preview screen appears and then click the **SAVE** button in the **Select tables** pane.
+
+</Accordion>
+</AccordionGroup>

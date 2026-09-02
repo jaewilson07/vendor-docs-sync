@@ -1,0 +1,78 @@
+---
+title: "Neo4j Connector"
+excerpt: "Connect Domo to a Neo4j graph database to build DataSets from nodes and relationships using Cypher queries over HTTPS."
+---
+
+## Intro
+
+Neo4j is a graph database that stores nodes, relationships, and their respective properties. Some of the business use cases for using Neo4j include but are not limited to recommendation engines, detecting financial fraud, and researching rare diseases.
+
+You can use the Cypher language to use query in Neo4j. Cypher is a declarative query language that provides a visual and logical way to match node and relationships. To learn more about cypher and its syntax, you can visit https://neo4j.com/developer/cypher/.
+
+This topic discusses the fields and menus that are specific to the Neo4j Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to a Neo4j graph, your database must have the following:
+
+* Available over the internet
+* SSL enabled over HTTPS
+* Enable HTTP setting in instance configuration file (dbms.connector.http.enabled=true)
+* Whitelist Domo's IP addresses that can be found at
+  [Whitelisting IP addresses for connectors](/s/article/360043630093)
+* A service account with minimum Read access
+
+## Connecting to Your Neo4j graph
+
+This section enumerates the options in the Credentials and Details panes in the Neo4j Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Neo4j graph. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1" width="226"><p> Neo4j Instance URL </p></td><td colspan="1" rowspan="1" width="226"><p> Enter the URL of your instance. </p><p> Example: neo4j.database.url or <a href="http://graph.site.com" rel="noopener" target="_blank"> graph.site.com </a>:7473. </p> <Note><div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> Note </b>: Include port number if applicable. The default port is 7473 for Neo4j. </div></div></div> </Note></td></tr><tr><td colspan="1" rowspan="1" width="226"><p> Neo4j Database Name </p></td><td colspan="1" rowspan="1" width="226"><p> Enter the name of your database. </p></td></tr><tr><td colspan="1" rowspan="1" width="226"><p> Username </p></td><td colspan="1" rowspan="1" width="226"><p> Enter the username for your database. </p></td></tr><tr><td colspan="1" rowspan="1" width="226"><p> Password </p></td><td colspan="1" rowspan="1" width="226"><p> Enter the password for your database. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new Neo4j DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This is where you will insert your Cypher query. Note that this query must return properties, not nodes.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span> Query </span></p></td><td colspan="1" rowspan="1"><p> Enter your Cypher query. </p><p><b> Example </b>: </p><ul><li> MATCH (p:Person)-[:BUYS]-&gt;(i:Item) </li></ul><p> RETURN <a href="http://p.name" rel="noopener" target="_blank"> p.name </a> as Name,i.type as ItemType </p><ul><li> MATCH (a:Actor)-[:PRODUCES]-&gt;(m:Movie)&lt;-[:DIRECTS]-(d:Director) </li></ul><p> RETURN <a href="http://a.name" rel="noopener" target="_blank"> a.name </a> as ActorName, a.DOB as DOB,m.title as MovieTitle, <a href="http://d.name" rel="noopener" target="_blank"> d.name </a> as DirectorName </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What kind of data can I get from the Neo4j Connector?">
+
+You can access Neo4j Graph database data with this connector, represented as a table.
+
+</Accordion>
+
+<Accordion title="What credentials do I need to access the Neo4j Connector?">
+
+This connector leverages the Neo4j Bolt REST api hyperlink and requires the associated username and password.
+
+</Accordion>
+
+<Accordion title="How often is the Neo4j data updated?">
+
+The Neo4j data can be updated as often as needed based on the options available in the Domo connector UI.
+
+</Accordion>
+
+<Accordion title="Can I see an example of the Cypher syntax required to return a table from graph data?">
+
+The Cypher query needs to return properties as opposed to nodes, for example:
+
+`MATCH (p:Person)-[r:IS_IN_CHARGE_OF]->(c:Project)`
+
+`RETURN p.name as Person, c.name as Project`
+
+</Accordion>
+</AccordionGroup>
+

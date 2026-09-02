@@ -1,0 +1,40 @@
+---
+title: "Sizmek Connector"
+excerpt: "Pull Sizmek MDX advertising data into Domo to report on advertisers, campaigns, placements, sites, and performance analytics."
+---
+
+## About
+
+Sizmek provides tools to build, serve, analyze and target ads to global audiences across a variety of channels, including mobile and video. Combine your Sizmek data with data from sales, finance, and other departments across your organization so you can maximize your ROI. Get easy-to-use, real-time insights into impressions, clicks, interactions, conversions, viewability, and more. Domo's Sizmek connector brings in data from the Sizmek MDX platform and includes reports for Advertisers, Agencies, Campaigns, Markets, Placements, Sites and more.
+
+You can connect to your Sizmek account in the Data Center. This article explains the fields and menus that are specific to the Sizmek Connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Sizmek account and create a DataSet, you must have the following:
+
+* Username
+* Password
+* API Key
+
+## Connecting to Your Sizmek Account
+
+This section lists the options in the **Credentials** and **Details** panes in the Sizmek Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Sizmek  account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p><span> Your Sizmek username. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Your Sizmek password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p><span> Your Sizemek API key. </span></p></td></tr></tbody></table>
+
+Once you have entered valid Sizmek credentials, you can use the same account to create a new Sizmek DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Sizmek report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Advertisers </td><td colspan="1" rowspan="1"> Retrieves information about advertisers. </td></tr><tr><td colspan="1" rowspan="1"> Agency Contacts </td><td colspan="1" rowspan="1"> Returns agency contacts based on the selected agency ID. </td></tr><tr><td colspan="1" rowspan="1"> All Categories </td><td colspan="1" rowspan="1"> Retrieves all the categories defined for a specific account. </td></tr><tr><td colspan="1" rowspan="1"> Banner Sizes </td><td colspan="1" rowspan="1"> Retrieves a list of all predefined banner sizes available in Sizmek. </td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"> Retrieves information about campaigns. </td></tr><tr><td colspan="1" rowspan="1"> Creative Shops </td><td colspan="1" rowspan="1"> Returns a list of creative shops. </td></tr><tr><td colspan="1" rowspan="1"> Currencies </td><td colspan="1" rowspan="1"> Retrieves a list of currencies supported by Sizmek. </td></tr><tr><td colspan="1" rowspan="1"> Markets </td><td colspan="1" rowspan="1"> Retrieves a list of markets. </td></tr><tr><td colspan="1" rowspan="1"> Mobile Sites </td><td colspan="1" rowspan="1"> Returns a list of mobile sites (publishers) only. </td></tr><tr><td colspan="1" rowspan="1"> Offices </td><td colspan="1" rowspan="1"> Retrieves a list of offices (countries). </td></tr><tr><td colspan="1" rowspan="1"> Placements </td><td colspan="1" rowspan="1"> Returns information about multiple placements. </td></tr><tr><td colspan="1" rowspan="1"> Performance Analytics </td><td colspan="1" rowspan="1"> Retrieves performance report about campaigns. </td></tr><tr><td colspan="1" rowspan="1"> Sites </td><td colspan="1" rowspan="1"> Retrieves a list of available sites. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Agency </td><td colspan="1" rowspan="1"> Select the agency. </td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"> Select the campaign(s) you want to analyze </td></tr><tr><td colspan="1" rowspan="1"> Conversion Attribution Model </td><td colspan="1" rowspan="1"> Select the conversion attribution model. </td></tr><tr><td colspan="1" rowspan="1"> Conversion Tags </td><td colspan="1" rowspan="1"> Select the conversion tags you want to retrieve. </td></tr><tr><td colspan="1" rowspan="1"> Cookie Window Click </td><td colspan="1" rowspan="1"> The number of days a conversion will be attributed to an ad after a click has occurred. The number of days needs to be between 1 and 90 </td></tr><tr><td colspan="1" rowspan="1"> Cookie Window Impression </td><td colspan="1" rowspan="1"> The number of days a conversion will be attributed to an ad after an impression has occurred. The number of days needs to be between 1 and 90 </td></tr><tr><td colspan="1" rowspan="1"> Customization Parameter </td><td colspan="1" rowspan="1"> The unique value provided by Sizmek that identifies the custom report associated with a specific integration that you want to retrieve. </td></tr><tr><td colspan="1" rowspan="1"> Data Level </td><td colspan="1" rowspan="1"> Select the data level. </td></tr><tr><td colspan="1" rowspan="1"> Duration </td><td colspan="1" rowspan="1"> Select the duration for the report (a Single Date, or a Date Range) </td></tr><tr><td colspan="1" rowspan="1"> Campaign Selection </td><td colspan="1" rowspan="1"> Select how you want to specify campaigns. </td></tr><tr><td colspan="1" rowspan="1"> Tag Breakdown </td><td colspan="1" rowspan="1"> Select whether to breakdown the data by conversion tags </td></tr><tr><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

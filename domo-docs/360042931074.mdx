@@ -1,0 +1,36 @@
+---
+title: "Weather Underground Connector"
+excerpt: "Use Domo's Weather Underground Connector to import national, local, and crowd-sourced weather reports from Weather Underground into a DataSet."
+---
+
+## Intro
+
+Weather Underground provides national, local and crowd-sourced weather reports. To learn more about the Weather Underground API, visit their page ([https://www.wunderground.com/weather/api/](https://www.wunderground.com/weather/api/ "https://www.wunderground.com/weather/api/") ).
+
+You connect to your Weather Underground account in the Data Center. This topic discusses the fields and menus that are specific to the Weather Underground connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Weather Underground account and create a DataSet, you must have a Weather Underground API key. To sign up for a key, visit [https://www.wunderground.com/signup?mode=api\_signup](https://www.wunderground.com/signup?mode=api_signup "https://www.wunderground.com/signup?mode=api_signup").
+
+## Connecting to Your Weather Underground Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Weather Underground Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Weather Underground account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter your Weather Underground API key. </p></td></tr></tbody></table>
+
+Once you have entered valid Weather Underground credentials, you can use the same account any time you go to create a new Weather Underground DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Weather Underground report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Current Conditions </p></td><td colspan="1" rowspan="1"><p> Personal Weather Stations (PWS) Current Conditions returns the current conditions observations for the current record.Current record is the last record reported within 60 minutes. </p></td></tr><tr><td colspan="1" rowspan="1"><p> 7 Day History </p></td><td colspan="1" rowspan="1"><p> Personal Weather Station (PWS) Daily Summary Historical Observations returns the daily summary of daily observations for each day's observations report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> 1 Day - Rapid History </p></td><td colspan="1" rowspan="1"><p> Personal Weather Station (PWS) Rapid Historical Observations returns the daily observations records in rapid frequency as frequent as every 5 minutes. </p></td></tr><tr><td colspan="1" rowspan="1"><p> 7 Day - Hourly History </p></td><td colspan="1" rowspan="1"><p></p><p> Personal Weather Stations (PWS) Hourly Historical Observations returns the hourly records for each day's observations report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> PWS Historical Hourly </p></td><td colspan="1" rowspan="1"><p> 5 Personal Weather Stations (PWS) Historical Data returns the historical PWS data for a single date, returning hourly data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> PWS Historical All </p></td><td colspan="1" rowspan="1"><p> Personal Weather Stations (PWS) Historical Data returns the historical PWS data for a single date, returning hourly data, summary data for the entire day, or both. </p></td></tr><tr><td colspan="1" rowspan="1"><p> PWS Historical Daily </p></td><td colspan="1" rowspan="1"><p> Personal Weather Stations (PWS) Historical Data returns the historical PWS data for a single date, returning summary data for the entire day. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Daily Forecast (5 Day) </p></td><td colspan="1" rowspan="1"><p> This returns weather forecasts starting current day. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Filter </p></td><td colspan="1" rowspan="1"><p> Select the filter you want to use to filter your report data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Zip Code </p></td><td colspan="1" rowspan="1"><p> Enter the zip code you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Forecast Days </p></td><td colspan="1" rowspan="1"><p> Select the number of days you want to appear in your report, either <b> 3 Days </b> or <b> 10 Days </b>. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

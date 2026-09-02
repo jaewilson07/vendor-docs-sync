@@ -1,0 +1,75 @@
+---
+title: "Custom Date & Timestamp Formatting in Analyzer"
+excerpt: "Reference for custom date and timestamp format patterns in Analyzer, based on the Java DateTimeFormatter class with worked examples."
+---
+
+<Note>
+  **Attribution:** The content of this article came from a member of the Domo Community Forums. We are indebted to our outstanding community for their enthusiasm, expertise, and championship of Domo. View the original [post <i className="icon-arrow-square-out sm" aria-hidden="true" />](https://community-forums.domo.com/main/discussion/comment/88618#Comment_88618).
+
+  Visit the [Community Forums <i className="icon-arrow-square-out sm" aria-hidden="true" />](https://community-forums.domo.com/main).
+
+</Note>
+
+## Intro
+
+Properly formatted dates and timestamps are needed to present data accurately and help provide insightful analysis. In Analyzer, the patterns for custom date formatting are based on the DateTimeFormatter class in Java. This article provides specific examples that you can use with your data.
+
+All examples are based on the following timestamp: **Tuesday, March 14, 2023 03:09:26 PM**
+
+## Examples
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Format </p></th><th colspan="1" rowspan="1"><p> Example </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Full date with day of the week, month, day, year, timestamp in 12-hour AM/PM format, and AM/PM distinction </p></td><td colspan="1" rowspan="1"><p><b> EEEE, MMMM dd, yyyy hh:mm:ss a </b></p></td><td colspan="1" rowspan="1"><p> Tuesday, March 14, 2023 03:09:26 PM </p></td></tr><tr><td colspan="1" rowspan="1"><p> Full date with day of the week, month, day, and year </p></td><td colspan="1" rowspan="1"><p><b> EEEE, MMMM dd, yyyy </b></p></td><td colspan="1" rowspan="1"><p> Tuesday, March 14, 2023 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date and time </p></td><td colspan="1" rowspan="1"><p><b> yyyy-MM-dd HH:mm:ss </b></p></td><td colspan="1" rowspan="1"><p> 2023-03-14 15:09:26 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Short date format </p></td><td colspan="1" rowspan="1"><p><b> MM/dd/yyyy </b></p></td><td colspan="1" rowspan="1"><p> 03/14/2023 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Year and month </p></td><td colspan="1" rowspan="1"><p><b> yyyy-MM </b></p></td><td colspan="1" rowspan="1"><p> 2023-03 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Abbreviated day of the week and short month name </p></td><td colspan="1" rowspan="1"><p><b> E, MMMM, dd </b></p></td><td colspan="1" rowspan="1"><p> Tue, Mar 14 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom pattern for day of the week, day, month, and year </p></td><td colspan="1" rowspan="1"><p><b> E, dd MMMM yyyy </b></p></td><td colspan="1" rowspan="1"><p> Tue, 14 Mar 2023 </p></td></tr></tbody></table>
+
+### Key
+
+#### Date Shorthand
+
+* **L** (equivalent to "Date Shorthand" date format) *(Ex: 03/14/2023)*
+
+Day of Week
+
+* **e**: Localized day of week *(Ex: 2)*
+* **E**: Short-hand day of week *(Ex: Tue)*
+* **EEEE**: Full day of week *(Ex: Tuesday)*
+
+#### Day
+
+* **d**: Day in one or two digits (*Ex: 14,* or *5* if the date was March 5th)
+* **D** or **dd**: Day in two digits (*Ex: 14* or *05* if the date was March 5th)
+
+#### Month
+
+* **M**: Month in one digit *(Ex: 3)*
+* **MM**: Month in two digits *(Ex: 03)*
+
+#### Year
+
+* **y**: Year in two digits (*Ex: 23* )
+* **Y** or **yyyy**: Year in four digits (*Ex: 2023* )
+
+#### Hour
+
+* **HH**: Hour in 24-hour AM/PM format in two digits (*Ex: 15,* since 3 hours after 12pm is 3pm)
+* **k**: Hour in 24-hour AM/PM format *(Ex: 15)*
+* **hh**: Hour in 12-hour AM/PM format in two digits *(Ex: 03)*
+* **h**: Hour in 12-hour AM/PM format in one digit *(Ex: 3)*
+
+#### Minute
+
+* **m**: Minute in one or two digits *(Ex: 9)*
+* **mm**: MInute in two digits *(Ex: 09)*
+
+#### Second
+
+* **s**: Second of a minute in one or two digits (*Ex: 26,* or *9* if the timestamp was 03:09:09 PM)
+* **ss**: Second of a minute in two digits (*Ex: 26* or *09* if the timestamp was 03:09:09 PM)
+* **S**: Fraction of a second (*Ex: 246* if the millisecond part of the timestamp 03/14/2023 03:09:26 PM was 246)
+
+#### AM vs. PM
+
+* **a**: AM or PM in timestamp in lower case *(Ex: pm)*
+* **A**: AM or PM in timestamp in upper case *(Ex: PM)*
+
+#### Offsets
+
+* **X**: Unix timestamp (*Ex: 1678824566*, since 1,678,824,566 seconds have elapsed since January 1, 1970 00:00:00 UTC [the Unix epoch] given that the timestamp is March 14, 2023 03:09:26 PM in CST)

@@ -1,0 +1,39 @@
+---
+title: "Microsoft Project Online Connector"
+excerpt: "Configure the Microsoft Project Online connector to retrieve projects, tasks, assignments, resources, and risks reports into Domo."
+---
+
+## Intro
+
+Microsoft Project Online is a powerful project management software product for teams to plan, track, and release a great software. With the Microsoft Project Online Connector, you can develop a schedule, assign resources to tasks, track progress, manage the budget, and analyze workloads. Use Domo's Microsoft Project Online connector to optimize task management, integrate collaboration, simplify resource management, and scheduling. To learn more about the Microsoft Project Online, visit https://docs.microsoft.com/en-us/projectonline/get-started-with-project-online.
+
+You connect to your Microsoft Project Online account in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft Project Online connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Microsoft Project Online account and create a DataSet, you must have the following:
+
+* Your username and password associated with your Microsoft Project Online account
+* The host URL for your account
+
+## Connecting to Your Microsoft Project Online Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Microsoft Project Online Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Microsoft Project Online account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username associated with your Microsoft Project Online account. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password associated with your Microsoft Project Online account. </td></tr><tr><td colspan="1" rowspan="1"> Host URL </td><td colspan="1" rowspan="1"> Enter the host URL for your account in the mentioned format. Example- <a href="https://yourdomain.sharepoint.com" rel="noopener" target="_blank"> https://yourdomain.sharepoint.com </a></td></tr></tbody></table>
+
+Once you have entered valid Microsoft Project Online credentials, you can use the same account any time you go to create a new Microsoft Project Online DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Microsoft Project Online report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Assignments </td><td colspan="1" rowspan="1"> Returns a list of the assignments in a project. </td></tr><tr><td colspan="1" rowspan="1"> Assignment Baselines </td><td colspan="1" rowspan="1"> Returns a list of the assignment baselines in a project. </td></tr><tr><td colspan="1" rowspan="1"> Deliverables </td><td colspan="1" rowspan="1"> Returns a list of the deliverables in a project. </td></tr><tr><td colspan="1" rowspan="1"> Dependencies </td><td colspan="1" rowspan="1"> Returns a list of the dependencies in a project. </td></tr><tr><td colspan="1" rowspan="1"> Issues </td><td colspan="1" rowspan="1"> Returns a list of the issues in a project. </td></tr><tr><td colspan="1" rowspan="1"> Projects </td><td colspan="1" rowspan="1"> Returns a list of the projects in your project online site. </td></tr><tr><td colspan="1" rowspan="1"> Resources </td><td colspan="1" rowspan="1"> Returns a list of resources in your project online site. </td></tr><tr><td colspan="1" rowspan="1"> Risks </td><td colspan="1" rowspan="1"> Returns a list of the risks in a project. </td></tr><tr><td colspan="1" rowspan="1"> Stages Information </td><td colspan="1" rowspan="1"> Returns a list of the stages in a project. </td></tr><tr><td colspan="1" rowspan="1"> Tasks </td><td colspan="1" rowspan="1"> Returns a list of the published tasks in a project. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Retrieve Project(s) </td><td colspan="1" rowspan="1"> Select whether you want to retrieve the assignments for all projects or a specific project. </td></tr><tr><td colspan="1" rowspan="1"> Project Name </td><td colspan="1" rowspan="1"> Select the Project name you wish to retrieve data for. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

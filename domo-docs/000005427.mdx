@@ -1,0 +1,41 @@
+---
+title: "Microsoft Access SFTP Connector"
+excerpt: "Use the Microsoft Access SFTP connector to extract data from an Access database file stored on an SFTP server via a SQL query."
+---
+
+## Intro
+
+Microsoft Access is a Database Management System (DBMS) that is a part of the Microsoft Office suite of applications. The Microsoft Access connector extracts data from an Access database file using the provided database query.
+
+You can connect to your Microsoft Access SFTP Connector account in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft Access SFTP Connector connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Microsoft Access SFTP Connector account and create a DataSet, you must have the following:
+
+* Host Name
+* Port Number
+* Username
+* Password
+
+## Connecting to Your Microsoft Access SFTP Connector Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Microsoft Access SFTP Connector Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Microsoft Access SFTP Connector account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host Name </p></td><td colspan="1" rowspan="1"><p> Enter the SFTP Hostname (e.g. <a href="http://sftp.example.com" rel="noopener" target="_blank"> sftp.example.com </a> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port Number </p></td><td colspan="1" rowspan="1"><p> Enter the SFTP port number. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the SFTP Username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the SFTP Password. </p></td></tr></tbody></table>
+
+Once you have entered valid Microsoft Access SFTP Connector credentials, you can use the same account at any time to create a new Microsoft Access SFTP Connector DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> File Name </p></td><td colspan="1" rowspan="1"><p> Enter the complete file path with the extension. For example, '/home/test/TestSheet.accdb'. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Is Password Protected? </p></td><td colspan="1" rowspan="1"><p> Select 'Yes' if the file is password protected. </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Password </p></td><td colspan="1" rowspan="1"><p> Enter the file password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the query to be executed. For example, 'select * from employee;'. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

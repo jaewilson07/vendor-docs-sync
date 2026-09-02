@@ -1,0 +1,46 @@
+---
+title: "VoiceStorm Connector"
+excerpt: "Use the VoiceStorm connector to pull liked comments, leaderboards, posts, users, and other employee-advocacy data into a Domo DataSet."
+---
+
+## Intro
+
+VoiceStorm is  a product that manages and measures employees' efforts to promote a company on social networks. Use Domo's VoiceStorm connector to retrieve lists of liked comments, leaderboards, posts, users, and more. To learn more about the VoiceStorm API, visit their page ([https://dev.voicestorm.com/](https://dev.voicestorm.com/ "https://dev.voicestorm.com/") ).
+
+You connect to your VoiceStorm account in the Data Center. This topic discusses the fields and menus that are specific to the VoiceStorm connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your VoiceStorm account and create a DataSet, you must have the following:
+
+* A VoiceStorm API token
+* A VoiceStorm token secret
+* Your VoiceStorm company domain
+
+To obtain an API token and token secret, ask your VoiceStorm customer service account manager for API keys (which are necessary for you to access the REST API platform). The API keys include the API token and token secret.
+
+You can find your VoiceStorm company domain by looking at the portion of your VoiceStorm URL immediately following https://. For example, if the URL was https://mycompany.voicestorm.com/v1, the domain would be mycompany.
+
+## Connecting to Your VoiceStorm Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the VoiceStorm Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your VoiceStorm account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Token </td><td colspan="1" rowspan="1"> Enter your VoiceStorm access token. </td></tr><tr><td colspan="1" rowspan="1"> Token Secret </td><td colspan="1" rowspan="1"> Enter your VoiceStorm token secret. </td></tr><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"> Enter your VoiceStorm company domain. </td></tr></tbody></table>
+
+For information about obtaining these credentials, see "Prerequisites," above.
+
+Once you have entered valid VoiceStorm credentials and created an account, you can use the same account any time you go to create a new VoiceStorm DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the VoiceStorm report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Comment Like List </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of users who have liked the selected comment. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Discussion </p></td><td colspan="1" rowspan="1"><p> Retrieves discussion information for a selected post, such as comments, likes on comments, and likes on posts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> LeaderBoard </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of leaderboards defined in the system. </p></td></tr><tr><td colspan="1" rowspan="1"><p> LeaderBoard Ranking </p></td><td colspan="1" rowspan="1"><p> Retrieves the rankings for all leaderboards in the system. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Posts </p></td><td colspan="1" rowspan="1"><p> Retrieves the most recent posts by date (within two weeks) regardless of approval state. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Posts by Tag </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of posts containing a specified tag. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Post Tags </p></td><td colspan="1" rowspan="1"><p> Retrieves the post tags defined in the system. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Retrieves user information for specified email IDs. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Activities </p></td><td colspan="1" rowspan="1"><p> Retrieves user information for the specified email ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Tags </p></td><td colspan="1" rowspan="1"><p> Retrieves the user tags defined in the system. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Post </td><td colspan="1" rowspan="1"> Select the post you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> Comment </td><td colspan="1" rowspan="1"> Select the comment you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> Leaderboard </td><td colspan="1" rowspan="1"> Select the leaderboard you want to see rankings for. </td></tr><tr><td colspan="1" rowspan="1"> Tag </td><td colspan="1" rowspan="1"> Enter the tag you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> Email </td><td colspan="1" rowspan="1"> Enter the email ID of the user you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> Email(s) </td><td colspan="1" rowspan="1"> Enter the email IDs of the users you want to retrieve information for, separated by commas. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

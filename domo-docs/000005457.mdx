@@ -1,0 +1,41 @@
+---
+title: "Amazon S3 High Bandwidth Connector"
+excerpt: "Connect Domo to Amazon S3 with Access Key, Secret Key, bucket, and region to import large files from S3 buckets into DataSets."
+---
+
+## Intro
+
+Amazon S3 is built to store and retrieve any amount of data from anywhere. Like Amazon S3, Domo is built to scale with your business. Our customers collectively upload new data into their Domo environments millions of times each week. Have datasets that exceed 50 billion rows? No problem, Domo is built to handle huge amounts of data with speed. Domo's S3 connector will allow you to leverage all of your S3 data anytime, anywhere.
+  
+Domo connects directly to S3 and delivers the information you need in real-time visualizations that make analysis easier. Moreover, you can see your S3 data alongside metrics from any other system, all in a single platform, and get instant notifications when your metrics hit thresholds that you determine.
+
+You can connect to your Amazon S3 High Bandwidth account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon S3 High Bandwidth connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Amazon S3 High Bandwidth account and create a DataSet, you must have the following:
+
+* Access Key
+* Secret Key
+* Bucket
+* Region
+
+## Connecting to Your Amazon S3 High Bandwidth Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Amazon S3 High Bandwidth Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Amazon S3 High Bandwidth account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Key </p></td><td colspan="1" rowspan="1"><p> Enter your AWS access key. It is available in the AWS Console in the Security Credentials section or under Users if you are using IAM. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Secret Key </p></td><td colspan="1" rowspan="1"><p> Your AWS secret access key. It was provided when you created your Access Key. You can generate a new one in the AWS Console. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Bucket </p></td><td colspan="1" rowspan="1"><p> Enter the name of the AWS S3 Bucket. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Region </p></td><td colspan="1" rowspan="1"><p> Select the Amazon S3 Region. </p></td></tr></tbody></table>
+
+Once you have entered valid Amazon S3 High Bandwidth credentials, you can use the same account any time to create a new Amazon S3 High Bandwidth DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> What File Type Would You Like To Import? </td><td colspan="1" rowspan="1"> Select the file type that you would like to parse and import. </td></tr><tr><td colspan="1" rowspan="1"> Prefix </td><td colspan="1" rowspan="1"> Prefix limits results to only those keys that begin with the specified prefix. </td></tr><tr><td colspan="1" rowspan="1"> File Name </td><td colspan="1" rowspan="1"> Enter the name of Amazon S3 Object(file) that you would like to import. </td></tr><tr><td colspan="1" rowspan="1"> File Compression Type </td><td colspan="1" rowspan="1"> Select the compression type of your file. </td></tr><tr><td colspan="1" rowspan="1"> Subfile Name </td><td colspan="1" rowspan="1"> Enter the name or a portion of the name of the subfiles that you would like to import. </td></tr><tr><td colspan="1" rowspan="1"> Select The Delimiting Character </td><td colspan="1" rowspan="1"> Select the delimiting character used in your file. If your delimiter is not listed select 'Other </td></tr><tr><td colspan="1" rowspan="1"> Specify Your Delimiter </td><td colspan="1" rowspan="1"> Enter the character used to delimit your character separated values (CSV) text. </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> Select the desired quote character for parsing CSV files. (Double quote is the default quote character for CSV standard). </td></tr><tr><td colspan="1" rowspan="1"> Custom Quote Character </td><td colspan="1" rowspan="1"> Enter the desired CSV Quote character. </td></tr><tr><td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> Select the desired escape character for parsing CSV files. </td></tr><tr><td colspan="1" rowspan="1"> Custom Escape Character </td><td colspan="1" rowspan="1"> Enter the desired CSV escape character. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,118 @@
+---
+title: "Google Analytics 4 connector"
+excerpt: "Use the Google Analytics 4 connector to pull GA4 traffic, campaign, device, location, and conversion data into Domo via OAuth."
+---
+
+## Intro
+
+Google Analytics 4 Beta connector generates detailed website traffic stats to help measure sales and conversions. Use this Connector to efficiently generate reports about campaign, device, location, social network, and traffic metrics to make sure the customer behavior you're seeing now translates to sales and revenue down the line.
+
+The Google Analytics Data API (GA4) allows programmatic access to Google Analytics 4 (GA4) report data.
+
+Google Analytics 4 Beta connector generates detailed website traffic stats to help measure sales and conversions. Use this Connector to efficiently generate reports about campaign, device, location, social network, and traffic metrics to make sure the customer behavior you're seeing now translates to sales and revenue down the line.
+
+Improve sales and conversions by connecting your Google Analytics data and combining it with other key data sources.
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Understanding visitor traffic patterns on your website </p></li><li><p> Understanding visitor behavior patterns on your website </p></li><li><p> Understanding the relationship between geography and user behavior on your website </p></li><li><p> Understanding the difference between user behavior on mobile devices vs. desktop browsers </p></li><li><p> Understanding how social media drives traffic to your website </p></li><li><p> Understanding how users interact with products on your website </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Page Views </p></li><li><p> Unique Visitor Counts </p></li><li><p> Return Visitor Counts </p></li><li><p> Product Sales Numbers </p></li><li><p> Geographic Patterns </p></li><li><p> Referring Domains </p></li><li><p> Conversion metrics </p></li><li><p> Bounce Rate </p></li><li><p> Exit Pages </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Data analysts </p></li><li><p> Digital marketers </p></li><li><p> Editorial teams </p></li><li><p> Marketing leads </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> If choosing the basic reporting functions you can plan on about an hour depending on how many reports you are pulling. However, if choosing the custom route, the time may be up to 2 hours. Also, depending on how much data you are pulling, it may take several hours for the data to be available in Domo. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 7 </p></td></tr></tbody></table>
+
+## Best Practices
+
+* When starting out, consider deploying the Google Analytics Dashboard. The Base Metrics report has many of the fundamental metrics that are key to a Google Analytics Dashboard.
+
+## Prerequisites
+
+To connect to the Google Analytics API and create a DataSet, you must have a Google email address and password.
+
+<table border="1" data-aura-rendered-by="33:201;a"><tbody><tr><td colspan="1" rowspan="1"><b> Parameter Name </b></td><td colspan="1" rowspan="1"><b> Where to find it </b></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td class="confluenceTd" colspan="1" rowspan="1"><span> The email address/username used to log in at </span><a class="external-link" href="http://google.com/" target="_blank" title="google.com"> google.com </a></td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"><span> The password is associated with the above username/email. </span></td></tr></tbody></table>
+
+### Credentials Pane
+
+Th Google Analytics 4 connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Google accounts in Domo) to open the Google OAuth screen where you can enter your Google email address and password. Once you have entered valid Google credentials, you can use the same account any time you go to create a new Google Analytics Advanced DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+<Note>
+**Note:** If you are already logged into Google when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Google.
+</Note>
+
+### Details Pane
+
+This pane contains a number of sub-panes in which you can select a report, set a date range, choose your segments, and more.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Properties </td><td colspan="1" rowspan="1"><p> Create a Dataset with data from multiple properties. </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><div> Make custom metrics and dimensions available to select </div></td><td colspan="1" rowspan="1"><p> This checkbox is enabled when you choose to <b> Retrieve data for multiple properties </b> option. </p><p> Choose whether to include custom fields. This option requires the custom fields to be the same for all the selected properties. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Custom Report </td><td colspan="1" rowspan="1"> You can combine up to 10 metrics and 9 dimensions to create a custom report. Select a base report to get you started, or start from the beginning. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"><div> Select report dates and update mode. </div><div><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Field </td><td colspan="1" rowspan="1"> Description </td></tr><tr><td colspan="1" rowspan="1"> Replace </td><td colspan="1" rowspan="1"> When you select <b> Replace </b>, the selected dates will be used for every run. When you select <b> Replace </b>, the <b> Date Selection </b> drop-down list appears. You can either select a <b> Single Date </b>, <b> Date Range </b> or <b> Time Period </b>. Depending on the option you select, various parameters populate. </td></tr><tr><td colspan="1" rowspan="1"> Append </td><td colspan="1" rowspan="1"> When you select <b> Append </b>, the selected dates will be used only for the first run. Subsequent runs will only retrieve data added since the last successful run. When you select <b> Replace </b>, the <b> Date Selection </b> drop-down list appears. You can either select a <b> Single Date </b>, <b> Date Range </b> or <b> Time Period </b>. Depending on the option you select, various parameters populate. </td></tr><tr><td colspan="1" rowspan="1"> Append Data </td><td colspan="1" rowspan="1"><div> Select how to import your data. When you select the Date Range as <b> Append Data </b>, from the drop-down list, the <b> Start Date for Historical Data </b> field appears. Select the start date to retrieve the historical data for the first run. <b> Note: </b> Changing this date after the first run will affect the amount of data kept in your dataset. </div></td></tr><tr><td colspan="1" rowspan="1"> Rolling Window </td><td colspan="1" rowspan="1"><div><div> Select how to import your data. When you select the Data Range as <b> Rolling Window </b> from the drop-down list, the <b> Last Days </b> field appears. You can select the number of days you want to keep the datasets. For example, Last 30 Days. </div></div></td></tr><tr><td colspan="1" rowspan="1"> Specific Date Range (not recommended) </td><td colspan="1" rowspan="1"><div><div><div> Select how to import your data. When you select the Data Range as <b> Specific Date Range (not recommended) </b> from the drop-down list, the <b> Start Date </b> and <b> End Date </b> field appears. </div><div> Select the specific start and end dates. </div></div></div></td></tr></tbody></table></div><div></div></td></tr><tr><td colspan="1" rowspan="1"> Metrics Filter </td><td colspan="1" rowspan="1"> Enable the <b> USE FILTERS </b> toggle button to enable the metrics filter. </td></tr><tr><td colspan="1" rowspan="1"> Dimensions Filter </td><td colspan="1" rowspan="1"> Enable the <b> USE FILTERS </b> toggle button to enable the dimensions filter. </td></tr><tr><td colspan="1" rowspan="1"> Advanced Settings </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Allow Sampled Data </td><td colspan="1" rowspan="1"> By default Domo unsamples data by breaking up the requests into smaller date intervals until Google responds with unsampled data. By allowing sampled data, Domo will not break up the query into smaller date intervals and returns the queried data as it is. If you query user metrics without a date dimension, it is recommend that you allow sampled data. </td></tr><tr><td colspan="1" rowspan="1"> Replace Schema </td><td colspan="1" rowspan="1"> Select if you need to reset the schema. Warning: This can result in loss of data or change in data type if some fields are temporarily not returned by Google Analytics's API. While this switch is selected the dataset will reset the schema for each run. </td></tr><tr><td colspan="1" rowspan="1"> Reset Data </td><td colspan="1" rowspan="1"> Select if you need to reset the data. Warning: This can result in loss of data especially if you have selected to append data. While this switch is selected the dataset will use the selected dates for each run. </td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="When will Domo Google Analytics 4 connector plan to release as an official version?">
+
+For more details, refer to
+[Google Analytics Data API](https://developers.google.com/analytics/devguides/reporting/data/v1?hl=en)
+and
+[About Google Analytics](https://support.google.com/analytics/answer/9305587).
+
+</Accordion>
+
+<Accordion title="What version of the Google Analytics API does this connector use?">
+
+This connector uses the beta version of the Google Analytics API ([https://developers.google.com/analytics/devguides/reporting/data/v1](https://developers.google.com/analytics/devguides/reporting/data/v1 "https://developers.google.com/analytics/devguides/reporting/data/v1")).
+
+</Accordion>
+
+<Accordion title="Why does it seem that my data is not accurate?">
+
+Google's data processing latency is 24-48 hours. If your query is for yesterday's data, some data may not be displayed. Google may not have finished processing the most current data, so incomplete data may appear.
+  
+Google 360 accounts have a much faster processing time. Enhanced data freshness normally takes 15-20 minutes depending on some factors. Enhanced data freshness is not applied to data that results from integration with other products (Example: AdWords or any of the DoubleClick products). Visit [restrictions on enhanced data freshness](https://support.google.com/analytics/answer/7084038?hl=en&ref_topic=2430414#limits "https://support.google.com/analytics/answer/7084038?hl=en&ref_topic=2430414#limits") to view some other restrictions.
+  
+The slowest possible data latency for 360 accounts is 24 hours.
+
+The fastest possible data latency for 360 accounts is 15-20 minutes.
+  
+The chart on [this](https://support.google.com/analytics/answer/7084038?hl=en&ref_topic=2430414 "https://support.google.com/analytics/answer/7084038?hl=en&ref_topic=2430414") [page](https://support.google.com/analytics/answer/7084038?hl=en&ref_topic=2430414) breaks down all the possible data latency periods based on the account and based on the query. Different queries have different data latency periods.
+</Accordion>
+
+<Accordion title="Where can I find help in building queries?">
+
+Utilize Google's [Query Explorer](https://ga-dev-tools.appspot.com/query-explorer/ "https://ga-dev-tools.appspot.com/query-explorer/") to help test and build your queries. The Query Explorer may also give more insight on why the query isn't working.
+
+</Accordion>
+
+<Accordion title="I keep getting the error 'Selected dimensions and metrics cannot be queried together.'">
+
+Refer to the [Dimensions and Metrics Explorer](https://developers.google.com/analytics/devguides/reporting/core/dimsmets "https://developers.google.com/analytics/devguides/reporting/core/dimsmets") to understand what dimensions/metrics can actually be queried together because not all combinations are valid.
+
+</Accordion>
+
+<Accordion title="What are my custom metrics and dimensions?">
+
+Custom metrics and dimensions are defined at the web property level. We can only display your custom metrics/dimensions if you have one web property selected. Only views within the web property can use its custom metric/dimension. You can have as many views selected as you want as long as they belong to the same web property. The custom metrics and dimensions (if there are any) will be displayed under the "Custom Variables or Columns" section under the custom report.
+
+</Accordion>
+
+<Accordion title="How do segments work?">
+
+A segment is a subset of your Analytics data. For example, of your entire set of users one segment might be users from a particular country or city. Within Domo, when you select multiple segments, we query a report for each segment you have selected. You can use custom segments. Learn more about segments [here](https://support.google.com/analytics/answer/3123951?hl=en#using "https://support.google.com/analytics/answer/3123951?hl=en#using").
+
+</Accordion>
+
+<Accordion title="Why am I limited to 10 metrics and 9 dimensions?">
+
+This is a limitation given by the Google Analytics API. There is no way to add more than 10 metrics and 9 dimensions to a report.
+
+</Accordion>
+
+<Accordion title="Is there any limit to retrieve data in properties when selecting the Retrieve data for specific properties?">
+
+There is no limit.
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Check user permission settings if you are having trouble gaining access to data.
+* Check to make sure you are using the correct set of credentials.
+* When validating data between the API data and the front end reporting tool, always check to see if the data was sampled or not.

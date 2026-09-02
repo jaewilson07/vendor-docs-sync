@@ -1,0 +1,91 @@
+---
+title: "JSON No Code Connector"
+excerpt: "Use the JSON No Code connector to build a connection to custom JSON data and pull it into Domo without writing code."
+---
+
+## Intro
+
+The wizard will help you connect to your data as a JSON file and pull it into Domo. This connector is perfect for anyone who wants to create a connection for custom data without going through a Domo engagement but doesn't have the coding experience to build connectors using Domo's API or Connector IDE.
+
+You connect to your custom JSON data in the Data Center. This topic discusses the fields and menus that are specific to the JSON No Code connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your custom JSON data and create a DataSet, you must have the following:
+
+* The username and password for your JSON account
+* The URL to access the JSON file
+
+Also note that the redirect URL for this connector is [https://oauth.domo.com/api/data/v1/oauth/providers/json-oauth/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/json-oauth/exchange "https://oauth.domo.com/api/data/v1/oauth/providers/json-oauth/exchang").
+
+## Connecting to your custom data
+
+This section enumerates the options in the **Credentials**, **Data Selection**, and **Parsing** panes in the JSON No Code Connector page.  For detailed information on configuring the Data Selection, refer to [Connecting with the JSON No Code and JSON No Code OAuth connectors](/s/article/000005360) article. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your custom data. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username for your JSON account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password for your JSON account. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new JSON No Code DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Data Selection pane
+
+In this pane, you specify the HTTP method to use to connect, the URL of the JSON file, and other configuration settings.
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"> Menu </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Connection Type </td><td colspan="1" rowspan="1"> Select how you want to connect to your JSON data, either by HTTP request, SFTP file transfer, or direct file upload. </td></tr><tr><td colspan="1" rowspan="1"> HTTP Method </td><td colspan="1" rowspan="1"> If HTTP Request is selected as the <b> Connection Type </b>, choose from either GET or POST as the HTTP method. </td></tr><tr><td colspan="1" rowspan="1"> Add Header </td><td colspan="1" rowspan="1"> Add Header with its key and corresponding value. </td></tr><tr><td colspan="1" rowspan="1"> Request Type </td><td colspan="1" rowspan="1"><p> Enter the appropriate URL type to your JSON file. </p><p> If HTTP Request or File Transfer is selected as the <b> Connection Type </b>, enter the URL of your JSON file. </p></td></tr><tr><td colspan="1" rowspan="1"> Add Body </td><td colspan="1" rowspan="1"><p> Enter the key and value of the HTTPS headers. This option is only available for the HTTP Request connection type. </p></td></tr><tr><td colspan="1" rowspan="1"> Add Parameters </td><td colspan="1" rowspan="1"><p> Enter the key and value of the query parameters. This option is only available for the HTTP Request connection type. </p></td></tr><tr><td colspan="1" rowspan="1"> Add Date Parameters </td><td colspan="1" rowspan="1"><p> Select <b> No Date Filter </b>, <b> Single Date </b>, or <b> Date Range </b> as the Date Query Parameter. If you select <b> Single Date </b>, you can choose a specific date or enter a relative number of days back. If you select <b> Date Range </b>, you are prompted to select the start and end date for your range, or, if you want to pull data for a relative number of days, enter the number of days back for both the start and end date. </p><p> This option is only available for the HTTP Request connection type. </p></td></tr></tbody></table>
+
+## Advanced Settings
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"> Menu </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Time zone </td><td colspan="1" rowspan="1"><p> Select the appropriate timezone. </p><p> User can view either <b> Timestamp in seconds </b> or <b> Timestamp in mililiseconds </b> based on the selection they make. Only one option will be visible at a time. </p></td></tr><tr><td colspan="1" rowspan="1"><div> Does your JSON text requires a line reader? </div></td><td colspan="1" rowspan="1"><p> Select the appropriate option. </p></td></tr><tr><td colspan="1" rowspan="1"><div class="Selection-module_leftColumn__wu3en db-text-display-5"><div> Should backslash characters be escaped? </div><div><div><div><div><div><div></div></div></div></div></div></div></div></td><td colspan="1" rowspan="1"><p></p> Select the appropriate option. <p></p></td></tr><tr><td colspan="1" rowspan="1"><div class="Selection-module_leftColumn__wu3en db-text-display-5"><div> How will you provide the certificate? </div><div><div><div><div><div><div></div></div></div></div></div></div></div></td><td colspan="1" rowspan="1"><p> If HTTP Request is selected as the <b> Connection Type </b>, choose the method in which the certificate will be provided: </p><ul><li><p> No certificate </p></li><li><p> URL Path to the Certificate </p></li><li><p> Certificate Content </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><div class="Selection-module_leftColumn__wu3en db-text-display-5"><div><div> Do you need to enter a rate limit for this API? </div></div></div></td><td colspan="1" rowspan="1"><p></p><p> Select the appropriate option. </p></td></tr></tbody></table>
+
+## Pagination
+
+Select how to paginate the data:
+
+* No Paging
+* Get next URL from results
+* Get next page token from results
+* Offset by records
+* Offset by pages
+
+## Parsing
+
+Using the data preview, you can click on a column to format the data for parsing. Depending on the column data type, different parsing actions are available. If you mouse over an action, the dataset updates to reflect how the changes that will be applied. You can go back to an earlier action by clicking that action in the **History** pane on the right.
+
+Available actions include the following:
+
+* **Split date**. Breaks up dates into individual columns for year, month, day, etc.
+* **Drop**. Removes the selected column from the dataset.
+* **Duplicate**. Copies the selected column.
+* **Rename column**. Lets you change the name of the selected column.
+* **Format timestamp as a date**. Allows you to transform a timestamp in milliseconds, seconds, etc. into a date.
+
+## Other panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+For SFTP files you need the username and password. If you are importing data using HTTP, you may enter the username and password if your URL supports basic authentication. If needed, authentication can also be passed through parameters or headers. 
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+DataSets can run as often as every 15 minutes.
+</Accordion>
+
+<Accordion title="Does this connector support paging?">
+
+Yes. In order to activate paging, select the paging type supported by your API and fill out the requested details.
+</Accordion>
+
+<Accordion title="How do I parse my data?">
+
+Select the column containing the data you want to expand or modify in the Parsing tab of the Parsing Pane. Hover over the suggested actions to see the effect and select the desired action by clicking on it. Repeat until the data looks the way you want it to look. Use the history section on the right to undo actions if desired.
+</Accordion>
+</AccordionGroup>

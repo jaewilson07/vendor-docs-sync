@@ -1,0 +1,35 @@
+---
+title: "Changing a Job from Upsert to Replace in Workbench 5"
+excerpt: "Convert an Upsert job to Replace in Workbench 5 by un-protecting the DataSet, switching the update method, and re-protecting columns."
+---
+
+## Intro
+
+Sometimes you need to update an Upsert Job to Replace. Follow these simple steps to update:
+
+1. Un-protect the DataSet.
+   * For newer versions of Workbench 5.
+       
+     <Frame><img alt="1.png" src="/images/kb/ka05w00000123rv-00N5w00000Ri7BU-0EM5w000005vPMB.png"/></Frame>
+
+   * For older versions of Workbench 5.
+       
+     <Frame><img alt="2.png" src="/images/kb/ka05w00000123rv-00N5w00000Ri7BU-0EM5w000005vPM9.png"/></Frame>
+
+     <Frame><img alt="3.png" src="/images/kb/ka05w00000123rv-00N5w00000Ri7BU-0EM5w000005vPMA.png"/></Frame>
+
+2. Update the job to Replace.
+     
+   In the Configure Tab, change the Update method to **Replace**.
+     
+   <Frame><img alt="4.png" src="/images/kb/ka05w00000123rv-00N5w00000Ri7BU-0EM5w000005vPMC.png"/></Frame>
+
+3. Run the job.
+     
+   Once the DataSet has been updated to Replace, run the job.
+4. Re-protecting Columns
+     
+   To protect columns from future changes:
+   * For newer versions of Workbench 5: Re-protect the columns in the Schema tab and update the Schema Update options to your desired preferences.
+   * For older versions of Workbench 5: Uncheck
+     **Allow changes**.

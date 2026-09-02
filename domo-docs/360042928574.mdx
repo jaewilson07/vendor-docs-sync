@@ -1,0 +1,40 @@
+---
+title: "ArcSight Connector"
+excerpt: "Use Domo's ArcSight connector to pull HP ArcSight Report Service and Query Viewer service reports for security analytics into a DataSet."
+---
+
+## Intro
+
+HP ArcSight is a cyber security company that provides big data security analytics and intelligence software for security information and event management (SIEM) and log management solutions. You can use Domo's ArcSight connector to pull Report Service and Query Viewer service reports. To learn more about ArcSight, visit their page ([https://h41382.www4.hpe.com/gfs-shared/downloads-273.pdf](https://h41382.www4.hpe.com/gfs-shared/downloads-273.pdf "http://www8.hp.com/us/en/software-solutions/siem-security-information-event-management/index.html") ).
+
+You connect to your ArcSight account in the Data Center. This topic discusses the fields and menus that are specific to the ArcSight connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your ArcSight account and create a DataSet, you must have the following:
+
+* The username and password for your ArcSight account
+* The hostname and port number for your ArcSight server
+* The report ID if you are retrieving a Report Service report, or the query ID if you are retrieving a Query Viewer Service report
+
+## Connecting to Your ArcSight Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the ArcSight Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your ArcSight account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username you use to log into your ArcSight account. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password you use to log into your ArcSight account. </td></tr><tr><td colspan="1" rowspan="1"> Host Name </td><td colspan="1" rowspan="1"> Enter the hostname of the server where ArcSight is located. </td></tr><tr><td colspan="1" rowspan="1"> Port Number </td><td colspan="1" rowspan="1"> Enter the port number of the server where ArcSight is located. </td></tr></tbody></table>
+
+Once you have entered valid ArcSight credentials, you can use the same account any time you go to create a new ArcSight DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the ArcSight report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Report Service </td><td colspan="1" rowspan="1"> Returns the report associated with the specified <b> Report ID </b>. </td></tr><tr><td colspan="1" rowspan="1"> Query Viewer Service </td><td colspan="1" rowspan="1"> Runs the query indicated in the <b> Query ID </b> field. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Report ID </td><td colspan="1" rowspan="1"> Enter the ID of the Report Service report you want to retrieve. </td></tr><tr><td colspan="1" rowspan="1"> Query ID </td><td colspan="1" rowspan="1"> Enter the ID of the Query Viewer Service query you want to run. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,103 @@
+---
+title: "Montage Connector"
+excerpt: "Use Domo's Montage (now Modern Hire) connector to pull interviewing platform data about clients, jobs, candidates, and interviews into a DataSet."
+---
+
+<Warning>
+**Important:** Montage Talent has changed its name to Modern Hire and so, the API endpoints also changed.
+
+<table><thead><tr><th colspan="1" rowspan="1" width="50%"> Old Domain Name </th><th colspan="1" rowspan="1" width="50%"> New Domain Name </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><a href="http://montagetalent.com" rel="noopener" target="_blank"> montagetalent.com </a></td><td colspan="1" rowspan="1"><a href="http://modernhire.com" rel="noopener" target="_blank"> modernhire.com </a></td></tr><tr><td colspan="1" rowspan="1"><a href="http://montagetalent.com.au" rel="noopener" target="_blank"> montagetalent.com.au </a></td><td colspan="1" rowspan="1"><a href="http://modernhire.com.au" rel="noopener" target="_blank"> modernhire.com.au </a></td></tr><tr><td colspan="1" rowspan="1"><a href="http://montagetalent.eu" rel="noopener" target="_blank"> montagetalent.eu </a></td><td colspan="1" rowspan="1"><a href="http://modernhire.eu" rel="noopener" target="_blank"> modernhire.eu </a></td></tr></tbody></table>
+</Warning>
+
+## Intro
+
+Montage is an enterprise video and voice interviewing software company. The Domo Montage connector allows you to see your data related to clients, jobs, interviews, candidates and more. To learn more about the Montage API, visit their page ([https://reporting.moderhire.com/](https://reporting.moderhire.com/ "https://reporting.moderhire.com/") ).
+
+You connect to your Montage account in the Data Center. This topic discusses the fields and menus that are specific to the Montage connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Montage account and create a DataSet, you must have the following:
+
+* The username and password for your Montage account
+* Your Montage account API key
+* Domain
+
+For information about obtaining an API key, reach out to your Montage representative.
+
+## Connecting to Your Montage Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Montage Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Montage account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username for your Montage account. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password for your Montage account. </td></tr><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your Montage API key. </td></tr><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"> Select the domain you use to log in to your Montage account. </td></tr></tbody></table>
+
+Once you have entered valid Montage credentials, you can use the same account any time you go to create a new Montage DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Montage report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Candidates </p></td><td colspan="1" rowspan="1"><p> Retrieves data about candidates for a given date or date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Clients </p></td><td colspan="1" rowspan="1"><p> Retrieves data about clients. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Jobs </p></td><td colspan="1" rowspan="1"><p> Retrieves data about jobs for a given date or date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Live Interviews </p></td><td colspan="1" rowspan="1"><p> Retrieves data about live interviews for a given date or date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Meetings </p></td><td colspan="1" rowspan="1"><p> Retrieves data about meetings for a given date or date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> On Demand Interviews </p></td><td colspan="1" rowspan="1"><p> Retrieves data about on-demand interviews for a given date or date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Retrieves data about users for a given date or date range. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Report Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="I'm seeing new Domain values in the Credentials section. Why?">
+
+Montage Talent has changed its name to Modern Hire and so, the API endpoints also changed.
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width='50%"'> Old Domain Name </th><th colspan="1" rowspan="1" width="50%"> New Domain Name </th></tr><tr><td colspan="1" rowspan="1"><a href="http://montagetalent.com" rel="noopener" target="_blank"> montagetalent.com </a></td><td colspan="1" rowspan="1"><a href="http://modernhire.com" rel="noopener" target="_blank"> modernhire.com </a></td></tr><tr><td colspan="1" rowspan="1"><a href="http://montagetalent.com.au" rel="noopener" target="_blank"> montagetalent.com.au </a></td><td colspan="1" rowspan="1"><a href="http://modernhire.com.au" rel="noopener" target="_blank"> modernhire.com.au </a></td></tr><tr><td colspan="1" rowspan="1"><a href="http://montagetalent.eu" rel="noopener" target="_blank"> montagetalent.eu </a></td><td colspan="1" rowspan="1"><a href="http://modernhire.eu" rel="noopener" target="_blank"> modernhire.eu </a></td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="How can I resolve the authentication issue when the old Montage Talent endpoints retire?">
+
+To run your old datasets after the Montage Talent endpoints retire, you need to create a new Domo account and provide Montage account credentials. Then, select your newly created Domo account and authenticate with it.
+
+</Accordion>
+
+<Accordion title="What endpoint is the base URL for this Connector?">
+
+The base URL for the Montage Connector is `https://reporting.{api_domain}`.
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> Candidates </td><td colspan="1" rowspan="1"> /v1/Extract/Candidates </td></tr><tr><td colspan="1" rowspan="1"> Clients </td><td colspan="1" rowspan="1"> /v1/Extract/Clients </td></tr><tr><td colspan="1" rowspan="1"> Jobs </td><td colspan="1" rowspan="1"> /v1/Extract/Jobs </td></tr><tr><td colspan="1" rowspan="1"> Live Interviews </td><td colspan="1" rowspan="1"> /v1/Extract/LiveInterviews </td></tr><tr><td colspan="1" rowspan="1"> Meetings </td><td colspan="1" rowspan="1"> /v1/Extract/Meetings </td></tr><tr><td colspan="1" rowspan="1"> On Demand Interviews </td><td colspan="1" rowspan="1"> /v1/Extract/OnDemandInterviews </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> /v1/Extract/Users </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the username, password, and API key of your Montage account.
+
+</Accordion>
+
+<Accordion title="Can I use the same account to create multiple datasets?">
+
+Yes
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+Datasets can be updated as often as once an hour.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+

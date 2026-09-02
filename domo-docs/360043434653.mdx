@@ -1,0 +1,76 @@
+---
+title: "Tumblr Connector"
+excerpt: "Use the Tumblr connector to pull usage and traffic metrics such as followers, posts, and likes from your Tumblr account into a Domo DataSet."
+---
+
+## Intro
+
+To learn more about the Tumblr API, visit their page ([https://www.tumblr.com/docs/en/api/v2](https://www.tumblr.com/docs/en/api/v2 "https://www.tumblr.com/docs/en/api/v2") ).
+
+You connect to your Tumblr account in the Data Center. This topic discusses the fields and menus that are specific to the Tumblr connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:206;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Retrieve usage and traffic metrics for your Tumblr account. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Followers </p></li><li><p> Posts </p></li><li><p> Likes </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Social media roles </p></li><li><p> Analysts </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> A few minutes </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Best Practices
+
+### Scheduling Recommendations
+
+The following reports work best with "Append" selected:
+
+* Blog Info
+* Blog Followers
+* Blog Likes
+* User Info
+* All "Posts" reports
+
+The following reports work best with "Replace" selected:
+
+* All "Published Posts" reports
+
+### Report Accessibility
+
+The following reports can be accessed for any Tumblr page as long as you have Tumblr credentials:
+
+* Blog Info
+* Posts-Tagged
+* All "Published Posts" reports.
+
+The following reports can be accessed only for pages you own:
+
+* Blog Followers
+* Blog Likes
+* Posts-Drafts
+* Posts-Queued
+* Posts-Submission
+* User Info
+
+## Prerequisites
+
+To connect to your Tumblr account and create a DataSet, you must have your Tumblr username and password.
+
+## Connecting to Your Tumblr Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Tumblr Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Tumblr connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Tumblr accounts in Domo) to open the Tumblr OAuth screen where you can enter your Tumblr credentials. Once you have entered valid Tumblr credentials, you can use the same account any time you go to create a new Tumblr DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Tumblr when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Tumblr.
+</Note>
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the (third-party connector) report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Blog-Followers </td><td colspan="1" rowspan="1"> Retrieves a blog's followers. </td></tr><tr><td colspan="1" rowspan="1"> Blog-Info </td><td colspan="1" rowspan="1"> Retrieves general information about the blog, such as the title, number of posts, and other high-level data. </td></tr><tr><td colspan="1" rowspan="1"> Blog-Likes </td><td colspan="1" rowspan="1"><p> Retrieves the publicly exposed likes from a blog. </p></td></tr><tr><td colspan="1" rowspan="1"> Posts-Draft </td><td colspan="1" rowspan="1"> Retrieves draft posts. </td></tr><tr><td colspan="1" rowspan="1"> Posts-Queued </td><td colspan="1" rowspan="1"> Retrieves queued posts. </td></tr><tr><td colspan="1" rowspan="1"> Posts-Submission </td><td colspan="1" rowspan="1"> Retrieves submission posts. </td></tr><tr><td colspan="1" rowspan="1"> Posts-Tagged </td><td colspan="1" rowspan="1"> Retrieves posts with tag. </td></tr><tr><td colspan="1" rowspan="1"> Published Posts-All </td><td colspan="1" rowspan="1"> Retrieves published posts. </td></tr><tr><td colspan="1" rowspan="1"> Published Posts-Answer </td><td colspan="1" rowspan="1"> Retrieves information for answer posts, such as blog name, URL, question and answer. </td></tr><tr><td colspan="1" rowspan="1"> Published Posts-Audio </td><td colspan="1" rowspan="1"> Retrieves information for audio posts, such as caption, player, plays, artist and more. </td></tr><tr><td colspan="1" rowspan="1"> Published Posts-Chat </td><td colspan="1" rowspan="1"> Retrieves information for chat posts, such as title, body and dialogue. </td></tr><tr><td colspan="1" rowspan="1"> Published Posts-Link </td><td colspan="1" rowspan="1"> Retrieves information for link posts, such as, title, URL, author and more. </td></tr><tr><td colspan="1" rowspan="1"> Published Posts-Photo </td><td colspan="1" rowspan="1"> Retrieves information for photo posts, such as, photos, captions, and more. </td></tr><tr><td colspan="1" rowspan="1"> Published Posts-Quote </td><td colspan="1" rowspan="1"> Retrieves information for quote posts, such as text and source. </td></tr><tr><td colspan="1" rowspan="1"> Published Posts-Text </td><td colspan="1" rowspan="1"> Retrieves information for text posts, such as title and body. </td></tr><tr><td colspan="1" rowspan="1"> Published Posts-Video </td><td colspan="1" rowspan="1"> Retrieves information for video posts, such as caption and player. </td></tr><tr><td colspan="1" rowspan="1"> User Info </td><td colspan="1" rowspan="1"> Retrieve the user's account information that matches the OAuth credentials submitted with the request. </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"> Host Name </td><td colspan="1" rowspan="1"> Enter the unique host name of the Tumblr blog site you want to retrieve information for. Do <em> not </em> prefix with <span class="mt-font-courier-new"> http:// </span>. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+* Check your credentials
+* Ensure there is sufficient activity in your Tumblr account to provide metrics.

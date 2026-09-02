@@ -1,0 +1,150 @@
+---
+title: "Getting Started With AI Agents"
+excerpt: "Roadmap for building an AI agent covering objective definition, environment understanding, platform selection, integration, testing, and deployment."
+---
+
+## Intro
+
+Building an AI agent involves multiple layers of planning, technology, and infrastructure. The starting points depend on what kind of agent you're building—for example, a chatbot, recommendation engine, or autonomous system.
+
+First, define the agent's purpose and scope, then choose a suitable platform and create instructions and variables for the agent. Integrate the agent with relevant knowledge bases, channels, and platforms, and finally, test, deploy, monitor, and improve its performance.
+
+---
+
+## Roadmap
+
+Here's a general roadmap of the foundational steps for building an agent:
+
+#### 1. Define the Objective
+
+Ask: *What problem is the agent solving?* This defines all downstream choices.
+
+* Is it answering questions? (Example: customer support)
+* Is it performing tasks? (Examples: scheduling, automation)
+* Is it perceiving and acting? (Examples: robotics, self-driving cars)
+
+#### 2. Understand the Environment
+
+* What inputs will the agent receive? (Examples: text, images, sensor data)
+* What actions can it take?
+* Is it reactive, proactive, or interactive?
+* Is the environment static or dynamic?
+
+#### 3. Choose the Agent Type
+
+* **Rule-based agent —** Uses if-then logic
+* **Machine learning-based agent —** Learns from data
+* **Reinforcement learning agent —** Learns by interacting with an environment
+* **Hybrid agent —** Combines multiple techniques
+
+#### 4. Gather and Prepare Data
+
+* Collect relevant data, such as user interactions, logs, and labeled DataSets.
+* Clean, format, and label the data appropriately.
+* Split into training, validation, and test sets.
+
+#### 5. Training and Evaluation
+
+* Train models with proper metrics in mind, such as accuracy, precision, reward.
+* Use validation/test data to evaluate performance.
+* Optimize hyperparameters.
+* Incorporate feedback loops if needed.
+
+## Use Case - Example Agent
+
+In this use case, the parameters are as follows:
+
+* **Problem to be solved —** The product team is faced with answering specific questions about their platform multiple times a year for several analysts.
+* **Define purpose and scope** — Using previously submitted answers and product release notes, formulate an answer to each of the analyst's questions.
+* **Choose a platform —** That's easy, Domo's Agent Catalyst.
+    
+  <Frame><img alt="" src="/images/kb/ka0Vq000000D8pN-00N5w00000Ri7BU-0EMVq000007Pt6v.jpg"/></Frame>
+* **Create instructions and variables** <br/>
+    Sample instructions:
+    
+  ```
+  You are responding to an industry analyst asking questions about Domo's functionality.
+
+  <instructions>
+
+        1) Answers should be positive and forward-thinking.
+
+        2) Query the Analyst Question dataset to acquire the questions.
+
+        3) Review Release Notes to add newly released functionality to the response.
+
+        4) Review previous responses for Gartner to help formulate the response.
+
+        5) Review previous responses for Forrester to help formulate the response.
+
+        6) Review previous responses for Ventana to help formulate the response.
+
+  </instructions>
+
+  <examples>
+
+  Question: "Formatting and layout functions, such as page-based layouting, print-oriented output as well as special features such as conditional display, etc."
+
+  Answer: "Domo Dashboards and App Studio give users the flexibility to create custom-formatted, pixel-perfect layouts with drag-and-drop, slider, and interactive tools that preserve a consistent viewing experience of a single layout across all devices and mediums (including via web browser, email, print, and mobile app). Themes allow users to personalize their designs according to brand with custom colors, shapes, borders and charts that cater to unique data representation needs based on audience and objectives. When designing with a custom layout, creators can preview how an end-user will see their layout on a mobile device independently and customize how the layout appears on a mobile device with drag-and-drop tools to help create simplified and targeted experiences for mobile consumption. This allows creators to design with all viewers and viewing formats in mind.
+
+  For additional control over pixel-perfect reports, the Domo App Dev Studio (SDK) also allows users to create any style of report layout needed with the full set of modern scripting control techniques (CSS, HTML, conditional/responsive code).
+
+  Our Microsoft Office Add-ins directly integrate Domo into MS Office applications and provide the ability to create highly formatted and customized reports."
+
+  Question: "Is data lineage supported by the solution?"
+
+  Answer: "Yes. Absolutely! Domo's Data Lineage and Impact Analysis tool provides a comprehensive view of any dataset back to the source data acquisition. It provides a powerful visual overview of the path a dataset took to its immediate usage, making it easy to spot dependencies, identify where a change in the source data occurred, and what downstream datasets, visualizations, and reports may be affected."
+
+  </examples>
+
+  <analyst_question>
+
+  </analyst_question>
+
+  <previous_question>
+
+  ${Target_Dataset}
+
+  </previous_question>
+
+  Answer format (in json format):
+
+  { "Timestamp": "" #<Todays Date & Time>
+
+  "Question": "" #<question>,
+
+  "Answer": "" #<answer>,
+
+  "PreviousYearAnswer": "" #<previous years answer> }
+
+  Think about your response step by step.
+
+  Output any thinking in <thinking> </thinking> XML tags.
+
+  Convert the answers to a pipe-delimited string, then use that to write the answers to the 'Analyst Helper' dataset.
+  ```
+
+* **Integrate with knowledge systems —** Examples include Domo DataSets and FileSets, as shown below.
+    
+
+    <Frame><img alt="" src="/images/kb/ka0Vq000000D8pN-00N5w00000Ri7BU-0EMVq000007PtZx.jpg"/></Frame>
+    <Frame><img alt="" src="/images/kb/ka0Vq000000D8pN-00N5w00000Ri7BU-0EMVq000007Ptjd.jpg"/></Frame>
+  
+## More Agent Ideas
+
+Here are some other ideas for agents you could create:
+
+* Knowledge Base Agent<br/><br/>
+  Use all the articles in the [Domo Knowledge Base](https://domo-support.domo.com/s/knowledge-base?language=en_US) and the data in our [community](https://community-forums.domo.com/main) <img src="/images/kb/ka0Vq000000D8pN-00N5w00000Ri7BU-0EMVq000007QkWD.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> to create a Domo Agent that customers and partners can use to ask questions when trying to build something in Domo.
+
+* Domo Deep Research<br/><br/>
+    Deep Research uses AI to explore complex topics on your behalf and provide you with findings in a comprehensive, easy-to-read report, and is a first look at how Domo is getting even better at tackling complex tasks to save you time.
+
+* Call Center Analytics<br/><br/>
+    Imagine you deal with over 100,000 phone calls a month. How can you possibly track call quality and compliance regulations and follow up on call center representatives who are below the average on call quality and length? What if you could condense this overwhelming task into actionable insights?
+
+## Prompt Engineering References
+
+* [Anthropic](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" style={{height: '1.1em', width: '1.1em', display: 'inline', verticalAlign: '-0.15em', margin: '0'}}><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z" /></svg>
+* [OpenAI](https://platform.openai.com/docs/guides/text?api-mode=responses#prompt-engineering) <Icon icon="openai" iconType="brands" aria-hidden="true" />
+* [AWS](https://aws.amazon.com/what-is/prompt-engineering/) <Icon icon="aws" iconType="brands" aria-hidden="true" />

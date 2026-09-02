@@ -1,0 +1,50 @@
+---
+title: "AppNexus Connector"
+excerpt: "Connect to AppNexus in Domo with your console credentials to pull ad delivery and campaign management reporting into a DataSet."
+---
+
+## Intro
+
+AppNexus is a global technology company whose cloud-based software platform enables and optimizes programmatic online advertising. To learn more about the AppNexus API, visit their page ([https://wiki.appnexus.com/display/documentation/APIs](https://wiki.appnexus.com/display/documentation/APIs "https://wiki.appnexus.com/display/documentation/APIs") ).
+
+The AppNexus API will get you access to the reporting API for the Ad Delivery and Campaign Management environment. From here you'll be able to get reporting on your campaigns by a number of dimensions and metrics. Virtually any metric or dimension available by the AppNexus Web Console will be allowed via the API.
+
+You connect to your AppNexus account in the Data Center. This topic discusses the fields and menus that are specific to the AppNexus connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is helpful for monitoring campaign ad impressions and clicks. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Impressions </p></li><li><p> Clicks </p></li><li><p> CTR </p></li><li><p> CPM </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Data specialists </p></li><li><p> Analysts </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Credentials - 15 minutes or less (unless AppNexus hasn't permissioned your username for API calls). </p></li><li><p> Configuring the connector - 5 minutes for pre-configured reports. 60 minutes for each custom report. </p></li><li><p> Most runs of the connector will run in less than an hour. </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 5 </p></td></tr></tbody></table>
+
+## Best Practices
+
+* The AppNexus API may limit your API calls for fields and metrics that don't "play nicely" together. For example, Device API calls don't work well with Network Analytics reporting.
+* This connector is easy to use if you can find what you need in the pre-configured reports. If you must use the Custom Reporting and JSON text box, you should have a good knowledge of JSON API calls. It is suggested you use the console to ensure the metrics you are attempting to select in JSON work well together.
+* If you intend to append the report each day, it is suggested you just pull yesterday's data and schedule the report to run daily.
+
+## Prerequisites
+
+To connect to your AppNexus account and create a DataSet, you must have the username and password you use to log into the [AppNexus Console](https://console.appnexus.com "https://console.appnexus.com"). You'll need to ensure that your credentials are properly permissioned by AppNexus. They may make you take an API quiz in order to submit calls with your credentials.
+
+## Connecting to Your AppNexus Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the AppNexus Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your AppNexus account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username you use to log into the AppNexus Console. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password you use to log into the AppNexus Console. </td></tr></tbody></table>
+
+Once you have entered valid AppNexus credentials, you can use the same account any time you go to create a new AppNexus DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the AppNexus report you want to run. You have access to 5 preconfigured reports: "Advertisers," "Campaigns," "Line Items," "Members," and "Pixels." If the fields provided in these 5 preconfigured reports are not all you need, you can use the "Custom" report type and provide your own JSON API call in the text box. </p><p> The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Advertisers </td><td colspan="1" rowspan="1"> Retrieves data about advertisers in the account. </td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"> Retrieves data about campaigns controlled by the account. </td></tr><tr><td colspan="1" rowspan="1"> Custom Report </td><td colspan="1" rowspan="1"> Returns a custom report, which you query using JSON. </td></tr><tr><td colspan="1" rowspan="1"> Line Items </td><td colspan="1" rowspan="1"> Retrieves data about line items tracked by the account. </td></tr><tr><td colspan="1" rowspan="1"> Members </td><td colspan="1" rowspan="1"> Retrieves data about members of the AppNexus account. </td></tr><tr><td colspan="1" rowspan="1"> Pixels </td><td colspan="1" rowspan="1"> Retrieves data about conversion pixels managed by the account. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"> Start Days </p></td><td colspan="1" rowspan="1"><p class="p1"> Enter the number of the farthest day back that should be represented in the report. Combine with <b> End Days </b> to create a range of represented days. For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Days </b>, the report would contain data for 10 days ago up until 5 days ago. Use 0 for today. <span class="s1"></span></p></td></tr><tr><td colspan="1" rowspan="1"> End Days </td><td colspan="1" rowspan="1"> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Start Days </b> to create a range of represented days. For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Days </b>, the report would contain data for 10 days ago up until 5 days ago. Use 0 for today. </td></tr><tr><td colspan="1" rowspan="1"> Interval </td><td colspan="1" rowspan="1"> Select the interval for which certain statistics columns will be calculated. This does not affect which items will be displayed in the report. </td></tr><tr><td colspan="1" rowspan="1"> Report JSON </td><td colspan="1" rowspan="1"> Enter the JSON query for your custom report. For more information about JSON, see the <a href="https://wiki.appnexus.com/display/sdk/Publisher+Analytics+Report" target="_blank" title="https://wiki.appnexus.com/display/sdk/Publisher+Analytics+Report"> AppNexus documentation </a>. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Troubleshooting
+
+Ensure you have API access for the credentials you supply.

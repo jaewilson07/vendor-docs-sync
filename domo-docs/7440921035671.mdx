@@ -1,0 +1,163 @@
+---
+title: "Jupyter Troubleshooting Guide"
+excerpt: "Troubleshoot common Jupyter Workspaces issues in Domo, including startup failures, kernel restarts, usage policies, and memory limits."
+---
+
+## Intro
+
+The following troubleshooting steps can help you solve common issues in Jupyter Workspaces. If your issue is not listed here, or the steps do not resolve your issue, contact your Account Executive (AE) or Customer Success Manager (CSM).
+
+For general information about Jupyter, see our [Jupyter Workspaces | User Guide](/s/article/36004740075).
+
+---
+
+## Jupyter Workspaces Won't Start
+
+If Domo reports an error after you have attempted to start Jupyter or the status returns to "Stopped" instead of "Started," your user most likely does not have a usage policy configured by an Admin.
+
+<Frame><img alt="mceclip0.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNu5.png"/></Frame>
+Follow these steps to fix the issue:
+
+1. In the navigation header, select
+   **Admin** > **Feature Settings** > **Jupyter** and make sure that:
+   1. The
+      **Jupyter Account Activated** toggle is enabled
+   2. If the
+      **Active Account Plan** is set to **Manual**, you or the user have a usage policy with an appropriate instance size limit.
+
+   <Frame><img alt="Screenshot 2024-12-11 at 2.25.19 PM.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EMVq000004II5p.jpg"/></Frame>
+## Kernel Restarting
+
+If an error message with the heading **Kernel Restarting** appears in Jupyter Workspaces, your Jupyter kernel has most likely run out of memory.
+
+<Frame><img alt="mceclip1.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNts.png"/></Frame>
+Follow these steps to resolve the restart issue:
+
+1. From the Jupyter Workspaces list, select
+   <img src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNtu.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Wrench** > **Edit** for the workspace.
+2. In
+   **Workspace Configuration**, choose a higher computer tier.
+
+   <Frame><img alt="Screenshot 2024-12-11 at 8.18.51 AM.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EMVq000004HXQH.jpg"/></Frame>
+3. Select
+   **Save**.
+
+## Slow Execution
+
+When working with large amounts of data, a notebook cell execution can take longer than expected or remain in the same state for an extended period due to the workspace not having enough resources for the job.
+
+Follow these steps to increase the size of the workspace:
+
+1. From the Jupyter Workspaces list, select
+   <img src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNtu.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Wrench** > **Edit** for the workspace.
+2. In
+   **Workspace Configuration**, choose a higher computer tier.
+
+   <Frame><img alt="Screenshot 2024-12-11 at 8.18.51 AM.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EMVq000004HXQH.jpg"/></Frame>
+3. Select
+   **Save**.
+
+## Error Installing Third-Party Libraries
+
+If you receive a failure when installing third-party libraries for Python or R, the library or its dependencies are not compatible with the current conda environment.
+
+Follow these steps to resolve the issue:
+
+1. Install the appropriate conda pip command from a workspace terminal. Include the conda channel if necessary.
+
+   <Frame><img alt="mceclip2.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNtp.png"/></Frame>
+2. If the conda install fails in the terminal, try a pip/cran command.
+
+   pip command:
+
+   ```
+   pip install -U scikit-learn
+   ```
+
+   R/cran command:
+
+   ```
+   install.packages("cluster")
+   ```
+
+3. Navigate to the Jupyter Workspaces list, select
+   <img src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNtu.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Wrench** > **Edit** for the workspace.
+4. Select
+   **Manage Kernel Snapshots**.
+
+   <Frame><img alt="Screenshot 2024-12-10 at 12.46.07 PM.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EMVq000004HcL7.jpg"/></Frame>
+   The **Manage Kernel Snapshots** modal displays.
+5. In the modal, check the box labeled
+   **Restore to base kernel environment**.
+
+   <Frame><img alt="Screenshot 2024-12-10 at 12.46.19 PM.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EMVq000004HXi3.jpg"/></Frame>
+6. Select
+   **Restore** Kernel.
+7. Uninstall any libraries installed locally using pip or cran.
+
+## Cannot Update domojupyter Python or R sdk
+
+If updating domojupyter to the latest version fails or if the notebook continues to display a message that a new version is available, then the new version of domojupyter is not compatible with the current conda environment.
+
+<Frame><img alt="mceclip3.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNto.png"/></Frame>
+Follow these steps to resolve the update issue:
+
+1. Execute the suggested conda command from a Jupyter Workspace terminal.
+2. Navigate to the Jupyter Workspaces list, select
+   <img src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNtu.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> next to the workspace, and **Edit.**
+3. Select
+   **Manage Kernel Snapshots**.
+
+   <Frame><img alt="Screenshot 2024-12-10 at 12.46.07 PM.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EMVq000004HcL7.jpg"/></Frame>
+   The **Manage Kernel Snapshots** modal displays.
+4. Check the box labeled
+   **Restore to base kernel environment**.
+
+   <Frame><img alt="Screenshot 2024-12-10 at 12.46.19 PM.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EMVq000004HXi3.jpg"/></Frame>
+5. Select
+   **Restore Kernel**.
+
+## Error Starting Kernel
+
+If an error message with the heading "Error Starting Kernel" displays in Jupyter Workspaces, then an error has occurred while bootstrapping the conda environment.
+
+<Frame><img alt="mceclip4.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNu3.png"/></Frame>
+Follow these steps to resolve the "Error Starting Kernel" issue:
+
+1. Navigate to the Jupyter Workspaces list, select
+   <img src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNtu.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Wrench** > **Edit** for the workspace.
+2. Select
+   **Manage Kernel Snapshots**.
+
+   <Frame><img alt="Screenshot 2024-12-10 at 12.46.07 PM.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EMVq000004HcL7.jpg"/></Frame>
+   The **Manage Kernel Snapshots** modal displays.
+3. In the modal, check the box labeled
+   **Restore to base kernel environment**.
+
+   <Frame><img alt="Screenshot 2024-12-10 at 12.46.19 PM.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EMVq000004HXi3.jpg"/></Frame>
+4. Select
+   **Restore Kernel**.
+
+## Scheduled Execution Failures
+
+If a Jupyter DataFlow created from a Jupyter Workspace notebook fails to execute successfully, it may be due to one of the following reasons:
+
+* Python/R language syntax or logic errors
+* The notebook cells executed in an order resulting in an error
+* The notebook file has been deleted
+* Error accessing the third-party system
+
+Follow these steps to resolve the execution failure:
+
+1. Attempt to execute the notebook's cells in order from the Jupyter Workspace environment.
+2. Review the execution details in the recent\_executions directory in your workspace.
+
+   The following files are available:
+
+   * output.jpynb 
+   * output.html 
+   * output.pdf 
+   * stdout 
+   * stderr
+
+   <Frame><img alt="mceclip5.png" src="/images/kb/ka0Vq0000005UQT-00N5w00000Ri7BU-0EM5w000005vNtw.png"/></Frame>

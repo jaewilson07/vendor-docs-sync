@@ -1,0 +1,44 @@
+---
+title: "MongoDB Advanced Connector"
+excerpt: "Use Domo's MongoDB Advanced Connector to pull data from a MongoDB collection with JSON queries and create DataSets for self-service analytics."
+---
+
+## Intro
+
+MongoDB is an open-source document-oriented database that offers high performance and serious scalability. Domo's platform offers a best-in-class analytics and reporting solution for MongoDB users—helping organizations monitor, visualize, and report complex datasets easily.
+  
+You can use Domo's MongoDB Advanced Connector to pull data from a MongoDB collection. This connector supports an advanced connection with your MongoDB, to bring fresh data. Building customer reports indicates the data you want by entering JSON queries. Easily combine your MongoDB data with the data from numerous other systems, which enables you to combine and transform your data and make it all available for user self-service.
+  
+Domo's advanced governance capabilities provide IT control over what users will have access to, and the ones for experts. Domo also brings report-building to your fingertips with an easy-to-use interface and robust reporting capabilities. Create completely customized dashboards that include the metrics, filters, and visualizations users want.
+
+You can connect to your MongoDB Advanced account in the Data Center. This topic discusses the fields and menus that are specific to the MongoDB Advanced connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your MongoDB Advanced account and create a DataSet, you need the following:
+
+* Hostname for MongoDB database
+* MongoDB database
+* MongoDB Username and Password
+* Port number for the database
+* Select a Certificate Format
+
+## Connecting to Your MongoDB Advanced Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the MongoDB Advanced Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your MongoDB Advanced account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Enter the host name for the MongoDB database (for example, <tt><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></tt> ). If you don't know the host name, then contact your MongoDB Database Administrator. </td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> Enter the name of the MongoDB database. If you don't know the database name, then contact your MongoDB Database Administrator. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your MongoDB username. If you don't know your username, then contact your MongoDB Database Administrator. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your MongoDB password. If you don't know your password, then contact your MongoDB Database Administrator. </td></tr><tr><td colspan="1" rowspan="1"> Database Port </td><td colspan="1" rowspan="1"> Enter the port number for the database. If you don't know the port number, then contact your MongoDB Database Administrator. </td></tr><tr><td colspan="1" rowspan="1"> Certificate Format </td><td colspan="1" rowspan="1"> Select a certificate format. This must match what you enter in the <b> Certificate </b> field. If you are unaware of a special certificate, then select <b> No Certificate </b>. </td></tr><tr><td colspan="1" rowspan="1"> Certificate </td><td colspan="1" rowspan="1"><div><div><div> Paste the text for your CA certificate or enter the URL where your certificate is located. By default, no certificate is required. </div></div></div></td></tr></tbody></table>
+
+Once you have entered valid MongoDB Advanced credentials, you can use the same account at any time to create a new MongoDB Advanced DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:207;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Collection </td><td colspan="1" rowspan="1"> Enter the name of the collection for which you want to connect. \nIf wanting to connect to a database other than the one where authentication occurs, then enter the other database name prior to the collection. For example, database.collection \n If collection contains a period, then enter the collection surrounded by quotes and square brackets, example, [\" <a href="http://collection.name" rel="noopener" target="_blank"> collection.name </a> \"]". </td></tr><tr><td colspan="1" rowspan="1"> JSON Query </td><td colspan="1" rowspan="1"> Enter your Mongo JSON query. </td></tr><tr><td colspan="1" rowspan="1"> Where clause JSON </td><td colspan="1" rowspan="1"> Enter your Where clause JSON. </td></tr><tr><td colspan="1" rowspan="1"> Select clause JSON </td><td colspan="1" rowspan="1"> Enter your Select clause JSON. </td></tr><tr><td colspan="1" rowspan="1"> Group clause JSON </td><td colspan="1" rowspan="1"> Enter your Group clause JSON. </td></tr><tr><td colspan="1" rowspan="1"> Sort clause JSON </td><td colspan="1" rowspan="1"> Enter your Sort clause JSON. </td></tr><tr><td colspan="1" rowspan="1"> Flatten Sublists </td><td colspan="1" rowspan="1"> Select this check box if you want the columns that contains the lists to be flattened. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

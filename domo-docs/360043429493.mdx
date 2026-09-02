@@ -1,0 +1,34 @@
+---
+title: "Progress Bar Gauge"
+excerpt: "Build a Progress Bar Gauge in Domo to show the current value as a percentage of a maximum target using a thermometer-style fill."
+---
+
+## Intro
+
+Gauges are simple charts that indicate progress towards meeting a target. A Progress Bar gauge is similar to a thermometer that "fills in" to show how close the current value is to the goal. This gauge type does not include ranges. A Progress Bar gauge is similar to a [Filled gauge](/s/article/360042924554 "Filled Gauge"), which also "fills in" to show the proximity of the current value to the target. However, a Progress Bar gauge shows the value as a percentage, whereas a Filled gauge shows the actual value.
+
+Learn more about [other gauges](/s/article/360042924334) in Domo.
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000EBJl-00N5w00000Ri7BU-0EMVq000007rzyz.jpg"/></Frame>
+
+---
+
+## Power a Progress Bar Gauge
+
+A Progress Bar gauge requires three columns or rows of data from your DataSet—one contains the current value of the gauge, one contains the maximum value, and the other contains the label that appears above the gauge. If multiple rows are present, only the data from the first row is used; all the others are ignored. If the first category contains more than one series, the series are aggregated to yield a single value for the gauge. Be aware that this aggregates the values for the maximum value column as well. For example, if your spreadsheet included two rows for "Team A" that both had a maximum value of 100, these would be aggregated in your chart to yield a new maximum value of 200. Selecting **No Aggregation** for either the current value or maximum does *not* currently work.
+
+For information about value, category, and series data, see [Understanding Chart Data](/s/article/360043428693 "Understanding Chart Data").
+
+The following graphic shows you how the data from the category and value columns in a typical column-based spreadsheet is converted into a Progress Bar gauge:
+
+<Frame><img alt="progress_bar_spreadsheet_example_new.png" src="/images/kb/ka0Vq000000EBJl-00N5w00000Ri7BU-0EM5w000005vP4f.png"/></Frame>
+## Unique Properties — Progress Bar Gauge
+
+You can customize the appearance of a Progress Bar gauge by editing its chart properties. This table describes the properties unique to Progress Bar gauges. For information about other available properties, see [Properties for Gauges](/s/article/360042925354 "Chart Properties").
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Property </p></th><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Example </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><b> General </b> &gt; <b> Hide Label </b></p></td><td colspan="1" rowspan="1"><p> When set, the items will be laid out in a single column. </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p><b> General </b> &gt; <b> Label </b></p></td><td colspan="1" rowspan="1"><p> The text displayed above the progress bar. The default is %_SERIES_NAME. </p><div class="mdx-embed"><Note><p><b> Note: </b> In order for this label to appear on the chart, a column must be entered into the "series" pill inside of Analyzer. </p></Note></div></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p><b> General </b> &gt; <b> Show Indicator </b></p></td><td colspan="1" rowspan="1"><p> When the <b> General </b> &gt; <b> Allow over 100% </b> property is enabled, this setting displays an indicator to show the position of 100% on the gauge. </p><p> Learn about <b> General </b> &gt; <b> Allow over 100% </b> and other <a target="_self"> shared properties for gauges </a>. </p></td><td colspan="1" rowspan="1"><p><img alt="Show_100.png" src="/images/kb/ka0Vq000000EBJl-00N5w00000Ri7BU-0EM5w000005vP4e.png" style={{width: 234, height: 54}}/></p></td></tr></tbody></table>
+
+<Tip>
+  **Tip:** Learn more about [chart properties](/s/article/360042925334).
+
+</Tip>

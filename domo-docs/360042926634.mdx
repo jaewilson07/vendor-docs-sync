@@ -1,0 +1,73 @@
+---
+title: "Criteo Connector"
+excerpt: "Connect to Criteo in Domo with a Client ID and Client Secret to pull personalized retargeting and advertising data into a DataSet."
+---
+
+## Intro
+
+Criteo is a personalized retargeting company that works with Internet retailers to serve personalized online display advertisements to consumers who have previously visited the advertiser's website.
+
+To learn more about the Criteo API, visit their [API documentation](https://developers.criteo.com/retail-media/docs "API documentation").
+
+You connect to your Criteo account in the Data Center. This topic discusses the fields and menus that are specific to the Criteo connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Criteo account and create a DataSet, you must have the Client ID and Client Secret associated with your Criteo account.
+
+## Connecting to Your Criteo Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Criteo Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Criteo account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter your Criteo account client ID. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter your Criteo account client secret. </td></tr></tbody></table>
+
+Once you have entered valid Criteo credentials, you can use the same account any time you go to create a new Criteo DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Report** menu, along with various other menus for configuring your report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Criteo report you want to run. Currently, only one report is available. </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Ad Sets </td><td colspan="1" rowspan="1"> Retrieves the list of ad sets. </td></tr><tr><td colspan="1" rowspan="1"> Audiences </td><td colspan="1" rowspan="1"> Retrieves the list of audiences. </td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"> Retrieves the list of campaigns. </td></tr><tr><td colspan="1" rowspan="1"> Campaigns V2 </td><td colspan="1" rowspan="1"> Retrieves a list of the latest campaigns. </td></tr><tr><td colspan="1" rowspan="1"> Statistics </td><td colspan="1" rowspan="1"> Generates statistics report. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Advertisers selection </td><td colspan="1" rowspan="1"> Specify whether you want to select all advertisers or specific advertisers. </td></tr><tr><td colspan="1" rowspan="1"> Advertiser ID </td><td colspan="1" rowspan="1"> Select the advertisers. </td></tr><tr><td colspan="1" rowspan="1"> Campaign Status </td><td colspan="1" rowspan="1"> Select whether to retrieve data for all campaigns or only active campaigns. </td></tr><tr><td colspan="1" rowspan="1"> Bid Type </td><td colspan="1" rowspan="1"> Select the bid type you want to retrieve data with. </td></tr><tr><td colspan="1" rowspan="1"> Dimensions </td><td colspan="1" rowspan="1"> Select the dimensions to retrieve. </td></tr><tr><td colspan="1" rowspan="1"> Metrics </td><td colspan="1" rowspan="1"> Select the metrics to retrieve. </td></tr><tr><td colspan="1" rowspan="1"> Currency </td><td colspan="1" rowspan="1"> Select the currency to use for the report. </td></tr><tr><td colspan="1" rowspan="1"><p> Date selection </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is specific or relative. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is specific or relative. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data from 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data from 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What endpoint is the base URL for this connector?">
+
+The base URL for the Criteo connector is https://api.criteo.com/2024-01.
+
+</Accordion>
+
+<Accordion title="Which endpoint does each report call in this connector?">
+
+<table border="1" data-aura-rendered-by="33:201;a"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Ad Sets </td><td colspan="1" rowspan="1"> /marketing-solutions/ad-sets/search </td></tr><tr><td colspan="1" rowspan="1"> Audiences </td><td colspan="1" rowspan="1"> /marketing-solutions/audiences/search </td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"> /campaigns </td></tr><tr><td colspan="1" rowspan="1"> Campaigns V2 </td><td colspan="1" rowspan="1"> /marketing-solutions/campaigns/search </td></tr><tr><td colspan="1" rowspan="1"> Statistics </td><td colspan="1" rowspan="1"> /statistics/report </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the client ID and client secret associated with your Criteo account.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+

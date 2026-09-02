@@ -1,0 +1,160 @@
+---
+title: "Weather Source Connector"
+excerpt: "Use Domo's Weather Source Connector to import hyper-local forecast, historical weather, climatology, and astronomy data into a DataSet."
+---
+
+## Intro
+
+Weather Source offers a comprehensive product suite of hyper-local global weather data for business intelligence and analytics, covering past, present, and forecast conditions. By using the Domo Weather Source Connector, you can easily access collated and actionable data for any location on any landmass in the world and up to 200 miles offshore.
+
+With the Weather Source Domo Connector, you can access both hourly and daily forecasts, historical weather data, climatology, and astronomy data. Historical data ranges from 2000 to the present, while forecast data provides a forward view of up to 384 hours or up to 15 days.
+
+In addition, you can also access climatology data that provides means, standard deviations, and other statistics that collectively describe the typical or normal weather for a location and time of the year. Climatology data can be used to quantify what to expect for weather at locations of interest and specific times of the year. It can also be used to understand how recent conditions or forecasted conditions may be departing from normal (i.e., weather anomalies) and statistically how rare or unusual the weather anomalies are.
+
+Unlike many providers that rely solely on data from a single weather sensing input (i.e., airport reporting stations) and then extend this data to their locations of interest using simple interpolation methods, Weather Source approaches weather in a markedly different way. First, we start with a high-resolution grid covering every landmass in the world and up to 200 miles offshore, and at each one of our millions of global grid points (i.e., OnPoint ID), we ingest all the best weather sensing technologies, including satellite, radar, IoT and airport observation stations and unify all of these inputs into a homogenized and statistically consistent “single source of truth.” From these grid points, we then map to any location of interest including precise lat/lon or geographically bounded areas such as ZIP or Postal Code, DMA, census block or tract, etc.
+
+Customers utilize Weather Source data to quantify the impact of weather and climate on their business key performance indicators (KPIs). This generates valuable intelligence and insights related to crucial factors such as footfall traffic, product sales and forecasts, energy demand and consumption, marketing and advertising, logistics and supply chain, risk mitigation, and more.
+
+The Weather Source Domo Connector provides data that supports 21 weather parameters, including but not limited to temperature, humidity, precipitation, snowfall, wind, pressure, freezing rain, cloud cover, and more. Climatology data includes all of the same supported weather parameters but also includes standard deviations and frequency of occurrence data. Astronomy data includes sun and moon azimuth, distance, elevation, and more. To learn more about Weather Source and our products and services, visit our website at [www.weathersource.com](http://www.weathersource.com/ "www.weathersource.com"). To learn more about the Weather Source API, visit our page ([https://developer.Weather Source.com/documentation/](https://developer.weathersource.com/documentation/ "https://developer.Weather Source.com/documentation/")).
+
+Below is a summary of available products in the Weather Source API via the Domo Connector: 
+
+**OnPoint Forecast**
+
+The standard OnPoint Forecast data is based on the National Centers for Environmental Prediction (NCEP) Global Forecast System (GFS).
+
+The OnPoint Forecast utilizes the GFS model and is processed by Weather Source and then staged on our OnPoint Grid for statistical consistency with our other datasets. The GFS-based OnPoint Forecast currently provides a forecast of 384 hours or up to 15 days in a daily format. This data is fully refreshed every six hours.
+
+**OnPoint Historical Data**
+
+OnPoint Weather's historical data provides hourly and daily weather values spanning from the year 2000 to the present. This database is a stable source of historical information. Weather Source uses a variety of state-of-the-art data sources to produce a blended and accurate history product.
+
+**Climatology** 
+
+Climatology provides the mean, standard deviation, and other statistics that collectively describe the typical or normal weather for a location and time of the year. OnPoint Climatology can be used to quantify what to expect for weather at locations of interest and specific times of the year. It can also be used to understand how recent conditions or forecasted conditions may be departing from normal (i.e., weather anomalies) and statistically how rare or unusual the weather anomalies are.
+
+Climatology also includes frequency of occurrence insights that reveal how often certain conditions occur at your location of interest. This information is extremely useful for business and resource planning and can also be used as a long-range forecasting tool.
+
+**Astronomy** 
+
+Weather Source's Astronomy dataset includes daily and hourly astronomical data including sunrise, sunset, and azimuth of the sun information.
+
+**Additional Products available via Weather Source's API (soon to be available via the Domo Connector):**
+
+**ECMWF**  
+
+Weather Source offers the best-in-class European Centre for Medium-Range Weather Forecasts (ECMWF) data. ECMWF data is regarded as the most reliable model currently in existence and is frequently referred to as the “euro” model.
+
+    * **ECMWF Forecast**
+      
+        We offer European Centre for Medium-Range Weather Forecasts (ECMWF) data. This includes the ECMWF forecast of up to 240 hours in hourly format and up to a 15-day forecast in daily format. In addition, we also have a sub-seasonal forecast that is delivered in daily views going out up to 46 days. Additionally, the ECMWF Seasonal Forecast provides a monthly view forecast for the next seven months.
+    * **ECMWF Vertically Adjusted Forecast**
+
+        This is the same ECMWF forecast but with the addition of Dynamic Elevation Adjustment.
+
+        The concept of elevation adjustment is unique to Weather Source. Weather Source's Dynamic Elevation Adjustment applies true meteorological modeling to accurately adjust for terrain variations. With the addition of Dynamic Elevation Adjustment Weather Source is now able to dynamically resolve differences in elevation between the elevation of a location of interest and the elevation of the interpolating weather inputs. DEA is available in the HRRR and ECMWF deterministic models for hourly data only.
+
+    * **ECMWF Air Quality Forecast**
+
+        The Air Quality Forecast is provided in both daily and hourly formats. The hourly forecast is up to five days out from the current day and the daily forecast goes out up to four days out from the current day.
+
+**HRRR Forecast**
+
+    * **HRRR Forecast**
+
+    With a native spatial resolution of 3km and a temporal resolution of 15 minutes, the HRRR Forecast weather model is the flagship mesoscale forecast model in the continental United States. The HRRR Forecast includes an 18-hour forward forecast view that is refreshed hourly.
+
+    * **HRRR Vertical Forecast**
+
+    This is the same HRRR forecast but with Dynamic Elevation Adjustment. The concept of Dynamic Elevation Adjustment is unique to Weather Source and resolves differences between the forecast model elevation and the actual elevation of the earth. Elevation-adjusted data ensures that your interpolating inputs and the elevation of your location of interest are always at the same elevation which provides for much more accurate data for locations of interest such as wind towers that are built at the top of ridge lines.
+
+**UV**
+
+UV data is provided in daily and hourly format going out up to five days from the current day. Historical UV data is also available.
+
+**Pollen Forecast**
+
+The pollen forecast data is available in an hourly format and offers both present conditions and a forward forecast view of up to 48 hours.
+
+**Nowcast**
+
+Nowcast weather data refers to current weather conditions at any point in time for any location.
+
+**App Weather**
+
+App/Webpage optimized weather data is ideal for any weather display on websites or interactive displays. One call to the API returns current conditions (Nowcast) and up to a 10-day forecast in an hourly and daily format, astronomical data, icons, and textual descriptions. App Weather supports both metric, imperial, and SI units as well as English, Spanish, or French translation layers.
+
+**Lightning**
+
+The global lightning archive is updated in real-time. Lightning data provides the most accurate and reliable global lightning data available. All matching lightning events within 12 km (7 miles) of a provided location (and within the provided time range) are returned. Historical lightning data is also available.
+
+**Location Metadata**
+
+Location data consists of geospatial metadata for any global location or OnPoint ID, including lat/lon, elevation, and the distance of any OnPoint ID (i.e., grid point) to a business location of interest.
+
+You connect to your Weather Source account in the Data Center. This topic discusses the fields and menus that are specific to the Weather Source connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:196;a"><tbody><tr><td class="mt-noheading" rowspan="1" colspan="1">
+<p><strong>Primary Use Cases</strong></p>
+</td><td class="mt-noheading" rowspan="1" colspan="1">
+<p>This connector is useful for obtaining industry-leading past, present, and forecast hyper-local global weather data as well as climatology and astronomy for any point in the world or geographically bounded areas such as ZIP or Postal Codes, lat/lon, DMA, or OnPoint ID.</p>
+</td></tr><tr><td class="mt-noheading" rowspan="1" colspan="1">
+<p><strong>Primary Metrics</strong></p>
+</td><td class="mt-noheading" rowspan="1" colspan="1">
+<p>N/A</p>
+</td></tr><tr><td class="mt-noheading" rowspan="1" colspan="1">
+<p><strong>Primary Company Roles</strong></p>
+</td><td class="mt-noheading" rowspan="1" colspan="1">
+<ul><li>Any employee or business unit within an organization that is looking to correlate weather data with business performance for meaningful business intelligence.</li><li><span class="mt-color-333333"><span class="mt-font-Open Sans,sans-serif"><span class="mt-font-size-10.5pt">Any employee or business unit within an organization that requires weather data that is properly collocated to a specific business location or geographically bounded area such as a ZIP or Postal Code, lat/lon, DMA, or OnPoint ID.</span></span></span></li></ul>
+</td></tr><tr><td class="mt-noheading" rowspan="1" colspan="1">
+<p><strong>Average Implementation Time</strong></p>
+</td><td class="mt-noheading" rowspan="1" colspan="1">
+<p>~10 minutes</p>
+</td></tr><tr><td class="mt-noheading" rowspan="1" colspan="1">
+<p><strong>Ease of Use (on a 1-to-10 scale with 1 being easiest)</strong></p>
+</td><td class="mt-noheading" rowspan="1" colspan="1">
+<p>2</p>
+</td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to your Weather Source account and create a DataSet, you must have a Weather Source API key. An API key is generated for you when you sign up for a Weather Source account. [Get started here.](https://www.domo.com/start/free "Get started here.")
+
+## Connecting to Your Weather Source Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Weather Source Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+Instructions for usage:
+
+1.  Add the Weather Source API key to the Domo Connector.
+2.  Choose the dataset you would like to work with.
+3.  Select the granularity.
+4.  Receive your data in a worksheet.
+
+List of postal codes in our database:  
+
+[https://developer.weathersourceapis.com/apis/countries-with-postal-code-support/](https://developer.weathersourceapis.com/apis/countries-with-postal-code-support/ "https://developer.weathersourceapis.com/apis/countries-with-postal-code-support/")   
+  
+List of DMAs in our database  
+
+[https://developer.weathersourceapis.com/apis/supported-dmas/](https://developer.weathersourceapis.com/apis/supported-dmas/ "https://developer.weathersourceapis.com/apis/supported-dmas/") 
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Weather Source account. The following table describes what is needed for each field:  
+
+| Field | Description |
+| --- | --- |
+| API Key | Enter your Weather Source API key. You receive an API key when you sign up for a Weather Source account. |
+
+Once you have entered valid Weather Source credentials, you can use the same account any time you go to create a new Weather Source DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table cellpadding="1" cellspacing="1" border="1" data-aura-rendered-by="33:196;a"><thead><tr><th rowspan="1" colspan="1"><p>Menu</p></th><th rowspan="1" colspan="1"><p>Description</p></th></tr></thead><tbody><tr><td rowspan="1" colspan="1"><p>Report</p></td><td rowspan="1" colspan="1"><p>Select the Weather Source report you want to run.&nbsp;The following reports are available:</p><table cellpadding="1" cellspacing="1" border="1"><tbody><tr><td rowspan="1" colspan="1"><strong>Report Name</strong></td><td rowspan="1" colspan="1"><strong>Description</strong></td></tr><tr ><td rowspan="1" colspan="1">Accounts</td><td rowspan="1" colspan="1">Returns the authenticated user's account settings.</td></tr><tr><td  rowspan="1" colspan="1">Astronomy by DMA</td><td rowspan="1" colspan="1"><p>Returns the astronomy (such as sunrise and sunset&nbsp;times) for a specific DMA and time period.</p></td></tr><tr ><td rowspan="1" colspan="1">Astronomy by Latitude &amp; Longitude</td><td rowspan="1" colspan="1">Returns the astronomy (such as sunrise and sunset times) for a specified latitude and longitude and time period.</td></tr><tr><td rowspan="1" colspan="1">Astronomy by OnPoint ID</td><td rowspan="1" colspan="1">Returns the astronomy (such as sunrise and sunset&nbsp;times) for a specific OnPoint ID and time period.</td></tr><tr><td rowspan="1" colspan="1">Astronomy by Postal Code</td><td rowspan="1" colspan="1">Returns the astronomy (such as sunrise and sunset times) for a specified postal code and time period.</td></tr><tr><td rowspan="1" colspan="1">Climatology by DMA</td><td rowspan="1" colspan="1"><p>Returns Climatology data for a specific DMA and&nbsp;time period.</p></td></tr><tr><td rowspan="1" colspan="1">Climatology by Latitude &amp; Longitude</td><td rowspan="1" colspan="1"><p>Returns Climatology data for a specific latitude and&nbsp;longitude and time period.</p></td></tr><tr><td rowspan="1" colspan="1">Climatology by OnPoint ID</td><td rowspan="1" colspan="1"><p>Returns Climatology data for a specific OnPoint ID&nbsp;and time period.</p></td></tr><tr><td rowspan="1" colspan="1">Climatology by Postal Code</td><td rowspan="1" colspan="1"><p>Returns Climatology data for a specific Postal Code&nbsp;and time period.</p></td></tr><tr><td rowspan="1" colspan="1">Forecast by DMA</td><td rowspan="1" colspan="1">Returns forecast data for a specified DMA.</td></tr><tr><td rowspan="1" colspan="1">Forecast by Latitude &amp; Longitude</td><td rowspan="1" colspan="1">Returns forecast data for a specified latitude and longitude.</td></tr><tr><td rowspan="1" colspan="1">Forecast by OnPoint ID</td><td rowspan="1" colspan="1">Returns forecast data for a specified OnPoint ID.</td></tr><tr><td rowspan="1" colspan="1">Forecast by Postal Code</td><td rowspan="1" colspan="1">Returns forecast data for a specified postal code.</td></tr><tr><td rowspan="1" colspan="1">History by DMA</td><td rowspan="1" colspan="1">Returns the weather history for a specified DMA.&nbsp;Available for 2013 onward.</td></tr><tr><td rowspan="1" colspan="1">History by Latitude &amp; Longitude</td><td rowspan="1" colspan="1">Returns the weather history for a specified latitude and longitude and time period. Available for 2013 onward.</td></tr><tr><td rowspan="1" colspan="1">History by OnPoint ID</td><td rowspan="1" colspan="1"><p>Returns the weather history for a specific OnPoint&nbsp;ID and time period. Available for 2013 onward.</p></td></tr><tr><td rowspan="1" colspan="1">History by Postal Code</td><td rowspan="1" colspan="1">Returns the weather history for a specified postal code and time period. Available for 2013 onward.</td></tr></tbody></table></td></tr><tr><td rowspan="1" colspan="1">Enter Latitude Location</td><td rowspan="1" colspan="1">Enter the latitude for the location you want to see data for. This should be a decimal latitude value between 0 and 90. For example, <span class="mt-font-courier-new">32.7153</span></td></tr><tr><td rowspan="1" colspan="1">Enter Longitude Location</td><td rowspan="1" colspan="1">Enter the longitude for the location you want to see data for. This should be a decimal longitude value between -180 (West) and 180 (East). For example: <span class="mt-font-courier-new">-117.5134</span></td></tr><tr><td rowspan="1" colspan="1">Period to Use</td><td rowspan="1" colspan="1">Specify whether you want data in your report to be broken down by hour or day.</td></tr><tr><td rowspan="1" colspan="1">Start Date</td><td rowspan="1" colspan="1">Select the start date for the data you want to see in your report.</td></tr><tr><td rowspan="1" colspan="1">End Date</td><td rowspan="1" colspan="1">Select the end date for the data you want to see in your report.</td></tr><tr><td rowspan="1" colspan="1">Select Country</td><td rowspan="1" colspan="1">Select the country you want to return data for.</td></tr><tr><td rowspan="1" colspan="1">Enter Zip Code</td><td rowspan="1" colspan="1">Enter a comma-delimited list of the ZIP codes you would like to use. Partial US ZIP codes are allowed, which will be expanded to include all US ZIP codes beginning with that partial ZIP code.</td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

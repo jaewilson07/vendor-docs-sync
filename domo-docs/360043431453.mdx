@@ -1,0 +1,86 @@
+---
+title: "Listrak Connector"
+excerpt: "Connect Domo to Listrak using a client ID and secret to pull retail digital marketing contact, conversation, and message data into a DataSet."
+---
+
+## Intro
+
+Listrak exists to help retailers achieve digital marketing success by delivering relevant, personalized content to shoppers and customers based on their unique behaviors and shopping preferences. Use Domo's Listrak connector to view your contacts, conversations, and messages data within Domo.
+
+General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Listrak account and create a DataSet, you must have the following:
+
+* Client ID
+* Client Secret
+
+## Connecting to Your Listrak Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Listrak Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your (third-party tool) account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter your Listrak Client ID </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter your Listrak Client Secret </td></tr></tbody></table>
+
+Once you have entered valid Listrak credentials, you can use the same account any time you go to create a new Listrak DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Listrak report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> Returns the collection of contacts associated with the specified list. </td></tr><tr><td colspan="1" rowspan="1"> Conversations </td><td colspan="1" rowspan="1"> Returns the collection of conversations associated with the specified list. </td></tr><tr><td colspan="1" rowspan="1"> Conversation Messages </td><td colspan="1" rowspan="1"> Returns the collection of messages for the specified conversation. </td></tr><tr><td colspan="1" rowspan="1"> Conversation Message Activity </td><td colspan="1" rowspan="1"> Returns the collection of activity associated with the specified conversation message. </td></tr><tr><td colspan="1" rowspan="1"> Conversation Message Links </td><td colspan="1" rowspan="1"> Returns the collection of links for the specified conversation message. </td></tr><tr><td colspan="1" rowspan="1"> Conversation Message Link Clickers </td><td colspan="1" rowspan="1"> Returns the collection of contacts that clicked the specified conversation message link. </td></tr><tr><td colspan="1" rowspan="1"> Conversation Summary </td><td colspan="1" rowspan="1"> Returns a summary of the specified conversation. </td></tr><tr><td colspan="1" rowspan="1"> Messages </td><td colspan="1" rowspan="1"> Returns a collection of messages for the specified list. </td></tr><tr><td colspan="1" rowspan="1"> Message Activity </td><td colspan="1" rowspan="1"> Returns the collection of activity associated with the specified message. </td></tr><tr><td colspan="1" rowspan="1"> Message Links </td><td colspan="1" rowspan="1"> Returns the collection of links for the specified message. </td></tr><tr><td colspan="1" rowspan="1"> Message Link Clickers </td><td colspan="1" rowspan="1"> Returns the collection of contacts that clicked the specified message link. </td></tr><tr><td colspan="1" rowspan="1"> Message Summary </td><td colspan="1" rowspan="1"> Returns a summary of the specified message. </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"> List Id </td><td colspan="1" rowspan="1"> Select the List </td></tr><tr><td colspan="1" rowspan="1"> Conversation Id </td><td colspan="1" rowspan="1"> Select the conversation </td></tr><tr><td colspan="1" rowspan="1"> Conversation Message Id </td><td colspan="1" rowspan="1"> Select the conversation message </td></tr><tr><td colspan="1" rowspan="1"> Conversation Message Link Id </td><td colspan="1" rowspan="1"> Select the conversation message link </td></tr><tr><td colspan="1" rowspan="1"> Message Id </td><td colspan="1" rowspan="1"> Select the message </td></tr><tr><td colspan="1" rowspan="1"> Message Link Id </td><td colspan="1" rowspan="1"> Select the message link </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What version of the Listrak API does this connector use?">
+
+This connector uses version 1 of the Listrak API ([https://www.listrak.com/learn/developers](https://www.listrak.com/learn/developers "https://api.listrak.com/email/v1") ).
+
+</Accordion>
+
+<Accordion title="What endpoint(s) does each report call in this connector?">
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> Report Name </th><th colspan="1" rowspan="1"> Endpint URL(s) </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> /List/{listId}/Contact </td></tr><tr><td colspan="1" rowspan="1"> Conversations </td><td colspan="1" rowspan="1"> /List/{listId}/Conversations </td></tr><tr><td colspan="1" rowspan="1"> Conversation Messages </td><td colspan="1" rowspan="1"> /List/{listId}/Conversation/{conversationId}/Message </td></tr><tr><td colspan="1" rowspan="1"> Conversation Message Activity </td><td colspan="1" rowspan="1"> /List/{listId}/Conversation/{conversationId}/Message/{conversationMessageId}/Activity </td></tr><tr><td colspan="1" rowspan="1"> Conversation Message Links </td><td colspan="1" rowspan="1"> /List/{listId}/Conversation/{conversationId}/Message/{conversationMessageId}/Link </td></tr><tr><td colspan="1" rowspan="1"> Conversation Message Link Clickers </td><td colspan="1" rowspan="1"> /List/{listId}/Conversation/{conversationId}/Message/{conversationMessageId}/Link/{conversationMessageLinkId}/Clicker </td></tr><tr><td colspan="1" rowspan="1"> Conversation Summary </td><td colspan="1" rowspan="1"> /List/{listId}/Conversation/{conversationId}/Summary </td></tr><tr><td colspan="1" rowspan="1"> Messages </td><td colspan="1" rowspan="1"> /List/{listId}/Messages </td></tr><tr><td colspan="1" rowspan="1"> Message Activity </td><td colspan="1" rowspan="1"> /List/{listId}/Messages/{messageId}/Activity </td></tr><tr><td colspan="1" rowspan="1"> Message Links </td><td colspan="1" rowspan="1"> /List/{listId}/Messages/{messageId}/Link </td></tr><tr><td colspan="1" rowspan="1"> Message Link Clickers </td><td colspan="1" rowspan="1"> /List/{listId}/Messages/{messageId}/Link/{messageLinkId}/Clicker </td></tr><tr><td colspan="1" rowspan="1"> Message Summary </td><td colspan="1" rowspan="1"> /List/{listId}/Message/{messageId}/Summary </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the client id and client secret associated with your Listrak account.
+
+</Accordion>
+
+<Accordion title="Do I need a certain kind of account with the data service to set up the connector?">
+
+You need to enable the OAuth2 scopes for Contact, List, Message, and Report for authentication. For more information, visit [Listrak Authentication](https://api.listrak.com/email#section/Authentication "https://api.listrak.com/email#section/Authentication").
+
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No.
+
+</Accordion>
+
+<Accordion title="Why is my authentication failing? Do I need to whitelist any IP addresses in my Listrak account?">
+
+Before you can connect to your Listrak account, you must also whitelist a number of IP addresses in your Listrak account. For the full list of IP addresses, see [Whitelisting IP Addresses](/s/article/360043439173 "Whitelisting IP Addresses in Domo").
+
+</Accordion>
+</AccordionGroup>
+

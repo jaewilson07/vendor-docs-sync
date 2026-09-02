@@ -1,0 +1,126 @@
+---
+title: "Salesforce Connector"
+excerpt: "Configure the Salesforce Connector and install the Domo Connector Package to import Salesforce account, object, and report data into Domo."
+---
+
+## Intro
+
+Salesforce is a cloud-based SMTP provider that allows users to send email without having to maintain email servers. Use Domo's Salesforce connector to retrieve data about your Salesforce account, such as statistics, bounces, spam reports, unsubscribes, and other information. To learn more about the Salesforce API, visit their page ([https://developer.salesforce.com/docs/apis](https://developer.salesforce.com/docs/apis "https://developer.salesforce.com/docs/apis") ).
+
+You connect to your Salesforce account in the Data Center. This topic discusses the fields and menus that are specific to the Salesforce connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Salesforce account and create a DataSet, you must select the Salesforce Environment and you also need the username and password associated with your Salesforce account.
+
+### Installing the Domo Connector Package
+
+The "Domo Connector Package" found in Salesforce AppExchange allows Salesforce users to import their data into Domo. Follow these instructions to download and install the Connector Package from the AppExchange.
+
+**To install Domo's Salesforce Managed Package,**
+
+1. Log into Salesforce.
+2. Navigate to the Salesforce AppExchange at [https://appexchange.salesforce.com](https://appexchange.salesforce.com "https://appexchange.salesforce.com") and search for "Domo Connector Package," then click on it.
+     
+   <Frame><img alt="sfmp_1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyZ.png"/></Frame>
+
+3. Customers can go directly to the package with the following link:
+     
+   [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN "Follow link")
+4. If you are installing into a sandbox organization you must replace the initial portion of the URL with
+   [http://test.salesforce.com](http://test.salesforce.com/ "Follow link")
+   
+   Alternatively, you can go directly to [https://appexchange.salesforce.com/a...A00000EcrsyUAB](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB").
+5. Click
+   **Get It Now**.
+     
+   <Frame><img alt="sfmp_2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyV.png"/></Frame>
+
+6. Choose whether you want to install in a production environment or sandbox.
+     
+   <Frame><img alt="sfmp_3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyK.png"/></Frame>
+
+7. Check the box reading "I have read and agree to the terms and conditions."
+8. Click
+   **Confirm and Install**.
+     
+   <Frame><img alt="sfmp_4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyW.png"/></Frame>
+
+9. Click the
+   **Install for All Users** tile.
+     
+   <Frame><img alt="sfmp_5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyP.png"/></Frame>
+
+For more details, see Salesforce's documentation at [https://help.salesforce.com/articleV...ges.htm&type=5](https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5 "https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5").
+
+### Verifying your Installation
+
+Use Domo's Salesforce Managed Package Validator to verify that your Salesforce Managed Package has been installed correctly.
+
+**To verify your installation,**
+
+1. In the Connectors page in either the Data Center or Appstore in Domo, search for "Salesforce Managed Package" and double-click on the icon.
+2. Customers can go directly to the package with the following link:
+     
+   [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN "Follow link")
+3. If you are installing into a sandbox organization you must replace the initial portion of the URL with
+   [http://test.salesforce.com](http://test.salesforce.com/ "Follow link")
+     
+   <Frame><img alt="sfmp_v1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyJ.png"/></Frame>
+
+4. Click
+   **Get the Data**.
+     
+   <Frame><img alt="sfmp_v2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyQ.png"/></Frame>
+
+5. Under
+   **Credentials**, select your Salesforce account name, then click **Next**.
+     
+   <Frame><img alt="sfmp_v3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyT.png"/></Frame>
+
+6. Under
+   **Details**, click **Next**.
+     
+   <Frame><img alt="sfmp_v4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyL.png"/></Frame>
+
+7. In the
+   **Update** menu, select **Manually**, then click **Next**.
+     
+   <Frame><img alt="sfmp_v5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyN.png"/></Frame>
+
+8. Give your DataSet a name, then click
+   **Save**.
+     
+   <Frame><img alt="sfmp_v6.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyb.png"/></Frame>
+
+The DataSet now runs. If everything has been set up correctly, the run will be successful, and a message will appear reading, "Validation Success: You have set up your Salesforce Managed Package correctly."
+
+<Frame><img alt="sfmp_v7.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyM.png"/></Frame>
+
+If everything has *not* been set up correctly, the DataSet fails, and a message appears reading, "You have not installed Salesforce's Domo Connector Package," with a help link to this article.
+
+<Frame><img alt="sfmp_v8.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyO.png"/></Frame>
+
+## Connecting to Your Salesforce Account
+
+This section enumerates the options in the **Credentials** and **Data Selection** panes in the Salesforce Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+The Domo Salesforce connector uses OAuth to connect, so you don't have to enter credentials within Domo. Choose an environment in the Salesforce Environment menu and then click Connect to open the Salesforce login screen. Here you can enter your Salesforce username and password. Once you have entered valid Salesforce credentials, you can use the same account any time to create a new Salesforce DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Manage Connector Accounts")
+
+Once you have entered valid Salesforce credentials, you can use the same account any time to create a new Salesforce DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Manage Connector Accounts").
+
+<Note>
+**Note:** In Salesforce, IP allowlisting (whitelisting) must be configured for each user profile that will be used with Domo, not only at the org-level Network Access settings. Failing to allowlist the Domo IPs for the relevant profile(s) can cause the connector to return the error "There was a problem creating your account. Please try again later." For the list of Domo IPs to allowlist, see [Allow Domo IP Addresses for Network Connections](/s/article/360043630093). For instructions on configuring profile-level IP ranges, see Salesforce's documentation on **Restrict Login IP Ranges in the Enhanced Profile User Interface**.
+</Note>
+
+## Data Selection Pane
+
+This pane contains a primary **How Do You Want to Select Your Salesforce Data** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Salesforce Object </td><td colspan="1" rowspan="1"> A list of tables (objects). </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").

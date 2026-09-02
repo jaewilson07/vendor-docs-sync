@@ -1,0 +1,55 @@
+---
+title: "Google Sheets OAuth Writeback WIF Connector"
+excerpt: "Configure Domo's Google Sheets OAuth Writeback WIF Connector to export DataSets to Google Sheets using Workload Identity Federation."
+---
+
+## Intro
+
+Google Sheets enables you to create and edit spreadsheets online while collaborating with other users in real-time. With Domo's Google Sheet OAuth Writeback WIF connector, you can transfer your data from a Domo dataset to your Google Sheet.
+
+You can connect to your Google Sheets OAuth Writeback WIF account in the Data Center. This topic discusses the fields and menus that are specific to the Google Sheets OAuth Writeback WIF connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Google Sheets OAuth Writeback WIF account and create a DataSet, you need the following:
+
+**Workload Identity Federation** must be configured in the Google Cloud Console **before** an account can be created in Domo.
+
+* If you have an existing Workload Identity Federation, you need the following:
+  + If you select to enter the configuration values manually, then you need:
+    - Project Number
+    - Project ID
+    - Pool ID
+    - Provider ID
+    - Service Account Email
+    - Choose whether to use the user email address or a unique GUID ID representing the connector and your Domo instance
+  + If you prefer to enter the JSON Configuration from the Google Cloud Console, then you need the following:
+    - Enter the JSON configuration for the Workload Identity Federation
+    - Select how you want to limit access to your External Identities
+* If you select the **Go through prerequisites steps**, then enter the following:
+  + - Project Number
+    - Project ID
+    - Pool ID
+    - Provider ID
+    - Service Account Email
+    - Choose whether to use the user email address or a unique GUID ID representing the connector and your Domo instance
+
+## Connecting to Your Google Sheets OAuth Writeback WIF Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Google Sheets OAuth Writeback WIF Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Google Sheets OAuth Writeback WIF account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:196;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Project Number </td><td colspan="1" rowspan="1"> Enter the project number of the newly created .project. </td></tr><tr><td colspan="1" rowspan="1"> Project ID </td><td colspan="1" rowspan="1"> Enter the project ID of the newly created project. </td></tr><tr><td colspan="1" rowspan="1"> Pool ID </td><td colspan="1" rowspan="1"> Enter the chosen pool ID. </td></tr><tr><td colspan="1" rowspan="1"> Provider ID </td><td colspan="1" rowspan="1"> Enter the chosen provider ID. </td></tr><tr><td colspan="1" rowspan="1"> Service Account Email </td><td colspan="1" rowspan="1"> Enter the service account email address generated for the chosen service account ID. </td></tr></tbody></table>
+
+Once you have entered valid Google Sheets OAuth Writeback WIF credentials, you can use the same account at any time to create a new Google Sheets OAuth Writeback WIF DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:196;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Input DataSet Id </td><td colspan="1" rowspan="1"><p> Enter your Domo dataset ID(GUID) located in the dataset URL. </p><p> Example: <a href="https://customer.domo.com/datasources/" rel="noopener" target="_blank"> https://customer.domo.com/datasources/ </a><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee </b> /details/settings. </p></td></tr><tr><td colspan="1" rowspan="1"> Input Sheet Id </td><td colspan="1" rowspan="1"><p> Enter the Google Sheet ID shared with the Service Account. </p><p> Example: <a href="https://docs.google.com/spreadsheets/d/" rel="noopener" target="_blank"> https://docs.google.com/spreadsheets/d/ </a><b> 18zN0RQ8HIaEj2USwtAkCMX7AKBl-x-_vq24kPd4_Tsk </b> /edit#gid=0&lt;br&gt; </p><p><b> Note: </b> - All the data in this sheet will be replaced. </p></td></tr><tr><td colspan="1" rowspan="1"> Sheet Name </td><td colspan="1" rowspan="1"><p> Enter the sheet name. The default sheet name should be Sheet1. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

@@ -1,0 +1,69 @@
+---
+title: "Relocate and Rename Tables Using Cloud Integrations"
+excerpt: "Relocate or rename Cloud Integrations tables from the DataSet Details view using the Schema Picker to simplify governance for Domo administrators."
+---
+
+## Intro
+
+If you're using Cloud Integrations and relocating or renaming tables is supported for your integration, you can do so from the Details view of your DataSet using the Schema Picker. Moving or renaming the underlying table for a DataSet can make governance easier for Domo administrators.
+
+<Note>
+**Note:** Relocation/renaming is only available for DataSets written by Domo using a Cloud Integration enabled for writeback.
+</Note>
+
+Learn more about [Cloud Integrations](/s/article/4412849158167).
+
+## Required Grants
+
+Users must have the following grants to move or rename DataSets using the Schema Picker:
+
+* Manage Cloud Accounts
+* Manage DataSet (The user must also have edit access to the particular DataSet.)
+
+## Relocate/Rename a Table
+
+Follow these steps to relocate/rename a table:
+
+1. Go to **DataSets** in the Date Center (**Data** > **DataSets**).
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq0000009QCz-00N5w00000Ri7BU-0EMVq000005qaFp.jpg"/></Frame>
+
+2. Locate the DataSet and select it to view its Details. Go to the **Settings** tab.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq0000009QCz-00N5w00000Ri7BU-0EMVq000005qb8f.jpg"/></Frame>
+
+3. Select **Cloud storage location** to expand it.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq0000009QCz-00N5w00000Ri7BU-0EMVq000005qVT4.jpg"/></Frame>
+
+   There are three fields under **Cloud storage location** labeled **Database, Schema**, and **Table**. You can type in each box to choose a different item of that type.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq0000009QCz-00N5w00000Ri7BU-0EMVq000005qbyH.jpg"/></Frame>
+
+4. Relocate or rename a table by following the appropriate steps below:
+   * To relocate a table, change the **Database** and **Schema** and select **Submit**.
+   * To rename a table, change the **Table** name and select **Submit**.
+
+A message confirms that the relocation/renaming operation succeeded.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What if I don't see the Schema Picker (Cloud storage location) in my DataSet Details?">
+
+Make sure that your DataSet was written by Domo. The Schema Picker is only supported for Domo-written DataSets.
+</Accordion>
+<Accordion title="Are all cloud engines supported?">
+
+No. At this time, the Schema Picker is only supported for Snowflake.
+</Accordion>
+
+<Accordion title="Why am I not seeing my changes apply immediately?">
+An indexing operation could be in progress. if your DataSet is large and indexing is in progress, the relocating or renaming process may be queued and executed after the indexing operation ends.
+</Accordion>
+
+<Accordion title="Are Workbench, CLI/API/Programmatic and Jupyter Workspaces supported?">
+
+Yes. At the moment, they are not displayed in the UI. You can change the location of your DataSets by using the Schema Picker in the DataSet Details.
+</Accordion>
+</AccordionGroup>

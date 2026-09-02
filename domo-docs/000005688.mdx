@@ -1,0 +1,76 @@
+---
+title: "Kintone Enterprise OAuth Connector"
+excerpt: "Configure the Kintone Enterprise OAuth Connector to build reports on Kintone Apps and Kintone App Records in Domo."
+---
+
+## Intro
+
+Kintone is a no-code enterprise application platform for teams. Use Domo's Kintone Enterprise OAuth Configuration connector to create reports about Kintone Apps and Kintone App Records.
+
+Kintone provides the service of business applications. A business application is a fast and easy-to-use tool that a team uses to accomplish the tasks that run the company. From expense reports to time sheets to inventory management, business applications turn procedures and processes into simple steps.
+
+You can connect to your Kintone Enterprise OAuth account in the Data Center. This topic discusses the fields and menus that are specific to the Kintone Enterprise OAuth connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Kintone Enterprise OAuth account and create a DataSet, you need the following:
+
+* OAuth Configuration
+* Instance/ Domain Name
+
+### How to Create OAuth Configuration in the Domo instance
+
+To create an OAuth configuration:
+
+1. Log into the customer's Domo instance.
+2. Navigate to `https://{customerdomain}.domo.com/datacenter/accounts`.
+3. Add New OAuth Configuration.
+4. Select the **Kintone OAuth Config** Configuration Type from the drop-down list.
+5. Enter the client id and secret generated through an incoming link, described below.
+
+<Frame><img src="/images/kb/ka0Vq0000004gBx-00N5w00000Ri7BU-0EMVq000002lhYD.jpg"/></Frame>
+
+<Frame><img src="/images/kb/ka0Vq0000004gBx-00N5w00000Ri7BU-0EMVq000003o5pB.jpg"/></Frame>
+
+**Configuring an Incoming Link**
+
+To create an incoming link:
+
+1. Navigate to **Administration** **>** **Applications** **>** **Application links**.
+2. Select **Create link**.
+3. Select **External application**, and then select **Incoming** as the direction.
+4. Complete the details as described in the below sections.
+   
+   **Note:** For the **Redirect URL** field, enter this link [https://oauth.domo.com/api/data/v1/oauth/providers/kintone-oauth/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/kintone-oauth/exchange "https://oauth.domo.com/api/data/v1/oauth/providers/kintone-oauth/exchange"),and for the **Permission** field choose ADMIN from the drop-down list.
+
+<Frame><img src="/images/kb/ka0Vq0000004gBx-00N5w00000Ri7BU-0EMVq000003o5Z4.jpg" /></Frame>
+<Frame><img src="/images/kb/ka0Vq0000004gBx-00N5w00000Ri7BU-0EMVq000003o6Rt.jpg"/></Frame>
+
+**View OAuth credentials for an existing link**
+
+If you lose your OAuth credentials, you can use the application link you have created to access at any time.
+
+To view the OAuth credentials:
+
+1. Navigate to **Administration > Application links**.
+2. Find the application link you're interested, and select **More actions > View credentials**.
+
+## Connecting to Your Kintone Enterprise OAuth Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Kintone Enterprise OAuth Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Kintone Enterprise OAuth account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> OAuth Configuration </td><td colspan="1" rowspan="1"> OAuth Configurations have service credentials stored by your administrator that automatically log you in, so, only your personal OAuth login is required. Your administrator may create and edit configurations in the Data Center, in the Accounts tab. </td></tr><tr><td colspan="1" rowspan="1"> Instance/Domain Name </td><td colspan="1" rowspan="1"> Enter your Kintone domain name. </td></tr></tbody></table>
+
+Once you have entered valid Kintone Enterprise OAuth credentials, you can use the same account at any time to create a new Kintone Enterprise OAuth DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Kintone Enterprise OAuth report you want to run. The following reports are available: </p><p></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> All Apps </p></td><td colspan="1" rowspan="1"> Fetches the general information of multiple apps, including the name, description, related space, creator and updater information. </td></tr><tr><td colspan="1" rowspan="1"><p> All Records of 1 App </p></td><td colspan="1" rowspan="1"> Retrieves the details of all records of an App </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Guest Space Id </td><td colspan="1" rowspan="1"> A Guest Space Id is necessary if your application exists inside a Guest Space. </td></tr><tr><td colspan="1" rowspan="1"> App Id </td><td colspan="1" rowspan="1"> Enter the App ID of the Kintone App from which you want to create the reports. The App ID can be found by accessing the Kintone app, and viewing the URL. It's the number that follows the /k. </td></tr><tr><td colspan="1" rowspan="1"> Record Number </td><td colspan="1" rowspan="1"> Enter the Record Number, if you want to create a report based on one record of the app. </td></tr><tr><td colspan="1" rowspan="1"> Select File </td><td colspan="1" rowspan="1"> Select the file. </td></tr><tr><td colspan="1" rowspan="1"> FileType </td><td colspan="1" rowspan="1"> Select the filetype. </td></tr><tr><td colspan="1" rowspan="1"> Space ID </td><td colspan="1" rowspan="1"> Enter the Space id. </td></tr><tr><td colspan="1" rowspan="1"> Select language </td><td colspan="1" rowspan="1"> Select the language. </td></tr><tr><td colspan="1" rowspan="1"> Fields </td><td colspan="1" rowspan="1"> Select the fields. Created by, Updated by, Created Datetime, Updated Datetime and Record Number fields are always imported to Domo datasets by default. </td></tr><tr><td colspan="1" rowspan="1"> Exclude the Default Fields? </td><td colspan="1" rowspan="1"> Select this checkbox to exclude the Created by, Updated by, Created Datetime, Updated Datetime, and Record Number fields that are imported to Domo datasets by default. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

@@ -1,0 +1,91 @@
+---
+title: "Cloudability V3 Connector"
+excerpt: "Connect Domo to Cloudability with the V3 Connector to pull budgets, business mappings, containers, vendors, costs, and estimates into a DataSet."
+---
+
+## Intro
+
+Cloudability is a cloud cost management platform that improves visibility, optimization, governance and more across cloud environments. Get data about budgets, business mapping, containers, vendors, cost, and estimates for better cloud management and team empowerment with Domo's Cloudability V3 Connector.
+
+Domo connects directly to Cloudability and delivers the information you need in real-time visualizations that make analysis easier. Combine your Cloudability data with all your information on Domo to ensure you have all the analytical data available at fingertips that you need to drive your strategic growth plans. To learn more about the Cloudability API, visit their page (http://developers.cloudability.com/).
+
+You connect to your Cloudability account in the Data Center. This topic discusses the fields and menus that are specific to the Cloudability V3 Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Cloudability account and create a DataSet, you must have a Cloudability API key. To find your API key, do the following:
+
+1. Log into your Cloudability account.
+2. Navigate to **Account > Preferences**.
+3. Click **Enable Access** at the bottom of the page.
+
+You should then be able to find your API key on this page.
+
+## Connecting to Your Cloudability Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Cloudability V3 Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Cloudability account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your Cloudability API key. For information about finding your API key, see "Prerequisites," above. </td></tr></tbody></table>
+
+Once you have entered valid Cloudability credentials, you can use the same account any time you go to create a new Cloudability V3 DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Cloudability V3 report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Anomalies </td><td colspan="1" rowspan="1"> This report returns a list of anomalies. </td></tr><tr><td colspan="1" rowspan="1"> Anomalies Subscriptions </td><td colspan="1" rowspan="1"> This report returns a list of anomalies subscriptions. </td></tr><tr><td colspan="1" rowspan="1"> Budgets </td><td colspan="1" rowspan="1"> This report returns a list of budgets. </td></tr><tr><td colspan="1" rowspan="1"> Budget Subscriptions </td><td colspan="1" rowspan="1"> This report returns a list of budget subscriptions. </td></tr><tr><td colspan="1" rowspan="1"> Business Mappings </td><td colspan="1" rowspan="1"> This report returns a list of business mappings. </td></tr><tr><td colspan="1" rowspan="1"> Containers Allocations </td><td colspan="1" rowspan="1"> This report returns a list of containers allocations. </td></tr><tr><td colspan="1" rowspan="1"> Containers Clusters </td><td colspan="1" rowspan="1"> This report returns a list of containers clusters. </td></tr><tr><td colspan="1" rowspan="1"> Containers Counts </td><td colspan="1" rowspan="1"> This report returns a list of containers counts. </td></tr><tr><td colspan="1" rowspan="1"> Containers Labels </td><td colspan="1" rowspan="1"> This report returns a list of containers labels. </td></tr><tr><td colspan="1" rowspan="1"> Containers Usage </td><td colspan="1" rowspan="1"> This report returns a list of containers usage. </td></tr><tr><td colspan="1" rowspan="1"> Cost Sharing Result Report </td><td colspan="1" rowspan="1"> This report returns a list of cost sharing result report. </td></tr><tr><td colspan="1" rowspan="1"> Estimates </td><td colspan="1" rowspan="1"> This report returns a list of estimates. </td></tr><tr><td colspan="1" rowspan="1"> Forecasts </td><td colspan="1" rowspan="1"> This report returns a list of forecasts. </td></tr><tr><td colspan="1" rowspan="1"> Vendors </td><td colspan="1" rowspan="1"> This report returns a list of vendors. </td></tr><tr><td colspan="1" rowspan="1"> Vendors AWS Accounts </td><td colspan="1" rowspan="1"> This report returns a list of vendors having AWS accounts. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Containers Metrics </td><td colspan="1" rowspan="1"><span> Select the metrics to calculate allocations for. </span></td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data from (start day). Combine with <b><b><b><b> End Date </b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b> Start Date </b></b></b></b> and 5 for <b><b><b><b> End Date </b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data to (end day). Combine with <b><b><b><b> Start Date </b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b> Start Date </b></b></b></b> and 5 for <b><b><b><b> End Date </b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Cloudability API does this connector use?">
+
+This connector uses version 3 of the Cloudability API (https://api.cloudability.com/v3).
+
+</Accordion>
+
+<Accordion title="What endpoint does each report call in this connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL </th></tr><tr><td colspan="1" rowspan="1"> Anomalies </td><td colspan="1" rowspan="1"> /anomalies </td></tr><tr><td colspan="1" rowspan="1"> Anomalies Subscriptions </td><td colspan="1" rowspan="1"> /anomalies/subscriptions </td></tr><tr><td colspan="1" rowspan="1"> Budgets </td><td colspan="1" rowspan="1"> /budgets </td></tr><tr><td colspan="1" rowspan="1"> Budget Subscriptions </td><td colspan="1" rowspan="1"> /budget-subscriptions </td></tr><tr><td colspan="1" rowspan="1"> Business Mappings </td><td colspan="1" rowspan="1"> /business-mappings </td></tr><tr><td colspan="1" rowspan="1"> Containers Allocations </td><td colspan="1" rowspan="1"> /containers/allocations </td></tr><tr><td colspan="1" rowspan="1"> Containers Clusters </td><td colspan="1" rowspan="1"> /containers/clusters </td></tr><tr><td colspan="1" rowspan="1"> Containers Counts </td><td colspan="1" rowspan="1"> /containers/counts </td></tr><tr><td colspan="1" rowspan="1"> Containers Labels </td><td colspan="1" rowspan="1"> /containers/labels </td></tr><tr><td colspan="1" rowspan="1"> Containers Usage </td><td colspan="1" rowspan="1"> /containers/usage </td></tr><tr><td colspan="1" rowspan="1"> Cost Sharing Result Repor </td><td colspan="1" rowspan="1"> /internal/reporting/cost-sharing </td></tr><tr><td colspan="1" rowspan="1"> Estimates </td><td colspan="1" rowspan="1"> /estimate </td></tr><tr><td colspan="1" rowspan="1"> Forecasts </td><td colspan="1" rowspan="1"> /forecast </td></tr><tr><td colspan="1" rowspan="1"> Vendors </td><td colspan="1" rowspan="1"> /vendors </td></tr><tr><td colspan="1" rowspan="1"> Vendors AWS Accounts </td><td colspan="1" rowspan="1"> /vendors/AWS/accounts </td></tr><tr><td colspan="1" rowspan="1"> Views </td><td colspan="1" rowspan="1"> /views </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the API key of your Cloudability account.
+
+</Accordion>
+
+<Accordion title="Where can I find the API key?">
+
+To obtain the API key:
+
+1. Log into your Cloudability account.
+2. Navigate to Account > Preferences.
+3. Click Enable Access at the bottom of the page.
+     
+   You should find your API key on this page.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+

@@ -1,0 +1,81 @@
+---
+title: "Pinterest Enterprise Connector"
+excerpt: "Use Domo's Pinterest Enterprise connector to retrieve followers, following, pins, boards, and other Pinterest data into a DataSet."
+---
+
+## Intro
+
+Pinterest is a social network that allows users to visually share and discover new interests. With the Pinterest Enterprise connector, you can check out Pinterest data including followers, following, pins, and many other Pinterest entities. To learn more about the Pinterest API, visit their page ([https://developers.pinterest.com/](https://developers.pinterest.com/ "https://developers.pinterest.com/") ).
+
+You connect to your Pinterest account in the Data Center. This topic discusses the fields and menus that are specific to the Pinterest connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Pinterest account and create a DataSet, you must have the following:
+
+* A Pinterest client ID
+* A Pinterest client secret
+* Credentials for the Pinterest account (the email address you use to log into Pinterest and your Pinterest password) OR Facebook or Google credentials.
+
+For the Redirect URI for the client ID and client secret, enter https://oauth.domo.com/api/data/v1/oauth/providers/pinterest-enterprise/exchange.
+
+To learn how to generate a client ID and client secret, go here: [https://www.codeholic.in/blog/how-to-generate-pinterest-client-id-and-secret-key/](https://www.codeholic.in/blog/how-to-generate-pinterest-client-id-and-secret-key/ "https://www.codeholic.in/how-to-generate-pinterest-client-id-and-secret-key/").
+
+## Connecting to Your Pinterest Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Pinterest Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Pinterest account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Pinterest client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Pinterest client secret. </p></td></tr></tbody></table>
+
+To learn how to generate a client ID and client secret, go here: https://www.codeholic.in/blog/how-to-generate-pinterest-client-id-and-secret-key/.
+
+Once you have entered valid Pinterest credentials, you can use the same account any time you go to create a new Pinterest DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Pinterest report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Account </p></td><td colspan="1" rowspan="1"><p> Returns the first and last name, ID, and URL of the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Boards </p></td><td colspan="1" rowspan="1"><p> Returns a list of the authenticated user's public boards, including the URL, ID, and name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Board Pins </p></td><td colspan="1" rowspan="1"><p> Returns a list of Pins on the board with their IDs, URLs, links, and descriptions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Followers </p></td><td colspan="1" rowspan="1"><p> Returns the users who follow the authenticated user, with their first and last names, IDs, and URLs. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Following Boards </p></td><td colspan="1" rowspan="1"><p> Returns the boards that the authenticated user follows, with their IDs, names, and URLs. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Following Interests </p></td><td colspan="1" rowspan="1"><p> Returns the topics that the authenticated user follows, with their names and IDs. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Following Users </p></td><td colspan="1" rowspan="1"><p> Returns the users that the authenticated user follows, with their first and last names, IDs, and URLs. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Pins </p></td><td colspan="1" rowspan="1"><p> Returns the IDs, links, URLs, and descriptions of the authenticated user's Pins. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Boards </p></td><td colspan="1" rowspan="1"><p> Searches the authenticated user's board names (but not Pins on boards), with their IDs, names and URLs. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Pins </p></td><td colspan="1" rowspan="1"><p> Searches the authenticated user's Pin descriptions, matching IDs, links, URLs, and descriptions. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Board ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the board you want to pull data for. You can find boards IDs by running the "Boards" report and looking at the column called "Data Id Str." </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query (Optional) </p></td><td colspan="1" rowspan="1"><p> Lets you enter a query keyword when using the "Search Boards" and "Search Pins" reports. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How do I know my Pinterest credentials are secure?">
+
+Domo uses the OAuth process to connect to Pinterest, so your credentials are secure and are never saved. You can revoke Domo's access to your Pinterest account at any time.
+
+</Accordion>
+
+<Accordion title="Where can I find a Board ID?">
+
+You can find boards IDs by running the "Boards" report and looking at the column called "Data Id Str."
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+DataSets should be set to update once a day.
+
+</Accordion>
+
+<Accordion title="Are there any API rate limits I should be aware of?">
+
+Pinterest allows each user to make up to 1000 API calls per hour. Note that a single DataSet run may require multiple API calls. The 60-minute window is a sliding window based on when you make your first request. If you hit your rate limit, you'll only have to wait a maximum of 1 hour to get a few more requests.
+
+</Accordion>
+
+<Accordion title="What happened to the Pins that I liked?">
+
+In June 2017, Pinterest removed the Like button from their UI., having concluded that the differences between the Like button and the Save button were confusing to users. Now they just have the Save button. All of the items that you had marked as "Liked" prior to that time were moved to a private board in your account called "Your Pinterest Likes."
+
+</Accordion>
+</AccordionGroup>
+

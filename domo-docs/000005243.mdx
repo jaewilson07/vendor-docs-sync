@@ -1,0 +1,40 @@
+---
+title: "LYNX Fleet Connector"
+excerpt: "Use Domo's LYNX Fleet Connector to pull assets, snapshots, history, and alarm data for Carrier Lynx Fleet vehicles into a DataSet."
+---
+
+## Intro
+
+LYNX Fleet is an application that intelligently monitors connected Lynx Fleet vehicles. Domo's Lynx Fleet connector allows you to check the status of all Carrier Lynx Fleet-connected vehicles in one place.
+
+This topic discusses the fields and menus that are specific to the LYNX Fleet Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your LYNX Fleet account and create a DataSet, you must have the following:
+
+* Client ID
+* Client Secret
+* OCP APIM Subscription Key
+
+## Connecting to Your LYNX Fleet Account
+
+This section enumerates the options in the Credentials and Details panes in the LYNX Fleet Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account as well as your LYNX Fleet account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"> Enter your Client Id. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret. </td><td colspan="1" rowspan="1"> Enter your Client Secret. </td></tr><tr><td colspan="1" rowspan="1"> OCP APIM Subscription key. </td><td colspan="1" rowspan="1"> Enter your OCP APIM Subscription key. </td></tr></tbody></table>
+
+Once you have entered valid LYNX Fleet credentials, you can use the same account any time you go to create a new LYNX Fleet DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><th colspan="1" rowspan="1"> Report </th><th colspan="1" rowspan="1"> Description </th></tr><tr><td colspan="1" rowspan="1"> Get List of Assets in a Company </td><td colspan="1" rowspan="1"> Retrieves a list of all Assets currently owned by a Company. </td></tr><tr><td colspan="1" rowspan="1"> Asset Snapshot Data for Company </td><td colspan="1" rowspan="1"> Retrieves the current snapshot of data for all Assets in a Company. </td></tr><tr><td colspan="1" rowspan="1"> Company Assets Data By ReadId </td><td colspan="1" rowspan="1"> Retrieves the history of all Assets in a Company since a specific ReadId. </td></tr><tr><td colspan="1" rowspan="1"> Alarm Data for Company </td><td colspan="1" rowspan="1"> Retrieves the alarm data for all assets in a Company. </td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

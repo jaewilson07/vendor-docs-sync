@@ -1,0 +1,87 @@
+---
+title: "Wrike Connector"
+excerpt: "Use the Wrike connector to pull project management data from your Wrike account into a Domo DataSet via the legacy Wrike API version."
+---
+
+<Warning>
+**Important:** Due to Wrike deprecating their API version 3, Wrike can no longer guarantee that API calls using the Wrike Connector will continue to work.
+  
+**Authentication Changes**
+  
+Wrike has updated the way that accounts are authenticated. When creating a Wrike account connection in Domo, previously you were able to connect to all accounts in your system. Now, Wrike only allows for connection to a single account. For this reason, you will need to re-connect your Domo Wrike account in order to use it for future Wrike API connections.
+  
+**Connector Changes**
+  
+In conjunction with the authentication changes, the current Wrike DataSets in your account are no longer compatible with their API. Domo has created a new Wrike connector that works with the new API version. You will need to recreate your DataSets on the new Wrike connector, which is denoted with a "beta" banner. This can also be found by going to https://[yourinstance]. [domo.com/connectors/com.domo.connector.wrike4](http://domo.com/connectors/com.domo.connector.wrike4)
+</Warning>
+
+## Intro
+
+Wrike, Inc. produces a project management tool that gets distributed and co-located teams working together so that projects are completed faster to save time and money.  To learn more about the Wrike API, visit their page ([https://developers.wrike.com/](https://developers.wrike.com/ "https://developers.wrike.com/") ).
+
+You connect to your Wrike account in the Data Center. This topic discusses the fields and menus that are specific to the Wrike connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Wrike account and create a DataSet, you must have a Wrike username and password. Alternatively, you can connect using Google or Microsoft Office 365 credentials, or SSO credentials if these have been set up for your company.
+
+## Connecting to Your Wrike Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Wrike Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+The Domo Wrike connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Wrike accounts in Domo) to open the Wrike OAuth screen where you can enter your credentials to connect to Wrike. Once you have entered valid credentials, you can use the same account any time you go to create a new Wrike DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Wrike when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Wrike.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Wrike report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Accounts </p></td><td colspan="1" rowspan="1"><p> Returns all accounts you have access to. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Attachments </p></td><td colspan="1" rowspan="1"><p> Returns all attachments for tasks and folders in the selected account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Comments </p></td><td colspan="1" rowspan="1"><p> Returns comments for all accounts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contacts </p></td><td colspan="1" rowspan="1"><p> Returns a list of user and user group contacts for all accounts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Fields </p></td><td colspan="1" rowspan="1"><p> Returns a list of custom fields for the selected account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Dependencies </p></td><td colspan="1" rowspan="1"><p> Returns a list of task dependencies. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Folder </p></td><td colspan="1" rowspan="1"><p> Returns information about the selected folders. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Folder Tree </p></td><td colspan="1" rowspan="1"><p> Returns a list of tree entries for the selected account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Groups </p></td><td colspan="1" rowspan="1"><p> Returns all groups for the selected account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Invitations </p></td><td colspan="1" rowspan="1"><p> Returns all invitations for the selected account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Workflows </p></td><td colspan="1" rowspan="1"><p> Returns a list of workflows with custom statuses. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tasks </p></td><td colspan="1" rowspan="1"><p> Returns all tasks in all accounts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Timelogs </p></td><td colspan="1" rowspan="1"><p> Returns all timelog records for all accounts. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Accounts </p></td><td colspan="1" rowspan="1"><p> Select the account you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Folders </p></td><td colspan="1" rowspan="1"><p> Select the folders you want to retrieve data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Wrike API does this connector use?">
+
+This connector uses version 4 of the Wrike API (https://www.wrike.com/api/v4/).
+</Accordion>
+
+<Accordion title="Which endpoint does each report in this connector call?">
+
+<table border="1" data-aura-rendered-by="33:206;a"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Endpoint URL(s) </b></td></tr><tr><td colspan="1" rowspan="1"> Accounts </td><td colspan="1" rowspan="1"> /account/ </td></tr><tr><td colspan="1" rowspan="1"> Attachments </td><td colspan="1" rowspan="1"> /Attachments/ </td></tr><tr><td colspan="1" rowspan="1"> Comments </td><td colspan="1" rowspan="1"> /comments/ </td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> /contacts/ </td></tr><tr><td colspan="1" rowspan="1"> Custom Fields </td><td colspan="1" rowspan="1"> /accounts/{accountId}/customfields </td></tr><tr><td colspan="1" rowspan="1"> Dependencies </td><td colspan="1" rowspan="1"> /dependencies/{dependencyId} </td></tr><tr><td colspan="1" rowspan="1"> Folder </td><td colspan="1" rowspan="1"> `/folders/{folderId}` </td></tr><tr><td colspan="1" rowspan="1"> Folder Tree </td><td colspan="1" rowspan="1"> /folders/ </td></tr><tr><td colspan="1" rowspan="1"> Groups </td><td colspan="1" rowspan="1"> /accounts/{accountId}/groups </td></tr><tr><td colspan="1" rowspan="1"> Invitations </td><td colspan="1" rowspan="1"> /accounts/{accountId}/invitations </td></tr><tr><td colspan="1" rowspan="1"> Task </td><td colspan="1" rowspan="1"> /tasks/ </td></tr><tr><td colspan="1" rowspan="1"> Timelogs </td><td colspan="1" rowspan="1"> /timelogs/ </td></tr><tr><td colspan="1" rowspan="1"> Workflows </td><td colspan="1" rowspan="1"> /accounts/{accountId}/workflows </td></tr></tbody></table>
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the email address and password associated with your Wrike account. Alternatively, you can connect using your Google or Microsoft Office 365 credentials, or SSO credentials if these have been set up for your company.
+</Accordion>
+
+<Accordion title="How do I know my login credentials are secure?">
+
+The login process uses the OAuth process, so your credentials are never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+Datasets can be updated as often as once an hour.
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+The API does not list any limitations.
+</Accordion>
+
+<Accordion title="When I click Add Account, why am I getting automatically validated without needing to enter credentials?">
+
+If you are already logged into Wrike when you connect to Domo, you are authenticated automatically as you click Add Account. If you want to connect to an account that is different from the one you are logged into, you must first log out of Wrike.
+</Accordion>
+</AccordionGroup>

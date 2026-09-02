@@ -1,0 +1,49 @@
+---
+title: "USGS Earthquakes Connector"
+excerpt: "Use Domo's USGS Earthquakes Connector to import recent earthquake activity data for the last hour, day, week, or month into a DataSet."
+---
+
+## Intro
+
+The United States Geological Survey is a scientific agency of the United States government. The scientists of the USGS study the landscape of the United States, its natural resources, and the natural hazards that threaten it. To find out more about USGS' API, see [https://earthquake.usgs.gov/fdsnws/event/1/](https://earthquake.usgs.gov/fdsnws/event/1/ "https://earthquake.usgs.gov/fdsnws/event/1/").
+
+There are two versions of this connector in Domo, this standard version and an advanced version. The standard version only allows you to retrieve data for a selected range of time, while the advanced version also lets you filter by earthquake magnitude as well as provide a start and end date for your data. To learn about the advanced version, see USGS Advanced Connector.
+
+You connect to your USGS Earthquakes account in the Data Center. This topic discusses the fields and menus that are specific to the USGS Earthquakes connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector gives you the when, where, and magnitude for recent earthquake activity (as far back as 1 month). </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Earthquake Time </p></li><li><p> Earthquake Place </p></li><li><p> Earthquake Magnitude </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> HR event planning roles </p></li><li><p> Facilities roles </p></li><li><p> Sales Analytics </p></li><li><p> Director of Operations </p></li><li><p> Manufacturing Planners </p></li><li><p> Retail Purchasers </p></li><li><p> Social Media Managers </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Less than 1 minute </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+This connector returns public data, so no credentials are required.
+
+## Connecting to Your USGS Earthquakes Account
+
+This section enumerates the options in the **Details** pane in the USGS Earthquakes Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Details Pane
+
+This pane contains a single menu where you select the timeframe for your report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select whether you want to retrieve earthquake data for the last hour, day, week, or month. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API restrictions I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

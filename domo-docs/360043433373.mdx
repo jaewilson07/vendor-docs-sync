@@ -1,0 +1,53 @@
+---
+title: "Heroku Connector"
+excerpt: "Use the Heroku connector with an API key to pull platform-as-a-service application data from Heroku into a Domo DataSet."
+---
+
+## Intro
+
+Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. To learn more about the Heroku API, visit their page (https://devcenter.heroku.com/articles/platform-api-reference).
+
+You connect to your Heroku account in the Data Center. This topic discusses the fields and menus that are specific to the Heroku connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Heroku account and create a DataSet, you must have a Heroku API key. You can obtain an API key by logging into your Heroku account, going into **Account Settings**, and clicking **Generate API Key**.
+
+## Connecting to Your Heroku Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Heroku Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Heroku account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your Heroku API key. For information about obtaining an API key, see "Prerequisites," above. </td></tr></tbody></table>
+
+Once you have entered valid Heroku credentials, you can use the same account any time you go to create a new Heroku DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu from which you select your desired Heroku report type.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Heroku report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Add Ons </td><td colspan="1" rowspan="1"> Returns a list of all existing add-ons. </td></tr><tr><td colspan="1" rowspan="1"> Add On Services </td><td colspan="1" rowspan="1"> Returns information for existing add-on services. </td></tr><tr><td colspan="1" rowspan="1"> Apps </td><td colspan="1" rowspan="1"> Returns a list of Heroku apps. </td></tr><tr><td colspan="1" rowspan="1"> Teams </td><td colspan="1" rowspan="1"> Returns a list of teams of which you are a member. </td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

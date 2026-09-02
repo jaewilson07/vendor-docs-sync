@@ -1,0 +1,246 @@
+---
+title: "Manage Your Federated Data Connection"
+excerpt: "Configure a Federated Data connection to render Domo cards against an external database without uploading the data into Domo."
+---
+
+## Intro
+
+From inside the Data Center, you can configure a direct connection to a database hosted outside of Domo, allowing you to render cards in Domo. This is called a Federated Data connection. Instead of bringing your data into Domo and executing the visualization query against internally stored data, the query is executed against the target database and the results are sent to Domo to render the visualization. This model is especially relevant if you want to keep your data at rest within your existing infrastructure for security or logistical reasons.
+
+Domo supports most commonly available databases. See the [list](#supported-databases) below.
+
+### Federated Data Connection Benefits
+
+The benefits of a Federated Data connection include:
+
+* Your existing data warehouse investment is preserved, connecting Domo directly to your data lakes and warehouses.
+* No upload to cloud storage
+
+  avoids data duplication and costly data transfers.
+* No data transfers for reduced data latency.
+* Your admins retain control of your data.
+
+### Supported Databases
+
+The current list of supported Federated databases includes:
+
+* Amazon Athena\*
+* Amazon Redshift\*
+* Apache Druid
+* Google BigQuery\*
+* IBM Db2
+* IBM Watson Query
+* Microsoft Azure
+* Microsoft SQL Server
+* MySQL\*
+* Oracle\*
+* PostgreSQL\*
+* Presto
+* SAP Hana
+* Snowflake\*
+* Teradata
+* Trino
+* Vertica
+
+\*We recommend using the new cloud-native federated experience for these providers. See the [Cloud Integrations documentation](https://domo-support.domo.com/s/topic/0TO5w000000Zjd3GAC/cloud-amplifier?language=en_US).
+
+### Known Limitations
+
+Before making a Federated Data connection, be aware of the following:
+
+* Query performance depends on the configuration of the third-party data warehouse, its performance profile, and its query load. Domo is not responsible for any delays or other limitations due to these causes.
+* After a DataSet is created in Domo from a Federated connection, it is called a Federated DataSet. These DataSets do not support the following Domo features:
+  + Magic ETL, including Data Science actions (Alternatively, you can create Views with the on-premise DataSet.)
+  + DataSet Alerts (Card Alerts are supported on Snowflake Federated DataSets.)
+  + DataFusions
+  + DataSet Views (DataSet Views are supported on Snowflake Federated DataSets from the same account. Cross-account Views are not currently supported.)
+
+## Federated Data Options
+
+There are two approaches using the Federated Data solution:
+
+* **Direct** **(Standard Architecture)** **—** This approach requires allowing incoming connections to the data layer and is generally used for cloud providers.
+* **Installed agent** (agent-based architecture) **—** This approach does not require incoming connections and is generally used for on-premise providers but can also be used for cloud connections.
+
+Learn more about each approach below.
+
+## Standard Federated Architecture
+
+<Frame><img alt="IMAGE1.png" src="/images/kb/ka0Vq0000006bRV-00N5w00000Ri7BU-0EM5w000005vNun.png"/></Frame>
+
+This option is ideal for cloud-based systems and connections to databases that can be queried directly by Domo.
+
+### Known Limitations
+
+Before using Standard Federated Architecture, be aware that because it requires an incoming connection to your database, this approach is generally not ideal for on-premise solutions. Check with your IT or Infrastructure team before proceeding.
+
+### Prerequisites
+
+* A connection string to the target database, including the database URL, username, and password.
+* Allowlisting (if applicable) must be completed. Learn about [Domo IP addresses](/s/article/360043630093) that must be allowed for network connections.
+
+### Security
+
+<Frame><img alt="IMAGE2.png" src="/images/kb/ka0Vq0000006bRV-00N5w00000Ri7BU-0EM5w000005vNuk.png"/></Frame>
+
+Domo connects to and queries the target database directly. All traffic between the Domo cloud and your data warehouse is encrypted. Your own firewalls can control all inbound and outbound traffic and strong authentication is in place to help ensure the integrity of the system accounts.
+
+### Access Federated Data
+
+Standard Federated Architecture is available to all customers. To access, navigate to the Data Center and select **Connect Data** > **Federated**.
+  
+The **Connect a Federated DataSet** modal displays. See [Configure New Account](#configure-new-account) below.
+
+<Frame><img alt="federated.jpg" src="/images/kb/ka0Vq0000006bRV-00N5w00000Ri7BU-0EMVq000001Q58L.jpg"/></Frame>
+
+### Configure New Account
+
+1. In the **Connect a Federated DataSet** modal, select **Add New Account**.
+2. Select the appropriate adapter and select **Connect** to move forward OR **Cancel** to close the modal.
+3. Enter the connection details for the target database.
+4. Configure each table to be made available through this federated account.
+5. Select first table.
+6. Review the schema and confirm that the appropriate columns are made available. You can change the included columns at any time.
+7. Select **Next**.
+8. Name the DataSet.
+9. Set the Cache TTL as appropriate.
+
+    <Note>
+      **Note:** Cache TTL is the amount of time that Domo may cache the results of the query for use by subsequent queries.
+    </Note>
+
+10. Repeat the above step for each table by navigating to **Federated** within the Domo Data Center. You can use an account for as many tables as you'd like. You can also create multiple accounts.
+
+## Federated Agent Architecture
+
+<Frame><img alt="IMAGE3.png" src="/images/kb/ka0Vq0000006bRV-00N5w00000Ri7BU-0EM5w000005vNui.png"/></Frame>
+
+The Federated Agent option is ideal for databases that cannot allow access to queries from Domo. Typically, these are on-premise databases. Under this architecture, an intermediate agent is installed in a location that has access to the database. Typically within the firewall of the database. This agent uses a socket connection to Domo to capture the queries, connects to the database and executes the queries, and returns the results to Domo. A configuration file is used to manage the connection to Domo and the target database.
+
+### Benefits
+
+* Installed within the network firewall acting as an intermediary between Domo and the target database.
+* Provides an avenue for custom development if necessary. This gives users the ability to make quick adjustments to the queries or query routing.
+
+### Known Limitations
+
+Before using this solution, be aware of the following:
+
+* This solution requires an on-premise installation and routine updates to ensure connectivity.
+* More technical resources can be required to install and maintain.
+
+### Prerequisites
+
+* You must have a connection string to the target database, including the database URL, username, and password.
+* Allowlisting (if applicable) must be completed
+  + If allowlisting is enabled in your Domo instance, the IP address of the host running the federated agent needs to be allowlisted. Learn about
+    [Allowlisting IP Addresses in Domo](/s/article/360043439173).
+  + Domo IP addresses need to be allowlisted on your firewall(s). Learn which
+    [IP addresses to allowlist](/s/article/360043630093).
+  + [Pusher's domain <i className="icon-arrow-square-out sm" aria-hidden="true" />](https://pusher.com/) needs to be allowlisted on your firewall(s).
+      
+    IP allowlisting is not available here. See Pusher's [documentation <i className="icon-arrow-square-out sm" aria-hidden="true" />](https://docs.bird.com/pusher/channels/channels/connecting/can-you-provide-me-with-a-list-of-ip-addresses-that-channels-uses) for more information
+
+### Security
+
+<img src="/images/kb/ka0Vq0000006bRV-00N5w00000Ri7BU-0EM5w000005vNug.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> <img src="/images/kb/ka0Vq0000006bRV-00N5w00000Ri7BU-0EM5w000005vNtM.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
+
+The Domo Federated Data model federates data between the Domo cloud and your data stores, without duplicating data. This ensures that your data remains protected in your environment. Only the subset of data that is queried is passed to the Domo cloud.
+
+Federated also supports a defense-in-depth model to help ensure that your Data remains protected in all stages of its lifecycle, including data in-transit and at rest.
+
+#### Data in Transit
+
+All traffic between the Domo cloud and your data warehouse is encrypted. Your own firewalls can control all inbound and outbound traffic and strong authentication is in place to help ensure the integrity of the system accounts.
+
+#### Data at Rest
+
+Domo's Federated Data model ensures that your Domo cloud data is ephemeral. A TTL (time-to-live) is associated with your data, and when the TTL expires, so does your data. You can configure this TTL to be as short as 5 seconds. The TTL allows you to disable data access, which makes all customer data in Domo inaccessible.
+
+### Configure the Federated Agent
+
+After setting up the prerequisites, this process takes less than an hour.
+
+1. The Domo Federated Agent is available to all customers. Download the agent here:
+
+    https://app.domo.com/labs/federated-agent-v2/prod/latest/domo-federated-agent-v2.zip
+2. Follow the additional instructions in the README.md file included with the agent package.
+3. After setting up the federated agent, navigate to the Data Center to authorize the agent. In the left navigation, select <img src="/images/kb/ka0Vq0000006bRV-00N5w00000Ri7BU-0EMVq000001Q5Zl.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **More** > **Federated Agent Management**.
+    
+    <Frame><img alt="management.jpg" src="/images/kb/ka0Vq0000006bRV-00N5w00000Ri7BU-0EMVq000001Q42e.jpg"/></Frame>
+
+4. Select **Approve** for the agent you'd like to authorize.
+    
+    <Frame><img alt="FederatedAgent2.png" src="/images/kb/ka0Vq0000006bRV-00N5w00000Ri7BU-0EM5w000005vNue.png"/></Frame>
+
+5. Your agent is now ready to connect.
+
+### Update the Federated Agent
+
+1. Create a zip archive or copy your existing installation directory to a new location to serve as a backup. Do not move your existing installation directory.
+2. Download the latest version of the agent here:
+
+    https://app.domo.com/labs/federated-agent-v2/prod/latest/domo-federated-agent-v2.zip
+3. Unzip the archive.
+4. Copy **federated agent.jar** from the archive and overwrite **federated agent.jar** in your existing installation directory.
+
+    <Warning>
+    **Important:** Only overwrite the **federated agent.jar** file. Overwriting or replacing other files can cause issues.
+    </Warning>
+
+5. You can remove the backup archive after validating your upgrade works correctly or during your next upgrade.
+
+## FAQ
+
+<AccordionGroup>
+
+<Accordion title="Does the Federated Agent impact card loading times?">
+
+Any additional time added by the Federated Agent is negligible. Any performance impact is related to the ability of the target server to process the queries.
+</Accordion>
+
+<Accordion title="What options are available to manage the load on the server?">
+
+Domo caches the results of queries when possible for efficiency. Cache settings are configurable in the Federated Adapter.
+</Accordion>
+
+<Accordion title="Does using the Federated Agent require allowing Domo through our firewall?">
+
+No, the Federated Agent uses a web socket to establish a connection to Domo. No inbound traffic is required to use the Federated agent.
+</Accordion>
+
+<Accordion title="What does a Federated DataSet look like in Domo?">
+
+It looks like a normal DataSet. It displays row counts and the schema, but the actual data is not copied to Domo.
+</Accordion>
+
+<Accordion title="Why am I getting the error “Agent has not been authorized to connect to accounts”?">
+
+Your agent must be authorized to accept connections.
+</Accordion>
+
+<Accordion title="How does caching work?">
+
+Results are cached at a DataSet & SQL query level. Every card, Custom App, and DataFlow produces SQL used to select results from an underlying DataSet. The combination of the produced SQL and the DataSet serves as a cache key. If multiple cards produce the same SQL to retrieve data from the same DataSet, they may use the same cache.
+
+<Note>
+**Note:** Queries that contain dynamic functions — such as NOW(), CURRENT_DATE(), or CURRENT_TIMESTAMP() — produce a different SQL string on every card load. Because the cache key is the exact SQL text paired with the DataSet, these queries generate a new cache key each time and effectively bypass caching. If cache efficiency matters, consider filtering by a date column in a Beast Mode formula instead of using dynamic functions directly in SQL.
+</Note>
+
+The same goes for multiple users that access a card or cards producing the same SQL against the same DataSet.
+</Accordion>
+
+<Accordion title="How is caching impacted by filtering and/or PDP?">
+
+Filtering (Page Filters, Card Filters, and Filter Views) and PDP are included in the underlying SQL. This means that a given card may have multiple cache keys as described in the above FAQ, particularly if each user has different PDP rules.
+</Accordion>
+
+<Accordion title="When does a cache expire?">
+
+You can configure the cache timeout (time to live—TTL) when configuring the connection. The TTL is in seconds and the default is 900 (15 minutes).
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+If you receive an error message stating that you need to check your credentials and try again when attempting to make your Federated Data connection, check the permissions for the account in your third-party database.

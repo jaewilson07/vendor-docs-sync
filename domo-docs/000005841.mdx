@@ -1,0 +1,47 @@
+---
+title: "Snowflake OAuth Unload V2 Connector"
+excerpt: "Use the Snowflake OAuth Unload V2 Connector to execute large queries by unloading Snowflake data to Amazon S3 and importing the files into Domo."
+---
+
+## Intro
+
+Snowflake is a data warehouse built for the cloud that stores all your data and users. Use Domo's Snowflake Unload V2 Connector to unload data from your Snowflake into Amazon S3. Unloaded files are imported from Amazon S3 into Domo. Choose this connector instead of the Snowflake connector if you are executing very large queries.
+
+The Snowflake connector is a "Database" connector, meaning it retrieves data from a database using a query. In the Data Center, you can access the connector page for this and other Database connectors by clicking **Database** in the toolbar at the top of the window.
+
+This topic discusses the fields and menus that are specific to the Snowflake OAuth Internal Unload V2 connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Snowflake database account and create a DataSet, you must have the following:
+
+* Client ID
+* Client Secret
+* Full name of your account (provided by Snowflake)
+* Snowflake Host name
+* AWS S3 Access Key
+* AWS S3 Secret Key
+* Name of the AWS S3 Bucket
+* Amazon S3 Region
+
+## Connecting to Your Snowflake Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Snowflake OAuth Internal Unload V2 Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Snowflake account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:205;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter your Client ID (provided by Snowflake when the client is registered). </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter your Client secret (provided by Snowflake when the client is registered). </td></tr><tr><td colspan="1" rowspan="1"> Account Name </td><td colspan="1" rowspan="1"> Enter the full name of your account (provided by Snowflake). </td></tr><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Enter the snowflake host name. </td></tr><tr><td colspan="1" rowspan="1"> Role </td><td colspan="1" rowspan="1"> Enter your Snowflake role. </td></tr><tr><td colspan="1" rowspan="1"> S3 Access Key </td><td colspan="1" rowspan="1"> Enter your AWS access key. It is available in the AWS Console in the Security Credentials section or under Users if you are using IAM. </td></tr><tr><td colspan="1" rowspan="1"> S3 Secret Key </td><td colspan="1" rowspan="1"> Enter your AWS secret access key. It is available when you create your Access Key. You can generate a new one in the AWS Console. </td></tr><tr><td colspan="1" rowspan="1"> S3 Bucket Name </td><td colspan="1" rowspan="1"> The name of the AWS S3 Bucket. </td></tr><tr><td colspan="1" rowspan="1"> S3 Region </td><td colspan="1" rowspan="1"> Select the Amazon S3 Region. </td></tr></tbody></table>
+
+Once you have entered valid Snowflake credentials, you can use the same account any time you go to create a new Snowflake OAuth Internal Unload V2 DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:205;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> How would you like to import data into Domo? </td><td colspan="1" rowspan="1"> Select how you want to import your data. </td></tr><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"><table><tbody><tr><th colspan="1" rowspan="1"> QueryType </th><th colspan="1" rowspan="1"> Description </th></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> Enter the SQL query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> Select a table and fields to autogenerate your query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Warehouses </td><td colspan="1" rowspan="1"> Select the warehouse. </td></tr><tr><td colspan="1" rowspan="1"> Databases </td><td colspan="1" rowspan="1"> Select the database. </td></tr><tr><td colspan="1" rowspan="1"> Schemas </td><td colspan="1" rowspan="1"> Select the schema. </td></tr><tr><td colspan="1" rowspan="1"> Database Objects </td><td colspan="1" rowspan="1"> Choose the database object. </td></tr><tr><td colspan="1" rowspan="1"> Tables </td><td colspan="1" rowspan="1"> Select the table. </td></tr><tr><td colspan="1" rowspan="1"> Views </td><td colspan="1" rowspan="1"> Select the view. </td></tr><tr><td colspan="1" rowspan="1"> Table Column Names </td><td colspan="1" rowspan="1"> Select which table columns you would like included in your report. </td></tr><tr><td colspan="1" rowspan="1"> View Column Names </td><td colspan="1" rowspan="1"> Select the view columns that you would like to include in your report. </td></tr><tr><td colspan="1" rowspan="1"> Table Query Helper </td><td colspan="1" rowspan="1"> Generated query based on the selected fields. </td></tr><tr><td colspan="1" rowspan="1"> View Query Helper </td><td colspan="1" rowspan="1"> A query is generated based on the selected fields. </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter the SQL query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Partition Criteria </td><td colspan="1" rowspan="1"> Select whether you want to partition your data using the date keys, non-date keys, or meta query. </td></tr><tr><td colspan="1" rowspan="1"> Select Partition Date Key Column Name </td><td colspan="1" rowspan="1"> Select the partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Partition Column Name </td><td colspan="1" rowspan="1"> Select the partition column name. Only date fields will be shown in this discovery. </td></tr><tr><td colspan="1" rowspan="1"> Enter Partition Date Key Column Name </td><td colspan="1" rowspan="1"> Enter the partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> Enter the number of past days that you want to get data for. Value can be X, where X is a positive integer. For example: 30. </td></tr><tr><td colspan="1" rowspan="1"> Date Format </td><td colspan="1" rowspan="1"> Select the required date format. By default, <b> yyyy-MM-dd </b> will be used. </td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"> Enter the custom date format. </td></tr><tr><td colspan="1" rowspan="1"> Select Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"> Select the partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"> Select a non-date key column name to partition the data. All the fields excluding Date fields will be shown in this discovery. </td></tr><tr><td colspan="1" rowspan="1"> Enter Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"> Enter the partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Partition Query to determine partition tags </td><td colspan="1" rowspan="1"> Enter the partition query to determine the distinct partition tags. The column containing the <b> Date </b> data is your partition column. Example: Select the <b> Date </b> from Table_Name. </td></tr><tr><td colspan="1" rowspan="1"> Upsert Key Column(s) </td><td colspan="1" rowspan="1"> Enter the upsert key column name or a comma-separated list of upsert key column names. Required only when Update method is Merge. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,70 @@
+---
+title: "Fitbit Connector"
+excerpt: "Use Domo's Fitbit Connector to extract activity, sleep, food, badges, weight, and health metrics from your Fitbit account via OAuth."
+---
+
+## Intro
+
+Fitbit produces wireless-enabled wearable devices that measure personal metrics such as the number of steps walked, amount of sleep, food consumed, and so on. The Domo Fitbit Connector integrates Domo with Fitbit to extract data from the Fitbit API. The connector allows you to compile reports about a variety of health-related metrics. To learn more about the Fitbit API, visit their site ([https://dev.fitbit.com/docs/](https://dev.fitbit.com/docs/ "https://dev.fitbit.com/docs/") ).
+
+The Fitbit connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Fitbit account in the Data Center. This topic discusses the fields and menus that are specific to the Fitbit connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:206;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Health tracking, exercise tracking, weight loss, etc. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Activity metrics </p></li><li><p> Food consumption </p></li><li><p> Badges received </p></li><li><p> Amount of sleep </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> HR roles </p></li><li><p> Anyone who owns a Fitbit and wants to track their health metrics </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Fewer than 10 minutes </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to your Fitbit account and create a DataSet, you must have the email address and password you use to log into your Fitbit account.
+
+## Connecting to Your Fitbit Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Fitbit Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Fitbit connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Fitbit accounts in Domo)
+
+to open the Fitbit OAuth screen you can enter the email address and password you use to log into your Fitbit account. Once you have entered valid Fitbit credentials, you can use the same account any time you go to create a new Fitbit DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Report s** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select a Fitbit report. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Goals </p></td><td colspan="1" rowspan="1"><p> Returns data about the user's daily or weekly activity goals. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Logs </p></td><td colspan="1" rowspan="1"><p> Returns a list of a user's activity log entries before or after a given day. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Stats </p></td><td colspan="1" rowspan="1"><p> Returns the user's best and lifetime activity statistics. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Subscriptions </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's subscriptions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Badges </p></td><td colspan="1" rowspan="1"><p> Returns a list of all of the user's badges. This includes all badges for the user as seen on the Fitbit website badge locker (both activity and weight related). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Body Weight Goal </p></td><td colspan="1" rowspan="1"><p> Returns the user's current body weight goal. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Body Fat Goal </p></td><td colspan="1" rowspan="1"><p> Returns the user's current body fat goal. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Browse Activities </p></td><td colspan="1" rowspan="1"><p> Returns data about public Fitbit activities and private activities created by the user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Devices </p></td><td colspan="1" rowspan="1"><p> Returns a list of all of the user's Fitbit devices. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fat </p></td><td colspan="1" rowspan="1"><p> Returns a list of all of the user's body fat log entries for a given day. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Favorite Activities </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's favorite activities. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Frequent Activities </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's frequently performed activities. A frequent activity record contains the distance and duration values recorded the last time the activity was logged. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Foods </p></td><td colspan="1" rowspan="1"><p> Returns nutritional information for given foods. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Food Goals </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's food goals. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Food Units </p></td><td colspan="1" rowspan="1"><p> Returns a list of food units. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Frequent Foods </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's most frequently eaten foods. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Favorite Foods </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's favorite foods. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Friends </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's friends. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Meals </p></td><td colspan="1" rowspan="1"><p> Returns a list of meals the user has created in his food log. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Recent Activities </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's recent activities. A recent activity record contains the distance and duration values recorded the last time the activity was logged. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Recent Foods </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's recently eaten foods. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Foods </p></td><td colspan="1" rowspan="1"><p> Returns information for a specified food. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sleep </p></td><td colspan="1" rowspan="1"><p> Returns a list of a user's sleep log entries as well as minute by minute sleep entry data for a given day, including naps. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Total Calories by Day </p></td><td colspan="1" rowspan="1"><p> Returns the user's total calories by day. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Total Distance by Day </p></td><td colspan="1" rowspan="1"><p> Returns the total distance the user has traveled by day. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Total Floors by Day </p></td><td colspan="1" rowspan="1"><p> Returns the user's total floors by day. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Activities </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's activities. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Activities Steps </p></td><td colspan="1" rowspan="1"><p> Returns the user's number of steps. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Returns the user's profile information. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Weight </p></td><td colspan="1" rowspan="1"><p> Returns the user's body weight. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Water </p></td><td colspan="1" rowspan="1"><p> Returns a list of the user's water log entries for a given day. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Water Goal </p></td><td colspan="1" rowspan="1"><p> Returns the user's current water goal. </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> User ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the user you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date </p></td><td colspan="1" rowspan="1"><p> Enter the date you want to retrieve data for, in the format <span class="mt-font-courier-new"> yyyy-MM-dd </span>. If you do not enter a date, the current date is used. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Goals Frequency </p></td><td colspan="1" rowspan="1"><p> Select a daily or weekly activity goals frequency. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Number of Days </p></td><td colspan="1" rowspan="1"><p> Select the number of days of data to retrieve. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search </p></td><td colspan="1" rowspan="1"><p> Enter the food you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Period </p></td><td colspan="1" rowspan="1"><p> Specify whether to retrieve data for a specific date or a given number of past days. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Do I need a certain kind of account to use this connector?">
+
+Any valid Fitbit account should be able to power up the connector.
+
+</Accordion>
+
+<Accordion title="How do I know my Fitbit credentials are secure?">
+
+This connector uses the OAuth login process, so your credentials are never stored anywhere and are secure. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="How frequently does my data update?">
+
+Your data can be retrieved every day. You may be able to retrieve some data for today's date, but the most accurate data will be from the day before or earlier.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+Fitbit allows each user to make up to 150 API requests per hour. Note that a single DataSet run may require multiple API calls.
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+Ensure that you have the correct Fitbit username and password.

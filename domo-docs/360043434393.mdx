@@ -1,0 +1,42 @@
+---
+title: "Zendesk Sunshine Connector"
+excerpt: "Use the Zendesk Sunshine connector to pull profiles, events, and custom-object data from your Zendesk CRM platform into a Domo DataSet."
+---
+
+## Intro
+
+Zendesk Sunshine is an open, flexible CRM platform. Sunshine lets you seamlessly connect and understand all of your customer data wherever it lives. Use Domo's Zendesk Sunshine connector to receive details about profiles, events and custom objects. To learn more about the Zendesk Sunshine API, visit https://developer.zendesk.com/rest_api/docs/sunshine/introduction.
+
+You connect to your Zendesk account in the Data Center. This topic discusses the fields and menus that are specific to the Zendesk Sunshine connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Zendesk account and create a DataSet, you must have the following:
+
+* Your Zendesk username
+* Your Zendesk API token or password
+* The Zendesk URL for your company
+
+The user must be a Zendesk admin in order to connect to the Zendesk account.
+
+## Connecting to Your Zendesk Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Zendesk Sunshine Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Zendesk account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username for your Zendesk account. The user must be a Zendesk admin. </td></tr><tr><td colspan="1" rowspan="1"> Authenticated By </td><td colspan="1" rowspan="1"> Specify whether you want to use your Zendesk API token or password to authenticate. </td></tr><tr><td colspan="1" rowspan="1"> API Token or Password </td><td colspan="1" rowspan="1"> Enter your Zendesk API token or password. This must match what you have selected in the <b><b> Authenticate By </b></b> menu. </td></tr><tr><td colspan="1" rowspan="1"> Zendesk URL </td><td colspan="1" rowspan="1"> Enter the Zendesk URL for your company. </td></tr></tbody></table>
+
+Once you have entered valid Zendesk credentials, you can use the same account any time you go to create a new Zendesk Sunshine DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Zendesk Sunshine report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> List Custom Object Types </td><td colspan="1" rowspan="1"> This report returns the account's custom object types. </td></tr><tr><td colspan="1" rowspan="1"> List Objects Records By Type </td><td colspan="1" rowspan="1"> This report returns object records by object type key. </td></tr><tr><td colspan="1" rowspan="1"> List Relationship Records By Type </td><td colspan="1" rowspan="1"> This report returns all relationship records of the specified relationship type. </td></tr><tr><td colspan="1" rowspan="1"> List Relationship Types </td><td colspan="1" rowspan="1"> This report returns the account's relationship types. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Custom Object Type </td><td colspan="1" rowspan="1"> Select the custom object type. </td></tr><tr><td colspan="1" rowspan="1"> Relationship Type </td><td colspan="1" rowspan="1"> Select the relationship type. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

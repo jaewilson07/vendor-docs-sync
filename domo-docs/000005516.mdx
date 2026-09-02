@@ -1,0 +1,37 @@
+---
+title: "BigCommerce Writeback Connector"
+excerpt: "Use the BigCommerce Writeback Connector to push Domo DataSet data back to your BigCommerce store using an access token and store hash."
+---
+
+## Intro
+
+This connector enables you to write data to BigCommerce.
+
+You can connect to your BigCommerce Writeback account in the Data Center. This section discusses the fields and menus that are specific to the BigCommerce Writeback connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your BigCommerce Writeback account and create a DataSet, you must have the following:
+
+* Access Token
+* Store Hash
+
+## Connecting to Your BigCommerce Writeback Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the BigCommerce Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your BigCommerce Writeback account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Token </p></td><td colspan="1" rowspan="1"><p> Enter the access token generated during the Store API setup process. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Store Hash </p></td><td colspan="1" rowspan="1"><p> Enter the store hash associated with the storefront. </p></td></tr></tbody></table>
+
+Once you have entered valid BigCommerce Writeback credentials, you can use the same account any time to create a new BigCommerce Writeback DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Input DataSet Id </td><td colspan="1" rowspan="1"> Enter your Domo dataset ID (GUID) located in the dataset URL. For example, <a href="https://customer.domo.com/datasources/" target="_blank" title="https://customer.domo.com/datasources/"> https://customer.domo.com/datasources/ </a><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee </b> details/settings </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").

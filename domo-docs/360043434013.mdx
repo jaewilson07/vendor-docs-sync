@@ -1,0 +1,363 @@
+---
+title: "Netbase Connector"
+excerpt: "Use the Netbase connector with username and password to pull social media insight categories and brand sentiment data into Domo."
+---
+
+## Intro
+
+The NetBase Insight API enables you to search the ConsumerBase index, which contains billions of insight-rich sound bites (sentences), based on the focus of your analysis. Retrieve data to use as input for visualizations in your websites and applications. The Insight API returns metric values, sentiment classifications, emotions, behaviors, and attributes for objects, named entities, and more. You can use the Insight API to integrate social media data and metrics in your websites and applications. To learn more about the Netbase API, visit their page ([http://learn.netbase.com/i/706080-ne...ming-interface](http://learn.netbase.com/i/706080-netbase-application-programming-interface "http://learn.netbase.com/i/706080-netbase-application-programming-interface") ).
+
+You can connect to your Netbase account in the Data Center. This topic discusses the fields and menus that are specific to the Netbase connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Viewing the ranking of insight categories </p></li><li><p> Getting an overview of how your brands are being received </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Sound bites containing a specified insight type </p></li><li><p> Total buzz </p></li><li><p> Net sentiment </p></li><li><p> Passion intensity </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Social media strategists </p></li><li><p> Public relations people </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1 hour </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 4 (user should have some knowledge of Netbase) </p></td></tr></tbody></table>
+
+## Best Practices
+
+Be aware that time zones using this connector are determined by UTC.
+
+## Prerequisites
+
+To connect to your Netbase account and create a DataSet, you must have a Netbase username and password.
+
+## Connecting to Your Netbase Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Netbase Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Netbase account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username for your Netbase account. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password for your Netbase account. </td></tr></tbody></table>
+
+Once you have entered valid Netbase credentials, you can use the same account any time you go to create a new Netbase DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with several other menus for filtering the report data.
+
+<table cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1">
+        <p> Menu </p>
+      </th>
+      <th colspan="1" rowspan="1">
+        <p> Description </p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <p> Report </p>
+      </td>
+      <td colspan="1" rowspan="1">
+        <p> Select the Netbase report you want to run. The following reports are available: </p>
+        <table cellpadding="1" cellspacing="1">
+          <tbody>
+            <tr>
+              <td colspan="1" rowspan="1"> Metric Value </td>
+              <td colspan="1" rowspan="1"> Returns one or more metric values for a time period or time series. You can
+                retrieve metrics such as total buzz, net sentiment, or passion intensity, for a topic. </td>
+            </tr>
+            <tr>
+              <td colspan="1" rowspan="1"> Insight Count </td>
+              <td colspan="1" rowspan="1"> Returns the number of sound bites (mentions) containing a specified insight
+                type, such as an emotion or behavior. </td>
+            </tr>
+            <tr>
+              <td colspan="1" rowspan="1"> Cross Tabulation </td>
+              <td colspan="1" rowspan="1"> Returns a specified metric value for one or more topics distributed across
+                one or more themes. </td>
+            </tr>
+            <tr>
+              <td colspan="1" rowspan="1">
+                <span> Retrieve Documents </span>
+              </td>
+              <td colspan="1" rowspan="1">
+                <p>
+                  <span> Returns a list of documents matching the Insight API call, including: </span>
+                </p>
+                <ul>
+                  <li>
+                    <span> Metadata for a document, including its insights and sentiment classification. </span>
+                  </li>
+                  <li> The text for each matching sound bite in a document, including the two sentences that occur
+                    before and after the matching sentences. </li>
+                </ul>
+                <Note>
+                  **Note**: Some content providers, such as Twitter, prohibit the download of sound bite text and author details.
+                </Note>
+                <ul>
+                  <li>
+                    <p> The total document count </p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1" rowspan="1"> Themes </td>
+              <td colspan="1" rowspan="1"> Returns a list of themes filtered by scope </td>
+            </tr>
+            <tr>
+              <td colspan="1" rowspan="1"> Topics </td>
+              <td colspan="1" rowspan="1"> Returns a list of topics filtered by scope and content type. </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Topic Scope </td>
+      <td colspan="1" rowspan="1"> Select the category of topics you want to be able to pull data for. </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Theme Scope </td>
+      <td colspan="1" rowspan="1"> Select the category of themes you want to be able to pull data for. </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Topics </td>
+      <td colspan="1" rowspan="1"> Select the topic you want to pull data for. </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Theme Filters </td>
+      <td colspan="1" rowspan="1"> Select the themes you want to pull data for (up to 50). </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Time Period </td>
+      <td colspan="1" rowspan="1">
+        <p> Enter the time period for the data you want to return. This should be in the format `{time period},{time offset},{time rounding}`. </p>
+        <p> The following table lists different examples of how to set this parameter: </p>
+        <table class="mt-responsive-table">
+          <tbody>
+            <tr>
+              <td class="mt-noheading" colspan="1" rowspan="1"> No entry </td>
+              <td class="mt-noheading" colspan="1" rowspan="1"> One week of data ending a minute ago </td>
+            </tr>
+            <tr>
+              <td class="mt-noheading" colspan="1" rowspan="1"> 5d </td>
+              <td class="mt-noheading" colspan="1" rowspan="1"> Five days of data ending a minute ago </td>
+            </tr>
+            <tr>
+              <td class="mt-noheading" colspan="1" rowspan="1"> 6d,1d </td>
+              <td class="mt-noheading" colspan="1" rowspan="1"> Six days of data ending last midnight UTC </td>
+            </tr>
+            <tr>
+              <td class="mt-noheading" colspan="1" rowspan="1"> 10d,1h,1h </td>
+              <td class="mt-noheading" colspan="1" rowspan="1"> Ten days of data ending at least an hour ago, on the
+                hour </td>
+            </tr>
+            <tr>
+              <td class="mt-noheading" colspan="1" rowspan="1"> 2016-05-22 </td>
+              <td class="mt-noheading" colspan="1" rowspan="1"> Data between May 22 and now </td>
+            </tr>
+            <tr>
+              <td class="mt-noheading" colspan="1" rowspan="1"> 2016-05-22 06:00, 2016-05-30 07:00 </td>
+              <td class="mt-noheading" colspan="1" rowspan="1"> Data between 6 AM UTC May 22 and 7 AM UTC May 30 </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Size Needed </td>
+      <td colspan="1" rowspan="1">
+        <span> Specifies the number of Documents or Insights to be returned. Maximum value for Documents: 2000. Maximum
+          value for Insight Count: 1000 Note only numeric values are valid. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Peer Count </td>
+      <td colspan="1" rowspan="1">
+        <span> The peerCount specifies the number of sentences to return before and after a matching sentence. Default
+          is 2. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Sort </td>
+      <td colspan="1" rowspan="1">
+        <p>
+          <span> The sort parameter specifies the sort order for the top sound bites that the Insight API returns in the
+            call. The Insight API sorts to the precision of Deci seconds. </span>
+        </p>
+        <p>
+          <span> To sort in ascending order: sort=sort_option. </span>
+        </p>
+        <p>
+          <span> To sort in descending order: sort_option where sort_option is one of the following: </span>
+        </p>
+        <ul>
+          <li>
+            <b> confidenceScore </b>
+            <span> sorts results by a metric that indicates a sound bite's spamminess. It is primarily for internal
+              NetBase use. A lower score indicates that a sound bite is less spammy than a sound bite with a higher
+              score. </span>
+          </li>
+          <li>
+            <b> timestamp </b>
+            <span> sorts results by the date/time data was published to the Internet. </span>
+          </li>
+          <li>
+            <b> alertTimestamp </b>
+            <span> sorts results by the date/time data was indexed into the ConsumerBase system. </span>
+          </li>
+        </ul>
+        <p>
+          <span> To sort results in descending order, preface the parameter with a hyphen (-). To sort in ascending
+            order, do not include the hyphen. </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Time Units </td>
+      <td colspan="1" rowspan="1"> Select the time unit that the data in the report should be broken down by. For
+        example, if you select <b> Month </b>, twelve rows of data appear one for each month in the year. </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Metric Series </td>
+      <td colspan="1" rowspan="1"> Select the metric series you want to filter by. You can select as many metric IDs as
+        you want. </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Authors </td>
+      <td colspan="1" rowspan="1">
+        <span> The authors parameter specifies an author whose documents to include in the analysis. This value will be
+          overwritten if an 'authors' value is provided in the text area. Specifying this parameter excludes documents
+          published by all other authors. </span>
+        <br />
+        <span> syntax: </span>
+        <em> author_name </em>
+        <span>: </span>
+        <em> domain_name </em>
+        <br />
+        <span> Do not include '@', ' https://'; or 'www.'</span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Domains </td>
+      <td colspan="1" rowspan="1">
+        <span> The domains parameter specifies a domain from which data should be included in the analysis. This value
+          will be overwritten if a 'domains' value is provided in the text area. Specifying this parameter excludes
+          documents from all other domains. </span>
+        <br />
+        <span> Note:The Insight API supports specifying subdomains and folders, such as <a
+            href="http://facebook.com/TheSmokingTire/" rel="noopener" target="_blank">
+            http://facebook.com/TheSmokingTire/ </a>. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Keywords </td>
+      <td colspan="1" rowspan="1">
+        <span> The keywords parameters specifies keywords for filtering results. These parameters match both of the
+          following: </span>
+        <ul>
+          <li> Sentences containing the keyword, along with their preceding and succeeding sentences. </li>
+          <li> All sentences in documents whose title contains the specified keyword. </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Sentiments </td>
+      <td colspan="1" rowspan="1">
+        <span class="pl-s">
+          The sentiments parameter retrieves only data that NetBase has classified with a specified sentiment type. This
+          value will be overwritten if a
+          <span class="pl-pds">
+            '
+          </span>
+        </span>
+        <span> sentiments </span>
+        <span class="pl-s">
+          <span class="pl-pds"> ' </span> value is provided in the text area.
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Sources </td>
+      <td colspan="1" rowspan="1">
+        <span class="pl-s"> The sources parameter enables you to filter results by source type. If specified, the
+          Insight API only returns data from the specified source type. This value will be overwritten if a <span
+            class="pl-pds"> ' </span></span>
+        <span> sources </span>
+        <span class="pl-s"><span class="pl-pds"> ' </span> value is provided in the text area. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Additional Optional Parameters </td>
+      <td colspan="1" rowspan="1">
+        <p> Select the optional parameters you want to filter by. You can select as many optional parameters as you
+          want. </p>
+        <p> For in-depth documentation on optional parameters, see <a
+            href="https://monitor.quid.com/api/explorer/api/netbase" target="_blank"
+            title="https://monitor.quid.com/api/explorer/api/netbase"> https://monitor.quid.com/api/explorer/api/netbase
+          </a>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Theme Array </td>
+      <td colspan="1" rowspan="1"> Select up to 50 theme arrays. A theme array is a theme you can use to further drill
+        down into your data set. You must define themes in a NetBase application before you can use them in Domo. </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Size Needed </td>
+      <td colspan="1" rowspan="1"> Specifies the number of documents or insights to be returned. The maximum number of
+        documents that may be returned is 2000, and the maximum number of insights is 1000. Only numeric values are
+        valid. </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Peer Count </td>
+      <td colspan="1" rowspan="1"> Specifies the number of sentences to return before and after a matching sentence. The
+        default is 2. </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Categories </td>
+      <td colspan="1" rowspan="1"> Select the categories you want to filter by. You can select as many categories as you
+        want. </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Measure </td>
+      <td colspan="1" rowspan="1">
+        <p> Select the measure parameter for the report. </p>
+        <ul>
+          <li>
+            <p>
+              <b> Mentions </b> returns the number of matching sentences for the <b> Categories </b> value. For example,
+              if you selected <b> Sentiment </b> for the category, your report would return the number of sentences for
+              each sentiment classification found by the query.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b> Posts </b> returns the number of matching documents for the <b> Categories </b> value. For example, if
+              you selected <b> Geolocation </b> for the category, your report would return the number of matching
+              documents for each geolocation found by the query.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b> Followers </b> returns the number of followers when when the selected <b> Categories </b> value is <b>
+                Authors </b>. You cannot use <b> Followers </b> with any other category value. A follower count is the
+              number of users following an author at the moment they publish a document.
+            </p>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"> Content Type </td>
+      <td colspan="1" rowspan="1">
+        <span> Select to filter topics by content type. </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+If the connection fails, check the error message. It may contain information concerning an illegal configuration that NetBase does not allow. For example, when running the Insight Count report, if you s
+
+elect **Followers** for your **Measure**, selecting any category but **Authors** will return an error.

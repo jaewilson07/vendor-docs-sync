@@ -1,0 +1,199 @@
+---
+title: "Geocoder | User Guide"
+excerpt: "Use the Geocoder premium app to add geocoded data to any DataSet by specifying the address column and writing the results to a new DataSet."
+---
+
+<Warning>
+**Important:** The Geocoder package app has been removed from the Domo Appstore and is no longer available to new users. We will continue to support this app for current users.
+</Warning>
+
+## Intro
+
+Geocoder is a premium app that allows you to add geocoded data to any DataSet in your Domo instance. Select a DataSet, specify the address column, then set the update interval and method. The DataSet is then geocoded, and the results are written to a new DataSet.
+
+---
+
+## Landing Page
+
+When you open the app, the landing page displays. The landing page includes a list of Geocoder jobs, a search bar, a usage meter, and controls to create a new job and refresh. When you select **Refresh**, the entire list of jobs refreshes with the latest details and statuses.
+  
+  
+See [Creating a New Job](#creating) for instructions for creating a new job.
+
+<Frame><img alt="geo landing.png" src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000005wx98.jpg"/></Frame>
+
+### Job List
+
+The job list displays information about each existing job. This information includes the job's name, creator, rows, input DataSet, output DataSet, last status update, and status.
+
+The following actions can be performed in the job list:
+
+* **Search for a job —**
+  Enter keywords into the search bar to filter the list by name.
+* **Change order of list —**
+  Select the
+  <img src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000005wxJh.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
+  **F** **ilter Menu** at the top of the list to change the sort order of the list.
+* **View/edit a job —**
+  Select a job in the list to view its details and make edits.
+
+### Usage Meter
+
+<Frame><img alt="Screenshot 2023-02-01 at 3.06.34 PM.png" src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000005wxJm.jpg"/></Frame>
+
+On the landing page, the usage meter displays the limit of monthly individual geocoding requests and how many requests have been made in the current month. Each job creates multiple requests. If the monthly limit is reached, jobs continue running and the excess bill is calculated at the end of the period. Below the usage meter, you can see when your package limit resets.
+
+If you need to upgrade your limit, contact your Customer Success Manager (CSM).
+
+## Create a New Job
+
+<Note>
+
+**Note:** You can only create a job with DataSets that you have access to. This means one of the following must be true: You have an Admin default security role in your instance. You are the owner of the input and output DataSets. You have full access to the input and output DataSets (PDP is disabled or you have All Rows access). This also applies when you are changing a DataSet for an existing job.
+
+</Note>
+
+<Frame><img alt="save_new_job.png" src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000005vOIU.png"/></Frame>
+
+1. Select
+   **New Job** at the bottom right corner of the landing page.
+     
+   The **Save New Job** modal displays.
+     
+   
+<Note>
+
+   **Note:** New jobs are added to the list in alphabetical order.
+
+   
+</Note>
+
+2. Enter a custom name to identify this job in the
+   **Job name** field.
+3. In the
+   **Dataset** field, search for the target DataSet by name. Then select the DataSet from the list of results.
+4. In the
+   **Address column** field, search for and select a column from within the target DataSet. The data in this column is what is geocoded when the job runs.
+   
+<Note>
+
+   **Note:** After you select a DataSet, you can switch to a different one by selecting the **(change)** link that displays next to the DataSet label. This also de-selects the current address column, if any was selected.
+
+   
+</Note>
+
+5. Select an update interval from the list of options. The options are detailed below.
+     
+   
+<Note>
+
+   **Note:** Apart from Manual, all of the interval options are automated. When you configure jobs to be automated, they run as long as the geocoding service is available. This means that on rare occasions, there could be a small delay before the job triggers.
+
+   
+</Note>
+
+   * **Manual —**
+     If you select **Manual**, you must run the job manually. It never runs automatically.
+   * **Every hour —**
+     This option automatically runs the job every hour. If you want to restrict the window of time in which the job runs, select the **Active hours** checkbox to configure the start and end times.
+       a
+       
+
+     <Frame><img alt="geo_every_hour.png" src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000005vOIT.png"/></Frame>
+
+   * **Every day —**
+     This option automatically runs the job once a day, seven days a week. Use the **Start between** menu to select the time at which you want the job to run.
+       
+     
+<Note>
+
+     **Note:** If when the job tries to run, the geocoding service is initially busy, an end time marks the window of time during which the job can run.
+
+     
+</Note>
+
+   * **Every weekday —**
+     This option automatically runs the job once a day, but only Monday through Friday. The same **Start between** criteria applies as with the **Every day**
+
+     option above.
+   * **Every week —**
+     This option automatically runs the job once a week. Use the **On this day** menu to select the day of the week on which you want the job to run. The same **Start between** criteria applies as with the **Every day** option above.
+       
+       
+
+     <Frame><img alt="geo__every_week.png" src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000005vOIW.png"/></Frame>
+
+   * **Every month —**
+     This option automatically runs the job once a month on the same day(s) every month. The **On this day** menu allows you to select whether the job should run on the 1st, on the 1st *and* 15th, or on the last day of the month. The same **Start between** criteria applies as with the **Every day** option above.
+       
+       
+
+     <Frame><img alt="geo__every_month.png" src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000005vOIQ.png"/></Frame>
+
+6. Select an option from the
+   **Update method** list. The options are described below:
+   * **Replace —**
+     If you select **Replace**, every time you run a job the data that was recorded in the output DataSet is deleted and the entire DataSet is replaced with new data.
+   * **Append —**
+     If you select **Append**, the whole input DataSet runs and any new rows are added to the end of the output DataSet.
+
+     <Frame><img alt="Screenshot 2023-06-23 at 10.01.20 AM.png" src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000006v6P1.jpg"/></Frame>
+
+7. Select
+   **Save** to create the new job.
+
+### Job Details View
+
+When you select a job from the list on the landing page, the job Details view displays. If the job has executed at least one time, the job Details view displays a link to the [output DataSet](#output) for the job.
+
+<Frame><img alt="output dataset details.png" src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000005wxJ8.jpg"/></Frame>
+
+Select <img src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000005vOIP.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Back** to return to the landing page.
+
+In the job Details view, you can select **Run Now** to manually run the current job. Running the job adds an entry to its history, which you can view in the **History** tab.
+
+<Note>
+
+**Note:** You can manually run your job even if it has a set update interval. Running a job manually does not affect the update schedule; the job will run at the end of the next update interval.
+
+</Note>
+
+Select **Delete Job** to delete the current job.
+
+Admins can select **Claim Ownership** to claim ownership of the current job. This action is not reversible. A dialog displays to confirm the change of ownership. Select **Cancel** to cancel this action or **Claim** to proceed.
+
+### Overview Tab
+
+In the **Overview** tab of the job Details view, a label indicates the last time the current job ran successfully. A full historical log of all the executions for the current job can be accessed in the **History** tab.
+
+<Frame><img alt="Screenshot 2023-02-01 at 3.16.52 PM.png" src="/images/kb/ka0Vq0000006q2L-00N5w00000Ri7BU-0EM5w000005wxKf.jpg"/></Frame>
+
+#### Edit a Job
+
+In the **Overview** tab of the job Details view, the job owner can edit the job name, change the input DataSet, and update the address column. An app admin can view all jobs but needs to claim ownership of a job before being able to edit it.
+
+#### Delete a Job
+
+In the job Details view for a job, the job owner can delete the job by selecting **Delete Job**. An app admin can view all jobs but needs to claim ownership of a job before being able to delete it.
+
+#### Schedule Tab
+
+In the **Schedule** tab of the job Details view, you can edit the update interval for the job.
+
+#### History Tab
+
+In the **History** tab of the job Details view, you can access a historical log of the last 100 executions of the current job.
+
+You can view the following details for each entry:
+
+* Started on
+* Completed on
+* Result
+* Message
+
+## Output DataSet
+
+The output DataSet appends the following columns of geocoded data to the original input DataSet:
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Column </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> _DCG_Status </p></td><td colspan="1" rowspan="1"><p> The possible result of the geocoding process. <br/><br/> Possible values include: </p><ul><li> OK </li><li> ACCESS_NOT_CONFIGURED </li><li> MAX_ELEMENTS_EXCEEDED </li><li> NOT_FOUND </li><li> ZERO_RESULTS </li><li> OVER_DAILY_LIMIT </li><li> OVER_QUERY_LIMIT </li><li> REQUEST_DENIED </li><li> INVALID_REQUEST </li><li> UNKNOWN_ERROR </li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> _DCG_Message <span><span><span></span></span></span></p></td><td colspan="1" rowspan="1"><p> The resulting message of the geocoding process. </p></td></tr><tr><td colspan="1" rowspan="1"><p> _DCG_From Cache </p></td><td colspan="1" rowspan="1"><p> This field indicates whether we use the DOMO database result instead of the provider endpoint. <span> TRUE </span> for local results and <span> FALSE </span> for provider results. </p></td></tr><tr><td colspan="1" rowspan="1"><p> _DCG_Place Id </p></td><td colspan="1" rowspan="1"><p> Contains the unique ID for each result; a feature may have a commonly used identifier, either a unique string or number. </p></td></tr><tr><td colspan="1" rowspan="1"><p> _DCG_Latitude </p></td><td colspan="1" rowspan="1"><p> Contains the geocoded latitude. <br/> This field is typically one of the most important for normal address lookups. </p></td></tr><tr><td colspan="1" rowspan="1"><p> _DCG_Longitude </p></td><td colspan="1" rowspan="1"><p> Contains the geocoded longitude. <br/> This field is typically one of the most important for normal address lookups. </p></td></tr><tr><td colspan="1" rowspan="1"> _DCG_Location Type </td><td colspan="1" rowspan="1"> A list of feature types describing the feature. Most features have only one type, but if the feature has multiple types (for example, Vatican City is a country, region, and place), all applicable types are listed. </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Formatted Address </td><td colspan="1" rowspan="1"> The house number for the returned address feature. </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Landmark </td><td colspan="1" rowspan="1"> Specifies whether the feature is in the poi.landmark data type. <br/> This data type is deprecated, and this property is present on all poi features for backwards compatibility reasons but is always <span> TRUE </span>. </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Text </td><td colspan="1" rowspan="1"> A string representing the feature in the requested language, if specified. </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Category </td><td colspan="1" rowspan="1"> Comma-separated categories for the returned poi feature. Points of interest can include restaurants, stores, concert venues, parks, museums, and more. </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Neighborhood </td><td colspan="1" rowspan="1"> Colloquial sub-city features often referred to in local parlance. Unlike locality features, these typically lack official status and may lack universally agreed-upon boundaries. </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Region </td><td colspan="1" rowspan="1"> Top-level sub-national administrative features, such as states in the United States or provinces in Canada or China. </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Country </td><td colspan="1" rowspan="1"> Limits results to one or more countries. Permitted values are country names separated by commas. </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Country Short Code </td><td colspan="1" rowspan="1"> Limits results to one or more countries. Permitted values are <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank" title="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"> ISO 3166 alpha 2 </a> country codes separated by commas. </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Postcode </td><td colspan="1" rowspan="1"> Postal codes used in country-specific national addressing systems. </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Place </td><td colspan="1" rowspan="1"> Typically, these are cities, villages, municipalities, and so on. They're usually features used in postal addressing, and are suitable for display in ambient end-user applications where current-location context is needed (for example, in weather displays). </td></tr><tr><td colspan="1" rowspan="1"> _DCG_Place Name </td><td colspan="1" rowspan="1"> Contains a detailed description of the place. Typically includes the city's name and country, depending on the feature type. </td></tr></tbody></table>
+

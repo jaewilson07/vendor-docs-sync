@@ -1,0 +1,46 @@
+---
+title: "Dropbox Writeback Connector"
+excerpt: "Use Domo's Dropbox Writeback Connector to export data from a Domo DataSet into your Dropbox account."
+---
+
+## Intro
+
+Dropbox is a personal cloud storage service frequently used for file sharing and collaboration.  To learn more about the Dropbox API, go to [https://www.dropbox.com/developers](https://www.dropbox.com/developers "https://www.dropbox.com/developers").
+
+You export Domo data to Dropbox in the Data Center. This topic discusses the fields and menus that are specific to the Dropbox Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+</Note>
+
+## Prerequisites
+
+To configure this connector, you must have a Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+
+You must also have the username and password for your Dropbox account.
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Dropbox Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client secret. </p></td></tr></tbody></table>
+
+For information about obtaining these credentials, see "Prerequisites," above.
+
+After you connect, you are taken to the Dropbox OAuth screen where you are prompted to enter your Dropbox username and password.
+
+You can use the same account any time you go to set up a new Domo-Dropbox connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Input DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to Dropbox. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following datasources/. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4 </span>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Filename </p></td><td colspan="1" rowspan="1"><p> Select whether you want to reference your DataSet using the <b><b> Input DataSet ID </b></b> or an output file name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filename </p></td><td colspan="1" rowspan="1"><p> Enter the output file name for your data. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

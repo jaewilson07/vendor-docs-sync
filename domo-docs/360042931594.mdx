@@ -1,0 +1,156 @@
+---
+title: "Amazon Athena/Amazon Athena JDBC 2.0 Connector"
+excerpt: "Use Domo's Amazon Athena JDBC 2.0 Connector to query and visualize big data stored in S3 from your Athena instance."
+---
+
+## Intro
+
+Amazon Athena is a server-less, interactive query service that lets you analyze big data in S3 using standard SQL. Use Domo's Amazon Athena JDBC 2.0 connector to query data from your Athena instance. Use Domo's Amazon Athena JDBC 2.0 connector to visualize your Amazon Athena data using JDBC 2.0. To learn more about the Amazon Athena API, visit their page ([https://aws.amazon.com/documentation/athena/](https://aws.amazon.com/documentation/athena/ "https://aws.amazon.com/documentation/athena/")).
+
+You connect to your Amazon Athena account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon Athena JDBC 2.0 connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Amazon Athena account and create a DataSet, you must have the following:
+
+* Your AWS access key.
+* Your AWS secret key.
+* The Amazon S3 location to which the query output is written (e.g.
+  s3://aws-athena-query-results-1234-us-west-2/ ). You can find this by going to ****Settings**** in the Athena web console.
+* Your AWS region.
+
+For information about obtaining AWS credentials, visit [http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html "http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html").
+
+#### Required Permission Policies
+
+To gain the access to AWS services and resources, such as Athena and the Amazon S3 buckets, provide the JDBC driver credentials to your application. If you are using the JDBC driver, ensure that the IAM permissions policy includes all actions listed in ****AmazonAthenaFullAccess Managed Policy****.
+
+The ****`AmazonAthenaFullAccess`**** managed policy grants full access to Athena.
+
+Managed policy contents change, so the policy shown here may be out-of-date. Check the IAM console for the most up-to-date policy.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "athena:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "glue:CreateDatabase",
+                "glue:DeleteDatabase",
+                "glue:GetDatabase",
+                "glue:GetDatabases",
+                "glue:UpdateDatabase",
+                "glue:CreateTable",
+                "glue:DeleteTable",
+                "glue:BatchDeleteTable",
+                "glue:UpdateTable",
+                "glue:GetTable",
+                "glue:GetTables",
+                "glue:BatchCreatePartition",
+                "glue:CreatePartition",
+                "glue:DeletePartition",
+                "glue:BatchDeletePartition",
+                "glue:UpdatePartition",
+                "glue:GetPartition",
+                "glue:GetPartitions",
+                "glue:BatchGetPartition"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:ListBucketMultipartUploads",
+                "s3:ListMultipartUploadParts",
+                "s3:AbortMultipartUpload",
+                "s3:CreateBucket",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::aws-athena-query-results-*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::athena-examples*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation",
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sns:ListTopics",
+                "sns:GetTopicAttributes"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:PutMetricAlarm",
+                "cloudwatch:DescribeAlarms",
+                "cloudwatch:DeleteAlarms"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
+To gain access to AWS services and resources, you need to provide the JDBC or ODBC driver credentials to your application. For more information refer to [Access through JDBC and ODBC connections](https://docs.aws.amazon.com/athena/latest/ug/policy-actions.html).
+
+## Connecting to Your Amazon Athena Account
+
+This section enumerates the options in the ****Credentials**** and ****Details**** panes in the Amazon Athena JDBC 2.0 Connector page. The components of the other panes in this page, ****Scheduling**** and ****Name & Describe Your DataSet****, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Amazon Athena account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> Enter your AWS access key. </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> Enter your AWS secret key. </td></tr><tr><td colspan="1" rowspan="1"> S3 Staging Directory </td><td colspan="1" rowspan="1"> Enter the Amazon S3 location where your query output is written. From the Athena web console, this can be found by going to <b><b> Settings </b></b>. Example: <a target="_blank" title="s3://aws-athena-query-results-1234-us-west-2/"> s3://aws-athena-query-results-1234-us-west-2/ </a></td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"> Select your AWS region. </td></tr><tr><td colspan="1" rowspan="1"> Workgroup </td><td colspan="1" rowspan="1"> Enter the workgroup. </td></tr></tbody></table>
+
+Once you have entered valid Amazon Athena credentials, you can use the same account any time you go to create a new Amazon Athena JDBC 2.0 DataSet. You can manage connector accounts in the ****Accounts**** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a number of options for entering your query and configuring the report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Amazon Athena JDBC 2.0 report you want to run. </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Let's you query data from a specified S3 database and table. </p></td></tr><tr><td colspan="1" rowspan="1"> Query Parameter </td><td colspan="1" rowspan="1"> Enter an SQL query with a parameter. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Catalog Name / Data Source </p></td><td colspan="1" rowspan="1"><p> Select the specific catalog or data source in the dropdown you want to query. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> Select the database you want to query. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Name </p></td><td colspan="1" rowspan="1"><p> Select the table in the database you want to query. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns </p></td><td colspan="1" rowspan="1"><p> Select all the columns you want to query. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper </p></td><td colspan="1" rowspan="1"><p> Based on the selected database name, table name and column names, the Query Helper will build a sample query for you. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the SQL query you want to execute (e.g. select * from table_name). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter </p></td><td colspan="1" rowspan="1"><p><span> Enter the query parameter value. It is the initial value for query parameter. The last run date is optional. By default, it is '02/01/1700' if is not provided. </span></p><p><span> Example: </span><tt> `!{lastvalue:_id}!=1,!{lastvalue:gender}!='male',!{lastrundate:start_date}!=02/01/1944` </tt></p></td></tr><tr><td colspan="1" rowspan="1"><p> Connection Timeout </p></td><td colspan="1" rowspan="1"><p> Enter the maximum amount of time, in milliseconds, to make a successful connection to Athena before an attempt is terminated. The default value is 10000ms. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Socket Timeout </p></td><td colspan="1" rowspan="1"><p> Enter the maximum amount of time, in milliseconds, to wait for a socket in order to send data to Athena. The default value is 10000ms. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Maximum Error Retries </p></td><td colspan="1" rowspan="1"><p> The maximum number of retries that the JDBC client attempts to make a request to Athena. The default value is 10. </p></td></tr><tr><td colspan="1" rowspan="1"> Convert BigInt to Integer </td><td colspan="1" rowspan="1"> Select this check box if you want to convert the BIGINT columns into Integer. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

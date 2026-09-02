@@ -1,0 +1,76 @@
+---
+title: "Mambu Connector"
+excerpt: "Use the Mambu Connector to pull banking data such as deposits, loans, savings, clients, centres, and branches from Mambu into a Domo DataSet."
+---
+
+## Intro
+
+Mambu is a global Software as a Service (Saas) cloud banking platform built for actual agility for composable banking. It provides a path for both traditional finance as well as Fintech to rapidly launch a digitally native financial services platform without diving into the hassle of the custom, in-house solutions in the highly regulated finance industry. You can create great banking experiences, and solve your market needs and opportunities using Mambu's platform, teams, and services. Use Domo's Mambu connector to retrieve your banking data related to deposits, loans, savings, clients, centres, branches, and much more. To learn more about the Mambu API, visit their page [https://support.mambu.com/docs#](https://support.mambu.com/docs# "https://support.mambu.com/docs#").
+
+You connect to your Mambu account in the Data Center. This topic discusses the fields and menus that are specific to the Mambu connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Primary Use Cases </b></td><td class="mt-noheading" colspan="1" rowspan="1"> This Connector lets you retrieve data about Deposits, Loans, Savings, Finance Centers and Branches. </td></tr><tr><td colspan="1" rowspan="1"><b> Primary Metrics </b></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li> Deposit products </li><li> Deposit transactions </li><li> Loan products </li><li> Loan transactions </li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Primary Company Roles </b></td><td colspan="1" rowspan="1"><ul><li><span class="wysiwyg-color-black"> Finance Manager </span></li><li><span class="wysiwyg-color-black"> Marketing Analyst </span></li><li><span class="wysiwyg-color-black"> Marketing Directors </span></li><li><span class="wysiwyg-color-black"> Finance Analyst </span></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Average Implementation Time </b></td><td class="mt-noheading" colspan="1" rowspan="1"><span class="wysiwyg-color-black"> &lt;1 hour </span></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></td><td colspan="1" rowspan="1"><span class="wysiwyg-color-black"> 3 </span></td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to your Mambu account and create a DataSet, you must have the following:
+
+* The username and password associated with your Mambu account.
+* Your domain name. For example, if the base URL is "https://domo.mambu.com/api", then your domain value will be "domo".
+
+## Connecting to Your Mambu Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Mambu Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Mambu account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="wysiwyg-color-black"> Username </span></p></td><td colspan="1" rowspan="1"><p><span> Enter the username associated with your Mambu account. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="wysiwyg-color-black"> Password </span></p></td><td colspan="1" rowspan="1"><p><span> Enter the password associated with your Mambu account. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"><p><span> Enter the domain name. Example: If the base URL is " </span><a href="https://domo.mambu.com/api" rel="noopener" target="_blank"> https://domo.mambu.com/api </a><span> ", then your domain value will be "domo". </span></p></td></tr></tbody></table>
+
+Once you have entered valid Mambu credentials, you can use the same account any time you go to create a new Mambu DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Mambu report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Activities </td><td colspan="1" rowspan="1"> Retrieves a list of all activities within the date range. </td></tr><tr><td colspan="1" rowspan="1"> Branches </td><td colspan="1" rowspan="1"> Retrieves a list of branches. </td></tr><tr><td colspan="1" rowspan="1"> Centres </td><td colspan="1" rowspan="1"> Retrieves a list of centers. </td></tr><tr><td colspan="1" rowspan="1"> Clients </td><td colspan="1" rowspan="1"> Retrieves a list of clients. </td></tr><tr><td colspan="1" rowspan="1"> Deposits </td><td colspan="1" rowspan="1"> Retrieves a list of deposit accounts using various query parameters. </td></tr><tr><td colspan="1" rowspan="1"> Deposit Products </td><td colspan="1" rowspan="1"> Retrieves a list of deposit products. </td></tr><tr><td colspan="1" rowspan="1"> Deposit Transactions </td><td colspan="1" rowspan="1"> Retrieves a list of all transactions for a deposit account via encoded key. </td></tr><tr><td colspan="1" rowspan="1"> Deposit Transactions Search </td><td colspan="1" rowspan="1"> Retrieves deposit transactions for deposit accounts by date of creation. </td></tr><tr><td colspan="1" rowspan="1"> Loans </td><td colspan="1" rowspan="1"> Retrieves a list of loan accounts using various query parameters. </td></tr><tr><td colspan="1" rowspan="1"> Loan Products </td><td colspan="1" rowspan="1"> Retrieves a list of all loan products. </td></tr><tr><td colspan="1" rowspan="1"> Loan Transactions </td><td colspan="1" rowspan="1"> Retrieves a list of all transactions for a loan account via id or encoded key. </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> Retrieves a list of users. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Fields to Expand </td><td colspan="1" rowspan="1"> Select the field that you would like to expand in the data. This will cause multiple rows to show each object in the selected field. You will not be able to expand any data, if "None" is selected. </td></tr><tr><td colspan="1" rowspan="1"> Retrieve Full Details </td><td colspan="1" rowspan="1"> Select this checkbox to retrieve full details of the object. Otherwise, the connector will return only the first level elements of the object. </td></tr><tr><td colspan="1" rowspan="1"> Deposit Account ID </td><td colspan="1" rowspan="1"> Select the deposit account Id. </td></tr><tr><td colspan="1" rowspan="1"> Loan Account ID </td><td colspan="1" rowspan="1"> Select the loan account Id. </td></tr><tr><td colspan="1" rowspan="1"> Report Date (Date Selection) </td><td colspan="1" rowspan="1"> Select the date format for your data. </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> Select whether the report data is for a specific date or for a relative number of days back from today. </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> Select the specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for in the <b><b> Days Back </b></b> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data from (start day). Combine with <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> and 5 for <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data to (end day). Combine with <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> and 5 for <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> Specify the time period that you would like to receive data for. </td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> Select the day you would like your week to start with. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What endpoint is the base URL for this connector?">
+
+The base URL for the Mambu connector is `https://{tenant_name}.mambu.com/api/`.
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this Connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1"> Report Name </th><th colspan="1" rowspan="1"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> Activities </td><td colspan="1" rowspan="1"><span> /v1.0/activities </span></td></tr><tr><td colspan="1" rowspan="1"> Branches </td><td colspan="1" rowspan="1"> /v2.0 <span> /branches </span></td></tr><tr><td colspan="1" rowspan="1"> Centres </td><td colspan="1" rowspan="1"> /v2.0 <span> /centres </span></td></tr><tr><td colspan="1" rowspan="1"> Clients </td><td colspan="1" rowspan="1"> /v2.0 <span> /clients </span></td></tr><tr><td colspan="1" rowspan="1"> Deposits </td><td colspan="1" rowspan="1"> /v2.0 <span> /deposits </span></td></tr><tr><td colspan="1" rowspan="1"> Deposit Products </td><td colspan="1" rowspan="1"> /v2.0 <span> /depositproducts </span></td></tr><tr><td colspan="1" rowspan="1"> Deposit Transactions </td><td class="confluenceTd" colspan="1" rowspan="1"> /v2.0/deposits/{depositAccountId}/transactions </td></tr><tr><td colspan="1" rowspan="1"> Deposit Transactions Search </td><td colspan="1" rowspan="1"> /v2.0 <span> /deposits/transactions:search </span></td></tr><tr><td colspan="1" rowspan="1"> Loans </td><td colspan="1" rowspan="1"> /v2.0 <span> /loans </span></td></tr><tr><td colspan="1" rowspan="1"> Loan Products </td><td colspan="1" rowspan="1"> /v2.0 <span> /loanproducts </span></td></tr><tr><td colspan="1" rowspan="1"> Loan Transactions </td><td colspan="1" rowspan="1"> /v2.0 <span> /loans/{loanAccountId}/transactions </span></td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> /v2.0 <span> /users </span></td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this Connector?">
+
+You need the username and password associated with your Mambu account, and your domain name.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

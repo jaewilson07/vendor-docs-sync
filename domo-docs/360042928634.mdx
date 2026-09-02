@@ -1,0 +1,36 @@
+---
+title: "Database.com Connector"
+excerpt: "Use Domo's Database.com connector to pull data from a Salesforce Database.com or Sandbox cloud database into a DataSet."
+---
+
+## Intro
+
+Salesforce [Database.com](http://Database.com) is an enterprise database built for the cloud that enables developers to focus on building apps instead of managing and maintaining databases and hardware. To learn more about the [Database.com](http://Database.com) API, visit their page ([https://www.salesforce.com/platform/database/](https://www.salesforce.com/platform/database/ "https://www.salesforce.com/platform/database/") ).
+
+You connect to your [Database.com](http://Database.com) account in the Data Center. This topic discusses the fields and menus that are specific to the [Database.com](http://Database.com) connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your [Database.com](http://Database.com) account and create a DataSet, you must have credentials for either a Salesforce [Database.com](http://Database.com) or Sandbox account.
+
+## Connecting to Your Database.com Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the [Database.com](http://Database.com) Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo [Database.com](http://Database.com) connector uses OAuth to connect, so there is no need to enter credentials within Domo. Select the environment you want to pull data from (either **[Database.com](http://Database.com)** or **Sandbox**) then click **Connect** (or select **Add Account** if you have existing [Database.com](http://Database.com) accounts in Domo) to open the Salesforce OAuth screen where you can enter your Salesforce credentials. Once you have entered valid credentials, you can use the same account any time you go to create a new [Database.com](http://Database.com) DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Salesforce when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Salesforce.
+</Note>
+
+### Details Pane
+
+This pane contains menus for configuring how you want to pull data from Database.com.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> How do you want to select your <a href="http://Database.com" rel="noopener" target="_blank"> Database.com </a> data? </p></td><td colspan="1" rowspan="1"><p> Select how you want to pull data from <a href="http://Database.com" rel="noopener" target="_blank"> Database.com </a>. If you select <b> Browse Objects </b><b> and Fields </b>, you specify your data by selecting objects with associated fields and relationships. If you select <b> Query </b>, you enter an SOQL query to retrieve data. </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p><a href="http://Database.com" rel="noopener" target="_blank"> Database.com </a> Objects </p></td><td colspan="1" rowspan="1"><p> Select the object (table) containing the data you want to pull into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Columns </p></td><td colspan="1" rowspan="1"><p> Select the names of the columns with data you want to pull into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Relationships </p></td><td colspan="1" rowspan="1"><p> Select joinable tables on the selected object. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the SOQL query you want to use to pull data into Domo. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

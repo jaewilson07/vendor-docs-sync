@@ -1,0 +1,53 @@
+---
+title: "Marketo Bulk API Connector"
+excerpt: "Connect to Marketo using a custom service client ID, client secret, and endpoint URLs to bring leads and activities data into Domo DataSets."
+---
+
+## Intro
+
+Marketo is a marketing automation company which develops automated marketing and demand generation software and services for business-to-business marketers. Marketo provides account-based marketing automation software including email, mobile, social, digital ads, web management, and analytics. The Marketo Bulk API connector allows you to view your leads and activities data within Domo. To learn more about the Marketo Bulk API, visit https://developers.marketo.com/rest-api/bulk-import/.
+
+The Marketo Bulk API connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking ****Cloud App**** in the toolbar at the top of the window.
+
+You connect to your Marketo account in the Data Center. This topic discusses the fields and menus that are specific to the Marketo Bulk API connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><p><b><b> Primary Use Cases </b></b></p></td><td colspan="1" rowspan="1"><p> Digital marketing campaign performance reporting and optimization. </p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> Primary Metrics </b></b></p></td><td colspan="1" rowspan="1"><ul><li><p> Emails Sent </p></li><li><p> Emails Delivered </p></li><li><p> Emails Opened </p></li><li><p> Emails Clicked </p></li><li><p> Click Through Rate </p></li><li><p> Click to Open Rate </p></li><li><p> Delivery Rate </p></li><li><p> Open Rate </p></li><li><p> Content Clicks </p></li><li><p> Content Click Through Rate </p></li><li><p> Marketing Qualified Leads </p></li><li><p> Lead Velocity </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> Primary Company Roles </b></b></p></td><td colspan="1" rowspan="1"><ul><li><p> Marketing Director </p></li><li><p> Marketing Operations </p></li><li><p> VP of Marketing </p></li><li><p> Marketing Analyst </p></li><li><p> Digital Marketing Specialist </p></li><li><p> Marketing Automation </p></li><li><p> Outbound Marketing </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> Average Implementation Time </b></b></p></td><td colspan="1" rowspan="1"><p> ~50 hours </p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></b></p></td><td colspan="1" rowspan="1"><p> 5 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to your Marketo account and create a DataSet, you must have the following:
+
+* The Marketo Client ID and Client Secret generated during creation of your custom service. You can find these by signing into Marketo, navigating to
+  ****Admin > LaunchPoint****, and clicking ****View Details**** for the custom service (which will most likely be named "Domo").
+* The "Endpoint" and "Identity" URLs. To obtain the Endpoint and Identity URLs, navigate to
+  ****Admin > Integration > Web Services**** in Marketo.
+
+For step-by-step instructions about creating a Marketo custom service, see http://developers.marketo.com/documentation/rest/custom-service/.
+
+## Connecting to Your Marketo Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Marketo Bulk API Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Marketo account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter the Marketo Client ID generated during creation of your custom service. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter the Client Secret generated during creation of your custom service. </td></tr><tr><td colspan="1" rowspan="1"> Endpoint URL </td><td colspan="1" rowspan="1"> Enter the "rest" endpoint URL provided when you created a custom service. Example: <span class="mt-font-courier-new"><a href="https://100-AEK-913.mktorest/com/rest" rel="noopener" target="_blank"> https://100-AEK-913.mktorest/com/rest </a></span></td></tr><tr><td colspan="1" rowspan="1"> Identity URL </td><td colspan="1" rowspan="1"> Enter the "identity" URL provided when you created a custom service. Example: <span class="mt-font-courier-new"><a href="https://100-AEK-913.mktorest.com/identity" rel="noopener" target="_blank"> https://100-AEK-913.mktorest.com/identity </a></span></td></tr></tbody></table>
+
+Once you have entered valid Marketo credentials, you can use the same account any time you go to create a new Marketo Bulk API DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Marketo Bulk API report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><th colspan="1" rowspan="1"> Report </th><th colspan="1" rowspan="1"> Description </th></tr><tr><td colspan="1" rowspan="1"> Leads </td><td colspan="1" rowspan="1"> Returns leads data. </td></tr><tr><td colspan="1" rowspan="1"> Activities </td><td colspan="1" rowspan="1"> Returns leads' activities data. </td></tr><tr><td colspan="1" rowspan="1"> Program Members </td><td colspan="1" rowspan="1"> Returns program members data. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Lead Fields </td><td colspan="1" rowspan="1"> Select the lead properties you want to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> Filter Types </td><td colspan="1" rowspan="1"> Select how you would like to filter the data to be retrieved. </td></tr><tr><td colspan="1" rowspan="1"> Import Type </td><td colspan="1" rowspan="1"><p> Select how would you like the data to be imported. </p><p> When scheduling this dataset, if you select the Append mode for Update method (Scheduling -&gt; Update method -&gt; Append) on the first run, Domo will run this dataset with the selected date parameters, and then get the data since the last run on all subsequent runs, or Domo will run this dataset with the selected date parameters. </p></td></tr><tr><td colspan="1" rowspan="1"> Report Dates </td><td colspan="1" rowspan="1"> Select the date format for the data to be retrieved. </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> Select whether the report data is for a specific date or for a relative number of days back from today. </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> The time period for which you would like to receive data. </td></tr><tr><td colspan="1" rowspan="1"> Smart Lists </td><td colspan="1" rowspan="1"> Select the smart lists you want to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> Static Lists </td><td colspan="1" rowspan="1"> Select the static lists you want to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> Activity Types </td><td colspan="1" rowspan="1"> Select activity types you want to retrieve data for. </td></tr></tbody></table>
+
+<Note>
+**Note:** The Marketo Connector has stringent API limits. The Domo connector uses the minimum quota needed to pull customer data. In the event that the API quota limit available is not enough, Domo will intelligently perform what's known as an "Extended Run". The connector will use as much API quota as is available to pull as much data into the dataset as the quota will allow, and then pause until the quota resets. Once the quota resets, the connector will resume pulling in the data directly following the last record it pulled in. In this case, customers will see an entry called "Extended Run" in the DataSet History. Quotas usually reset at midnight (central time).
+
+* If the connector is able to pull in all the data without using all the API quota, the connector will not set up an extended run.
+</Note>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

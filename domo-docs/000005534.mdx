@@ -1,0 +1,79 @@
+---
+title: "Snowflake Enterprise OAuth Connector"
+excerpt: "Configure the Snowflake Enterprise OAuth Connector with a shared OAuth Configuration to pull data from Snowflake into Domo."
+---
+
+## Intro
+
+By combining the power of Domo with your Snowflake data warehouse, you can unlock more data value and make your data accessible to everyone in your business. The Domo Snowflake OAuth connector makes it easy to bring data from your Snowflake data warehouse into Domo securely. If you are already using Snowflake as a data warehousing solution, this connector helps you use Domo in conjunction to get the most from your data.
+
+With the OAuth connector for Snowflake, you can use your existing Snowflake account to access your data, including your Client ID and the Client Secret provided by Snowflake when you were registered. Once your Snowflake data is in Domo, you can combine it with all other Domo data to get a centralized view of the most mission-critical data..
+
+You can connect to your Snowflake Enterprise OAuth account in the Data Center. This topic discusses the fields and menus that are specific to the Snowflake Enterprise OAuth connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Snowflake Enterprise OAuth account and create a DataSet, you must have the following:
+
+* You need to select the OAuth Configuration
+* Enter the Account Name provided by Snowflake
+* You need to enter the Role
+
+## Connecting to Your Snowflake Enterprise OAuth Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Snowflake Enterprise OAuth Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Snowflake Enterprise OAuth account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> OAuth Configuration </p></td><td colspan="1" rowspan="1"><p> OAuth Configurations has the service credentials stored by your administrator that automatically logs you in so that only your personal OAuth login is required. Your administrator may create and edit configurations in the Data Center, in the Accounts tab. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Name </p></td><td colspan="1" rowspan="1"><p> Enter the full name of your account (provided by Snowflake). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Role </p></td><td colspan="1" rowspan="1"><p> Enter your role. </p></td></tr></tbody></table>
+
+Once you have entered valid Snowflake Enterprise OAuth credentials, you can use the same account any time to create a new Snowflake Enterprise OAuth DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"> Select the query type. </td></tr><tr><td colspan="1" rowspan="1"> Warehouses </td><td colspan="1" rowspan="1"> Select the warehouse. </td></tr><tr><td colspan="1" rowspan="1"> Databases </td><td colspan="1" rowspan="1"> Select the database. </td></tr><tr><td colspan="1" rowspan="1"> Database Schema </td><td colspan="1" rowspan="1"> Select the schema. </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter a custom query. </td></tr><tr><td colspan="1" rowspan="1"> Database Objects </td><td colspan="1" rowspan="1"> Choose the database object. </td></tr><tr><td colspan="1" rowspan="1"> Tables </td><td colspan="1" rowspan="1"> Select the table. </td></tr><tr><td colspan="1" rowspan="1"> Table Columns </td><td colspan="1" rowspan="1"> You can select the table columns that you would like to include in your report. </td></tr><tr><td colspan="1" rowspan="1"> Table Query Helper </td><td colspan="1" rowspan="1"> This field shows the query generated based on the selected fields. </td></tr><tr><td colspan="1" rowspan="1"> Views </td><td colspan="1" rowspan="1"> Select the view. </td></tr><tr><td colspan="1" rowspan="1"> View Columns </td><td colspan="1" rowspan="1"> Select the view columns that you would like to include in your report. </td></tr><tr><td colspan="1" rowspan="1"> Query Helper </td><td colspan="1" rowspan="1"> This field shows the query that is generated based on the selected fields. </td></tr><tr><td colspan="1" rowspan="1"> Fetch Size </td><td colspan="1" rowspan="1"> Enter a fetch size for the memory performance. If this field is blank, by default the value 1000 will be used. If the dataset throws an out of memory error, then try to decrease the fetch size. </td></tr><tr><td colspan="1" rowspan="1"> Convert BIGINT to LONG </td><td colspan="1" rowspan="1"> Select this check box if you want to convert the BIGINT columns to LONG. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<Accordion title="I am an administrator in a Domo instance. How do I make an OAuth configuration for this connector available to my users?">
+
+To enable the connector to use the OAuth configuration, follow the below steps:
+
+1. [Create a security integration in Snowflake](https://docs.snowflake.com/en/user-guide/oauth-custom "Create a security integration in Snowflake"). Use https://oauth.domo.com/api/data/v1/oauth/providers/snowflake-oauth-config-standard/exchange for the OAUTH\_REDIRECT\_URI value, and save the generated client id and secret.
+2. Create the OAuth Configuration by doing the following:
+   1. Navigate to the Integration Accounts section of the Data Center using https://.domo.com/datacenter/accounts.
+   2. On the top right corner, from the
+         **Add New** drop-down, select **OAuth Configuration**.
+         
+         <Frame><img alt="Add New Drop Down" src="/images/kb/ka0Vq0000008o65-00N5w00000Ri7BU-0EMVq000005mKkj.jpg"/></Frame>
+
+   3. In the modal that appears, provide a name for the configuration.
+   4. Select
+      **Snowflake OAuth Config** from the **Configuration Type** drop-down and then enter the client id and secret obtained from step 1.
+   5. Click
+      **Connect** to create the configuration.
+3. Share the new OAuth Configuration with the users who need to power up this connector.
+   1. Navigate to the OAuth Configurations tab in the Integrations Accounts section of the Data Center.
+   2. Search for the OAuth Configuration created in Step 2.
+   3. Click the wrench menu on the right side and select  **Share Account**.
+      
+         <Frame><img alt="Share Account" src="/images/kb/ka0Vq0000008o65-00N5w00000Ri7BU-0EMVq000005mKmL.jpg"/></Frame>
+
+Now, you can share this configuration by selecting groups or individual users.
+</Accordion>
+
+<Accordion title="I am a user trying to power up this connector. When I click 'OAuth Configuration' in the Credentials section, I don't see anything.">
+
+There are 2 possibilities:
+
+* An OAuth configuration does not exist yet. Contact your Domo admin to determine if an OAuth configuration exists.
+* An OAuth configuration exists but has not been shared with you. Contact your Domo admin to ensure that the OAuth Configuration you need has been shared with you.
+
+</Accordion>
+

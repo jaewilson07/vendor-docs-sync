@@ -1,0 +1,114 @@
+---
+title: "BambooHR Connector"
+excerpt: "Use Domo's BambooHR Cloud App connector to pull employee demographic, salary, and custom HR report data into a DataSet."
+---
+
+## Intro
+
+BambooHR consolidates all of your employee information from all of your locations into a single view. You can then access, control, sort, analyze, and take action on the data instantly-from your office, the road or home. The connector enables all those reports to be easily imported into Domo. For more information about the BambooHR API, visit their website. (http://www.bamboohr.com/api/documentation/)
+
+The BambooHR connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your BambooHR account in the Data Center. This topic discusses the fields and menus that are specific to the BambooHR connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is appropriate for returning head count, payroll, and recurring reporting. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Employee demographics </p></li><li><p> Salary information </p></li><li><p> Custom reports </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> VP </p></li><li><p> HR director </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10 hours </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## Best Practices
+
+Make sure to include all applicable custom fields in your report.
+
+## Prerequisites
+
+To connect to your BambooHR account and create a DataSet, you must have the following:
+
+* Your company domain name or the URL of your company BambooHR instance. This is the same URL you use to log in to the BambooHR web interface. For example:
+  `https://companydomainname.bamboohr.com`
+* Your BambooHR API key. To generate an API key for a given user, log in to BambooHR and click your name in the upper right hand corner of any page to access the user context menu. Then click
+  **API Keys** to open a page in which you can generate an API key. For more information about API keys, see
+  http://www.bamboohr.com/api/documentation/login.php.
+
+## Connecting to Your BambooHR Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the BambooHR Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+**Credentials Pane**
+
+This pane contains fields for entering credentials to connect to your BambooHR account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> Field </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> Company Domain </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Enter your company domain name or the URL of your company BambooHR instance (such as </span><span class="s3"><a href="http://companydomainname.bamboohr.com" rel="noopener" target="_blank"> companydomainname.bamboohr.com </a></span><span class="s1"> ). </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> API Key </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Enter your BambooHR API key. </span></p></td></tr></tbody></table>
+
+Once you have entered valid BambooHR credentials, you can use the same account any time you go to create a new BambooHR DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Report** menu in which you select a report type.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Menu </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Report </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select a BambooHR report. The following reports are available: </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p class="p1"> Company Report </p></td><td colspan="1" rowspan="1"><p class="p1"> Returns data of all the reports of the particular company. </p></td></tr><tr><td colspan="1" rowspan="1"> Complete Employee Data </td><td colspan="1" rowspan="1"> Returns complete data for all the current employees. </td></tr><tr><td colspan="1" rowspan="1"><p class="p1"> Employee Bulk Data </p></td><td colspan="1" rowspan="1"><p class="p1"> Returns data of all the employees in a single report. </p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Employee Data </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns data about employees, such as name, address, email, birthday, gender, ethnicity, department, supervisor, etc. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> User Data </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns data about users of this account, including first and last name, email, status, etc. </span></p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Custom Fields </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select all fields you want to appear in your report. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Report Fields </td><td colspan="1" rowspan="1"> Select all report fields you want to appear in your report. If no fields are selected then Domo will return all fields. </td></tr><tr><td colspan="1" rowspan="1"> Alias Custom Fields </td><td colspan="1" rowspan="1"> Selecting this option will Alias custom fields to remove the prefix of "custom." (Warning, if any custom fields without the prefix would match any non custom fields, this will result in a duplicate column error.) </td></tr><tr><td colspan="1" rowspan="1"> Company Report ID </td><td colspan="1" rowspan="1"> Enter the ID for the company report you want to retrieve. </td></tr><tr><td colspan="1" rowspan="1"> Include Future Records </td><td colspan="1" rowspan="1"> Checking this option will submit a request to Bamboo HR for future records to be included in the returned results. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+* Verify the Company Domain Name and API are correct.
+* Validate the results by running the report in BambooHR.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What version of the BambooHR API does this connector use?">
+
+This connector uses version 1 of the BambooHR API `https://api.bamboohr.com/api/gateway.php/{subdomain}/v1/`.
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table data-aura-rendered-by="33:201;a"><tbody><tr><th colspan="1" rowspan="1" width=""> Report Name </th><th colspan="1" rowspan="1" width=""> Endpoint URL </th></tr><tr><td colspan="1" rowspan="1"> Company Report </td><td colspan="1" rowspan="1"> /reports/{reportid} </td></tr><tr><td colspan="1" rowspan="1"> Employee Data </td><td colspan="1" rowspan="1"> /employee/{employeeid}/?fields=(customfields) </td></tr><tr><td colspan="1" rowspan="1"> Employee Bulk Data </td><td colspan="1" rowspan="1"> /reports/customs </td></tr><tr><td colspan="1" rowspan="1"> User Data </td><td colspan="1" rowspan="1"> /meta/users </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need your company domain name and API key.
+
+</Accordion>
+
+<Accordion title="Where can I find my API Key?">
+
+To generate an API key To generate an API key, log into BambooHR and click your name in the upper right corner of any page to access the user context menu. Then click API Keys to open a page in which you can generate an API key.
+
+</Accordion>
+
+<Accordion title="Do I need a certain kind of account with the data service to set up the connector?">
+
+Any BambooHR account will work.
+
+</Accordion>
+
+<Accordion title="What else do I need to do to power up my connector?">
+
+An individual user must be issued an API key that you then supply to Domo while creating an account. The user must have the necessary permissions set up inside of BambooHR to receive the requested data.
+
+</Accordion>
+
+<Accordion title="Can I use the same account multiple times to create datasets?">
+
+Yes
+
+</Accordion>
+
+<Accordion title="How do I know if my query is right?">
+
+Verify the returned data within the BambooHR system.
+
+</Accordion>
+
+<Accordion title="What's the difference between this connector and the BambooHR connector?">
+
+BambooHR Advanced connector supports the company report and company report id as well.
+
+</Accordion>
+</AccordionGroup>
+

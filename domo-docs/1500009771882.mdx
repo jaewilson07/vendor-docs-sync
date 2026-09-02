@@ -1,0 +1,90 @@
+---
+title: "Apple Search Ads OAuth Connector"
+excerpt: "Use the Apple Search Ads OAuth Connector to pull campaign and ad group performance metrics from Apple Search Ads into a Domo DataSet."
+---
+
+## Intro
+
+Apple Search Ads allows larger advertisers or agencies to create and manage many campaigns programmatically and to run reports for customer insights and trends. The Apple Search Ads OAuth connector allows you to pull the data about the performance metrics for your campaigns and ad groups from your Apple Search Ads system into Domo. Use Domo's Apple Search Ads OAuth connector to combine your Apple Search Ads data with the data from other systems securely for more insights than ever. To learn more about the Apple Search Ads API, visit their page ([https://developer.apple.com/documentation/apple\_search\_ads](https://developer.apple.com/documentation/apple_search_ads "https://developer.apple.com/documentation/apple_search_ads") ).
+
+You connect to your Apple Search Ads OAuth account in the Data Center. This topic discusses the fields and menus that are specific to the Apple Search Ads OAuth connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Apple Search Ads OAuth account and create a DataSet, you must have the following:
+
+* Your Apple Ads client ID
+* Your Apple Ads team ID
+* Your Apple Ads key ID
+* The private key, including begin and end EC private key tags.
+
+You get your client ID, team ID, and key ID after uploading your public key to Apple Search Ads.
+
+To learn more about obtaining your credentials, see [https://developer.apple.com/documentation/apple\_search\_ads/implementing\_oauth\_for\_the\_apple\_search\_ads\_api](https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api "https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api")
+
+## Connecting to Your Apple Search Ads OAuth Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Apple Search Ads OAuth Connector page. The components of the other panes on this page, **Scheduling,** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Apple Search Ads OAuth account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter your Apple Search client ID that you get after uploading your public key to Apple Search Ads. Visit <span></span><a class="link-https" href="https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api" target="_blank" title="https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api"> Apple Search Ads OAuth documentation </a><span></span> to learn more. </td></tr><tr><td colspan="1" rowspan="1"> Team ID </td><td colspan="1" rowspan="1"> Enter your Apple Search team ID that you get after uploading your public key to Apple Search Ads. Visit <span></span><a class="link-https" href="https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api" target="_blank" title="https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api"> Apple Search Ads OAuth documentation </a><span></span> to learn more. </td></tr><tr><td colspan="1" rowspan="1"> Key ID </td><td colspan="1" rowspan="1"> Enter your Apple Search key ID that you get after uploading your public key to Apple Search Ads. Visit <span></span><a class="link-https" href="https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api" target="_blank" title="https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api"> Apple Search Ads OAuth documentation </a><span></span> to learn more. </td></tr><tr><td colspan="1" rowspan="1"> Private Key </td><td colspan="1" rowspan="1"> Enter the private key, including the begin and end EC private key tags. Visit <span></span><a class="link-https" href="https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api" target="_blank" title="https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api"> Apple Search Ads OAuth </a><a href="https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api" target="_blank"> documentation <span></span></a> to learn more. </td></tr></tbody></table>
+
+Once you have entered valid Apple Search Ads OAuth credentials, you can use the same account any time you go to create a new Apple Search Ads OAuth DataSet.
+
+You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the <span> Apple Search Ads OAuth </span><span class="s1"><span></span></span> report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> AdGroup Report (New) </td><td colspan="1" rowspan="1"> Returns the metadata and performance metrics of all the adgroups for a selected campaign. </td></tr><tr><td colspan="1" rowspan="1"> Campaign Report (New) </td><td colspan="1" rowspan="1"> Returns the metadata and performance metrics of all the campaigns for a selected organization. </td></tr><tr><td colspan="1" rowspan="1"> Keyword Report </td><td colspan="1" rowspan="1"> Returns the metadata and performance metrics of all the reports for targeting keywords within a campaign. </td></tr><tr><td colspan="1" rowspan="1"> Keyword Within AdGroup Report </td><td colspan="1" rowspan="1"> Returns the metadata and performance metrics of all the reports for targeting keywords within an ad group. </td></tr><tr><td colspan="1" rowspan="1"> Search Term-level Report </td><td colspan="1" rowspan="1"> Fetches the reports for search terms within a campaign. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Org ID </p></td><td colspan="1" rowspan="1"><p> Select the org you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Granularity </p></td><td colspan="1" rowspan="1"><p> Select the desired date granularity for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign IDs </p></td><td colspan="1" rowspan="1"><p> Select the campaign IDs you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is specific or relative. You select the last date in your range in <b><b> End Date </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is specific or relative. You select the first date in your range in <b><b> Start Date </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest days back that should be represented in the report. Combine with <b><b> Days Back to End At </b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b> Days Back to Start From </b></b> and 5 for <b><b> Days Back to End At </b></b>, the report would contain data from 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent days back that should be represented in the report. Combine with <b><b> Days Back to Start From </b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b> Days Back to Start From </b></b> and 5 for <b><b> Days Back to End At </b></b>, the report would contain data from 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Apple Search Ads API does this connector use?">
+
+This connector uses version 5 of the Apple Search Ads API (https://api.searchads.apple.com/api/v5).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this Connector?">
+
+<table data-aura-rendered-by="33:201;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> AdGroup Report (New) </td><td colspan="1" rowspan="1"> /reports/campaigns/adgroups </td></tr><tr><td colspan="1" rowspan="1"> Campaign Report (New) </td><td colspan="1" rowspan="1"> /reports/campaigns </td></tr><tr><td colspan="1" rowspan="1"> Keyword Report </td><td colspan="1" rowspan="1"> /reports/campaigns/%s/keywords </td></tr><tr><td colspan="1" rowspan="1"> Keyword Within AdGroup Report </td><td colspan="1" rowspan="1"> /reports/campaigns/%s/adgroups/%s/keywords </td></tr><tr><td colspan="1" rowspan="1"> Search Term-level Report </td><td colspan="1" rowspan="1"> /reports/campaigns/%s/searchterms </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this Connector?">
+
+You need the client ID, team ID, key ID, and private key associated with your Apple Search Ads account. You get your client ID, team ID, and key ID after uploading your public key to Apple Search Ads. You need to enter your private key including the begin and end EC private key tags.
+  
+Visit the [Apple Search Ads OAuth documentation](https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api "https://developer.apple.com/documentation/apple_search_ads/implementing_oauth_for_the_apple_search_ads_api") to learn about obtaining your credentials.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

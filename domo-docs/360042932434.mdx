@@ -1,0 +1,53 @@
+---
+title: "Oracle Database Writeback Connector"
+excerpt: "Use Domo's Oracle Database Writeback Connector to export data from a Domo DataSet into an Oracle database."
+---
+
+## Intro
+
+To learn more about Oracle, visit their website at [https://www.oracle.com/index.html](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol "https://www.oracle.com/index.html").
+
+You export data to an Oracle database in the Data Center. This topic discusses the fields and menus that are specific to the Oracle Database Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<Note>
+**Note:**
+
+* The Oracle Database Writeback Connector does not allow full replace.
+* The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+
+</Note>
+
+## Prerequisites
+
+To configure this connector, you will need the following:
+
+* A Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+* Your Oracle Databaseserver hostname.
+* Your Oracle Databaseserver port number.
+* Your Oracle Databaseserver username and password.
+* An Oracle SID. This is a unique identifier for a specific Oracle database. For more information about finding the SID for your database, see
+  [https://asktom.oracle.com/pls/asktom...D:318216852435](https://asktom.oracle.com/pls/asktom/f?p=100:11:0::NO::P11_QUESTION_ID:318216852435 "https://asktom.oracle.com/pls/asktom/f?p=100:11:0::NO::P11_QUESTION_ID:318216852435").
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Oracle Database Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account as well as the table in your Oracle database where you want your data to be copied to. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client secret. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter your Oracle database hostname. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter your Oracle database port number. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your Oracle database username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Oracle database password. </p></td></tr><tr><td colspan="1" rowspan="1"> SID </td><td colspan="1" rowspan="1"> Enter your Oracle SID. </td></tr></tbody></table>
+
+For more information about obtaining these credentials, see "Prerequisites," above.
+
+Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-Oracle connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Input DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to S3. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following <span class="mt-font-courier-new"> datasources/ </span>. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Select Table Name </td><td colspan="1" rowspan="1"><p> Select how you want to name the table where data will be copied. </p><ul><li><p><b> Use Input DataSet Name as Table Name </b>. The table name will be the same as that of the input DataSet. </p></li><li><p><b> Enter Table Name </b>. You will give the table a custom name in the <b> Table Name </b> field. </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"> Table Name </td><td colspan="1" rowspan="1"> Enter the name of the table in your Oracle database where you want your DataSet data to be copied. </td></tr><tr><td colspan="1" rowspan="1"> Update Type </td><td colspan="1" rowspan="1"> Select how you like to update the database table. </td></tr><tr><td colspan="1" rowspan="1"> Truncate Table if Input Dataset is empty? </td><td colspan="1" rowspan="1"> Select this checkbox to truncate the table, if the input datset is empty. <br/><b> Note: </b> It will remove all the rows from the table, only if the provided dataset is empty. Please do not select the checkbox if table does not exist in oracle database. Only select the checkbox when truncating the exisiting database tables. </td></tr><tr><td colspan="1" rowspan="1"> Alter Schema </td><td colspan="1" rowspan="1"> Select if you want to alter the database table schema. <br/><b> Note </b>: It may change/alter the table schema completely. If selected with <b> Truncate Table if Input Dataset is empty? </b> checkbox, then it will only alter schema if input dataset has some schema/columns. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926054?language=en_US "Adding a DataSet Using a Data Connector").

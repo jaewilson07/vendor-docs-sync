@@ -1,0 +1,145 @@
+---
+title: "YouTube Reporting Enterprise Partition Connector"
+excerpt: "Use the YouTube Reporting Enterprise Partition Connector to download bulk YouTube Analytics reports with partitioning support into a Domo DataSet."
+---
+
+## Intro
+
+YouTube Reporting Enterprise Partition supports predefined and Jobs reports that contain a comprehensive set of YouTube Analytics data for a channel or content owner. Use Domo's Youtube Reporting Enterprise Partition Connector to download the bulk data sets that you can query with the YouTube Analytics API. This Connector allows you to connect your YouTube analytics to Domo to refine your YouTube strategy.
+
+<Note>
+**Note:** There are currently 5 YouTube Connectors available in Domo. The difference between these may be difficult to understand, so here is an explanation of each:
+
+* **YouTube Reporting Connector -** This is our entry-level YouTube Connector. It requires only a Google username and password to authenticate. Most Domo users should use this Connector to retrieve YouTube data.
+* **YouTube Reporting Enterprise Connector -** This is the enterprise version of the YouTube Reporting Connector. This report has a few additional reports and requires you to enter a Google Client ID and Client Secret in addition to a basic Google username and password.
+* **YouTube Enterprise Advanced Connector -** This is Domo's most advanced YouTube Connector. (This is the only version of the YouTube Enterprise Connector; there is no Connector simply called "YouTube Enterprise.") It requires a Google Client ID and Client Secret as well as a Google username and password. It provides more reports and options than the other YouTube Connectors but is also more complicated and much more difficult to configure. This Connector is recommended for advanced users only.
+* **YouTube Reporting Partition Connector -** This offers the same reports as the YouTube Reporting Connector, with the added ability to use Partitioning in the DataSet.
+* **YouTube Reporting Enterprise Partition Connector -** This offers the same reports as the YouTube Reporting Enterprise Connector, with the added ability to use Partitioning in the DataSet.
+</Note>
+
+The YouTube Reporting Enterprise Partition Connector is a "Cloud App" Connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the Connector page for this and other Cloud App Connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your YouTube Reporting Enterprise account in the Data Center. This topic discusses the fields and menus that are specific to the YouTube Reporting Enterprise Partition Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Best Practices
+
+**When a Report is created a job is generated and takes 24 -72 hours before returning data.**
+
+After you schedule a reporting job, YouTube generates reports from that day forward and also generates reports covering the 180-day period prior to the time the job was scheduled.
+  
+**Any date prior to the Job creation date for a Report Type is considered historical.**
+
+YouTube will generate up to 60 days of historical data. Historical reports are posted as soon as they are available and in no particular order. It takes roughly one month for all of the historical data to be posted for a job. So, a month after scheduling a reporting job, you will have access to around two months of data.
+
+## Prerequisites
+
+To connect to your YouTube account and create a DataSet, you must have the following:
+
+* A Google Client ID
+* A Google Client Secret
+* A Google username and password
+
+For step-by-step instructions on obtaining a Client ID and Client Secret, see [https://support.google.com/cloud/answer/6158849](https://support.google.com/cloud#topic=3340599 "https://support.google.com/cloud#topic=3340599").
+
+<Note>
+**Note:** For multiple YouTube Reporting Enterprise accounts in Domo, you must click the Google+ API checkbox in the Google API when creating the Client ID and Client Secret. If the Google+ API box is not checked, then any new YouTube Reporting Enterprise account in Domo will override the current credentials.
+
+You must also enable the Google People API to properly configure this Connector. For more information about this API, see https://developers.google.com/people/?hl=en_US.
+</Note>
+
+## Connecting to Your YouTube Reporting Enterprise Account
+
+This section enumerates the options in the Credentials and Details panes in the YouTube Reporting Enterprise Partition Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most Connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your YouTube account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Google Client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Google Client Secret. </p></td></tr></tbody></table>
+
+After you have entered valid credentials, you are taken to Google's OAuth page where you are prompted to enter your Google username and password. Once you have successfully authenticated, you can use the same account any time you go to create a new YouTube Reporting Enterprise Partition DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p><span> Select the desired YouTube Reporting Enterprise Partition report. Different reports are available depending on the API type you choose. </span><span></span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Asset Names </p></td><td colspan="1" rowspan="1"><p> Returns the list of all assets. <br/><b><b> Content Owner ID is required for this report. </b></b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Available Reports </p></td><td colspan="1" rowspan="1"><p> Returns the list of available reports based on report type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channel Details and Statistics </p></td><td colspan="1" rowspan="1"><p> Returns content details, snippets, and statistics data for the authenticated channel. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Jobs </p></td><td colspan="1" rowspan="1"><p> Lists reporting jobs that have been scheduled for a channel or content owner. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Other Video Details and Statistics </p></td><td colspan="1" rowspan="1"><p> Returns content details, snippets, and statistics data for the specified channel IDs. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Predefined Report Types </p></td><td colspan="1" rowspan="1"><p> Returns predefined Report types that the channel or content owner can retrieve. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Public Channel Information </p></td><td colspan="1" rowspan="1"><p> Returns public information of channels entered. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Video and Channel Names </p></td><td colspan="1" rowspan="1"><p> Returns the list of video and channel names. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Call on Behalf of Content Owner </p></td><td colspan="1" rowspan="1"><p> Select <b><b> Yes </b></b> if you are planning to retrieve a predefined report for another user (whose ID you will enter in the <b><b> Content Owner ID </b></b> field). Select <b><b> No </b></b> if you are the content owner for the report you plan to pull. </p><p><b><b> Note: </b></b> You must have content owner access and the Content ID API enabled in the developers console application to do this. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content Owner ID </p></td><td colspan="1" rowspan="1"><p> Enter the content owner ID for the user with content you want to pull. If you do not specify a value for the parameter, the API server assumes the request is being made for your own channel. </p><p> To find your content owner ID, you must be a member of an MCN (Multi-Channel Network). For more information, see <a href="https://support.google.com/youtube/answer/2737059?hl=en" target="_blank"> https://support.google.com/youtube/answer/2737059?hl=en </a>. </p><p> To find your content owner ID, do the following: </p><ol><li><p> Log into YouTube. </p></li><li><p> Click your profile picture in the top right. </p></li><li><p> Select <b><b> Studio </b></b> in the dropdown menu. </p></li><li><p> Copy the portion of the page URL following o=. </p></li></ol><p> For example, if the page URL is <b><a href="https://www.youtube.com/dashboard?o=abc123_qrs_654" rel="noopener" target="_blank"> https://www.youtube.com/dashboard?o=abc123_qrs_654 </a></b>, the content owner ID would be <b> abc123_qrs_654 </b>. </p><p><b><b> Note: </b></b> You must have content owner access and the Content ID API enabled in the developers console application to do this. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Preserve Column Names </p></td><td colspan="1" rowspan="1"><p> Specify whether you want column names in your DataSet to be preserved when a report is changed. The best practice is to set this to <b><b> True </b></b> so cards do not break if the data is changed. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Retrieve Video and Channel Names </p></td><td colspan="1" rowspan="1"><p> Specify whether you want to retrieve video and channel names when a Video or Channel ID or both are present in a report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channel IDs </p></td><td colspan="1" rowspan="1"><p> Enter the channel ID you want to retrieve data for. If there are multiple channel IDs, separate them with commas. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"> Backfill Days </td><td colspan="1" rowspan="1"> Enter the number of backfill days. </td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b><b> End Date </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b><b> Start Date </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b><b> Days Back to End At </b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b> Days Back to Start From </b></b> and 5 for <b><b> Days Back to End At </b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b><b> Days Back to Start From </b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b> Days Back to Start From </b></b> and 5 for <b><b> Days Back to End At </b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the YouTube Reporting API does this Connector use?">
+
+This Connector uses version 1 of the YouTube API (https://youtubereporting.googleapis.com/v1/).
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this Connector?">
+
+First you need to register an App with Google via [Google Developer Console](https://console.developers.google.com). This will provide you with a Client ID and Secret. Then you will need the username and password of the YouTube account that you wish to use. This account needs to have access to the Channel(s) that you are interested in. Depending on how and when a YouTube account was created, it may only have access to a single Channel. You may need a separate login for each Channel that you want to report on.
+
+</Accordion>
+
+<Accordion title="How do I create a Client ID and Client Secret?">
+
+1. Using your Google account, log into the [Google Developer Dashboard](https://console.developers.google.com/).
+2. Create a new Application. Give it a descriptive name such as "YouTube Connection".
+3. Using the Library section, the following APIs need to be enabled:
+   * YouTube Analytics API
+   * YouTube Data API
+   * Google+ API
+4. In the Credentials section, there is a tab called "OAuth consent screen". Set the product name to the same name you gave the project.
+5. In the Credentials tab, press the Create Credentials button and create an OAuth Client ID.
+6. Create a Web Application.
+7. Set the following Authorized JavaScript origins:
+
+   * [https://domo.com](https://domo.com/).
+8. Set the following Authorized Redirect URIs:
+
+   * https://oauth.dev.domo.com/api/data/v1/oauth/providers/youtube-enterprise/exchange.
+   * https://oauth.domo.com/api/data/v1/oauth/providers/youtube-enterprise/exchange.
+9. This will then show the Client ID and Client Secret. Copy and paste them into Domo's account creation screen.
+
+</Accordion>
+
+<Accordion title="Do I need a certain kind of account to power up this Connector?">
+
+Any YouTube account can be used to power up the Connector, since there is a default Channel associated with your account. However, the channel should have videos to return any meaningful results. An account that is connected to an organization's Content Management system will also work. These accounts have access to multiple channels instead of just their default one.
+
+</Accordion>
+
+<Accordion title="My YouTube account has access to my company's Content Management account. How do I get information about my videos and channels?">
+
+The reports that are available in the Data and Content Owner APIs have fields that allow you to request information about channels and videos that are not in your default channel. For the reports in the Data API, set the field called "Call on Behalf of Content Owner" to "True" and then you can enter the name of the Content Owner. For the Content Owner reports, you can just enter the name of the Content Owner. This will give you access to the Content Owner's channels and videos
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+YouTube enforces different API call rate limits for each report. You should make sure that the datasets do not run more than once per day, and they only request the data that you need. Additional data may result in extra API calls.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+Datasets should be set to update once a day. Note that there are times when the most recent data that you can retrieve is 2 or more days old.
+
+</Accordion>
+
+<Accordion title="What's the difference between the YouTube Reporting Enterprise and YouTube Reporting Enterprise Partition Connectors?">
+
+The YouTube Reporting Enterprise Partition Connector supports Date partitioning and backfilling for the Available Reports and Predefined Report Types.
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

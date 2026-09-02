@@ -1,0 +1,71 @@
+---
+title: "Google Analytics 4 Enterprise connector"
+excerpt: "Pull Google Analytics 4 traffic, behavior, and conversion metrics into Domo with the GA4 Enterprise connector to track campaigns and customer behavior."
+---
+
+## Intro
+
+Google Analytics 4 Enterprise connector generates detailed website traffic stats to help measure sales and conversions. Use this Connector to efficiently generate reports about campaign, device, location, social network, and traffic metrics to make sure the customer behavior you're seeing now translates to sales and revenue down the line.
+
+Improve sales and conversions by connecting your Google Analytics data and combining it with other key data sources.
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Understanding visitor traffic patterns on your website </p></li><li><p> Understanding visitor behavior patterns on your website </p></li><li><p> Understanding the relationship between geography and user behavior on your website </p></li><li><p> Understanding the difference between user behavior on mobile devices vs. desktop browsers </p></li><li><p> Understanding how social media drives traffic to your website </p></li><li><p> Understanding how users interact with products on your website </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Page Views </p></li><li><p> Unique Visitor Counts </p></li><li><p> Return Visitor Counts </p></li><li><p> Product Sales Numbers </p></li><li><p> Geographic Patterns </p></li><li><p> Referring Domains </p></li><li><p> Conversion metrics </p></li><li><p> Bounce Rate </p></li><li><p> Exit Pages </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Data analysts </p></li><li><p> Digital marketers </p></li><li><p> Editorial teams </p></li><li><p> Marketing leads </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> If choosing the basic reporting functions you can plan on about an hour depending on how many reports you are pulling. However, if choosing the custom route, the time may be up to 2 hours. Also, depending on how much data you are pulling, it may take several hours for the data to be available in Domo. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 7 </p></td></tr></tbody></table>
+
+## Best Practices
+
+* When starting out, consider deploying the
+
+  [Google Analytics Dashboard](https://domo-support.domo.com/s/article/360042933674?language=en_US "Google Analytics QuickStart App"). The Base Metrics report has many of the fundamental metrics that are key to a Google Analytics Dashboard.
+
+## Prerequisites
+
+To connect to your Google Analytics 4 Enterprise account and create a DataSet, you must have the following:
+
+* Client ID
+* Client Secret
+* Quota Limit
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Google Analytics 4 Enterprise account. The following table describes what is needed for each field:
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Field </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"> Enter your Client ID. </td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"> Enter your Client Secret. </td></tr><tr><td colspan="1" rowspan="1"><p> Quota Limit </p></td><td colspan="1" rowspan="1"> Select the QPS limit for your Google Analytics project. By default, it is 20 QPS. </td></tr></tbody></table>
+
+Once you have entered valid Google Analytics 4 Enterprise credentials, you can use the same account any time to create a new Google Analytics Advanced DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a number of sub-panes in which you can select a report, set a date range, choose your segments, and more.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Properties </td><td colspan="1" rowspan="1"><p> Create a Dataset with data from multiple properties. </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><div> Make custom metrics and dimensions available to select (checkbox) </div></td><td colspan="1" rowspan="1"><p> This checkbox is enabled when you choose the ' <b> Retrieve data for all GA4 properties' </b> option. </p><p> Select whether to include custom fields. This option requires the custom fields to be identical across all selected properties. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Custom Report </td><td colspan="1" rowspan="1"> You can combine up to 10 metrics and 9 dimensions to create a custom report. Select a base report to get you started, or start from the beginning. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"><div> Select report dates and update mode. </div><div><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Field </td><td colspan="1" rowspan="1"> Description </td></tr><tr><td colspan="1" rowspan="1"> Replace </td><td colspan="1" rowspan="1"> When you select <b> Replace </b>, the selected dates will be used for every run. When you select <b> Replace </b>, the <b> Date Selection </b> drop-down list appears. You can either select a <b> Single Date </b>, <b> Date Range </b> or <b> Time Period </b>. Depending on the option you select, various parameters populate. </td></tr><tr><td colspan="1" rowspan="1"> Append </td><td colspan="1" rowspan="1"> When you select <b> Append </b>, the selected dates will be used only for the first run. Subsequent runs will only retrieve data added since the last successful run. When you select <b> Replace </b>, the <b> Date Selection </b> drop-down list appears. You can either select a <b> Single Date </b>, <b> Date Range </b> or <b> Time Period </b>. Depending on the option you select, various parameters populate. </td></tr><tr><td colspan="1" rowspan="1"> Append Data </td><td colspan="1" rowspan="1"><div> Select how to import your data. When you select the Date Range as <b> Append Data </b>, from the drop-down list, the <b> Start Date for Historical Data </b> field appears. Select the start date to retrieve the historical data for the first run. <b> Note: </b> Changing this date after the first run will affect the amount of data kept in your dataset. </div></td></tr><tr><td colspan="1" rowspan="1"> Rolling Window </td><td colspan="1" rowspan="1"><div><div> Select how to import your data. When you select the Data Range as <b> Rolling Window </b> from the drop-down list, the <b> Last Days </b> field appears. You can select the number of days you want to keep the datasets. For example, Last 30 Days. </div></div></td></tr><tr><td colspan="1" rowspan="1"> Specific Date Range (not recommended) </td><td colspan="1" rowspan="1"><div><div><div> Select how to import your data. When you select the Data Range as <b> Specific Date Range (not recommended) </b> from the drop-down list, the <b> Start Date </b> and <b> End Date </b> field appears. </div><div> Select the specific start and end dates. </div></div></div></td></tr></tbody></table></div><div></div></td></tr><tr><td colspan="1" rowspan="1"> Metrics Filter </td><td colspan="1" rowspan="1"> Enable the <b> USE FILTERS </b> toggle button to enable the metrics filter. </td></tr><tr><td colspan="1" rowspan="1"> Dimensions Filter </td><td colspan="1" rowspan="1"> Enable the <b> USE FILTERS </b> toggle button to enable the dimensions filter. </td></tr><tr><td colspan="1" rowspan="1"> Advanced Settings </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Replace Schema </td><td colspan="1" rowspan="1"> Select if you need to reset the schema. Warning: This can result in loss of data or change in data type if some fields are temporarily not returned by Google Analytics's API. While this switch is selected the dataset will reset the schema for each run. </td></tr><tr><td colspan="1" rowspan="1"> Reset Data </td><td colspan="1" rowspan="1"> Select if you need to reset the data. Warning: This can result in loss of data especially if you have selected to append data. While this switch is selected the dataset will use the selected dates for each run. </td></tr></tbody></table></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="When should I use this connector?">
+
+Use this Connector to efficiently generate reports about campaign, device, location, social network and traffic metrics.
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+- Client ID
+- Client Secret
+- Quota Limit
+</Accordion>
+
+<Accordion title="What version of the Google Analytics API does this connector use?">
+
+This connector uses version 1 of the Google Analytics API (https://analyticsdata.googleapis.com/v1beta/)
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Check user permission settings if you are having trouble gaining access to data.
+* Check to make sure you are using the correct set of credentials.
+* When validating data between the API data and the front end reporting tool, always check to see if the data was sampled or not.

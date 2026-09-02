@@ -1,0 +1,45 @@
+---
+title: "Xero Payroll Connector"
+excerpt: "Connect Domo to your Xero account using OAuth and a selected scope to pull employee, timesheet, pay item, and pay run data into a DataSet."
+---
+
+## Intro
+
+Xero is a cloud-based online accounting software platform for small and medium-sized businesses. It manages invoicing, bank reconciliation, bookkeeping & more. Xero enables you to automate everyday business tasks, get up-to-date financials, and run your business - from wherever you are. Use Domo's Xero - Payroll connector to get employee details, timesheets, pay items, pay runs, and more. To learn more about the Xero API, visit https://developer.xero.com/documentation/api/api-overview.
+
+You connect to your Xero account in the Data Center. This topic discusses the fields and menus that are specific to the Xero Payroll connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Xero account and create a DataSet:
+
+* First, you need to select the API you'd like to connect to
+* Then, you need the email address and password you use to log into your Xero account
+
+## Connecting to Your Xero Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Xero Payroll Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Xero Payroll connector uses OAuth to connect, so there is no need to enter credentials within Domo. After selecting the Scope, click ****Connect**** (or select ****Add Account**** if you have existing Xero accounts in Domo) to open the Xero OAuth screen where you can enter your Xero credentials. Once you have entered valid Xero credentials, you can use the same account any time you go to create a new Xero Payroll DataSet. You can manage connector accounts in the ****Accounts**** tab in the Data Center.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Scope </td><td colspan="1" rowspan="1"> Select the API you would like to connect to. </td></tr></tbody></table>
+
+Once you have entered valid Xero credentials, you can use the same account any time you go to create a new Xero Payroll DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** You can only have one Xero account authenticated at a time with a given set of credentials. If you try to use OAuth with Xero anywhere else, it will invalidate your Xero account in Domo.
+
+If you are already logged into Xero when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Xero.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Xero Payroll report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Employees </td><td colspan="1" rowspan="1"> Returns a list of employees in the Xero organization. </td></tr><tr><td colspan="1" rowspan="1"> Leave Applications </td><td colspan="1" rowspan="1"> Returns a list of leave applications in the Xero organization. </td></tr><tr><td colspan="1" rowspan="1"> Pay Items </td><td colspan="1" rowspan="1"> Returns a list of payroll items in the Xero organization. </td></tr><tr><td colspan="1" rowspan="1"> Pay Runs </td><td colspan="1" rowspan="1"> Returns a list of pay runs in the Xero organization. </td></tr><tr><td colspan="1" rowspan="1"> Payroll Calendars </td><td colspan="1" rowspan="1"> Returns a list of payroll calendars in the Xero organization. </td></tr><tr><td colspan="1" rowspan="1"> Payslip </td><td colspan="1" rowspan="1"> Returns the pay-slip information for a particular person in the Xero organization. </td></tr><tr><td colspan="1" rowspan="1"> Timesheets </td><td colspan="1" rowspan="1"> Returns a list of the payroll timesheet in the Xero organization. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Modified Date Filter </td><td colspan="1" rowspan="1"> The modified date filter returns the data created or modified after the selected date. Select the modified date using relative or specific dates. </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Modified Date </td><td colspan="1" rowspan="1"> Select the modified date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Day Back To Start From </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for. </td></tr><tr><td colspan="1" rowspan="1"> Pay Run Duration </td><td colspan="1" rowspan="1"> Select the pay run duration to fetch the pay slip ID. </td></tr><tr><td colspan="1" rowspan="1"> Owner Name </td><td colspan="1" rowspan="1"> Select the pay-slip owner name to fetch the pay-slip data. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

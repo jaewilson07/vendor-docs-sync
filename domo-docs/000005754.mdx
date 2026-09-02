@@ -1,0 +1,37 @@
+---
+title: "Cin7 Connector"
+excerpt: "Configure the Cin7 Connector to ingest Products, Sales Orders, Stocks, and Credit Notes from your Cin7 inventory system into Domo."
+---
+
+## Intro
+
+Cin7 is a cloud-based inventory management software that is designed to help businesses streamline their operations, manage inventory, and automate various processes such as order management, fulfillment, and supply chain activities. The Cin7 connector uses an API framework to retrieve Products and Orders information from the Cin7 system.
+
+You can connect to your Cin7 account in the Data Center. This topic discusses the fields and menus that are specific to the Cin7 connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Cin7 account and create a DataSet, you need the following:
+
+* Your Cin7 Username
+* Your Cin7 Access Key
+
+## Connecting to Your Cin7 Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Cin7 Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Cin7 account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username. </td></tr><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> Enter the access key. </td></tr></tbody></table>
+
+Once you have entered valid Cin7 credentials, you can use the same account to create a new Cin7 DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Cin7 report you want to run. The following reports are available: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Credit Notes </p></td><td colspan="1" rowspan="1"> Endpoint for retrieving information about Credit Notes. </td></tr><tr><td colspan="1" rowspan="1"><p> Products </p></td><td colspan="1" rowspan="1"> Endpoint for retrieving information about products. </td></tr><tr><td colspan="1" rowspan="1"><p> Sales Orders </p></td><td colspan="1" rowspan="1"> Endpoint for retrieving information about sales orders. </td></tr><tr><td colspan="1" rowspan="1"><p> Stocks </p></td><td colspan="1" rowspan="1"> Endpoint for retrieving information about stock. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Select Date </td><td colspan="1" rowspan="1"> Select the date to filter the records. When you select Append or Upsert as the update mode, the date field will be used on the first run. Subsequent runs will use the date of the last run. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

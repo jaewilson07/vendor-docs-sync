@@ -1,0 +1,92 @@
+---
+title: "Using Smart Text"
+excerpt: "Add Smart Text to a Card title or description in Analyzer or a dashboard to reference dynamic data elements that update as the underlying data changes."
+---
+
+## Intro
+
+You can add Smart Text to a card title or description while working in Analyzer or from a dashboard. Smart Text references certain data elements and updates in place whenever the underlying data changes. You can use more than one piece of Smart Text at a time, if needed.
+
+Anyone with permission to edit a card or dashboard can add/modify associated Smart Text.
+
+Personalized Data Permissions (PDP) do apply when adding Smart Text to a card title or description. For more information about PDP, see [Personalized Data Permissions (PDP)](/s/article/360042934614).
+
+The Smart Text options are described below:
+
+* **Date range —**
+  Shows dates in text. Ex: this quarter, graphed by week
+* **Filters —**
+  Displays the filters applied. Ex: order status.
+* **Variables —**
+  When a variable is present, the selected value of the variable is listed.
+* **Segments used —**
+  Names the visible segments.
+* **DataSet info —**
+  Displays information about the DataSet such as the date last updated or owner.
+
+  <Note>
+    **Note:**
+    You can also add Smart Text to Notebook Cards. See
+    [Adding a Notebook Card](/s/article/360043430233)
+    to learn more.
+
+  </Note>
+
+## Add Smart Text in Analyzer
+
+Inside Analyzer, follow these steps to add Smart Text to a card title or description:
+
+1. Hover over the card title or description to display the
+   <i className="icon-pencil sm" aria-hidden="true" /> **Edit** option.
+     
+   <Frame><img alt="select card title or desc.jpg" src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000K31l.jpg"/></Frame>
+2. Select either option to open the
+   **Edit Card Title and Description** modal.
+     
+   <Frame><img alt="Card_Title_Modal.png" src="/images/kb/ka05w00000125NC-00N5w00000Ri7BU-0EM5w000005vOEu.png"/></Frame>
+To continue, see [Configure Smart Text](#configure-smart-text).
+
+## Add Smart Text on a Dashboard
+
+1. Navigate to the dashboard where you want to add Smart Text and select
+   <img src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000K39p.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Settings menu** > <img src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000K3Ht.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Edit Dashboard**.
+     
+   <Frame><img alt="dashboard settings menu.jpg" src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000K3GH.jpg"/></Frame>
+2. In edit mode, hover over the card where you want to add Smart Text and select
+   **Edit Content** > **Edit card title & description**.
+     
+   <Frame><img alt="edit content title.jpg" src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000K3JV.jpg"/></Frame>
+The **Edit Card Title and Description** modal displays. To continue, see [Configure Smart Text](#configure-smart-text).
+
+## Configure Smart Text
+
+1. In the modal, select
+   **+ Smart Text** for either the **Card title** or **Description** fields to open the Smart Text menu.
+     
+   <Frame><img alt="Screenshot 2024-02-07 at 3.18.29 PM.png" src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000K33N.jpg"/></Frame>
+   <Note>
+     **Note:**
+     If the card does not have any variables, the
+     **Variables**
+     option is not available. Add a variable to the card to have the option for Variables Smart Text.
+
+   </Note>
+
+2. Select the type of Smart Text you want to add and follow the prompts to apply logic. The logic depends on the type of Smart Text. See the table below.
+
+<Note>
+  **Note:**
+  Your Smart Text configuration can make your card title or description quite lengthy. We recommend being thoughtful about how you apply Smart Text for usability.
+
+</Note>
+
+   <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Smart Text Type </p></th><th colspan="1" rowspan="1"> Logic </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Date range </p><ul><li> Date range </li><li> Graph by </li><li> Compare to </li><li> Date range field </li></ul><p></p><p> Segments used </p><ul><li> Segment name </li><li> Segment description </li></ul><p> Learn more about <a href="/s/article/4403089503383" target="_self"> segments </a>. </p><p></p><p> DataSet Info </p><ul><li> Name </li><li> Owner </li><li> Date last updated </li></ul><p></p></td><td colspan="1" rowspan="1"><p><b> Prefix/Suffix — </b> A prefix or suffix is optional. It is a character or characters that come before or after the Smart Text in your card title or description. </p><p> For example, as a prefix for Date range, you may enter "— " (em dash and then a space). <br/><br/><img alt="Screenshot 2024-02-07 at 4.20.38 PM.png" src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000K33O.jpg" style={{width: 298, height: 172}}/></p><p> Use the <b> Preview </b> field in the modal to see how your prefix/suffix will appear. </p><p><img alt="Screenshot 2024-02-07 at 4.22.07 PM.png" src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000K3hh.jpg" style={{width: 402, height: 103}}/></p></td></tr><tr><td colspan="1" rowspan="1"><p> Variables </p><p><em> (x) </em> — When the variable value updates, the Smart Text shows the current value. </p><p> Learn more about <a href="/s/article/7903767835031" target="_self"> variables </a>. </p></td><td colspan="1" rowspan="1"><p><b> Default text — </b> Text that displays in card search results and the Card Admin Settings. </p><p><img alt="Screenshot 2024-02-08 at 2.16.20 PM.png" src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000KUl7.jpg" style={{width: 299, height: 233}}/></p><p><b> Prefix/Suffix — </b> See above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filters </p><p> When you select the <b> Filters </b> Smart Text, you can choose to display the filters applied or select the box labeled <b> Display any filter </b>. After making your choice, choose <b> Select </b> at the bottom of the filter list. </p><ul><li><b> Display any filter — </b> This is the default setting. Choosing to display any filter means that when your card is being viewed, any filters applied to the dashboard or card display in the card title or description (wherever you place your Smart Text). </li></ul><p></p><ul><li><b> Filters applied — </b> Choosing a filter or filters means that when your card is being viewed and the filter or filters are applied, they are listed in the card title or description (wherever you place your Smart Text). The system default is to show the name of the filter if only one filter is selected or to display <b> Filters(<em> x </em> ) </b> where x is the number of filters you have selected. </li></ul><p></p></td><td colspan="1" rowspan="1"><p><b> Default text — </b> This text displays when no filters are applied. Ex: `All` Default text also displays in card search results and in the Card Admin Settings. </p><p><b> Prefix/Suffix — </b> See above. </p><p><b> Values shown — </b> You can choose to display all the available values or a specific number. For example, if your Smart Text is configured to `Display any filter` and you choose to show only 1 value, only 1 filter will display in your card title or description, even if there are 5 filters applied to the card. </p><p> The default for Values shown is All. Values that exceed the threshold are shown in a tooltip. </p><p><img alt="Screenshot 2024-02-07 at 4.37.04 PM.png" src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000K44H.jpg" style={{width: 400, height: 366}}/></p></td></tr></tbody></table>
+
+3. Select
+   **Apply** to keep the logic, **Cancel** to discard the logic, or **Remove** to delete that piece of Smart Text from the card title or description.
+4. Select
+   **Save** to keep your configured Smart Text and close the modal or **Cancel** to discard your changes.
+
+## Video - Smart Text Overview
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/63NfWxnVVzg?si=NDqycrBHkhKOtvso" title="YouTube video player" width="560"></iframe>

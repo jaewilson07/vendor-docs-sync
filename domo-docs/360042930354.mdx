@@ -1,0 +1,66 @@
+---
+title: "CA Agile Central Connector"
+excerpt: "Use Domo's CA Agile Central connector to retrieve projects, tasks, users, defects, and iteration burndown data from Rally into a DataSet."
+---
+
+## Intro
+
+CA Agile Central (formerly Rally Software) produces Agile project management tools that allow users to gain visibility into the status of features and quality, priorities, roadblocks, and risks. Use Domo's CA Agile Central connector to retrieve data about projects and tasks, users, defects, and the like. For more information about the CA Agile Central API, go to https://help.rallydev.com/access-web-services-api-wsapi.
+
+The CA Agile Central connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+This topic discusses the fields and menus that are specific to the CA Agile Central connector user interface. For general information about adding DataSets, setting update schedules, and editing DataSet information, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> You can use this connector to address all of the following use cases: </p><ul><li><p> Gauging if you are you on track to completing customized solution/product for a customer </p></li><li><p> Gauging if you are on track to completing features for product? </p></li><li><p> Product roadmap </p></li><li><p> Average velocity by team/sprint </p></li><li><p> Iteration burndown—work remaining and completed in the iteration to anticipate whether the committed work will be delivered by the iteration end date </p></li><li><p> Weekly/bi-weekly sprint review </p></li><li><p> Overview of defect history </p></li><li><p> Defect summary by priority and severity </p></li><li><p> Defects opened and closed by month </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Product/team velocity </p></li><li><p> Relative size of stories or portfolio items such as features and initiatives </p></li><li><p> Points: estimated vs planned </p></li><li><p> Points: accepted &amp; completed </p></li><li><p> Defects </p></li><li><p> Tasks </p></li><li><p> Task hours </p></li><li><p> Iteration burndown rate </p></li><li><p> iteration burndown vs. ideal burndown rate </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Product manager </p></li><li><p> Project manager </p></li><li><p> Director </p></li><li><p> VP </p></li><li><p> Executives </p></li><li><p> CEO </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ~20 hours </p><p> Reasons for this lengthy implementation time are as follows: </p><ul><li><p> Connecting is easy, but the reports you can pull are very raw. To create meaningful Domo content you may need to do a decent amount of DataFlow work to combine these raw reports. For more information, see <a target="_blank" title="Prepare"> Prepare </a>. </p></li><li><p> API field names in the raw reports do not necessarily match what you see on the CS Agile Central website, necessitating identification and renaming work. </p></li><li><p> You may have custom reports and fields that must be integrated with your DataFlow. These may replace some of the standard fields, which adds complexity. </p></li><li><p> API documentation is difficult to access and follow. </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 7 </p></td></tr></tbody></table>
+
+## Best Practices
+
+* Forecast and track progress: The states of the scheduled work items indicate the progress of your development as it moves to completion. To determine if you are on target to complete the work within the scheduled iteration, track the accepted state.
+* Manage scope: As your scheduled work item bars become level, it is easy to see when excess work is added to an iteration. If the level of the bars do not remain uniform and instead continue to increase, you need to re-address the scope of your iteration.
+* Identify bottlenecks: Use the rolled-up states of your scheduled work items to determine if there are trends that indicate bottlenecks. For example, a large section of scheduled items in a completed state as compared to a small amount of accepted may indicate a testing roadblock.
+
+## Prerequisites
+
+To connect to your CA Agile Central account and create a DataSet, you must have the following:
+
+* The API key for your CA Agile Central account.
+* The URL for your CA Agile Central account (for example, https://rally1.rallydev.com).
+
+## Connecting to Your CA Agile Central Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the CA Agile Central Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your CA Agile Central account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter the API Key for your CA Agile Central account. </p><p><b> To get the API Key for Rally, </b></p><ol><li><p> Log into CA Agile Central Application Manager (<a href="https://rally1.rallydev.com/login" target="_blank"> https://rally1.rallydev.com/login </a><span class="nolink"> ) </span> using your CA Agile Central username and password. </p></li><li><p> Click the <b> API KEYS </b> tab at the top of the page. </p></li><li><p> Click the <b> Create New API Key </b> link. </p></li><li><p> Enter a name or description for the key in the <b> Description </b> field. For example, "Domo API Connection" </p></li><li><p> In the <b> Grants </b> section, select the <b> Full Access </b> option. </p></li><li><p> Click the <b> Create </b> button. </p></li></ol></td></tr><tr><td colspan="1" rowspan="1"><p> URL </p></td><td colspan="1" rowspan="1"><p> Enter the URL for your CA Agile Central account. For example, <span class="nowiki"><span class="mt-font-courier-new"><a href="https://rally1.rallydev.com/login" rel="noopener" target="_blank"> https://rally1.rallydev.com/login </a></span></span></p></td></tr></tbody></table>
+
+After you have entered valid CA Agile Central credentials, you can use the same account in Domo any time you create a CA Agile Central DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Report** menu in which you select a report type. The following table describes all of the reports you can create using the Domo CA Agile Central connector:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Report </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Hierarchical Requirement </p></td><td colspan="1" rowspan="1"><p> Returns information about the hierarchical requirements for your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Workspace Configuration </p></td><td colspan="1" rowspan="1"><p> Returns information about the workspace configuration for your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blocker </p></td><td colspan="1" rowspan="1"><p> Returns information about blockers for your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Build </p></td><td colspan="1" rowspan="1"><p> Returns build information for your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Defect </p></td><td colspan="1" rowspan="1"><p> Returns information about defects for your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Iteration </p></td><td colspan="1" rowspan="1"><p> Returns information about iterations for your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Iteration Cumulative Flow Data </p></td><td colspan="1" rowspan="1"><p> Returns the states of work in an iteration to analyze the trend in lead time for delivery of working code. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Preference </p></td><td colspan="1" rowspan="1"><p> Returns user preference information for all users in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Project </p></td><td colspan="1" rowspan="1"><p> Returns information about projects in your account, such as owner, creation date, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Release Cumulative Flow Data </p></td><td colspan="1" rowspan="1"><p> Returns work-in-progress status to analyze the trend in lead time for release value delivery. </p></td></tr><tr><td colspan="1" rowspan="1"><p> SCM Repository </p></td><td colspan="1" rowspan="1"><p> Returns information about SCM repositories for your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Subscription </p></td><td colspan="1" rowspan="1"><p> Returns information about your CA Agile Central subscription, such as expiration date, maximum projects, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Task </p></td><td colspan="1" rowspan="1"><p> Returns information about tasks in an iteration, including owner, description, status, estimate, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User </p></td><td colspan="1" rowspan="1"><p> Returns information about all of the users in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Iteration Capacity </p></td><td colspan="1" rowspan="1"><p> Returns workload data by iteration for all of the users in your account. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+Datasets can be updated as often as once an hour.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+Rally does not document any limits in their API.
+
+</Accordion>
+</AccordionGroup>
+

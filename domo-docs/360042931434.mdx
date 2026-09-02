@@ -1,0 +1,72 @@
+---
+title: "Docebo Connector"
+excerpt: "Use Domo's Docebo Connector to import learning portal data including courses, enrollment, and learning plans from Docebo into a DataSet."
+---
+
+## Intro
+
+Docebo is a SaaS platform that offers a learning portal for companies and their employees, partners and customers. Use Domo's Docebo connector to retrieve reports for courses, enrollment, learning plans, and more. To learn more about the Docebo API, visit their page ([https://www.docebo.com/lms-docebo-ap...y-integration/](https://www.docebo.com/lms-docebo-api-third-party-integration/ "https://www.docebo.com/lms-docebo-api-third-party-integration/") ).
+
+You connect to your Docebo account in the Data Center. This topic discusses the fields and menus that are specific to the Docebo connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Docebo account and create a DataSet, you must have the following:
+
+* Your Docebo username and password.
+* The API base URL for your Docebo software. For example: https://doceboapi.docebosaas.com
+* A Docebo client ID
+* A Docebo client secret
+
+For information about generating your client ID and client secret, visit https://www.docebo.com/knowledge-base/how-to-activate-and-manage-the-sso-and-api-app/. Note that when configuring the app, the **Grant Type** *must* be set to **Resource Owner Password Credentials**.
+
+## Connecting to Your Docebo Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Docebo Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Docebo account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your Docebo username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Docebo password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API URL </p></td><td colspan="1" rowspan="1"><p> Enter the API base URL for your Docebo software. Example: <span class="mt-font-courier-new"><span class="nowiki"><a href="https://doceboapi.docebosaas.com" rel="noopener" target="_blank"> https://doceboapi.docebosaas.com </a></span></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Docebo client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Docebo client secret. </p></td></tr></tbody></table>
+
+Once you have entered valid Docebo credentials, you can use the same account any time you go to create a new Docebo DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Docebo report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Courses Details </p></td><td colspan="1" rowspan="1"><p> Returns details about the courses. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Course List </p></td><td colspan="1" rowspan="1"><p> Returns a list of Docebo courses. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Course Sessions </p></td><td colspan="1" rowspan="1"><p><span> Receives data about Docebo Course Sessions. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Ecommerce </p></td><td colspan="1" rowspan="1"><p><span> Receives data about Docebo Ecommerce reports. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Enrollment </p></td><td colspan="1" rowspan="1"><p><span> Receives data about Docebo Enrollment reports. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Learning Plan </p></td><td colspan="1" rowspan="1"><p><span> Receives data about Docebo Learning Plan reports. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> User </p></td><td colspan="1" rowspan="1"><p><span> Receives data about Docebo User reports. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Reports </p></td><td colspan="1" rowspan="1"><p> Receives data about Docebo reports. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Replace custom fields with actual names? </p></td><td colspan="1" rowspan="1"><p><span> Custom fields are labeled with field_numbers by default. Select this check box to replace the custom fields with the actual names. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter </p></td><td colspan="1" rowspan="1"><p> Select the desired filter for your Docebo report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enrollment filtering method </p></td><td colspan="1" rowspan="1"><span> Select a method to filter the enrollments. 'All Enrollments' option will bring the data for all available enrollments. 'Select Dates' option will allow you to fetch the enrollment data for the specified date range. </span></td></tr><tr><td colspan="1" rowspan="1"> Individual columns for additional fields </td><td colspan="1" rowspan="1"><span> Select this checkbox to get the additional fields as individual columns. </span></td></tr><tr><td colspan="1" rowspan="1"> Expand data </td><td colspan="1" rowspan="1"><span> Select Available Seats field that you would like to get expanded in the data. This will cause multiple rows to show each object in the field selected. </span></td></tr><tr><td colspan="1" rowspan="1"> Select Report </td><td colspan="1" rowspan="1"> Select the desired Docebo sub report. </td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> Select the date format for your data. </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> Select whether the report data is for a specific date or for a relative number of days back from today. </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> Select the specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for in the <span></span><b> Days Back </b><span></span> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data from (start day). Combine with <b><b><b><b> End Date </b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b> Start Date </b></b></b></b> and 5 for <b><b><b><b> End Date </b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data to (end day). Combine with <b><b><b><b> Start Date </b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b> Start Date </b></b></b></b> and 5 for <b><b><b><b> End Date </b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> Specify the time period that you would like to receive data for. </td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> Select the day you would like your week to start with. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+Datasets should be updated once per day only, due to Docebo's API call limits.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+Docebo API calls are limited to 1000 call per hour per IP address.
+
+</Accordion>
+
+<Accordion title="What version of the Docebo API does this connector use?">
+
+This connector uses version 1 of the Docebo API (https://[customerdomain]. [docebosaas.com/api/v1](http://docebosaas.com/api/v1) ).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table data-aura-rendered-by="33:201;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> Course Details </td><td colspan="1" rowspan="1"> /courses </td></tr><tr><td colspan="1" rowspan="1"> Course List </td><td colspan="1" rowspan="1"> /learn </td></tr><tr><td colspan="1" rowspan="1"> Course Session </td><td colspan="1" rowspan="1"> /courses/sessions </td></tr><tr><td colspan="1" rowspan="1"> Ecommerce </td><td colspan="1" rowspan="1"> /ecommerce </td></tr><tr><td colspan="1" rowspan="1"> Enrollment </td><td colspan="1" rowspan="1"> /learn </td></tr><tr><td colspan="1" rowspan="1"> Learning Plan </td><td colspan="1" rowspan="1"> /learn </td></tr><tr><td colspan="1" rowspan="1"> Reports </td><td colspan="1" rowspan="1"> /report </td></tr><tr><td colspan="1" rowspan="1"> User </td><td colspan="1" rowspan="1"> /manage </td></tr></tbody></table>
+
+</Accordion>
+</AccordionGroup>
+

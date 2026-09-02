@@ -1,0 +1,40 @@
+---
+title: "Lithium LiQL Connector"
+excerpt: "Use Domo's Lithium LiQL connector to query Lithium Community API v2 data with custom LiQL queries and pull results into a DataSet."
+---
+
+## Intro
+
+Lithium Technologies provides social customer experience management software for enterprise customers. The Lithium Community API v2 uses LiQL (Lithium Query Language), an SQL-like query language, to access your Lithium data. Use Domo's Lithium connector to retrieve data related to forums, such as leaderboards of kudos authors, lists of visiting users, and so on. To learn more about the Lithium API, visit their page ([https://community.lithium.com/t5/Dev...ct-p/Developer)](https://devdocportal.lithium.com/t5/Community-API-v2-Reference/bd-p/restv2docs).
+
+You connect to your Lithium account in the Data Center. This topic discusses the fields and menus that are specific to the Lithium LiQL connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Lithium account and create a DataSet, you must have the following:
+
+* Your Lithium client ID and client secret
+* The base URL for your Lithium instance (e.g. [community.domo.com](http://community.domo.com))
+* Your Lithium Tenant ID
+
+## Connecting to Your Lithium Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Lithium LiQL Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Lithium account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Lithium API URL </p></td><td colspan="1" rowspan="1"><p> Enter the Lithium API URL you want to pull data from. </p><p> For Production, enter one of the following: </p><ul><li><p><a href="http://api.lithium.com" rel="noopener" target="_blank"> api.lithium.com </a></p></li><li><p><a href="http://eu.api.lithium.com" rel="noopener" target="_blank"> eu.api.lithium.com </a></p></li></ul><p> For Staging, enter one of the following: </p><ul><li><p><a href="http://api.stage.lithium.com" rel="noopener" target="_blank"> api.stage.lithium.com </a></p></li><li><p><a href="http://eu-api.stage.lithium.com" rel="noopener" target="_blank"> eu-api.stage.lithium.com </a></p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Lithium client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Lithium client secret. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Base URL </p></td><td colspan="1" rowspan="1"><p> Enter the server URL for your Lithium instance. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tenant ID </p></td><td colspan="1" rowspan="1"><p> Enter your Lithium tenant ID. </p></td></tr></tbody></table>
+
+Once you have entered valid Lithium credentials, you can use the same account any time you go to create a new Lithium DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Lithium report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> LiQL </td><td colspan="1" rowspan="1"> Enter the fields, collections, and constraints, and the connector will use these to build your query. </td></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> Enter your own LiQL query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Collection </td><td colspan="1" rowspan="1"> Select the collection you want to use in your query. This corresponds to the <span class="mt-font-courier-new"> FROM </span> clause in the query. </td></tr><tr><td colspan="1" rowspan="1"> Fields </td><td colspan="1" rowspan="1"> Select the fields you want to use in your query. These correspond to the <span class="mt-font-courier-new"> SELECT </span> clause in the query. </td></tr><tr><td colspan="1" rowspan="1"> Constraints </td><td colspan="1" rowspan="1"><p> Enter the constraints you want to use in your query. These correspond to the <span class="mt-font-courier-new"> WHERE </span> clause in the query. </p><p> For example: <span class="mt-font-courier-new"> ratings.avg(value)&gt;=4 AND conversation.style='forum' </span></p></td></tr><tr><td colspan="1" rowspan="1"> LiQL Query </td><td colspan="1" rowspan="1"><p> Enter the query you want to use to pull Lithium data into Domo. The syntax is: </p><p><code> SELECT &lt;fields&gt; FROM &lt;collection&gt; </code></p><p><code> WHERE &lt;constraints&gt; </code></p><p><code> ORDER BY &lt;fields&gt; &lt;DIRECTION&gt; </code></p><p> The <span class="mt-font-courier-new"> SELECT </span> line is required; the <span class="mt-font-courier-new"> WHERE </span> and <span class="mt-font-courier-new"> ORDER BY </span> lines are optional. LiQL variables are case-sensitive. </p><p> For example, to return forum posts with an average rating of 4 or higher, you would enter the following: </p><p><code> SELECT * FROM messages WHERE ratings.avg(value)&gt;=4 AND conversation.style='forum' </code></p><p> For another example, to return the subject, ID, and conversation data for forum topics with accepted solutions... </p><p><code> SELECT subject, id, conversation FROM messages WHERE conversation.style='forum' AND depth=0 AND conversation.solved='true' </code></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

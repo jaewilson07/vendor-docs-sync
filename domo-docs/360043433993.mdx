@@ -1,0 +1,68 @@
+---
+title: "Mixpanel Connector"
+excerpt: "Use the Mixpanel connector with an API secret and region to pull user interaction data from web and mobile apps into a Domo DataSet."
+---
+
+## Intro
+
+Mixpanel is a business analytics service that tracks user interactions with web and mobile applications. To learn more about the Mixpanel API, visit their page ([https://mixpanel.com/docs/api-docume...ata-export-api](https://mixpanel.com/docs/api-documentation/data-export-api "https://mixpanel.com/docs/api-documentation/data-export-api") ).
+
+The Mixpanel connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Mixpanel account in the Data Center. This topic discusses the fields and menus that are specific to the Mixpanel connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is appropriate for the following use cases: </p><ul><li><p> Tracking how many users start an app and then continue to use it </p></li><li><p> Tracking how many users reach each portion of an app </p></li><li><p> Tracking how many users use the app for multiple days after first using it. </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Number of app users </p></li><li><p> Number of uses who continue to use the app </p></li><li><p> Number of users who reached specific events in the app </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Marketing roles </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ~5 hours </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 6 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to your Mixpanel account and create a DataSet, you must have the following:
+
+* Select the region your server is hosted on
+* A Mixpanel API secret
+
+To find these credentials, do the following:
+
+1. Log in to Mixpanel.
+2. Click your name in the top right corner.
+3. Select **Account**.
+4. Click **Projects**.
+
+The API key and secret are displayed in the window.
+
+## Connecting to Your Mixpanel Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Mixpanel Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Mixpanel account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Server Region </td><td colspan="1" rowspan="1"><span> Select the region your server is hosted on. </span></td></tr><tr><td colspan="1" rowspan="1"> API Secret </td><td colspan="1" rowspan="1"> Enter your Mixpanel API secret. </td></tr></tbody></table>
+
+For information about obtaining these credentials, see "Prerequisites," above.
+
+Once you have entered valid Mixpanel credentials, you can use the same account any time you go to create a new Mixpanel DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Mixpanel report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Common Events </td><td colspan="1" rowspan="1"> Retrieves a list of the most common events for the specified time period. </td></tr><tr><td colspan="1" rowspan="1"> Engage </td><td colspan="1" rowspan="1"> Retrieves information about user engagement. </td></tr><tr><td colspan="1" rowspan="1"> Engage with Limited Columns </td><td colspan="1" rowspan="1"> Return Events with custom filters, and choose which columns to return. </td></tr><tr><td colspan="1" rowspan="1"> Event Information </td><td colspan="1" rowspan="1"> Return the data from a single Event. </td></tr><tr><td colspan="1" rowspan="1"> Event Property Information </td><td colspan="1" rowspan="1"> Return the property information of a single Event. </td></tr><tr><td colspan="1" rowspan="1"> Funnel Information </td><td colspan="1" rowspan="1"> Returns data about a single Funnel. </td></tr><tr><td colspan="1" rowspan="1"> Funnel List </td><td colspan="1" rowspan="1"> Returns the list of Funnels. </td></tr><tr><td colspan="1" rowspan="1"> JQL Query </td><td colspan="1" rowspan="1"> Returns the data by executing the JavaScript Query Language (JQL). <span></span><a href="https://mixpanel.com/help/reference/jql/api-reference" target="_blank"> See Mixpanel Documentation for more information. </a></td></tr><tr><td colspan="1" rowspan="1"> Raw Data </td><td colspan="1" rowspan="1"> Returns the raw data from Mixpanel. </td></tr><tr><td colspan="1" rowspan="1"> Retention </td><td colspan="1" rowspan="1"> Returns customer retention based on Birth. </td></tr><tr><td colspan="1" rowspan="1"> Segmentation </td><td colspan="1" rowspan="1"> Returns a segment of the data from an Event. </td></tr><tr><td colspan="1" rowspan="1"> Segmentation (average) </td><td colspan="1" rowspan="1"> Returns the average segment of the data from an Event. </td></tr><tr><td colspan="1" rowspan="1"> Segmentation (numeric) </td><td colspan="1" rowspan="1"> Returns a particular number of segments of data from an Event. </td></tr><tr><td colspan="1" rowspan="1"> Segmentation (sum) </td><td colspan="1" rowspan="1"> Returns the total number of segments from the data of an Event. </td></tr><tr><td colspan="1" rowspan="1"> Top Events </td><td colspan="1" rowspan="1"> Returns the most used Events. </td></tr><tr><td colspan="1" rowspan="1"> Top Properties </td><td colspan="1" rowspan="1"> Returns the Properties of the most used Events. </td></tr><tr><td colspan="1" rowspan="1"> Top Property Values </td><td colspan="1" rowspan="1"> Returns the top Properties of the most used Events. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Type </td><td colspan="1" rowspan="1"> Select the type of data to be retrieved, either <b> Average </b>, <b> General </b>, or <b> Unique </b>. </td></tr><tr><td colspan="1" rowspan="1"> Where </td><td colspan="1" rowspan="1"><p> Enter an expression to filter returned Events by. For example: </p><p><code> Where = number(properties["time"])&gt;=2000 </code></p></td></tr><tr><td colspan="1" rowspan="1"> Columns List </td><td colspan="1" rowspan="1"> Enter a comma-separated list of columns you want to retrieve. </td></tr><tr><td colspan="1" rowspan="1"> Event Name </td><td colspan="1" rowspan="1"> Select the Event you want to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> Unit </td><td colspan="1" rowspan="1"> Select the time unit you want the report data to be broken down by. For example, if you select <b> Month </b>, data will be broken down by month. </td></tr><tr><td colspan="1" rowspan="1"> Unit Count </td><td colspan="1" rowspan="1"> Enter the number of units of data you want to pull. </td></tr><tr><td colspan="1" rowspan="1"> Funnel Name </td><td colspan="1" rowspan="1"> Select the Funnel you want to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> Enter the number of days of data that should appear in the report. This value can be entered as <span class="mt-font-courier-new"> X </span>, <span class="mt-font-courier-new"> XDay </span> or <span class="mt-font-courier-new"> XDays </span>, where <span class="mt-font-courier-new"> X </span> is a positive integer. For example: <span class="mt-font-courier-new"> 30Days </span></td></tr><tr><td colspan="1" rowspan="1"> Days Back to End </td><td colspan="1" rowspan="1"> Enter the number of days back the report data should end at. This value can be entered as <span class="mt-font-courier-new"> X </span>, <span class="mt-font-courier-new"> XDay </span> or <span class="mt-font-courier-new"> XDays </span>, where <span class="mt-font-courier-new"> X </span> is a positive integer. For example: <span class="mt-font-courier-new"> 30Days </span></td></tr><tr><td colspan="1" rowspan="1"> Backfill </td><td colspan="1" rowspan="1"> Backfill is a one-time retrieval of data on the first run. Subsequent runs will not backfill data. Enter the number of days to retrieve data in the past (based on the <b> Past Days </b> value). </td></tr><tr><td colspan="1" rowspan="1"> On </td><td colspan="1" rowspan="1"><p> Enter the property expression to segment the event on. (For <b> Retention </b> reports, the second event will be segmented.) </p><p> For example: </p><p><code> ON = properties["mp_country_code"] </code></p></td></tr><tr><td colspan="1" rowspan="1"> Retention Type </td><td colspan="1" rowspan="1"> Select the Retention type, either <b> Compounded </b> or <b> Birth </b>. </td></tr><tr><td colspan="1" rowspan="1"> Born Event </td><td colspan="1" rowspan="1"> Enter the first Event a user must do to be counted in a birth retention cohort. For example: <span class="mt-font-courier-new"> event integration </span>. </td></tr><tr><td colspan="1" rowspan="1"> Born Where </td><td colspan="1" rowspan="1"><p> Enter an expression to filter Born Events by. For example: <span class="mt-font-courier-new"> properties["signedup"] </span></p></td></tr><tr><td colspan="1" rowspan="1"> Retention Event Name </td><td colspan="1" rowspan="1"> Enter the name of an Event that will count towards Retention. </td></tr><tr><td colspan="1" rowspan="1"> Buckets </td><td colspan="1" rowspan="1"> Enter the number of Buckets that data will be grouped into. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+WHERE clauses can be tricky. When writing WHERE clauses, ask yourself the following questions:
+
+* Are all of the words spelled correctly?
+* Is the property, event or column being referenced spelled correctly and does it exist?
+* Is the Where clause punctuated correctly (examples are in the tooltips)?
+
+Other questions to ask when using this connector include:
+
+* Are the listed columns valid columns that are returned by the "Engage" report?
+* Is the value in the
+  **Past Days** field a valid format?

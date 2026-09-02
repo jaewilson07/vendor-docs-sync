@@ -1,0 +1,68 @@
+---
+title: "Aprimo Connector"
+excerpt: "Configure Domo's Aprimo Connector to ingest marketing and content operations data using OAuth 2.0 client credentials."
+---
+
+## Intro
+
+Aprimo helps you manage your marketing and content operations. Use Aprimo for digital asset management (**DAM**), workflow automation, planning, budgeting, and team collaboration. Industry analysts, like Gartner, recognize Aprimo as a leader in this space. For more information, refer to the [API documentation](https://developers.aprimo.com/docs/OAuth2#oauth-20-flow---client-credentials "https://developers.aprimo.com/docs/OAuth2#oauth-20-flow---client-credentials").
+
+You can connect to your Aprimo account in the Data Center. This topic discusses the fields and menus that are specific to the Aprimo connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Aprimo account and create a DataSet, you need the following:
+
+* Client ID and Client Secret
+* Domain name
+
+### Obtaining an Access Token
+
+To obtain an access token, register an Aprimo Client within the platform's administrative interface, navigating to **Administration > Integration > Registrations**.
+
+During the registration process, define the following required client parameters and authentication flow:
+
+* **Client Name:** A descriptive identifier for the registration.
+* **Description:** The stated purpose for the registration's existence and use.
+* **Client Secret:** A permanent, confidential key generated during registration. Ensure to store this client secret securely **.**
+* **Redirect URL:** Mandatory if utilizing the Authorization Code flow.
+
+### OAuth Flow Type Selection
+
+Select one of the following OAuth flow types based on the client's operational requirements:
+
+<table><thead><tr><td colspan="1" rowspan="1"> OAuth Flow Type </td><td colspan="1" rowspan="1"> Recommended Use Case </td></tr></thead><tbody><tr><td colspan="1" rowspan="1"><b> Authorization Code (PKCE) </b></td><td colspan="1" rowspan="1"> Recommended for interactive auth flows. </td></tr><tr><td colspan="1" rowspan="1"><b> Client Credentials </b></td><td colspan="1" rowspan="1"> Use for service-based API calls. </td></tr><tr><td colspan="1" rowspan="1"><b> Resource Owner Password </b></td><td colspan="1" rowspan="1"> Scenarios requiring multiple user authentications without a browser-based login interface. </td></tr></tbody></table>
+
+### Register the Client Application
+
+Register a client application for the **Client Credentials** OAuth 2.0 flow to retrieve an API token for backend service calls. The token operates under the permissions of a specified integration user.
+
+1. Navigate to **Administration** > **Integration** > **Registrations** in Productivity Management.
+2. Click **New**.
+3. Set the **OAuth Flow Type** to **Client Credentials**.
+4. Set the **User** field to the user whose permissions the API calls will use. *(This user is the sole context for the registration.)*
+5. Set the **Access Token Lifetime** (1 to 60 minutes).
+6. **Securely store the generated Client Secret; it cannot be retrieved later.**
+7. Click **Save**.
+
+**Note:** Allow up to 15 minutes for registrations to update.
+
+## Connecting to Your Aprimo Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Aprimo Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Aprimo account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:196;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter the customer's Client ID. To obtain the client ID, refer to the <a href="https://developers.aprimo.com/docs/OAuth2#oauth-20-flow---client-credentials" target="_blank"> API documentation </a> or refer to the Prerequisites section. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter the customer's Client Secret. To obtain the client Secret, refer to the <a href="https://developers.aprimo.com/docs/OAuth2#oauth-20-flow---client-credentials" target="_blank"> API documentation </a> or refer to the Prerequisites section. </td></tr><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"> Enter the domain name associated with the Aprimo account. </td></tr></tbody></table>
+
+Once you have entered valid Aprimo credentials, you can use the same account at any time to create a new Aprimo DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:196;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Aprimo report you want to run. The following reports are available: </p><p></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Analytics Report </p></td><td colspan="1" rowspan="1"> Retrieves the data about your analytics report. </td></tr><tr><td colspan="1" rowspan="1"><p> Get All Classifications </p></td><td colspan="1" rowspan="1"> Retrieves the data about your classifications. </td></tr><tr><td colspan="1" rowspan="1"><p> Get All Groups </p></td><td colspan="1" rowspan="1"> Retrieves the data about your groups. </td></tr><tr><td colspan="1" rowspan="1"><p> Get Record Details </p></td><td colspan="1" rowspan="1"> Retrieves the data about your record details. </td></tr><tr><td colspan="1" rowspan="1"><p> Get All Records </p></td><td colspan="1" rowspan="1"> Retrieves the data about your records. </td></tr><tr><td colspan="1" rowspan="1"><p> Get User Details </p></td><td colspan="1" rowspan="1"> Retrieves the data about your user details. </td></tr><tr><td colspan="1" rowspan="1"><p> Reporting API </p></td><td colspan="1" rowspan="1"> Retrieves the data about your reporting API. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Record Id Selection Criteria </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Get Record Details </b> report. </p><p> You fetch the record details of all the record IDs or select specific record IDs. </p><ul><li> All Record IDs </li><li> Select Record IDs </li></ul></td></tr><tr><td colspan="1" rowspan="1"> Record IDs </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Select Record IDs </b> option from the <b> Record Id Selection Criteria </b> drop-down, and the report should be <b> Get Record Details </b>. </p><p> Select the record IDs to be included in the report. </p></td></tr><tr><td colspan="1" rowspan="1"> User Id Selection Criteria </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Get User Details </b> report. </p><p> Use this option to retrieve the user details of all user IDs or specific user IDs. </p><ul><li> All User IDs </li><li> Select User IDs </li></ul></td></tr><tr><td colspan="1" rowspan="1"> User IDs </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Select User IDs </b> option from the <b> User </b><b> Id Selection Criteria </b> drop-down, and the report should be <b> Get User Details </b>. </p><p> Select the user IDs to fetch the user details. </p></td></tr><tr><td colspan="1" rowspan="1"> Data Domain </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Analytics Report </b>. </p><p> Select the analytics data domain to determine the measures that should populate. </p></td></tr><tr><td colspan="1" rowspan="1"> Measures </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Analytics Report </b> and select any Data Domain. </p><p> Select the measures (metrics) to include in the analytics report. </p></td></tr><tr><td colspan="1" rowspan="1"> Dimensions </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Analytics Report </b> and select any Data Domain. </p><p> Select the dimensions (grouping fields) to include in the analytics report. </p></td></tr><tr><td colspan="1" rowspan="1"> Report ID </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Reporting API </b> report. </p><p> Enter the unique identifier for the report execution. </p></td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Reporting API </b> report. </p><p> Choose whether the report should cover a <b> Single Date </b> or a <b> Date Range </b>. </p><ul><li><b> Single Date: </b> Select whether the report data is for a specific date or for a relative number of days back from today. <ul><li><b> Relative Date: </b> Enter the number of days back from today. <ul><li><b> Days Back: </b> Enter the number of days relative to today for which you want to receive the data. Use 0 for today, 1 for yesterday, 7 for 7days ago, and so on. </li></ul></li><li><b> Specific Date: </b> Use the date picker to select a precise date. <ul><li><b> Date: </b> Select the precise date. (The date cannot be before January 1, 2020, and must not be a future date.) </li></ul></li></ul></li><li><p><b> Date Range: </b> Select the date range for which you want to fetch the data. The date range cannot be before January 1, 2020, and must not be a future date. </p><ul><li><p><b> Start Date: </b> Select the start date to fetch the data. </p><ul><li><b> Relative Date: </b> Enter the number of days back from today. <ul><li><b> Days Back: </b> Enter the number of days relative to today for the desired start date. For example, enter 1 for yesterday, 7 for 1 week ago, or 30 for 1 month ago. </li></ul></li><li><b> Specific Date: </b> Use the date picker to select a precise start date. <ul><li><b> Date: </b> Select the precise start date. (The date cannot be before January 1, 2020, and must not be a future date.) </li></ul></li></ul></li><li><p><b> End Date: </b> Select the end date to fetch the data. </p><ul><li><b> Relative Date: </b> Enter the number of days back from today. <ul><li><b> Days Back: </b> Enter the number of days relative to today for the desired end date. For example, enter 0 for today, or 1 for an end date of yesterday. </li></ul></li><li><b> Specific Date: </b> Use the date picker to select a precise end date. <ul><li><b> Date: </b> Select the precise end date. (The date cannot be before January 1, 2020, and must not be a future date.) </li></ul></li></ul></li></ul></li><li><b> Time Period: </b> Select the time period for data retrieval. </li></ul><p></p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

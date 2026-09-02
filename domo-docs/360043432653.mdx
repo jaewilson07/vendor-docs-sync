@@ -1,0 +1,52 @@
+---
+title: "Jobvite Connector"
+excerpt: "Connect Domo to your Jobvite account using a secret key, company ID, and API key to pull applicant tracking and recruiting data into a DataSet."
+---
+
+## Intro
+
+Jobvite's analytics-driven recruiting software accelerates hiring with an applicant tracking system, social recruiting, and mobile solution. To learn more about the Jobvite API, contact your Jobvite support representative or visit [http://careers.jobvite.com/careersit...ebServices.pdf](http://careers.jobvite.com/careersites/JobviteWebServices.pdf "http://careers.jobvite.com/careersites/JobviteWebServices.pdf").
+
+You connect to your Jobvite account in the Data Center. This topic discusses the fields and menus that are specific to the Jobvite connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Use this connector to improve your hiring system by measuring and managing job candidates. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Job seeker information </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Recruiting </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> If you wanted to create an individual DataSet for each job status, the connector could take up to 3 hours to fully implement. In general, though, expect about 5 minutes. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## Best Practices
+
+This connector works best when "Replace" is used to update data instead of "Append."
+
+## Prerequisites
+
+To connect to your Jobvite account and create a DataSet, you must have the following:
+
+* A Jobvite secret key
+* A Jobvite company ID
+* A Jobvite API key
+
+All of these credentials are provided upon account creation.
+
+## Connecting to Your Jobvite Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Jobvite Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Jobvite account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> Enter the secret key issued to you by your Jobvite support representative. </td></tr><tr><td colspan="1" rowspan="1"> Company ID </td><td colspan="1" rowspan="1"> Enter the company ID issued to you by your Jobvite support representative. </td></tr><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter the API key issued to you by your Jobvite support representative. </td></tr></tbody></table>
+
+Once you have entered valid Jobvite credentials, you can use the same account any time you go to create a new Jobvite DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Jobvite report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Candidates </td><td colspan="1" rowspan="1"> Returns job seeker information and requsition level data for jobs the job seeker applied for. </td></tr><tr><td colspan="1" rowspan="1"> Job Feed </td><td colspan="1" rowspan="1"> Returns information on all requisitions for a given company. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Workflow State (Optional) </td><td colspan="1" rowspan="1"> Enter a workflow state to filter by. Examples include <span class="mt-font-courier-new"> New </span>, <span class="mt-font-courier-new"> Offer Accepted </span>, etc. </td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> Job Status </td><td colspan="1" rowspan="1"> Select the job status(es) you want to filter on. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+Check error messages, authentication, and configuration.

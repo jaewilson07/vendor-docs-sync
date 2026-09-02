@@ -1,0 +1,46 @@
+---
+title: "Microsoft Sharepoint ADFS Connector"
+excerpt: "Use Domo's Microsoft SharePoint ADFS connector to retrieve SharePoint data via Active Directory Federation Service authentication into a DataSet."
+---
+
+## Intro
+
+Microsoft SharePoint enables an organization to easily create and manage custom team-focused and project-focused sites for collaboration. This connector uses ADFS (Active Directory Federation Service) for authentication.
+
+To learn more about the SharePoint API, visit their page ([https://msdn.microsoft.com/en-us/lib.../jj860569.aspx](https://msdn.microsoft.com/en-us/library/office/jj860569.aspx "https://msdn.microsoft.com/en-us/library/office/jj860569.aspx") ).
+
+You connect to your SharePoint account in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft SharePoint ADFS connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your SharePoint account and create a DataSet, you must have the following:
+
+* Your SharePoint username and password.
+* The host URL and domain of your SharePoint account. For example, if your SharePoint site was https://my-sharepoint.sample.com, the host URL would be https://my-sharepoint.sample.com and the domain would be sample.
+* Your ADFS host name and realm. Your administrator sets up the ADFS for the SharePoint. The ADFS host name is the server where ADFS is running.
+    
+  The ADFS realm is set up at the time of SharePoint configuration by the administrator. The realm should in the following format: `urn:sharepoint:<WebAppName>`
+
+## Connecting to Your SharePoint Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SharePoint ADFS Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your SharePoint account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your SharePoint username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your SharePoint password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host URL </p></td><td colspan="1" rowspan="1"><p> Enter the host URL for your SharePoint account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> Enter the domain for your SharePoint account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> ADFS Hostname </p></td><td colspan="1" rowspan="1"><p> Enter your ADFS hostname. </p></td></tr><tr><td colspan="1" rowspan="1"><p> ADFS Realm </p></td><td colspan="1" rowspan="1"><p> Enter your ADFS realm. </p></td></tr></tbody></table>
+
+For more information about these credentials, see "Prerequisites," above.
+
+Once you have entered valid SharePoint credentials, you can use the same account any time you go to create a new SharePoint ADFS DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the SharePoint report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> All Properties </td><td colspan="1" rowspan="1"> Returns properties for the current site. </td></tr><tr><td colspan="1" rowspan="1"> Associated Member Group </td><td colspan="1" rowspan="1"> Returns details for the associated member group. </td></tr><tr><td colspan="1" rowspan="1"> Associated Member Group Users </td><td colspan="1" rowspan="1"> Returns the users in the associated member group. </td></tr><tr><td colspan="1" rowspan="1"> Associated Owner Group </td><td colspan="1" rowspan="1"> Returns details for the associated owner group. </td></tr><tr><td colspan="1" rowspan="1"> Associated Owner Group Users </td><td colspan="1" rowspan="1"> Returns the users in the associated owner group. </td></tr><tr><td colspan="1" rowspan="1"> Associated Visitor Group </td><td colspan="1" rowspan="1"> Returns details for the associated visitor group. </td></tr><tr><td colspan="1" rowspan="1"> Associated Visitor Group Users </td><td colspan="1" rowspan="1"> Returns the users in the associated visitor group. </td></tr><tr><td colspan="1" rowspan="1"> Available Fields </td><td colspan="1" rowspan="1"> Returns a list of available fields. </td></tr><tr><td colspan="1" rowspan="1"> Content Types </td><td colspan="1" rowspan="1"> Returns a list of content types. </td></tr><tr><td colspan="1" rowspan="1"> Fields </td><td colspan="1" rowspan="1"> Returns a list of fields. </td></tr><tr><td colspan="1" rowspan="1"> Folder </td><td colspan="1" rowspan="1"> Returns details for the folder with the specified server-relative URL. </td></tr><tr><td colspan="1" rowspan="1"> List </td><td colspan="1" rowspan="1"> Returns details for the list with the given title. </td></tr><tr><td colspan="1" rowspan="1"> List Item Detailed </td><td colspan="1" rowspan="1"> Returns details for the list items in the given list. </td></tr><tr><td colspan="1" rowspan="1"> List Item Field Values </td><td colspan="1" rowspan="1"> Returns the list of fields values for a given list item. </td></tr><tr><td colspan="1" rowspan="1"> List Items </td><td colspan="1" rowspan="1"> Returns the items in the given list. </td></tr><tr><td colspan="1" rowspan="1"> List Templates </td><td colspan="1" rowspan="1"> Returns the list of list templates. </td></tr><tr><td colspan="1" rowspan="1"> Lists </td><td colspan="1" rowspan="1"> Returns all lists. </td></tr><tr><td colspan="1" rowspan="1"> Role Definitions </td><td colspan="1" rowspan="1"> Returns a list of role definitions. </td></tr><tr><td colspan="1" rowspan="1"> Site User Info List </td><td colspan="1" rowspan="1"> Returns site user information. </td></tr><tr><td colspan="1" rowspan="1"> Sub Folders </td><td colspan="1" rowspan="1"> Returns the list of folders with the specified server-relative URL. </td></tr><tr><td colspan="1" rowspan="1"> Workflow Templates </td><td colspan="1" rowspan="1"> Returns the list of workflow templates. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Server-Relative URL </p></td><td colspan="1" rowspan="1"><p> Enter the relative URL for the server containing files or folders you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Title </p></td><td colspan="1" rowspan="1"><p> Enter the title of the list you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Item ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the list item you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Decode Fields (Optional) </p></td><td colspan="1" rowspan="1"><p> Check this box if you want to decode the column names imported from SharePoint. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

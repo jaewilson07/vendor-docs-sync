@@ -1,0 +1,45 @@
+---
+title: "New Relic NRQL Connector"
+excerpt: "Use the New Relic NRQL connector to pull New Relic data into a Domo DataSet based on an NRQL query."
+---
+
+## Intro
+
+New Relic is a software analytics tool suite. Use Domo's New Relic NRQL connector to pull New Relic data based on an NRQL query. To learn more about the New Relic API, visit their page ([https://docs.newrelic.com/docs/apis](https://docs.newrelic.com/docs/apis "https://docs.newrelic.com/docs/apis") ).
+
+You connect to your New Relic account in the Data Center. This topic discusses the fields and menus that are specific to the New Relic connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to New Relic and create a DataSet, you must have the following:
+
+* A New Relic API account ID. For information about finding your account ID, visit
+  [https://docs.newrelic.com/docs/accou...tup/account-id](https://docs.newrelic.com/docs/accounts-partnerships/accounts/account-setup/account-id "https://docs.newrelic.com/docs/accounts-partnerships/accounts/account-setup/account-id").
+* The New Relic API URL. For information about finding your URl, see
+  [https://docs.newrelic.com/docs/apis/...t-api-v2#appid](https://docs.newrelic.com/docs/apis/rest-api-v2/getting-started/introduction-new-relic-rest-api-v2#appid "https://docs.newrelic.com/docs/apis/rest-api-v2/getting-started/introduction-new-relic-rest-api-v2#appid").
+* Your New Relic API query key. For information about registering for a query key, see
+  [https://docs.newrelic.com/docs/insig...a-api#register](https://docs.newrelic.com/docs/insights/insights-api/get-data/query-insights-event-data-api#register "https://docs.newrelic.com/docs/insights/insights-api/get-data/query-insights-event-data-api#register").
+
+## Connecting to Your New Relic Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the New Relic Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your New Relic account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Account ID </p></td><td colspan="1" rowspan="1"><p> Enter your New Relic API account ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API URL </p></td><td colspan="1" rowspan="1"><p> Enter your New Relic API URL. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Key </p></td><td colspan="1" rowspan="1"><p> Enter your New Relic API query key. </p></td></tr></tbody></table>
+
+For information about obtaining these credentials, see "Prerequisites," above.
+
+Once you have entered valid New Relic credentials, you can use the same account any time you go to create a new New Relic DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains options for pulling your desired report data and configuring the report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter your New Relic NRQL query. For information about NRQL query language, see <a href="https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql" target="_blank" title="https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql"> https://docs.newrelic.com/docs/insig...roduction-nrql </a>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Timestamp Column Names (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter timestamp column names for your report, separating multiple names with commas. The connector recognizes the "timestamp" column as epoch even if you do not provide a value here. Enter other column names as necessary to be processed for epoch format changes. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

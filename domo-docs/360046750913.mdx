@@ -1,0 +1,55 @@
+---
+title: "Group Scheduling for Workbench 5 Jobs"
+excerpt: "Create job groups in Workbench 5 to sequence runs, set dependencies, mark critical jobs, and schedule them together."
+---
+
+## Intro
+
+Group Scheduling is a feature in Workbench that allows you to group job schedules and set up job dependencies if desired.
+
+### Setup
+
+To get started in Group Scheduling select the triple dot menu on the left pane.
+
+<Frame><img alt="Picture1.png" src="/images/kb/ka05w00000123s0-00N5w00000Ri7BU-0EM5w000005vPML.png"/></Frame>
+
+Choose **Group Schedules** and then select the plus sign to add a new Group.
+
+<Frame><img alt="Picture2.png" src="/images/kb/ka05w00000123s0-00N5w00000Ri7BU-0EM5w000005vPMT.png"/></Frame>
+
+Select the jobs you would like to be included in your Group.
+
+<Note>
+**Note:** Only jobs currently set to a manual schedule will appear here.
+</Note>
+
+<Frame><img alt="Picture3.png" src="/images/kb/ka05w00000123s0-00N5w00000Ri7BU-0EM5w000005vPMF.png"/></Frame>
+
+Once you have selected your jobs, you can order or delete them in the Run Order menu using the up and down arrows and the delete icon.
+
+<Frame><img alt="Picture4.png" src="/images/kb/ka05w00000123s0-00N5w00000Ri7BU-0EM5w000005vPMW.png"/></Frame>
+
+From this menu you can also choose to run jobs **with previous** or **after previous**, and choose whether a job should be marked as **Critical**.
+
+* With previous: Any jobs marked
+  **with previous** will run at the same time as the job ordered before it as a synchronous run.
+* After previous: Any jobs marked
+  **after previous** will wait until the job ordered before it has completed running before it will start as an asynchronous run.
+* If you mark a job as
+  **Critical** all subsequent jobs set to run after the critical job will fail if the job marked **Critical** fails.
+
+After setting up the run order, you can choose a schedule. The scheduling options are the same as when setting up an individual job.
+
+<Frame><img alt="Picture5.png" src="/images/kb/ka05w00000123s0-00N5w00000Ri7BU-0EM5w000005vPMN.png"/></Frame>
+
+<Note>
+**Note:** If you need your DataSet to update faster than every 15 minutes, please reach out to your account team for evaluation.
+</Note>
+
+Once the schedule is set, you can name the Group and then select **Done**.
+
+<Frame><img alt="Picture6.png" src="/images/kb/ka05w00000123s0-00N5w00000Ri7BU-0EM5w000005vPMV.png"/></Frame>
+
+To save your Group, select the save icon in the top right corner.
+
+<Frame><img alt="Picture7.png" src="/images/kb/ka05w00000123s0-00N5w00000Ri7BU-0EM5w000005vPME.png"/></Frame>

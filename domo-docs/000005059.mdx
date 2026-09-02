@@ -1,0 +1,168 @@
+---
+title: "Domo Sandbox: Linked Repositories"
+excerpt: "Create a linked repository in Domo Sandbox to migrate production dashboards and DataFlows into a development instance and promote changes back safely."
+---
+
+## Intro
+
+In Domo Sandbox, linked repositories allow you to migrate existing production dashboards and DataFlows to a development instance without making changes in production. Once in place, you can make changes in a controlled development location and then promote the changes to update production. Creating a linked repository is intended to be a one-time process for moving production content into a development environment. After you create a linked repository, we recommend only promoting from development to production.
+  
+For more general information about Sandbox, see [Domo Sandbox.](https://domo-support.domo.com/s/article/4403367344023)
+
+#### Key Terms
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Term </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Production Instance </p></td><td colspan="1" rowspan="1"><p> The destination instance where the dashboards and/or DataFlows currently exist. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Development Instance </p></td><td colspan="1" rowspan="1"><p> The source instance where the dashboards and/or DataFlows are populated and used as a source of Sandbox. </p></td></tr></tbody></table>
+
+## Creating a Linked Repository
+
+<Note>
+**Note:** Before creating a linked repository, ensure that relationships between instances are established. This is necessary when two instances are involved. To learn how to create instance relationships, see [Domo Sandbox.](https://domo-support.domo.com/s/article/4403367344023?language=en_US)
+
+</Note>
+
+1. Log into your production instance. In the navigation header, select **More** > **Admin**.
+  
+  The **Admin Settings** displays.
+
+2. Under
+**Governance**, select **Sandbox**.
+
+3. In the
+**My Repositories** tab, select **+ New Repository.**
+  
+<Frame><img alt="NewRepo.png" src="/images/kb/ka05w00000127zH-00N5w00000Ri7BU-0EM5w000005vnRn.jpg"/></Frame>
+
+4. Configure the repository:
+
+* Name the repository.
+* Select the
+  **Create as Linked Repository** box.
+
+  <Frame><img alt="CreateasLinkedRepo.png" src="/images/kb/ka05w00000127zH-00N5w00000Ri7BU-0EM5w000005vnSH.jpg"/></Frame>
+
+* Select the
+  **Object Type** being versioned.
+* Choose the items you want to include in the repository
+
+<Note>
+**Note:** By default, **Create initial commit** is selected. When the repository is saved, the first version is committed.
+
+</Note>
+
+5. Select **Save Repository**.
+  
+  The **Share Access** modal displays. You can share the linked repository with the development instance during this step or later. For more information, see the Instance Sharing heading of [Domo Sandbox](https://domohelp.domo.com/hc/en-us/articles/4403367344023#7.0.1.).
+
+6. In the list of
+**Instances Without Access**, find your development instance and change the permissions from **No Access** to **Can Promote.**
+
+<Frame><img alt="ShareAccessLinkedRepo.png" src="/images/kb/ka05w00000127zH-00N5w00000Ri7BU-0EM5w000005vnSW.jpg"/></Frame>
+
+<Note>
+**Note:** Only instances with pre-configured relationships display. For information on inviting instances, see the Instance Relationships heading of [Domo Sandbox.](https://domohelp.domo.com/hc/en-us/articles/4403367344023#4.)
+
+</Note>
+
+7. Select **Close.**
+  
+  The repository is stored in Sandbox in the **My Repositories** tab, and access is shared with the development instance.
+
+## Committing the Linked Repository
+
+The initial commit occurs if specified while creating the repository.
+
+If no committed version exists, complete these steps after creating the repository:
+
+1. Log into your production instance. In the navigation header, select **More** > **Admin**.
+  
+The **Admin Settings** displays.
+
+2. Under
+**Governance**, select **Sandbox.**
+
+3. Go to
+**Repositories > My Repositories.**
+
+<Frame><img alt="MyRepos.png" src="/images/kb/ka05w00000127zH-00N5w00000Ri7BU-0EM5w000005vnSb.jpg"/></Frame>
+
+4. Locate the repository and select
+**Commit.**
+
+5. Enter a description for the new version. By default, the new version is promoted. If you don't want the new version to be immediately available for promotion, uncheck the
+**Allow this commit to be promoted** box.
+
+<Frame><img alt="NewCommit.png" src="/images/kb/ka05w00000127zH-00N5w00000Ri7BU-0EM5w000005vnUm.jpg"/></Frame>
+
+6. Select
+**Save**.
+  
+The process to capture and store the new version is initiated.
+
+## Promoting and Linking the Repository
+
+1. Log into your development instance. In the navigation header, select **More** > **Admin**.
+  
+The **Admin Settings** displays.
+
+2. Under
+**Governance**, select **Sandbox**.
+
+3. In the
+**Shared Repositories** tab, locate the linked repository. Select **Assign Owner**.
+  
+The **Assign Owner** modal displays.
+
+<Note>
+**Note:** Linked repositories are indicated with <img src="/images/kb/ka05w00000127zH-00N5w00000Ri7BU-0EM5w000005vnYe.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> next to the Repository Name.
+</Note>
+
+<Frame><img alt="mceclip1.png" src="/images/kb/ka05w00000127zH-00N5w00000Ri7BU-0EM5w000005vnYj.jpg"/></Frame>
+
+4. Enter the name of the owner. They can promote, delete, and share the repository.
+
+5. Select
+**Save**.
+  
+After an owner has been assigned to the repository in the development instance, the **Assign Owner** button will be replaced with **Promote.**
+
+6. Locate the linked repository and select
+**Promote.**
+  
+The repository's details display.
+
+7. (Conditional) Perform any necessary mappings and apply advanced settings, if applicable.
+
+8. Select
+**Promote and Link.**
+
+9. Enter a new repository name and review the information in the modal below.
+
+<Frame><img alt="Promote&Link.png" src="/images/kb/ka05w00000127zH-00N5w00000Ri7BU-0EM5w000005vnZN.jpg"/></Frame>
+
+10. Select
+**Promote and Link.**
+
+This final step does the following:
+
+* Promotes the repository in the development instance. This creates the objects in the development.
+* Creates a new repository in the development instance with the name entered in Step 5. The new repository includes the objects created during the promotion and commits this new repository.
+* Shares this repository with the production instance and allows production to promote this new repository.
+* Maps this new repository to the existing production objects. This step is critical because it causes the production objects to be updated by this new repository.
+
+## Verifying Success
+
+1. In the development instance, confirm that the newly created repository exists in the
+**My Repositories** tab.
+
+2. Confirm that the objects were promoted successfully. You may need to refresh your browser to load newly created objects.
+
+3. Ensure that the new repository was committed successfully.
+
+<Warning>
+**Important:** If there is an error in the process, Sandbox will undo any completed steps from the promotion and link, and you should not see a new repository.
+
+</Warning>
+
+4. (Optional) Delete the original linked repository. Ongoing changes should be made in the development instance and promoted to production.
+
+5. Go back into the production instance and promote the repository that was created in the development instance. This does not create duplicate content as a typical repository would. Instead, it promotes on top of the original content since the content in development is mapped to the content in production.

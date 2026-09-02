@@ -1,0 +1,44 @@
+---
+title: "Synthesio Connector"
+excerpt: "Connect to Synthesio with credentials, client ID, and client secret to retrieve social intelligence and tweet data into Domo DataSets."
+---
+
+## Intro
+
+Synthesio is a social intelligence tool used for social media monitoring and social analytics. Domo's Synthesio connector uses the Synthesio API to get tweet IDs from Synthesio dashboards and then rehydrates data using the Twitter API. To learn more about the Synthesio API, visit their page ([https://rest.synthesio.com/doc/#introduction](https://rest.synthesio.com/doc/#introduction "http://website.informer.com/visit?domain=api.synthesio.com") ).
+
+You connect to your Synthesio account in the Data Center. This topic discusses the fields and menus that are specific to the Synthesio connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Synthesio account and create a DataSet, you must have the following:
+
+* The username and password for your Synthesio account
+* Your Synthesio client ID
+* Your Synthesio client secret
+
+For information about obtaining these credentials, reach out to your Synthesio account representative.
+
+## Connecting to Your Synthesio Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Synthesio Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Synthesio account.
+
+The following table describes what is needed for each field when you are using the Domo connector:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Synthesio Username </p></td><td colspan="1" rowspan="1"><p> Enter your Synthesio username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Synthesio Password </p></td><td colspan="1" rowspan="1"><p> Enter your Synthesio password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Synthesio Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Synthesio client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Synthesio Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Synthesio client secret. </p></td></tr></tbody></table>
+
+Once you have entered valid Synthesio credentials, you can use the same account any time you go to create a new Synthesio DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Synthesio report you want to run. </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Synthesio Plus Twitter Report </td><td colspan="1" rowspan="1"> Returns tweet IDs from Synthesio dashboards then rehydrates the data using the Twitter API. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Report ID </td><td colspan="1" rowspan="1"> Select the ID of the report you want to import into Domo. </td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

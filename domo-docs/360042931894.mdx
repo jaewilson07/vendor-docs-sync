@@ -1,0 +1,64 @@
+---
+title: "CSV SFTP Pull Connector"
+excerpt: "Use Domo's CSV SFTP Pull Connector to access and import CSV files you have uploaded to your own SFTP server."
+---
+
+## Intro
+
+A character-separated values (CSV) file stores tabular data in plain text form. Domo provides two connectors that allow you to access CSV files you have uploaded to an SFTP (Secure File Transfer Protocol) server:
+
+* The Domo CSV SFTP Pull connector (formerly called the "CSV-SFTP" connector) allows you to access CSV files that you have uploaded to your own SFTP server.
+* The Domo CSV SFTP Push connector allows you to capture and process CSV files that have been uploaded to Domo's own SFTP. With this connector, Domo gives you credentials, then you push your data to Domo.
+
+This article discusses the CSV SFTP Pull connector. For information about the CSV SFTP Push connector, visit [CSV SFTP Push Connector](/s/article/360042931914 "CSV SFTP Push Connector").
+
+If you need to access files located on a directory, use the [CSV Advanced](/s/article/360043436513 "CSV Advanced Connector") connector.
+
+The CSV SFTP Pull connector is a "File" connector, meaning it retrieves files and output them to Domo. In the Data Center, you can access the connector page for this and other File connectors by clicking **File** in the toolbar at the top of the window.
+
+You connect to CSV files in the Data Center. This topic discusses the fields and menus that are specific to the CSV connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+You must have an SFTP host name and a username and password to authenticate to the SFTP server. You also need to whitelist the appropriate IP addresses for your region. You can access the list of IP addresses, by region, in [Whitelisting IP Addresses for Connectors & Federated Adapters.](/s/article/360043630093)
+
+## Connecting to CSV Files
+
+This section enumerates the options in the **Credentials** and **Details** panes for the CSV SFTP Pull connector. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your SFTP server. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> SFTP Host Name </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Enter the name of the SFTP host you want to connect to. This <em> must </em> begin with </span><span class="mt-font-courier-new"><span class="s3"> sftp:// </span></span><span class="s1">. For example: </span><span class="nowiki"><span class="s3"> s <a href="ftp://hostname" rel="noopener" target="_blank"> ftp://hostname </a></span></span><span class="s1">. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Username </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Enter the username you use to authenticate to the SFTP server. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Password </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Enter the password you use to authenticate to the SFTP server. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Head Start Row </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"><span> Signifies the row where the header should start. </span></span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Data Start Row </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"><span> signifies the row where the data should be fetched from the CSV file. </span></span></p></td></tr><tr><td colspan="1" rowspan="1"> Convert Double type to Decimal </td><td colspan="1" rowspan="1"> Select this checkbox to convert Double to Decimal. </td></tr></tbody></table>
+
+Looking to upload a CSV file but do not have an SFTP server? Take a look at our [Workbench solution](/s/article/360042932554 "Box Connector") available for download in your Domo instance.
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### FAQs
+
+<AccordionGroup>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the username, password and host name of the SFTP server.
+</Accordion>
+
+<Accordion title="How does this connector handle the data?">
+
+The CSV-SFTP connector pulls the data from customer's SFTP server into Domo.
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+Data will update every hour.
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+</Accordion>
+</AccordionGroup>

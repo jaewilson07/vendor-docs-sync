@@ -1,0 +1,64 @@
+---
+title: "Microsoft SQL Server Partition Connector"
+excerpt: "Configure Domo's Microsoft SQL Server Partition Connector to query a SQL Server database and load data into a DataSet based on a number of past days."
+---
+
+## Intro
+
+Microsoft SQL Server is a scalable, hybrid database platform. Partitioning enables you to perform maintenance operations more quickly, and improve query performance and efficiency, while maintaining the integrity of data. Use Domo's Microsoft SQL Server Partition connector to query your data from your SQL Server using standard SQL queries and get the data into Domo based on the number of past days provided. See your Microsoft SQL Server data with data from other systems, all in Domo using this connector. For more information about the Microsoft SQL Server API, visit their website. ([https://technet.microsoft.com/en-us/library/aa174556(v=sql.80).aspx](https://technet.microsoft.com/en-us/library/aa174556(v=sql.80).aspx "https://technet.microsoft.com/en-us/library/aa174556(v=sql.80).aspx") ).
+
+The Microsoft SQL Server Partition connector is a "Database" connector, meaning it retrieves data from databases using a query. In the Data Center, you can access the connector page for this and other Database connectors by clicking ********Database******** in the toolbar at the top of the window.
+
+You connect to your Microsoft SQL Server in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft SQL Server Partition connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to a Microsoft SQL Server database and create a DataSet, have your DBA create an account that has read-only access to the databases and tables you need to access. You must have all of the following to connect:
+
+* The username and password you use to log into your Microsoft SQL Server account
+* The host name for the database
+* The port number for the database
+* The name of the database
+
+You can also include the URL where your SSL CA Certificate is located, though this is optional.
+
+Before you can connect to your Microsoft SQL server, you must also white list a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](https://domo-support.domo.com/s/article/360043630093?language=en_US "Whitelisting IP Addresses for Connectors").
+
+## Connecting to Your Microsoft SQL Server Database
+
+This section enumerates the options in the ****Credentials**** and ****Details**** panes in the Microsoft SQL Server Partition Connector page. The components of the other panes in this page, ****Scheduling**** and ****Name & Describe Your DataSet****, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Microsoft SQL Server database. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username you use to log into your Microsoft SQL Server account. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password you use to log into your Microsoft SQL Server account. </td></tr><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Enter the host name for the database. </td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port number for the database. </td></tr><tr><td colspan="1" rowspan="1"> Database </td><td colspan="1" rowspan="1"> Enter the name of the database. </td></tr><tr><td colspan="1" rowspan="1"> Certificate </td><td colspan="1" rowspan="1"> Enter the URL where the SSL CA Certificate is located. </td></tr><tr><td colspan="1" rowspan="1"> Additional JDBC Properties </td><td colspan="1" rowspan="1"> Enter the comma separated additional JDBC properties here. <br/><b> Example: </b> property1=value1,property2=value2 </td></tr></tbody></table>
+
+Once you have entered valid Microsoft SQL Server credentials, you can use the same account any time you go to create a new Microsoft SQL Server Partition DataSet. You can manage connector accounts in the ****Accounts**** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+In this pane you create an SQL query to pull data from your database.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Partition Criteria </td><td colspan="1" rowspan="1"><p> Select the Partition Criteria. </p></td></tr><tr><td colspan="1" rowspan="1"> Schema Name </td><td colspan="1" rowspan="1"><p> Select the schema name. </p></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"><p> Enter the query you want to execute. <br/><b> Note: </b> Subqueries are used for partitioning. Ensure to read the rules and then construct the query. <br/> Rules: <a href="https://learn.microsoft.com/en-us/sql/relational-databases/performance/subqueries?view=sql-server-ver16#rules" target="_blank" title="https://learn.microsoft.com/en-us/sql/relational-databases/performance/subqueries?view=sql-server-ver16#rules"> https://learn.microsoft.com/en-us/sql/relational-databases/performance/subqueries?view=sql-server-ver16#rules </a></p></td></tr><tr><td colspan="1" rowspan="1"> Table Name </td><td colspan="1" rowspan="1"> Select the table containing the data you want to pull into Domo. </td></tr><tr><td colspan="1" rowspan="1"> Partition Meta Query To Determine Partition Tags </td><td colspan="1" rowspan="1"> Enter the partition meta query to determine the distinct partition tags(or keys). For example, SELECT DISTINCT(DATE_COLUMN_NAME) FROM TABLENAME. In this example <b> DATE_COLUMN_NAME </b> is the partition column and distinct values from the table are the keys. </td></tr><tr><td colspan="1" rowspan="1"> Partition Date Key Column Name </td><td colspan="1" rowspan="1"> Select the date key partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"> Select the non date key partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Partition Support Format </td><td colspan="1" rowspan="1"> Select the partition format. </td></tr><tr><td colspan="1" rowspan="1"> Partition Column Name </td><td colspan="1" rowspan="1"> Select partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> Enter the number of past days you want to get data for. Value can be a positive integer. For example: 30. </td></tr><tr><td colspan="1" rowspan="1"> Past Months </td><td colspan="1" rowspan="1"> Enter the number of past months that you want to get data for. The value can be X, where X is a positive integer. For example: 30. </td></tr><tr><td colspan="1" rowspan="1"> Future Months </td><td colspan="1" rowspan="1"> Enter the number of future months that you want to get data for. The value can be X, where X is a positive integer. For example: 15. </td></tr><tr><td colspan="1" rowspan="1"> Past Years </td><td colspan="1" rowspan="1"> Enter the number of past years that you want to get data for. The value can be X, where X is a positive integer. For example: 20. </td></tr><tr><td colspan="1" rowspan="1"> Future Years </td><td colspan="1" rowspan="1"> Enter the number of future years that you want to get data for. The value can be X, where X is a positive integer. For example: 10. </td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"> Enter the custom date format. </td></tr><tr><td colspan="1" rowspan="1"> Cast to Date </td><td colspan="1" rowspan="1"> Select the checkbox if you want to cast the partition column to <b> DATE </b> type. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can the SQL Server Partition Connector support date timestamp as the partition instead of just date?">
+
+No, the connector only supports date partitions because a date timestamp would result in too many unique partitions.
+
+</Accordion>
+
+<Accordion title="Can the SQL server connector support partitioning with the partition meta query functionality?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+

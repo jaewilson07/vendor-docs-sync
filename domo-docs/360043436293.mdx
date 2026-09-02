@@ -1,0 +1,45 @@
+---
+title: "SAP ASE Connector"
+excerpt: "Use Domo's SAP ASE Connector to pull data from your SAP Adaptive Server Enterprise database with an SQL query into a DataSet."
+---
+
+## Intro
+
+SAP ASE (Adaptive Server Enterprise), formerly known as Sybase SQL Server, is a relational model database server product for businesses. To learn more about SAP ASE, visit their page ([https://www.sap.com/products/sybase-ase.html#](https://www.sap.com/products/sybase-ase.html# "https://www.sap.com/products/sybase-ase.html#") ).
+
+You can connect to your SAP ASE account in the Data Center. This topic discusses the fields and menus that are specific to the SAP ASE Connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your SAP ASE account and create a DataSet, you must have the following:
+
+* The username and password you use to log into your SAP ASE account
+* The host name for the database
+* The port number for the database
+* The database name
+
+CA certificate text or URL path is required *only* if you select **Certificate text** or **URL path**, respectively, in the **Certificate type** menu.
+
+Before you can connect to an SAP database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043439173 "Whitelisting IP Addresses for Connectors").
+
+## Connecting to Your SAP ASE Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SAP ASE Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your SAP ASE account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your SAP Adaptive Server Enterprise account username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your SAP Adaptive Server Enterprise account password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the host name for the SAP database. For example: <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number for the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> Paste the text for your CA certificate or enter the URL where your certificate is located. This is optional. If you do not want to include a certificate, select <b> No certificate </b> in the <b> Certificate Type </b> menu. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Type </p></td><td colspan="1" rowspan="1"><p> Select a certificate type. If you do not want to include a certificate, select <b> No certificate </b>. If you select Certificate text, you must paste the text for your certificate in the <b> Certificate </b> field. If you select <b> URL path </b>, you must enter the URL where your certificate is located in the <b> Certificate </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> Enter the name of the database. </p></td></tr></tbody></table>
+
+Once you have entered valid SAP ASE credentials, you can use the same account any time to create a new SAP ASE DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors.](/s/article/360042926054 "Managing User Accounts for Connectors.")
+
+### Details Pane
+
+In this pane you create an SQL query to pull data from your database. The **Query** parameter is required. The other three parameters are here to help you construct this query if you choose.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the Structured Query Language (SQL) query to use in selecting the data you want. For example: </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> If you want help in constructing your query, do the following: </p><ol><li><p> Select the desired table and columns in the <b> Database Table </b> and <b> Table Columns </b> menus. <br/><br/> Your query is constructed in the <b> Query Helper </b> field based on your selections. </p></li><li><p> Copy and paste the automatically generated query from the <b> Query Helper </b> field into the <b> Query </b> field. </p></li></ol></td></tr><tr><td colspan="1" rowspan="1"><p> Database Table (Optional) </p></td><td colspan="1" rowspan="1"><p> Select the table containing the data you want to pull into Domo. The selected table will be added to the automatically generated query in the <b> Query Helper </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns (Optional) </p></td><td colspan="1" rowspan="1"><p> Select the table columns with data you want to pull into Domo. The selected columns will be added to the automatically generated query in the <b> Query Helper </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper (Optional) </p></td><td colspan="1" rowspan="1"><p> Copy and paste this query into the <b> Query </b> field if you need help building a query. This query is automatically generated when you select a table and columns in the <b> Database Table </b> and <b> Table Columns </b> fields, respectively. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

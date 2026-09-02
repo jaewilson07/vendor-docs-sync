@@ -1,0 +1,48 @@
+---
+title: "ModMed Connector"
+excerpt: "Configure the ModMed Connector to pull patients, appointments, slots, and charge items from your ModMed system into Domo."
+---
+
+## Intro
+
+Modernizing Medicine, Inc. (ModMed) is a software company that provides cloud-based practice management and electronic health records (EHR) systems for medical settings. ModMed's software is designed to help medical practices improve patient care by providing clinical, financial, and operational solutions. Use Domo's ModMed connector to pull your data about patients, appointments, slots, charge items, and so on from your ModMed system. To learn more about the ModMed API, see [https://www.modmed.com/modmed-synapsys-api/.](https://www.modmed.com/modmed-synapsys-api/ "https://www.modmed.com/modmed-synapsys-api/")
+
+You can connect to your ModMed account in the Data Center. This topic discusses the fields and menus specific to the ModMed connector user interface. To add Data Sets, set update schedules, and edit Data Set information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+**Note:** **ModMed recommends running large dataloads during the off-peak hours. Running large dataloads during normal business hours may result in performance issues in ModMed, which could result in the ModMed team disabling the integration.**
+
+## Prerequisites
+
+To connect to your ModMed account and create a DataSet, you need the following:
+
+* Environment
+* Username
+* Password
+* Firm URL Prefix
+* API Key
+
+To obtain your username and password, submit a request to **[practicesolutions@modmed.com](mailto:practicesolutions@modmed.com)**. The ModMed Practice Solutions team will work through the process of enabling the integration and will provide you with instructions to generate a username and password. 
+
+To obtain the API key, send an email request to **[synapsys@modmed.com](mailto:synapsys@modmed.com)**.
+
+## Connecting to Your ModMed Account
+
+ModMed uses OAuth 2.0 authentication.
+
+This section enumerates the options in the **Credentials** and **Details** panes on the ModMed Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your ModMed account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Environment </td><td colspan="1" rowspan="1"> Select the environment from the drop-down list. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username associated with your ModMed account. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password associated with your ModMed account. </td></tr><tr><td colspan="1" rowspan="1"> Firm URL Prefix </td><td colspan="1" rowspan="1"> Enter the firm URL prefix. </td></tr><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter the API Key. </td></tr></tbody></table>
+
+Once you have entered valid ModMed credentials, you can use the same account at any time to create a new ModMed DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the ModMed report you want to run. The following reports are available: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Account </p></td><td colspan="1" rowspan="1"> Retrieves the outstanding balances for a Patient. </td></tr><tr><td colspan="1" rowspan="1"><p> Appointments </p></td><td colspan="1" rowspan="1"> Retrieves all appointments for a practice/firm. </td></tr><tr><td colspan="1" rowspan="1"><p> Charge Items </p></td><td colspan="1" rowspan="1"> Retrieves the billing and cost allocation within healthcare services. </td></tr><tr><td colspan="1" rowspan="1"> Encounter </td><td colspan="1" rowspan="1"> Retrieves the encounters (visits) for a practice. </td></tr><tr><td colspan="1" rowspan="1"> Patients </td><td colspan="1" rowspan="1"> Retrieves the patient related data within ModMed's EHR System. </td></tr><tr><td colspan="1" rowspan="1"> Slots </td><td colspan="1" rowspan="1"> Retrieves the available slots to book an appointment. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Patient Id Selection Criteria </td><td colspan="1" rowspan="1"> Select how you want to retrieve the patient's accounts. </td></tr><tr><td colspan="1" rowspan="1"> Patient ID </td><td colspan="1" rowspan="1"> Select the patient IDs for the report.. </td></tr><tr><td colspan="1" rowspan="1"> Appointment Types </td><td colspan="1" rowspan="1"> Select the Appointment Type for the report. </td></tr><tr><td colspan="1" rowspan="1"> Date Filter </td><td colspan="1" rowspan="1"> Select the Date Filter for the report. </td></tr><tr><td colspan="1" rowspan="1"> Date </td><td colspan="1" rowspan="1"> Select the dates for which you want to retrieve the data. </td></tr><tr><td colspan="1" rowspan="1"> Duration </td><td colspan="1" rowspan="1"> Select the duration for the report (a Single Date, or a Date Range). </td></tr><tr><td colspan="1" rowspan="1"> Report Date </td><td colspan="1" rowspan="1"> Select the report date using relative or specific dates. Relative indicates the number of days from today or a specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Date </td><td colspan="1" rowspan="1"> Select the report date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Days back </td><td colspan="1" rowspan="1"> Enter the number of days back for which you want to fetch the data. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Start Date </td><td colspan="1" rowspan="1"> Select the report start date using relative or specific dates. Relative indicates the number of days from today or a specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Start Date </td><td colspan="1" rowspan="1"> Select the report date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Days back to start from </td><td colspan="1" rowspan="1"> Enter the number of days back for which you want to get the data from (start day). Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> End Date </td><td colspan="1" rowspan="1"> Select the report end date using relative or specific dates. Relative indicates the number of days from today or a specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Select Specific End Date </td><td colspan="1" rowspan="1"> Select the report date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Days back to end at </td><td colspan="1" rowspan="1"> The number of days back that you want to get the data to (end day). Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

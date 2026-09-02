@@ -1,0 +1,36 @@
+---
+title: "AppNeta TraceView Connector"
+excerpt: "Connect Domo to your AppNeta TraceView account using an organization access key to pull application tracing performance data into a DataSet."
+---
+
+## Intro
+
+AppNeta provides proactive end-user performance monitoring for any application, network, or cloud. To learn more about the AppNeta TraceView API, visit their page ([https://docs.appneta.com/api.html](https://docs.appneta.com/api.html "https://docs.appneta.com/api.html") ).
+
+You connect to your AppNeta TraceView account in the Data Center. This topic discusses the fields and menus that are specific to the AppNeta TraceView connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your AppNeta TraceView account and create a DataSet, you must have the AppNeta access key for your organization.  You can find your access key either from [your organization page](http://dev.appneta.com/docs/api-v2/login.tv.solarwinds.com/organization) or in your config file (/etc/tracelytics.conf ) on a machine with TraceView installed.
+
+## Connecting to Your AppNeta TraceView Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the AppNeta TraceView Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your AppNeta TraceView account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Key </p></td><td colspan="1" rowspan="1"><p> Enter the AppNeta access key for your organization. For more information about obtaining an access key, see "Prerequisites," above. </p></td></tr></tbody></table>
+
+Once you have entered valid AppNeta TraceView credentials, you can use the same account any time you go to create a new AppNeta TraceView DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the AppNeta TraceView report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Latency Client Series </p></td><td colspan="1" rowspan="1"><p> Returns a client-side time series of the application's latency and volume. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Latency Client Summary </p></td><td colspan="1" rowspan="1"><p> Returns a client-side summary of the latency and volume traced. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Latency Server by Layer </p></td><td colspan="1" rowspan="1"><p> Returns time series data for each layer in the application. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Latency Server Series </p></td><td colspan="1" rowspan="1"><p> Returns a server-side time series of the application's latency and volume. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Latency Server Summary </p></td><td colspan="1" rowspan="1"><p> Returns a server-side summary of the latency and volume traced. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Layers by AppName </p></td><td colspan="1" rowspan="1"><p> Returns a list of layers assigned to the specified app. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Hosts by AppName </p></td><td colspan="1" rowspan="1"><p> Returns a list of hosts assigned to the specified app. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Total Requests Series </p></td><td colspan="1" rowspan="1"><p> Returns a time series for the application's total requests. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Total Requests Summary </p></td><td colspan="1" rowspan="1"><p> Returns a summary of the total requests. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Trace Summary </p></td><td colspan="1" rowspan="1"><p> Returns a high-level overview of a particular trace's performance characteristics. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> AppNeta AppName </p></td><td colspan="1" rowspan="1"><p> Select the app you want to retrieve data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

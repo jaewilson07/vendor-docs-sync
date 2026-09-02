@@ -1,0 +1,53 @@
+---
+title: "Flurry Connector"
+excerpt: "Use the Flurry connector with a Programmatic Access Token to pull mobile app performance data into a Domo DataSet."
+---
+
+## Intro
+
+Flurry is a mobile analytics platform that measures mobile app performance for various mobile platforms. For more information about the Flurry API, visit their website. ([https://developer.yahoo.com/flurry/docs/api/](https://developer.yahoo.com/flurry/docs/api/ "https://developer.yahoo.com/flurry/docs/api/") )
+
+The Flurry connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Flurry account in the Data Center. This topic discusses the fields and menus that are specific to the Flurry connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Flurry account and create a DataSet, you must have a Flurry Programmatic Access Token. You can obtain an access code by navigating to [https://developer.yahoo.com/flurry/d...code/apptoken/](https://developer.yahoo.com/flurry/docs/api/code/apptoken/ "https://developer.yahoo.com/flurry/docs/api/code/apptoken/") and following the instructions.
+
+## Connecting to Your Flurry Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Flurry Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains a single field where you enter your Flurry API Access Code.  For information about obtaining this code, see "Prerequisites," above.
+
+Once you have entered a valid Access Code, you can use the same account any time you go to create a new Flurry DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Report** menu in which you select a report type.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Menu </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Select a Flurry report. The following reports are available: </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> App Events </p></td><td colspan="1" rowspan="1"><p> Returns application events-related data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> App Event Parameters </p></td><td colspan="1" rowspan="1"><p> Returns application event parameters data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> App Usage </p></td><td colspan="1" rowspan="1"><p> Returns application usage related data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Publisher History </p></td><td colspan="1" rowspan="1"><p> Returns up to 400 days worth of publishing daily, weekly, monthly, quarterly, or yearly data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Publisher Recent </p></td><td colspan="1" rowspan="1"><p> Returns up to 15 days of the most recent hourly or daily data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Real Time </p></td><td colspan="1" rowspan="1"><p> Returns an application's recent data. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Metrics </p></td><td colspan="1" rowspan="1"><p> Select all of the metrics you want to show in your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Having (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter criteria to filter metrics data in your report. You can combine multiple metrics criteria. The format is <span class="mt-font-courier-new"> metric-operator[value(s)]. </span></p><p> Available operators are: <span class="mt-font-courier-new"> equal(eq) </span>, <span class="mt-font-courier-new"> greaterThan(gt) </span>, <span class="mt-font-courier-new"> lessThan(lt) </span></p><p> For example: </p><p><code> sessions-gt[1000],activeDevices-gt[200] </code></p><p> This essentially filters your report to show "Sessions" values that are greater than 1000 and "Active Devices" values greater than 200. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Dimensions </p></td><td colspan="1" rowspan="1"><p> Select all of the dimensions you want to show in your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Dimension Filters (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter criteria to filter dimensions data in your report. You can combine multiple dimensions criteria. Some dimensions have additional attributes referred to in the <b> Dimensions </b> field.The format is <span class="mt-font-courier-new"> dimension1|attribute-operator[value(s)] </span>. Operators include the following: </p><ul><li><span class="mt-font-courier-new"> in </span></li><li><span class="mt-font-courier-new"> notin </span></li><li><span class="mt-font-courier-new"> contains </span></li><li><span class="mt-font-courier-new"> startsWith </span></li></ul><p> Example: </p><p><span class="mt-font-courier-new"> country|name-in['United States','Canada','Mexico'],appVersion|name-in['2.3'] </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Grains </p></td><td colspan="1" rowspan="1"><p> Select whether you want your report data to be aggregated by day, month, week, or all. Intervals must align to the time grain specified in the query. The Flurry connector automatically adjusts the dates to match the interval selected. </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Month </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> First of the month for both start and end period </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Week </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Dates for Monday of the week for corresponding start and end periods. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Quarter </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Quarter must start and end on the 1st day of the 1st, 4th, 7th, or 10th month of a year. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Year </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Year must start on January 1st and end on January 1st. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the last date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Application </p></td><td colspan="1" rowspan="1"><p> Select all platforms/applications you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Event Name </p></td><td colspan="1" rowspan="1"><p> Select the event you want to retrieve data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

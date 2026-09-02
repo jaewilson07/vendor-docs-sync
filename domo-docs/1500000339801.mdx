@@ -1,0 +1,43 @@
+---
+title: "Salesforce Marketing Cloud Rest Connector"
+excerpt: "Configure Domo's Salesforce Marketing Cloud Rest Connector to retrieve campaigns, assets, interactions, and trigger statistics using OAuth 2.0."
+---
+
+## Intro
+
+Salesforce Marketing Cloud develops marketing automation and analytics software for email, mobile, social and online marketing. It helps you customize and personalize your marketing business with API integration and value-added marketing applications. The REST API provides a powerful, convenient, and simple REST-based web services interface for interacting with Salesforce. Experience the ease of integration and development with Domo's Salesforce Marketing Cloud Rest connector. Use this connector to get the data about your campaigns and campaign assets with its powerful, convenient, and simple REST-based interface. To learn more about the Salesforce Marketing Cloud API, visit their
+
+[API documentation](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm "https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm").
+
+The Salesforce Marketing Cloud Rest connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Salesforce Marketing Cloud account in the Data Center. This topic discusses the fields and menus that are specific to the Salesforce Marketing Cloud Rest connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Salesforce Marketing Cloud account and create a DataSet, you must have the following:
+
+* Your Salesforce Marketing Cloud subdomain. It is a 28-character string starting with the letters "mc".
+* The client ID and client secret from your OAuth 2.0 API integration.
+
+## Connecting to Your Salesforce Marketing Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Salesforce Marketing Cloud Rest Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Salesforce Marketing account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Salesforce Marketing Could Subdomain </td><td colspan="1" rowspan="1"> Enter your Salesforce Marketing Cloud subdomain. It is a 28-character string starting with the letters "mc". </td></tr><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter the client ID from your OAuth 2.0 API integration. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter the client secret from your OAuth 2.0 API integration. </td></tr></tbody></table>
+
+Once you have entered valid Salesforce Marketing credentials, you can use the same account any time you go to create a new Salesforce Marketing Cloud Rest DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Salesforce Marketing Cloud Rest report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Asset Categories </td><td colspan="1" rowspan="1"> Retrieves one or more Content Builder categories that are owned by or reside in your MID. </td></tr><tr><td colspan="1" rowspan="1"> Assets </td><td colspan="1" rowspan="1"> Retrieves a collection of all assets. </td></tr><tr><td colspan="1" rowspan="1"> Campaign Assets </td><td colspan="1" rowspan="1"> Retrieves a list of campaign assets. </td></tr><tr><td colspan="1" rowspan="1"> Campaign List </td><td colspan="1" rowspan="1"> Retrieves a collection of campaigns. </td></tr><tr><td colspan="1" rowspan="1"> Event Definitions </td><td colspan="1" rowspan="1"> Retrieves a collection of event definitions. </td></tr><tr><td colspan="1" rowspan="1"> Event Definition By Id </td><td colspan="1" rowspan="1"> Retrieves an individual event definition by id. </td></tr><tr><td colspan="1" rowspan="1"> Event Definition By Key </td><td colspan="1" rowspan="1"> Retrieves an individual event definition by key. </td></tr><tr><td colspan="1" rowspan="1"> Interactions </td><td colspan="1" rowspan="1"> Retrieves a collection of all interactions. </td></tr><tr><td colspan="1" rowspan="1"> Interaction By Id </td><td colspan="1" rowspan="1"> Retrieves a single interaction by id. </td></tr><tr><td colspan="1" rowspan="1"> Interaction Status By Id </td><td colspan="1" rowspan="1"> Retrieves status of an interaction by id. </td></tr><tr><td colspan="1" rowspan="1"> Interaction Status By Key </td><td colspan="1" rowspan="1"> Retrieves status of an interaction by key. </td></tr><tr><td colspan="1" rowspan="1"> Interaction Summary </td><td colspan="1" rowspan="1"> Retrieves summarized data for a journey/interaction (across all versions). </td></tr><tr><td colspan="1" rowspan="1"> Trigger Statistics </td><td colspan="1" rowspan="1"> Retrieves a collection of trigger statistics. </td></tr><tr><td colspan="1" rowspan="1"> Trigger Statistics By Journey </td><td colspan="1" rowspan="1"> Retrieves a collection of trigger statistics by journey. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Campaign Selection </td><td colspan="1" rowspan="1"> Specify whether you want to retrieve data for all campaigns or specific campaigns. </td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"> Select one or more campaigns. </td></tr><tr><td colspan="1" rowspan="1"><span> Event Definition Id </span></td><td colspan="1" rowspan="1"><span> Select the event definition id. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Event Definition Key </span></td><td colspan="1" rowspan="1"><span> Select the event definition key. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Interaction Id </span></td><td colspan="1" rowspan="1"><span> Select the interaction id. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Interaction Key </span></td><td colspan="1" rowspan="1"><span> Select the interaction key. </span></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

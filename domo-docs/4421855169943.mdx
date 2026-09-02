@@ -1,0 +1,66 @@
+---
+title: "PostgreSQL Advanced Connector"
+excerpt: "Use Domo's PostgreSQL Advanced Connector to pull data from a PostgreSQL database into a DataSet by entering an SQL query."
+---
+
+## Intro
+
+Domo works seamlessly with PostgreSQL's open source object-relational database system. You can use Domo's PostgreSQL Advanced Connector to pull data from your PostgreSQL database and compile custom reports. With an intuitive platform that brings all your data and all your people together in one place, it's easy to collaborate around real-time business insights and move forward with a single version of the truth.
+  
+You can easily combine your PostgreSQL data with data from numerous other systems, allowing you to transform your data and make it all available for user self-service. See the metrics you need on any device, automate your reporting, and get alerts when there are important changes to your business. You indicate the data you want by inputting an SQL query. For more information about the PostgreSQL API, visit their website. ([https://www.postgresql.org/docs/](https://www.postgresql.org/docs/ "https://www.postgresql.org/docs/") )
+
+The PostgreSQL Advanced Connector is a "Database" connector, meaning it retrieves data from databases using a query. In the Data Center, you can access the connector page for this and other Database connectors by clicking **Database** in the toolbar at the top of the window.
+
+You connect to your PostgreSQL database in the Data Center. This topic discusses the fields and menus that are specific to the PostgreSQL connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<Note>
+**Note:** Depending on your network's structure, your IT administrator may need to whitelist any IP addresses necessary for the data connector to retrieve data. Contact your IT administrator for assistance.
+</Note>
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is appropriate for pulling database information into Domo. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> N/A </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> IT </p></li><li><p> Project management </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ~10 hours </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 9 </p></td></tr></tbody></table>
+
+## Best Practices
+
+* Use read-only queries only.
+* Use "Replace" instead of "Append."
+
+## Prerequisites
+
+To connect to a PostgreSQL database and create a DataSet, you must have the following:
+
+* The username and password you use to log into your PostgreSQL database
+* The host name for the database
+* The port number for the database
+* The database name
+* Certificate authority certificate
+* SSL certificate
+* SSL key
+
+Before you can connect to a PostgreSQL database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093 "Whitelisting IP Addresses for Connectors").
+
+## Connecting to Your PostgreSQL Database
+
+This section enumerates the options in the **Credentials** and **Details** panes in the PostgreSQL Advanced Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your database. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your PostgreSQL username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your PostgreSQL password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the host name for the SQL database. For example: <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number for the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> Enter the name of the SQL database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> Paste the text for your CA certificate. </p></td></tr><tr><td colspan="1" rowspan="1"> SSL Certificate </td><td colspan="1" rowspan="1"> Paste your SSL certificate. </td></tr><tr><td colspan="1" rowspan="1"> SSL Key </td><td colspan="1" rowspan="1"> Paste your SSL key. </td></tr></tbody></table>
+
+Once you have entered valid PostgreSQL credentials, you can use the same account any time you go to create a new PostgreSQL Advanced DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+In this pane you create an SQL query to pull data from your database.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><th colspan="1" rowspan="1"> Query Type </th><th colspan="1" rowspan="1"> Description </th></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> Enter your SQL statement directly. This option includes query parameter support. </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> Build your query from a list of available tables and columns. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the Structured Query Language (SQL) query to use in selecting the data you want. </p><p> Example: <span class="mt-font-courier-new"> select * from Employee </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter (checkbox) </p></td><td colspan="1" rowspan="1"><p><span> Select this checkbox to add query parameters. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter </p></td><td colspan="1" rowspan="1"><span> Enter a comma separated list of query parameters and their initial values. Valid query parameters are: lastvalue, lastrundate. To set the value of a query parameter, use this syntax: </span> `!{lastvalue:_id}!=1,!{lastrundate:start_date}!=02/01/1944`</td></tr><tr><td colspan="1" rowspan="1"><p><span> Database Tables </span></p></td><td colspan="1" rowspan="1"><span> Select the database table you want to appear in your report. </span></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns </p></td><td colspan="1" rowspan="1"><span> Select all table columns you want to appear in your report. </span></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper </p></td><td colspan="1" rowspan="1"><span> A query is generated based on the selected fields. Copy and paste this text into the QUERY field. You may edit this query, if desired. </span></td></tr><tr><td colspan="1" rowspan="1"><p> Fetch Size </p></td><td colspan="1" rowspan="1"><p><span> Enter fetch size for memory performance. The connector will use the default value 400, if no value is provided in this field. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Bigint To Long </p></td><td colspan="1" rowspan="1"><p><span> Select to always convert a bigint column to a long column in Domo. <br/> This means even if the bigint column stores small integer values, Domo will still consider the column to have long values. </span></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Troubleshooting
+
+* Make sure the appropriate IP addresses are whitelisted.
+* Try decreasing fetch size or leave it empty.

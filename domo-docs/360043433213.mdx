@@ -1,0 +1,45 @@
+---
+title: "CloudHealth Connector"
+excerpt: "Use the CloudHealth connector to pull cost, optimization, and savings reports from your CloudHealth account into a Domo DataSet."
+---
+
+## Intro
+
+CloudHealth is IT service management for the cloud, enabling policy driven cost, utilization, performance, and security optimization and governance. Domo's CloudHealth connector allows you to retrieve data through prebuilt or customized reports. To learn more about the CloudHealth API, visit their GitHub API site (https://github.com/CloudHealth/cht_api_guide).
+
+Ben Green<br/>
+Sep 29, 2016, 9:31 AM
+
+The Cloud Health connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to the CloudHealth API in the Data Center. This topic discusses the fields and menus that are specific to the CloudHealth connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to the CloudHealth API and create a DataSet, you must have a CloudHealth API key.
+
+**To obtain an API key,**
+
+1. Log into CloudHealth using your username and password.
+2. Click **My Profile**.
+3. In the **API Key** section, click **Generate API Key**.
+
+## Connecting to the CloudHealth API
+
+This section enumerates the options in the **Credentials** and **Details** panes in the CloudHealth connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+In this pane, you connect to CloudHealth by entering your CloudHealth API key in the **API Key** field. For information about obtaining an API key, see "Prerequisites," above.
+
+Once you have connected to CloudHealth, you can use the same account any time you go to create a new CloudHealth DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary menu, **Report**, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Menu </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Report Type </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select a custom report or the predefined <b> Cost </b> report. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Cost Type </p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select the cost type for your <b> Cost </b> report. </span></p><p class="p1"><span class="s1"> Cost types are as follows: </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Cost History </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Retrieves the cost history for the given interval and category. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Projected Cost </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Retrieves projected costs for the given interval and category. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Cost History and Projected Cost </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Retrieves cost history and projected costs for the given interval and category. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Possible Optimization Cost </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Retrieves possible optimization costs for the given interval and category. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Savings Cost </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns savings costs for the given interval and category. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Opportunities Savings Cost </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns opportunities savings costs for the given interval and category. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Operational Monthly Saving </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns operational monthly savings for the given interval and category. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Security Saving </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns security savings for the given interval and category. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Immediate Saving </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns immediate savings for the given interval and category. </span></p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Report Interval </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select the interval for your report, either daily, weekly, or monthly. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Report Category </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select a category for your report. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Custom Report </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select a CloudHealth custom report. </span></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

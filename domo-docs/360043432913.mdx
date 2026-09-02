@@ -1,0 +1,36 @@
+---
+title: "Paydirt Connector"
+excerpt: "Connect Domo to your Paydirt account using an API key to pull invoicing and time tracking data for freelancers and agencies into a DataSet."
+---
+
+## Intro
+
+Paydirt provides online invoicing and time tracking for freelancers and agencies.  To learn more about the Paydirt API, visit their page ([https://paydirtapp.com/documentation/api/introduction](https://paydirtapp.com/documentation/api/introduction "https://paydirtapp.com/documentation/api/introduction") ).
+
+You connect to your Paydirt account in the Data Center. This topic discusses the fields and menus that are specific to the Paydirt connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Paydirt account and create a DataSet, you must have a Paydirt API key. You can find your Paydirt API key in your [Password Settings](https://paydirtapp.com/settings/password) page.
+
+## Connecting to Your Paydirt Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Paydirt Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Paydirt account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your Paydirt API key. You can find your API key in your <a href="https://paydirtapp.com/settings/password" target="_blank"> Password Settings </a> page. </td></tr></tbody></table>
+
+Once you have entered valid Paydirt credentials, you can use the same account any time you go to create a new Paydirt DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Paydirt report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Clients </p></td><td colspan="1" rowspan="1"><p> Returns a list of clients in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Projects </p></td><td colspan="1" rowspan="1"><p> Returns a list of projects in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Jobs </p></td><td colspan="1" rowspan="1"><p> Returns a list of jobs in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time </p></td><td colspan="1" rowspan="1"><p> Returns a list of time logs in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Returns a list of users in your account. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Select whether to pull data for a specific or relative start date. If you select <b> Specific </b>, you will be asked to choose a specific start date from a date picker. If you select <b> Relative </b>, you will be asked to enter an offset value (i.e. the number of days in the past you want to start pulling data for). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the date you want to start pulling data for. Combine with <b> Select Specific End Date </b> to create a range of dates. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Select whether to pull data for a specific or relative end date. If you select <b> Specific </b>, you will be asked to choose a specific end date from a date picker. If you select <b> Relative </b>, you will be asked to enter an offset value (i.e. the number of days in the past you want to stop pulling data for). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the date you want to stop pulling data for. Combine with <b> Select Specific Start Date </b> to create a range of dates. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date Offset </p></td><td colspan="1" rowspan="1"><p> Enter the number of days back you want to start pulling data for. Combine with <b> End Date Offset </b> to create a relative date range. For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Start Date Offset </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Date Offset </b>, each time the report ran it would pull data from the last 10 days up until the last 5 days. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the user you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the client you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Project ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the project you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Job ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the job you want to retrieve information for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

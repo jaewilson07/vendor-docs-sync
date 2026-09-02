@@ -1,0 +1,59 @@
+---
+title: "CNN RSS Connector"
+excerpt: "Use the CNN RSS connector to pull current CNN news headlines by topic into a Domo DataSet without credentials."
+---
+
+## Intro
+
+[CNN.com](http://CNN.com) offers feeds of story headlines in XML format to visitors who use RSS aggregators. The Domo CNN connector takes those headlines and creates a new DataSet that can be used to provide current headlines into your Domo instance. For information about the CNN API, visit [https://developer.cnn.com/docs/read/api](https://developer.cnn.com/docs/read/api "https://developer.cnn.com/docs/read/api").
+
+The CNN RSS connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You create a CNN DataSet in the Data Center. This topic discusses the fields and menus that are specific to the CNN connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Use this connector to pull current news headlines into cards in Domo. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> N/A </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Executive </p></li><li><p> Director </p></li><li><p> Manager </p></li><li><p> Analyst </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1-2 minutes </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1 <span></span></p></td></tr></tbody></table>
+
+## Best Practices
+
+This connector provides predetermined feeds of news headlines by topic. As such it is simple to select the topics of interest. However, note that a new connection must be made for each report.
+
+## Prerequisites
+
+No credentials are required.
+
+## Creating a CNN DataSet
+
+This section describes how to create a CNN DataSet in the CNN RSS Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Details Pane
+
+This pane contains a single menu in which you select a CNN report type.
+
+The following table describes all of the predefined reports you can create using the Domo CNN RSS connector.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Menu </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Business </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on business news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> CNN Student News </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on student news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Entertainment </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on entertainment news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Health </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on health news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Living </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on living news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Most Popular </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on the most popular news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Most Recent </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on the most recent news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Politics </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on politics news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Technology </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on the latest technology news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Travel </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on travel news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Top Stories </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on the latest top stories. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> U.S. </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on U.S. news </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Video </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on video news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> World </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information on world news. </span></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+Ensure that the connector is pulling the correct report and is on the needed schedule.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="How frequently will my data update?">
+
+The CNN RSS feed will update when CNN publishes a new article to the selected feed. The connector will retrieve the new articles according to the connector scheduling settings.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

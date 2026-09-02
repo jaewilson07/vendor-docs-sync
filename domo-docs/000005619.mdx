@@ -1,0 +1,41 @@
+---
+title: "Azure Synapse Partition Connector"
+excerpt: "Configure the Azure Synapse Partition Connector to bring partitioned Azure Synapse Analytics SQL data into Domo."
+---
+
+## Intro
+
+Azure Synapse Analytics lets you quickly implement a high-performance, globally available, and secure cloud data warehouse. Use Domo's Azure Synapse Partition SQL connector to bring your Azure data into Domo. Combine your Azure data with data from other data sources throughout your company for a comprehensive view of your business. You can set up custom alerts to be notified in real-time when your key metrics change, so you can make faster, better business decisions.
+
+You can connect to your Azure Synapse Partition account in the Data Center. This topic discusses the fields and menus that are specific to the Azure Synapse Partition connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Azure Synapse Partition account and create a DataSet, you need the following:
+
+* You need to select the JDBC Driver Version
+* Server Name
+* Database Name
+* Port number
+* Username and password
+* Host Name In Certificate
+
+## Connecting to Your Azure Synapse Partition Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Azure Synapse Partition Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Azure Synapse Partition account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><b><span class="s1"> Field </span></b></p></th><th colspan="1" rowspan="1"><p><b><span class="s1"> Description </span></b></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> JDBC Driver Version </td><td colspan="1" rowspan="1"> Select the JDBC driver version. </td></tr><tr><td colspan="1" rowspan="1"> Server Name </td><td colspan="1" rowspan="1"><p> Go to the Azure Portal. Click Azure Synapse Analytics. Click the Synapse SQL Pool you want to connect. Locate the full server name. For example <b><a href="http://yourserver.database.windows.net" rel="noopener" target="_blank"> yourserver.database.windows.net </a></b></p></td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> Enter the database name. </td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port number. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password. </td></tr><tr><td colspan="1" rowspan="1"> HostNameInCertificate </td><td colspan="1" rowspan="1"> Enter the hostNameInCertificate obtained from the show database connection strings. </td></tr></tbody></table>
+
+Once you have entered valid Azure Synapse Partition credentials, you can use the same account at any time to create a new Azure Synapse Partition DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Partition Criteria </td><td colspan="1" rowspan="1"> Select the Partition Criteria. </td></tr><tr><td colspan="1" rowspan="1"> Schema Name </td><td colspan="1" rowspan="1"> Select the schema name. </td></tr><tr><td colspan="1" rowspan="1"> Table Name </td><td colspan="1" rowspan="1"> Select the database table. </td></tr><tr><td colspan="1" rowspan="1"> Partition Date Key Column Name </td><td colspan="1" rowspan="1"> Select the date key partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"> Select the non date key partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Partition Meta Query to determine partition tags </td><td colspan="1" rowspan="1"> Enter the partition meta query to determine the distinct partition tags(or keys). <b> Example </b> SELECT DISTINCT(DATE_COLUMN_NAME) FROM TABLENAME. In this example <b> DATE_COLUMN_NAME </b> is the partition column and distinct values from the table are the keys. </td></tr><tr><td colspan="1" rowspan="1"> Partition Support Format </td><td colspan="1" rowspan="1"> Select the partition format. </td></tr><tr><td colspan="1" rowspan="1"> Past Years </td><td colspan="1" rowspan="1"> Enter the number of past years that you want to get data for. Value can be X, where X is a positive integer. For example: 30. </td></tr><tr><td colspan="1" rowspan="1"> Future Years </td><td colspan="1" rowspan="1"> Enter the number of future years that you want to get data for. Value can be X, where X is a positive integer. For example: 30. </td></tr><tr><td colspan="1" rowspan="1"> Past Months </td><td colspan="1" rowspan="1"> Enter the number of past months that you want to get data for. Value can be X, where X is a positive integer. For example: 30. </td></tr><tr><td colspan="1" rowspan="1"> Future Months </td><td colspan="1" rowspan="1"> Enter the number of future months that you want to get data for. Value can be X, where X is a positive integer. For example: 30. </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> Enter the number of past days that you want to get data for. Value can be X, where X is a positive integer. For example: 30. </td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"> Enter the custom date format. </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter the query to execute. <br/><b> Note: </b> Subqueries are used for partitioning. Read the rules and construct the query accordingly. <br/> Rules: <a href="https://learn.microsoft.com/en-us/sql/relational-databases/performance/subqueries?view=sql-server-ver16#rules" target="_blank" title="https://learn.microsoft.com/en-us/sql/relational-databases/performance/subqueries?view=sql-server-ver16#rules/"> https://learn.microsoft.com/en-us/sql/relational-databases/performance/subqueries?view=sql-server-ver16#rules </a></td></tr><tr><td colspan="1" rowspan="1"> Cast To Date </td><td colspan="1" rowspan="1"> Select this checkbox if you want to cast the partition column to <b> DATE </b> type. </td></tr><tr><td colspan="1" rowspan="1"> Limit Buffer Size </td><td colspan="1" rowspan="1"> Select this checkbox if you want to Limit the maximum heap memory used by ResultBuffer. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

@@ -1,0 +1,39 @@
+---
+title: "New Relic NerdGraph Connector"
+excerpt: "Use Domo's New Relic NerdGraph Connector to pull GraphQL query data from your New Relic account into a DataSet."
+---
+
+## Intro
+
+The New Relic is a software analytics tool suite. Use Domo's New **Relic NerdGraph** connector to pull your GraphQL query data into Domo.
+
+This article explains the fields and menus specific to the New Relic NerdGraph connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to New Relic NerdGraph and create a DataSet, you must have the following:
+
+* Your New Relic NerdGraph account's Data Center.
+* Your New Relic NerdGraph account's API Key.
+
+## Connecting to New Relic NerdGraph
+
+This section enumerates the options in the **Credentials** and **Details** panes in the New Relic NerdGraph Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your New Relic NerdGraph account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Data Center </p></td><td colspan="1" rowspan="1"><p> Select the data center from the drop-down list. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter the New Relic account's API Key. </p></td></tr></tbody></table>
+
+Once you have entered valid New Relic NerdGraph credentials, you can use the same account any time to create a new New Relic NerdGraph DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Details Pane
+
+In this pane you can create a GraphQL query to pull the data from your database.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span dir="ltr"> GraphQL Query </span></p></td><td colspan="1" rowspan="1"><p></p><span dir="ltr"> Enter the NerdGraphQL query. <a href="https://docs.newrelic.com/docs/apis/nerdgraph/get-started/nerdgraph-explorer/" target="_blank" title="Help Link"> Help Link </a> can be found here. </span><p></p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US).

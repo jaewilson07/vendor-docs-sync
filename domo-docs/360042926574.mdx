@@ -1,0 +1,71 @@
+---
+title: "Conductor Searchlight Connector"
+excerpt: "Connect to Conductor Searchlight in Domo with an API key and shared secret to pull SEO metrics like keyword rankings into a DataSet."
+---
+
+## Intro
+
+Conductor Searchlight is used to manage your web presence, allowing you to engage customers throughout their buyers' journey.  To learn more about the Conductor Searchlight API, visit their website ([http://developers.conductor.com](http://developers.conductor.com/) ).
+
+The Conductor Searchlight connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Conductor Searchlight account in the Data Center. This topic discusses the fields and menus that are specific to the Conductor Searchlight connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:200;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is good for retrieving search engine optimization (SEO) metrics. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Keyword rankings </p></li><li><p> Competitor rankings </p></li><li><p> Search volume </p></li><li><p> Tracked searches </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Digital marketing </p></li><li><p> SEO analyst </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 5 hours </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Best Practices
+
+These reports can power cards individually, but sometimes it is helpful to combine the reports using Magic ETL so you can look at metrics like your keyword ranks compared to your competitor ranks, or to evaluate the search volume of your top ranked keywords. For more information about Magic ETL, see Magic Transforms.
+
+## Prerequisites
+
+To connect to your Conductor Searchlight account and create a DataSet, you must have the following:
+
+* The API key for your Conductor Searchlight account
+* The Shared Secret for your Conductor Searchlight account
+
+For questions, please contact your Conductor Searchlight account representative.
+
+## Connecting to Your Conductor Searchlight Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Conductor Searchlight Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Conductor Searchlight account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Field </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> API Key </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Enter the API key for your Conductor Searchlight account. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Shared Secret </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Enter the Shared Secret for your Conductor Searchlight account. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> API Version </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select the Conductor Searchlight API version specific to the API Key and Shared Secret you've entered. </span></p></td></tr></tbody></table>
+
+Once you have entered valid Conductor Searchlight credentials, you can use the same account any time you go to create a new Conductor Searchlight DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Report** menu, along with various menus that may or may not appear depending on the selected report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Menu </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select the Conductor Searchlight report you want to run. The following reports are available: </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Accounts </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns a list of all accounts available to the authenticated user. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Ai Search - Brands </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns brand-focused data from AI search responses for all selected accounts, limited to own-brand entities.</span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Ai Search - Citations </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Retrieves citation-focused data from AI search responses for all selected accounts.</span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Ai Search - Sentiments </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1">Retrieves brand sentiment data from AI search responses for all selected accounts.</span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Categories List </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns category names and IDs for all selected accounts. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"> Global Keyword Ranks </p></td><td colspan="1" rowspan="1"> Returns global keyword rankings by domain for all selected accounts </td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Locations </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns a list of all locations with descriptive information. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Search Volume </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns the average volume and the volume for the last twelve months for all Tracked Search IDs. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Tracked Searches </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Returns information about tracked searches by domain for all selected accounts. </span></p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Account List </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select all of the accounts you want to retrieve information for. Selecting accounts is optional. If you do not select any accounts, your report pulls information for all accounts. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Account </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select the account you want to retrieve information for. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Rank Source </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select all of the rank sources you want to retrieve information for. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Web Property </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select all of the web properties you want to retrieve information for. </span></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No.
+
+</Accordion>
+
+<Accordion title="Can I use the same Conductor Searchlight account for multiple datasets?">
+
+Yes.
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,62 @@
+---
+title: "Sumo Logic Connector"
+excerpt: "Use the Sumo Logic connector to pull cloud-based log management and analytics data into a Domo DataSet."
+---
+
+## Intro
+
+Sumo Logic is a cloud-based log management and analytics service that leverages machine-generated big data to deliver real-time IT insights. You can use Domo's Sumo Logic connector to pull your IT insight data into Domo.
+
+The Sumo Logic connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+There are two versions of the Sumo Logic connector—a regular version and an advanced version. The only difference between these is that the advanced version requires authenticating via an API access ID and access key, while the regular version just requires a username and password.
+
+This topic discusses the fields and menus that are specific to the Sumo Logic connector user interface. For general information about adding DataSets, setting update schedules, and editing DataSet information, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Sumo Logic account and create a DataSet, you must have the following:
+
+* The username you use to log into Sumo Logic account (standard version only)
+* The password you use to log into your Sumo Logic account (standard version only)
+* Your API access ID (advanced version only)
+* Your API access key (advanced version only)
+
+To find or generate API access credentials, visit [https://help.sumologic.com/Manage/Se...ty/Access-Keys](https://help.sumologic.com/Manage/Security/Access-Keys "https://help.sumologic.com/Manage/Security/Access-Keys").
+
+## Connecting to your Sumo Logic account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Sumo Logic connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Sumo Logic connector uses OAuth to connect to Sumo Logic. Click **Connect** (or select **Add Account** if you have existing Sumo Logic accounts in Domo) to open the Box OAuth screen where you can enter the username and password associated with your Sumo Logic account. After you have entered valid Sumo Logic credentials, you can use the same account in Domo any time you create a Sumo Logic DataSet.
+
+You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane includes a primary menu, **Report**, and other menus that appear depending on the report you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Sumo Logic report. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Collector Management </p></td><td colspan="1" rowspan="1"><p> Retrieves the list of collectors and associated information. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Dashboard </p></td><td colspan="1" rowspan="1"><p> Retrieves data defined on your dashboard in Sumo Logic. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Job </p></td><td colspan="1" rowspan="1"><p> Queries the log information in Sumo Logic. </p><ol><ol><li><p> In the <b> Query </b> field, enter the search query to run. <br/> For information about the Sumo Logic search syntax, see <a href="https://help.sumologic.com/05Search/Get-Started-with-Search/How-to-Build-a-Search/Search-Syntax-Overview" target="_blank"> https://help.sumologic.com/05Search/Get-Started-with-Search/How-to-Build-a-Search/Search-Syntax-Overview </a>. </p></li></ol></ol><ol><li><p> In the <b> Date Offset </b> field, select the report date. </p></li><li><p> In the <b> Time Zone </b> field, enter the 3 letter time zone. For example: <span class="mt-font-courier-new"> MST </span>. </p></li></ol></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> This option appears when "Search Job" is selected. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Offset </p></td><td colspan="1" rowspan="1"><p> This option appears when "Search Job" is selected. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Zone </p></td><td colspan="1" rowspan="1"><p> This option appears when "Search Job" is selected. </p><p></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+DataSets can run as often as every 15 minutes. However, depending on the runtime of the query, DataSets may need to run less frequently.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+Sumo Logic may limit API calls. To prevent rate limiting, reduce the number of DataSets scheduled to run at the same time.
+
+</Accordion>
+</AccordionGroup>
+

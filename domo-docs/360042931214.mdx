@@ -1,0 +1,51 @@
+---
+title: "Vimeo Connector"
+excerpt: "Use Domo's Vimeo Connector to import video, people, and album data from your Vimeo account into a DataSet via OAuth."
+---
+
+## Intro
+
+Vimeo is a video-sharing website in which users can upload, share, and view videos. You can use the Vimeo connector to retrieve data about videos, people, albums, and the like. To learn more about the Vimeo API, go to [https://developer.domo.com/api/start](https://developer.domo.com/api/start "https://developer.domo.com/api/start").
+
+The Vimeo connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+This topic discusses the fields and menus that are specific to the Vimeo connector user interface. For general information about adding DataSets, setting update schedules, and editing DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Accessing data about video performance, effectiveness, completion, and general information about your viewers </p></li><li><p> Providing insight into campaign effectiveness from a product marketing standpoint </p></li><li><p> Helping marketers understand their end audience better </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Video views </p></li><li><p> Video comments </p></li><li><p> Geo-location of viewing events </p></li><li><p> Video completion </p></li><li><p> Video fallout </p></li><li><p> Source by device type </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Product marketing roles </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Less than 1 hour </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to your Vimeo account and create a DataSet, you must have the following:
+
+* The email address you entered when you signed up for a Vimeo account.
+* Your Vimeo password.
+
+## Connecting to Your Vimeo Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Vimeo Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+The Domo Vimeo connector uses OAuth to connect. Click **Connect** (or select **Add Account** if you have existing Vimeo accounts in Domo)
+
+to open the Vimeo OAuth screen where you can either enter the email address associated with your Vimeo account and your password or you can enter your Facebook credentials. After you have entered valid credentials and authorized Domo to access Vimeo, you can use the same account in Domo any time you create a Vimeo DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Vimeo when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Vimeo.
+</Note>
+
+## Details Pane
+
+This pane contains a single menu from which you select a Vimeo report. The following table describes all of the reports you can create using the Domo Vimeo connector:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Report Name </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Albums </p></td><td colspan="1" rowspan="1"><p> Returns a list of the authenticated user's albums. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Categories </p></td><td colspan="1" rowspan="1"><p> Returns a list of Vimeo categories. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channels </p></td><td colspan="1" rowspan="1"><p> Returns a list of all public channels. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Groups </p></td><td colspan="1" rowspan="1"><p> Returns a list of the authenticated user's member groups. </p></td></tr><tr><td colspan="1" rowspan="1"><p> People I Follow </p></td><td colspan="1" rowspan="1"> Returns a list of people that the authenticated user follows. </td></tr><tr><td colspan="1" rowspan="1"><p> My Appearances </p></td><td colspan="1" rowspan="1"><p> Returns a list of videos the authenticated user appears in. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Channels </p></td><td colspan="1" rowspan="1"><p> Returns a list of channels followed by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Groups </p></td><td colspan="1" rowspan="1"><p> Returns a list of group that the authenticated user has joined. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Feed </p></td><td colspan="1" rowspan="1"><p> Returns a list of the videos in the authenticated user's feed. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Followers </p></td><td colspan="1" rowspan="1"><p> Returns a list of the authenticated user's followers. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Likes </p></td><td colspan="1" rowspan="1"><p> Returns a list of videos that the authenticated user has liked. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My OnDemand </p></td><td colspan="1" rowspan="1"><p> Returns a list of the authenticated user's On Demand pages. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Portfolios </p></td><td colspan="1" rowspan="1"><p> Returns a list of Portfolios created by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Presets </p></td><td colspan="1" rowspan="1"><p> Returns a list of presets created by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Videos </p></td><td colspan="1" rowspan="1"><p> Returns a list of videos uploaded by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Returns a list of users that relate to a search query. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Videos </p></td><td colspan="1" rowspan="1"><p> Returns a list of videos that relate to a search query. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Watch Later </p></td><td colspan="1" rowspan="1"><p> Returns a list of videos in the authenticated user's Watch Later queue. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+* Ensure that your credentials correspond to the account where the videos are hosted.
+* Ensure that data is updating at the desired frequency.
+* Compare to Vimeo channel data by manually extracting from the Vimeo site.

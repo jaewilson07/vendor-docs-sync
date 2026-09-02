@@ -1,0 +1,75 @@
+---
+title: "IBM DB2 Connector"
+excerpt: "Use Domo's IBM DB2 Connector to retrieve data from an IBM DB2 database with a provided SQL query and load the results as a DataSet."
+---
+
+## Intro
+
+IBM DB2 contains database server products developed by IBM. These products support the relational model with some support for object-relational features and non-relational structures like JSON and XML. Use Domo's IBM DB2 connector to retrieve data about from an IBM database based on a provided SQL query.
+
+You connect to your IBM DB2 database in the Data Center. This topic discusses the fields and menus that are specific to the IBM DB2 connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<Note>
+**Note:** Domo does not support the IBM DA European connector.
+</Note>
+
+## Prerequisites
+
+To connect to an IBM DB2 database and create a DataSet, you must have the following:
+
+* The username and password you use to log into your IBM account
+* The host name for the database
+* The port number for the database
+* The database name
+
+CA certificate text or URL path is required *only* if you select **Certificate text** or **URL path**, respectively, in the **Certificate type** menu.
+
+##### To obtain your credentials, do the following:
+
+1. Log into **IBM Cloud**.
+2. Go to **Service Credentials**.
+3. Click **New credential +**.
+4. Enter the name, select the role, and click **Add**.
+5. Once the service credentials are created, expand the JSON to identify the username and password in the authentication block.
+
+##### How to extract the SSL certificate:
+
+* Go to **Settings> Connections** on the web console to download the Certificate. The file is named **DigiCertGlobalRootCA.crt.**
+    <Frame>
+      <img src="/images/kb/ka05w00000123KC-00N5w00000Ri7BU-0EM5w000005vO59.png" />
+    </Frame>
+
+* The certificate is also available at ***`/mnt/blumeta0/db2/ssl_keystore/rootCA.pem`*** inside the database container. You can extract it to tmp with this command: ***docker cp dashDB:/mnt/blumeta0/db2/ssl\_keystore/rootCA.pem /tmp***
+* or access it directly with ***`<host volume>/db2/ssl_keystore/rootCA.pem`***
+
+##### How convert the certificate.crt file to a.pem:
+
+* If the certificate file is in binary format, then run the following command to convert it to PEM format using OpenSSL:
+    
+  ```bash
+  $ openssl x509 -inform DER -outform PEM -in DigiCertGlobalRootCA.crt -out DigiCertGlobalRootCA.crt.pem
+  ```
+
+Before you can connect to an IBM DB2 database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093 "Whitelisting IP Addresses for Connectors").
+
+## Connecting to Your IBM DB2 Database
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SAP Adaptive Server Enterprise Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your IBM DB2 database. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your IBM account username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your IBM account password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the host name for the DB2 database. For example: <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number for the DB2 database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> Enter the name of the DB2 database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Type </p></td><td colspan="1" rowspan="1"><p> Select a certificate type. If you do not want to include a certificate, select <b> No certificate </b>. If you select Certificate text, you must paste the text for your certificate in the <b> Certificate </b> field. If you select <b> URL path </b>, you must enter the URL where your certificate is located in the <b> Certificate </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> Paste the text for your CA certificate or enter the URL where your certificate is located. This is optional. If you do not want to include a certificate, select <b> No certificate </b> in the <b> Certificate Type </b> menu. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new IBM DB2 DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+In this pane you create an SQL query to pull data from your database. The **Query** parameter is required. The other three parameters are here to help you construct this query if you choose.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><p> Select a query type. </p><table class="zebra-striped bordered"><tbody><tr><th colspan="1" rowspan="1"> Query Type </th><th colspan="1" rowspan="1"> Description </th></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> Enter the SQL query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> Select a table and fields to autogenerate your query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the Structured Query Language (SQL) query to use in selecting the data you want. For example: </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> If you want help in constructing your query, copy and paste the automatically-generated query from the <b> Query Helper </b> field into this field. </p></td></tr><tr><td colspan="1" rowspan="1"><span> Database Schemas </span></td><td colspan="1" rowspan="1"><p> Select the database schema. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Table </p></td><td colspan="1" rowspan="1"><p> Select the table containing the data you want to pull into Domo. The selected table will be added to the automatically generated query in the <b> Query Helper </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns </p></td><td colspan="1" rowspan="1"><p> Select the table columns with data you want to pull into Domo. The selected columns will be added to the automatically generated query in the <b> Query Helper </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper </p></td><td colspan="1" rowspan="1"><p> Copy and paste this query into the <b> Query </b> field if you need help building a query. This query is automatically generated when you select a table and columns in the <b> Database Table </b> and <b> Table Columns </b> fields, respectively. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

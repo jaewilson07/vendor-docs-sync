@@ -1,0 +1,36 @@
+---
+title: "Box Governance Connector"
+excerpt: "Use Domo's Box Governance connector to retrieve file classification, legal hold, and retention policy data from your Box account into a DataSet."
+---
+
+## Intro
+
+Box Governance provides a globally accessible, cloud-based solution that allows users to seamlessly manage the entire lifecycle of their business documents. To learn more about the Box API, visit their page ([https://developer.box.com/](https://developer.box.com/ "https://developer.box.com/") ).
+
+You connect to your Box Governance account in the Data Center. This topic discusses the fields and menus that are specific to the Box Governance connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Box account and create a Box Governance DataSet, you must have your Box username and password.
+
+## Connecting to Your Box Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Box Governance Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+The Domo Box Governance connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Box Governance accounts in Domo) to open the Box OAuth screen where you can enter your Box credentials. Once you have entered valid Box Governance credentials, you can use the same account any time you go to create a new Box Governance DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Box when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Box.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Box Governance report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> File Classification Report </p></td><td colspan="1" rowspan="1"><p> Lets you retrieve data about File Classification policies. These policies provide the ability to classify content and drive security settings based on that classification. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Legal Hold Reports </p></td><td colspan="1" rowspan="1"><p> Lets you retrieve either of two different Legal Hold subreports. Legal Hold policies allow one to specify a custodian whose content must be retained in Box until the hold is removed. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Retention Report </p></td><td colspan="1" rowspan="1"><p> Lets you retrieve data about Retention policies. These policies allow one to specify a length of time that a file must be retained in Box prior to a specified disposition date. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Enterprise Metadata Templates </p></td><td colspan="1" rowspan="1"><p> Select the template you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Type of Subreport </p></td><td colspan="1" rowspan="1"><p> Select the desired subreport for your "Legal Hold Report," either <b> " </b> File Versions" or "Assignments." </p></td></tr><tr><td colspan="1" rowspan="1"><p> Assign To Type </p></td><td colspan="1" rowspan="1"><p> Select the desired filter for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Assign To ID (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter an ID to filter assignments to that ID only. Note that this shows only those assignments applied directly to this entity. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Disposition Action </p></td><td colspan="1" rowspan="1"><p> Select the disposition action you want to show data for in your report. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

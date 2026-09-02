@@ -1,0 +1,38 @@
+---
+title: "Lithium Connector"
+excerpt: "Configure the Lithium Connector to retrieve forum data such as kudos leaderboards, visiting users, and other community metrics into Domo."
+---
+
+## Intro
+
+Lithium Technologies provides social customer experience management software for enterprise customers. Use Domo's Lithium connector to retrieve data related to forums, such as leaderboards of kudos authors, lists of visiting users, and more. This connector calls a basic set of endpoints. For more information, refer to the API documentation at https://community.lithium.com/t5/Community-API/bd-p/developers-rest-api.
+
+You can connect to your Lithium account in the Data Center. This topic discusses the fields and menus that are specific to the Lithium connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Lithium account and create a DataSet, you need the following:
+
+* Your Lithium  Password and Password
+* Your Lithium Username
+* Server Base URL for your Lithium instance.
+
+## Connecting to Your Lithium Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Lithium Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Lithium account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username for your Lithium account </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password for your Lithium account. </td></tr><tr><td colspan="1" rowspan="1"> Base URL </td><td colspan="1" rowspan="1"> Enter the server URL for your Lithium instance (for example, <tt><a href="http://community.domo.com" rel="noopener" target="_blank"> community.domo.com </a></tt> ). </td></tr></tbody></table>
+
+Once you have entered valid Lithium credentials, you can use the same account at any time to create a new Lithium DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Lithium report you want to run. The following reports are available: </p><p></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Leaderboard of Kudos Authors </p></td><td colspan="1" rowspan="1"> Returns a list of the users who have received the most kudos in the community. (Leaderboard must be enabled in the community to run this report.) </td></tr><tr><td colspan="1" rowspan="1"><p> List of Escalated Threads </p></td><td colspan="1" rowspan="1"> Returns a list of escalated threads in the community. </td></tr><tr><td colspan="1" rowspan="1"><p> List of Posts </p></td><td colspan="1" rowspan="1"> Returns a list of posts for all or selected boards. </td></tr><tr><td colspan="1" rowspan="1"><p> List of Solutions </p></td><td colspan="1" rowspan="1"> Returns a list of accepted solutions for all or selected boards. </td></tr><tr><td colspan="1" rowspan="1"><p> List of Registered Users </p></td><td colspan="1" rowspan="1"> Returns a list of registered users in the community. </td></tr><tr><td colspan="1" rowspan="1"><p> List of Visiting Users </p></td><td colspan="1" rowspan="1"> Returns a list of users who visited the community during the specified time period. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Days Back </td><td colspan="1" rowspan="1"> Enter the number of past days of data to be retrieved. For example, if you entered <tt> 30 </tt>, data would be retrieved for the last 30 days. </td></tr><tr><td colspan="1" rowspan="1"> Time period </td><td colspan="1" rowspan="1"> Select the desired time period for the report data. </td></tr><tr><td colspan="1" rowspan="1"> All or Specific Boards </td><td colspan="1" rowspan="1"> Select whether you want your report to show all boards or one or more specific boards. </td></tr><tr><td colspan="1" rowspan="1"> Boards </td><td colspan="1" rowspan="1"> Select the boards, for which you want to retrieve the data. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

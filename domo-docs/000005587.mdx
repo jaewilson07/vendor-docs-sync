@@ -1,0 +1,88 @@
+---
+title: "Launch Workbench Enterprise Jobs with Third-Party Tools Using JWT"
+excerpt: "Generate a JWT in Workbench Enterprise to let third-party applications launch a job and query its execution status."
+---
+
+## Intro
+
+Workbench Enterprise allows third-party applications to launch jobs and to get the status of a job execution.
+
+JSON web tokens (JWTs) have a limited scope. A token can only do the following:
+
+* Get the job execution status
+* Start an execution for a single job—to execute another job, you must generate a new JWT
+
+<Tip>
+**Tip:** Learn how to [implement Workbench Enterprise](/s/article/000005303).
+</Tip>
+
+## Generate a JWT
+
+1. Find and select your job in the jobs list.
+     
+   <Frame><img alt="job.jpg" src="/images/kb/ka0Vq0000003LPh-00N5w00000Ri7BU-0EMVq0000038jJB.jpg"/></Frame>
+
+2. Go to the
+   **External Access** tab and select **Create New JWT**.
+     
+   <Frame><img alt="external access.jpg" src="/images/kb/ka0Vq0000003LPh-00N5w00000Ri7BU-0EMVq0000038SIL.jpg"/></Frame>
+
+3. Copy the JWT and save it in a secure location. The JWT will never display again after you close the modal.
+     
+   <Frame><img alt="jwt blurred.jpg" src="/images/kb/ka0Vq0000003LPh-00N5w00000Ri7BU-0EMVq0000038jRF.jpg"/></Frame>
+
+## Launch a Workbench Enterprise Job
+
+Launch a Workbench Enterprise job with a PUT request to the job execution endpoint.
+
+<Note>
+**Note:** In the examples below, the JWT is stored in a variable named `JWT.`
+
+</Note>
+
+Curl:
+
+```bash
+curl -X PUT --header "Authorization: $JWT" 
+-v https://WorkbenchEnterprise.internal.com/Api/Jobs/{jobId}/Execute 
+```
+
+Powershell:
+
+```powershell
+Invoke-Webrequest -uri https://WorkbenchEnterprise.internal.com/Api/Jobs/ {jobId} 
+/Execute -Method PUT -Headers @{'Authorization' = $JWT} 
+```
+
+## Get the Job Execution Status
+
+Workbench Enterprise can return the job status using a GET request to the job execution endpoint.
+
+<Note>
+**Note:** In the examples below, the JWT is stored in a variable named `JWT.`
+
+</Note>
+
+Curl:
+
+```bash
+curl -X GET --header "Authorization: $JWT" 
+-v https://WorkbenchEnterprise.internal.com/Api/Jobs/ {jobId} /Execute 
+```
+
+Powershell:
+
+```powershell
+Invoke-Webrequest 
+-uri https://WorkbenchEnterprise.internal.com/Api/Jobs/ {jobId} /Execute -Method GET -Headers @{'Authorization' = $JWT} 
+```
+
+The response body will have these elements:
+
+<Frame><img alt="Screenshot 2024-10-08 at 3.51.42 PM.png" src="/images/kb/ka0Vq0000003LPh-00N5w00000Ri7BU-0EMVq0000038fAj.jpg"/></Frame>
+
+## Invalidate a JWT
+
+If you want to invalidate an existing token, select **Invalidate** for the token in the job's **External Access** tab.
+
+<Frame><img alt="invalidate blur.jpg" src="/images/kb/ka0Vq0000003LPh-00N5w00000Ri7BU-0EMVq0000038jfl.jpg"/></Frame>

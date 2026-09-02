@@ -1,0 +1,99 @@
+---
+title: "ServiceNow Enterprise OAuth Configuration Connector"
+excerpt: "Configure the ServiceNow Enterprise OAuth Configuration Connector to ingest ServiceNow IT service management data into Domo."
+---
+
+## Intro
+
+ServiceNow is a software platform that supports IT service management and automates common business practices. You can combine your ServiceNow data with data from other systems in Domo to see the end-to-end customer experience and fix any issues faster. Get a quick, interactive view of all your data, fully integrated, to help you spend less time gathering data and make faster, better business decisions.
+
+You can connect to your ServiceNow Enterprise OAuth Configuration account in the Data Center. This topic discusses the fields and menus that are specific to the ServiceNow Enterprise OAuth Configuration connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your ServiceNow Enterprise OAuth Configuration account and create a DataSet, you need the following:
+
+- OAuth Configuration
+- Instance Name
+
+### How to Create OAuth Configuration in the Domo instance
+
+To create an OAuth configuration:
+
+1. Log into the customer's Domo instance.
+2. Navigate to `https://{customerdomain}.domo.com/datacenter/accounts`.
+3. Add New OAuth Configuration.
+4. Select the **ServiceNow OAuth Config** Configuration Type from the drop-down list.
+5. Enter the client id and secret generated through an incoming link, described below.
+
+<Frame>![Screenshot](/images/kb/0EMVq000002lhYD.jpg)</Frame>
+
+<Frame>![Screenshot](/images/kb/0EMVq000003o7nl.jpg)</Frame>
+
+**Configuring OAuth**
+
+To create OAuth:
+
+1. In the left **All Navigator**, enter **System OAuth** in the search bar.
+2. Select **Application Registry**. To navigate, select **System OAuth** > **Application Registry**.  
+
+   <Frame>![Application Registry](/images/kb/0EMVq00000CNCJJ.jpg)</Frame>
+3. Create a New OAuth application.  
+
+   <Frame>![Screenshot](/images/kb/0EMVq00000CNCRN.jpg)</Frame>
+4. Select **Create an OAuth API** **endpoint for external clients**.   
+
+   <Frame>![Screenshot](/images/kb/0EMVq00000CNCb3.jpg)</Frame>
+5. For the **Redirect URL**field, enter this link [https://oauth.domo.com/api/data/v1/oauth/providers/servicenow-enterprise-oauth-configuration/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/servicenow-enterprise-oauth-configuration/exchange).  
+
+   <Frame>![Screenshot](/images/kb/0EMVq00000CNCcf.jpg)</Frame>
+
+**View OAuth credentials**
+
+If you lose your OAuth credentials, you can use the OAuth application you have created to access at any time.
+
+To view the OAuth credentials:
+
+1. Navigate to **System OAuth** > **Application Registry**.  
+2 . Find and select the application you are interested.
+
+## Connecting to Your ServiceNow Enterprise OAuth Configuration Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the ServiceNow Enterprise OAuth Configuration Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](/s/article/360042926274).
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your ServiceNow Enterprise OAuth Configuration account. The following table describes what is needed for each field:  
+
+| Field | Description |
+| --- | --- |
+| OAuth Configuration | OAuth Configurations have service credentials stored by your administrator that automatically log you in, so only your personal OAuth login is required. Your administrator may create and edit configurations in the Data Center, in the Accounts tab. |
+| Instance Name | Enter the ServiceNow instance name. For example: [https://instance.service-now.com.](https://instance.service-now.com) |
+
+Once you have entered valid ServiceNow Enterprise OAuth Configuration credentials, you can use the same account at any time to create a new ServiceNow Enterprise OAuth Configuration DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054).
+
+## Details Pane
+
+| Menu                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Report                      | Select the ServiceNow Enterprise OAuth Configuration report you want to run. The following reports are available: <br/><br/> <table><thead><tr><th>Report Name</th><th>Description</th></tr></thead><tbody><tr><td>Standard Table</td><td>Select from a list of standard tables from Service Now.</td></tr><tr><td>Custom Query</td><td>Creates a custom query. It includes the ability to select which fields are returned to the DataSet.</td></tr><tr><td>Custom Table</td><td>It provides a custom table name from which to retrieve data.</td></tr></tbody></table>                                                                                                                                                                                                      |
+| Table                       | <table><thead><tr><th>Table</th><th>Description</th></tr></thead><tbody><tr><td>Incident</td><td>Retrieves all data from the incident table.</td></tr><tr><td>Change Request</td><td>Retrieves all data from the change request table.</td></tr><tr><td>Problem</td><td>Retrieves all data from the problem table.</td></tr><tr><td>User Groups</td><td>Retrieves all data from the user groups table.</td></tr><tr><td>Users</td><td>Retrieves all data from the users table.</td></tr></tbody></table>                                                                                                                                                                                                                                                                      |
+| Table Name                  | Enter the name of the table for which you want to retrieve the data for.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Custom Query                | Enter a custom query in this field. Include query values directly related to `sysparm_query`. The fields `sysparm_limit` and `sysparm_offset` should not be included. If the field `sys_created_on` is included the value should be in the following format: `yyyy-MM-dd HH:mm:ss`. <br/><br/> **Example query:** `ORDERBYDESCsys_created_on^sys_created_on>2016-09-25+00:00:00^sys_created_on<2016-09-27+23:59:59` <br/><br/> For more information, refer to [here](http://wiki.servicenow.com/index.php?title=Table_API#Methods).                                                                                                                                                                                                                                          |
+| Fields                      | Enter a comma separated list of fields to return with this DataSet. <br/><br/> **Example field list:** `parent,sys_updated_on,number`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Data Format                 | Select the format which you expect the ServiceNow API to return date fields. If you select String, Domo will not process the date, and return the literal string returned from the ServiceNow API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Duration                    | Select the duration for the report (a Single Date, or a Date Range).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Report Date                 | Select report date using relative or specific dates. Relative indicates the number of days from today or a specific date using the date selector.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Select Specific Date        | Select the report date using the date selector.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Days Back                   | The number of days back that you would like to get data for. Specify either today or `0`, yesterday or `1`, or today-7 or `7` to get data for 7 days into the past.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Start Date                  | Select report start date using relative or specific dates. Relative indicates the number of days from today or a specific date using the date selector.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Select Specific Start Date  | Select the report start date using the date selector.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Days Back to Start From     | The number of days back that you would like to get data from (start day). Specify either today or `0`, yesterday or `1`, or today-7 or `7` to get data for 7 days into the past.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| End Date                    | Select report end date using relative or specific dates. Relative indicates the number of days from today or a specific date using the date selector.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Select Specific End Date    | Select the report end date using the date selector.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Days Back to End At         | The number of days back that you would like to get data to (end day). Specify either today or `0`, yesterday or `1`, or today-7 or `7` to get data for 7 days into the past.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Display Values              | When this option is enabled, the connector returns human‑readable display values for reference fields, rather than internal `sys_id` values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](/s/article/360042926274).

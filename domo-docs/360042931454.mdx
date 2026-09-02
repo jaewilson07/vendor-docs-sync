@@ -1,0 +1,30 @@
+---
+title: "Domo Dimensions Connector"
+excerpt: "Use the Domo Dimensions Connector to pull mapping files such as ZIP codes, states, countries, area codes, and calendars into a DataSet."
+---
+
+## Intro
+
+Domo Dimensions is a repository of mapping files, including ZIP codes, US state names, country names, area codes, a calendar, and more. Domo Dimensions allows you to pull a single file from a list of provided files that we find to be useful when aggregating common forms of data. e.g. zip codes, calendar, countries, etc. Use the Domo Dimensions connector to power cards, or use it to map existing datasets to power cards.
+
+This topic discusses the configuration options specific to the Domo Dimensions connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><ul><li><p> Showing map cards by area code, ZIP code, state, country, or mapping other datasets against these reports. </p></li><li><p> Powering cards using the calendar report. </p></li><li><p> Lots more </p></li></ul></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><ul><li><p> Zip codes </p></li><li><p> Area codes </p></li><li><p> Calendar dates </p></li><li><p> US states </p></li><li><p> Country names </p></li><li><p> Lots more </p></li></ul></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><p> All roles </p></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><p> &lt;5 minutes </p></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><p> 1 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+None. No credentials are required to use this connector.
+
+## Connecting to Domo Dimensions
+
+This section enumerates the options in the **Details** pane in the Domo Dimensions Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Details Pane
+
+This pane contains a single **Files** menu from which you select a file to pull into Domo.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Files </p></td><td colspan="1" rowspan="1"><p> Select the Domo Dimensions file you want to pull into Domo. The following files are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> ACE Webinar - Sample_Project_Data.csv </td></tr><tr><td colspan="1" rowspan="1"> allCities.csv </td></tr><tr><td colspan="1" rowspan="1"> allCountriesGeo.csv </td></tr><tr><td colspan="1" rowspan="1"> area_codes.csv </td></tr><tr><td colspan="1" rowspan="1"> AUcalendar.csv </td></tr><tr><td colspan="1" rowspan="1"> calendar.csv </td></tr><tr><td colspan="1" rowspan="1"> cityzip.csv </td></tr><tr><td colspan="1" rowspan="1"> countries_latitude_longitude.csv </td></tr><tr><td colspan="1" rowspan="1"> country.csv </td></tr><tr><td colspan="1" rowspan="1"> EU territorial classification.csv </td></tr><tr><td colspan="1" rowspan="1"> GeoLite2-City-Block-IPv4.csv </td></tr><tr><td colspan="1" rowspan="1"> GeoLite2-City-Block-IPv6.csv </td></tr><tr><td colspan="1" rowspan="1"> Global User Search.csv </td></tr><tr><td colspan="1" rowspan="1"> Global User Timeline.csv </td></tr><tr><td colspan="1" rowspan="1"> history-postal_code-day-continent-na.csv </td></tr><tr><td colspan="1" rowspan="1"> ISOCountries.csv </td></tr><tr><td colspan="1" rowspan="1"> linkedin_company_size_mapping.csv </td></tr><tr><td colspan="1" rowspan="1"> linkedin_function_mapping.csv </td></tr><tr><td colspan="1" rowspan="1"> linkedin_industry_mapping.csv </td></tr><tr><td colspan="1" rowspan="1"> linkedin_seniority_mapping.csv </td></tr><tr><td colspan="1" rowspan="1"> province_and_regions.csv </td></tr><tr><td colspan="1" rowspan="1"> StandardNormalDistribution.csv </td></tr><tr><td colspan="1" rowspan="1"> us_states.csv </td></tr><tr><td colspan="1" rowspan="1"> us_zips_cities_states_countries_lat_long.csv </td></tr><tr><td colspan="1" rowspan="1"> us_zips_cities_states_countries_lat_long_03072024.csv </td></tr><tr><td colspan="1" rowspan="1"> zip2fips2.csv </td></tr><tr><td colspan="1" rowspan="1"> zip2fips3.csv </td></tr><tr><td colspan="1" rowspan="1"> zip2MSA.csv </td></tr><tr><td colspan="1" rowspan="1"> zip_codes.csv </td></tr><tr><td colspan="1" rowspan="1"> zip_codes_norm.csv </td></tr><tr><td colspan="1" rowspan="1"> zip_to_fips.csv </td></tr><tr><td colspan="1" rowspan="1"> zip_to_fips_06252024.csv </td></tr><tr><td colspan="1" rowspan="1"> zips_to_fips_latest.csv </td></tr><tr><td colspan="1" rowspan="1"> zips_to_fips_official.csv </td></tr></tbody></table></td></tr></tbody></table>
+
+## Troubleshooting
+
+If you run into problems, contact Domo Support. Since these are Domo-maintained DataSets, you'll want to notify us right away if you have an issue loading a DataSet.

@@ -1,0 +1,186 @@
+---
+title: "Build an AI Agent Task in Workflows"
+excerpt: "Add and configure an AI Agent Task in Workflows so an agent can analyze inputs, make context-aware decisions, and execute actions in your business processes."
+---
+
+## Intro
+
+AI Agent Tasks in Workflows bring intelligent automation directly into your business processes.
+
+<Note>
+  **What is an AI Agent?**
+
+  AI Agents can perform tasks on behalf of a person or system by using tools, data, and workflows. When an AI Agent is embedded directly into a workflow step, it can analyze inputs, make context-aware decisions, and execute actions to reduce manual effort and increase operational efficiency. Employing Domo global and custom functions enables your agent to go beyond thinking and actually *do*.
+</Note>
+
+This article describes how to add and configure an Agent Task in your workflow.
+
+---
+
+### Build an Agent
+
+<Warning>
+**Warning**: Agents used in a Workflow step have a 1 hour time limit to complete a request.
+</Warning>
+
+Follow the steps below to add an Agent Task to your workflow. During this process, you'll prompt the AI Agent and provide instructions on its role, add context to inform the agent, test the agent, and review its output.
+
+1. While
+   [creating a workflow](https://domo-support.domo.com/s/article/000005331), select <img src="/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq0000086YYf.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Add action** > **AI Agent Task** to open the right configuration panel.
+     
+   <Frame>
+   ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq0000086XBC.jpg)
+   </Frame>
+
+2. In the configuration panel, add a name and optional description for the agent.
+3. Select **Build Agent** to open the agent modal.
+
+#### Choose the Model
+
+4. \(*Optional*\) In the modal's **General** tab under **Model**, follow the link to choose a different available model in the AI Service Layer settings.
+
+### Prompt and Instruct the Agent
+
+5. In the **Prompt** field, add an input prompt in natural language to tell the agent what you want it to do.
+6. Use the **Insert** dropdown to add variables to your prompt as needed. At runtime, the variables pass dynamic values into the prompt.
+     
+   <Frame>
+   ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008i71B.jpg)
+   </Frame>
+
+   In this example, the agent is being built to determine whether a sales lead meets certain qualifications, listed in the prompt. A variable is inserted for each qualification to hold the information.
+     
+   * Company name: ```Company_Name```
+   * Industry: ```Industry```
+   * Company size: ```Company_Size```
+   * Contact name: ```Contact_Name```
+   * Contact email: ```Contact_Email```
+   * Estimated budget: ```Estimated_Budget```
+   * Location: ```Location```
+       
+     <Frame>
+     ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008iJNJ.jpg)
+     </Frame>
+
+     <Note>
+       **Use a single variable as your prompt:**
+
+       This checkbox allows you to map a single text variable for the prompt. Any text stored in the variable will be passed into the prompt at runtime.
+
+     </Note>
+
+7. Use the **Instructions** field to tell the agent what role it plays, the directions or steps it should follow, and how to behave. The AI will honor these instructions for every prompt. The more instructions you give, the more fine-tuned the agent's results.
+     
+   <Frame>
+   ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008i7Sb.jpg)
+   </Frame>
+
+   In our example, we provide the following instructions to the sales lead agent:
+     
+   "You are a sales assistant bot that helps qualify new leads and assign them to the best-fit sales representative. If the sales lead qualifies, please also assign it to the appropriate sales rep and send them a notification that includes the lead details and the reason it qualifies, and ask the sales rep to follow up with the company. If the sales lead does not qualify, please send a notification to John at [john.doe@example.com](mailto:john.doe@example.com) with the reason why the lead did not qualify."
+
+### Add Tools
+
+8. Go to the **Tools** tab of the modal and select **Add Tools**.
+     
+   <Frame>
+   ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008iJVO.jpg)
+   </Frame>
+
+9. Search for and select the tools you want to use in your agent. 
+
+    You can choose from Domo Global Functions, External Global Functions, Custom Functions, or from Workflows you've created in your instance.
+     
+   <Frame>
+   ![](/images/kb/AI-Workflow-Build-Step-9-DP-Image-Replace.png)
+   </Frame>
+
+10. For Code Engine tools, check the box for each function you want the agent to use.
+      
+    In our example, we choose a custom sales qualification package and the qualification function.
+      
+    <Frame>
+    ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008i8oT.jpg)
+    </Frame>
+
+    <Tip>
+    **Tip**: If you selected a Workflow, preview the steps and flows in version and select **Add Workflow**.
+    
+    **For Example**:
+        <Frame>
+    ![](/images/kb/AI-Workflow-Build-Step-10-DP-Update-Example.png)
+    </Frame>
+    </Tip>
+
+11. Select **Add Tools** to return to the **Tools** tab.
+12. Repeat the steps in this section to add as many tools as needed for your agent.
+      
+    In our example, we also add a notification function that sends an email.
+      
+    <Frame>
+    ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq0000086vVF.jpg)
+    </Frame>
+
+### Configure Functions
+
+13. Select each tool in **Tools** \(tab\) to open its configuration details.
+      
+    <Frame>
+    ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008iPED.jpg)
+    </Frame>
+
+14. Add or edit the function or Workflow tool description to help the AI understand the function's purpose and how to use it.
+15. Under **Parameters**, add descriptions for each input parameter to help the AI understand what data values it should map and use during execution
+16. \(*Optional*\) Check the **Static Value** checkbox for any input parameter where you want to always use a specific value in the mapping.
+
+    <Note>  
+    **Note:** The default option is to leave these boxes unchecked, which means the AI agent will automatically decide what data to map based on the details provided in the prompt, instructions, or Knowledge tab.
+    </Note>
+
+17. Select **Save**.
+
+#### Add Knowledge Context
+
+18. Go to the **Knowledge** tab of the agent modal.
+19. Add any DataSets, FileSets, and Files you want the AI to reference to help with analysis and decision-making. You can add up to five items of each type.
+      
+    <Frame>
+    ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008iLXB.jpg)
+    </Frame>
+ 
+ #### Edit Output Parameters
+
+20. Return to the **General** tab.
+21. At the bottom of the left pane under **Output**, select **Edit**.
+22. Give your output parameter a name, data type, and description to tell the agent what value to produce. Outputs tell the agent what data to return after completing your request. You can use a defined object, and the agent will retrieve those values and pass them to the mapped variables so that the data can be used in later steps of the workflow. Give each child property a description so the agent knows what values to provide for each output parameter. If no outputs are defined, the agent will return the JSON object using data it has gathered throughout the execution.
+      
+    <Frame>
+    ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008iHi7.jpg)
+    </Frame>
+
+23. Repeat for as many outputs as needed.
+24. Select **Save**.
+
+#### Test the Agent
+
+25. In the right panel of the agent modal, select **Test Agent**.
+26. Add values for any variable used in your prompt and select **Continue**.
+27. Review the testing results to ensure you are satisfied with the outcome, then select **Save** to return to the workflow canvas. The results include the data the AI accessed, the steps it followed to process the task, and the resulting output values.
+      
+    <Frame>
+    ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008jHbC.jpg)
+    </Frame>
+
+28. Map your AI Agent task outputs in the configuration panel to store the value produced by the AI for later use in downstream steps.
+
+## Best Practices
+
+* While configuring your agent, use the **Save** option in the top right of the agent modal often to avoid losing updates to your agent.
+* After testing your agent, make any needed changes to the configuration and re-run the test. We recommend retesting the agent multiple times to make sure you are getting accurate and consistent results.
+* Agents have a 1 hour time limit to complete the request. If the agent has not resolved the request in that time period, it errors out.
+
+## Reopen or Edit an Agent
+
+In the workflow's right configuration panel, select the **three vertical dots icon** > **Edit** to reopen the agent modal and make changes to the agent.
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008iKOE.jpg"/></Frame>

@@ -1,0 +1,55 @@
+---
+title: "Microsoft SharePoint Online P&G Writeback Connector"
+excerpt: "Configure the SharePoint Online Writeback Connector to push Domo DataSet data into SharePoint Online lists."
+---
+
+## Intro
+
+SharePoint Online Writeback Connector enables organizations to create and manage custom team-focused and project-focused sites for collaboration. Use Domo's SharePoint Online Writeback connector to push data from a Domo DataSet to Sharepoint. To learn more about the SharePoint API, visit their page ([https://msdn.microsoft.com/en-us/lib.../jj860569.aspx](https://msdn.microsoft.com/en-us/library/office/jj860569.aspx "https://msdn.microsoft.com/en-us/library/office/jj860569.aspx") ).
+
+You configure your Domo-Sharepoint connection in the Data Center. This topic discusses the fields and menus that are specific to the Sharepoint Online Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To configure this connector, you must have the Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+
+#### To obtain your SharePoint Secret ID:
+
+1. Go to [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com").
+2. Select **Azure Active Directory > App registrations**.
+3. Find and click your web app.
+4. The "application ID" is your **Secret ID**.
+
+#### To obtain your SharePoint Value:
+
+1. Go to [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com").
+2. Select **Azure Active Directory > App registrations**.
+3. Find and click your web app.
+4. Open **Certificates and secrets**.
+5. Click **+New secret**.
+6. Provide the value description and the expiry period for your secret.
+7. Click **Add**.<br/><br/>
+
+    Your new value will appear. Copy and paste in your Domo connector SharePoint client secret field.
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes on the SharePoint Online Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Sharepoint Online account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domo Client ID </td><td colspan="1" rowspan="1"> Enter your Domo client ID. For more information, see "Prerequisites," above. </td></tr><tr><td colspan="1" rowspan="1"> Domo Client Secret </td><td colspan="1" rowspan="1"> Enter your Domo client secret. For more information, see "Prerequisites," above. </td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new Sharepoint Online Writeback DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+This pane contains options for configuring your connection.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Input DataSet Id </td><td colspan="1" rowspan="1"> Enter your Domo dataset ID(GUID) located in the dataset url. For example: <a href="https://customer.domo.com/datasources/" target="_blank" title="https://customer.domo.com/datasources/"> https://customer.domo.com/datasources/ </a><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings </b>. </td></tr><tr><td colspan="1" rowspan="1"> Select filename </td><td colspan="1" rowspan="1"> Select the filename. </td></tr><tr><td colspan="1" rowspan="1"> FileName </td><td colspan="1" rowspan="1"> Enter the output file name. </td></tr><tr><td colspan="1" rowspan="1"> How would you like to select the site? </td><td colspan="1" rowspan="1"> Select how would you like to select the site. </td></tr><tr><td colspan="1" rowspan="1"> Sites Discovery </td><td colspan="1" rowspan="1"> Select the site that you would like to use. </td></tr><tr><td colspan="1" rowspan="1"> Site Search Query </td><td colspan="1" rowspan="1"> Enter the search query to obtain the sites. </td></tr><tr><td colspan="1" rowspan="1"> Site Search Query Discovery </td><td colspan="1" rowspan="1"> Select the site that you would like to use. </td></tr><tr><td colspan="1" rowspan="1"> Select How would you like to choose the folder to store the file? </td><td colspan="1" rowspan="1"> Select how you want to choose the folder to store the file. </td></tr><tr><td colspan="1" rowspan="1"> Folder Path </td><td colspan="1" rowspan="1"> Enter the folder path separated by the delimeter <b> / </b> where you want to store the file. <br/><b> Example: testFolder/TestNestedFolder </b><br/><b> NOTE: The Folder path is Case-Sensitive. Provide accordingly. </b></td></tr><tr><td colspan="1" rowspan="1"> Where to Store the File? </td><td colspan="1" rowspan="1"> Select the name of the folder in which the file should be saved. Select 'Root' if the file needs to be stored at the root level of selected site. </td></tr><tr><td colspan="1" rowspan="1"> Select Mode </td><td colspan="1" rowspan="1"> Select the required option. In the Rename mode, if the filename already exists, then it will be renamed by appending filename 1, filename 2, and so on. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

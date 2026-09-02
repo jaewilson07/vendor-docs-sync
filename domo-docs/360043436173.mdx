@@ -1,0 +1,60 @@
+---
+title: "Microsoft SQL Server Connector"
+excerpt: "Use Domo's Microsoft SQL Server Connector to pull data directly from your SQL Server database using a custom SQL query into a DataSet."
+---
+
+## Intro
+
+Microsoft SQL Server is a relational database management system developed by Microsoft. As a database, it is a software product whose primary function is to store and retrieve data as requested by other software applications, be it those on the same computer or those running on another computer across a network (including the Internet). Its primary query languages are T-SQL and ANSI SQL. You can use Domo's Microsoft SQL Server Connector to pull data from your Microsoft SQL Server database and compile custom reports. You indicate the data you want by inputting an SQL query. For more information about the Microsoft SQL Server API, visit their website. ([https://technet.microsoft.com/en-us/library/aa174556(v=sql.80).aspx](https://technet.microsoft.com/en-us/library/aa174556(v=sql.80).aspx "https://technet.microsoft.com/en-us/library/aa174556(v=sql.80).aspx") ).
+
+The Microsoft SQL Server connector is a "Database" connector, meaning it retrieves data from databases using a query. In the Data Center, you can access the connector page for this and other Database connectors by clicking **Database** in the toolbar at the top of the window.
+
+You connect to your Microsoft SQL Server in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft SQL Server connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Use this connector when Workbench isn't an option and you need direct access to raw data. Otherwise, given that IT must open up access to the SQL server from outside the corporate intranet in order to use this connector, Workbench is generally the preferred option for connecting to SQL Server. For more information, see <a target="_blank" title="Connecting to Data Using Workbench 4"> Connecting to Data Using Workbench </a>. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> N/A </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> IT </p></li><li><p> Project management </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> If the server and account are properly configured, and if you know the queries you need to get the data, implementation could take minutes. Otherwise it could be much longer. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 5 </p></td></tr></tbody></table>
+
+## Best Practices
+
+Make sure you use a read-only account that has access only to the databases and tables you need to access.
+
+## Prerequisites
+
+To connect to a Microsoft SQL Server database and create a DataSet, have your DBA create an account that has read-only access to the databases and tables you need to access. You must have all of the following to connect:
+
+* The username and password you use to log into your Microsoft SQL Server account
+* The host name for the database
+* The port number for the database
+* The name of the database
+* The SQL query you will use to pull data
+
+You can also include the URL where your SSL CA Certificate is located, though this is optional.
+
+Before you can connect to your SQL server, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093 "Whitelisting IP Addresses for Connectors").
+
+## Connecting to Your Microsoft SQL Server Database
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Microsoft SQL Server Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your database. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username you use to log into your Microsoft SQL Server account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password you use to log into your Microsoft SQL Server account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the host name for the database. You can find the host name using an SQL <span class="mt-font-courier-new"> SELECT </span> query in SQL Server Management Studio, as follows: </p><p><code> SELECT serverproperty('Machinename') as Hostname </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number for the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> Enter the name of the database. You can find the database name using an SQL <span class="mt-font-courier-new"> SELECT </span> query in SQL Server Management Studio, as follows: </p><p><code> SELECT DB_NAME() AS DataBaseName </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> Enter the URL where the SSL CA Certificate is located (optional) </p></td></tr><tr><td colspan="1" rowspan="1"><p> Additional JDBC Properties </p></td><td colspan="1" rowspan="1"><p> Enter the comma separated additional JDBC properties. <br/><b> Example: </b> property1=value1,property2=value2 </p></td></tr></tbody></table>
+
+Once you have entered valid Microsoft SQL Server credentials, you can use the same account any time you go to create a new Microsoft SQL DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+In this pane you create an SQL query to pull data from your database.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><p> Menu </p></td><td colspan="1" rowspan="1"><p> Description </p></td></tr><tr><td colspan="1" rowspan="1"><p> SQL Query </p></td><td colspan="1" rowspan="1"><p> Enter the Structured Query Language (SQL) query to use in selecting the data you want. For example: </p><p><code> Select GeneralManager from Sales WHERE GeneralManager = 'jane'; </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Fetch Size </p></td><td colspan="1" rowspan="1"><p> Enter the fetch size, which is the number of rows needed for each page of data. 1000 number of rows is the recommended maximum fetch size. If your dataset throws an out of memory error, then try to decrease the fetch size. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schema Names </p></td><td colspan="1" rowspan="1"><p> Select the schema name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Tables </p></td><td colspan="1" rowspan="1"><p> Select the table. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns </p></td><td colspan="1" rowspan="1"><p> Select the table columns. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper </p></td><td colspan="1" rowspan="1"><p> The generated query appears. You can edit the query if needed. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fetch Columns Description (Comment) </p></td><td colspan="1" rowspan="1"><p> Toggle this option to include the column descriptions (comments) in the current import run. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Troubleshooting
+
+* Ensure the port is open on the Windows server and that it is open and forwarded in the firewall.
+* Make sure you can connect from a workstation in the client network.
+* Network protocols must be enabled for remote connections to occur.

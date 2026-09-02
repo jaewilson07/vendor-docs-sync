@@ -1,0 +1,399 @@
+---
+title: "Amazon S3 AssumeRole Writeback Connector"
+excerpt: "Configure Domo's Amazon S3 AssumeRole Writeback Connector to export a DataSet to an S3 bucket using an assumed IAM role for session-based authentication."
+---
+
+## Intro
+
+Amazon S3 is an online file storage web service offered by Amazon Web Services that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. Use Domo's Amazon S3 AssumeRole Writeback connector to export your data from a Domo DataSet to an Amazon S3 bucket using an assumed role for the session. To learn more about the Amazon S3 API, visit their page ([http://docs.aws.amazon.com/AmazonS3/...I/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html") ).
+
+You export data to an S3 bucket in the Data Center. This topic discusses the fields and menus that are specific to the Domo to S3 AssumeRole Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<Note>**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.</Note>
+
+## Prerequisites
+
+To connect to your Amazon S3 account and create a DataSet, you must have the following:
+
+- A Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+- The Amazon Resource Name (ARN) of the role to assume.
+- The identifier for the assumed role session. You will need to set up a trust policy. This is described in continuation.
+- The unique identifier used by third parties when assuming roles in their customers' accounts.
+- The name of the Amazon S3 bucket you want to pull data from.
+
+### Trust policy configuration
+
+The trust policy for the role session identifier should look as follows:
+
+```json
+{
+  "Effect": "Allow",
+  "Principal": {
+    "AWS": "arn:aws:iam::*accountId*:root"
+  },
+  "Action": "sts:AssumeRole",
+  "Condition": {
+    "StringEquals": {
+      "sts:ExternalId": "*customer externalID*"
+    }
+  }
+}
+```
+
+Account IDs for Domo environments are as follows:
+
+- US: 339405024189
+- AU: 010251424122
+- EMEA (IE): 687132894031
+- JP: 622384692065
+- CA: 710710207408
+
+So if you wanted to grant access to Australia-based user "myIAMuser123," who has an account ID of "46822464880681," the trust policy would look like this:
+
+```json
+{
+  "Effect": "Allow",
+  "Principal": {
+    "AWS": " arn:aws:iam::46822464880681:user/myIAMuser123 "
+  },
+  "Action": "sts:AssumeRole",
+  "Condition": {
+    "StringEquals": {
+      "sts:ExternalId": "010251424122"
+    }
+  }
+}
+```
+<Warning>**Important**: You will need the WRITE (s3:PutObject) permission on Amazon S3.</Warning>
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Amazon S3 AssumeRole Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account as well as your S3 bucket. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1">
+        <p>
+          <span class="s1"> Field </span>
+        </p>
+      </th>
+      <th colspan="1" rowspan="1">
+        <p>
+          <span class="s1"> Description </span>
+        </p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Domo Client ID{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter your Domo client ID. See 
+        <a href="" target="_blank" title="Prerequisites">
+          {" "}
+          Prerequisites{" "}
+        </a>
+         for details.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Domo Client Secret{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter your Domo client secret. See <a href=""> Prerequisites </a> for details.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Role Session Name{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the identifier for the assumed role session.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Role ARN{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the Amazon Resource Name (ARN) of the role you want to assume.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        External ID{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the unique identifier used by third parties when assuming roles in their customers' accounts.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Bucket{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the Amazon S3 Bucket you want to pull files from.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Region{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the S3 Bucket Region where your file is located.{" "}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new Domo-S3 connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1">
+        <p> Menu </p>
+      </th>
+      <th colspan="1" rowspan="1">
+        <p> Description </p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        How Would You Like to Select Your Folder Path?{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Specify whether you would like to search for your folder path or enter it manually.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select Folder Path{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the folder path that you would like to use.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Path{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the folder path where you would like the file to be saved in your Amazon S3 bucket.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Overwrite{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select this check box if you want to overwrite the existing file in your Amazon S3 bucket with selected filename.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        How Would You Like to Select Your Input DataSet?{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Specify whether you would like to search for your DataSet ID or enter it manually.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        DataSet ID{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the DataSet ID that you would like to use.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Input DataSet ID{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p> Enter the DataSet ID (GUID) for the DataSet you want to copy to the S3 Bucket. </p>
+        <p>
+          {" "}
+          You can find the DataSet ID by opening the details view for the DataSet in the Data Center and looking at the portion
+          of the URL following datasources/. Example: In the URL 
+          <a
+            href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview"
+            target="_blank"
+            title="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview">
+            {" "}
+            https://mycompany.domo.com/datasourc...tails/overview
+          </a> 
+          , the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4.{" "}
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select Filename{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p>
+          {" "}
+          Select whether you want to reference your DataSet using the Input DataSet ID <b>, </b> Input DataSet Name 
+          <b>
+            {" "}
+            ,{" "}
+          </b> 
+          or an output file name.{" "}
+        </p>
+        <p>
+          {" "}
+          If you choose <b>
+            <b> Use Input Dataset Name </b>
+          </b> or <b>
+            <b> Enter File Name </b>
+          </b> and your dataset name contains the macro &lt;current_date&gt; or &lt;current_date-1&gt; without spaces, then
+          &lt;current_date&gt; will be replaced by today's date and &lt;current_date-1&gt; will be replaced by yesterday's
+          date or -31 for 31 days ago in format yyyy-MM-dd.{" "}
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Filename{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p> Enter the output file name. </p>
+        <p>
+          {" "}
+          If you wish to add current date to the file name please use the macro &lt;current_date&gt; or &lt;current_date-1&gt;.
+          Example: If fileName is <b>
+            <b> domo_&lt;current_date&gt; </b>
+          </b>, the output file generated in s3 bucket would be domo_(todays date in format yyyy-MM-dd) like domo_2019-07-16.{" "}
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Only Writeback New Data{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Check this box to only pull your last execution data from the input dataset and export it to S3 Object.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        File Extension{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the extension that should be used as the file extension for your output file.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Delimiter{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the character that should be used as a delimiter for your output file.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Choose the Escape character{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the escape character for the input dataset.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Choose the Quote character{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the quote character for the input dataset.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Compression{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the compression type that should be used for your output file.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Encryption Method{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the encryption type that should be used for your output file.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Encryption Key{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the encryption key.{" "}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

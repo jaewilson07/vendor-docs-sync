@@ -1,0 +1,38 @@
+---
+title: "JIRA On Prem Writeback Connector"
+excerpt: "Configure the JIRA On Prem Writeback Connector to create or update issues in your on-premises Jira environment from a Domo DataSet."
+---
+
+## Intro
+
+Jira is built for every member of your team to plan, track, and manage their work. Use the Jira On Prem Writeback connector to create new issues or update existing issues in your on-premises Jira environment.
+
+You can connect to your JIRA On Prem Writeback account in the Data Center. This topic discusses the fields and menus that are specific to the JIRA On Prem Writeback connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your JIRA On Prem Writeback account and create a DataSet, you need the following:
+
+* Jira Domain URL
+* Client ID
+* Client Secret
+
+## Connecting to Your JIRA On Prem Writeback Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the JIRA On Prem Writeback Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your JIRA On Prem Writeback account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Jira Domain URL </td><td colspan="1" rowspan="1"> Enter your Jira domain URL. For example: <a href="https://onjira.domo.com" target="_blank" title="https://onjira.domo.com"> https://onjira.domo.com </a></td></tr><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter your application's client ID. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter your application's client secret. </td></tr></tbody></table>
+
+Once you have entered valid JIRA On Prem Writeback credentials, you can use the same account at any time to create a new JIRA On Prem Writeback DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:201;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Dataset ID </td><td colspan="1" rowspan="1"><p> Enter the ID of your Domo dataset containing data to write to your on-premises Jira environment. You may choose only the datasets that you want to writeback. </p><p> The id is located in the dataset url. For example: <a href="https://customer.domo.com/datasources/" rel="noopener" target="_blank"> https://customer.domo.com/datasources/ </a><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/ </b> details/settings. </p></td></tr><tr><td colspan="1" rowspan="1"> Select Project </td><td colspan="1" rowspan="1"> Select the project. </td></tr><tr><td colspan="1" rowspan="1"> Select Issue type </td><td colspan="1" rowspan="1"> Select the Issue type. </td></tr><tr><td colspan="1" rowspan="1"> Required Fields </td><td colspan="1" rowspan="1"><p> The <b> Required Fields </b> section lists the fields that are required for the issue type and project that you selected. Map each required fields to the column in the dataset that contains the data to be written back for that field. </p></td></tr><tr><td colspan="1" rowspan="1"> Optional Fields </td><td colspan="1" rowspan="1"><p> The <b> Optional Fields </b> section allows you to map columns in your dataset to optional fields on the issue type of the project you selected. Mapping these fields is only necessary if you want to write data back to fields that are not required in your Jira instance. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

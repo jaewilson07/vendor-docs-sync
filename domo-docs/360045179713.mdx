@@ -1,0 +1,41 @@
+---
+title: "Spreaker Connector"
+excerpt: "Use Domo's Spreaker Connector to import podcast episode, show, and listener statistics into a DataSet via OAuth credentials."
+---
+
+## Intro
+
+Spreaker provides you with all the tools you need to start a podcast and distribute it on Apple Podcasts, Spotify and more. Use Domo's Spreaker Connector to receive details about episodes, shows, statistics, and more. To learn more about the Spreaker API, visit their page [https://developers.spreaker.com/api/](https://developers.spreaker.com/api/ "Follow link").
+
+You connect to your Spreaker account in the Data Center. This topic discusses the fields and menus that are specific to the Spreaker Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Spreaker account and create a DataSet, you must have the following:
+
+* Client ID (The client ID of your OAuth2 application)
+* Client Secret (The client secret of your OAuth2 application)
+
+The Client ID and Client Secret are provided to you upon your account creation in Spreaker.
+
+## Connecting to Your Spreaker Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Spreaker Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most Connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+The Domo Spreaker Connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Spreaker account in Domo) to open the Spreaker OAuth screen where you can enter your Client ID and Client Secret. Once you have entered valid Spreaker credentials, you can use the same account any time you go to create a new Spreaker DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Spreaker when you connect in Domo, you are authenticated automatically when you click **Add account.** If you want to connect to an account that is different from the one you are logged into, you must first log out of Spreaker.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Spreaker report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Demographic Statistics </td><td colspan="1" rowspan="1"> Returns demographic information about people who listen to a specific show, or shows owned by the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> Device Statistics </td><td colspan="1" rowspan="1"> Returns information about devices used to listen to a specific show, episode, or the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> Episodes </td><td colspan="1" rowspan="1"> Returns a list of episodes in a specific show or owned by a specific user. </td></tr><tr><td colspan="1" rowspan="1"> Followers Statistics </td><td colspan="1" rowspan="1"> Returns statistics about the authenticated user's followers. </td></tr><tr><td colspan="1" rowspan="1"> Geographic Statistics </td><td colspan="1" rowspan="1"> Returns geographic information about listeners of a specific show or shows owned by the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> Likes Statistics </td><td colspan="1" rowspan="1"> Returns the number of times listeners have liked a specific show, episode, or shows owned by the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> Operating System Statistics </td><td colspan="1" rowspan="1"> Returns statistics about the operating systems used to listen to a specific show, episode, or shows owned by the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> Overall Statistics </td><td colspan="1" rowspan="1"> Returns general statistics about a specific show, episode, or the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> Play Statistics </td><td colspan="1" rowspan="1"> Returns statistics about how many times a specific show or episode was played, or how many times shows owned by the authenticated user were played. </td></tr><tr><td colspan="1" rowspan="1"> Show </td><td colspan="1" rowspan="1"> Returns a list of shows owned by a specific user. </td></tr><tr><td colspan="1" rowspan="1"> Source Statistics (Details) </td><td colspan="1" rowspan="1"> Returns detailed information about the sites and apps used to listen to a specific show, episode, or shows owned by the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> Source Statistics (Overall) </td><td colspan="1" rowspan="1"> Returns general information about the sites and apps used to listen to a specific show, episode, or shows owned by the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Information </td><td colspan="1" rowspan="1"> Returns details about a specific user. </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"> Object Type </td><td colspan="1" rowspan="1"> The type of object to report on. </td></tr><tr><td colspan="1" rowspan="1"> Show ID </td><td colspan="1" rowspan="1"> The ID or name of the show to report on. This can be found in the <b><b> Shows </b></b> report or in the URL of the show's Spreaker information. <br/> Example: <a href="https://www.spreaker.com/show/" target="_blank" title="https://www.spreaker.com/show/"> https://www.spreaker.com/show/ </a><b><b> this-week-in-tech_1 </b></b></td></tr><tr><td colspan="1" rowspan="1"> Precision </td><td colspan="1" rowspan="1"> The number of decimal places that should be returned for percentage values. </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> Select whether the report data is for a specific date or for a relative number of days back from today. </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> The time period for which you would like to receive data. </td></tr><tr><td colspan="1" rowspan="1"> Group </td><td colspan="1" rowspan="1"> The time period that will be used to aggregate statistics in the report. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

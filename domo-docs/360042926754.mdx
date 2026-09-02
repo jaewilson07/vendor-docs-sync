@@ -1,0 +1,226 @@
+---
+title: "Facebook Ads Advanced Connector"
+excerpt: "Use the Facebook Ads Advanced Connector to retrieve campaign reach, spend, leads, and impressions data, including custom insights with detailed report configuration."
+---
+
+<Warning>**Important:** Beginning August 6, 2026, Meta requires certain Ads Insights API breakdowns to be enabled at the individual Ad Account level. If your reports use the **Impression Device** (any combination including impression_device), **Hourly Stats by Audience Time Zone**, or **Frequency Value** breakdowns, your data may return empty results until the corresponding breakdown is enabled in Meta Ads Manager. Historical and current data will be available after the breakdowns are enabled in the Meta Ads Manager. No action is required if your reports do not use these breakdowns. For more information, refer to the [changelog](https://developers.facebook.com/documentation/ads-commerce/marketing-api/out-of-cycle-changes) and [breakdowns documentation](https://developers.facebook.com/documentation/ads-commerce/marketing-api/insights/breakdowns). </Warning>
+
+## Intro
+
+Marketing experts use Facebook Ads to create targeted ads designed to reach different audiences and help them meet their business goals. To learn more about the Facebook API, visit their page ([https://developers.facebook.com/docs/marketing-apis](https://developers.facebook.com/docs/marketing-apis "https://developers.facebook.com/docs/marketing-apis") ).
+
+This Advanced version of the Facebook Ads connector allows you to access more reports than the standard Facebook Ads connector but also requires more configuration. For information about the simplified version, see [Facebook Ads Connector](https://domo-support.domo.com/s/article/360043431213?language=en_US "Facebook Ads Connector").
+
+You connect to your Facebook account in the Data Center. This topic discusses the fields and menus that are specific to the Facebook Ads connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Tracking how many people view individual ads </p></li><li><p> Tracking how many people are reached by each campaign </p></li><li><p> Tracking how much money has been spent on campaigns </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Reach </p></li><li><p> Spend </p></li><li><p> Cost per Lead </p></li><li><p> Leads generated </p></li><li><p> Impressions </p></li><li><p> Clicks </p></li><li><p> Cost per Click </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Online marketers </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1-2 hours </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 4 </p></td></tr></tbody></table>
+
+## Best Practices
+
+* The Facebook Ads connector provides ready-made reports that you can use right away. The "Custom Insights" report is the most flexible report in this connector. It allows you the most control over the reports you generate.
+* This connector can take a long time to run if the date range is very long and/or the account selected has a large number of campaigns or ads. The long run time occurs because Facebook is taking a long time to calculate the selected metrics. If the DataSet is taking too long or doesn't complete, the date range needs to be smaller.
+* Metrics for ads placed through Instagram can be found by using the "Custom Insights" report and setting the
+  **Breakdown** value to **Placement**. Instagram is then listed as one of the placement values in the results.
+* You can also return metrics for Instagram video views. This is discussed later in this article, under
+  [Instagram Video Views](#FacebookAdsFeasibility-InstagramVideoViews "Facebook Ads Advanced Connector").
+
+## Prerequisites
+
+To connect to Facebook and create a Facebook Ads DataSet, you must have the following:
+
+* The email address associated with your Facebook account, or your telephone number
+* Your Facebook password
+* Access to your company's Facebook Ads account
+
+## Connecting to Your Facebook Account
+
+This section enumerates the options in the Credentials and Details panes in the Facebook Ads Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+The Domo Facebook Ads connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Facebook Ads accounts in Domo) to open the Facebook OAuth screen where you can enter your Facebook credentials. Once you have entered valid Facebook credentials, you can use the same account any time you go to create a new Facebook Ads DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing Connectors Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing Connectors Accounts").
+
+<Note>
+**Note:** If you are already logged into Facebook when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Facebook.
+
+</Note>
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+Many report types include several sub-reports called "edges." These are also described below.
+
+#### Reports and Edges
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Facebook Ads report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Ad Accounts </td><td colspan="1" rowspan="1"> Returns information about one or more selected Facebook Ads Accounts. </td></tr><tr><td colspan="1" rowspan="1"> Ad Campaigns </td><td colspan="1" rowspan="1"> Returns information about one or more Ad Campaigns controlled by the selected <span></span><b> Account(s) </b>. </td></tr><tr><td colspan="1" rowspan="1"> Ad Keyword Statistics (Deprecated) </td><td colspan="1" rowspan="1"> Returns information about the Keywords used for targeting the selected <span></span><b> Ad(s) </b>. </td></tr><tr><td colspan="1" rowspan="1"> Ad Sets </td><td colspan="1" rowspan="1"> Returns information about one or more Ad Sets within the selected <span></span><b> Ad Campaign(s) </b>. </td></tr><tr><td colspan="1" rowspan="1"> Ads </td><td colspan="1" rowspan="1"> Returns information about one or more Ads defined in the selected <span></span><b> Ad Set(s) </b>. </td></tr><tr><td colspan="1" rowspan="1"><p> Ad Previews </p></td><td colspan="1" rowspan="1"> Returns ad previews for ad creatives. </td></tr><tr><td colspan="1" rowspan="1"> Custom Insights </td><td colspan="1" rowspan="1"> Returns user-selected insight information at a reporting level defined by the <span></span><b> Level </b><span></span> field. </td></tr><tr><td colspan="1" rowspan="1"> FBAds PreBuilt Report </td><td colspan="1" rowspan="1"><p> Domo's complimentary pre-built report for Facebook Ads - a comprehensive analysis of advertising performance including accounts, campaigns, ad groups, and ad-level reporting. </p></td></tr><tr><td colspan="1" rowspan="1"> General Metrics </td><td colspan="1" rowspan="1"> Returns commonly-used insight metrics at the Campaign level. </td></tr><tr><td colspan="1" rowspan="1"> Object Information - NEW </td><td colspan="1" rowspan="1"> This new report enables you to retrieve the Info edge of all the Account, Campaign, Ad set, or Ad objects associated with the Ad Accounts you select. Select the Ad Accounts and the object type you need information about. </td></tr><tr><td colspan="1" rowspan="1"> Object Insights - NEW </td><td colspan="1" rowspan="1"> This new report enables you to retrieve the Insights edge of all the Account, Campaign, Ad set, or Ad objects associated with the Ad Accounts you select. Select the Ad Accounts and the object type you need insights about, and complete the other insight metrics. </td></tr><tr><td colspan="1" rowspan="1"> Page Actions (Ad sets) </td><td colspan="1" rowspan="1"> Returns insights related to Page and Post interactions at the Adset level. </td></tr><tr><td colspan="1" rowspan="1"> Page Actions (Ads) </td><td colspan="1" rowspan="1"> Returns insights related to Page and Post interactions at the Ad level. </td></tr><tr><td colspan="1" rowspan="1"> Placement Metrics </td><td colspan="1" rowspan="1"> Returns common metrics, broken down by screen placement, at the Campaign level. </td></tr><tr><td colspan="1" rowspan="1"> Product Insights </td><td colspan="1" rowspan="1"> Pulls product-level advertising insights for selected ad accounts using Facebook's Insights API. Uses asynchronous CSV export (export_format=csv) at the campaign level (level=campaign) and supports optional product-level breakdowns such as product ID, category, and brand. </td></tr><tr><td colspan="1" rowspan="1"> Responder Demographics </td><td colspan="1" rowspan="1"> Returns common metrics, broken down by age and gender, at the Adset level. </td></tr><tr><td colspan="1" rowspan="1"> User </td><td colspan="1" rowspan="1"> Returns information about the authenticated user. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Select Status Of Account To Retrieve </p></td><td colspan="1" rowspan="1"><p> Select the status of the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Object Type </p></td><td colspan="1" rowspan="1"><p> Pick an object level to gather data. Domo will report on all objects of that type contained in the accounts you have selected. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Effective Statuses </p></td><td colspan="1" rowspan="1"><p> This field appears for the <b>Object Information - NEW</b> report. Select the effective statuses to filter your data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Breakdowns </p></td><td colspan="1" rowspan="1"><p> Select how you want the report data to be broken down. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Increment </p></td><td colspan="1" rowspan="1"><p> Select the granularity used to aggregate the data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Specify whether the data in this report is for a single date or a range of dates. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date From </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. Choose <b> Relative </b> if you always want the report to retrieve data for a given number of days back (which you specify in <b> Date From Offset </b> ) from the current date. If you choose <b> Relative </b> here, you should also choose <b> Relative </b> for <b> Date To </b> and specify a value for <b> Date To Offset </b>. <br/> For example, if you enter <tt> 10 </tt> for <b> Date From Offset </b> and <tt> 5 </tt> for <b> Date To Offset </b> and you set the data source to update daily, each new day the report will update to show information for 5 to 10 days in the past. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date From Offset </p></td><td colspan="1" rowspan="1"><p> Enter the number of days back from the current date that will be used as the first date in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date From </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date To </p></td><td colspan="1" rowspan="1"><p> Specify whether the end date in your date range is a specific or relative date. Choose <b> Relative </b> if you always want the report to retrieve data for a given number of days back (which you specify in <b> Date To Offset </b> ) from the current date. If you choose <b> Relative </b> here, you should also choose <b> Relative </b> for <b> Date From </b> and specify a value for <b> Date From Offset </b>. <br/> For example, if you enter <tt> 10 </tt> for <b> Date From Offset </b> and <tt> 5 </tt> for <b> Date To Offset </b> and you set the data source to update daily, each new day the report will update to show information for 5 to 10 days in the past. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date To Offset </p></td><td colspan="1" rowspan="1"><p> Enter the number of days back from the current date that will be used as the last date in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date To </p></td><td colspan="1" rowspan="1"><p> Select the last date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Write ID Columns as type String </p></td><td colspan="1" rowspan="1"><p> Select this checkbox if you want to write the columns 'AdId', 'AdsetId', CampaignId' and 'AccountId' as a String rather than as a Number. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Account ID </p></td><td colspan="1" rowspan="1"><p> Select Ad Account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Columns </p></td><td colspan="1" rowspan="1"><p> Select Columns. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Campaign Type </p></td><td colspan="1" rowspan="1"><p> Select the ad campaign type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Campaign </p></td><td colspan="1" rowspan="1"><p> Select Ad Campaign. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Level </p></td><td colspan="1" rowspan="1"><p> Select the ad level for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Conversion Type Selection </p></td><td colspan="1" rowspan="1"><p> Select if you want to bring custom or standard conversions only. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Action Breakdowns </p></td><td colspan="1" rowspan="1"><p> Select the desired action breakdown(s) for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Archived Objects </p></td><td colspan="1" rowspan="1"><p> If set to True then Archived objects will be in the results. Otherwise, Archived objects will not be reported. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Action Attribution Windows </p></td><td colspan="1" rowspan="1"><p> Select the desired action attribution windows for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reset Schema </p></td><td colspan="1" rowspan="1"><p> Select if you need to reset the schema. Warning: This can result in loss of data or change in data type if some fields are temporarily not returned by Facebook's API. While this checkbox is selected the dataset will reset the schema for each run. Do not use in the APPEND mode. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Set </p></td><td colspan="1" rowspan="1"><p> Select the Ad Set. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad </p></td><td colspan="1" rowspan="1"><p> Select the Ad. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Edge </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Edge </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Ad Creatives </td><td colspan="1" rowspan="1"> Returns a list of creatives for the selected ad. </td></tr><tr><td colspan="1" rowspan="1"> Ad Info </td><td colspan="1" rowspan="1"> Returns information about the selected ad. </td></tr><tr><td colspan="1" rowspan="1"> Insights </td><td colspan="1" rowspan="1"> Returns insight information for the specified criteria. </td></tr><tr><td colspan="1" rowspan="1"> Reach Estimate </td><td colspan="1" rowspan="1"> Returns the reach estimate for the selected ad. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Action Report Time </p></td><td colspan="1" rowspan="1"> Determines the report time of action stats. For example, if a person saw the ad on Jan 1st but converted on Jan 2nd, when you query the API with action_report_time=impression, you see a conversion on Jan 1st. When you query the API with action_report_time=conversion, you see a conversion on Jan 2nd. </td></tr><tr><td colspan="1" rowspan="1"><p> Ad Account Edge </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Edge </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Ad Account Info </td><td colspan="1" rowspan="1"> Ad Account Info </td></tr><tr><td colspan="1" rowspan="1"> Activities </td><td colspan="1" rowspan="1"> Returns a log of the actions taken on the selected account. </td></tr><tr><td colspan="1" rowspan="1"> Ad Campaigns </td><td colspan="1" rowspan="1"> Returns a list of ad campaigns for the selected account. </td></tr><tr><td colspan="1" rowspan="1"> Ad Sets </td><td colspan="1" rowspan="1"> Returns a list of ad sets for the selected account. </td></tr><tr><td colspan="1" rowspan="1"> Ads </td><td colspan="1" rowspan="1"> Returns a list of ads for the selected account. </td></tr><tr><td colspan="1" rowspan="1"> Custom Audiences </td><td colspan="1" rowspan="1"> Returns the custom audiences owned by or shared with the selected account. </td></tr><tr><td colspan="1" rowspan="1"> Insights </td><td colspan="1" rowspan="1"> Returns insight information for the specified criteria. </td></tr><tr><td colspan="1" rowspan="1"> Partners </td><td colspan="1" rowspan="1"> Returns a list of ad partners for the selected account. </td></tr><tr><td colspan="1" rowspan="1"> Rate Card </td><td colspan="1" rowspan="1"> Returns a list of currency rates. </td></tr><tr><td colspan="1" rowspan="1"> Reach Estimate </td><td colspan="1" rowspan="1"> Returns the reach estimate for the selected account and given targeting spec. </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> Returns user IDs, permissions, and roles for the selected account. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Expand List Columns </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Option </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Expand as Columns </td><td colspan="1" rowspan="1"> List data will expand as multiple columns in the results. </td></tr><tr><td colspan="1" rowspan="1"> Expand as Rows </td><td colspan="1" rowspan="1"> List data will expand into multiple rows in the results. This will result in many rows with duplicated data. </td></tr><tr><td colspan="1" rowspan="1"> Do not expand </td><td colspan="1" rowspan="1"> List data will not be expanded in the results. It will be returned as "List" in the results. </td></tr><tr><td colspan="1" rowspan="1"> Expand Lists In Place </td><td colspan="1" rowspan="1"> Expand Lists In Place </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Targeting Spec </p></td><td colspan="1" rowspan="1"> Enter the Targeting Spec. </td></tr><tr><td colspan="1" rowspan="1"><p> Ad Campaign Edge </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Edge </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Ad Campaign Info </td><td colspan="1" rowspan="1"> Returns information about the selected campaign. </td></tr><tr><td colspan="1" rowspan="1"> Insights </td><td colspan="1" rowspan="1"> Returns insight information for the specified criteria. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Skip Failing Campaign IDs </p></td><td colspan="1" rowspan="1"> When checked any Campaign IDs that fail will be skipped and the Connector will continue to run using the remaining Campaign IDs. </td></tr><tr><td colspan="1" rowspan="1"><p> Ad Set Edge </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Edge </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Activities </td><td colspan="1" rowspan="1"> Returns a log of actions taken on the selected ad set. </td></tr><tr><td colspan="1" rowspan="1"> Ad Set Info </td><td colspan="1" rowspan="1"> Returns information about the selected ad set. </td></tr><tr><td colspan="1" rowspan="1"> Ad Creatives </td><td colspan="1" rowspan="1"> Returns a list of ad creatives for the selected ad set. </td></tr><tr><td colspan="1" rowspan="1"> Insights </td><td colspan="1" rowspan="1"> Returns insight information for the specified criteria. </td></tr><tr><td colspan="1" rowspan="1"> Reach Estimate </td><td colspan="1" rowspan="1"> Returns the reach estimate for the selected ad set. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Skip Failing Ad Set IDs </p></td><td colspan="1" rowspan="1"> When checked any Ad Set IDs that fail will be skipped and the Connector will continue to run using the remaining Ad Set IDs. </td></tr><tr><td colspan="1" rowspan="1"><p> User Edge </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Edge </td><td colspan="1" rowspan="1"> Description </td></tr><tr><td colspan="1" rowspan="1"> Ad Accounts </td><td colspan="1" rowspan="1"> Returns information for the authenticated user's ad accounts, such as balance, capabilities, funding sources, etc. </td></tr><tr><td colspan="1" rowspan="1"> User Info </td><td colspan="1" rowspan="1"> Returns the authenticated user's name and ID. </td></tr></tbody></table></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Tips and Tricks
+
+### Choosing Insight Columns
+
+The "Custom Insights" report is very flexible and allows you to create nearly any report that can be created in the Facebook Ads UI. However, figuring out how to map between the column names shown in the Facebook Ads UI and the list of available columns/categories can be tricky. The following steps can help:
+
+1. In the Facebook Ads UI, open the report that you want to duplicate in Domo.
+2. Select **Columns > Customize Columns**.
+     
+   A dialog box opens that lets you choose and reorder columns in the report.
+3. Pick a column to add to the report and click **Apply**.
+   
+   If you look at the URL, you'll see a parameter called "columns." This will look something like the following:
+   ```
+   columns=["name"%2C"date_start"%2C"date_stop"%2C"reach"%2C"frequency"%2C"impressions"%2C"cpm"%2C"cpp"%2C"spend"%2C"clicks"%2C"unique_clicks"%2C"ctr"%2C"unique_ctr"%2C"cpc"%2C"actions%3Aoffsite_conversion.lead"%2C"social_reach"]
+   ```
+   
+   Each of the items between quotes is a column, and this is the API name for it. The names that are shown in the **Columns** field are typically close (or identical) to these names.
+   
+   The tricky columns are part of a bigger category in the Domo UI. This includes columns like "Actions," which expands into several smaller fields, including actions%3Aoffsite_conversion.lead shown above (which is “Leads (Conversion)” in the UI).
+
+### Instagram Video Views
+
+To show Instagram video views, do the following:
+
+1. Create a "Custom Insights" report.
+2. Select interesting metrics. “Actions” should bring back a column about video views.
+3. Select **Placement** as the breakdown option.
+4. Choose the level to report (**Account**, **Campaign**, **AdSet**, **Ad**).
+5. Select the date range and time increment.
+
+This will return information for many different placement options. The most interesting one is called “instagramstream.” There should also be a column called “ActionsVideoView” that lists the number of video views.
+
+### Aggregating Statistics
+
+It is often tempting to use a Custom Insights report that is reporting at a very detailed level to calculate results for a higher level. For example, a DataSet may be reporting daily metrics for multiple campaigns. You could add up the daily data for all the campaigns to determine the total for the account that holds the campaigns. This works for some metrics like Clicks, Spend, or Impressions. However, for metrics that count individual people (such as "Reach"), this approach will fail and produce incorrect values. "Reach," for example, fails because individuals are counted for each day they see an ad. Then, if the Reach values for the month are added together, those people are counted multiple times. If the user compares this result to the result for the month in the Facebook Ads UI, they find that the aggregated value is far too high. The Facebook Ads UI removed the duplicated viewers and only counted them once in the specified time period.
+
+To avoid this problem, any time the user wants to get a value for a larger time period, the period needs to be defined in the DataSet itself, and not calculated afterward. If a user wants Reach for a particular month, the DataSet should be defined with the start and end dates for the month, and the **Time Increment** value should be set to all_days or left blank. The user can get monthly data, aggregated and deduplicated by Facebook, by setting a large date range (for example, Jan 1, 2016, to Dec 31, 2016) and entering monthly as the **Time Increment** value. Similarly, if a user wants to Reach data at the Account level, the user needs to set the DataSet's **Level** value to **Accounts** (not **Campaigns**), followed by summing the values in Domo.
+
+It is often useful to compare the results of the connector to the results available in the Facebook Ads UI. To perform the comparison correctly, however, the UI and the connector need to be configured identically. They need to be set to the same time period (start and end dates) as well as the same reporting level and time increment value.
+
+## Troubleshooting
+
+* The most common problem occurs when the returned data and the Facebook Ads UI do not match. This happens when the DataSet and the report in the Facebook UI are not configured in the same way. Make sure the following parameters match:
+
+   + Start Date
+   + End Date
+   + Breakdown
+   + Level
+   + Time Increment.
+* Metrics related to individuals (such as Reach) should NOT be aggregated across time periods in Domo. These metrics have duplicates already removed by the Facebook Ads system.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You will need the email address that is associated with your Facebook account, and your Facebook password. The login process uses the OAuth process, so your password is never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+</Accordion>
+<Accordion title="Do I need a certain kind of account to set up the connector?">
+
+You will need a Facebook account that has access to the Facebook Ads account(s) that you are interested in. There are three levels of access available: Analyst, Advertiser, and Administrator. Analyst-level access is enough for the reports available in the connector.
+</Accordion>
+<Accordion title="How do I choose the columns I need in a Custom Insights report?">
+
+The Custom Insights report is very flexible and will allow you to create nearly any report that can be created in the Facebook Ads UI. However, figuring out how to map between the column names shown in the Facebook Ads UI and the list of available columns/categories can be tricky. The following steps can help:
+
+1.  In the Facebook Ads UI, open the report that you want to duplicate in Domo.
+2.  On the right-hand side of the screen click the button labeled **Columns** and select **Customize Columns**. You should now see a dialog box that lets you choose and reorder columns that will be in the report.
+3.  Pick a column to add to the report and click **Apply**.
+4.  If you look at the URL, you'll see a URL parameter called 'columns'. This will look something like this:  
+    columns=\["name","date_start","date_stop","reach","cpm","cpp","spend","clicks","unique_clicks","ctr","unique_ctr","cpc","actions:offsite_conversion.lead","social_reach"\]
+    *   Each of the items between quotes is a column. The names that are shown in the Columns field are identical or very close to the names presented by Domo.
+    *   Columns that are part of a larger category may vary slightly in this interface and the Domo interface. For example, "actions" expands into several smaller fields, including "actions:offsite_conversion.lead". In the Domo interface, this column is called "Leads (Conversion)".
+</Accordion>
+<Accordion title="How do I get statistics about Instagram Views?">
+
+Instagram ads are included as a special placement option for ads. The following steps will get statistics about them:
+
+1.  Create a **Custom Insights** report.
+2.  Select interesting metrics. (For example, **Actions** should bring back a column about video views.)
+3.  Select **Placement** as the breakdown option.
+4.  Choose the level to report (Account, Campaign, AdSet, Ad).
+5.  Select the date range and time increment.
+
+This will return information for a lot of different placement options, including **instagramstream** and **ActionsVideoView**.
+</Accordion>
+<Accordion title="How do I get information or insights for all my campaigns, ad sets, or ads, including new campaigns, ad sets, or ads I create in the future?">
+
+To get information on all campaigns, ad sets, or ads associated with specific accounts (even if you create those campaigns, ad sets, or ads after the creation of the report):
+
+1.  Select the new **Object Information** report and the account(s) you wish to report on.
+2.  Select the **Object Type** (Account, Campaign, Ad Set, or Ad).
+
+OR
+
+1.  Select the **Ad Accounts** report and the account(s) you wish to report on.
+2.  Select the appropriate **Ad Account e**dge.
+    *   To get information on all campaigns, select **Ad Campaigns**.
+    *   To get information on all ad sets, select **Ad Sets**.
+    *   To get information on all ads, select **Ads**.
+
+To get insights on all campaigns, ad sets, or ads associated with specific accounts (even if you create those campaigns, ad sets, or ads after the creation of the report):
+
+1.  Select the new **Object Insights** report and the account(s) you wish to report on.
+2.  Select the **Object Type** (Account, Campaign, Ad Set, or Ad).
+3.  Select the desired parameters in all the other fields.
+
+OR
+
+1.  Select the **Ad Accounts** report and the account(s) you wish to report on.
+2.  Select the **Insights Ad Account** edge.
+3.  Select the appropriate Level.
+    *   To get insights on all campaigns, select **Ad Campaign**.
+    *   To get insights on all ad sets, select **Ad Set**.
+    *   To get insights on all ads, select **Ad**.
+4.  Select the desired parameters in all the other fields.
+</Accordion>
+<Accordion title="What is the difference between the Facebook Ads and Facebook Ads Advanced connectors?">
+
+The Facebook Ads Advanced connector provides far more reports and options than the Facebook Ads connector. The biggest difference is that the Custom Insights report is only available in the Advanced connector.
+
+The Facebook Ads connector is a predefined set of easy-to-use reports. For more options and flexibility with report configuration, you should use the Advanced connector.
+</Accordion>
+<Accordion title="How often can the data be updated?">
+
+The data in this connector is roughly real-time. However, many statistics are subject to change for up to 3 days as Facebook determines the exact number of views, etc.
+</Accordion>
+<Accordion title="Are there any API limits I should be aware of?">
+
+Facebook may enforce rate limits on calls to its API, but you should not have to worry about this.
+</Accordion>
+<Accordion title="My Facebook Ads DataSets take a long time to run. What can I do to make them run faster?">
+
+Facebook Ads are known to take a long time because Facebook has to calculate the results of a query before we can start pulling the data. Depending on the load on their servers, this can take a LONG time. It seems that scheduling queries for off-peak times helps DataSets run faster. For example, one team in India was able to run a Facebook Ads DataSet in 15 minutes, but when another user tried the same DataSet 6-8 hours later, it took about 2 hours.
+</Accordion>
+<Accordion title="What version of the Facebook API does this connector use?">
+
+This connector uses version 23 of the Facebook API ([https://graph.facebook.com/v23.0](https://graph.facebook.com/v20.0 "https://graph.facebook.com/v20.0")).
+</Accordion>
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+| Report Name |     | Endpoint URL(s) |
+| --- | --- | --- |
+| FBAds PreBuilt Report |     | `/me/adaccounts` |
+| Ad Accounts |     | `/{AD_ACCOUNT_ID}/info` |
+| Ad Campaigns |     | `/{AD_ACCOUNT_ID}/adcampaign_groups` |
+| Ad Keyword Statistics |     | `/keywordstats` |
+| Ad Sets |     | `/{AD_ACCOUNT_ID}/adcampaigns` |
+| Ads |     | `/{AD_ACCOUNT_ID}/adgroups` |
+| Ad Previews |     | [https://graph.facebook.com/v20.0/previews](https://graph.facebook.com/v20.0) |
+| Custom Insights |     | `/{AD_ACCOUNT_ID}/insights` |
+| General Metrics |     | `/{CAMPAIGN_GROUP_ID}/insights` |
+| Object Information-NEW | Account Object | `/{AD_ACCOUNT_ID}/insights` |
+| Campaign Object | `/{AD_ACCOUNT_ID}/insights` |
+| Ad Sets Object | `{AD_ACCOUNT_ID}/adsets` |
+| Ads Object | `/{AD_ACCOUNT_ID}/ads` |
+| Object Insights-NEW |     | `/{AD_ACCOUNT_ID}/insights` |
+| Page Actions (Ad sets) |     | `/{AD_SET_ID}/insights` |
+| Page Actions (Ads) |     | `/{AD_SET_ID}/insights` |
+| Placement Metrics |     | `/{CAMPAIGN_GROUP_ID}/insights` |
+| Responder Demographics |     | `/{AD_SET_ID}/insights` |
+| User |     | `/{USER_ID}` |
+</Accordion>
+</AccordionGroup>

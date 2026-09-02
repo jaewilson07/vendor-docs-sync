@@ -1,0 +1,97 @@
+---
+title: "Snapchat Publisher Connector"
+excerpt: "Use the Snapchat Publisher connector to pull Story Studio content, analytics, and revenue metrics from Snapchat into Domo using OAuth."
+---
+
+## Intro
+
+As one of the most popular social media apps, Snapchat is a popular platform for both Millennials and Gen Z. Story Studio is a Snapchat self-serve tool to create, upload, and publish Shows and publisher stories in Snapchat Discover. Snapchat Publisher API allows a Story Studio user to call the Content, Analytics and Revenue API for their Shows and Publisher Stories.
+
+Get the real time updates about your story performance and revenue metrics with Domo's leading business intelligence platform. By combining your data with Domo, you'll be able to develop comprehensive marketing strategies to fully optimize your advertising across all platforms. To learn more about the Snapchat Ads API, visit their page ([https://developers.snapchat.com/ads/](https://developers.snapchat.com/ads/ "https://developers.snapchat.com/ads/")).
+
+The Snapchat Publisher Connector is a "Cloud App" Connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the Connector page for this and other Cloud App Connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Snapchat account in the Data Center. This topic discusses the fields and menus that are specific to the Snapchat Publisher Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Snapchat account and create a DataSet, you must have the username and password associated with your Snapchat account.
+
+## Connecting to Your Snapchat Publisher Account
+
+This section enumerates the options in the Credentials and Details panes in the Snapchat Publisher Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+The Domo Snapchat Publisher Connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Snapchat accounts in Domo) to open the Snapchat OAuth screen where you can enter your Snapchat username and password. Once you have entered valid Snapchat credentials, you can use the same account any time you go to create a new Snapchat Publisher DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Snapchat when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Snapchat account.
+</Note>
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Snapchat Publisher report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Daily Audience Metrics </p></td><td colspan="1" rowspan="1"><p><span> Get the daily performance metrics for a publisher over the specified date range </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Daily Behaviour Metrics </p></td><td colspan="1" rowspan="1"><p><span> Get the daily performance metrics for a publisher over the specified date range </span></p></td></tr><tr><td colspan="1" rowspan="1"> ECPM </td><td colspan="1" rowspan="1"> Retrieve revenue by editions </td></tr><tr><td colspan="1" rowspan="1"> Publishers </td><td colspan="1" rowspan="1"> Retrieve a list of publishers associated with the current user </td></tr><tr><td colspan="1" rowspan="1"> Publisher Story Performance Metrics </td><td colspan="1" rowspan="1"> Get the stories performance metrics for a publisher over the specified date range </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Publisher Summary Key Metrics </p></td><td colspan="1" rowspan="1"><span> Provide an aggregated summary of key metrics for the specified publisher over the specified date range </span></td></tr><tr><td colspan="1" rowspan="1"> Total Revenue </td><td colspan="1" rowspan="1"> Retrieve single aggregation of revenue metrics </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Publisher ID </td><td colspan="1" rowspan="1"> Select the publisher IDs. </td></tr><tr><td colspan="1" rowspan="1"> Skip failing records </td><td colspan="1" rowspan="1"> Select this checkbox if you want to skip failing records. </td></tr><tr><td colspan="1" rowspan="1"> Revenue Type </td><td colspan="1" rowspan="1"><span> Filter revenue data by revenue type. To get All, omit this parameter. </span></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Period </p></td><td colspan="1" rowspan="1"><p><span> Choose the time period for which you would like to receive data. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Starting Day of the Week </p></td><td colspan="1" rowspan="1"><p><span> Select the day that you want to set as the beginning day of the week. </span></p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Snapchat API does this connector use?">
+
+This connector uses version 1 of the Snapchat API:  
+[https://api.snapkit.com/v1/stories/studio/](https://api.snapkit.com/v1/stories/studio/)
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+| **Report Name** | **Endpoint URL(s)** |
+| --- | --- |
+| DailyAudienceMetrics | `/publisher/{publisherId}/daily/audience` |
+| DailyBehaviourMetrics | `/publisher/{publisherId}/daily/behavior` |
+| ECPM | `/revenue/publisher/{publisherId}/editions` |
+| Publishers | `/publishers` |
+| Publisher Story Performance Metrics | `/analytics/publisher/{publisherId}/stories` |
+| PublisherSummaryKeyMetrics | `/publisher/{publisherId}/summary` |
+| Total Revenue | `/revenue/publisher/{publisherId}/aggregate` |
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the **username** and **password** associated with your Snapchat account.
+
+</Accordion>
+
+<Accordion title="How do I know that my Snapchat credentials are secure?">
+
+The login process uses the **OAuth process**, so your Snapchat credentials are never seen or stored by Domo.  
+This keeps your login secure. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

@@ -1,0 +1,110 @@
+---
+title: "JSON Advanced Writeback Connector"
+excerpt: "Configure the JSON Advanced Writeback Connector to export Domo DataSet data to any OAuth-protected JSON HTTP endpoint."
+---
+
+## Intro
+
+Use the JSON Advanced Writeback connector to export your data from a Domo DataSet to any OAuth-protected HTTP endpoint that supports data in JSON format.
+
+You can connect to your JSON Advanced Writeback account in the Data Center. This topic discusses the fields and menus that are specific to the JSON Advanced Writeback connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+* If you select the **OAuth** mechanism for authentication, you need a **Client ID**, a **Client Secret**, and select the **OAuth Type**. 
+
+    * If your API uses the **Authorization Code Flow**, you need the **Authorization URL**, additional parameters for the Authorization URL API call, the **Access Token URL**, additional parameters for the Access Token URL API call, select the **Authorization Type**, the **Refresh Token URL**, , and the scopes needed for this connection.
+    
+    * If your API uses the **Client Credentials Flow**, you need the **Access Token URL**, additional parameters for the Access Token URL API call, select the **Authorization Type**, and the scopes needed for this connection.
+
+* If you select the **API Key** mechanism for authentication, select how to pass the API key in the http call,  the **Header or parameter name**, and the **API Key**.
+
+Refer to the API documentation of the system you are trying to writeback to, to determine which code flow the API uses, how to create a Client ID and Secret pair, and the Authorization URL (if applicable). If the API documentation does not explicitly state which flow it uses, then check the value of the `grant_type` mentioned.
+
+## Connecting to Your JSON Advanced Writeback Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the JSON Advanced Writeback Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your JSON Advanced Writeback account. The following table describes what is needed for each field:
+
+* If you select the **OAuth** mechanism for authentication, you need the following parameters: 
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter the Client ID for your OAuth authentication. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter the Client Secret for your OAuth authentication. </td></tr><tr><td colspan="1" rowspan="1"> OAuth Type </td><td colspan="1" rowspan="1"> Select the API flow type.<br/>If the API does not specify the OAuth flow, check the required <i>grant_type</i> parameter to identify the correct flow. </td></tr><tr><td colspan="1" rowspan="1"> Authorization URL </td><td colspan="1" rowspan="1">  Enter the API authorization endpoint. This is the endpoint used for the first call in the OAuth handshake. </td></tr><tr><td colspan="1" rowspan="1"><div> Additional parameters for the authorization URL API call </div><div></div></td><td colspan="1" rowspan="1"> Add additional parameters your API requires with the authorization URL (optional). </td></tr><tr><td colspan="1" rowspan="1"><div> Access Token Url </div></td><td colspan="1" rowspan="1"> This endpoint will return the access token to authenticate other API calls. </td></tr><tr><td colspan="1" rowspan="1"><div><div> Additional parameters for the access token URL API call </div></div></td><td colspan="1" rowspan="1"> Add additional parameters your API requires with the access token URL (optional). </td></tr><tr><td colspan="1" rowspan="1"><div><div> Authorization Type </div></div></td><td colspan="1" rowspan="1"> Select how you want to pass the client id and secret to the API for which you want to call. Refer to the API documentation to determine which option to use. </td></tr><tr><td colspan="1" rowspan="1"><div><div> Refresh Token Url </div></div></td><td colspan="1" rowspan="1"> Refer to your API documentation for the URL, for which you want to obtain a new refresh access token. In some cases, this is same as the endpoint to get a new access token. If that is the case, then leave this field blank. </td></tr><tr><td colspan="1" rowspan="1"><div><div> Scopes </div></div></td><td colspan="1" rowspan="1"> Enter the scopes needed for this connection (optional). Scopes should usually be separated by a space. </td></tr><tr><td colspan="1" rowspan="1"><div><div> State Type </div></div></td><td colspan="1" rowspan="1"> Select the type of state required by your OAuth (It is rare to modify this selection). </td></tr><tr><td colspan="1" rowspan="1"><div><div> State Location </div></div></td><td colspan="1" rowspan="1"> Select whether to send the state as a query parameter or in the path. </td></tr><tr><td colspan="1" rowspan="1"><div><div> Response Type </div></div></td><td colspan="1" rowspan="1"> Select the response type to use with the authorization URL (It is rare to modify this selection). </td></tr><tr><td colspan="1" rowspan="1"><div><div> Use redirect uri when refreshing access token </div></div></td><td colspan="1" rowspan="1"> Select whether the redirect uri needs to be passed to the API when refreshing the access token (this is rare). </td></tr><tr><td colspan="1" rowspan="1"><div><div> Force token refresh on every run </div></div></td><td colspan="1" rowspan="1"> Select this if you need to refresh the access token for every run of the connector. This may be necessary if your token is regularly invalidated outside Domo, but this is rare. </td></tr></tbody></table><br/>
+
+* If you select the **API Key** mechanism for authentication, you need the following parameters: 
+<br/>
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API key type </td><td colspan="1" rowspan="1"> Select whether to pass the API key in the HTTP call as a header or parameter. </td></tr><tr><td colspan="1" rowspan="1"> Header or parameter name </td><td colspan="1" rowspan="1"> Enter the parameter or header key. </td></tr><tr><td colspan="1" rowspan="1">API Key </td><td colspan="1" rowspan="1">Enter the API key. </td></tr></tbody></table>
+
+Once you have entered valid JSON Advanced Writeback credentials, you can use the same account at any time to create a new JSON Advanced Writeback DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Domo DataSet ID </td><td colspan="1" rowspan="1"> Enter the dataset id of the dataset which contains the data you are trying to write back. </td></tr><tr><td colspan="1" rowspan="1"> HTTP Request Type <div><div></div></div></td><td colspan="1" rowspan="1"> Select the HTTP method required by the API to write data back. Refer to the API documentation for the appropriate method to be used. </td></tr><tr><td colspan="1" rowspan="1"> JSON URL Path <b></b></td><td colspan="1" rowspan="1"> Enter the URL to the API endpoint used to write the data in the input dataset back. Refer to the API documentation for the appropriate value. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How do I format my input dataset to ensure the correct JSON payload is sent to the target system?">
+
+The connector creates one JSON request per row in the input dataset. Each column name in the dataset is treated as an attribute name whose value is in the row. For example, if you have a dataset that looks like this:
+
+<Frame>
+  <img src="/images/kb/ka0Vq0000005rZx-00N5w00000Ri7BU-0EMVq000004FN5F.jpg" />
+</Frame>
+
+The JSON connector will send 3 requests to the target system, with the following payloads:
+
+```json
+{
+  "name": "My first project",
+  "public": "false",
+  "members": [],
+  "description": "Test project created in JSON Writeback"
+}
+{
+  "name": "My second project",
+  "public": "false",
+  "members": [
+    2067563344
+  ],
+  "description": "test project created in JSON writeback 3.  Updated description"
+}
+{
+  "name": "My third project",
+  "public": "true",
+  "members": [
+    {
+      "subname": "deprecate old connectors",
+      "category": "usability"
+    }
+  ],
+  "description": "Yet another project"
+}
+```
+</Accordion>
+
+<Accordion title="Can I batch multiple objects in one request?">
+
+The connector will send one request per row. To batch multiple objects in one request, you need to format your input dataset to contain multiple objects in each row. 
+</Accordion>
+<Accordion title="Domo requires an output dataset. What does this output dataset do? ">
+
+The output dataset of this connector contains the requests sent to the target system by the connector and the response returned by the API. The requests sent are in the “INPUT REQUEST BODY” column and the response is in the “OUTPUT RESPONSE” column. You can use this dataset to confirm the data being sent, the format of the data, and the response from the API.
+
+Note:  The connector logs the exact response sent by the API.  Some APIs are very verbose and some are not. The extent of the information in the OUTPUT RESPONSE column is completely dependent on the API which is called. Refer to your API documentation for information on return codes and messages.
+</Accordion>
+<Accordion title="If I set my “Update method” in the Scheduling section to Append, what does that mean?  Does that mean the connector will append data in the target system?">
+
+The Update Method in the Scheduling section refers to the output dataset, not the target system. If you set the Update Method to Append, then each time the connector runs, the responses from the API will be appended to the rows in the output dataset.  If you set the Update method to Replace, then the connector will rewrite the rows in the output dataset with the responses every time it runs.
+</Accordion>
+<Accordion title="Will the connector writeback all rows in the dataset, even if one or more rows result in an error?">
+
+Yes, the connector will try to writeback all rows in the dataset. If the system you are writing to throws an error on one row, then the connector will log the response, and then move to the next row. 
+</Accordion>
+</AccordionGroup>

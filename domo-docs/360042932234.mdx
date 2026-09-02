@@ -1,0 +1,49 @@
+---
+title: "Eloqua Writeback Connector"
+excerpt: "Use Domo's Eloqua Writeback Connector to push data from a Domo DataSet into an Eloqua custom object."
+---
+
+## Intro
+
+Eloqua Corp. is a marketing automation SaaS company which develops automated marketing and demand generation software and services for business-to-business marketers. Use Domo's Eloqua Writeback connector to push your Domo data into an Eloqua custom object. To learn more about the Eloqua API, visit their page (https://community.oracle.com/community/topliners/code-it).
+
+You export data to Eloqua in the Data Center. This topic discusses the fields and menus that are specific to the Eloqua Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+</Note>
+
+## Prerequisites
+
+To configure this connector, you must have the following:
+
+* Your Eloqua username
+* Your Eloqua password
+* Your Domo client ID
+* Your Domo client secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Eloqua Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to Eloqua as well as your Domo developer account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client ID. For steps on obtaining your client ID and client secret, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client secret. For steps on obtaining your client ID and client secret, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your Eloqua username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Eloqua password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Company </p></td><td colspan="1" rowspan="1"><p> Enter the company name associated with your Eloqua account. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-Eloqua connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains various fields and menus for setting up your Domo-Eloqua connection.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to an Eloqua custom object. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following <span class="mt-font-courier-new"> datasources/ </span>. For example, in the URL <span class="mt-font-courier-new"><a href="https://mycompany.domo.com/datasourc...tails/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasourc...tails/overview </a></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4 </span>. </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Eloqua Object </p></td><td colspan="1" rowspan="1"><p> Select the Eloqua object you want to write your Domo data to. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Identifier Fieldname - Eloqua Field </p></td><td colspan="1" rowspan="1"><p> Select the field (column) in the selected Eloqua custom object you want to write data to. This data will be copied from the column you select for <b> Identifier Fieldname - DataSet Field </b>. For example, if you select <b> Numbers </b> for <b> DataSet Field </b> and <b> Number of Tickets </b> for <b> Eloqua Field </b>, all data in the <b> Numbers </b> column will be copied into the <b> Number of Tickets </b> column. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Identifier Fieldname - DataSet Field </p></td><td colspan="1" rowspan="1"><p> Select the field (column) in the selected Domo DataSet you want to copy into your Eloqua custom object. This data will be copied into the column you select for <b> Identifier Fieldname - Eloqua Field </b>. For example, if you select <b> Numbers </b> for <b> DataSet Field </b> and <b> Number of Tickets </b> for <b> Eloqua Field </b>, all data in the <b> Numbers </b> column will be copied into the <b> Number of Tickets </b> column. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Optional Fields - Eloqua Fields </p></td><td colspan="1" rowspan="1"><p> Select an optional field (column) in the selected Eloqua custom object you want to write data to. This data will be copied from the column you select for <b> Optional Fields </b><b> - DataSet Fields </b>. For example, if you select <b> Numbers </b> for <b> DataSet Fields </b> and <b> Number of Tickets </b> for <b> Eloqua Fields </b>, all data in the <b> Numbers </b> column will be copied into the <b> Number of Tickets </b> column. </p><p> You can add rows for more optional fields by clicking the plus button on the right, or remove a row by clicking the minus button. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Optional Fields - DataSet Fields </p></td><td colspan="1" rowspan="1"><p> Select an optional field (column) in the selected Domo DataSet you want to copy into your Eloqua custom object. This data will be copied into the column you select for <b> Optional Fields </b><b> - Eloqua Fields </b>. For example, if you select <b> Numbers </b> for <b> DataSet Fields </b> and <b> Number of Tickets </b> for <b> Eloqua Fields </b>, all data in the <b> Numbers </b> column will be copied into the <b> Number of Tickets </b> column. </p><p> You can add rows for more optional fields by clicking the plus button on the right, or remove a row by clicking the minus button. </p></td></tr></tbody></table>
+
+<Note>
+**Note:** The Eloqua Writeback Connector looks for a *\_BATCH\_ID\_* column. If this column is present in the input DataSet, the Connector will keep track of the highest *\_BATCH\_ID\_* in the source DataSet to keep track of the data already written to Eloqua. For the next run the Connector will only write rows with a *\_BATCH\_ID\_* higher than the one recorded on previous runs. This is to avoid writing duplicate data to Salesforce. If the *\_BATCH\_ID\_* column is not present in the source DataSet, all the data will be written to Salesforce every time the Connector runs.
+</Note>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,43 @@
+---
+title: "Azure Blob Storage Writeback Connector"
+excerpt: "Configure Domo's Azure Blob Storage Writeback connector to export DataSet data into a Microsoft Azure Blob container."
+---
+
+## Intro
+
+Microsoft Azure Blob Storage is designed to easily and efficiently store any type of unstructured data, such as images, videos, audio, and documents. Use this connector to export your data from a Domo DataSet into an Azure Blob container. To learn more about the Azure Blob Storage API, visit their page ([https://docs.microsoft.com/en-us/res...rvice-rest-api](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api "https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api") ).
+
+You export data to Azure Blob Storage in the Data Center. This topic discusses the fields and menus that are specific to the Azure Blob Storage Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+</Note>
+
+## Prerequisites
+
+To configure this connector, you will need the following:
+
+* A Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+* The name and key for your Azure Blob Storage account.
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Azure Blob Storage Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account as well as your Azure Blob Storage container. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> Paste your Domo client ID. For more information, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"><p> Paste your Domo client secret. For more information, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Name </p></td><td colspan="1" rowspan="1"><p> Enter the name of the Azure Blob Storage account you want to connect to. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Key </p></td><td colspan="1" rowspan="1"><p> Enter the account key for the Azure Blob Storage account you want to connect to. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-Azure Blob Storage connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing Connectors Accounts](https://domo-support.domo.com/s/article/360042926054 "Managing Connectors Accounts").
+
+### Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Blob Containers <p></p></td><td colspan="1" rowspan="1"><p> Select the Azure Blob container you want to send your Domo data to. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Input DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to the selected Azure Blob Storage container. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following <span class="mt-font-courier-new"> datasources/ </span>. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Filename </p></td><td colspan="1" rowspan="1"><p> Select whether you want to reference your DataSet using the <b><b> Input DataSet ID </b></b> or an output file name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filename </p></td><td colspan="1" rowspan="1"><p> Enter the output file name for your data. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274 "Adding a DataSet Using a Connector").

@@ -1,0 +1,54 @@
+---
+title: "Donut Chart"
+excerpt: "Build a Donut chart that divides a circle into arc sections sized by category percentages, with a hollow center for a cleaner look."
+---
+
+## Intro
+
+A donut chart is a circle divided into sections, each of which represents a percentage of the overall chart. This chart type is almost identical to a pie chart; the only difference is that there is a hole in the center, so the sections appear as arcs rather than wedges.
+
+Domo provides a donut chart and a nautilus donut chart. To learn more about other pie-type charts, see [Available Pie-Type Charts](/s/article/360043428913 "Available Pie-Type Graphs").
+
+### Power Donut Charts
+
+A donut chart requires two columns or rows of data from your DataSet—a category column or row containing the names of each section, and a value column or row containing the corresponding values for each section. The numbers in the values column or row do *not* need to add up to 100%. For information about value, category, and series data, see [Understanding Chart Data](/s/article/360043428693 "Understanding Chart Data").
+
+The sections in a donut chart are arranged from highest to lowest value starting at the top and moving clockwise.
+
+In Analyzer, you choose the columns containing the data for your donut chart. For more information about choosing data columns, see [Applying DataSet Columns to Your Chart](/s/article/360043428713 "Applying DataSet Columns to Your Chart").
+
+Learn more about working in Analyzer in our [Analzyer documentation](https://domo-support.domo.com/s/topic/0TO5w000000ZaoUGAS/analyzer?language=en_US).
+
+The following graphic shows you how the data appears when converted into a donut chart:
+
+<Frame>
+  <img alt="Screen_Shot_2022-05-26_at_12.20.07_PM.png" src="/images/kb/ka0Vq0000000Uvl-00N5w00000Ri7BU-0EM5w000005vPAN.png" />
+</Frame>
+
+### Customize Donut Charts
+
+You can customize the appearance of a donut chart by editing its properties. For information about all chart properties, see our [Chart Properties documentation](/s/topic/0TO5w000000ZaodGAC "Chart Properties").
+
+To learn about the **Data label settings** and **Hover text settings** for donut charts, see [Formatting Data Label and Hover Text in Your Chart](/s/article/360043429693).
+
+Unique properties of donut charts include the following:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a">
+  <thead>
+    <tr><th colspan="1" rowspan="1"><p> Property </p></th><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Example </p></th></tr>
+  </thead>
+
+  <tbody>
+    <tr><td colspan="1" rowspan="1"><p> General > Maximum Slices Before 'Other' </p></td><td colspan="1" rowspan="1"><p> Determines the number of slices in the chart that are represented as unique slices—all remaining slices in the chart are aggregated into an "Other" slice. In the example at right, the user entered "6" as the <b> Maximum Slices Before Other </b> value; therefore, the first five slices appear as unique slices, and the remaining slices are grouped into an "Other" slice. </p></td><td colspan="1" rowspan="1"><p><img alt="aggregated_other_slices.png" src="/images/kb/ka05w00000123l4-00N5w00000Ri7BU-0EM5w000005vP1j.png" style={{width: 651, height: 261}} /></p></td></tr>
+    <tr><td colspan="1" rowspan="1"><p> General > Value Format </p></td><td colspan="1" rowspan="1"><p> Determines whether currency symbols are appended to values. </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr>
+    <tr><td colspan="1" rowspan="1"><p> General > Value Decimal Places </p></td><td colspan="1" rowspan="1"><p> Determines the number of decimal places in values. </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr>
+    <tr><td colspan="1" rowspan="1"><p> General > Percent Value Decimal Places </p></td><td colspan="1" rowspan="1"><p> Determines the number of decimal places in values. </p></td><td colspan="1" rowspan="1"> — </td></tr>
+    <tr><td colspan="1" rowspan="1"><p> General > Unsorted Data </p></td><td colspan="1" rowspan="1"><p> Determines whether or not the slices in a pie-type chart are arranged automatically from highest to lowest value. By default, you cannot change the sort order by selecting different options in the <b> Sorting </b> menu. However, if you check the <b> Unsorted Data </b> box, you can use the <b> Sorting </b> menu to change the sort order. For more information, see <a href="/s/article/360043428733" target="_self" title="Sorting the Data in Your Chart"> Sorting the Data in Your Chart </a>. </p></td><td colspan="1" rowspan="1"> — </td></tr>
+    <tr><td colspan="1" rowspan="1"><p> Legend > Hide Legend </p></td><td colspan="1" rowspan="1"><p> When this option is selected, no legend appears next to your pie or donut chart. The example shows a pie chart in which the legend has been hidden. </p></td><td colspan="1" rowspan="1"><img alt="pie_no_legend.png" src="/images/kb/ka05w00000123l4-00N5w00000Ri7BU-0EM5w000005vP1p.png" style={{width: 650, height: 437}} /></td></tr>
+    <tr><td colspan="1" rowspan="1"><p> Legend > Display in Legend </p></td><td colspan="1" rowspan="1"><p> Determines whether values from your DataSet display as literal values or as their corresponding percentages in your pie chart. For example, a value from your DataSet might be "26" but take up 35.9% of the pie. Therefore, if you selected <b> Value Only </b> for this property, the legend item would read "26," and if you selected <b> Percentage </b>, the legend item would read "35.9%." If you selected <b> No Label </b>, only the name of each slice would appear in the legend. </p></td><td colspan="1" rowspan="1"> — </td></tr>
+    <tr><td colspan="1" rowspan="1"><p> Hover Legend > Hide Legend </p></td><td colspan="1" rowspan="1"><p> When this option is selected, the "hover legend," which normally appears when you mouse over a slice in your pie or donut chart, is hidden from view. </p></td><td colspan="1" rowspan="1"> — </td></tr>
+    <tr><td colspan="1" rowspan="1"><p> Hover legend > Title Text </p></td><td colspan="1" rowspan="1"><p> Lets you customize the summary text that appears above your pie or donut chart's hover legend area (which normally reads "Total"). </p><p> The example shows a pie chart in which this text has been customized to read "Sum of Amount." </p></td><td colspan="1" rowspan="1"><img alt="pie_hover_legend_text.png" src="/images/kb/ka05w00000123l4-00N5w00000Ri7BU-0EM5w000005vP23.png" style={{width: 652, height: 406}} /></td></tr>
+    <tr><td colspan="1" rowspan="1"><p> Hover legend > Title Value </p></td><td colspan="1" rowspan="1"><p> Lets you specify an aggregation type for the summary value in your pie or donut chart's hover legend. By default, all of the data in your chart is totaled, but you can change this to show the average, minimum, or maximum amount in the chart. </p></td><td colspan="1" rowspan="1"> — </td></tr>
+    <tr><td colspan="1" rowspan="1"><p> Hover legend > Hide Percent Value </p></td><td colspan="1" rowspan="1"><p> When this option is selected, the percent of total value that appears when you mouse over a slice in your pie or donut chart does not appear. </p></td><td colspan="1" rowspan="1"> — </td></tr>
+  </tbody>
+</table>

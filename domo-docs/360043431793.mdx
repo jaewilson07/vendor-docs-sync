@@ -1,0 +1,60 @@
+---
+title: "Searchmetrics Connector"
+excerpt: "Connect Domo to Searchmetrics using an API key and secret to pull SEO keyword rankings, search terms, and backlink data into a DataSet."
+---
+
+## Intro
+
+Searchmetrics is an SEO and content performance platform with a historical database containing over 250 billion pieces of information, such as keyword rankings, search terms, social links, and backlinks. To learn more about the Searchmetrics API, visit their page ([http://api.searchmetrics.com/v3/documentation](http://api.searchmetrics.com/v3/documentation "http://api.searchmetrics.com/v3/documentation") ).
+
+You connect to your Searchmetrics account in the Data Center. This topic discusses the fields and menus that are specific to the Searchmetrics connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Searchmetrics account and create a DataSet, you must have the following:
+
+* A Searchmetrics API key
+* An Searchmetrics API secret
+
+You can view and generate these credentials by opening your account settings in Searchmetrics and then going to **My API**.
+
+## Connecting to Your Searchmetrics Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Searchmetrics Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Searchmetrics account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter your Searchmetrics API key. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Searchmetrics API secret. </p></td></tr></tbody></table>
+
+For more information about obtaining credentials, see "Prerequisites," above.
+
+Once you have entered valid Searchmetrics credentials, you can use the same account any time you go to create a new Searchmetrics DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Searchmetrics report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> List Rankings Keyword </p></td><td colspan="1" rowspan="1"><p> Returns rankings for a given keyword in organic search results. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Rankings Keyword Historic </p></td><td colspan="1" rowspan="1"><p> Returns historic rankings for a given keyword in organic search results. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Rankings Keyword Longtail </p></td><td colspan="1" rowspan="1"><p> Returns historic rankings for a given keyword in organic search results (longtail). </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Similar Keywords </p></td><td colspan="1" rowspan="1"><p> Returns a list of keywords that contain a selected keyword. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Country Code </p></td><td colspan="1" rowspan="1"><p> Select the country you want to return data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Keyword </p></td><td colspan="1" rowspan="1"><p> Enter the keyword you want to return data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Type </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or for a given number of days back from the day the report is run (offset). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the specific date you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Offset </p></td><td colspan="1" rowspan="1"><p> Enter the number of days back from the day on which the report is run to pull data for that day. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Are there any API limits I should be aware of?">
+
+If you receive an error because your rate limit was exceeded, try shifting your queries to nighttime and weekend hours. SearchMetrics allows higher request rate limits during these times due to overall lower number of requests.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+</AccordionGroup>
+

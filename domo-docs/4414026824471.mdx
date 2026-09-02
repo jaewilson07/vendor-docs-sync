@@ -1,0 +1,40 @@
+---
+title: "OrthoFi Connector"
+excerpt: "Connect Domo to OrthoFi with a client ID and secret to retrieve patient, practice, charges, and insurance data into a DataSet."
+---
+
+## Intro
+
+With the perspective of improvising their patients' lives and dental health, OrthoFi combines technology with the medical expertise to revolutionize the way patients and their families pay for treatments, making it affordable for everyone. OrthoFi is dedicated to ensuring that the oral and overall health benefits is available to everyone in the hopes of better health outcomes.
+
+The Domo OrthoFi Connector provides data on a wide range of factors such as, business health, medical charges, patients details, practice staff details, practice location data, patient's insurance details, and more. It helps you to gather the health information datasets for various categories. Once you have set up this connector, you can easily combine the latest business and health data with information from across your organization.
+
+The OrthoFi Connector is a "Cloud App" Connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the Connector page for this and other Cloud App Connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your OrthoFi account in the Data Center. This topic discusses the fields and menus that are specific to theOrthoFi Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your OrthoFi account and create a DataSet, you must have the client ID and client secret associated with your OrthoFi account.
+
+## Connecting to YourOrthoFi Account
+
+This section enumerates the options in the Credentials and Details panes in the OrthoFi Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your OrthoFi account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter the client ID associated with your OrthoFi account. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter the client secret associated with your OrthoFi account. </td></tr></tbody></table>
+
+Once you have entered valid OrthoFi credentials, you can use the same account any time you go to create a new OrthoFi DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the OrthoFi report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Business Health </td><td colspan="1" rowspan="1"> Retrieves business health details. </td></tr><tr><td colspan="1" rowspan="1"> Business Health Metrics </td><td colspan="1" rowspan="1"> Retrieves Median OrthoFi metrics of all practice locations as well as mean metrics of the top 20 (production dollar) practice locations. </td></tr><tr><td colspan="1" rowspan="1"> Charges </td><td colspan="1" rowspan="1"> Retrieves the charges details. </td></tr><tr><td colspan="1" rowspan="1"> Collection Details </td><td colspan="1" rowspan="1"> Retrieves collections details. </td></tr><tr><td colspan="1" rowspan="1"> Configuration Data </td><td colspan="1" rowspan="1"> Retrieves practice location configuration data. </td></tr><tr><td colspan="1" rowspan="1"> Contracts </td><td colspan="1" rowspan="1"> Retrieves contracts details. </td></tr><tr><td colspan="1" rowspan="1"> Insurance Accounts Receivable </td><td colspan="1" rowspan="1"> Retrieves insurance accounts receivable details. </td></tr><tr><td colspan="1" rowspan="1"> Insurance Submissions </td><td colspan="1" rowspan="1"> Retrieves insurance submissions details. </td></tr><tr><td colspan="1" rowspan="1"> Patients </td><td colspan="1" rowspan="1"> Retrieves the patient details. </td></tr><tr><td colspan="1" rowspan="1"> Practice Locations </td><td colspan="1" rowspan="1"> Retrieves practice locations details. </td></tr><tr><td colspan="1" rowspan="1"> Practice Staff </td><td colspan="1" rowspan="1"> Retrieves practice staff records. </td></tr><tr><td colspan="1" rowspan="1"> Reference Data </td><td colspan="1" rowspan="1"> Retrieves reference data. </td></tr><tr><td colspan="1" rowspan="1"> Referrals </td><td colspan="1" rowspan="1"> Retrieves the referral details. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Practice Location IDs </td><td colspan="1" rowspan="1"><span> Select the practice location IDs. </span></td></tr><tr><td colspan="1" rowspan="1"> As of Date </td><td colspan="1" rowspan="1"><p> Select the exact date that you want to fetch the Insurance Accounts Receivable report for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

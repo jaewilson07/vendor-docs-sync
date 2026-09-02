@@ -1,0 +1,94 @@
+---
+title: "CallRail Connector"
+excerpt: "Use the CallRail connector with an API key to pull call analytics data into a Domo DataSet."
+---
+
+## Intro
+
+CallRail provides call analytics services to help businesses learn what makes their phones ring. To learn more about the CallRail API, visit their page ([http://apidocs.callrail.com/](http://apidocs.callrail.com/ "http://apidocs.callrail.com/")).
+
+You connect to your CallRail account in the Data Center. This topic discusses the fields and menus that are specific to the CallRail connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your CallRail account and create a DataSet, you must have a CallRail API Key. To obtain an API key, do the following:
+
+1. Log into your CallRail account.
+2. In the CallRail dashboard, select **My Account > Account** in the top right corner.
+3. Select **API Access**.
+4. Click **Add API Key** in the top right.
+
+Your CallRail API Key appears in the table.
+
+## Connecting to Your CallRail Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the CallRail Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your CallRail account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your CallRail API Key. For information about obtaining an API Key, see "Prerequisites," above. </td></tr></tbody></table>
+
+Once you have entered valid CallRail credentials, you can use the same account any time you go to create a new CallRail DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the CallRail report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> All Conversations </td><td colspan="1" rowspan="1"> Returns all conversations, Conversation objects include the two most recent messages. </td></tr><tr><td colspan="1" rowspan="1"> Calls </td><td colspan="1" rowspan="1"> Returns a list of all calls in the target account. </td></tr><tr><td colspan="1" rowspan="1"> Companies </td><td colspan="1" rowspan="1"> Returns all companies associated with the target account. </td></tr><tr><td colspan="1" rowspan="1"> Form Submissions </td><td colspan="1" rowspan="1"> Returns all form submissions associated with the target account. </td></tr><tr><td colspan="1" rowspan="1"> Notifications </td><td colspan="1" rowspan="1"> Returns notifications within the target account. </td></tr><tr><td colspan="1" rowspan="1"> Outbound Caller IDs </td><td colspan="1" rowspan="1"> Returns all outbound caller Id's within the target company. </td></tr><tr><td colspan="1" rowspan="1"> Summarizing Call Data </td><td colspan="1" rowspan="1"> Returns summarized call data for an Agency or for a Company. </td></tr><tr><td colspan="1" rowspan="1"> Summarizing Call Data by Time Series </td><td colspan="1" rowspan="1"> Returns aggregate call data for an account or company, grouped by date. </td></tr><tr><td colspan="1" rowspan="1"> Summary Email Subscriptions </td><td colspan="1" rowspan="1"> Returns summary emails within the target account or company. </td></tr><tr><td colspan="1" rowspan="1"> Tags </td><td colspan="1" rowspan="1"> Returns tags within the target account. </td></tr><tr><td colspan="1" rowspan="1"> Trackers </td><td colspan="1" rowspan="1"> Returns all trackers associated with the target account. </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> Returns users within the target account. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Account ID </p></td><td colspan="1" rowspan="1"><p> Select the account you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Company ID </p></td><td colspan="1" rowspan="1"><p> Select the company you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User ID </p></td><td colspan="1" rowspan="1"><p> Select the user you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Group By </p></td><td colspan="1" rowspan="1"><p> Select the category you want to group data in your report by (by campaign, by company, etc.). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fields </p></td><td colspan="1" rowspan="1"><p> Select a field to aggregate data by in your "Summarizing Call Data by Time Series" report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the CallRail API does the connector use?">
+
+This connector uses version 2 of the CallRail API (https://api.callrail.com/v2).
+
+</Accordion>
+
+<Accordion title="Which endpoints does each report call in this connector?">
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"> Report </th><th colspan="1" rowspan="1"> Endpoint URL </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> All Conversations </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/text-messages.json </span></td></tr><tr><td colspan="1" rowspan="1"> Calls </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/calls.json </span></td></tr><tr><td colspan="1" rowspan="1"> Companies </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/companies.json </span></td></tr><tr><td colspan="1" rowspan="1"> Form Submissions </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/form_submissions.json </span></td></tr><tr><td colspan="1" rowspan="1"> Notifications </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/notifications.json </span></td></tr><tr><td colspan="1" rowspan="1"> Outbound Caller IDs </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/caller_ids.json </span></td></tr><tr><td colspan="1" rowspan="1"> Summarizing Call Data </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/calls/summary.json </span></td></tr><tr><td colspan="1" rowspan="1"> Summarizing Call Data by Time Series </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/calls/timeseries.json </span></td></tr><tr><td colspan="1" rowspan="1"> Summary Email Subscriptions </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/summary_emails </span></td></tr><tr><td colspan="1" rowspan="1"> Tags </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/tags.json </span></td></tr><tr><td colspan="1" rowspan="1"> Trackers </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/trackers.json </span></td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/{account_id}/users.json </span></td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need your CallRail API Key.
+
+</Accordion>
+
+<Accordion title="Where can I find my API Key?">
+
+To obtain the API Key:
+
+1. Log into your CallRail account.
+2. In the CallRail dashboard, select
+   **My Account>Account** in the top right corner.
+3. Select
+   **API Access.**
+4. Click
+   **Add API Key** in the top right.
+
+Your CallRail API Key appears in the table.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

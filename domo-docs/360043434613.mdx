@@ -1,0 +1,38 @@
+---
+title: "Pivotal Tracker Connector"
+excerpt: "Use the Pivotal Tracker connector to pull epics, notifications, projects, and stories from your Pivotal Tracker account into a Domo DataSet."
+---
+
+## Intro
+
+Pivotal Tracker is an online project planning, tracking and collaboration tool designed specifically by software developers to support the software development process. Use Domo's Pivotal Tracker connector to retrieve data about epics, notifications, projects, and stories. For more information about the Pivotal Tracker API, visit their website. ([https://www.pivotaltracker.com/help/api/#top](https://www.pivotaltracker.com/help/api/#top "https://www.pivotaltracker.com/help/api/#top") )
+
+The Pivotal Tracker connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Pivotal Tracker account in the Data Center. This topic discusses the fields and menus that are specific to the Pivotal Tracker connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Pivotal Tracker account and create a DataSet, you must have a Pivotal Tracker username and password.
+
+## Connecting to Your Outbrain Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Pivotal Tracker Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Pivotal Tracker account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> User </p></td><td colspan="1" rowspan="1"><p> Enter your Pivotal Tracker username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Pivotal Tracker password. </p></td></tr></tbody></table>
+
+Once you have entered valid Pivotal Tracker credentials, you can use the same account any time you go to create a new Pivotal Tracker DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Report** menu in which you select a report type. Depending on the report type you select, you may also have the option to specify the number of days back for the report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select a Pivotal Tracker report. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Epics </p></td><td colspan="1" rowspan="1"><p> Returns all epics for the authenticated user's projects. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Iterations </p></td><td colspan="1" rowspan="1"><p> Returns all iterations for the authenticated user's projects. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Notifications </p></td><td colspan="1" rowspan="1"> Returns all notifications for the authenticated user. Append Supported. </td></tr><tr><td colspan="1" rowspan="1"><p> Projects </p></td><td colspan="1" rowspan="1"><p> Returns all of the authenticated user's active projects. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Stories </p></td><td colspan="1" rowspan="1"><p> Returns all stories for the authenticated user's projects, filtered by the <b> Created Date </b>. Append supported. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tasks </p></td><td colspan="1" rowspan="1"><p> Returns all tasks for the authenticated user, by project and story filtered by story created date. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Transitions </p></td><td colspan="1" rowspan="1"><p> Returns all of the authenticated user's active transitions by project, filtered by the occurrence date. Append Supported. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Workspaces </p></td><td colspan="1" rowspan="1"><p> Returns all workspaces for the authenticated user. </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"> Created Date - Days Back </td><td colspan="1" rowspan="1"> Enter the number of past days you want to retrieve data for. For example, if you enter <span class="mt-font-courier-new"> 7 </span>, the connector pulls data for the past week. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

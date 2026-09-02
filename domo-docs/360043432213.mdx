@@ -1,0 +1,693 @@
+---
+title: "Infusionsoft/Infusionsoft Enterprise Connector"
+excerpt: "Connect Domo to your Infusionsoft or Infusionsoft Enterprise account using OAuth to pull email marketing, CRM, and e-commerce data into a DataSet."
+---
+
+## Intro
+
+Infusionsoft offers an e-mail marketing and sales platform for small businesses, including products to streamline the customer lifecycle, customer relationship management, marketing automation, lead capture, and e-commerce. To learn more about the Infusionsoft API, visit their page ([https://developer.infusionsoft.com/](https://developer.infusionsoft.com/ "https://developer.infusionsoft.com/") ).
+
+The Infusionsoft and Infusionsoft Enterprise connectors are exactly the same, except that the Enterprise version asks you for a client ID and a client secret in addition to the usual email address and password. This provides an extra layer of security.
+
+You connect to your Infusionsoft account in the Data Center. This topic discusses the fields and menus that are specific to the Infusionsoft connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Infusionsoft account and create a DataSet, you must have the following:
+
+* The email address you used to register with Infusionsoft
+* Your Infusionsoft password
+* An Infusionsoft client ID and client secret (Enterprise version only)
+
+Refer to [this article](https://developer.infusionsoft.com/getting-started-oauth-keys/ "https://developer.infusionsoft.com/getting-started-oauth-keys/") to learn how to find your client ID and client secret.
+
+## Connecting to Your Infusionsoft Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Infusionsoft Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+Both versions of the Infusionsoft connector (standard as well as Enterprise) use OAuth to connect. In the Enterprise version of the connector, you are also asked to enter your client ID and client secret. (These fields do not appear in the standard version of the connector.) For information about finding these credentials, go here: [https://developer.infusionsoft.com/g...ed-oauth-keys/](https://developer.infusionsoft.com/getting-started-oauth-keys/ "https://developer.infusionsoft.com/getting-started-oauth-keys/")
+
+Once you have entered your client ID and client secret (Enterprise version only), click **Connect** (or select **Add Account** if you have existing Infusionsoft accounts in Domo) to open the Infusionsoft OAuth screen where you can enter your Infusionsoft email address and password. Once you have entered valid Infusionsoft credentials, you can use the same account any time you go to create a new Infusionsoft DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Infusionsoft when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Infusionsoft.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr>
+<th colspan="1" rowspan="1">
+<p> Menu </p>
+</th>
+<th colspan="1" rowspan="1">
+<p> Description </p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Report </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the Infusionsoft report you want to run. The following reports are available: </p>
+<table border="1" cellpadding="1" cellspacing="1">
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate - Clawbacks </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves all clawed back commissions for a particular affiliate.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate - Commissions </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves all commissions for a specific affiliate within a date range. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate - Payments </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves all payments for a specific affiliate within a date range. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate - Redirect Links </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a list of the redirect links for the specified Affiliate. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate Summary </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a summary of statistics for a list of affiliates. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate - Running Totals </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves the current balances for Amount Earned, Clawbacks, and Running Balance. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate Program - All Programs </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a list of all Affiliate Programs in the application. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate Program - Affiliate's Programs </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a list of all of the Affiliate Programs for the specified affiliate. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate Program - Program's Affiliates </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a list of all of the affiliates with their contact data for the specified program. This includes all of the custom fields defined for the contact and affiliate records that are retrieved. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate Program - Resources </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a list of resources that associated with the specified Affiliate Program. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Contacts - By Email Address </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves all contacts with the given email address. Searches the "Email," "Email 2," and "Email 3" fields. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Contacts - By ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves all contacts with the given ID. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Contacts - By Tags </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves all contacts with the given tag. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Data - Record by ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves the requested fields from a specified record. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Data - Query a Data Table </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Performs a query across the given table based on the provided query data. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Discount - Category </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns the options and values of the specified category discount ID. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Discount - Category Assignments </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves the options and values of the category assignment for category discount passed. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Discount - Order's Discount </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves an order's total discount. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Discount - Product Total </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a product's total discount. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Discount - Shipping </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a shipping discount. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Discount - Subscription's Free Trial </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a subscription's free trial information. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Get File </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves the file data for the specified file ID. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Invoice - Amount Due </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves the outstanding amount for an invoice. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Invoice - Available Payment Options </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves all payment types available within the requested Infusionsoft account. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Invoice - Payments </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves invoice payments. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Invoice - Available Shipping Options </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves all shipping options available in the specified Infusionsoft account. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Product - Inventory </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves the inventory data for a specified product. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Search - Available Fields </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a report's available fields. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Search - Saved Search </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a complete report from a saved search. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Search - Saved Search New </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a partial report from a saved search. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Shipping - Available Shipping Options </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves available shipping options. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Shipping - Flate Rate Shipping Options </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves flat rate shipping options. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Shipping - Order Quantity Shipping Options </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves order quantity shipping options. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Shipping - Order Shipping Options </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves order shipping options. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Shipping - Order Shipping Ranges </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves range information for order shipping. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Shipping - Product Shipping Options </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves product shipping options. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Shipping - UPS Shipping Options </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves UPS shipping options. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Shipping - Weight-Based Shipping Options </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves weight-based shipping options. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Webform IDs </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves a list of webforms created within Infusionsoft. </p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Affiliate ID(s) </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the affiliate program(s) you want to retrieve information for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Program ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the program you want to retrieve information for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Email </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the email address you want to retrieve information for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Selected Fields </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select all fields you want returned in your report. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Contact ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the ID of the contact you want to retrieve information for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Tags </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select all tags you want to retrieve data for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Table </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the table you want to retrieve data for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Record ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the record ID you want to retrieve data for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Fields </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter fields you want returned in your report. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Query </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter a search query. This should be a comma-separated list of key-value pairs. (For example, <span class="mt-font-courier-new"> 'GroupId':'12,30','City':'Ogden' </span> would query for the <span class="mt-font-courier-new"> groupId </span> in 12 or 30 AND a city of Ogden). The key is the field to search on, and the value is the data to look for. <span class="mt-font-courier-new"> % </span> is the wild card operator. All searches are case-insensitive. If you would like to query for an empty (null) field, use <span class="mt-font-courier-new"> ~null~ </span> in your query parameter, e.g. <span class="mt-font-courier-new"> 'FirstName':'~null~' </span>. </p>
+<p> You can also query on date fields. Here are some examples: </p>
+<ul>
+<li>
+<p>
+<span class="mt-font-courier-new"> 'LastUpdated':'2016-01-20%' </span> would find data updated on a day.
+</p>
+</li>
+<li>
+<p>
+<span class="mt-font-courier-new"> 'LastUpdated':'2016%' </span> would find data updated on year.
+</p>
+</li>
+<li>
+<p>
+<span class="mt-font-courier-new"> 'LastUpdated':'~&gt;=~2015-12-15' </span> would find data updated on greater than date "2015-12-15."
+</p>
+</li>
+<li>
+<p>
+<span class="mt-font-courier-new"> 'LastUpdated':'~&gt;=~2015-12-15 08:15:00' </span> would find data updated on greater than the provided date and time.
+</p>
+</li>
+<li>
+<p>
+<span class="mt-font-courier-new"> 'LastUpdated':'~&gt;=~LastSuccessfulRun' </span> can be used for finding all data updated after last successful run.
+</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Category Discount ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the ID of the category discount you want to retrieve information for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Discount ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the ID of the discount you want to retrieve information for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Product Discount ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the ID of the product discount you want to retrieve information for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Shipping Discount ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the ID of the shipping discount you want to retrieve information for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Trial ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the ID of the trial you want to retrieve information for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Filter Saved Searches </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the name of the saved search you want to retrieve. Enter <span class="mt-font-courier-new"> * </span> to retrieve all saved searches. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Saved Search </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the saved search you want to retrieve. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Option ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the ID of the option you want to retrieve information for. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Duration </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select whether you want to pull data for a specific date or a date range. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Report Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select whether the report data is for a specific date or for a relative number of days back from today. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Select Specific Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the date for the report. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Days Back </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the number of past days that should appear in the report. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Start Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> End Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Select Specific Start Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the first date in your date range. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Select Specific End Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the second date in your date range. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Days Back to Start From </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p>
+<p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Days Back to End At </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p>
+<p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How do I know my Infusionsoft account credentials are secure?">
+
+Both versions of the Infusionsoft connector use Oauth, which authenticates the account without Domo ever having access to your Infusionsoft account credentials.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+
+<Accordion title="Can I use the same Infusionsoft account for multiple DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="When I click Add Account, why am I getting automatically validated without having to enter credentials?">
+
+If you are already logged into Infusionsoft when you connect to Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Infusionsoft.
+
+</Accordion>
+
+<Accordion title="My DataSet is taking a long time to run. What's going on?">
+
+The Infusionsoft API often returns particular errors. Domo's Infusionsoft connector waits for a certain amount of time then retries if it receives one of these errors.
+
+* If the Infusionsoft API returns "[DatabaseError] Query took too long and was cancelled," we will retry with a rolling backoff 5 times starting with 5 seconds, then 10 seconds, 30 seconds, 1 minute, up until 5 minutes. By then it will usually fail with "This saved search is blocked temporarily."
+* If Infusionsoft API returns "[DatabaseError] Too many consecutive failures. This saved search is blocked temporarily," we will retry every 20 minutes up to 10 times.
+
+</Accordion>
+
+<Accordion title="What can I do if my DataSets are running slowly?">
+
+Infusionsoft allows only a certain number of requests per day. To avoid rate limit errors, the DataSets are throttled to not exceed that number. If you want your DataSets to run more quickly, use the Infusionsoft Enterprise connector to avoid being in the same throttling pool as other Domo customers.
+
+</Accordion>
+
+<Accordion title="What values should I use when registering an application (Enterprise version only)?">
+
+All of the fields are optional except for the name of your application, for which you can choose whatever name you feel is appropriate. For extra security, you may want to enter the Register Callback URL: [https://oauth.domo.com/api/data/v1/o...prise/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/infusionsoft-enterprise/exchange "https://oauth.domo.com/api/data/v1/oauth/providers/infusionsoft-enterprise/exchange").
+
+</Accordion>
+</AccordionGroup>
+

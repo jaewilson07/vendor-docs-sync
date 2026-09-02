@@ -1,0 +1,79 @@
+---
+title: "Close.io Connector"
+excerpt: "Connect Domo to Close.io with an API key to retrieve lead, sales, and communications data into a DataSet for analysis."
+---
+
+## Intro
+
+[Close.io](http://Close.io) is an online web application designed to allow sales people easy management of leads with minimal manual management of data. [Close.io](http://Close.io) integrates communications between leads and sales people such as emails and phone calls so that the system can record those communications, and update lead status. To learn more about the [Close.io](http://Close.io) API, visit their page [https://developer.close.com/](https://developer.close.com/ "https://developer.close.com/").
+
+The [Close.io](http://Close.io) Connector is a "Cloud App" Connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the Connector page for this and other Cloud App Connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your [Close.io](http://Close.io) account in the Data Center. This topic discusses the fields and menus that are specific to the [Close.io](http://Close.io) Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your [Close.io](http://Close.io) account and create a DataSet, you must have your [Close.io](http://Close.io) API key. You can generate it in the [Close.io](http://Close.io) Settings page.
+
+## Connecting to Your Close.io Account
+
+This section enumerates the options in the Credentials and Details panes in the [Close.io](http://Close.io) Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your [Close.io](http://Close.io) account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your <span><a href="http://Close.io" rel="noopener" target="_blank"> Close.io </a> API key. You can generate it in the <a href="http://Close.io" rel="noopener" target="_blank"> Close.io </a> Settings page. </span></td></tr></tbody></table>
+
+Once you have entered valid [Close.io](http://Close.io) credentials, you can use the same account any time you go to create a new [Close.io](http://Close.io) DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the <a href="http://Close.io" rel="noopener" target="_blank"> Close.io </a> report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Activities Call </td><td colspan="1" rowspan="1"> Returns a list of Call activities. </td></tr><tr><td colspan="1" rowspan="1"> Activities Email Threads </td><td colspan="1" rowspan="1"> Returns a list of Email Thread activities. </td></tr><tr><td colspan="1" rowspan="1"> Activities Emails </td><td colspan="1" rowspan="1"> Returns a list of Email activities. </td></tr><tr><td colspan="1" rowspan="1"> Activities Lead Status Change </td><td colspan="1" rowspan="1"> Returns a list of Lead Status Change activities. </td></tr><tr><td colspan="1" rowspan="1"> Activities Notes </td><td colspan="1" rowspan="1"> Returns a list of Note activities. </td></tr><tr><td colspan="1" rowspan="1"> Activities Opportunity Status Change </td><td colspan="1" rowspan="1"> Returns a list of Opportunity Status Change activities </td></tr><tr><td colspan="1" rowspan="1"> Bulk Actions </td><td colspan="1" rowspan="1"> Returns a list of Bulk emails. </td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> Returns a list of Contacts </td></tr><tr><td colspan="1" rowspan="1"> Contacts Emails </td><td colspan="1" rowspan="1"> Returns a list of Emails for contacts. </td></tr><tr><td colspan="1" rowspan="1"> Contacts Phones </td><td colspan="1" rowspan="1"> Returns a list of Phone numbers for contacts. </td></tr><tr><td colspan="1" rowspan="1"> Contacts Urls </td><td colspan="1" rowspan="1"> Returns a list of urls for Contacts. </td></tr><tr><td colspan="1" rowspan="1"><p> Custom Activity Instances </p></td><td colspan="1" rowspan="1"> Returns a list of Custom Activity Instances. </td></tr><tr><td colspan="1" rowspan="1"> Email Templates </td><td colspan="1" rowspan="1"> Returns a list of Email Templates. </td></tr><tr><td colspan="1" rowspan="1"> Exports </td><td colspan="1" rowspan="1"> Returns a list all the Exports. </td></tr><tr><td colspan="1" rowspan="1"> Lead Statuses </td><td colspan="1" rowspan="1"> Returns a list of Lead Statuses for an organization </td></tr><tr><td colspan="1" rowspan="1"> Leads </td><td colspan="1" rowspan="1"> Returns a list of Leads. </td></tr><tr><td colspan="1" rowspan="1"> Leads Addresses </td><td colspan="1" rowspan="1"> Returns list of Addresses for leads. </td></tr><tr><td colspan="1" rowspan="1"> Leads Contacts </td><td colspan="1" rowspan="1"> Returns the list of Contacts for leads. </td></tr><tr><td colspan="1" rowspan="1"> Leads Opportunities </td><td colspan="1" rowspan="1"> Returns a list of Opportunities for leads. </td></tr><tr><td colspan="1" rowspan="1"> Leads Tasks </td><td colspan="1" rowspan="1"> Returns the list of Tasks for leads. </td></tr><tr><td colspan="1" rowspan="1"> Opportunities </td><td colspan="1" rowspan="1"> Returns a list of Opportunities. </td></tr><tr><td colspan="1" rowspan="1"> Opportunity Statuses </td><td colspan="1" rowspan="1"> Returns a list Opportunity Statuses for an organization. </td></tr><tr><td colspan="1" rowspan="1"> Organizations </td><td colspan="1" rowspan="1"> Returns Organization's details, including its current members, lead and opportunity statuses, etc. </td></tr><tr><td colspan="1" rowspan="1"> Organizations Inactive Memberships </td><td colspan="1" rowspan="1"> Returns a list of organization's Inactive Members. </td></tr><tr><td colspan="1" rowspan="1"> Organizations Invoices </td><td colspan="1" rowspan="1"> Returns the list of organization's Invoices. </td></tr><tr><td colspan="1" rowspan="1"> Organizations Lead Statuses </td><td colspan="1" rowspan="1"> Returns the list of organization's Lead Statuses. </td></tr><tr><td colspan="1" rowspan="1"> Organizations Memberships </td><td colspan="1" rowspan="1"> Returns a list of organization's members. </td></tr><tr><td colspan="1" rowspan="1"> Organizations Opportunity Statuses </td><td colspan="1" rowspan="1"> Returns a list of organization's Opportunity Statuses. </td></tr><tr><td colspan="1" rowspan="1"> Reporting Activity </td><td colspan="1" rowspan="1"> Returns an Activity Report for an organization. </td></tr><tr><td colspan="1" rowspan="1"> Reporting Sent Emails </td><td colspan="1" rowspan="1"> Returns a report about Sent Emails for organization </td></tr><tr><td colspan="1" rowspan="1"> Smart Views </td><td colspan="1" rowspan="1"> Returns a list Smart Views. </td></tr><tr><td colspan="1" rowspan="1"> Tasks </td><td colspan="1" rowspan="1"> Returns a list of Tasks. </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> Returns a list Users. </td></tr><tr><td colspan="1" rowspan="1"> Users Self Email Accounts </td><td colspan="1" rowspan="1"> Returns list of Self Email Accounts. </td></tr><tr><td colspan="1" rowspan="1"> Users Self Email Signatures </td><td colspan="1" rowspan="1"> Returns list of Self Email Signatures. </td></tr><tr><td colspan="1" rowspan="1"> Users Self Memberships </td><td colspan="1" rowspan="1"> Returns list of Self Memberships. </td></tr><tr><td colspan="1" rowspan="1"> Users Self Organizations </td><td colspan="1" rowspan="1"> Returns list of Self Organizations. </td></tr><tr><td colspan="1" rowspan="1"> Users Self Sip Numbers </td><td colspan="1" rowspan="1"> Returns list of Self Sip Numbers. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Organization ID </td><td colspan="1" rowspan="1"><span> Select the organization ID. </span></td></tr><tr><td colspan="1" rowspan="1"> User ID </td><td colspan="1" rowspan="1"><span> Select the user ID. </span></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Close.io API does this Connector use?">
+
+This connector uses version 1 of the [Close.io](http://Close.io) API (https://app.close.io/api/v1).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this Connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1"> Report Name </th><th colspan="1" rowspan="1"> Endpoint URL </th></tr><tr><td colspan="1" rowspan="1"> Activities Call </td><td colspan="1" rowspan="1"> /activity/call/ </td></tr><tr><td colspan="1" rowspan="1"> Activities Email Threads </td><td colspan="1" rowspan="1"> /activity/emailthread/ </td></tr><tr><td colspan="1" rowspan="1"> Activities Emails </td><td colspan="1" rowspan="1"> /activity/email/ </td></tr><tr><td colspan="1" rowspan="1"> Activities Lead Status Change </td><td colspan="1" rowspan="1"> /activity/status_change/lead/ </td></tr><tr><td colspan="1" rowspan="1"> Activities Notes </td><td colspan="1" rowspan="1"> /activity/note/ </td></tr><tr><td colspan="1" rowspan="1"> Activities Opportunity Status Change </td><td colspan="1" rowspan="1"> /activity/status_change/opportunity/ </td></tr><tr><td colspan="1" rowspan="1"> Bulk Actions </td><td colspan="1" rowspan="1"> /bulk_action/email/ </td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> /contact/ </td></tr><tr><td colspan="1" rowspan="1"> Contacts Emails </td><td colspan="1" rowspan="1"> /contact/emails </td></tr><tr><td colspan="1" rowspan="1"> Contacts Phones </td><td colspan="1" rowspan="1"> /contact/phones </td></tr><tr><td colspan="1" rowspan="1"> Contacts Urls </td><td colspan="1" rowspan="1"> /contact/urls </td></tr><tr><td colspan="1" rowspan="1"><p> Custom Activity Instances </p></td><td colspan="1" rowspan="1"><a href="https://api.close.com/api/v1/activity/custom/" target="_blank"> https://api.close.com/api/v1/activity/custom/ </a></td></tr><tr><td colspan="1" rowspan="1"> Email Templates </td><td colspan="1" rowspan="1"> /email_template/ </td></tr><tr><td colspan="1" rowspan="1"> Exports </td><td colspan="1" rowspan="1"> /export/ </td></tr><tr><td colspan="1" rowspan="1"> Lead Statuses </td><td colspan="1" rowspan="1"> /status/lead/ </td></tr><tr><td colspan="1" rowspan="1"> Leads </td><td colspan="1" rowspan="1"> /lead/ </td></tr><tr><td colspan="1" rowspan="1"> Leads Addresses </td><td colspan="1" rowspan="1"> /lead/addresses </td></tr><tr><td colspan="1" rowspan="1"> Leads Contacts </td><td colspan="1" rowspan="1"> /lead/contacts </td></tr><tr><td colspan="1" rowspan="1"> Leads Opportunities </td><td colspan="1" rowspan="1"> /lead/oportunities </td></tr><tr><td colspan="1" rowspan="1"> Leads Tasks </td><td colspan="1" rowspan="1"> /lead/tasks </td></tr><tr><td colspan="1" rowspan="1"> Opportunities </td><td colspan="1" rowspan="1"> /opportunity/ </td></tr><tr><td colspan="1" rowspan="1"> Opportunity Statuses </td><td colspan="1" rowspan="1"> /status/opportunity/ </td></tr><tr><td colspan="1" rowspan="1"> Organizations </td><td colspan="1" rowspan="1"> /organization/{id} </td></tr><tr><td colspan="1" rowspan="1"> Organizations Inactive Memberships </td><td colspan="1" rowspan="1"> /organization/inactive_memberships </td></tr><tr><td colspan="1" rowspan="1"> Organizations Invoices </td><td colspan="1" rowspan="1"> /organization/invoices </td></tr><tr><td colspan="1" rowspan="1"> Organizations Lead Statuses </td><td colspan="1" rowspan="1"> /organization/lead_statuses </td></tr><tr><td colspan="1" rowspan="1"> Organizations Memberships </td><td colspan="1" rowspan="1"> /organization/memberships </td></tr><tr><td colspan="1" rowspan="1"> Organizations Opportunity Statuses </td><td colspan="1" rowspan="1"> /organization/opportunity_statuses </td></tr><tr><td colspan="1" rowspan="1"> Reporting Activity </td><td colspan="1" rowspan="1"> /report/activity/{orgId}/ /report/sent_emails/{orgId} </td></tr><tr><td colspan="1" rowspan="1"> Reporting Sent Emails </td><td colspan="1" rowspan="1"> /report/urlPath/sent_email_stats/{orgId}/ </td></tr><tr><td colspan="1" rowspan="1"> Smart Views </td><td colspan="1" rowspan="1"> /saved_search/ </td></tr><tr><td colspan="1" rowspan="1"> Tasks </td><td colspan="1" rowspan="1"> /task/ </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> /user/{id} </td></tr><tr><td colspan="1" rowspan="1"> Users Self Email Accounts </td><td colspan="1" rowspan="1"> /user/email_accounts/{userid}/ </td></tr><tr><td colspan="1" rowspan="1"> Users Self Email Signatures </td><td colspan="1" rowspan="1"> /user/email_signatures/{userid} </td></tr><tr><td colspan="1" rowspan="1"> Users Self Memberships </td><td colspan="1" rowspan="1"> /user/memberships/memberships_permissions_granted/{userid}/ </td></tr><tr><td colspan="1" rowspan="1"> Users Self Organizations </td><td colspan="1" rowspan="1"> /user/organizations/{userid}/ </td></tr><tr><td colspan="1" rowspan="1"> Users Self Sip Numbers </td><td colspan="1" rowspan="1"> /user/sip_numbers/{userid} </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this Connector?">
+
+You need your [Close.io](http://Close.io) API key.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

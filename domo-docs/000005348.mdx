@@ -1,0 +1,46 @@
+---
+title: "Auth0 Connector"
+excerpt: "Use Domo's Auth0 Connector to retrieve user information from your Auth0 account using a Client ID, Client Secret, and Auth0 domain."
+---
+
+## About
+
+Use the domo Auth0 connector to retrieve information about users.
+
+To learn more about
+
+Auth0
+
+API, see [Auth0 API Documentation](https://auth0.com/docs/manage-users/user-migration/bulk-user-exports "Clari API Documentation").
+
+You can connect to your Auth0 account in the Data Center. This article explains the fields and menus specific to the Auth0 connector user interface. To add Datasets, set update schedules, and edit DataSet information see, [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Auth0 account and create a DataSet, you must have the the following:
+
+* Client ID
+* Client Secret
+* Auth0 Domain
+
+## Connect to Your Auth0 Account
+
+This section explains the options in the **Credentials** and **Details** panes in the  Auth0 Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains the fields for entering credentials to connect to your Auth0 account. The following table describes what is needed for each field:
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Field </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter your client ID from Auth0 for API access. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter your client Secret from Auth0 for API access. </td></tr><tr><td colspan="1" rowspan="1"> Auth0 Domain </td><td colspan="1" rowspan="1"> Enter your Auth0 domain, for example: <a href="http://domo-prod.auth0.com" rel="noopener" target="_blank"> domo-prod.auth0.com </a></td></tr></tbody></table>
+
+Once you enter the valid Auth0 credentials, you can use the same account to create a new Auth0 DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a **Report** menu, with only one report in it.
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="2"> Report </td><td colspan="1" rowspan="2"><p> Users </p></td><td colspan="1" rowspan="2"> Retrieves information about users </td></tr><tr></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

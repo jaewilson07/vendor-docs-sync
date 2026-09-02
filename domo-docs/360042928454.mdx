@@ -1,0 +1,55 @@
+---
+title: "Square DataSet Union Connector"
+excerpt: "Use Domo's Square DataSet Union connector to combine Square DataSets from different accounts that require separate authentication into a single DataSet."
+---
+
+## Intro
+
+Square, Inc. is a financial services, merchant services aggregator, and mobile payments company. To learn more about the Square API, go to [https://docs.connect.squareup.com/](https://docs.connect.squareup.com/ "https://docs.connect.squareup.com/").
+
+This connector is useful when you have Domo DataSets from different Square accounts that require separate authentication.
+
+You configure the connection to your Square DataSets in the Data Center. This topic discusses the fields and menus that are specific to the Square DataSet Union connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to existing Square DataSets in Domo and create a new DataSet, you must have a Domo access token as generated under **Admin > Security**. This requires Admin privileges in Domo. For more information, see [Managing Access Tokens](/s/article/360042934494 "Managing Access Tokens").
+
+## Combining Square DataSets
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Square DataSet Union Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+In this pane, you enter your Domo access token so you can connect to your existing Square DataSets.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Token </p></td><td colspan="1" rowspan="1"><p> Enter your Domo access token, which you generate in <b> Admin &gt; Security </b>. This requires Admin privileges in Domo. For more information, see <a href="/s/article/360042934494" target="_blank" title="Managing Access Tokens"> Managing Access Tokens </a>. </p></td></tr></tbody></table>
+
+Once you have entered a valid access token, you can use the same account any time you go to create a new Square DataSet Union DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains menus in which you select the report type and configuration of the Square DataSets you want to join. Once you have selected the report type and configuration, you can either choose to join all matching Square DataSets in your Domo instance or select the specific ones to join.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Square report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Orders </p></td><td colspan="1" rowspan="1"><p> UNIONs all or selected "Orders" reports with the selected configuration. Configurations include "Discounts," "Line Items," "Refunds," "Returns," "Order Entries," and "None." </p></td></tr><tr><td colspan="1" rowspan="1"><p> Payments </p></td><td colspan="1" rowspan="1"><p> UNIONs all or selected "Payments" reports with the selected configuration. Configurations include "Processing Fee" and "None." </p></td></tr><tr><td colspan="1" rowspan="1"><p> Settlement Entries </p></td><td colspan="1" rowspan="1"><p> UNIONs all or selected "Settlement Entries" reports with the selected configuration. Configurations include "Failed" and "Sent." </p></td></tr><tr><td colspan="1" rowspan="1"><p> Settlements </p></td><td colspan="1" rowspan="1"><p> UNIONs all or selected "Settlements" reports with the selected configuration. Configurations include "Failed" and "Sent." </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Configuration </p></td><td colspan="1" rowspan="1"><p> Select the desired configuration for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> DataSets to Join </p></td><td colspan="1" rowspan="1"><p> Select whether you want to join ALL matching DataSets or choose specific DataSets from a list (<b> Discover </b> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> DataSets </p></td><td colspan="1" rowspan="1"><p> Select the DataSets you want to join. If there are no matches for the selected report/configuration combination in your Domo instance, nothing appears here. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to use this connector?">
+
+You must have a Domo access token as generated under **Admin > Security**. This requires Admin privileges in Domo. For more information, see [Managing Access Tokens](/s/article/360042934494 "Managing Access Tokens").
+
+</Accordion>
+
+<Accordion title="When should I use this connector?">
+
+This connector is useful when you have Domo DataSets from different Square accounts that require separate authentication.
+
+</Accordion>
+</AccordionGroup>
+

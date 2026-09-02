@@ -1,0 +1,28 @@
+---
+title: "HuffPost Pollster Connector"
+excerpt: "Use the HuffPost Pollster connector to pull poll, chart, question, and trendline data on elections and public opinion into a Domo DataSet."
+---
+
+## Intro
+
+HuffPost Pollster tracks thousands of public polls to give you the latest data on elections, political opinions, and more. Use Domo's HuffPost Pollster connector to import data from the HuffPost Pollster system into Domo. To learn more about the HuffPost Pollster API, visit their page ([https://elections.huffingtonpost.com/pollster/api/v2](https://elections.huffingtonpost.com/pollster/api/v2 "https://elections.huffingtonpost.com/pollster/api/v2") ).
+
+You connect to HuffPost Pollster's API in the Data Center. This topic discusses the fields and menus that are specific to the HuffPost Pollster connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+None
+
+## Connecting to HuffPost Pollster
+
+This section enumerates the options in the **Details** pane in the HuffPost Pollster Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the HuffPost Pollster report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Charts </p></td><td colspan="1" rowspan="1"><p> Returns a list of charts, ordered by creation date (newest first). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Polls </p></td><td colspan="1" rowspan="1"><p> Returns a list of Polls. A Poll on Pollster is a collection of questions and responses published by a reputable survey house. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Polls-Response-Clean </p></td><td colspan="1" rowspan="1"><p> Returns one row of response values per PollQuestion+Subpopulation concerning the given Question. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Polls-Response-Raw </p></td><td colspan="1" rowspan="1"><p> Returns one row per PollQuestion+Subpopulation+Response concerning the given Question. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Pollster-Chart-Poll-Questions </p></td><td colspan="1" rowspan="1"><p> Returns one row per poll plotted on a Chart. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Pollster-Trendlines </p></td><td colspan="1" rowspan="1"><p> Returns estimates of what the polls suggest about trends. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Questions </p></td><td colspan="1" rowspan="1"><p> Returns a list of Questions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tags </p></td><td colspan="1" rowspan="1"><p> Report returns a list of Tags. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Chart Slug (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter a chart slug to retrieve data for that specific chart. If you leave this blank, data is returned for all charts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tags (Optional) </p></td><td colspan="1" rowspan="1"><p> Select all the tags you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Poll Slug (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter a poll slug to retrieve data for that specific poll. If you leave this blank, data is returned for all poll. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Question Slug (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the slug of the question you want to pull data for. Only polls that use that question will be retrieved. </p> <Tip><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><span><b> Tip: </b></span> To get a list of Question Slug values, run the "Questions" report. </div></div></div> </Tip><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart Slug (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the slug of the chart you want to pull data for. </p> <Tip><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><span><b> Tip: </b></span> To get a list of Chart Slug values, run the "Charts" report. </div></div></div> </Tip></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

@@ -1,0 +1,76 @@
+---
+title: "Workday Adaptive Planning Writeback Connector"
+excerpt: "Configure the Workday Adaptive Planning Writeback Connector to export Domo DataSets back to your Workday Adaptive Planning instance."
+---
+
+## Intro
+
+Workday Adaptive Planning provides powerful, secure, and collaborative plans for your business agility. Upgrade your planning, modeling, budgeting, and forecasting to make better and faster decisions. With the Workday Adaptive Planning Writeback connector you can export your data from a Domo DataSet to your Workday Adaptive Planning account. To learn more about the Adaptive Insights API, log into Adaptive Insights and go to **Product Documents > Integration Guide**.
+
+You configure your Domo-Workday Adaptive Planning connection in the Data Center. This topic discusses the fields and menus that are specific to the Workday Adaptive Planning Writeback Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+</Note>
+
+## Prerequisites
+
+To configure this Connector, you must have the following:
+
+* Your Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+* Your Workday Adaptive Planning username and password.
+* Your Workday Adaptive Planning instance.
+
+  Find your instance code in **Admin -> System -> General Setup -> Setup Information -> Code**
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Workday Adaptive Planning Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most Connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account as well as the Workday Adaptive Planning account where you want your data to be copied to. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client secret. </p></td></tr><tr><td colspan="1" rowspan="1"> Adaptive Planning Username </td><td colspan="1" rowspan="1"> Enter your Adaptive Planning username. </td></tr><tr><td colspan="1" rowspan="1"> Adaptive Planning Password </td><td colspan="1" rowspan="1"> Enter your Adaptive Planning password. </td></tr><tr><td colspan="1" rowspan="1"> Adaptive Planning Instance </td><td colspan="1" rowspan="1"> Enter your Adaptive Planning instance code. <span> Find your instance code in <b> Admin -&gt; System -&gt; General Setup -&gt; Setup Information -&gt; Code </b></span></td></tr></tbody></table>
+
+For more information about obtaining these credentials, see "Prerequisites," above.
+
+Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-Workday Adaptive Planning connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th><td colspan="1" rowspan="1"></td></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to <span class="s1"> Workday Adaptive Planning </span>. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following <span class="mt-font-courier-new"> datasources/ </span>. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4. </span></p></td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Data Types </td><td colspan="1" rowspan="1"> Select the data type (plan/actuals). </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Type of data to export </td><td colspan="1" rowspan="1"> Specify whether you want to export version or sheet. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"><span> Delete existing data prior to import? </span></td><td colspan="1" rowspan="1"> Select this checkbox if you want to delete the existing data before the import. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"><span> Select date range to delete data. </span></td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Filter By </td><td colspan="1" rowspan="1"> Select the filter by option. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Delete Cell Notes? </td><td colspan="1" rowspan="1"> Specify whether you want to delete cell notes. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"><span> Map dataset fields and Adaptive Planning fields </span></td><td class="blob-code blob-code-inner js-file-line" colspan="1" id="LC54" rowspan="1"><p> Select whether to use automated mapping (if your dataset fields match Adaptive Planning Fields) or <span> to define the mapping manually. </span></p><p><span> For manual mapping, match the desired Adaptive Planning fields and dataset columns. </span></p><p><span> Generating the mapping automatically only works if the Adaptive Planning Fields and dataset Fields are an exact match. </span><span></span></p></td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"><span> Dimensions </span></td><td class="blob-num js-line-number" colspan="1" id="L55" rowspan="1"><span> Update dimensions inside Adaptive Planning. </span></td><td class="blob-code blob-code-inner js-file-line" colspan="1" id="LC55" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"><span> Cube Sheet Data </span></td><td colspan="1" rowspan="1"><span> Write Cube Data inside Adaptive Planning. </span></td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"><span> Modeled Sheet Data </span></td><td colspan="1" rowspan="1"><span> Write Modeled Data inside Adaptive Planning. </span></td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"><span> Standard Account Data </span></td><td colspan="1" rowspan="1"><span> Write Standard Account Data inside Adaptive Planning. </span></td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> Select the date format for your data. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> Select whether the report data is for a specific date or for a relative number of days back from today. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> Select the specific date using the date selector. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for in the <span></span><b> Days Back </b><span></span> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data from (start day). Combine with <b><b><b><b> End Date </b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b> Start Date </b></b></b></b> and 5 for <b><b><b><b> End Date </b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data to (end day). Combine with <b><b><b><b> Start Date </b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b> Start Date </b></b></b></b> and 5 for <b><b><b><b> End Date </b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> Specify the time period that you would like to receive data for. </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> Select the day you would like your week to start with. </td><td colspan="1" rowspan="1"></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to power up this Connector?">
+
+You need your Domo Developer account credentials (client id and client secret), the username and password associated with your Adaptive Planning account, and your Adaptive Planning instance.
+
+</Accordion>
+
+<Accordion title="Where can I find my Domo client id and client secret?">
+
+Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+
+</Accordion>
+
+<Accordion title="Where can I find my Adaptive Planning instance?">
+
+You can find your instance code in **Admin -> System -> General Setup -> Setup Information -> Code**.
+
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+
+</Accordion>
+</AccordionGroup>

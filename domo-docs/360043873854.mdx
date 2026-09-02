@@ -1,0 +1,36 @@
+---
+title: "Greenhouse Demographic Connector"
+excerpt: "Configure the Domo Greenhouse Demographic connector to pull demographic questions, answers, and applications into a DataSet."
+---
+
+## Intro
+
+Greenhouse Software provides a recruiting software as a service that lets companies create a uniform interview procedure so candidates can be judged based on the same rubric. Use Domo's Greenhouse Demographic connector to retrieve lists of demographic questions and answers for recruiters. To learn more about the Greenhouse API, visit their page ([https://www.greenhouse.io/features/use-powerful-apis](https://www.greenhouse.io/features/use-powerful-apis "https://www.greenhouse.io/features/use-powerful-apis") ).
+
+You connect to your Greenhouse account in the Data Center. This topic discusses the fields and menus that are specific to the Greenhouse Demographic connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Greenhouse account and create a DataSet, you must have a Greenhouse API token. This token is provided by Greenhouse. If you do not have an API token, contact your Greenhouse customer service rep.
+
+## Connecting to your Greenhouse account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Greenhouse Demographic Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials pane
+
+This pane contains fields for entering credentials to connect to your Greenhouse account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Token </td><td colspan="1" rowspan="1"> Enter your Greenhouse API token. This token is provided by Greenhouse. If you do not have an API token, contact your Greenhouse customer service rep. </td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new Greenhouse Demographic DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Greenhouse Demographic report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> List Answers </p></td><td colspan="1" rowspan="1"><p> Lists all of the demographic answers for your organization. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Applications </p></td><td colspan="1" rowspan="1"><p> Lists all of your organization's applications. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Answer Options </p></td><td colspan="1" rowspan="1"><p> Lists all of the demographic answer options for your organization. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Answer Options for a Question </p></td><td colspan="1" rowspan="1"><p> Lists all of the answer options for a given demographic question. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Answers for an Application </p></td><td colspan="1" rowspan="1"><p> Lists all of the answers for a given application. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Questions </p></td><td colspan="1" rowspan="1"><p> Lists all of the demographic questions for your organization. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Question </p></td><td colspan="1" rowspan="1"><p> Select the question you want to retrieve answer options for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Application Type </p></td><td colspan="1" rowspan="1"><p> Select whether you want to enter application IDs manually or select them from a list. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Application ID </p></td><td colspan="1" rowspan="1"><p> Enter a comma-separated list of application IDs you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Application Updated After </p></td><td colspan="1" rowspan="1"><p> Select a date to filter your report to show only applications updated after that date. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Date Filter </p></td><td colspan="1" rowspan="1"><p> Select this option if you want to filter your report by date. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Dates </p></td><td colspan="1" rowspan="1"><p> Select the dates you want to retrieve data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

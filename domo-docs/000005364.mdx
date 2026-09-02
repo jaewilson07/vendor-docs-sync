@@ -1,0 +1,183 @@
+---
+title: "Google Search Ads 360 Enterprise Connector"
+excerpt: "Connect Domo to Google Search Ads 360 to manage search marketing campaigns by configuring credentials, enabling the Reporting API, and creating DataSets."
+---
+
+## Intro
+
+Google Search Ads 360, formerly DoubleClick Search (DS), is a search management platform that helps agencies and marketers efficiently manage some of the largest search marketing campaigns in the world, across multiple engines and media channels. To learn more about the Search Ads 360 Reporting API, visit their page ([https://developers.google.com/search-ads/reporting/overview](https://developers.google.com/search-ads/reporting/overview "https://developers.google.com/search-ads/reporting/overview") ).
+
+You can connect to your Google Search Ads account in the Data Center. This topic discusses the fields and menus that are specific to the Google Search Ads 360 (SA360) connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Search Ads 360 account and create a DataSet, you must have the following:
+
+* A Search Ads 360 client ID
+* A Search Ads 360 client secret
+
+You must also have the new Search Ads 360 Reporting API enabled in the Google project that houses the client ID and secret.
+
+**Note:** If you have been using the legacy Google Search Ads 360 connector (`https://your_instance/<appstore>/com.domo.connector.doubleclicksearch`), then you may already have a Search Ads 360 client ID and secret.  You can reuse these credentials if you want, however, you need to make sure that you enable the new Search Ads 360 Reporting API  in the project used to generate the client ID and secret, and you need to reauthenticate before trying the new Search Ads 360 connector. Follow the below instructions to enable the new Reporting API.
+
+### Creating a Client ID and Secret
+
+You can create a client ID and secret in the [Google API Console](https://console.developers.google.com/ "Google API Console"). To do this, follow the below steps:
+
+1. Go to Google API Console at [https://console.developers.google.com](https://console.developers.google.com "https://console.developers.google.com").
+2. Click **Credentials** on the left column.
+3. From the **Create Credentials** menu, select **OAuth Client ID**.
+4. (Conditional) If **OAuth Consent** is not set up previously, continue to the **Consent** screen, or, navigate to Step 5.
+   1. Add an **App Name**, **User Support Email**, and the **Authorized Domain** as [**domo.com**](http://domo.com "domo.com"), everything else can be blank.
+   2. Select **Save** **and Continue**.
+   3. There is no scope required, **Save and Continue**.
+   4. There are no test users required, **Save and Continue**.
+   5. Click **Credentials** in the left column.
+   6. In the **Create Credentials** menu, select **OAuth Client ID**.
+5. Select **Web application** as the **Application Type**.
+6. Enter the desired name for the client (such as " Search Ads 360 Client").
+7. For the **Authorized Redirect URL**, enter [https://oauth.domo.com/api/data/v1/oauth/providers/doubleclick-search/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/doubleclick-search/exchange "https://oauth.domo.com/api/data/v1/oauth/providers/doubleclick-search/exchange").
+8. Click **Create**. A box pops up showing the client ID and secret.  Copy the client ID and secret to be used in the connector.
+
+### Enabling the Search Ads 360 Reporting API
+
+You need to make sure the Search Ads 360 Reporting API is enabled in the project that houses your client ID and secret. To do this, follow these steps:
+
+1. Click **Library** in the left column.
+2. Search for the “Search Ads 360 Reporting API”. **Note:** If you search for “Search Ads 360” or “DoubleClick”, you may be presented with two options:  “Search Ads 360 API” and “Search Ads 360 Reporting API”.  Select the “ **Search Ads 360 Reporting API** ” option.
+3. Click the **Enable** button on the top of the screen. (If the button reads **Disable**, the API is already enabled.)
+
+For more information, [click here](https://developers.google.com/doubleclick-search/v2/authorizing "click here").
+
+## Connecting to Your Google Search Ads 360 Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Google Search Ads 360 Connector page. The components of the other panes on this page, **Scheduling,** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Google Search Ads 360 account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Google API Client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Google API Client Secret. </p></td></tr></tbody></table>
+
+For information about obtaining these credentials, see "Prerequisites," above.
+
+Once you have entered valid Google Search Ads 360 account credentials, you can use the same account any time you go to create a new Google Search Ads 360 connector DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the <span class="s1"> Google Search Ads 360 </span> report you want to run. The following reports are available: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Ad </td><td colspan="1" rowspan="1"> Returns the ad details. </td></tr><tr><td colspan="1" rowspan="1"> Ad Group </td><td colspan="1" rowspan="1"> Returns the ad group details. </td></tr><tr><td colspan="1" rowspan="1"> Ad Group Asset </td><td colspan="1" rowspan="1"> Returns the ad group asset details. </td></tr><tr><td colspan="1" rowspan="1"> Ad Group Audience View </td><td colspan="1" rowspan="1"> Returns the ad group audience view details. </td></tr><tr><td colspan="1" rowspan="1"> Ad Group Criterion </td><td colspan="1" rowspan="1"> Returns information about ad group criterion. </td></tr><tr><td colspan="1" rowspan="1"> Age Range View </td><td colspan="1" rowspan="1"> Returns the age range view details. </td></tr><tr><td colspan="1" rowspan="1"> Asset </td><td colspan="1" rowspan="1"> Returns the asset details. </td></tr><tr><td colspan="1" rowspan="1"> Asset Set Asset </td><td colspan="1" rowspan="1"> Returns the asset set asset details, which is a link between an asset and an asset set. </td></tr><tr><td colspan="1" rowspan="1"> Bidding Strategy </td><td colspan="1" rowspan="1"> Returns the bidding strategy details. </td></tr><tr><td colspan="1" rowspan="1"> Campaign </td><td colspan="1" rowspan="1"> Returns the campaign details. </td></tr><tr><td colspan="1" rowspan="1"> Campaign Asset </td><td colspan="1" rowspan="1"> Returns the campaign asset details. </td></tr><tr><td colspan="1" rowspan="1"> Campaign Audience view </td><td colspan="1" rowspan="1"> This group returns the campaign audience view details. </td></tr><tr><td colspan="1" rowspan="1"> Campaign Budget </td><td colspan="1" rowspan="1"> Returns the campaign budget details. </td></tr><tr><td colspan="1" rowspan="1"> Campaign Criterion </td><td colspan="1" rowspan="1"> Returns details about campaign criterion. </td></tr><tr><td colspan="1" rowspan="1"> Campaign Label </td><td colspan="1" rowspan="1"> Returns the campaign labels. </td></tr><tr><td colspan="1" rowspan="1"> Conversion </td><td colspan="1" rowspan="1"> Returns details about conversions. </td></tr><tr><td colspan="1" rowspan="1"> Conversion Action </td><td colspan="1" rowspan="1"> Returns details about conversion actions. </td></tr><tr><td colspan="1" rowspan="1"> Cart Data Sales View </td><td colspan="1" rowspan="1"> Returns the cart data sales view details. </td></tr><tr><td colspan="1" rowspan="1"> Customer </td><td colspan="1" rowspan="1" valign="top"> Returns the customer details. </td></tr><tr><td colspan="1" rowspan="1"> Customer Asset </td><td colspan="1" rowspan="1"> Returns the customer asset details. </td></tr><tr><td colspan="1" rowspan="1"> Dynamic Search Ads Search Term View </td><td colspan="1" rowspan="1" valign="top"> Returns the dynamic search ads search term details. </td></tr><tr><td colspan="1" rowspan="1"> Gender View </td><td colspan="1" rowspan="1" valign="top"> Returns the gender view details. </td></tr><tr><td colspan="1" rowspan="1"> Keyword View </td><td colspan="1" rowspan="1"> Returns the keyword view details. </td></tr><tr><td colspan="1" rowspan="1"> Location View </td><td colspan="1" rowspan="1"> Returns the location view details. </td></tr><tr><td colspan="1" rowspan="1"> Product Group View </td><td colspan="1" rowspan="1"> Returns the product group view details. </td></tr><tr><td colspan="1" rowspan="1"> Shopping Performance View </td><td colspan="1" rowspan="1"> Returns the shopping performance view details. </td></tr><tr><td colspan="1" rowspan="1"> Visit </td><td colspan="1" rowspan="1"> Returns details about visits. </td></tr><tr><td colspan="1" rowspan="1"> Webpage View </td><td colspan="1" rowspan="1"> Returns the webpage view details. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p><br/> Google Search Ads Manager Account </p></td><td colspan="1" rowspan="1"><p> Enter the id of the top level manager account, the authenticated user has access to. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="I am using the legacy SA360 Connector.  Can I use the same credentials or do I need to create a new Account?">
+
+If you have powered up the legacy SA360 Connector, you can use the same Account to power up the new SA360 Connector, but you must ensure the following additional steps first:
+
+1. Ensure that the client id and secret you are using have access to the Search Ads 360 Reporting API.  See
+   above for more information on enabling the API.
+2. Once you have updated the client id and secret, reauthenticate the connector Account.
+</Accordion>
+<Accordion title="How do I know which connector is using the new SA360 API and which connector is using the legacy SA360 API?">
+
+The new SA360 connector can be found on your instance at [https://your\_instance.domo.com/appstore/connectors/com.domo.connector.doubleclicksearchnew](https://your_instance.domo.com/appstore/connectors/com.domo.connector.doubleclicksearchnew "https://your_instance.domo.com/appstore/connectors/com.domo.connector.doubleclicksearchnew").  It has the following icons:
+
+<Frame><img src="/images/kb/ka0Vq0000001ABp-00N5w00000Ri7BU-0EMVq000000SLXl.jpg"/></Frame>
+
+The legacy SA360 connector can be found at [https://your\_instance.domo.com/appstore/connectors/com.domo.connector.doubleclicksearch](https://your_instance.domo.com/appstore/connectors/com.domo.connector.doubleclicksearch "The legacy SA360 connector can be found at https://your_instance.domo.com/appstore/connectors/com.domo.connector.doubleclicksearch.  It has the following icon:").  It has the following icons:
+
+<Frame><img src="/images/kb/ka0Vq0000001ABp-00N5w00000Ri7BU-0EMVq000000SLZN.jpg"/></Frame>
+</Accordion>
+<Accordion title="Can I run my legacy SA360 connector datasets in parallel with datasets I build on the new SA360 connector?">
+
+Yes, you can run your legacy SA360 datasets in parallel with datasets created on the new SA360 connector. The two connectors are separate, however, we do not recommend using the old connector to validate data in the new connector. We recommend using the new SA360 UI to validate the data.
+
+**Is there any way for me to upgrade my legacy SA360 datasets instead of having to build out new ones?  I have a lot of assets built on those datasets.**
+
+Unfortunately, there isn't a way to upgrade legacy SA360 datasets to use the new SA360 connector.  The new version of the API that the connector uses is significantly different from the legacy API.
+</Accordion>
+<Accordion title="The connector is asking for a Google Manager Account ID.  Where do I find that?">
+
+Your Google Manager Account ID is a 9-10 digit numeric that can be found next to your profile picture in the new SA 360 UI.  You can enter this numeric value with or without the dashes.
+</Accordion>
+<Accordion title="How do I know which report to use?  How do I map my old reports in the legacy connector to the new one?">
+
+The new SA360 Reporting API is significantly different from the legacy API.  Below is a list of commonly used reports in the legacy connector to the new connector.
+
+The full mapping of reports from the legacy API to the new API can be found here: [https://developers.google.com/search-ads/reporting/migrate/mappings/report-mappings](https://developers.google.com/search-ads/reporting/migrate/mappings/report-mappings "https://developers.google.com/search-ads/reporting/migrate/mappings/report-mappings").
+
+<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:196;a"><tbody><tr><td colspan="1" rowspan="1" valign="top"><p><b>Legacy connector report name</b></p></td><td colspan="1" rowspan="1" valign="top"><p><b>New connector report name</b></p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Account</p></td><td colspan="1" rowspan="1" valign="top"><p>Customer</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Ad</p></td><td colspan="1" rowspan="1" valign="top"><p>Ad</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Ad Group</p></td><td colspan="1" rowspan="1" valign="top"><p>Ad Group</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Ad Group Dynamic Search Ads Target,</p><p>Ad Group Remarketing List Target,</p><p>Ad Group Target</p></td><td colspan="1" rowspan="1" valign="top"><p>Use Ad Group Target for target information. For metrics, use Ad Group Audience View, Age Range View, Gender View, and Web Page View.</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Advertiser</p></td><td colspan="1" rowspan="1" valign="top"><p>Customer</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Campaign</p></td><td colspan="1" rowspan="1" valign="top"><p>Campaign</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Campaign Location Target, Campaign Target</p></td><td colspan="1" rowspan="1" valign="top"><p>Use Campaign Criterion to get the list of criterions. To get a segmented list of metrics use the Location View and the Campaign Audience View reports.</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Conversion</p></td><td colspan="1" rowspan="1" valign="top"><p>Use the Conversion report to get event-level conversion data. To get Flood Light Activity, use the Conversion Action report.</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Feed Item</p></td><td colspan="1" rowspan="1" valign="top"><p>Asset</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Keyword</p></td><td colspan="1" rowspan="1" valign="top"><p>Use the Ad Group Criterion report to get the list of ad group criterions. To get a segmented list of metrics use the Keyword View report.</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Paid And Organic</p></td><td colspan="1" rowspan="1" valign="top"><p>This is not currently available in the new SA360 API.</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Product Group</p></td><td colspan="1" rowspan="1" valign="top"><p>Product Group View</p></td></tr><tr><td colspan="1" rowspan="1" valign="top"><p>Product Target</p></td><td colspan="1" rowspan="1" valign="top"><p>Campaign Criterion</p></td></tr></tbody></table>
+</Accordion>
+
+<Accordion title="How do I map the fields and metrics I was using the fields and metrics in the new reports.">
+The names of many fields have changed as Google has renamed many of the objects or resources that the fields reside on. For the full list of changes, visit [https://developers.google.com/search-ads/reporting/migrate/mappings/field-mappings](https://developers.google.com/search-ads/reporting/migrate/mappings/field-mappings "https://developers.google.com/search-ads/reporting/migrate/mappings/field-mappings").
+
+Here are some guidelines for reading the field mappings:
+
+1. Search for the legacy API report name.  On the right-hand side of the page, you will see a list of reports
+   available in the legacy API, as shown below.
+
+<Frame><img src="/images/kb/ka0Vq0000001ABp-00N5w00000Ri7BU-0EMVq000000SLcb.jpg"/></Frame>
+
+2. You should now see a mapping of the field names in the old API to mappings of field names in the new API. 
+   The new field names generally have one of the following three formats:
+
+metrics*.metric\_name* e.g., the adWordsConversions metric in the Account report now maps to [metrics.client\_account\_conversions](https://developers.google.com/search-ads/reporting/api/reference/fields/v0/metrics#metrics.client_account_conversions "metrics.client_account_conversions")
+
+`segments.<segment_name>` e.g., the deviceSegment field in the Account report now maps to [segments.device](https://developers.google.com/search-ads/reporting/api/reference/fields/v0/segments#segments.device "segments.device")
+
+`resourceName.<attribute>`  e.g, the account field in the Account report now maps to customer.descriptive\_name
+
+Any field in the form of `metrics.<metric_name>` should be available in the corresponding report in the new SA360 connector in the “Metrics” selection box.  Similarly, any field in the form of `segments.<segment_name>` can be found in the “Segments” selection box of the corresponding report.
+
+A resource is an entity in the new SA360 such as, but not limited to campaign, ad group, and ad.  There is a report in the new connector for each resource.  Any attribute in the form of `resourceName.<attribute>` can be found in one of two places:
+
+1. If the resource is attributable to a particular object, then the resource can be selected in the report for that
+   object. For example, the account name in the old Ad report is now mapped to the customer.descriptive\_name field.  In the new Ad report, the customer resource is an attributed resource, so you can select attributes from the customer resource, such as descriptive\_name, in an Ad report dataset.
+2. Each resource has its report in the connector.  You can select the report corresponding to the resource.
+</Accordion>
+<Accordion title="I have looked through the mapping of the reports and field names, but I still can't find the field I was using before.">
+
+Google has retired some fields and has changed the behavior of several others.  See [https://developers.google.com/search-ads/reporting/migrate/mappings/behavior\_change\_fields](https://developers.google.com/search-ads/reporting/migrate/mappings/behavior_change_fields "https://developers.google.com/search-ads/reporting/migrate/mappings/behavior_change_fields") for a full list of retired fields and behavior changes.
+</Accordion>
+<Accordion title="The data in the new connector does not match with the data in the old connector.">
+
+This is expected. If you are validating data in the new connector, use the SA360 UI as opposed to any datasets on the old connector.
+</Accordion>
+<Accordion title="The available segments and metrics in the new connector do not match those in the legacy connector.">
+
+This is expected.  Google has changed the available fields, metrics, and segments in many of its reports.  Domo's connector does a dynamic lookup to determine which fields, metrics, and segments are available in any particular report.
+</Accordion>
+<Accordion title="I am getting an error message saying that the metrics I have selected cannot be used in the report I want to use.">
+
+In some cases, Google makes certain fields and metrics available but will throw an error if certain combinations of fields and metrics are selected.  Unfortunately, there is not a way for the connector to predetermine the invalid combinations and prevent these combinations from being selected.
+</Accordion>
+<Accordion title="The data in the new connector does not match what is in the old  UI.">
+
+This is expected. Compare the data in the new connector to the data in the new SA360 UI, and do not compare the data in the new connector to the data in the old connector, as they will not match.
+</Accordion>
+<Accordion title="The ID numbers for customers, etc do not match with the old connector.">
+
+This is expected.  With the new version of SA360, Google has changed the ID numbers associated with customers, ads, etc.  The new ID numbers cannot be derived from the ID numbers in the old version of SA360.
+</Accordion>
+<Accordion title="I am comparing my data in the new connector to the new SA360 UI and the data is not matching.">
+
+If the data in the new connector does not match the data in the new SA360 UI, contact Domo Support.
+
+Datasets built on the legacy SA360 connector can continue to run successfully until the legacy API is retired in June 2024.  After that date, the connector will no longer be able to bring in data from SA360.
+</Accordion>
+<Accordion title="What version of the Google Search Ads 360 (Doubleclick Search) API does this connector use?">
+
+This connector uses version 0 of the Google Search Ads 360 (Doubleclick Search) API ([https://searchAds360.googleapis.com/v0)](https://searchAds360.googleapis.com/v0)"https://searchAds360.googleapis.com/v0)").
+</Accordion>
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+</Accordion>
+</AccordionGroup>

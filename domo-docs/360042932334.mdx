@@ -1,0 +1,212 @@
+---
+title: "Google Sheets Writeback Connector"
+excerpt: "Use Domo's Google Sheets Writeback Connector to export data from a Domo DataSet into a Google Sheets spreadsheet."
+---
+
+## Intro
+
+Google Sheets is a spreadsheet program, part of a free, web-based software office suite offered by Google within its Google Drive service. The program allows users to create and edit spreadsheets online while collaborating with other users in real-time. To learn more about the Google API, visit their page ([https://developer.google.com](https://developer.google.com "https://developer.google.com") ).
+
+You export data to Google Sheets in the Data Center. This topic discusses the fields and menus that are specific to the Google Sheets Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+</Note>
+
+## Prerequisites
+
+To configure this connector, you will need the following:
+
+* A project created in the Google Developers Console with the Google Sheets API enabled.
+* A Google Service Token JSON file.
+
+The following steps explain in detail how to create your project and obtain the needed credentials.
+
+### Step 1: Creating a Project in the Google Developers Console
+
+To create a project in the Google Developers Console, do the following:
+
+1. Go to
+   [https://console.developers.google.com](https://console.developers.google.com "https://console.developers.google.com").
+2. Click the dropdown arrow next to
+   **My Project**.
+     
+   <Frame><img alt="googlesheets_writeback_1.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5e.png"/></Frame>
+
+3. Click
+   **New Project**.
+     
+   <Frame><img alt="googlesheets_writeback_2.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5Z.png"/></Frame>
+
+4. Name your project and select the parent folder.
+5. Click
+   **Create**.
+
+   <Note>
+   **Note:** You can also use an existing project if you want.
+
+   </Note>
+
+### Step 2: Enabling the Google Sheets API
+
+To enable the Google Sheets for your project, do the following:
+
+1. In the Google Developers Console, select your project and click
+   **Library**.
+     
+   <Frame><img alt="googlesheets_writeback_3.png" src="/images/kb/ka05w00000123QW-00N5w00000Ri7BU-0EM5w000005vOA9.png"/></Frame>
+
+2. Search for the Google Sheets API.
+3. Click
+   **Enable**.
+     
+   <Frame><img alt="googlesheets_writeback_4.png" src="/images/kb/ka05w000001275E-00N5w00000Ri7BU-0EM5w000005vO9t.png"/></Frame>
+
+### Step 3: Creating a Service Account
+
+To create a Service Account, do the following:
+
+1. In the Google Developers Console, open the
+   **Credentials** tab.
+2. Click
+   **+ Create Credentials** then select **Service account**.
+     
+   <Frame><img alt="Service_Account.png" src="/images/kb/ka05w000001275E-00N5w00000Ri7BU-0EM5w000005vO9n.png"/></Frame>
+
+3. Name the new Service account.
+4. Click
+   **Create and Continue**.
+5. In the
+   **Role** dropdown, select **Basic > Owner**.
+6. Click
+   **Done**.
+7. Click on the Email field under
+   **Service Accounts**.
+     
+   <Frame><img alt="Email_Account.png" src="/images/kb/ka05w000001275E-00N5w00000Ri7BU-0EM5w000005vO9o.png"/></Frame>
+
+8. Click on the
+   **Keys** option.
+     
+   <Frame><img alt="Keys.png" src="/images/kb/ka05w000001275E-00N5w00000Ri7BU-0EM5w000005vO9j.png"/></Frame>
+
+9. Click
+   **Add Key** and then select **Create New Key**.
+10. Choose
+    **JSON**, click **Create**.
+      
+    Select a safe location for the file as you will need it soon.
+      
+    <Frame><img alt="googlesheets_writeback_6.png" src="/images/kb/ka05w000001275E-00N5w00000Ri7BU-0EM5w000005vO9u.png"/></Frame>
+
+11. Copy the email address for the project you created.
+      
+    <Frame><img alt="googlesheets_writeback_8.png" src="/images/kb/ka05w000001275E-00N5w00000Ri7BU-0EM5w000005vO9s.png"/></Frame>
+
+12. Open
+    [https://sheets.google.com](https://sheets.google.com "https://sheets.google.com") and create a new sheet.
+13. Share the sheet with the email address you copied in step
+11. (The email address owner must have at least Editor-level privileges.)
+14. Copy the URL to the spreadsheet, as you will need it later.
+      
+    The spreadsheet URL should look similar to the following:
+      
+    [`docs.google.com/spreadsheets/d/<googlesheetID>/edit#gid=0`](http://docs.google.com/spreadsheets/d/<googlesheetID>/edit#gid=0)
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Google Sheets Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account as well as your Google Sheet. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Service Token JSON </p></td><td colspan="1" rowspan="1"><p> Paste the <strong>entire JSON object</strong> from the service-account key file you downloaded in Step 3: Creating a Service Account, in the "Prerequisites," above. Paste the file contents as-is, including the surrounding curly braces and every field (<code>type</code>, <code>project_id</code>, <code>private_key_id</code>, <code>private_key</code>, <code>client_email</code>, <code>client_id</code>, and so on). Do not paste only the <code>private_key</code> value or any other single field on its own. </p></td></tr></tbody></table>
+
+<Warning>
+**Warning:** A common cause of connection failures is pasting only the `private_key` value (or another single field) from the downloaded key file. The connector requires the complete JSON object exactly as Google generated it.
+</Warning>
+
+The downloaded key file looks similar to the following. Paste the whole block, including the outer `{ ... }`:
+
+```json
+{
+  "type": "service_account",
+  "project_id": "<your-project-id>",
+  "private_key_id": "<your-private-key-id>",
+  "private_key": "<your-full-PEM-encoded-private-key-block-here>",
+  "client_email": "<your-service-account>@<your-project-id>.iam.gserviceaccount.com",
+  "client_id": "<your-client-id>",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/<your-service-account>%40<your-project-id>.iam.gserviceaccount.com"
+}
+```
+
+Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-Google Sheets connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Input Sheet ID </td><td colspan="1" rowspan="1"><p> Enter the ID of the Google Sheet you want to push your data to. This is the portion of the URL between <span class="mt-font-courier-new"> /d/ </span> and <span class="mt-font-courier-new"> /edit </span>. For example, in the URL <span class="nowiki"><span class="mt-font-courier-new"><a href="https://docs.google.com/spreadsheets/d/18z/" rel="noopener" target="_blank"> https://docs.google.com/spreadsheets/d/18z/ </a></span><span class="mt-font-courier-new"> N0RQ8HIaEj2USwtAkCMX7AKBI-x-_vq24kPd4_Tsk/edit#gid=0 </span></span>, the ID is <span class="mt-font-courier-new"> N0RQ8HIaEj2USwtAkCMX7AKBI-x-_vq24kPd4_Tsk </span>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Input DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to a Google Drive folder. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following <span class="mt-font-courier-new"> datasources/ </span>. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Sheet Name </span></td><td colspan="1" rowspan="1"><p><span> Enter the sheet name. </span></p> <Note><div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> Note: </b> If you do not specify a sheet name, the connector will use the sheet name as 'Sheet1.' </div></div></div> </Note></td></tr></tbody></table>
+
+<Frame><img alt="Sheet_name.png" src="/images/kb/ka05w000001275E-00N5w00000Ri7BU-0EM5w000005vO9q.png"/></Frame>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+**Note:** Google Sheets writeback only supports replacing the entire sheet, and it does not support appending to a sheet.
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the service account key JSON of your Google Sheets Service Account.
+</Accordion>
+
+<Accordion title="Where can I find my service account key JSON?">
+
+To find your service account key JSON:
+
+- Open the IAM & Admin page in the GCP Console.
+- In the left navigation, click Service accounts.
+- Select your project and click Open.
+- Click Create Service Account.
+- Enter a service account name and service account description. Click Create.
+- Select a role you wish to grant to the service account (Project Owner). Click Continue.
+- Click Create key. Select JSON key type. Click Create. Private key will be saved to your computer.
+- Close the pop up. Click Done.
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+</Accordion>
+
+<Accordion title="How do I find the Input Dataset ID?">
+
+Your Domo input dataset id is in the URL of the dataset you are exporting data from. For example: 
+
+`https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings`
+</Accordion>
+
+<Accordion title="How do I find the Input Sheet ID?">
+
+The Input Sheet ID is the Google Sheet ID that has been shared with the Service Account you created.
+</Accordion>
+
+<Accordion title="What is the Sheet Name?">
+
+You need to provide the name for the sheet here. If you do not specify a sheet name, the connector will use the sheet name as 'Sheet1.'
+</Accordion>
+
+</AccordionGroup>

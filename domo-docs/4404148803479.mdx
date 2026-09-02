@@ -1,0 +1,71 @@
+---
+title: "DataSet Copy Unload Connector"
+excerpt: "Use the DataSet Copy Unload Connector to export Domo data to a DataSet in another Domo instance using Domo Developer client credentials."
+---
+
+## Intro
+
+With the DataSet Copy Unload connector, you can export data from Domo to your DataSet located at a specific instance. This connector allows you to connect with your Domo Developer account credentials (client id and client secret).
+
+You export your data in the Data Center. This topic discusses the fields and menus that are specific to the DataSet Copy Unload connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+</Note>
+
+## Prerequisites
+
+To configure this connector, you will need your Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the DataSet Copy Unload Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domo Client ID </td><td colspan="1" rowspan="1"> Enter your Domo client ID. </td></tr><tr><td colspan="1" rowspan="1"> Domo Client Secret </td><td colspan="1" rowspan="1"> Enter your Domo client secret. </td></tr></tbody></table>
+
+For more details about obtaining these credentials, see "Prerequisites."
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new DataSet Copy Unload connection. You can manage connector accounts in the
+
+**Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Input Domo DataSet ID </p></td><td colspan="1" rowspan="1"><p><span> Enter your Domo dataset ID (GUID) located in the dataset URL. </span></p><p><span> Example: <a href="https://customer.domo.com/datasources/" rel="noopener" target="_blank"> https://customer.domo.com/datasources/ </a></span><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee </b><span> /details/settings </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Input Source Domo DataSet Instance </p></td><td colspan="1" rowspan="1"><p><span> Enter your input Domo dataset instance name located in the dataset URL. </span></p><p><span> Example: https:// </span><b> customer </b><span>. <a href="http://domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings" rel="noopener" target="_blank"> domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings </a></span></p></td></tr><tr><td colspan="1" rowspan="1"> Use High Bandwidth Upload </td><td colspan="1" rowspan="1"> Select this checkbox to use high bandwidth upload transfer. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to power up this Connector?">
+
+You need your Domo client ID and client secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+
+</Accordion>
+
+<Accordion title="How do I find the Input Dataset ID?">
+
+Your Domo input dataset id is in the URL of the dataset you are exporting data from.
+
+Example: `https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings`
+
+</Accordion>
+
+<Accordion title="How do I find the Input Source Dataset instance?">
+
+Your Domo input dataset instance name is located in the URL of the dataset you are exporting data from.
+  
+Example:` https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings`
+
+</Accordion>
+</AccordionGroup>
+

@@ -1,0 +1,74 @@
+---
+title: "Amazon Redshift Domo Managed Unload"
+excerpt: "Use the Amazon Redshift Domo Managed Unload connector to retrieve data from an Amazon Redshift data warehouse and create Domo DataSets."
+---
+
+## Intro
+
+Amazon Redshift is a fast and powerful, fully managed, petabyte-scale data warehouse service in the cloud.
+
+You connect to your Amazon Redshift Unload account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon Redshift Unload connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to Amazon Redshift so you can begin creating Amazon Redshift Unload DataSets, you must have the following:
+
+* The hostname for the Redshift database
+* The database name for the Redshift database
+* Your Redshift username and password
+* The port number of your Redshift database
+
+CA certificate text or URL path is required *only* if you select **Certificate string** or **URL path**, respectively, in the **Certificate type** menu.
+
+If you do not know any of the information for Redshift, contact your Amazon Redshift Database Administrator.
+
+### Whitelisting
+
+Before you can connect to Redshift, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093 "Whitelisting IP Addresses for Connectors").
+
+## Connecting to Your Amazon Redshift Unload Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Amazon Redshift Unload Connector page. The components of the other panes on this page, **Scheduling** **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Amazon Redshift Unload account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the hostname for the Redshift database you want to pull data from. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> Enter the database name for the Redshift database you want to pull data from. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username for your Redshift account, </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password for your Redshift account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number for the Redshift database you want to pull data from. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Format </p></td><td colspan="1" rowspan="1"><p> Select a certificate format. If you do not want to include a certificate, leave the default <b> No certificate </b> option selected. If you select <b> Certificate string </b>, you must paste the text for your certificate in the <b> Certificate </b> field. If you select <b> URL path </b>, you must enter the URL where your certificate is located in the <b> Certificate </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> Paste the text for your CA certificate or enter the URL where your certificate is located. This is optional. If you do not want to include a certificate, select <b> No certificate </b> in the <b> Certificate Format </b> menu. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new Amazon Redshift Unload DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains various options for specifying the data you want to pull into Domo.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><p> Select the desired query type. If you select <b> Query </b>, you will be prompted to enter a regular SQL query without a parameter. If you select <b> Query Parameter </b>, you will be prompted to enter a SQL query with a parameter. </p><table border="1"><tbody><tr><td class="wysiwyg-text-align-center" colspan="1" rowspan="1"><b> Query Type </b></td><td class="wysiwyg-text-align-center" colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><span> Custom Query </span></td><td colspan="1" rowspan="1"><span> Enter the SQL query to execute. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Query Builder </span></td><td colspan="1" rowspan="1"><span> Select schema, database table, and column names(fields) to auto-generate your query. </span></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> How would you like to import data? </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1"> Standard update (replace/append) </td></tr><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1"> User partition </td></tr><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1"> Use upsert </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the SQL query you want to use to pull in data. </p><p> For example: </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> You can use the <b> Generated Query </b> parameter to help you write a usable SQL query. To use the <span></span><b> Generated Query </b>, do the following: </p><ol><li><p> Select your database table and table columns in the appropriate menus. </p></li><li><p> Copy the SQL statement that appears in the <b> Generated Query </b> field. </p></li><li><p> Paste the copied SQL statement into the <b> Query </b> field. </p></li></ol><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Tables </p></td><td colspan="1" rowspan="1"><p> Select the database tables you want to pull into Domo if desired. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns </p></td><td colspan="1" rowspan="1"><p> Select the table columns you want to pull into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Update Method </p></td><td colspan="1" rowspan="1"><p><span> When Domo retrieves your data from the source, you can determine how that new data is imported into the current DataSet. We advise you to always use the Merge method, but we also offer Append and Replace if you need it. </span></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Merge </td><td colspan="1" rowspan="1"><span> This method will replace all updated rows, while any new rows will be appended. </span></td></tr><tr><td colspan="1" rowspan="1"> Append </td><td colspan="1" rowspan="1"><span> This method will take your new data and add it to your current DataSet. Using this may create duplicate data entries. </span></td></tr><tr><td colspan="1" rowspan="1"> Replace </td><td colspan="1" rowspan="1"><span> This method will take your current DataSet and replace it with new data. Using this may result in some data loss. </span></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Basic Scheduling </p></td><td colspan="1" rowspan="1"><div class="display-block margin-bottom-small"><span> Choose a predefined update schedule (every day between 9 AM and 10 AM) </span></div><ul class="Schedule_basicBullet_1LCGk margin-bottom-small"><li><span> Specify a daily window of activity for 15-minute, 30-minute, and hour intervals </span></li></ul><div class="display-block"><span> With a <b> Manual schedule </b>, you can opt-in to receive a reminder when the data needs to be updated </span></div></td></tr><tr><td colspan="1" rowspan="1"><p> Advance Scheduling </p></td><td colspan="1" rowspan="1"><div class="display-block margin-bottom-small"><div class="db-text-body bold margin-bottom-small"><span> Advanced Scheduling </span></div><div class="display-block margin-bottom-small"><span> Define a fine-grained schedule with a specific time or update frequency </span></div><ul class="Schedule_basicBullet_1LCGk"><li class="margin-bottom-small"><span> Limit the schedule to run on specific days and months </span></li><li class="margin-bottom-small"><span> Start scheduled updates on a future date with <b> Delay Start </b></span><span></span></li></ul><p><b> Note: </b> Schedules are set from the current time in UTC </p></div></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+This depends on your server configuration.
+
+</Accordion>
+
+<Accordion title="Why can't I connect to my Redshift database? Do I need to whitelist any IP addresses?">
+
+Before you can connect to a Redshift database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see
+
+[Whitelisting IP Addresses](/s/article/360043630093 "Whitelisting IP Addresses for Connectors").
+
+</Accordion>
+</AccordionGroup>
+

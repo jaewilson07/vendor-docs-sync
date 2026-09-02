@@ -1,0 +1,248 @@
+---
+title: 'Workbench Writeback to ODBC'
+excerpt: "Use the Workbench ODBC Writeback plug-in to securely write Domo DataSets to an on-prem database via a system DSN."
+---
+
+## Intro
+
+This article describes how to write a DataSet from Domo into an on-prem database using Workbench writeback. Following this process allows you to securely move your data from Domo into your on-prem system with all the same security features and benefits that come with standard Workbench.
+
+---
+
+## Install the ODBC Writeback Plug-in
+
+<Warning>
+**Important:** If you don't already have Workbench installed, install the latest version of Workbench as an admin. You must install Workbench on a Windows server or laptop that has access to the database server; you do not necessarily need to install it on the database server itself. For more information, see the [Workbench installation guide](/s/article/4406022964375).
+
+</Warning>
+
+1. After you have Workbench 5 or above installed, download the ODBC Writeback plug-in by selecting this link:
+   [https://app.domo.com/workbench/plugins/beta5/OdbcWritebackDataProvider.dwp](https://app.domo.com/workbench/plugins/beta5/OdbcWritebackDataProvider.dwp 'https://app.domo.com/workbench/plugins/beta5/OdbcWritebackDataProvider.dwp')
+2. After downloading the plug-in, add it to Workbench. See how to do this in
+   [Manage Plugins in Workbench 5](/s/article/360043437353).
+3. Restart Workbench.
+
+## Get Client ID and Secret
+
+Please refer to [Creating a Developer Client and Auth Token](/s/article/000005240#create-api-clients) for instructions on how to get your Client ID and Secret.
+
+## Get DataSet ID
+
+1. In your Domo instance, navigate to the Data Center and the Details view of the DataSet you want to write back to your on-prem database.
+2. In the address bar of the webpage, locate and copy the DataSet ID and save it for later. It is the string between the
+   _datasources/_ and the _/details_.
+
+   <img src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v1wj.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
+
+## Set Up DSN
+
+To use the ODBC to connect to the server, you must have a system data source name (DSN). Follow the steps below to set up the DSN.
+
+1. On the server where Workbench is installed, select
+   **Start** and enter
+
+   ```
+   odbc
+   ```
+
+   You will likely need ODBC data sources (64 bit).
+
+2. Navigate to
+   **System DSN** and select **Add**.
+3. Select
+   **SQL Server Native Client**. If you do not see that option, download it by selecting this link:
+   https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16
+
+   The **Microsoft SQL Server DSN Configuration** wizard displays.
+
+   <Frame>
+     <img
+       alt="select sql server native client.png"
+       src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v25v.jpg"
+     />
+   </Frame>
+
+4. Enter a name for this DSN in the
+   **Name:** field.
+5. Enter the name of the SQL Server in the
+   **Server:** field.
+
+   <Frame>
+     <img
+       alt="dsn config wizard.png"
+       src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v28k.jpg"
+     />
+   </Frame>
+
+6. Select
+   **Finish**.
+
+The DSN displays in the **System** tab of the **ODBC Data Source Administrator (64-bit)**.
+
+<Frame>
+  <img
+    alt="system dsn tab.png"
+    src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v294.jpg"
+  />
+</Frame>
+
+## Add Account in Workbench
+
+1. On this same server, open Workbench.
+
+   **Note:** If you had Workbench open during DSN setup, we recommend that you restart Workbench.
+
+2. Select **Start** and enter:
+
+   ```
+   workbench
+   ```
+
+   or
+
+   ```
+   domo
+   ```
+
+   in the search bar.
+
+3. In the sidebar, select <img src="/images/kb/ka05w00000123tU-00N5w00000Ri7BU-0EM5w000005vPQ5.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Accounts**.
+4. Select <img src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2Zq.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Add**.
+
+   <Frame>
+     <img
+       alt="add account.jpg"
+       src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v5El.jpg"
+     />
+   </Frame>
+
+5. In the
+   **Overview** tab, enter the name of your Domo instance in the **Domo domain** field.
+6. Select
+   **Authorize**.
+7. Follow the authorization link in your browser and when prompted for a code, paste in the code from the
+   **Authorization code** field in Workbench.
+8. Close the browser window when prompted.
+9. In Workbench, select
+   <i className="icon-save sm" aria-hidden="true" />
+   **Save** to add your new account.
+
+## Create Job in Workbench
+
+1. In the sidebar, select
+   <img src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v5Eq.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
+   **Jobs**.
+2. Select
+
+   <img src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2Zq.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
+   **Add**.
+
+   <Frame>
+     <img
+       alt="add job.jpg"
+       src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v5F5.jpg"
+     />
+   </Frame>
+
+3. In the
+   **Job Details** section, select the Domo domain, enter a job name, select a transport type, and select a reader type.
+4. In the
+   **Domo Details** section, enter a name in the **DataSet Name** field. <img src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2ae.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
+
+   **Note:** The DataSet Name that you enter is NOT the DataSet that is being written back. It refers to the name of the log table that Domo creates.
+
+   <Frame>
+     <img
+       alt="wb log.jpg"
+       src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2at.jpg"
+     />
+   </Frame>
+
+5. Under
+   **Source**, select **Edit**.
+6. Enter the
+   [Client ID and secret](#get-client-id-and-secret) that you copied earlier in this process in the **Domo Client Id** and **Domo Client Secret** fields.
+7. Enter the
+   [DataSet ID](#get-dataset-id) that you copied earlier in the **Domo Dataset Id** field. We do not recommend using **Browse**.
+
+   <Frame>
+     <img
+       alt="generate query.png"
+       src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2br.jpg"
+     />
+   </Frame>
+
+8. Select
+   **Generate Dataset Query**. A query is generated that you can edit to only include the columns that you want to write back. <img src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2bw.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> <img src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2c1.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
+
+   **Note:** Make sure that the user that is logged in to Workbench has access to this DataSet. If they have an Admin security role, the DataSet does not need to be individually shared with them. Learn about sharing DataSets in [Share a DataSet](/s/article/360043430713).
+
+9. Select an
+   **ODBC Connection Type**.
+
+   <Frame>
+     <img
+       alt="odbc connection type.png"
+       src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2cB.jpg"
+     />
+   </Frame>
+
+10. Select
+    **DataBase Type**.
+11. Select
+    **Generate Writeback Query**.
+
+    <Frame>
+      <img
+        alt="generate writeback query.png"
+        src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2cG.jpg"
+      />
+    </Frame>
+
+    **Note:** By default, Domo generates a query for all columns. If you adjusted the query above, make sure to update the Writeback Query String.
+
+    <Frame>
+      <img
+        alt="adjusted writeback.png"
+        src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2cV.jpg"
+      />
+    </Frame>
+
+    **Note:** Domo does not create a table on the database. You need to create it first. Here is an example of a table created in SQL server:
+
+    ```sql
+    create table database1.dbo.domo_widgets
+    (id numeric(18,0)
+    , widget_id numeric (18,0)
+    , qty numeric(18,2)
+    , amount numeric (18,2)
+    )
+    ```
+
+    This is the updated query after creating the table:
+
+    <Frame>
+      <img
+        alt="updated wb query.png"
+        src="/images/kb/ka0Vq0000001Cbp-00N5w00000Ri7BU-0EM5w000006v2cu.jpg"
+      />
+    </Frame>
+
+12. **Processing (Edit) Section —**
+    There is nothing you need to do in this section. Workbench initiates the data connection. It connects to the Domo DataSet and pulls it back as a CSV first and uses this CSV file to load into the SQL server.
+13. **Update Method —**
+    This is not the update method to the target database. This tells Domo whether to append or replace the log table that is created within the Domo instance.
+14. Set up
+    [impersonation](/s/article/360043437173#impersonation). This allows Workbench to run as the active directory user.
+15. Execute the job.
+
+## Notes
+
+- In the
+  **Writeback Query** section, you can only run one statement at a time.
+- There is a default value of 25. Domo writes back all the records from the DataSet, not only the 25. Leave that as is.
+- There is a limit of one million (1M) rows in Workbench Writeback due to the endpoint that is used.
+- Workbench writeback is designed to only run one query at a time. You cannot add more than one Data Manipulation Language (CML) command: Insert, Delete, Update, Merge. Even if you add more than one, Domo only processes one at a time. It does allow alter statements. Per product, even if you include two statements, Domo does not guarantee the integrity of the second statement.
+- Workbench creates a log table with the same name as the DataSet name mentioned in the
+  **Overview** tab.
+- With normal writeback, you have the option to trigger a writeback when the input DataSet is refreshed. With Workbench writeback, however, you are only able to schedule it. This is a security feature and the connection is initiated from Workbench.

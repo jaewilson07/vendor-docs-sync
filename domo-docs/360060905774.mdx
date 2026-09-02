@@ -1,0 +1,200 @@
+---
+title: "Salesforce with Upsert Connector"
+excerpt: "Configure Domo's Salesforce with Upsert Connector to pull data from Salesforce and merge updates into a DataSet using upsert, append, or replace modes."
+---
+
+## Intro
+
+The Domo Salesforce connector integrates Domo with Salesforce to extract data from API-enabled editions of Salesforce (currently Enterprise and Unlimited). To establish the connection between Domo and Salesforce, an API-enabled user must first authenticate to Salesforce and then grant Domo permission to access to their data. You can then compile reports based on Salesforce data. The Salesforce Upsert connector supports the upsert mode along with append and replace modes, for scheduling datasets. To learn more about the Salesforce API, visit any of the following:
+
+* [https://www.salesforce.com/developer/docs/api/](https://www.salesforce.com/developer/docs/api/ "https://www.salesforce.com/developer/docs/api/")
+* [http://resources.docs.salesforce.com...\_reference.pdf](http://resources.docs.salesforce.com/200/9/en-us/sfdc/pdf/salesforce_field_names_reference.pdf "http://resources.docs.salesforce.com/200/9/en-us/sfdc/pdf/salesforce_field_names_reference.pdf")
+* [https://developer.salesforce.com/doc...data\_model.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/data_model.htm "https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/data_model.htm")
+
+The Salesforce with Upsert connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Salesforce account in the Data Center. This topic discusses the fields and menus that are specific to the Salesforce with Upsert connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Primary Use Cases </b></td><td colspan="1" rowspan="1"><p> This connector is appropriate for pulling data from any API-enabled editions of Salesforce, such as leads, pipeline activity, and so on. </p></td></tr><tr><td colspan="1" rowspan="1"><b> Primary Metrics </b></td><td colspan="1" rowspan="1"><ul><li><p> Number of Leads </p></li><li><p> Pipeline Amount </p></li><li><p> Bookings </p></li><li><p> Cases </p></li><li><p> Meetings </p></li><li><p> Portfolio Activity </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Primary Company Roles </b></td><td colspan="1" rowspan="1"><p><span> Salesforce has broad functionality and applies to many functions (e.g. Sales, Marketing, HR, Operations, Finance, IT, etc...) and also roles (analyst, sales rep, manager, VP, etc...). It all depends on how Salesforce was implemented, and the objects/modules created. </span></p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Average Implementation Time </b></td><td class="mt-noheading" colspan="1" rowspan="1"><span> Depends on the object/report/data size, but Salesforce is very quick to implement. It would take minutes to pull data through once you identify what you need. A very large data pull (millions of rows) would take about an hour. </span></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></td><td colspan="1" rowspan="1"><span> 4 </span></td></tr></tbody></table>
+
+## Best Practices
+
+When using the Object Browser mode, Salesforce includes related objects (e.g. Opportunity and Account), so fields from each related object can be brought into the same DataSet. This prevents you from having to always pull in the objects independently (i.e. a separate Opportunity object and Account object) and join them in a DataFlow.
+
+## Prerequisites
+
+To connect to your Salesforce account and create a DataSet, you must have the following:
+
+* The username  and password for your Salesforce account
+* An installed Domo Connector Package from the Salesforce AppExchange (required as of August 1, 2018; see next section for installation instructions)
+
+### Installing the Domo Connector Package
+
+The "Domo Connector Package" found in Salesforce AppExchange allows Salesforce users to import their data into Domo. Follow these instructions to download and install the Connector Package from the AppExchange.
+
+**To install Domo's Salesforce Managed Package,**
+
+1. Log into Salesforce.
+2. Navigate to the Salesforce AppExchange at
+   [https://appexchange.salesforce.com](https://appexchange.salesforce.com "https://appexchange.salesforce.com") and search for "Domo Connector Package," then click on it.
+     
+   <Frame><img alt="sfmp_1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyZ.png"/></Frame>
+
+3. Customers can go directly to the package with the following link:
+     
+   [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN "Follow link")
+4. If you are installing into a sandbox organization you must replace the initial portion of the URL with
+   [http://test.salesforce.com](http://test.salesforce.com/ "Follow link")
+     
+   Alternatively, you can go directly to [https://appexchange.salesforce.com/a...A00000EcrsyUAB](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB").
+5. Click
+   **Get It Now**.
+     
+   <Frame><img alt="sfmp_2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyV.png"/></Frame>
+
+6. Choose whether you want to install in a production environment or sandbox.
+     
+   <Frame><img alt="sfmp_3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyK.png"/></Frame>
+
+7. Check the box reading "I have read and agree to the terms and conditions."
+8. Click
+   **Confirm and Install**.
+     
+   <Frame><img alt="sfmp_4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyW.png"/></Frame>
+
+9. Click the
+   **Install for All Users** tile.
+     
+   <Frame><img alt="sfmp_5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyP.png"/></Frame>
+
+For more details, see Salesforce's documentation at [https://help.salesforce.com/articleV...ges.htm&type=5](https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5 "https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5").
+
+### Verifying your Installation
+
+Use Domo's Salesforce Managed Package Validator to verify that your Salesforce Managed Package has been installed correctly.
+
+**To verify your installation,**
+
+1. In the Connectors page in either the Data Center or Appstore in Domo, search for "Salesforce Managed Package" and double-click on on the icon.
+2. Customers can go directly to the package with the following link:
+   [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN "Follow link")
+3. If you are installing into a sandbox organization you must replace the initial portion of the URL with
+   [http://test.salesforce.com](http://test.salesforce.com/)
+
+   <Frame><img alt="sfmp_v1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyJ.png"/></Frame>
+
+4. Click
+   **Get the Data**.
+     
+   <Frame><img alt="sfmp_v2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyQ.png"/></Frame>
+
+5. Under
+   **Credentials**, select your Salesforce account name, then click **Next**.
+     
+   <Frame><img alt="sfmp_v3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyT.png"/></Frame>
+
+6. Under
+   **Details**, click **Next**.
+     
+   <Frame><img alt="sfmp_v4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyL.png"/></Frame>
+
+7. In the
+   **Update** menu, select **Manually**, then click **Next**.
+     
+   <Frame><img alt="sfmp_v5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyN.png"/></Frame>
+
+8. Give your DataSet a name, then click
+   **Save**.
+     
+   <Frame><img alt="sfmp_v6.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyb.png"/></Frame>
+
+The DataSet now runs. If everything has been set up correctly, the run will be successful, and a message will appear reading, "Validation Success: You have set up your Salesforce Managed Package correctly."
+
+<Frame><img alt="sfmp_v7.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyM.png"/></Frame>
+
+If everything has *not* been set up correctly, the DataSet fails, and a message appears reading, "You have not installed Salesforce's Domo Connector Package," with a help link to this article.
+
+<Frame><img alt="sfmp_v8.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyO.png"/></Frame>
+
+## Connecting to Your Salesforce Account
+
+This section enumerates the options in the Credentials and Data Selection panes in the Salesforce with Upsert Connector page. The components of the other panes in this page, **Scheduling**
+
+, and **Name & Describe Your DataSet**
+
+, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Salesforce with Upsert connector uses OAuth to connect, so there is no need to enter credentials within Domo. Choose an environment in the Salesforce Environment menu then click Connect to open the Salesforce login screen. Here you can enter your Salesforce username and password. Once you have entered valid Salesforce credentials, you can use the same account any time you go to create a new Salesforce Upsert DataSet. You can manage connector accounts in the **Accounts**
+
+tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Data Selection Pane
+
+This pane contains a primary **How Do You Want to Select Your Salesforce Data** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> How Do You Want to Select Your Salesforce Data? </p></td><td colspan="1" rowspan="1"><p> Select the method you want to use to pull data from Salesforce. Methods are as follows: </p><ul><li> Browse Objects and Fields - Lets you select Salesforce objects with associated fields and relationships. </li><li> Query - Lets you enter SOQL queries to retrieve data. </li><li> Tabular Reports - Lets you retrieve your tabular reports in Salesforce. </li><li> Sharing Rules Settings - Lets you retrieve your sharing rules from Salesforce.. </li></ul></td></tr><tr><td colspan="1" rowspan="1"> Type of Records to Retrieve </td><td colspan="1" rowspan="1"> Select whether you want to retrieve only active records or include deleted records in the search as well. </td></tr><tr><td colspan="1" rowspan="1"> Unique Field to Retrieve More Than 2000 Rows </td><td colspan="1" rowspan="1"> Select the field that contains a unique value for each row of the report. It will be used to retrieve more than 2000 rows of data. </td></tr><tr><td colspan="1" rowspan="1"><p> Query Option </p></td><td colspan="1" rowspan="1"><p> Select a predefined query (<b> Sales Performance </b> or <b> User Images </b> ) or create your own query (<b> Custom </b> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter your Salesforce SOQL query here. For example: </p><p><span class="mt-font-courier-new"> SELECT <em> Account </em> FROM Account </span></p><p> For more information about writing SOQL queries, see <a href="http://www.salesforce.com/us/developer/docs/officetoolkit/Content/sforce_api_calls_soql.htm" target="_blank"> http://www.salesforce.com/us/developer/docs/officetoolkit/Content/sforce_api_calls_soql.htm </a>. </p></td></tr><tr><td colspan="1" rowspan="1"> Reset Schema </td><td colspan="1" rowspan="1"><p> Choose an option for resetting the columns in your data. In general, you will want to choose the second option when changing the selected fields or custom query. You will then run the DataSet, then switch to the first option to maintain the schema for subsequent runs to avoid data type issues. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+Salesforce is generally a very stable connector so there are just a few common issues that arise with it. Most of the issues are due to insufficient permissions (on both the object and the field). Your Salesforce admin should be able to upgrade permissions on specific objects and fields.
+
+Another common error is the “Query Locator Error.” Salesforce only keeps 10 query locators at a time for a single user and for a maximum of 15 minutes. If too many DataSets are running at the same time, some of these will fail. The best way to avoid this issue is to spread out the times when the DataSets are running.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What version of the Salesforce API does this connector use?">
+
+This connector uses version 62.0 of the Salesforce API (`https://{customer instance}.salesforce.com/services/data/v62.0`).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> Browse Objects and Fields </td><td colspan="1" rowspan="1"> /query </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> /query </td></tr><tr><td colspan="1" rowspan="1"> Tabular Reports </td><td colspan="1" rowspan="1"> /analytics/reports/{reportId}/describe </td></tr><tr><td colspan="1" rowspan="1"> Sharing Rules and Settings </td><td colspan="1" rowspan="1"> /knowledgeManagement/settings </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need to select the Salesforce environment you would like to authenticate against, and the email address and password associated with your Salesforce account.
+
+</Accordion>
+
+<Accordion title="How do I know my Salesforce account credentials are secure?">
+
+The login process uses the OAuth process so your Saleforce credentials are never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="I keep getting an &quot;INVALID\_QUERY\_LOCATOR&quot; error. How do I fix that?">
+
+Salesforce allows a user to run a maximum of 10 queries at a time. Make sure your dataset runs are spread out.
+
+</Accordion>
+
+<Accordion title="I keep getting a &quot;QUERY\_TIMEOUT&quot; error. How do I fix that?">
+
+This error appears if your SOQL query exceeds 20K character limit or contains too many formula fields. To fix this issue you need to simplify your query.
+
+</Accordion>
+
+<Accordion title="Why do I not see my reports in the report drop-down menu?">
+
+Before reports can appear in the connector and pull in data, reports must be in table format and made public.
+
+</Accordion>
+
+<Accordion title="What's the difference between the Salesforce connector and the Salesforce with Upsert connector?">
+
+The Salesforce with Upsert connector allows a Merge mode that replaces all updated rows, while any new rows are appended for scheduling datasets along with the Replace and Append modes.
+
+</Accordion>
+</AccordionGroup>
+

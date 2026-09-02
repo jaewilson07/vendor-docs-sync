@@ -1,0 +1,48 @@
+---
+title: "Bubble Chart (Deprecated)"
+excerpt: "Reference for the deprecated Bubble chart type in Domo, including DataSet column requirements and chart-property customization options."
+---
+
+## Intro
+
+<Warning>
+  **Important:** The Bubble chart type has been deprecated, it is now part of the [Scatter Plot Chart](/s/article/360042924694).
+
+</Warning>
+
+Similar to [scatter plot charts](/s/article/360042924694 "Scatter Plot Graph"), bubble charts have two value scales, and x and y coordinate pairs are plotted on the chart. bubble charts are more complex than scatter plot charts in that they include an additional dimension—bubble size. The size of any bubble on the chart is relative to the size of the other bubbles in the chart. For example, if your chart contained two series, one with a size value of 25 and the other with a size value of 50, the bubble with a value of 50 would appear twice the size of the smaller bubble in the chart.
+
+You can also apply timeline data instead of value data to the x-axis. In this case, all bubbles are plotted on their appropriate date/time lines. The position of a bubble on a given line is still determined by its y coordinate value, however.
+
+## Powering bubble charts
+
+A bubble chart requires three columns or rows of data from your DataSet:
+
+* A column or row containing values to be measured on the y-axis.
+* A column or row containing values or date-time data to be measured on the x-axis
+* A column or row containing size values for each bubble.
+
+You can also add an optional series column if you want. If you do not include a series column, no legend appears. Prior to our August 2017 release, series data was required, but this is no longer the case. You can still use the old version of the chart by selecting the bubble (Legacy) chart type.
+
+<Note>
+  **Note**: When you drill down into a bubble chart, you can drill into the series data only, *not* the x- or y-axis data. For more information about drilling into data, see [Drilling into Data](/s/article/360042923994 "Drilling into Data").
+
+</Note>
+
+For information about value, category, and series data, see [Understanding Chart Data](/s/article/360043428693 "Understanding Chart Data").
+
+In the Analyzer, you can choose the columns containing the data for your bubble chart. For more information about choosing data columns, see [Applying DataSet Columns to Your Chart](/s/article/360043428713 "Applying DataSet Columns to Your Chart").
+
+For more information about formatting charts in the Analyzer, see [KPI Card Building Part 2: The Analyzer](/s/topic/0TO5w000000ZaoUGAS "KPI Card Building Part 2: The Analyzer").
+
+The following chartic shows how the data from a typical column-based spreadsheet is converted into a standard x-y coordinate bubble chart:
+
+<Frame><img alt="" src="/images/kb/ka05w00000123pN-00N5w00000Ri7BU-0EM5w000005vPHe.png"/></Frame>
+The following chartic shows how the data from a typical column-based spreadsheet is converted into a bubble chart with date-time data:
+
+<Frame><img alt="" src="/images/kb/ka05w00000123pN-00N5w00000Ri7BU-0EM5w000005vPHV.png"/></Frame>
+## Customizing bubble charts
+
+You can customize the appearance of a bubble chart by editing its chart properties. For information about all chart properties, see [Chart Properties](/s/topic/0TO5w000000ZaodGAC "Chart Properties"). Unique properties of bubble charts include the following. You can click a thumbnail image to see a larger image.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:198;a"><thead><tr><th colspan="1" rowspan="1"><p> Property </p></th><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Example </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Grid Lines &gt; Hide All Grids </p></td><td colspan="1" rowspan="1"><p> Turns off grid lines. This is useful when you want to create a "quadrant chart" (that is, a chart divided into four sections using two coordinate lines). </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> Grid Lines &gt; Y Zero Line Color </p></td><td colspan="1" rowspan="1"><p> Determines the color of the horizontal "zero line" in bubble and scatter plot charts. This attribute does not work if the zero line is also the baseline in the chart (that is, the chart must contain negative values). In the example, the color has been set to red. </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1336/y_zero_line_color.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7p.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Grid Lines &gt; Y Zero Line Width </p></td><td colspan="1" rowspan="1"><p> Determines the width of the horizontal "zero line" in bubble and scatter plot charts. This attribute does not work if the zero line is also the baseline in the chart (that is, the chart must contain negative values). In the example, this property has been set to <code> 5 </code>. </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1335/y_zero_line_width.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7z.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Grid Lines &gt; X Zero Line Color </p></td><td colspan="1" rowspan="1"><p> Determines the color for the vertical "zero line" in bubble and scatter plot charts. This attribute does not work if the vertical zero line is the leftmost line in the chart (that is, the chart must contain negative values). In the example, the color has been set to red. </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1337/x_zero_line_color.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP81.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Grid Lines &gt; X Zero Line Width </p></td><td colspan="1" rowspan="1"><p> Determines the width of the vertical "zero line" in bubble and scatter plot charts. This attribute does not work if the zero line is the leftmost line in the chart (that is, the chart must contain negative values). In the example, this property has been set to <code> 5 </code>. </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1334/x_zero_line_width.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7r.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Quadrant Lines &gt; X Scale Value </p></td><td colspan="1" rowspan="1"><p> Allows you to set the value for the vertical quadrant line when creating a "quadrant chart." If you do not specify a value for this property, no vertical quadrant line appears. </p><p> The example shows a bubble chart in which both the X and Y scale quadrant lines have been set to the midpoint value of 50. This dissects the chart into four quadrants of equal area. </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/990/quadrant_lines.png"><img alt="" src="/images/kb/ka05w00000123pN-00N5w00000Ri7BU-0EM5w000005vPHg.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Quadrant Lines &gt; Y Scale Value </p></td><td colspan="1" rowspan="1"><p> Allows you to set the value for the horizontal quadrant line when creating a "quadrant chart." If you do not specify a value for this property, no horizontal quadrant line appears. </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> Regression Lines &gt; Show Linear Regression Lines </p></td><td colspan="1" rowspan="1"><p> Allows you to add a regression line for each series in a scatter plot or bubble chart. </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1352/scatter_with_regression_line.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7v.png"/></a></p></td></tr></tbody></table>

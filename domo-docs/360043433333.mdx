@@ -1,0 +1,38 @@
+---
+title: "Google PageSpeed Insights Connector"
+excerpt: "Use the Google PageSpeed Insights connector with an API key to pull page performance data into a Domo DataSet."
+---
+
+## Intro
+
+Google PageSpeed Insights can help you identify ways to make your site faster and more mobile-friendly. To learn more about the Google PageSpeed Insights API, visit their page ([https://developers.google.com/speed/...peed/insights/](https://developers.google.com/speed/pagespeed/insights/ "https://developers.google.com/speed/pagespeed/insights/") ).
+
+You connect to your Google PageSpeed Insights account in the Data Center. This topic discusses the fields and menus that are specific to the Google PageSpeed Insights connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to Google PageSpeed Insights and create a DataSet, you must have a Google PageSpeed Insights API key. To learn how to get set up in the Google PageSpeed Insights development environment and generate an API key, see [https://developers.google.com/speed/...rst-app#APIKey](https://developers.google.com/speed/docs/insights/v2/first-app#APIKey "https://developers.google.com/speed/docs/insights/v2/first-app#APIKey").
+
+You must also have API access in your PageSpeed account before the connector will work. For more information, see [https://console.developers.google.com/apis/api/pagespeedonline/overview](https://console.developers.google.com/apis/api/pagespeedonline/overview "Follow link").
+
+## Connecting to the Google PageSpeed Insights API
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Google PageSpeed Insights Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to the Google PageSpeed Insights API. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your Google PageSpeed Insights API key. </td></tr></tbody></table>
+
+Once you have entered a valid API key, you can use the same account any time you go to create a new Google PageSpeed Insights DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with several other menus for configuring the selected report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Google PageSpeed Insights report you want to run. Currently only one report is available. </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Page Speed </td><td colspan="1" rowspan="1"> Returns data about a specified web page's performance. </td></tr><tr><td colspan="1" rowspan="1"> Page Speed - metrics only </td><td colspan="1" rowspan="1"> Returns only the metrics of the page speed report. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Category </td><td colspan="1" rowspan="1"> Performance is the default setting for the Lighthouse category. </td></tr><tr><td colspan="1" rowspan="1"> Page URL </td><td colspan="1" rowspan="1"> Enter the URL of the web page you want to return performance data for. </td></tr><tr><td colspan="1" rowspan="1"> Strategy </td><td colspan="1" rowspan="1"> The analysis strategy (desktop or mobile) to use, and desktop is the default. <br/> Acceptable values are: <table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Desktop </td><td colspan="1" rowspan="1"> Retrieve and analyze the URL for desktop browsers. </td></tr><tr><td colspan="1" rowspan="1"> Mobile </td><td colspan="1" rowspan="1"> Retrieve and analyze the URL for mobile devices. </td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

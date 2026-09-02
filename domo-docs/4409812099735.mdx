@@ -1,0 +1,80 @@
+---
+title: "Figma Connector"
+excerpt: "Connect Domo to Figma to pull files, components, component sets, styles, projects, and team data into a DataSet using a personal access token."
+---
+
+## Intro
+
+Figma is a web-based, collaborative graphics editor and prototyping tool used in interface designing. With Figma, everyone works towards a shared goal. The Figma apps for Android and iOS allow viewing Figma prototypes in real-time on mobile devices. Use Domo's Figma Connector to obtain the details about the files in a specific project, components, component sets and styles within a file library as well as a team library, and the projects within a specified team.
+  
+With the Figma Connector, enable your product teams to ship new products faster and feel more confident in their decisions. By combining your Figma data with Domo's leading business intelligence platform, you'll develop comprehensive strategies to fully optimize your business. Within minutes you'll be able to create customized reports for your most important KPIs, helping you get a holistic view of your file library and team library performance. To learn more about the Figma API, visit their page ([https://www.figma.com/developers/api](https://www.figma.com/developers/api "https://www.figma.com/developers/api") ).
+
+The Figma Connector is a "Cloud App" Connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the Connector page for this and other Cloud App Connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Figma account in the Data Center. This topic discusses the fields and menus that are specific to the Figma Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Figma account and create a DataSet, you must have the personal access token of your Figma account. The token can be obtained in Account Settings under the Personal access token section.
+
+## Connecting to Your Figma Account
+
+This section enumerates the options in the Credentials and Details panes in the Figma Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Figma account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Personal Access Token </td><td colspan="1" rowspan="1"><span> Enter the personal access token of your Figma account. </span></td></tr></tbody></table>
+
+Once you have entered valid Figma credentials, you can use the same account any time you go to create a new Figma DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Figma report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> File Components </td><td colspan="1" rowspan="1"> Get a list of published components within a file library </td></tr><tr><td colspan="1" rowspan="1"> File Component Sets </td><td colspan="1" rowspan="1"> Get a list of published component_sets within a file library </td></tr><tr><td colspan="1" rowspan="1"><p> File Nodes Components </p></td><td colspan="1" rowspan="1"> The components key contains a mapping from node IDs to component metadata. This is to help you determine which components each instance comes from. </td></tr><tr><td colspan="1" rowspan="1"><p> File Nodes Component Sets </p></td><td colspan="1" rowspan="1"> The component sets key contains a mapping from node IDs to component sets metadata. This is to help you determine which component sets each instance comes from. </td></tr><tr><td colspan="1" rowspan="1"><p> File Nodes Styles </p></td><td colspan="1" rowspan="1"> The styles key contains a mapping from node IDs to styles metadata. This is to help you determine which styles each instance comes from. </td></tr><tr><td colspan="1" rowspan="1"> File Styles </td><td colspan="1" rowspan="1"> Get a list of published styles within a file library </td></tr><tr><td colspan="1" rowspan="1"> Project Files </td><td colspan="1" rowspan="1"> List the files in a given project. </td></tr><tr><td colspan="1" rowspan="1"> Team Components </td><td colspan="1" rowspan="1"> Get a paginated list of published components within a team library </td></tr><tr><td colspan="1" rowspan="1"> Team Component Sets </td><td colspan="1" rowspan="1"> Get a paginated list of published component_sets within a team library </td></tr><tr><td colspan="1" rowspan="1"> Team Projects </td><td colspan="1" rowspan="1"> Get a list of all the Projects within the specified team. </td></tr><tr><td colspan="1" rowspan="1"> Team Styles </td><td colspan="1" rowspan="1"> Get a paginated list of published styles within a team library </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> File Key </td><td colspan="1" rowspan="1"><span> Enter the key of the file to list data from. </span></td></tr><tr><td colspan="1" rowspan="1"> Project ID </td><td colspan="1" rowspan="1"><span> Enter the ID of the project to list files from. </span></td></tr><tr><td colspan="1" rowspan="1"> Team ID </td><td colspan="1" rowspan="1"><span> Enter the ID of the team to list data from. </span></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Figma API does this Connector use?">
+
+This Connector uses version 1 of the Figma API (https://api.figma.com/v1).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this Connector?">
+
+<table data-aura-rendered-by="33:201;a"><tbody><tr><th colspan="2" rowspan="1"> Report Name </th><th colspan="1" rowspan="1"> Endpoint URL(s) </th></tr><tr><td colspan="2" rowspan="1"><span> File Components </span></td><td colspan="1" rowspan="1"><span> /files/{file_key}/components </span></td></tr><tr><td colspan="2" rowspan="1"><span> File Component Sets </span></td><td colspan="1" rowspan="1"><span> /files/{file_key}/component_sets </span></td></tr><tr><td colspan="2" rowspan="1"><p> File Nodes Components </p></td><td colspan="1" rowspan="1"><span> /files/{file_key}/nodes </span></td></tr><tr><td colspan="2" rowspan="1"><p> File Nodes Component Sets </p></td><td colspan="1" rowspan="1"><span> /files/{file_key}/nodes </span></td></tr><tr><td colspan="2" rowspan="1"><p> File Nodes Styles </p></td><td colspan="1" rowspan="1"><span> /files/{file_key}/nodes </span></td></tr><tr><td colspan="2" rowspan="1"><span> File Styles </span></td><td colspan="1" rowspan="1"><span> /files/{file_key}/styles </span></td></tr><tr><td colspan="2" rowspan="1"><span> Project Files </span></td><td colspan="1" rowspan="1"><span> /projects/{project_id}/files </span></td></tr><tr><td colspan="2" rowspan="1"><span> Team Components </span></td><td colspan="1" rowspan="1"><span> /teams/{team_id}/components </span></td></tr><tr><td colspan="2" rowspan="1"><span> Team Component Sets </span></td><td colspan="1" rowspan="1"><span> /teams/{team_id}/component_sets </span></td></tr><tr><td colspan="2" rowspan="1"><span> Team Projects </span></td><td colspan="1" rowspan="1"><span> /teams/{team_id}/projects </span></td></tr><tr><td colspan="2" rowspan="1"><span> Team Styles </span></td><td colspan="1" rowspan="1"><span> /teams/{team_id}/styles </span></td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this Connector?">
+
+You need the personal access token of your Figma account. The token can be obtained in Account Settings under the Personal access token section.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As frequently as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.

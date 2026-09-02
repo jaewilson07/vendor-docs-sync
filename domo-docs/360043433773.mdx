@@ -1,0 +1,39 @@
+---
+title: "CallTrackingMetrics Connector"
+excerpt: "Use the CallTrackingMetrics connector with an access and secret key to pull call, user, and voice menu data into a Domo DataSet."
+---
+
+## Intro
+
+CallTrackingMetrics is a SaaS company that provides call tracking tools and analysis to organizations. Use Domo's CallTrackingMetrics connector to retrieve data about calls, users, voice menus, schedules, and more. To learn more about the CallTrackingMetrics API, visit their page ([https://www.calltrackingmetrics.com/developers/](https://www.calltrackingmetrics.com/developers/ "https://www.calltrackingmetrics.com/developers/") ).
+
+You connect to your CallTrackingMetrics account in the Data Center. This topic discusses the fields and menus that are specific to the CallTrackingMetrics connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your CallTrackingMetrics account and create a DataSet, you must have the following:
+
+* The Secret Key for the CallTrackingMetrics account
+* The Access Key for the CallTrackingMetrics account
+
+## Connecting to Your CallTrackingMetrics Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the CallTrackingMetrics Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your CallTrackingMetrics account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Secret Key </p></td><td colspan="1" rowspan="1"><p> Enter your account's secret key. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Access Key </p></td><td colspan="1" rowspan="1"><p> Enter your account's access key. </p></td></tr></tbody></table>
+
+Once you have entered valid CallTrackingMetrics credentials, you can use the same account any time you go to create a new CallTrackingMetrics DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the CallTrackingMetrics report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Calls </p></td><td colspan="1" rowspan="1"><p> Returns a list of calls for the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> GeoRouters </p></td><td colspan="1" rowspan="1"><p> Returns a list of GeoRouters for the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Numbers </p></td><td colspan="1" rowspan="1"><p> Returns a list of numbers for the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Queues </p></td><td colspan="1" rowspan="1"><p> Returns a list of queues for the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Receiving Numbers </p></td><td colspan="1" rowspan="1"><p> Returns a list of receiving numbers of the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schedules </p></td><td colspan="1" rowspan="1"><p> Returns a list of schedules for the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sources </p></td><td colspan="1" rowspan="1"><p> Returns a list of sources for the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Returns a list of users for the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Voice Menus </p></td><td colspan="1" rowspan="1"><p> Returns a list of voice menus for the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Webhooks </p></td><td colspan="1" rowspan="1"><p> Returns a list of webhooks for the account. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> CallTrackingMetrics Account Details </p></td><td colspan="1" rowspan="1"><p> Select the account you want to retrieve information for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

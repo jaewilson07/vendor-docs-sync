@@ -1,0 +1,93 @@
+---
+title: "JSON Connector with Custom Parsing"
+excerpt: "Configure Domo's JSON Custom connector to import JSON files from an SFTP server, HTTP/HTTPS endpoint, or local upload into a DataSet."
+---
+
+## Intro
+
+JavaScript Object Notation (JSON) is a lightweight data-interchange format that is easy to use. The Domo JSON Custom connector allows you to access JSON files that you have uploaded to an SFTP server. You can also import files via HTTP and HTTPS calls or upload them directly from your computer. To learn more about the JSON API, visit their page ([http://jsonapi.org](http://jsonapi.org "Custom JSON") ).
+
+You connect to your JSON account in the Data Center. This topic discusses the fields and menus that are specific to the JSON connector user interface. General information for adding DataSets, setting updating schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Best Practices
+
+Check your JSON code in a [JSON validator](http://jsonviewer.stack.hu/ "Custom JSON") before using the connector.
+
+## Prerequisites
+
+To connect to your JSON account and create a DataSet, you must have credentials for the server in which the JSON file is found.
+
+## Connecting to your JSON Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the JSON Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your JSON account. The following table describes what is needed for each field:
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"> Field </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter a username if using SFTP or Basic Authentication, otherwise, leave blank. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter a password if using SFTP or Basic Authentication, otherwise, leave blank. </td></tr></tbody></table>
+
+Once you have entered valid JSON credentials, you can use the same account any time you go to create a new Custom JSON DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+In this pane, you specify the server/SFTP site to connect to, the name of the JSON file, and other configuration settings.
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"> Menu </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Connection Type </td><td colspan="1" rowspan="1"><p> Select the type of connection you would like to make. The options include: </p><ul><li><p> HTTP Request </p></li><li><p> File Transfer (SFTP) </p></li><li><p> Upload file containing JSON data </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"> Choose the HTTP Method to use </td><td colspan="1" rowspan="1"> If HTTP Request is selected as the <b> Connection Type </b>, choose from either GET or POST as the HTTP method. </td></tr><tr><td colspan="1" rowspan="1"> Enter the URL to your JSON file </td><td colspan="1" rowspan="1"> Enter the URL of your JSON file. </td></tr><tr><td colspan="1" rowspan="1"> How will you provide the certificate </td><td colspan="1" rowspan="1"><p> If HTTP Request is selected as the <b> Connection Type </b>, choose the method in which the certificate will be provided: </p><ul><li><p> No certificate </p></li><li><p> URL Path to the Certificate </p></li><li><p> Certificate Content </p></li></ul></td></tr></tbody></table>
+
+#### Advanced Settings
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"> Menu </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> HTTPS Headers </td><td colspan="1" rowspan="1"> Enter the Key and Value of the HTTPS Headers. This option is only available for the HTTP Request Connection Type. </td></tr><tr><td colspan="1" rowspan="1"> Query Parameters </td><td colspan="1" rowspan="1"> Enter the Key and Value of the Query Parameters. This option is only available for the HTTP Request Connection Type. </td></tr><tr><td colspan="1" rowspan="1"> Date Query Parameters </td><td colspan="1" rowspan="1"> Select No Date Filter, Single Date, or Date Range as the Date Query Parameter. This option is only available for the HTTP Request Connection Type. </td></tr><tr><td colspan="1" rowspan="1"> JSON Settings </td><td colspan="1" rowspan="1"> Specify whether your JSON text requires a line reader and if the backslash character should be escaped. </td></tr></tbody></table>
+
+### Parsing
+
+#### Pagination
+
+Select how to paginate the data:
+
+* No Paging
+* Get next URL from results
+* Get next page token from results
+* Offset by records
+* Offset by pages
+
+#### Parsing
+
+Using the data preview, you can click on a column to format the data for parsing.
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+- For **SFTP files**, you need the **username** and **password**.  
+- If you are importing data using **HTTP**, you may enter the username and password if your URL supports basic authentication.  
+- If needed, authentication can also be passed through **parameters** or **headers**.  
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+DataSets can run as often as every **15 minutes**.
+
+</Accordion>
+
+<Accordion title="Does this connector support paging?">
+
+Yes. To activate paging, select the paging type supported by your API and fill out the requested details.
+
+</Accordion>
+
+<Accordion title="How do I parse my data?">
+
+1. Select the column containing the data you want to expand or modify in the **Parsing** tab of the **Parsing Pane**.  
+2. Hover over the suggested actions to see the effect and click on the desired action.  
+3. Repeat until the data looks the way you want it to look.  
+4. Use the **history section** on the right to undo actions if needed.  
+
+</Accordion>
+</AccordionGroup>

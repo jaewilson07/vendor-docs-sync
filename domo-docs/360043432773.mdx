@@ -1,0 +1,58 @@
+---
+title: "CCC One Connector"
+excerpt: "Connect Domo to your CCC ONE account using a username, password, and API key to pull automotive claim, repair, and customer data into a DataSet."
+---
+
+## Intro
+
+CCC One provides leading automative claim, repair, and telematics solutions. Use Domo's CCC ONE connector to retrieve data about your CCC ONE accounts, orders, customers, employee timecards, and more. To learn more about the CCC ONE API, visit their page ([https://www.cccsecureshare.com/Developers](https://www.cccsecureshare.com/Developers "https://www.cccsecureshare.com/Developers") ).
+
+You connect to your CCC ONE account in the Data Center. This topic discusses the fields and menus that are specific to the CCC ONE connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your CCC ONE account and create a DataSet, you must have the following:
+
+* A CCC ONE username and password
+* A CCC ONE API key
+
+To obtain an API key, you will need to register as a CCC ONE app developer. You can do this here: [https://www.cccsecureshare.com/Developers](https://www.cccsecureshare.com/Developers "https://www.cccsecureshare.com/Developers")
+
+## Connecting to Your CCC ONE Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the CCC ONE Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your CCC ONE account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your CCC ONE username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your CCC ONE password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter your CCC ONE API key. </p></td></tr></tbody></table>
+
+Once you have entered valid CCC ONE credentials, you can use the same account any time you go to create a new CCC ONE DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the CCC ONE report you want to run. The following reports are available: </p><p></p><ul><li><p> Accounts Receivable </p></li><li><p> Accounts Receivable Summary </p></li><li><p> Accounts Receivable Work in Process Detail </p></li><li><p> Canceled RO Job Cost </p></li><li><p> Captured Jobs by Age Range </p></li><li><p> Captured Jobs by Gender </p></li><li><p> Captured Jobs by Insurance Company </p></li><li><p> Captured Jobs by Primary Referral </p></li><li><p> Captured Jobs by Secondary Referral </p></li><li><p> Captured Jobs by Service Writer </p></li><li><p> Captured Jobs Detail </p></li><li><p><a href="http://Carwise.com" rel="noopener" target="_blank"> Carwise.com </a> Activity </p></li><li><p> Central Review Activity </p></li><li><p> Central Review Time Cycle </p></li><li><p> Checklist Detailed Report </p></li><li><p> Closed Workfile Detail </p></li><li><p> Contact Center Capture Rate by Dispatcher </p></li><li><p> Contact Center Capture Rate by Estimator </p></li><li><p> Contact Center Capture Rate by Insurance Company </p></li><li><p> Contact Center Cycle Time </p></li><li><p> Credit Memos by Vendor </p></li><li><p> CSI Customer List </p></li><li><p> CSI Post Delivery Feedback </p></li><li><p> CSI Service Recovery </p></li><li><p> CSI Summary for Insurance </p></li><li><p> CSI Summary for Shop </p></li><li><p> CSI Summary Overall </p></li><li><p> CSI Survey Detail </p></li><li><p> Customer Replies </p></li><li><p> Cycle Time RO Completion </p></li><li><p> Gross Profit/Job Cost by Estimator </p></li><li><p> Gross Profit/Job Cost by Insurance Company </p></li><li><p> Gross Profit/Job Cost by Repair Order </p></li><li><p> Gross Profit/Job Cost Summary </p></li><li><p> Gross Profit/Job Cost Summary by Location </p></li><li><p> Labor Hours by Technician </p></li><li><p> Labor Hours for Flat Rate or Commission Teams </p></li><li><p> Part Status </p></li><li><p> Production Schedule </p></li><li><p> Promise Date Accuracy </p></li><li><p> Purchases </p></li><li><p> Receipt </p></li><li><p> Repair Order Closed </p></li><li><p> Repair Orders Created </p></li><li><p> Repair Orders Delivery Not Closed </p></li><li><p> Repair Orders Due </p></li><li><p> Repair Phase Cycle Time </p></li><li><p> Repair vs Replace </p></li><li><p> Sales Forecast </p></li><li><p> Sales Journal </p></li><li><p> Sales Journal Canceled Repair Orders </p></li><li><p> Sales Profit Summary </p></li><li><p> Sales Tax Detail </p></li><li><p> Sales Tax Summary </p></li><li><p> Sales Tax Tier Detail </p></li><li><p> Sales Warranty Internal Job Cost </p></li><li><p> Shop Labor </p></li><li><p> Supplements </p></li><li><p> Time Card History by Employee </p></li><li><p> Vehicles Delivered </p></li><li><p> Vehicles Schedule In </p></li><li><p> Vehicles Schedule Out </p></li><li><p> Work in Process Actual by Repair Order </p></li><li><p> Work in Process Actual by Sales Account </p></li><li><p> Work in Process by Repair Order </p></li><li><p> Work in Process by Sales Account </p></li><li><p> Workfile Activity </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Location </p></td><td colspan="1" rowspan="1"><p> Enter the location you want to retrieve data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+DataSets can be updated as often as once per hour.
+
+</Accordion>
+</AccordionGroup>
+

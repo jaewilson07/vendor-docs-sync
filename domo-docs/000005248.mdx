@@ -1,0 +1,86 @@
+---
+title: "Use Encryption to Keep Workbench Data Secure"
+excerpt: "Use Workbench encryption to protect sensitive columns with AES 256 before data leaves your data center and control per-user access."
+---
+
+## Intro
+
+Decision makers recognize the value of insights gained from their business data. The ability to quickly review relevant data provides better understanding of business operations and accelerates better decisions. To continually optimize business processes, companies are looking for new data sources, improved data modeling, and simpler direct access to data warehouses. With the exponential growth of data, companies have increasing concerns around data security—how can we keep data secure? With whom should we partner for IT projects and applications? How should we share data internally and externally?
+
+Increased exposure to data breaches and other data security issues are concerns that now reside on the desk of the CEO, not just the CTO or CIO. It's common to hear news about data breaches and the negative impact they have on organizations. 1 All company departments need to be concerned about inadvertently sharing their protected data with individuals and partners who do not need it while still enabling others in their ecosystem to use the data to complete their critical tasks. Protecting all data is a primary concern when selecting employees, vetting partners, and selecting vendors. You need a partner that can help you ensure that your business data is being handled correctly.
+
+## All Data Is Not Created Equal
+
+Your organization generates and consumes different types of business data. Some of this data is publicly available and can be used and accessed by multiple users without strict control measures. Other data is sensitive, such as salaries or revenue. Finally, some data, like employee medical information, is protected by law. In each case you have the responsibility to ensure that you are compliant with different operation requirements and processes for secure data handling.
+
+Your organization is obligated to ensure that PII and PHI data is secure and/or is properly obfuscated to safeguard the identity of the individual from anyone not directly providing services to the individual. This includes a charge to control data used in third-party vendor applications.
+
+## Data Security is a Consumption Problem
+
+As decision makers are constantly moving between meetings, locations, and critical decisions, the mobile experience demands access to information from anywhere, at any time, and on any mobile device. Questions around data security and mobility are complex and difficult to answer. Companies can no longer keep their data locked away in data centers and control access through their intranet. The successful decision maker requires access on their mobile devices to critical business information.
+
+There are many data security considerations: who can view the data, who can access it, and how the data is handled and processed. The question is not only the security of your own data architecture, but the security of the data architecture of your partners and vendors. Laws stipulate that you must have visibility to who had access to the data, when they had access to the data, and what they did with the data. 2
+
+## Domo Data Security
+
+For Domo, security is the number one priority. This is completed in two ways: first, with system integrity, which protects data at rest and in-transport from compromise or inadvertent exposure. Second, with the administrative control provided to users of the Domo Business Management Platform.
+
+In order to maintain a high standard of system integrity and security. Domo undergoes several measures to be compliant with regulatory and industry security standards. In addition, Domo provides periodic risk assessments designed to identify and manage risks to Domo and Domo customers' hosted data. Various methods are part of the risk identification process, including technical assessments, threat assessments, vulnerability assessments, and attack and penetration exercises.
+
+For customers of Domo. various security-related function within the platform are available for administrators. Only those users with an Admin default security role can manage inviting new users, removing users, assigning security profiles to users, and creating user groups. Domo provides integrations to single sign-on (SSO) directory services so your IT personnel can mirror your organization's policies and compliance rules in your Domo instance.
+
+## Domo Data Encryption
+
+Domo keeps you in control of your data and data security. Our cloud-based service provides your data consumers the access they need while giving your IT administrators the confidence that the data is secure. Domo provides tools to confidently manage your data before it leaves your data center and know that it's secure while at rest until your designated users request it.
+
+## Data in Motion
+
+Domo Workbench provides you with the ability to connect to your on-premise data sources and encrypt specific columns that contain sensitive data while it is in your data center. Before a single byte is transferred from your secure Data Center, you can encrypt sensitive information and grant access on a per user basis. This gives you granular access to both the individual columns of protected data as well asa by-user access list. to ensure that you are in full control of both data and access.
+
+When you transfer data from your data center your data remain encrypted using AES 256 encryption. The decryption is accomplished only in your user's secure browser session when they provide a unique passcode.
+
+## Data at Rest
+
+While your business data resides on Domo servers, the data remains encrypted, completely unusable and unidentifiable. There is only a single manner in which your encrypted business data can be decrypted. This is by using the secure browser at the request of the user you designate on the access control list managed by Workbench. At no time does anyone, inside or outside of your organization, have access to read or use your encrypted data, unless you grant them access.
+
+<Frame><img alt="Screenshot 2023-07-12 at 3.43.38 PM.png" src="/images/kb/ka05w00000129mZ-00N5w00000Ri7BU-0EM5w000006vH6W.jpg"/></Frame>
+
+## The Domo Encryption Solution
+
+Workbench provides encryption and decryption capabilities. This section describes how to maintain secure handling of sensitive data while outside of the Data Center. There are two primary actions needed to encrypt your data in Workbench: creation and consumption.
+
+The creation of your encrypted data starts with the connection of Workbench with your data source. After your data schema has been loaded, you can select the columns that you want to encrypt.
+
+<Frame><img alt="Screenshot 2023-07-12 at 3.57.11 PM.png" src="/images/kb/ka05w00000129mZ-00N5w00000Ri7BU-0EM5w000006vH9e.jpg"/></Frame>
+
+Workbench then creates a cryptographically strong 128-byte master key. Your data is then encrypted through the master key using AES 256. Each time your job runs, the previously selected data columns are encrypted at the source with the master prior to being sent to Domo.
+
+<Frame><img alt="Screenshot 2023-07-12 at 3.57.25 PM.png" src="/images/kb/ka05w00000129mZ-00N5w00000Ri7BU-0EM5w000006vH9Z.jpg"/></Frame>
+
+The administrator can then select which users have access to decrypted data in the visualization stage. The administrator provides a passcode to be shared with the selected user. The passcode is used to create the user key, which is the master key that has been encrypted using the passcode and AES 256. This capability and process of selecting employees with access is done within the Workbench platform.
+
+The consumption of encrypted data is only available to the users pre-selected in Workbench. When you selected a user and granted access, they received a passcode to decrypt the user key. The authorized user can now request visualization using the encrypted data. The visualization is presented with a lock icon where the encrypted data would normally be used. The authorized user selects the **Lock** icon and receives a prompt for the user passcode. Upon successful input of the passcode, the encrypted data is revealed in the visualization.
+
+<Frame><img alt="Screenshot 2023-07-12 at 3.57.47 PM.png" src="/images/kb/ka05w00000129mZ-00N5w00000Ri7BU-0EM5w000006vH9P.jpg"/></Frame>
+
+During this process, the level of encryption and security of sensitive data remains in the admin's control. At no point is the data decrypted on the Domo server and at no time does Domo maintain the information to decrypt the keys or data. All decryption takes place within the browser; all encryption and key management takes place in Workbench prior to upload within your Data Center.
+
+## Conclusion
+
+Data security is the responsibility of the company that creates and captures data. The Domo Business Management Platform and its features provide you the ability to share your data with the decision makers that drive your business while continuing to maintain control of your business data.
+
+---
+
+1. "Target says over 70 million...";
+http://www.washingtonpost.com/business/economy/target-says-70-million-customers-were-hit-by-dec-data-breach-more-than-first-reported/2014/01/10/0ada1026-79fe-11e3-8963-b4b654bcc9b2_story.html
+"Sony Pictures: The Data Breach...";
+http://www.forbes.com/sites/davelewis/2014/12/17/sony-pictures-how-the-criminal-hackers-won/
+  
+"Evernote says security has been breached";
+http://www.bbc.com/news/technology-21644317
+  
+"Home Depot hackers used vendor log-on...";
+http://www.usatoday.com/story/money/business/2014/11/06/home-depot-hackers-stolen-data/18613167/
+
+2. Table 1. Principles used by experts in the determination of the identifiability of health information."
+http://www.hhs.gov/ocr/privacy/hipaa/understanding/coveredentities/De-identification/guidance.html

@@ -1,0 +1,42 @@
+---
+title: "Area Overlay Chart"
+excerpt: "Power and customize an Area Overlay chart in Domo to compare series values from the same baseline using vertical or horizontal subtypes."
+---
+
+## Intro
+
+In area overlay charts (referred to simply as "area" charts in Domo), all series begin from the same axis and are overlaid on top of each other. In their default state these charts are typically not very useful because data for some series is usually hidden. However, you can distinguish an individual series by mousing over that series in the legend or in the chart itself. Because each series begins from the same baseline, this type of area chart is useful for quickly discerning the value for individual series.
+
+An area overlay chart is similar to a [stacked area chart](/s/article/360043428033 "Stacked Area Graph"); however, in a stacked area chart, all segments are shown at once, either side by side or on top of each other, whereas in an area overlay chart, segments overlap.
+
+## Subtypes
+
+Stacked area charts have a number of subtypes, including all of the following:
+
+* Vertical curved area
+* Vertical step area
+* Horizontal area
+* Horizontal curved area
+* Horizontal step area
+
+For explanations and screenshots for these subtypes, see Available Chart Types.
+
+## Powering area overlay charts
+
+Area overlay charts require three columns or rows of data from your DataSet—one for categories (generally dates), one for series in those categories, and one for values. For information about value, category, and series data, see [Understanding Chart Data](/s/article/360043428693 "Understanding Chart Data").
+
+In the Analyzer, you choose the columns containing the data for your area overlay chart. For more information about choosing data columns, see [Applying DataSet Columns to Your Chart](/s/article/360043428713 "Applying DataSet Columns to Your Chart").
+
+For more information about formatting charts in the Analyzer, see [Visualization Card Building Part 2: The Analyzer](/s/topic/0TO5w000000ZaoUGAS "KPI Card Building Part 2: The Card Builder").
+
+The following graphic shows you how the data from a typical column-based spreadsheet is converted into a vertical area overlay chart:
+
+<Frame><img alt="area_overlay_graph_spreadsheet_example.png" src="/images/kb/ka05w00000123pQ-00N5w00000Ri7BU-0EM5w000005vPHY.png"/></Frame>
+The following graphic shows you how the data from a typical column-based spreadsheet is converted into a horizontal area overlay chart:
+
+<Frame><img alt="horizontal_area_overlay_graph_spreadsheet_example.png" src="/images/kb/ka05w00000123pQ-00N5w00000Ri7BU-0EM5w000005vPHZ.png"/></Frame>
+## Customizing area overlay charts
+
+You can customize the appearance of an area overlay chart by editing its **Chart Properties**. For information about all chart properties, see [Chart Properties](/s/topic/0TO5w000000ZaodGAC "Chart Properties"). Unique properties of area overlay charts include the following. You can click a thumbnail image to see a larger image.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p> Property </p></th><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Example </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> General &gt; Style </p></td><td colspan="1" rowspan="1"><p> Determines the style for an area chart, either "Flat," "Folded," "Curved" or "Step." The default style of the chart depends on the specific subtype you have selected. If you select "Folded," the chart takes on a 3-D appearance, as shown in the example at right. </p></td><td colspan="1" rowspan="1"><img alt="folded_area.png" src="/images/kb/ka05w00000123lK-00N5w00000Ri7BU-0EM5w000005vP0t.png"/></td></tr></tbody></table>

@@ -1,0 +1,83 @@
+---
+title: "Clarizen Connector"
+excerpt: "Use Domo's Clarizen Connector to pull project entities, expenses, news feeds, and CZQL query results from your Clarizen account into a DataSet."
+---
+
+## Intro
+
+Clarizen is cloud-based project management software that lets you manage work and collaborate across the enterprise. Use the Domo connector to receive data about project entities, user defined queries, expenses and more. To learn more about the Clarizen API, visit their page ([https://api.clarizen.com/v2.0/services/](https://api.clarizen.com/v2.0/services/ "https://api.clarizen.com/v2.0/services/") ).
+
+You connect to your Clarizen account in the Data Center. This topic discusses the fields and menus that are specific to the Clarizen connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Clarizen account and create a DataSet, you must have a Clarizen username and password.
+
+## Connecting to Your Clarizen Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Clarizen Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Clarizen account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username for your Clarizen account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password for your Clarizen account. </p></td></tr></tbody></table>
+
+Once you have entered valid Clarizen credentials, you can use the same account any time you go to create a new Clarizen DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Clarizen report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Data Query </td><td colspan="1" rowspan="1"> Returns data based on a provided CZQL query. </td></tr><tr><td colspan="1" rowspan="1"> Describe Entities </td><td colspan="1" rowspan="1"> Returns entity details based on a provided entity query. </td></tr><tr><td colspan="1" rowspan="1"> Entity Feed Query </td><td colspan="1" rowspan="1"> Returns entity feed data based on a provided entity ID. </td></tr><tr><td colspan="1" rowspan="1"> Entity Query </td><td colspan="1" rowspan="1"> Returns entity data based on a provided entity query. </td></tr><tr><td colspan="1" rowspan="1"> Expense Query </td><td colspan="1" rowspan="1"> Returns expense data based on a provided customer or project ID. </td></tr><tr><td colspan="1" rowspan="1"> Metadata </td><td colspan="1" rowspan="1"> Returns project metadata. </td></tr><tr><td colspan="1" rowspan="1"> News Feed </td><td colspan="1" rowspan="1"> Returns news feed data. </td></tr><tr><td colspan="1" rowspan="1"> Search </td><td colspan="1" rowspan="1"> Returns data based on the provided search query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Entity Name </td><td colspan="1" rowspan="1"> Select the entity you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> Customer ID </td><td colspan="1" rowspan="1"> Select the customer ID you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> Customer ID/Project ID </td><td colspan="1" rowspan="1"> Enter the ID of the customer or project you want to retrieve information for. For example: <span class="mt-font-courier-new"> P-12001 </span> or <span class="mt-font-courier-new"> C-2 </span></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"><p> Enter the desired CZQL query. For example: </p><p><code> 'SELECT Name, <a href="http://Manager.Name" rel="noopener" target="_blank"> Manager.Name </a> FROM Task' </code></p><p> For more information about CZQL, see <a href="https://api.clarizen.com/V2.0/services/data/Query" target="_blank" title="https://api.clarizen.com/V2.0/services/data/Query"> https://api.clarizen.com/V2.0/services/data/Query </a>. </p></td></tr><tr><td colspan="1" rowspan="1"> Search Query </td><td colspan="1" rowspan="1"> Enter the text you want to search for. </td></tr><tr><td colspan="1" rowspan="1"> Entity ID </td><td colspan="1" rowspan="1"><p> Enter the unique ID of the entity you want to retrieve data for. For example: </p><p><code> /Note/25696 </code></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What version of the Clarizen API does this connector use?">
+
+This connector uses version 2.0 of the Clarizen API (https://api.clarizen.com/v2.0/services).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table data-aura-rendered-by="33:206;a"><tbody><tr><th colspan="1" rowspan="1" width=""> Report Name </th><th colspan="1" rowspan="1" width=""> Endpoint URL </th></tr><tr><td colspan="1" rowspan="1"> Data Query </td><td colspan="1" rowspan="1"> /data/query </td></tr><tr><td colspan="1" rowspan="1"> Describe Entities </td><td colspan="1" rowspan="1"> /metadata/describeEntities </td></tr><tr><td colspan="1" rowspan="1"> Entity Feed Query </td><td colspan="1" rowspan="1"> /data/entityQuery /data/entityFeedQuery </td></tr><tr><td colspan="1" rowspan="1"> Entity Query </td><td colspan="1" rowspan="1"> /data/entityQuery </td></tr><tr><td colspan="1" rowspan="1"> Expense Query </td><td colspan="1" rowspan="1"> /data/expenseQuery </td></tr><tr><td colspan="1" rowspan="1"> Metadata </td><td colspan="1" rowspan="1"> /metadata/describeMetadata </td></tr><tr><td colspan="1" rowspan="1"> News Feed </td><td colspan="1" rowspan="1"> /data/newsFeedQuery </td></tr><tr><td colspan="1" rowspan="1"> Search </td><td colspan="1" rowspan="1"> /data/search </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need your Clarizen username and password.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+Datasets can be updated as often as once an hour.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+Datasets can be updated as often as once per hour.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+Clarizen does not document any rate limits in their API documentation
+
+</Accordion>
+</AccordionGroup>
+

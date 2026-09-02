@@ -1,0 +1,89 @@
+---
+title: "HarvestApp Connector"
+excerpt: "Connect Domo to Harvest via OAuth to pull time tracking and invoicing data into DataSets and analyze hiring and billing decisions."
+---
+
+## Intro
+
+Harvest provides time tracking and online invoicing tools and services for freelancers and small businesses. The Domo HarvestApp connector allows you to get your Harvest data into Domo and begin analyzing data to optimize hiring and invoicing decisions. To learn more about the Harvest API, visit their page ([http://help.getharvest.com/api/](http://help.getharvest.com/api/ "http://help.getharvest.com/api/") ).
+
+You connect to your Harvest account in the Data Center. This topic discusses the fields and menus that are specific to the HarvestApp connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Harvest account and create a DataSet, you must have your Harvest username and password. Alternatively, you can use your Google account to login.
+
+## Connecting to Your Harvest Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the HarvestApp Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+The Domo HarvestApp connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Harvest accounts in Domo) to open the Harvest OAuth screen where you can enter your Harvest username and password. (You can also enter Google credentials to authenticate.) Once you have entered valid credentials, you can use the same account any time you go to create a new HarvestApp DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Harvest when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Harvest.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the HarvestApp report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> All Clients </td><td colspan="1" rowspan="1"> Retrieve a list of all clients. Using the date selector, you can retrieve all clients updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> All Contacts </td><td colspan="1" rowspan="1"> Retrieve a list of all contacts. Using the date selector, you can retrieve all contacts updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> All Expenses </td><td colspan="1" rowspan="1"> Retrieve a list of all expenses. Using the date selector, you can retrieve all expenses updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> All Projects </td><td colspan="1" rowspan="1"> Retrieve a list of all projects. Using the date selector, you can retrieve all projects updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> All Roles </td><td colspan="1" rowspan="1"> Retrieve a list of all roles. </td></tr><tr><td colspan="1" rowspan="1"> All Tasks </td><td colspan="1" rowspan="1"> Retrieve a list of all tasks. Using the date selector, you can retrieve all tasks updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> All Task Assignments </td><td colspan="1" rowspan="1"> Retrieve a list of all task assignments. Using the date selector, you can retrieve all task assignments updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> All Time Entries </td><td colspan="1" rowspan="1"> Retrieve a list of all time entries. Using the date selector, you can retrieve all time entries updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> All User Assignments </td><td colspan="1" rowspan="1"> Retrieve a list of all user assignments. Using the date selector, you can retrieve all user assignments updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> All Users </td><td colspan="1" rowspan="1"> Retrieve a list of all all users. Using the date selector, you can retrieve all users updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> All Project Assignments </td><td colspan="1" rowspan="1"> Retrieve a list of all project assignments. Using the date selector, you can retrieve all project assignments updated after the specified date for all users. </td></tr><tr><td colspan="1" rowspan="1"> Company </td><td colspan="1" rowspan="1"> Retrieve info about your current company. </td></tr><tr><td colspan="1" rowspan="1"> Expense Categories </td><td colspan="1" rowspan="1"> Retrieve a list of expense categories. Using the date selector, you can retrieve all expense categories updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> Invoices </td><td colspan="1" rowspan="1"> Retrieve a list of invoices. Using the date selector, you can retrieve all invoices updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> Invoice Item Categories </td><td colspan="1" rowspan="1"> Retrieve a list of invoice item categories. Using the date selector, you can retrieve all invoice item categories updated after the specified date. </td></tr><tr><td colspan="1" rowspan="1"> Invoice Messages </td><td colspan="1" rowspan="1"> Retrieve a list of invoice messages. Using the date selector, you can retrieve all invoice messages for each invoice updated after the provided date. </td></tr><tr><td colspan="1" rowspan="1"> Invoice Payments </td><td colspan="1" rowspan="1"> Retrieve a list of invoice payments. Using the date selector, you can retrieve all invoice payments for each invoice updated after the provided date. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Harvest Account </td><td colspan="1" rowspan="1"> Select the <span> Harvest account you would like to retrieve data from. </span></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p><span> Harvest allows you to select a single updated since date. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Report Updated Since Date </td><td colspan="1" rowspan="1"><span> Select the report date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector </span></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the HarvestApp API does this connector use?">
+
+This connector uses version 2 of the HarvestApp API (https://api.harvestapp.com/v2/).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL </th></tr><tr><td colspan="1" rowspan="1"> All Clients </td><td colspan="1" rowspan="1"> /clients </td></tr><tr><td colspan="1" rowspan="1"> All Contacts </td><td colspan="1" rowspan="1"> /contacts </td></tr><tr><td colspan="1" rowspan="1"> All Expenses </td><td colspan="1" rowspan="1"> /expenses </td></tr><tr><td colspan="1" rowspan="1"> All Projects </td><td colspan="1" rowspan="1"> /projects </td></tr><tr><td colspan="1" rowspan="1"> All Roles </td><td colspan="1" rowspan="1"> /roles </td></tr><tr><td colspan="1" rowspan="1"> All Tasks </td><td colspan="1" rowspan="1"> /tasks </td></tr><tr><td colspan="1" rowspan="1"> All Task Assignments </td><td colspan="1" rowspan="1"> /projects/{projectId}/task_assignments </td></tr><tr><td colspan="1" rowspan="1"> All Time Entries </td><td colspan="1" rowspan="1"> /time_entries </td></tr><tr><td colspan="1" rowspan="1"> All User Assignments </td><td colspan="1" rowspan="1"> /projects/{projectId}/user_assignments </td></tr><tr><td colspan="1" rowspan="1"> All Users </td><td colspan="1" rowspan="1"> /users </td></tr><tr><td colspan="1" rowspan="1"> All Project Assignments </td><td colspan="1" rowspan="1"> /users/{userId}/project_assignments </td></tr><tr><td colspan="1" rowspan="1"> Company </td><td colspan="1" rowspan="1"> /company </td></tr><tr><td colspan="1" rowspan="1"> Expense Categories </td><td colspan="1" rowspan="1"> /expense_categories </td></tr><tr><td colspan="1" rowspan="1"> Invoices </td><td colspan="1" rowspan="1"> /invoices </td></tr><tr><td colspan="1" rowspan="1"> Invoice Item Categories </td><td colspan="1" rowspan="1"> /invoice_item_categories </td></tr><tr><td colspan="1" rowspan="1"> Invoice Messages </td><td colspan="1" rowspan="1"> /invoices/{invoiceId}/messages </td></tr><tr><td colspan="1" rowspan="1"> Invoice Payments </td><td colspan="1" rowspan="1"> /invoices/{invoiceId}/payments </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need your Harvest email id and password, or Google account credentials to power up this connector.
+
+</Accordion>
+
+<Accordion title="How do I know my login credentials are secure?">
+
+The login process uses the OAuth process, so your credentials are never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="Can I use the same account multiple times to create datasets?">
+
+Yes
+
+</Accordion>
+
+<Accordion title="When I click 'Add Account', why am I getting automatically validated without needing to enter credentials?">
+
+If you are already logged into Harvest when you connect to Domo, you are authenticated automatically as you click Add account. If you want to connect to an account that is different from the one you are logged into, you must first log out of Harvest.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+Harvest limits 100 requests per 15 seconds.
+
+</Accordion>
+</AccordionGroup>
+

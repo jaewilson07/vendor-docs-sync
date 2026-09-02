@@ -1,0 +1,80 @@
+---
+title: "Data Cleaning Operations Using SQL and Magic ETL DataFlows"
+excerpt: "Reference for common data cleaning operations such as type casting, concatenation, trimming, and date reformatting in SQL and Magic ETL DataFlows."
+---
+
+## Intro
+
+This topic lists a number of data clean-up operations available through SQL and Magic ETL DataFlows and shows how data will look both before and after using an operation.
+
+## Changing Your Data Type
+
+Example: Changing the data type of an ID number from a numeric to a text field
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><code> CAST(`id` AS CHAR) AS `id_cast_datatype` </code></td><td colspan="1" rowspan="1"> Use the "Set Column Type" tile </td><td colspan="1" rowspan="1"> 1 </td><td colspan="1" rowspan="1"> 1 (looks the same but behaves a text dimension) </td></tr></tbody></table>
+
+## Concatenating Columns to Create a Compound Field
+
+Example: Concatenating "First Name" and "Last Name" columns to create a "Full Name" column
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> CONCAT(`first_name`, ' ', `last_name`) AS `full_name` </code></td><td colspan="1" rowspan="1"> Use the "Combine Columns" tile </td><td colspan="1" rowspan="1"> 'John' | 'Smith' (first and last name in two separate columns) </td><td colspan="1" rowspan="1"> 'John Smith' (a single column containing the complete name) </td></tr></thead></table>
+
+## Extracting a Portion of a Text String
+
+Example: Extracting the first part of an email address to use as a user ID
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> SUBSTRING_INDEX(`email`,'@', 1) AS `user_id` </code></td><td colspan="1" rowspan="1"> Use the "Replace Text" tile on that column to specify which portion of the string should be replaced with an empty string: @.+ </td><td colspan="1" rowspan="1"><a href="mailto:userid@email.com" target="_blank" title="mailto:userid@email.com"> userid@email.com </a></td><td colspan="1" rowspan="1"> userid </td></tr></thead></table>
+
+## Reformatting a Date
+
+Example: Formatting a non-standard date string into a date type format
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> STR_TO_DATE(`send_date`, '%d.%m.%Y') AS date_formatted </code></td><td colspan="1" rowspan="1"> Use the "Set Column Type" tile. </td><td colspan="1" rowspan="1"> 23.01.2017 (string data type) </td><td colspan="1" rowspan="1"> 01/23/2017 (date data type) </td></tr></thead></table>
+
+## Deriving Date Attributes from a Date Column
+
+Example: Extracting the day of the week from a date column
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> DAYNAME(`receive_date`) AS receive_date_name </code></td><td colspan="1" rowspan="1"> Use the "Date Operations" tile. </td><td colspan="1" rowspan="1"> 01/23/2017 </td><td colspan="1" rowspan="1"> Monday </td></tr></thead></table>
+
+## Splitting a Column into Two Columns Based on a Character in the Column
+
+Example: Dividing a "Status Code" column into status code parts based on the / delimiter found within the column
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> SUBSTRING_INDEX(`status_code`, '/', 1) AS status_code_p1 <br/>, SUBSTRING_INDEX(`status_code`, '/', -1) AS status_code_p2 </code></td><td colspan="1" rowspan="1"> Use the "Replace Text" tile on that column to specify which portion of the string should be replaced with an empty string: <span class="mt-font-courier-new"> \/.+ </span> for the first part and <span class="mt-font-courier-new">.+\/ </span> for the second. </td><td colspan="1" rowspan="1"> SHI/DELV </td><td colspan="1" rowspan="1"> SHI | DELV </td></tr></thead></table>
+
+## Trimming Erroneous Spaces from a Column
+
+Example: Trimming the leading and trailing spaces from the "Department" column
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> TRIM(`department`) AS department_trimmed </code></td><td colspan="1" rowspan="1"> Use a regular expression within the "Replace Text" tile to pinpoint the leading and training spaces and replace them with nothing. </td><td colspan="1" rowspan="1"> ' department ' </td><td colspan="1" rowspan="1"> 'department' </td></tr></thead></table>
+
+## Changing the Case of an Entire Column
+
+Example: Changing the "Category" column to uppercase letters
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> UPPER(`category`) AS category_change_case </code></td><td colspan="1" rowspan="1"> Use the <b> All upper case </b> option within the "Text Formatting" tile. </td><td colspan="1" rowspan="1"> health </td><td colspan="1" rowspan="1"> HEALTH </td></tr></thead></table>
+
+## Capitalizing the First Letter of a Column
+
+Example: Capitalizing the first letter of the first word in the "Category" column
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> CONCAT(UPPER(LEFT(`category`, 1)), SUBSTRING(`category`, 2, LENGTH(`category`))) AS category_cap_first </code></td><td colspan="1" rowspan="1"> Use the <b> Capitalize first letter </b> option within the "Text Formatting" tile. </td><td colspan="1" rowspan="1"> health </td><td colspan="1" rowspan="1"> Health </td></tr></thead></table>
+
+## Categorizing Rows Based off the Value in a Specific Column
+
+Example: Assigning a region to each row based on a store number
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> (CASE WHEN `store_number` IN ('100', '101', '104', '109') THEN 'region_1' <br/> WHEN `store_number` IN ('102', '105', '110') THEN 'region_2' <br/> WHEN `store_number` IN ('103', '106', '107', '108') THEN 'region_3' <br/> ELSE 'no region' END) AS region </code></td><td colspan="1" rowspan="1"> Use the <b> Filter Rows </b> tile to separate into distinct groups based on store number, use <b> Add Constants </b> to add a category to each group, then use <b> Append Rows </b> to stitch the rows back together. </td><td colspan="1" rowspan="1"> store_number = 100 </td><td colspan="1" rowspan="1"> store_number = 100 | region = 'region_1' </td></tr></thead></table>
+
+## Categorizing Rows Based off the Value in a Specific Column
+
+Example: Assigning a category to the animal name based on the first letter of the name
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> (CASE WHEN `animal_names` LIKE 'H%' THEN 'Hs' <br/> WHEN `animal_names` LIKE 'B%' THEN 'Bs' <br/> WHEN (`animal_names` LIKE 'A%' OR `animal_names` LIKE 'E%') THEN 'AEs' <br/> ELSE 'another letter' END) AS animal_names_categories </code></td><td colspan="1" rowspan="1"> Use a regular expression within the "Replace Text" tile to identify the patterns and assign a category. For example <span class="mt-font-courier-new"> ^H.+ </span> finds names starting with H, <span class="mt-font-courier-new"> ^B.+ </span> finds names starting with B, <span class="mt-font-courier-new"> ^A.+|^E.+ </span> finds names starting with either A or E, and <span class="mt-font-courier-new"> ^[^H,B,A,E].+ </span> finds names that do not start with H, B, A, or E. </td><td colspan="1" rowspan="1"> animal_names = 'Horse' </td><td colspan="1" rowspan="1"> animal_names = 'Horse' | animal_names_categories = 'Hs' </td></tr></thead></table>
+
+## Categorizing Rows Based off a Numeric Value Threshold
+
+Example: Categorizing rows based on salary amount
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> In MySQL... </th><th colspan="1" rowspan="1"> In Magic ETL... </th><th colspan="1" rowspan="1"> Before </th><th colspan="1" rowspan="1"> After </th></tr><tr><td colspan="1" rowspan="1"><code> (CASE WHEN `salary`  50000 THEN '\$50,000' <br/> WHEN `salary`  100000 THEN '\$50,000 - \$99,999' <br/> WHEN `salary`  150000 THEN '\$100,000 - \$149,999' <br/> WHEN `salary`  200000 THEN '\$150,000 - \$199,999' <br/> ELSE \$200,000' END) AS salary_bucket </code></td><td colspan="1" rowspan="1"> Use the "Filter Rows" tile to separate into distinct groups based on store number, use "Add Constants" to add a category to each group, then use "Append Rows" to stitch the rows back together. </td><td colspan="1" rowspan="1"> salary = \$45,000 </td><td colspan="1" rowspan="1"> salary = \$45,000 | salary_bucket = '$50,000' </td></tr></thead></table>

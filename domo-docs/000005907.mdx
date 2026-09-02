@@ -1,0 +1,165 @@
+---
+title: "Google Sheets Metadata Connector"
+excerpt: "Configure Domo's Google Sheets Metadata Connector to report on spreadsheet attributes like sheet names, owners, sharing, and edit history."
+---
+
+## Intro
+
+The Google Sheets Metadata Connector retrieves metadata from a specified Google Sheet located within your Google Drive for file management and reporting purposes. To utilize, select the target Google Sheet and then choose the desired metadata fields to generate a report.
+
+The connector supports reporting on any combination of the following metadata attributes:
+
+* **Spreadsheet Name**
+* **Spreadsheet ID**
+* **Spreadsheet URL**
+* **Time Zone**
+* **Locale**
+* **Sheet Count**
+* **Sheet Name(s)**
+* **Sheet ID(s)**
+* **Sheet Index(es)**
+* **Column Count**
+* **Row Count**
+* **Column Headers**
+* **Owner Email(s)**
+* **Shared With** (Emails and Access Level)
+* **File Size**
+* **Last Edited Time**
+* **Last Editing User Email**
+
+You can connect to your Google Sheets Metadata account in the Data Center. This topic discusses the fields and menus that are specific to the Google Sheets Metadata connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Google Sheets Metadata account and create a DataSet, you need your application Client ID and Client Secret.
+
+### Creating a Google Cloud Project
+
+Follow these steps to create a new project in Google Cloud Console for the Google Sheets Metadata Connector:
+
+1. Navigate to the **Google Cloud Console** at `https://cloud.google.com/cloud-console`.
+2. In the top right corner of the screen, select **Console**.
+3. If you are accessing Google Cloud Console for the first time, then verify that you're logged into the correct account and that your country of residence is correct. Agree to the terms of service, and then click **AGREE AND CONTINUE**.
+4. In the top left corner of your screen, click the **project name**. (If you're a first-time user, this will display as **"Select a project."**)
+5. In the top right corner of the window that appears, click **NEW PROJECT**.
+6. Name your project as **Domo Sheets Connector**. You may optionally select an organization or choose **No organization,** and click **CREATE.**
+7. After clicking **CREATE,** you will return to the home screen. Go back to the top left and click the project name (or **"Select a project"**) once more.
+8. From the list, click the name of the project you just created (**Domo Sheets Connector**). This will take you to the project's home page.
+9. Scroll down to the **Quick access** menu in the middle of the page and select the **APIs & Services** checkbox.
+
+### Enabling Required APIs
+
+After navigating to the **APIs & Services** page for your new project, you need to enable the necessary Google APIs.
+
+1. On the menu of the **APIs & Services page**, select **Library.**
+2. In the API Library, scroll down to the **Google Workspace** section.
+3. Click the **Google Drive API** (located on the left side of the page).
+4. On the Google Drive API page, select **"Enable."** This action enables the API for use with your project and returns you to the **APIs & Services** page.
+5. Repeat this exact process to enable the **Google Sheets API**.
+
+### Setting up OAuth 2.0
+
+To configure the OAuth 2.0 access for your project:
+
+1. From the left navigation menu on the **APIs & Services** page, select **OAuth consent screen.**
+2. For **User Type**, select **External**.
+3. Click **CREATE.** This will take you to a page where you can begin configuring the details of your OAuth consent screen (these settings can be modified later).
+
+### Configuring the OAuth 2.0 Consent Screen Details
+
+On the **OAuth consent screen** configuration page, provide the following required information:
+
+1. **App name:** We recommend the app name as **Google Sheets Metadata Connector**.
+2. **User support email:** Enter your own email address. (You can add other users later.)
+3. *Optional fields:* You do not need to add an app logo or domain.
+4. Scroll down to the **Authorized Domains** section.
+
+   * Select **ADD DOMAIN,** and enter `domo.com` in the text box.
+5. In the **Developer contact information** section, enter your email address.
+6. Select **SAVE AND CONTINUE.** This action saves your details and advances you to the next configuration step: **Scopes**.
+
+### Configuring OAuth 2.0 Scopes
+
+On the **Scopes** configuration page, you must add the specific read-only scopes required for the connector to access Google Drive and Sheets metadata.
+
+1. **Add Google Drive Metadata Scope**
+
+1. At the top of the **Scopes** page, select **ADD OR REMOVE SCOPES.**
+2. In the **Enter property name or value** search bar enter the following Google Drive Metadata scope exactly as shown: `https://www.googleapis.com/auth/drive.metadata.readonly`
+3. Click the suggestion that appears under **Values.**
+4. In the next screen, select the checkbox to the left of **Google Drive API.**
+5. Click **UPDATE.**
+6. The window will close. Verify that the following scope is now listed under **Your restricted scopes :** `.../auth/drive.metadata.readonly`
+
+2. **Add Google Sheets Read-Only Scope**
+
+1. Repeat the process by selecting **ADD OR REMOVE SCOPES** again.
+2. In the search bar, type the following **Google Sheets** scope exactly as shown: `https://www.googleapis.com/auth/spreadsheets.readonly`
+3. Click the suggestion that appears, select the checkbox next to **Google Sheets API,** and click **UPDATE.**
+4. Verify that the following scope is now listed under **Your sensitive scopes**: `...auth/sheets.metadata.readonly`
+
+***Note:*** *It is essential that both scopes are entered **exactly** as specified above to match the connector's requirements.*
+
+**Final Step**
+
+Once you have confirmed that both scopes are listed, click **SAVE AND CONTINUE.**
+
+### Configuring OAuth 2.0 Test Users
+
+The next page, **Test Users**, allows you to specify which individuals can use the credentials generated by this project to complete the OAuth 2.0 connection.
+
+1. Select **ADD USERS.**
+2. In the window that appears, enter the **email addresses** associated with the Google accounts of the people who need to use this connector in your Domo instance. You can add up to 100 users without needing to publish the app through Google.
+3. Click **ADD** (Users can be added or removed in later edits).
+
+***Note:*** Even if an email address was used in a previous step (like the User Support Email), you must still add it to this list to grant connection access.
+
+4. Click **SAVE AND CONTINUE** once you've added all necessary users.
+
+***Important:*** Adding users here only allows them to utilize the created credentials for the OAuth 2.0 process within the connector. It does not grant them access to your Google Cloud Console project or your Google Drive content.
+
+### Review and Complete OAuth 2.0 Setup
+
+The final page is the **Summary** screen, which displays all the configuration details you have entered.
+
+1. **Review** all the information (App details, Scopes, and Test Users) to ensure it is correct.
+2. Once confirmed, click **BACK TO DASHBOARD.**
+
+### Creating the OAuth Client ID
+
+You will now create the credentials that the Domo connector will use to access the configured APIs.
+
+1. From the left menu, select **Credentials.**
+2. On the top of the Credentials Dashboard, click **CREATE CREDENTIALS** and select **OAuth client ID** from the dropdown menu.
+3. On the next screen, from the top of page, select **Web Application** from the **Application Type** dropdown menu.
+4. Enter a **Client name** (we recommend **Domo Sheets Connector Client**).
+5. Scroll down to the **Authorized redirect URIs** section and click **ADD URI.**
+6. Enter the following exact URI: `https://oauth.domo.com/api/data/v2/oauth/providers/google-drive-metadata-98e4dc30-1712-4b80-85ec-ed6cf3cb1e6b/exchange`
+7. Click **CREATE** at the bottom of the page.
+
+**Saving the Credentials**
+
+A new window will appear containing your **Client ID** and **Client Secret**.
+
+* **Securely save** both the **Client ID** and **Client Secret**, as you will need them to set up the connector in Domo.
+* You can also view these credentials later by returning to the **Credentials Dashboard** or downloading them in **JSON format**.
+
+## Connecting to Your Google Sheets Metadata Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Google Sheets Metadata Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Google Sheets Metadata account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:197;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter your application Client Id. To create the Client ID, refer to the Creating the OAuth Client ID section above. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter your application Client Secret. To create the Client Secret, refer to the Creating the OAuth Client ID section above. </td></tr></tbody></table>
+
+Once you have entered valid Google Sheets Metadata credentials, you can use the same account at any time to create a new Google Sheets Metadata DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:197;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> The Google Sheets Metadata has a single report to run. </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Sheets </p></td><td colspan="1" rowspan="1"> Fetches the metadata from a selected Google Sheet from within your Google Drive. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Sheet Id </td><td colspan="1" rowspan="1"> Select the Google Sheet for which you would like to receive the data. </td></tr><tr><td colspan="1" rowspan="1"> Metadata </td><td colspan="1" rowspan="1"> Select the metadata you would like to include in your report. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

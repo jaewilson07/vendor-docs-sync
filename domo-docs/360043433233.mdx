@@ -1,0 +1,58 @@
+---
+title: "Datadog Connector"
+excerpt: "Use the Datadog connector to pull events, incidents, monitors, and metrics from your Datadog account into a Domo DataSet."
+---
+
+## Intro
+
+Datadog is a monitoring service for cloud-scale applications, bringing together data from servers, databases, tools, and services to present a unified view of an entire stack.  To learn more about the Datadog API, visit their page ([https://docs.datadoghq.com/api/?lang=python#overview](https://docs.datadoghq.com/api/?lang=python#overview "https://docs.datadoghq.com/api/?lang=python#overview") ).
+
+You connect to your Datadog account in the Data Center. This topic discusses the fields and menus that are specific to the Datadog connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Datadog account and create a DataSet, you must have the following:
+
+* A Datadog API key
+* A Datadog application key
+
+To obtain and manage credentials, navigate here and log in using your Datadog username/email and password: [https://app.datadoghq.com/account/lo...2Fsettings#api](https://app.datadoghq.com/account/login?next=%2Faccount%2Fsettings#api "https://app.datadoghq.com/account/login?next=%2Faccount%2Fsettings#api")
+
+## Connecting to Your Datadog Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Datadog Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Datadog account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter your Datadog API key. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Application Key </p></td><td colspan="1" rowspan="1"><p> Enter your Datadog application key. </p></td></tr><tr><td colspan="1" rowspan="1"> Location </td><td colspan="1" rowspan="1"> Select the location from where you wish to pull the Datadog hosted data. </td></tr></tbody></table>
+
+Once you have entered valid Datadog credentials, you can use the same account any time you go to create a new Datadog DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Datadog report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Emeddable Graphs </td><td colspan="1" rowspan="1"> Returns a list of previously created embeddable graphs. </td></tr><tr><td colspan="1" rowspan="1"> Events </td><td colspan="1" rowspan="1"> Returns a list of Events. </td></tr><tr><td colspan="1" rowspan="1"> Incidents (V2) </td><td colspan="1" rowspan="1"> Returns a list of incidents for the user's organization. </td></tr><tr><td colspan="1" rowspan="1"> Metrics </td><td colspan="1" rowspan="1"> Returns a list of actively reporting metrics from a given time until now. </td></tr><tr><td colspan="1" rowspan="1"> Monitors </td><td colspan="1" rowspan="1"> Returns a list of all monitors. </td></tr><tr><td colspan="1" rowspan="1"> Monitor Downtime </td><td colspan="1" rowspan="1"> Returns details about all monitor downtimes. </td></tr><tr><td colspan="1" rowspan="1"> Query Time Series </td><td colspan="1" rowspan="1"> Returns metrics from any time period. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+While Datadog may enforce call rate limits, you should not need to worry about it.
+
+</Accordion>
+</AccordionGroup>
+

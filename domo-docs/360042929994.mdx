@@ -1,0 +1,41 @@
+---
+title: "Stack Exchange Connector"
+excerpt: "Use Domo's Stack Exchange connector to retrieve questions, answers, badges, reputation, tags, and user activity into a DataSet."
+---
+
+## Intro
+
+Stack Exchange is a network of question-and-answer websites on diverse topics in many different fields, each site covering a specific topic, where questions, answers, and users are subject to a reputation award process. Use Domo's Stack Exchange connector to retrieve lists of questions and answers; user reputation information; earned badges; and so on. To learn more about the Stack Exchange API, visit their page ([http://api.stackexchange.com/docs](http://api.stackexchange.com/docs "http://api.stackexchange.com/docs") ).
+
+You connect to your Stack Exchange account in the Data Center. This topic discusses the fields and menus that are specific to the Stack Exchange connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Stack Exchange account and create a DataSet, you must have credentials from one of the following social media networks:
+
+* Stack Exchange
+* Google
+* Facebook
+* Yahoo
+
+## Connecting to Your Stack Exchange Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Stack Exchange Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+The Domo Stack Exchange connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Stack Exchange accounts in Domo) to open the Stack Exchange OAuth screen where you can enter credentials from Stack Exchange, Google, Facebook, or Yahoo. Once you have entered valid credentials and connected to Stack Exchange, you can use the same account any time you go to create a new Stack Exchange DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+<Note>
+**Note:** If you are already logged into Stack Exchange, Google, Facebook, or Yahoo when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of the social media website.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Stack Exchange report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Answers </p></td><td colspan="1" rowspan="1"><p> Returns a list of answers posted by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Badges </p></td><td colspan="1" rowspan="1"><p> Returns a list of badges earned by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Comments </p></td><td colspan="1" rowspan="1"><p> Returns a list of comments posted by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Favorites </p></td><td colspan="1" rowspan="1"><p> Returns questions that have been favorited by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mentioned </p></td><td colspan="1" rowspan="1"><p> Returns a list of the authenticated user's mentions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Posts </p></td><td colspan="1" rowspan="1"><p> Returns all posts (both questions and answers) by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Privileges </p></td><td colspan="1" rowspan="1"><p> Returns a list of the authenticated user's privileges. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Questions </p></td><td colspan="1" rowspan="1"><p> Returns a list of questions asked by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Questions Featured </p></td><td colspan="1" rowspan="1"><p> Returns a list of questions with active bounties. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Questions no-answers </p></td><td colspan="1" rowspan="1"><p> Fetches the questions asked by a set of users, which has no answers. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Questions Unaccepted </p></td><td colspan="1" rowspan="1"><p> Returns a list of questions asked by the authenticated user which have not been adequately answered. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Questions Unanswered </p></td><td colspan="1" rowspan="1"><p> Returns a list of questions asked by the authenticated user with no answers. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reputation </p></td><td colspan="1" rowspan="1"><p> Returns a subset of reputation changes experienced by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reputation History </p></td><td colspan="1" rowspan="1"><p> Returns a history of the authenticated user's reputation, excluding private events. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tags </p></td><td colspan="1" rowspan="1"><p> Returns tags the authenticated user has been active in. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Timeline </p></td><td colspan="1" rowspan="1"><p> Returns a subset of actions taken by the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Write Permissions </p></td><td colspan="1" rowspan="1"><p> Returns the authenticated user's write access via the API. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Site </p></td><td colspan="1" rowspan="1"><p> Enter the site you want to retrieve information for. For example: <span class="mt-font-courier-new"><a href="http://stackoverflow.com" rel="noopener" target="_blank"> stackoverflow.com </a></span>, <span class="mt-font-courier-new"><a href="http://superuser.com" rel="noopener" target="_blank"> superuser.com </a></span></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

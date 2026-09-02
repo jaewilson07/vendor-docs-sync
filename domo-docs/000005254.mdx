@@ -1,0 +1,45 @@
+---
+title: "Qualtrics Upsert Connector"
+excerpt: "Use Domo's Qualtrics Upsert Connector to pull survey definitions and responses from your Qualtrics account into a DataSet."
+---
+
+## Intro
+
+The web-based survey platform from Qualtrics provides you with the customer insights you need to revolutionize your business. To retrieve data about all of your surveys or responses to a specific question, use Domo's Qualtrics connector. To learn more about the Qualtrics API, visit their website ([https://api.qualtrics.com](https://api.qualtrics.com "https://api.qualtrics.com") ).
+
+In Domo, you can see survey results alongside data from sales, finance, operations, marketing, and other departments. This means you can see your entire business in a one location and make smarter decisions to help it flourish. Receive email and text notifications when Qualtrics metrics reach preset levels, and always know your data is up to date with Domo's real-time reports.
+
+You can connect to your Qualtrics Upsert account in the Data Center. This topic discusses the fields and menus that are specific to the Qualtrics Upsert connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is appropriate for the following use cases: </p><ul><li><p> Viewing trends in surveys created </p></li><li><p> Viewing the current number of active surveys </p></li><li><p> Looking for trends in survey responses </p></li><li><p> Looking for correlations in survey response percentage and the number of questions per survey </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Number of responses per survey </p></li><li><p> Number of active surveys </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Marketing roles </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ~15 minutes </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to your Qualtrics Upsert account and create a DataSet, you must have the following:
+
+* Your Qualtrics API token. You can find this logging into your Qualtrics account and navigating to
+  **Account Settings > Qualtrics IDs**. If you do not have an API token, click **Generate API Token**.
+* Your Qualtrics API hostname.
+* The username for your Qualtrics account (only required for 360 surveys and datasets created prior to April 2017)
+
+## Connecting to Your Qualtrics Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Qualtrics Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Qualtrics Upsert account and selecting a survey type. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Token </p></td><td colspan="1" rowspan="1"><p> Enter your Qualtrics API token. For more information, see "Prerequisites" above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Hostname </p></td><td colspan="1" rowspan="1"><p> Enter your Qualtrics hostname. This should be in the format https:// <em> mycompany </em>.qualtrics.com. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey Type </p></td><td colspan="1" rowspan="1"><p> Select whether the survey you want to retrieve data for is a standard survey or a 360 Survey. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username (for 360 survey or datasets created before April' 2017) </p></td><td colspan="1" rowspan="1"><p> Enter your Qualtrics username (required <em> only </em> for 360 surveys and datasets created prior to April 2017) </p></td></tr></tbody></table>
+
+Once you have entered valid Qualtrics credentials, you can use the same account any time you go to create a new Qualtrics Upsert DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary menu from which you can select a report, along with other menus and fields that may appear depending on the selected report type.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select a Qualtrics Upsert report. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Survey Definition Mapping </p></td><td colspan="1" rowspan="1"><p> Returns the mapping between import id and question id for each survey </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey Responses </p></td><td colspan="1" rowspan="1"><p> Returns responses for a given survey (select <b> Append </b> as the update method to retrieve responses since the last run.) </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact History In Mailing List </p></td><td colspan="1" rowspan="1"><p> Returns the history for contacts in a mailing list. </p></td></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

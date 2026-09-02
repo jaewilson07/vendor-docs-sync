@@ -1,0 +1,101 @@
+---
+title: "Amazon Advertising Connector"
+excerpt: "Use the Amazon Advertising Connector to retrieve entities, performance reports, and portfolio listings from Amazon Advertising into a Domo DataSet."
+---
+
+**Note:** The Entities report in this connector will be deprecated on Oct 15th, 2024.  To get information on entities in Amazon Advertising, use the Exports report.
+
+## Intro
+
+Amazon Advertising connects your brand to Amazon customers wherever they share, read, listen, purchase, research and download online, across devices. Use Domo's Amazon Advertising connector to retrieve entities reports, performance reports, and portfolio listings. To learn more about the Amazon Advertising API, visit their page ([https://advertising.amazon.com/about-api](https://advertising.amazon.com/about-api "https://advertising.amazon.com/about-api") ).
+
+You connect to your Amazon Advertising account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon Advertising connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Amazon Advertising account and create a DataSet, you must have your Amazon credentials (email address or phone number and password).
+
+#### How to create a new Amazon Advertising Account?
+
+**To add an Amazon Advertising account to Domo from the Accounts view:**
+
+1. Navigate to the
+**Accounts** section of the **Data Center** by clicking on the Accounts icon in the left-hand pane in the Data Center.
+
+<Frame><img alt="Accounts_Section.png" src="/images/kb/ka0Vq000000Bzub-00N5w00000Ri7BU-0EM5w000005vNxh.png"/></Frame>
+
+2. In
+**Accounts**, click **Add Account**.
+
+<Frame><img alt="Add_Account.png" src="/images/kb/ka0Vq000000Bzub-00N5w00000Ri7BU-0EM5w000005vNxe.png"/></Frame>
+
+3. Select the desired Amazon Advertising connector and click **Connect**.
+
+<Frame><img alt="Select_Account.png" src="/images/kb/ka0Vq000000Bzub-00N5w00000Ri7BU-0EM5w000005vNxg.png"/></Frame>
+
+4. Select the region of the Amazon marketplace you want to access, and click
+**Connect**.
+
+<Frame><img src="/images/kb/ka0Vq000000Bzub-00N5w00000Ri7BU-0EMVq0000072W6D.jpg"/></Frame>
+
+5. An Amazon login window will appear. Enter your Amazon credentials and log into your Amazon account.
+
+6. An entry for the new Amazon Advertising account will appear in the
+**Accounts** view listing.
+
+**To add an Amazon Advertising account to Domo by adding a DataSet and entering new account information:**
+
+1. While creating a new Amazon Advertising account, you need to select the region of the Amazon marketplace you want to access and click **Connect**.
+
+<Frame><img src="/images/kb/ka0Vq000000Bzub-00N5w00000Ri7BU-0EMVq0000072W9R.jpg"/></Frame>
+
+2. An Amazon login window will appear. Enter your Amazon credentials and log into your Amazon account.
+
+3. As you add the Amazon Advertising account through the connector, an entry for the new account appears automatically in the **Accounts** view.
+
+#### How to associate my newly created Amazon Advertising account with an existing dataset?
+
+Associating a newly created Amazon Advertising account with the existing DataSet:
+
+1. Visit the
+**DataSets** page in the Data Center.
+
+<Frame><img alt="DataSets.png" src="/images/kb/ka0Vq000000Bzub-00N5w00000Ri7BU-0EM5w000005vNxf.png"/></Frame>
+
+2. Locate your existing DataSet that you want to associate with a new Amazon Advertising account.
+
+3. The DataSet details will appear.
+
+4. Click **Settings** tab. You will be redirected to the Connector's Credentials section.
+
+5. Here, you can select your new Amazon Advertising account if it's already created, or you can create a new account to associate with your selected DataSet.
+
+6. Click **Save**.
+
+## Connecting to Your Amazon Advertising Account
+
+This section enumerates the options in the Credentials and Details panes in the Amazon Advertising Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+The Domo Amazon Advertising Connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Amazon Advertising accounts in Domo) to open the Amazon OAuth screen where you can enter your Amazon email address and password. Once you have entered valid Amazon credentials, you can use the same account any time you go to create a new Amazon Advertising DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+<Note>
+**Note:** If you are already logged into Amazon when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of the current Amazon account.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Profile </p></td><td colspan="1" rowspan="1"><p> Select the profile you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p><span> Select the Amazon Advertising report you want to run. The following reports are available: </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Entities Report (Deprecated) </p></td><td colspan="1" rowspan="1"><p> This report will be deprecated by Amazon on Oct 15th, 2024. You can use the Exports report instead of this report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Exports </p></td><td colspan="1" rowspan="1"><p> Returns the performance details of adGroups, campaigns, ads, and targets for the specified advertising type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Performance Report </p></td><td colspan="1" rowspan="1"><p> Returns the details about the performance of adGroups, campaigns, productAds, and so on, for the given advertising type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Portfolios </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of portfolios. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Advertising Type </p></td><td colspan="1" rowspan="1"><p> Select whether you want to retrieve data for brands, products, displays, or DSP campaigns. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Record Type </p></td><td colspan="1" rowspan="1"><p> Select the record type you want to retrieve. </p></td></tr><tr><td colspan="1" rowspan="1"><span> State filters </span></td><td colspan="1" rowspan="1"><span> Select desired state filters. </span></td></tr><tr><td colspan="1" rowspan="1"><p> Tactic for Specified Advertising Filter </p></td><td colspan="1" rowspan="1"><p> Select the advertising tactic you want to filter your data by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Segment by Search Terms </p></td><td colspan="1" rowspan="1"><p> Select whether you want to break down your report by search term. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Segment by Placements </p></td><td colspan="1" rowspan="1"><p> Select whether you want to break down your report by placement. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Metrics </p></td><td colspan="1" rowspan="1"><p> Select all the metrics you want to pull data for. </p></td></tr><tr><td colspan="1" rowspan="1"> Dimensions </td><td colspan="1" rowspan="1"> Select the dimensions to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> DSP Report Type </td><td colspan="1" rowspan="1"> Select the DSP report type to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> DSP Metrics </td><td colspan="1" rowspan="1"> Select the DSP metrics you want to pull data for. </td></tr><tr><td colspan="1" rowspan="1"><p> Import Type </p></td><td colspan="1" rowspan="1"><p> Select the import type for your data. Import types are as follows: </p><ul><li><p><b> Delta </b>. This import type updates the <span> data for the last 14 days for each run. Dates selected will be only be used on the first run. Select 'Append' as your update mode. </span> For more information about update modes, see <a href="https://domo-support.domo.com/s/article/360042926274?language=en_US" target="_blank" title="Adding a DataSet Using a Connector"> Adding a DataSet Using a Connector </a>. </p></li><li><p><b> Rolling </b>. This import type keeps a rolling window of a specified number of days of data. You can select a specific time period or use relative dates. When using this import type, be sure to select "Replace" as your update mode. For more information about update modes, see <a href="https://domo-support.domo.com/s/article/360042926274?language=en_US" target="_blank" title="Adding a DataSet Using a Connector"> Adding a DataSet Using a Connector </a>. </p></li><li><p><b> Specific </b>. This import type retrieves data for specific dates for every run. This import type is not recommended. </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> Select the date format for your data. </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> Select whether the report data is for a specific date or for a relative number of days back from today. </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> Select the specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for in the <b><b> Days Back </b></b> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data from (start day). Combine with <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> and 5 for <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data to (end day). Combine with <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> and 5 for <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> Specify the time period that you would like to receive data for. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Troubleshooting
+
+#### I received an error "An unknown scope was requested" when authenticating my Amazon account. Or, when I try to create an account it opens an OAuth window, closes it, and fails with the message "There was a problem creating your account. Please try again." What can I try?
+
+Please verify that your app is whitelisted with Amazon. Find your "Get started with the Amazon Advertising API" email and make sure you have accepted the Amazon Advertising API License Agreement.

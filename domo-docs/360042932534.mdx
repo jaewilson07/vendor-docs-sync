@@ -1,0 +1,47 @@
+---
+title: "Workiva Writeback Connector"
+excerpt: "Use Domo's Workiva Writeback Connector to export data from a Domo DataSet into the Workiva connected reporting platform."
+---
+
+## Intro
+
+Workiva is a leading cloud platform for connected reporting across accounting, finance, audit, and internal controls. To learn more about the Workiva API, visit their page ([https://success.workiva.com/developers/api-reference](https://success.workiva.com/developers/api-reference "https://success.workiva.com/developers/api-reference") ).
+
+You export data from Domo to Workiva in the Data Center. This topic discusses the fields and menus that are specific to the Workiva Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+</Note>
+
+## Prerequisites
+
+To configure this connector, you must have:
+* A Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+* A Workiva client ID
+* A Workiva client secret
+
+To learn how to obtain these credentials, see [https://success.workiva.com/developers/guides/setup](https://success.workiva.com/developers/guides/setup "https://success.workiva.com/developers/guides/setup").
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Workiva Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Workiva account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client secret. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Workiva Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Workiva client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Workiva Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Workiva client secret. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Workiva Base URL Region </p></td><td colspan="1" rowspan="1"><p> Select the Workiva Base URL Region. </p></td></tr></tbody></table>
+
+For information about obtaining these credentials, see "Prerequisites," above.
+
+Once you have entered valid Workiva credentials, you can use the same account any time you go to create a new Workiva DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domo DataSet ID </td><td colspan="1" rowspan="1"> Enter the DataSet ID (GUID) for the DataSet you want to copy to Workiva. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following <span class="mt-font-courier-new"> datasources/ </span>. For example, in the URL <span class="nowiki"><span class="mt-font-courier-new"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4 </span>. </td></tr><tr><td colspan="1" rowspan="1"><p> Spreadsheet ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the Workiva spreadsheet where you want to send your Domo data. This can be found in the spreadsheet URL. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><span class="nowiki"><a href="https://app" rel="noopener" target="_blank"> https://app </a>. <a href="http://wdesk.com/a/aabbccddeeffgghhkkllXTest/spreadsheet/aaaa-bbbb-cccc-dddd-eeee" rel="noopener" target="_blank"> wdesk.com/a/aabbccddeeffgghhkkllXTest/spreadsheet/aaaa-bbbb-cccc-dddd-eeee </a></span></span></span>, the ID is <span class="mt-font-courier-new"> aaaa-bbbb-cccc-dddd-eeee </span>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sheet ID </p></td><td colspan="1" rowspan="1"><p> Select the specific sheet where you want to send your Domo data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Region </p></td><td colspan="1" rowspan="1"><p> Enter the region of the spreadsheet where you want to send your Domo data. Formatting guidelines are as follows: </p><table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><p> If you were to enter this... </p></th><th colspan="1" rowspan="1"><p>...your Domo data would end up here </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> A1 </span></p></td><td colspan="1" rowspan="1"><p> Cell A1 </p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> A2:D8 </span></p></td><td colspan="1" rowspan="1"><p> All cells in the range between A2 and D8 (inclusive) </p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> A:A </span></p></td><td colspan="1" rowspan="1"><p> All cells in column A </p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> 1:3 </span></p></td><td colspan="1" rowspan="1"><p> All cells in rows 1 through 3 </p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> B3: </span></p></td><td colspan="1" rowspan="1"><p> All cells below and to the right of B3 (inclusive) </p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new">: </span></p></td><td colspan="1" rowspan="1"><p> All cells in the sheet </p></td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,178 @@
+---
+title: "Mega Table"
+excerpt: "Create Mega Tables in Analyzer to display up to 25,000 rows of data with HTML links, images, locked columns, and custom color rules."
+---
+
+## Intro
+
+Mega Tables provide the same functionality as [HTML and Heatmap tables](/s/article/360043429573) with some added ones, including the ability to handle up to 25,000 rows and host HTML links and images.
+
+Drill Paths work the same in tables as they do in other chart types. Learn more about [Drill Paths](/s/article/360042924094).
+
+This article describes the unique properties of Mega Tables (some properties also apply to [Pivot Tables](/s/article/360043429473) ). Learn about shared properties in tables and [general table formatting](/s/article/360043429573).
+
+<Tip>
+  **Tip:** Learn how to [add filters to your chart](/s/article/360042924074). To learn about configuring deep linking with filters in Table Cards, see [Sample Beast Mode Calculations: Miscellaneous Transforms](/s/article/360043430113).
+</Tip>
+
+---
+
+## General Properties
+
+All properties outlined in this article are available only for Mega Tables (and, in some cases, Pivot Tables). Learn more about [Pivot Tables](/s/article/360043429473).
+
+* **Transpose —** Selecting this checkbox transposes the table to show rows as columns and columns as rows.
+* **Number of locked columns —** This allows you to specify how many columns are locked in view on the left side of the table. Locke columns always display in the table, even when you scroll to the right.
+* **Hide alternating row colors —** Turns off the default alternating row colors in the table and displays all rows with a white background (except when you hover over a column, in which case all cells in that column and the current row are blue). This property is also available for Heatmap and HTML tables, but the following sub-properties are only available for Mega Tables:
+  + **Odd alternating row color** **—** You can use the default or a color picker to select a color for the odd alternating rows.
+  + **Even alternating row color —** You can use the default or use a color picker to select a color for the even alternating rows.
+* **Apply color rules to totals and subtotals —** Apply any color rules you've set using the Colors property to the total and subtotal rows in your table. This property is also available for Pivot Tables.
+* **Apply color rules to headers** **—** This option applies any color rules you've set with the **Colors** property to header rows in your table. T his property is also available for Pivot Tables.
+* **Allow HTML links and images —** Displays HTML-encoded links and images in your table. You must enclose URLs in *\<a>* tags and enclose images in *\<div>* tags.
+
+  The following code is an example URL tag that converts to a working email address for a user named Sam MacGregor:
+
+  ```
+  <a href="mailto: sam.macgregor@yankuna.com">sam.macgregor@yankuna.com </a>
+  ```
+
+  The following code is an example image tag that converts to an image named bruce.png, which is stored on knowledge. domo. com:
+
+  ```
+  <div style="text-align:center"><img height="80px" src="https://knowledge.domo.com/@api/deki/files/7627/bruce.png?origin=mt-web"></div>
+  ```
+
+  The example below shows a table in which both URLs and images are enabled.
+
+  <Frame><img src="/images/kb/ka0Vq0000003jAH-00N5w00000Ri7BU-0EM5w000005vZ5u.png"/></Frame>
+* **HTML image size** **—** This option allows you to set a size limit for HTML images. You can set any size between 10 and 500 pixels. The default size is 64 pixels.
+* **HTML link color —** Allows you to set a color used for HTML links.
+
+### General Border Properties
+
+Use these border properties to choose the width and color for vertical and horizontal borders. These properties are also available for [Pivot Tables](/s/article/360043429473).
+
+* **Vertical border **—**** Select the width of the vertical table borders (Default, Off, Thin, Thick, Heavy, and Extra Heavy).
+* ****Vertical border color —**** Use the color picker to select the color for vertical table borders.
+* **Vertical outside border —** Select **Inherit** to make the vertical outside table border mirror the configured width for the **Vertical border**, OR select a different width (Off, Thin, Thick, Heavy, and Extra Heavy).
+* ****Vertical outside border color —**** Use the color picker to select the color for the outside vertical table border.
+* ****Horizontal border —**** Select the width of the horizontal table borders (Default, Off, Thin, Thick, Heavy, and Extra Heavy).
+* ****Horizontal border color —**** Use the color picker to select the color for the horizontal table borders.
+* ****Horizontal outside border —**** Select **Inherit** to make the horizontal outside table border mirror the configured width for the **Horizontal border**, OR choose a different width (Off, Thin, Thick, Heavy, and Extra Heavy).
+* ****Horizontal outside border color —**** Use the color picker to select the color for the outside horizontal table border.
+
+  <Frame><img alt="general borders.jpg" src="/images/kb/ka0Vq000000BGvt-00N5w00000Ri7BU-0EMVq000000PsGY.jpg"/></Frame>
+## Row Height Properties
+
+Row height properties allow you to specify the size of the padding in the cells.
+
+* **Row height —** Select the row height for your table (Default, Short, Medium Short, Medium, Medium Tall, Tall, and Extra Tall).
+* **Header row height —** Select **Inherit** to make the header row height mirror the configured row height, or select a different height (Inherit, Short, Medium Short, Medium, Medium Tall, Tall, and Extra Tall).
+* **Total row height —** Select **Inherit** to make the total row height mirror the configured row height, or select a different height (Inherit, Short, Medium Short, Medium, Medium Tall, Tall, and Extra Tall).
+* **Subheader row height —** Select **Inherit** to make the subheader row height mirror the configured row height, or select a different height (Inherit, Short, Medium Short, Medium, Medium Tall, Tall, and Extra Tall).
+* **Subtotal row height —** Select **Inherit** to make the subtotal row height mirror the configured row height, or select a different height (Inherit, Short, Medium Short, Medium, Medium Tall, Tall, and Extra Tall).
+
+<Frame><img alt="Screenshot 2024-08-08 at 9.04.36 AM.png" src="/images/kb/ka0Vq000000BGvt-00N5w00000Ri7BU-0EMVq0000028Syr.jpg"/></Frame>
+## Sorting Settings
+
+The sorting settings allow you to enable sorting in your Mega Table.
+
+* **Enable sorting —** This allows sorting for each data column.
+* **Numeric sorting of strings —** This allows numeric sorting inside of string fields in your Mega Table.
+
+<Frame><img alt="Screenshot 2024-08-08 at 9.23.09 AM.png" src="/images/kb/ka0Vq000000BGvt-00N5w00000Ri7BU-0EMVq0000028Ooo.jpg"/></Frame>
+## Header Row Border Properties
+
+Using these border properties, you can select the width and color for the header row's vertical and horizontal borders.
+
+* **Header vertical border —** Select **Inherit** to make the vertical header borders mirror the configured width for the **General** > **Vertical border** property, OR select a different width (Default, Off, Thin, Thick, Heavy, and Extra Heavy).
+* **Header vertical border color —** Use the color picker to select the color for the header vertical borders.
+* **Header vertical outside border —** Select **Inherit** to make the vertical header outside border mirror the configured width for the **General** > **Vertical border** property, OR select a different width (Off, Thin, Thick, Heavy, and Extra Heavy).
+* **Header vertical outside border color —** Use the color picker to select the color for the header vertical outside border.
+* **Header top border —** Select **Inherit** to make the header top border mirror the configured width for the **General** > **Vertical border** property, OR select a different width (Default, Off, Thin, Thick, Heavy, and Extra Heavy).
+* **Header top border color —** Use the color picker to select the color for the header top border.
+* **Header bottom border —** Select **Inherit** to make the header bottom border mirror the configured width for the **General** > **Vertical border** property, OR select a different width (Default, Off, Thin, Thick, Heavy, and Extra Heavy).
+* **Header bottom border color —** Use the color picker to select the color for the header bottom border.
+
+<Frame><img alt="Screenshot 2024-02-26 at 3.59.51 PM.png" src="/images/kb/ka0Vq0000003jAH-00N5w00000Ri7BU-0EMVq000000PsDJ.jpg"/></Frame>
+## Total Row Properties
+
+The following properties are available when the **Total row** > **Show total row** checkbox is selected.
+
+* **Total row position **—**** Allows you to specify whether your total row displays at the top of the table (Before) or the bottom of the table (Default, After).
+
+* **Total row padding **—**** This allows you to add padding, in pixels, between the content in the total row and the upper border. In the example, the padding is 25 pixels.
+
+  <Frame><img alt="Screenshot 2024-02-26 at 3.54.21 PM.png" src="/images/kb/ka0Vq0000003jAH-00N5w00000Ri7BU-0EMVq000000Ps6r.jpg"/></Frame>
+## Subtotal Rows Properties
+
+The following properties are available when the **Subtotal rows** > **Show subtotal rows** checkbox is selected.
+
+* **Show all group names **—**** When this checkbox is selected, the names of any unaggregated data display for all individual items within a category. When it is not selected, the category name is used only once (aside from the subtotal row), and blank cells display under that name for all the remaining values in the category. The first example shows a table where the customer name is displayed each time a value is listed for that customer. The second example shows the same table, but the customer name is listed only once, and all subsequent values for that customer have a blank customer name.
+
+  <Columns>
+    <Frame><img alt="megatable_groups_shown.png" src="/images/kb/ka0Vq0000003jAH-00N5w00000Ri7BU-0EM5w000005vZ5h.png"/></Frame>
+    <Frame><img alt="megatable_groups_hidden.png" src="/images/kb/ka0Vq0000003jAH-00N5w00000Ri7BU-0EM5w000005vZ5s.png"/></Frame>
+  </Columns>
+* **Percent of total decimal places **—**** Selecting this overrides the number of decimal places shown for the percent of total field. You can select Default (two decimal places) or 0, 1, 2, 3, or 4 decimal places.
+* **Hide counts —** Hides count summations for non-value columns in subtotal rows.
+
+The following properties are available when the **Subtotal rows** > **Show subtotal rows** checkbox is selected.
+
+* **Subtotal row font family —** Allows you to change the font family for all the subtotal row text in the table. Options include Default, Sans, Serif, Slab, Condensed, and Monospace. The default font family is the default Domo font.
+* **Subtotal row font size —** This allows you to change the font size for all the subtotal row text in the table. Options include default, normal, smallest, smaller, larger, and largest. The default font size is the default Domo size.
+* **Subtotal row position** **:** This option allows you to specify whether your subtotal rows display after the rows to which they apply (default) or before them.
+* **Show subheader rows —** Add subheader rows above the groupings in your unaggregated data rows. If you plan to include subheader rows in your table, it is recommended that you set them apart using the **Subheader fill color,** **Subheader font color,** and/or **Subheader font style** properties so that users can easily see them.
+* **Subheader fill color —** Allows you to select a background color for your subheader rows. For this option to show, you need to enable subheader rows by selecting the **Subtotal rows** > **Show subheader rows** checkbox. By default, no background color displays.
+
+  <Frame><img alt="megatable_subheaders_fill_color.png" src="/images/kb/ka0Vq0000003jAH-00N5w00000Ri7BU-0EM5w000005vZ5e.png"/></Frame>
+* **Subheader font color —** Allows you to select a color for the text in your subheader rows. For this option to show, you need to enable subheader rows by selecting the **Subtotal rows** > **Show subheader rows** checkbox. The default color is black.
+
+  <Frame><img alt="megatable_subheaders_font_color.png" src="/images/kb/ka0Vq0000003jAH-00N5w00000Ri7BU-0EM5w000005vZ5r.png"/></Frame>
+* **Subheader row font family —** Allows you to change the font family for all the subheader row text in the table. Options include Default, Sans, Serif, Slab, Condensed, and Monospace. The default font family is the default Domo font.
+* **Subheader row font size —** Allows you to change the font size for all the subtotal row text in the table. Options include default, normal, smallest, smaller, larger, and largest. The default font size is the default Domo size.
+* **Subheader font style —** Allows you to select a style (bold, italic, or both) for the text in your subheader rows. For this option to show, you need to enable subheader rows by selecting the **Subtotal rows** > **Show subheader rows** checkbox. By default, no style is applied.
+
+  <Frame><img alt="megatable_subheaders_font_style.png" src="/images/kb/ka0Vq0000003jAH-00N5w00000Ri7BU-0EM5w000005vZ5n.png"/></Frame>
+* **Suppress single-item subtotals** **—** This option allows you to select whether to hide subtotals when there is only one item in a group.
+
+## Heatmap Options
+
+The following options are available Heatmap settings available in Mega Tables.
+
+* **Color as heatmap —** This option applies heatmap coloring to the value cells in your table. Lighter or darker shades are applied based on where a particular value falls in the entire value range of a given column or across the entire chart (depending on the settings for other **Heatmap options**). You must select this box to access the other heatmap options.
+
+  <Frame><img alt="megatable_heatmap_coloring.png" src="/images/kb/ka0Vq000000BGvt-00N5w00000Ri7BU-0EM5w000005vP45.png"/></Frame>
+* **Color theme —** Allows you to change the color theme used when heatmap coloring is enabled for your table. For more information about configuring colors, see our article about [Changing the Default Colors in Your Chart.](https://domo-support.domo.com/s/article/360043429653?language=en_US)
+* **Independent column ranges —** Allows you to specify whether the heat map coloring for columns is based on the entire range of values in the table (unchecked by default) or whether each column's range of values is considered separate from the others.
+* **Apply heatmaps to columns —** This allows you to specify which numeric columns in your table have heatmap coloring. You can specify the columns by their number in the table from left to right. You can also use commas to indicate different columns or hyphens to indicate the ranges of columns.
+    
+  For example, if you enter 2, 4–6 in this field, columns 2,4,5, and 6 have heatmap coloring.
+* **Use log scale —** Uses a logarithmic scale for heatmap ranges.
+* **Show diverging —** This option displays the Mega Table as a diverging heatmap with two color ranges: one above the midpoint and one below.
+
+  <Frame><img alt="Screenshot 2024-10-29 at 9.08.47 AM.png" src="/images/kb/ka0Vq000000BGvt-00N5w00000Ri7BU-0EMVq000003V7TK.jpg"/></Frame>
+* **Number of ranges —** Allows you to select the number of displayed ranges above or below the midpoint. The maximum number of displayed ranges is five.
+* **Midpoint value type —** Allows you to set the type or value to be used as the midpoint. Options include default (median), median, mean, zero, and manual.
+* **Midpoint Value —** This option is enabled when "manual" is selected as the **Midpoint value type**. You can enter the midpoint value in this textbox.
+* **Show midpoint range —** When selected, this option displays a range for the midpoint value in the legend and chart.
+* **Midpoint range color —** Allows you to select the midpoint range color.
+* **Upper color theme** **—** Allows you to select the colors for values above the range point.
+* **Lower color theme —** Allows you to select the colors for the values below the range point.
+
+## Table Calculations
+
+Table calculations allow you to display a value in the table as a percent of column total, part of a running total, or how the value ranks against other values in the column, all without having to use a calculated field or DataFlow.
+
+To use a table calculation, select the column you want to configure above the chart preview to display the column menu.
+
+<Frame><img alt="display column menu.png" src="/images/kb/ka0Vq00000078gn-00N5w00000Ri7BU-0EM5w000006uEBl.jpg"/></Frame>
+In the column menu, select the **Show value as** field to display the list options. The field options include:
+
+* **Actual value (default) —** Displays the values in the column as their actual values. This is the default setting.
+* **% of column total —** Displays the values for each record as the percentage of the column total, with all values adding up to 100 percent.
+* **Running total** **—** This displays the values for each record as the running total of the values in the record, with the final count for all values in the column in the final record.
+* **Ranks large to small —** Gives each record in the column a relative rank compared with all values in the DataSet from large to small.
+* **Ranks small to large —** Gives each record in the column a relative rank compared with all values in the DataSet from small to large.
+
+  <Frame><img alt="Screenshot 2023-03-21 at 2.18.29 PM.png" src="/images/kb/ka0Vq00000078gn-00N5w00000Ri7BU-0EM5w000006uEE1.jpg"/></Frame>

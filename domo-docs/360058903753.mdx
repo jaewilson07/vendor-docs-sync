@@ -1,0 +1,197 @@
+---
+title: "MariaDB Connector"
+excerpt: "Configure Domo's MariaDB Connector to query a MariaDB or MySQL database and pull data into a DataSet using host, port, and credential settings."
+---
+
+## Intro
+
+MariaDB is a community-developed fork of the MySQL relational database management system. Use Domo's MariaDB connector to take advantage of MariaDB's speed and other improvements to MySQL's database system when connecting to either MariaDB or MySQL databases. You can easily and securely access your data in minutes to get more visibility. To learn more about MariaDB, visit https://mariadb.com/docs/.
+
+You connect to your MariaDB data in the Data Center. This topic discusses the fields and menus that are specific to the MariaDB connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your MariaDB database and create a DataSet, you must have the following:
+
+* The username and password you use to log into your MariaDB account
+* The host name for the database
+* The port number for the database
+* The database or schema name
+
+You can also include the URL where your SSL CA Certificate is located, though this is optional.
+
+Before you can connect to a MariaDB database, you must also white list a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093 "Whitelisting IP Addresses for Connectors").
+
+## Connecting to Your MariaDB Database
+
+This section enumerates the options in the **Credentials** and **Details** panes in the MariaDB Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your MariaDB database. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Enter the hostname or IP address of your database server. Example: <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port number for your database. </td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> Enter your database name. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your MariaDB username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your MariaDB password. </td></tr><tr><td colspan="1" rowspan="1"> CA Certificate </td><td colspan="1" rowspan="1"> Paste the text for your CA certificate or enter the URL where your certificate is located. This is optional. </td></tr></tbody></table>
+
+Once you have entered valid MariaDB credentials, you can use the same account any time you go to create a new MariaDB DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+In this pane you create an SQL query to pull data from your database. The ****Query**** parameter is required. The other three parameters are here to help you construct this query if you choose.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr>
+<th colspan="1" rowspan="1">
+<p> Menu </p>
+</th>
+<th colspan="1" rowspan="1">
+<p> Description </p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"> Query Type </td>
+<td colspan="1" rowspan="1"> Select the desired query type—either with or without a parameter </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Query </td>
+<td colspan="1" rowspan="1">
+<p> Enter the Structured Query Language (SQL) query to select the data you want. Example: </p>
+<p>
+<span class="mt-font-courier-new"> select * from Employee </span>
+</p>
+<p>
+You can use the 
+<b>
+<b>
+<b>
+<b> Query Helper </b>
+</b>
+</b>
+</b>
+parameter to help you write a usable SQL query. To use the
+<b>
+<b>
+<b>
+<b>
+Query Helper
+</b>
+</b>
+</b>
+</b>
+, do the following:
+</p>
+<ol>
+<li>
+<p> Select your database table and table columns in the appropriate menus. </p>
+</li>
+<li>
+<p>
+Copy the SQL statement that appears in the
+<b>
+<b>
+<b>
+<b> Query Helper </b>
+</b>
+</b>
+</b>
+field.
+</p>
+</li>
+<li>
+<p>
+Paste the copied SQL statement into the
+<b>
+<b>
+<b>
+<b> Query </b>
+</b>
+</b>
+</b>
+field.
+</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Query Parameter </td>
+<td colspan="1" rowspan="1">
+<p> Enter the query parameter value. This is the initial value for the query parameter. You can use this option to retrieve new data since the last run. The last run date is optional. </p>
+<p> Example: If you entered the following query in the <b>
+<b> Query </b>
+</b> field... </p>
+<p>
+`select * from test.lastValue where id <=!{lastvalue:id}! order by id desc`
+</p>
+<p>...and then entered the following for the <b>
+<b> Query Parameter </b>
+</b>... </p>
+<p>
+`!{lastvalue:id}!=3 `
+</p>
+<p>...then the first run would return 3 rows, and all subsequent runs would return 1 row, and the results would be ordered from largest to smallest. </p>
+<p> Similarly, if you entered the following in the <b>
+<b> Query </b>
+</b> field... </p>
+<p>
+`select * from test.lastValue where time >!{lastrundate:time}!`
+</p>
+<p>...and then entered the following for the <b>
+<b> Query Parameter </b>
+</b>... </p>
+<p>
+`!{lastrundate:time}!=01/01/1990`
+</p>
+<p>...then the first run would return 5 rows and all subsequent runs would return 0 rows. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> TinyInt Values Treated as Boolean Values </td>
+<td colspan="1" rowspan="1"> Select <b>
+<b> Yes </b>
+</b> if you want TinyInt values to be treated as Boolean. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Cast Boolean Values To... </td>
+<td colspan="1" rowspan="1"> Select whether Boolean values will be cast to integers or strings. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Database Tables (Optional) </td>
+<td colspan="1" rowspan="1"> Select the database table you want to import into Domo. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Table Columns (Optional) </td>
+<td colspan="1" rowspan="1"> Select the table columns you want to import into Domo. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+Query Helper (Optional)
+</td>
+<td colspan="1" rowspan="1">
+Copy and paste the SQL statement in this field into the
+<b>
+<b>
+<b>
+<b> Query </b>
+</b>
+</b>
+</b>
+field. For more information, see
+<b>
+<b>
+<b>
+<b> Query </b>
+</b>
+</b>
+</b>
+, above.
+</td>
+</tr>
+</tbody>
+</table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

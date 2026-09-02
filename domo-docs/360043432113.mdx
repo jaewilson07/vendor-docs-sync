@@ -1,0 +1,86 @@
+---
+title: "Yahoo! Japan Search Ads Connector"
+excerpt: "Connect Domo to your Yahoo! Japan Search Ads account using API credentials to pull Sponsored Search and Display Ads reports into a DataSet."
+---
+
+## Intro
+
+Yahoo! Japan Corporation is a Japanese internet company originally formed as a joint venture between the American internet company Yahoo! (now Altaba) and the Japanese company SoftBank. To learn more about the Yahoo! Japan Marketing Solutions API, visit their page ([https://biz.marketing.yahoo.co.jp/de...er-en/program/](https://biz.marketing.yahoo.co.jp/developercenter-en/program/ "https://biz.marketing.yahoo.co.jp/developercenter-en/program/")).
+
+You connect to your Yahoo! Japan Search Ads account in the Data Center. This topic discusses the fields and menus that are specific to the Yahoo! Search Ads connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Yahoo! Japan Search Ads account and create a DataSet, you need the credentials (username and password) associated with your Yahoo! Japan Search Ads account.
+
+## Connecting to Your Yahoo! Japan Search Ads Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Yahoo! Search Ads Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Yahoo! Japan Search Ads uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Yahoo! Japan Search Ads accounts in Domo) to open the OAuth screen where you can enter your Yahoo! Japan Search Ads credentials. Once you have entered valid credentials, you can use the same account any time you go to create a new Yahoo! Japan Search Ads DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing Connectors Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing Connectors Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus for configuring your report.
+
+<table cellpadding="1" cellspacing="1" border="1" data-aura-rendered-by="33:196;a"><thead><tr><th rowspan="1" colspan="1">
+<p>Menu</p>
+</th><th rowspan="1" colspan="1">
+<p>Description</p>
+</th></tr></thead><tbody><tr ><td rowspan="1" colspan="1">
+<p>Report</p>
+</td><td rowspan="1" colspan="1">
+<p>Select the Yahoo! Japan Search Ads report you want to run. Currently only one report is available.&nbsp;</p>
+<table cellpadding="1" cellspacing="1" border="1"><tbody><tr><td rowspan="1" colspan="1">Impossible Field Combinations</td><td rowspan="1" colspan="1">Returns impossible field combinations data for the selected Report Type.</td></tr><tr><td rowspan="1" colspan="1">Report Service</td><td rowspan="1" colspan="1">Returns data from Yahoo! JAPAN Search Ads based on the Account ID and Report Type selected.</td></tr></tbody></table>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Report Type</p>
+</td><td rowspan="1" colspan="1">
+<p>Select the desired report type.</p>
+<table border="1"><tbody><tr><th rowspan="1" colspan="1">Report Type</th><th rowspan="1" colspan="1">Description</th></tr><tr><td rowspan="1" colspan="1">Account</td><td rowspan="1" colspan="1">Returns account data.</td></tr><tr><td rowspan="1" colspan="1">Ad</td><td rowspan="1" colspan="1">Returns Ad data.</td></tr><tr><td rowspan="1" colspan="1">Ad Group</td><td rowspan="1" colspan="1">Returns Ad Group data.</td></tr><tr><td rowspan="1" colspan="1">Bidding</td><td rowspan="1" colspan="1">Returns Bidding data.</td></tr><tr><td rowspan="1" colspan="1">Campaign</td><td rowspan="1" colspan="1">Returns Campaign data.</td></tr><tr><td rowspan="1" colspan="1">Geo</td><td rowspan="1" colspan="1">Returns Geo data.</td></tr><tr><td rowspan="1" colspan="1">Geo Targeting</td><td rowspan="1" colspan="1">Returns Geo Targeting data.</td></tr><tr><td rowspan="1" colspan="1">Keyword</td><td rowspan="1" colspan="1">Returns Keyword data.</td></tr><tr><td rowspan="1" colspan="1">Landing Page</td><td rowspan="1" colspan="1">Returns Landing Page data.</td></tr><tr><td rowspan="1" colspan="1">Schedule Targeting</td><td rowspan="1" colspan="1">Returns Schedule Targeting data.</td></tr><tr><td rowspan="1" colspan="1">Search Query</td><td rowspan="1" colspan="1">Returns Search Query data.</td></tr></tbody></table>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Account ID</p>
+</td><td rowspan="1" colspan="1">
+<p><span>Select account ID.</span></p>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Report Fields</p>
+</td><td rowspan="1" colspan="1">
+<p>Select the columns you want to appear in your report.</p>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Language</p>
+</td><td rowspan="1" colspan="1">
+<p>Select the language you want to filter your results by (the default is English).</p>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Sort Type</p>
+</td><td rowspan="1" colspan="1">
+<p>Select whether you want to sort your data in ascending or descending order, or not at all.</p>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Sort Field</p>
+</td><td rowspan="1" colspan="1">
+<p>Select a column to sort by.</p>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Filter&nbsp;</p>
+</td><td rowspan="1" colspan="1">
+<p>Select whether you want to set a filter on your report.</p>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Filter 1...6</p>
+</td><td rowspan="1" colspan="1">
+<p>Select a filter for your report.</p>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Operator 1...6</p>
+</td><td rowspan="1" colspan="1">
+<p>Select an operator for your report.</p>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Filter Value 1...6</p>
+</td><td rowspan="1" colspan="1">
+<p>Select a value for your report filter.</p>
+</td></tr><tr><td rowspan="1" colspan="1">
+<p>Date Range</p>
+</td><td rowspan="1" colspan="1">
+<p>Select the date range.</p>
+</td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

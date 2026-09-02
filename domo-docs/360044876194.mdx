@@ -1,0 +1,219 @@
+---
+title: "Magic ETL Tiles: Combine Data"
+excerpt: "Configure the Append Rows, Join Data, and other Combine Data tiles in Magic ETL to merge DataSets in a DataFlow."
+---
+
+## Intro
+
+This article describes how to configure the Combine Data tiles in Magic ETL.
+
+Learn how to [create a Magic ETL DataFlow](/s/article/360055259234 "Creating a Magic ETL DataFlow").
+
+<Frame>
+<img alt="Combine_Data_Tab.png" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EM5w000005vNhi.png"/>
+</Frame>
+
+---
+
+## Append Rows Tile
+
+<Frame>
+<img alt="Append_Rows.png" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EM5w000005vNhU.png"/>
+</Frame>
+
+The Append Rows tile lets you append rows from multiple DataSets (with similar columns and data structure) into one DataSet, returning occurrences of all matches, including duplicate rows.
+
+<Note>
+  **Note:** You can only append data rows from input DataSets having the same data structure and data type. If the data structures do not match, the Append Rows tile creates extra columns to accommodate the non-matching data. For example, if you tried to append text to a whole numbers column, two columns would be created—one for the whole numbers column and one for the text column.
+</Note>
+
+### Use Case
+
+For example, consider this transform flow.
+
+<Frame>
+<img alt="Example_Append.png" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EM5w000005vNhY.png"/>
+</Frame>
+
+The Append Rows tile uses the following configuration
+
+<Frame>
+![](/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EM5w000005vNhJ.png)
+</Frame>
+
+to convert the following data
+
+<Columns>
+  <Frame><img src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgH.png" /></Frame>
+  <Frame><img alt="etl_appendrows_datain2.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgT.png"/></Frame>
+</Columns>
+
+to this data.
+
+<Frame>
+<img alt="etl_appendrows_dataout.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgU.png"/>
+</Frame>
+
+<Note>
+  **Note:** When previewing, the transformed data might not sort rows in the order you expect. You can control the row order when displaying data in table cards.
+</Note>
+
+### Configure the Append Rows Tile
+
+1. Select the **Append Rows** tile on the canvas to open the tile editor.
+2. (Optional) At the top of the tile editor, rename the tile by selecting **Edit** and entering the name you want.
+3. In the **Configuration** tab of the tile editor, select the dropdown in step 1 and choose which columns to include in the append from the following options:
+
+   * **Include columns from DataSet —** Select one of the input DataSets to include its columns.
+   * **Include all columns —** Includes unique columns from all of the input DataSets.
+   * **Only include shared columns —** Includes only columns that are used in every input DataSet.
+4. Choose how to handle when column types don't match: **Use best compatible data type** OR **Display a type error**.
+5. Review changes to be made to each DataSet.
+6. Select **Done** in the top right corner of the tile editor.
+
+   <Tip>
+     **Tip:** You can preview the data transformed by a tile by selecting **Run Preview**. When the transform is complete, the results are available in the **Preview** tab of the tile editor.
+   </Tip>
+
+### Appending Rows in Magic ETL (video)
+
+<iframe allowfullscreen="allowfullscreen" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/6UL-R4jGdTg" width="560"></iframe>
+
+## Join Data Tile
+
+<Frame>
+<img alt="Screenshot 2024-11-11 at 3.24.06 PM.png" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000003kPkr.jpg"/>
+</Frame>
+
+With the Join Data tile, you can combine columns from two DataSets or data “streams” into one DataSet using common values in a specific column or set of columns.
+
+<Warning>
+  **Important:**
+  * The specific column you use to combine rows must exist in both DataSets and have the same data structure.
+  * For Inner, Left Outer, and Fill Outer joins, specify the primary or "lookup table" with the unique values as the first input DataSet (on the left). The identifying column cannot have more than 10,000 duplicates of any value.
+</Warning>
+
+### Configure the Join Data Tile
+
+1. Connect the two input DataSets you want to combine to a Join Data tile on the canvas.
+2. Select the **Join Data** **tile** to open the tile editor at the bottom of the screen.
+3. (Optional) In the tile editor, rename the tile by selecting **Edit** by the name field and entering the name you want.
+   
+   <Frame>
+   <img alt="edit name.jpg" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000003kVNF.jpg"/>
+   </Frame>
+
+4. In step 1 of the editor, select a DataSet from the **Left Table** dropdown.
+   The Right Table is automatically populated by the other DataSet.
+   
+   <Frame>
+   <img alt="Screenshot 2024-11-11 at 4.41.19 PM.png" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000003kVVJ.jpg"/>
+   </Frame>
+
+   In the **Join Type** dropdown, select the type of join to perform. Learn about the available [join types](#join-types) below.
+5. In step 2 of the editor, define the join criteria. There are two options:
+   * [Join columns from each table](#add-an-equality-condition) together based on matching values with an **Equality condition**.
+   * [Write your own expression](#write-a-join-expression) for how to join the data with an **Expression condition**.
+6. In step 3 of the editor, make any changes to output columns. Magic ETL will alert you of some conflicts, such as column naming.
+   
+   <Frame>
+   <img alt="Screenshot 2024-11-13 at 12.27.55 PM.png" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000003nOKP.jpg"/>
+   </Frame>
+
+7. Select **Done** when you're finished in the editor.
+   
+   <Frame>
+   ![](/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000003nO97.jpg)
+   </Frame>
+
+   <Tip>
+     **Tip:** You can preview the data transformed by a tile by selecting **Run Preview**. When the transform is complete, the results are available in the **Preview** tab of the tile editor.
+   </Tip>
+
+#### Add an Equality Condition
+
+If you choose **+ Equality condition** in step 2 of the tile editor, use the dropdowns to choose a pair of columns from the left and right tables that can be joined based on matching values. You can add as many column pairs as needed by selecting **+ Equality condition** again.
+
+<Frame>
+<img alt="Screenshot 2024-11-13 at 12.30.40 PM.png" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000003nPWb.jpg"/>
+</Frame>
+
+#### Write a Join Expression
+
+If you choose **+ Expression condition** in step 2 of the tile editor, use the freeform field to write an expression that identifies the relationship between the tables.
+
+<Frame>
+<img alt="Screenshot 2024-11-13 at 12.41.33 PM.png" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000003nQE9.jpg"/>
+</Frame>
+
+Select **Expand** (diagonal arrows icon) to open the formula editor so that you have more room to compose your join expression.
+
+You can use inequality operators such as (such as \<, >, >=, and \<+); keywords that allow you to indicate the relationship as a range (like BETWEEN); and other functions you might use in a SQL-based join.
+
+Select **Validate formula** (circular arrows icon) to validate your join expression before running your DataFlow.
+
+### Join Types
+
+This table describes the available join types.
+
+|  Join         |  Description                                                                                                                   |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------|
+|  Inner        |  Includes only matching rows in both input DataSets.                                                                           |
+|  Left Outer   |  Includes all rows from the first input DataSet (on the left) and matching rows from the second input DataSet (on the right).  |
+|  Right Outer  |  Includes all rows from the second input DataSet (on the right) and matching rows from the first input DataSet (on the left).  |
+|  Full Outer   |  Includes all rows from both input DataSets.                                                                                   |
+
+### Join Data Configuration
+
+The gear next to the **Join Type** dropdown menu provides you with the option to restrict your joins to one of several types:
+
+* Many to Many (Not Restricted)
+* Many to One
+* One to Many
+* One to One
+
+<Frame>
+<img src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000005buWb.jpg"/>
+</Frame>
+
+This setting is optional and is not needed for the **Join Data** tile to function. When set, it does make it easier to prove that a join is working as intended in some cases.
+
+Selecting one of the options validates the constraint at the time the join attempts to execute in the DataFlow. If the constraint is violated (for example, multiple values are in the right table and join to the same key on the left when the relationship is set as one-to-one), then you receive an error, and the DataFlow is terminated.
+
+## Split Join Tile (Limited Release)
+
+<Warning>
+  **Important:** The Split Join tile is currently only available for Magic ETL on Snowflake or Databricks. It is targeted for general release by the end of 2025.
+</Warning>
+
+If you have a Domo integration with Snowflake or Databricks, you can access the Split Join tile in Magic ETL. This tile allows you to have multiple output streams from a join in your DataFlow. It is useful when you want to see the results of a join and when rows didn't join from the left or right tables.
+
+### Configure Split Join Tile
+
+1. Drag a Split Join tile to the canvas from the **Combine Data** section of the left panel. This tile has a bigger footprint on the canvas than a standard tile, and it grows as you add more output streams.
+2. Connect the left and right tables on your canvas to the tile.
+     
+   <Frame>
+   <img alt="" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000008k1XZ.jpg"/>
+   </Frame>
+
+3. Configure your join and column handling in the tile editor as you would with a regular
+   [Join Data](#configure-the-join-data-tile) tile.
+     
+   <Frame>
+   <img alt="" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000008k2Bt.jpg"/>
+   </Frame>
+   
+4. Under **Output Names**, check the boxes next to the output you would like. You can rename them.
+     
+   <Frame>
+   <img alt="" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000008k2IL.jpg"/>
+   </Frame>
+
+   The outputs you select display on the canvas in multiple nodes.
+     
+   <Frame>
+   <img alt="" src="/images/kb/ka0Vq000000G5AD-00N5w00000Ri7BU-0EMVq000008k23p.jpg"/>
+   </Frame>
+
+5. Build your downstream DataFlow from any of the outputs.

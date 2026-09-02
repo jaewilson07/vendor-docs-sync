@@ -1,0 +1,90 @@
+---
+title: "Adobe Analytics Advanced Legacy Connector (Deprecated)"
+excerpt: "Reference for the deprecated Adobe Analytics Advanced Legacy connector, which retires in July 2026; use the Adobe Analytics v2 OAuth connector instead."
+---
+
+<Warning>**Important:** The Adobe Analytics API v1.4, used by this connector, will be retired by Adobe in August 2026. As a result, this connector will be fully retired on July 8, 2026. To continue pulling data from Adobe Analytics, please use the [Adobe Analytics v2 OAuth Partition Connector - Server to Server](/s/article/360043433653) connector instead.</Warning>
+
+## Intro
+
+Adobe Analytics helps you create a holistic view of your business by turning customer interactions into actionable insights. Domo's Adobe Analytics connector allows you to retrieve data through prebuilt reports or customized reports or by submitting a query to the Adobe Analytics API. You can then combine metrics with data from CRM, POS, or any other system to make faster, better-informed business decisions. To learn more about the Adobe Analytics API, visit [https://marketing.adobe.com/developer/en\_US/get-started/introduction/c-introduction](https://marketing.adobe.com/developer/en_US/get-started/introduction/c-introduction "https://marketing.adobe.com/developer/en_US/get-started/introduction/c-introduction").
+
+You connect to the Adobe Analytics API in the Data Center. This topic discusses the fields and menus that are specific to the Adobe Analytics connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to the Adobe Analytics and create a DataSet, you must have the Client ID and Client Secret associated with your Adobe Analytics account.
+
+Visit [Adobe Oauth](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md "https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md") [Connection](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md "Connection") documentation to learn more about obtaining your Client ID and Client Secret.
+
+### Creating a new OAuth project in Adobe Developer Console
+
+To create a new OAuth project in Adobe Developer Console, do the following:
+
+1. Log into [https://console.adobe.io/projects](https://console.adobe.io/projects "https://console.adobe.io/projects").
+2. Click **Create new project** button.
+3. Click on **Add API** to start using the Adobe services.
+
+<Frame><img alt="Add_API.png" src="/images/kb/ka0Vq00000012UP-00N5w00000Ri7BU-0EM5w000005vO16.png"/></Frame>
+
+4. The APIs available to you will be listed in the **Add an API** window. Select **Adobe Analytics**.
+
+<Frame><img alt="Add_an_API-Adobe_Analytics.png" src="/images/kb/ka0Vq00000012UP-00N5w00000Ri7BU-0EM5w000005vO19.png"/></Frame>
+
+5. Now, you need to select the authentication type. Select **OAuth** here.
+
+<Frame><img alt="OAuth-service_account_OAuth.png" src="/images/kb/ka0Vq0000008NaX-00N5w00000Ri7BU-0EM5w000005vO1D.png"/></Frame>
+
+6. Select the **Web** platform to configure the API.
+
+      Enter the **redirect URI** as **https://oauth.domo.com/api/data/v2/oauth/providers/adobe-analytics-oauth/exchange**
+
+      Enter the **Redirect URI pattern** as **https://oauth//.domo//.com/api/data/v2/oauth/providers/adobe-analytics-oauth/exchange**
+
+7. Click **Save configured API**.
+
+## Connecting to the Adobe Analytics API
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Adobe Analytics connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to the Adobe Analytics API. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username: Company </td><td colspan="1" rowspan="1"> Enter the Username and Company. </td></tr><tr><td colspan="1" rowspan="1"> Secret </td><td colspan="1" rowspan="1"> Enter the client secret associated with your Adobe Analytics Advanced Legacy account. </td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new Adobe Analytics DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054 "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains two menus, **Report Suite** and **Report Type**, which allow you to select a predefined Adobe Analytics report.
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Company </td><td colspan="1" rowspan="1"> Enter your company's name as featured on Adobe Analytics, which is used as a parameter for the <span></span><span class="mt-font-courier-new"> Company.GetEndpoint </span><span></span> method (see <span></span><a class="link-https" href="https://github.com/AdobeDocs/analytics-1.4-apis/blob/master/docs/admin-api/methods/company/r_GetEndpoint.md" target="_blank" title="https://github.com/AdobeDocs/analytics-1.4-apis/blob/master/docs/admin-api/methods/company/r_GetEndpoint.md"> https://github.com/AdobeDocs/analyti...GetEndpoint.md </a> ) </td></tr><tr><td colspan="1" rowspan="1"><p> Report Suite </p></td><td colspan="1" rowspan="1"><p> Select the Adobe Analytics Report Suite you want to pull data from. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Predefined Report </p></td><td colspan="1" rowspan="1"><p> Select an Adobe Analytics report type. The following table lists all of the available predefined reports: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Base Metrics </p></td><td colspan="1" rowspan="1"><p> Returns data about page views; average time spent on website; unique visitors by month, week, and day; new visitors; etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Commerce Metrics </p></td><td colspan="1" rowspan="1"><p> Returns data about number of visits, orders, checkouts, revenue, new and returning customers, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Existing Customer Campaigns </p></td><td colspan="1" rowspan="1"><p> Returns data about visits, orders, and revenue, broken down by existing customer campaign. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Existing Customer Products </p></td><td colspan="1" rowspan="1"><p> Returns data about existing customer visits, orders, checkouts, and revenue, broken down by product. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mobile Device Types </p></td><td colspan="1" rowspan="1"><p> Returns data about mobile views, visits, and daily unique visitors, broken down by device type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mobile Metrics </p></td><td colspan="1" rowspan="1"><p> Returns metrics about mobile device usage, such as device type, OS, views, visits, and daily unique visitors. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Natural Search Conversion </p></td><td colspan="1" rowspan="1"><p> Returns data about number of visits, orders, and revenue, broken down by natural search keyword. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Natural Search Visits </p></td><td colspan="1" rowspan="1"><p> Returns data about number of visits, page views, and daily unique visitors, broken down by natural search keyword. </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Best Campaigns </p></td><td colspan="1" rowspan="1"><p> Returns data about visits, orders, revenue, and units, broken down by new visitor campaign. </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Geo </p></td><td colspan="1" rowspan="1"><p> Returns data about visits, orders, revenue, and units, broken down by region. </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Geo Country </p></td><td colspan="1" rowspan="1"><p> Returns data about visits, orders, revenue, and units, broken down by country. </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Keywords </p></td><td colspan="1" rowspan="1"><p> Returns data about visits, orders, revenue, and units, broken down by paid search keyword. </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Products </p></td><td colspan="1" rowspan="1"><p> Returns data about new customer visits, orders, checkouts, revenue, units, etc., broken down by product. </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Traffic Source </p></td><td colspan="1" rowspan="1"><p> Returns data about visits, orders, revenue, and units, broken down by referrer type. </p></td></tr><tr><td colspan="1" rowspan="1"> Page Effectiveness </td><td colspan="1" rowspan="1"> Returns data about page visits, entries and exists, bounces, and bounce rate, broken down by page. </td></tr><tr><td colspan="1" rowspan="1"> Page Metrics </td><td colspan="1" rowspan="1"> Returns data about page views, visits, daily unique visitors, and exists, broken down by page. </td></tr><tr><td colspan="1" rowspan="1"> Paid Search Conversion </td><td colspan="1" rowspan="1"> Returns data about visits, orders, and revenue, broken down by paid search keyword. </td></tr><tr><td colspan="1" rowspan="1"> Paid Search Visits </td><td colspan="1" rowspan="1"> Returns data about page views, daily unique visitors, and visits, broken down by paid search keyword. </td></tr><tr><td colspan="1" rowspan="1"><p> Products and Categories </p></td><td colspan="1" rowspan="1"> Returns the data about visits, orders, and revenue, broken down by product and category. </td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Q: When should I use this connector?">
+
+A: This connector has been deprecated and cannot be used to power up any new datasets.
+
+</Accordion>
+
+<Accordion title="Q: I successfully created an Adobe Analytics OAuth account, but about two weeks later I got an alert: &quot;Account Adobe Analytics OAuth Account has been Deactivated&quot;. Why is this happening and what can I do about it?">
+
+1. A: Adobe Analytics OAuth has a refresh token that expires after two weeks (see
+   [Adobe](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/OAuth/OAuth.md#exchanging-refresh-tokens "https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/OAuth/OAuth.md#exchanging-refresh-tokens") [documentation](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/OAuth/OAuth.md#exchanging-refresh-tokens "documentation") for details.) This causes Adobe OAuth to no longer authenticate after two weeks. This is an Adobe limitation. Older datasets use WSSE authentication (Username:Company, Password), but Adobe has deprecated WSSE authentication. Please contact Adobe support to request a resolution to this issue.
+
+</Accordion>
+
+<Accordion title="Q: My Adobe Analytics datasets are failing intermittently and displaying unhelpful error messages like &quot;Unable to complete report at this time. Please try again later.&quot; What should I do?">
+
+A: This error originates on Adobe's end. Unfortunately, it is nothing we at Domo have direct control over, but we are working with Adobe to improve these types of errors. That said, you can take steps to alleviate the occurrence of these errors, which include reducing the number of connectors, the frequency at which they try to pull data, and the size of their requests. Attempting to schedule requests to run at different times can also help. Another possible solution is to use the “retry” setting in the connector.
+
+</Accordion>
+</AccordionGroup>
+

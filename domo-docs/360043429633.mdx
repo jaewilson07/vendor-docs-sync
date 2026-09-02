@@ -1,0 +1,117 @@
+---
+title: "Changing the Date Format in Your Chart"
+excerpt: "Change automatic time-scale formatting and customize the date format displayed on chart categories powered by date or time columns."
+---
+
+## Intro
+
+When you power up a chart in Analyzer using a column with date and/or time information, automatic time scale formatting is applied for most chart types. This means that Domo determines your data's most appropriate date grain and output format. If there are periods with no data, gaps are shown accordingly in the timeline. All of the following chart types use automatic time-scale formatting.
+
+* Vertical bar
+* Vertical stacked bar
+* Line
+* Symbol line
+* Curved line
+* Curved symbol line
+* Multi-line
+* Running total bar
+* Running total line
+* Vertical box plot
+* Vertical grouped bar
+* Grouped bar with line
+* Stacked bar with line
+* Grouped bar with symbol
+* Stacked bar with symbol
+* Running total grouped
+
+For chart types not in this list, date and time information appears as it does in your DataSet. For example, if the dates in your date column use the format `Month Day, Year`, the dates in the chart also use that format. If there are periods with no data, gaps are not shown for those periods in the timeline.
+
+The following example shows a chart with automatic time-scale formatting:
+
+<Frame><img alt="timescales_on_large.png" src="/images/kb/ka0Vq0000004xsj-00N5w00000Ri7BU-0EM5w000005vZ7n.png"/></Frame>
+The next example shows the same chart with time scale formatting turned off:
+
+<Frame><img alt="timescales_off_large.png" src="/images/kb/ka0Vq0000004xsj-00N5w00000Ri7BU-0EM5w000005vZ7q.png"/></Frame>
+---
+
+* [Change chart date format](#change-chart-date-format)
+  + [Macros](#macros)
+* [Change the week display format](#change-the-week-display-formatting)
+* [Video — international date format](#video)
+
+---
+
+## Change Chart Date Format
+
+You can change the date output format of a chart in the **Chart Properties**. You can change the date format in a chart *only* when automatic time scale formatting is not in use. So, for the charts in the list above, if you want to change the date format, you must first turn off automatic time scale formatting. You do this by checking **Never Use Time Scale** in **Chart Properties** > **Category Scale.**
+
+Follow these steps to change the date output format:
+
+1. In Analyzer, select **Chart Properties**.
+2. Select **Category Scale**.
+3. (Conditional) If your chart is one of the types in the above list, turn off automatic time scale formatting by checking **Never Use Time Scale**.
+4. In the **Date Output Format** field, specify the date output format you want.
+     
+   For example `MM.dd.yy` or `MM-yyyy`
+5. Select **Apply**.
+
+### Macros
+
+When specifying a different format, you can use any of the following macros.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Macro (old) </p></th><th colspan="1" rowspan="1"><p> Macro (new) </p></th><th colspan="1" rowspan="1"><p> Time Unit </p></th><th colspan="1" rowspan="1"><p> Example </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><code> %Y </code></p></td><td colspan="1" rowspan="1"><p><code> yyyy </code></p></td><td colspan="1" rowspan="1"><p> Four-digit year </p></td><td colspan="1" rowspan="1"><p><code> 2012 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %y </code></p></td><td colspan="1" rowspan="1"><p><code> yy </code></p></td><td colspan="1" rowspan="1"><p> Two-digit year </p></td><td colspan="1" rowspan="1"><p><code> 12 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %m </code></p></td><td colspan="1" rowspan="1"><p><code> M </code></p></td><td colspan="1" rowspan="1"><p> Single-digit month (1–12) </p></td><td colspan="1" rowspan="1"><p><code> 9 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %b </code></p></td><td colspan="1" rowspan="1"><p><code> MMM, MMMM, MMMMMM </code></p></td><td colspan="1" rowspan="1"><p> Month name. Using MMM outputs a three-letter month abbreviation. MMMM or MMMMM outputs the full month name. </p></td><td colspan="1" rowspan="1"><p><code> Sep, September </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %d </code></p></td><td colspan="1" rowspan="1"><p><code> d, D, dd, DD </code></p></td><td colspan="1" rowspan="1"><p> Day of the month. The d and D are interchangeable; a single d or D does not put 0s before single-digit days. The dd and DD always output 2 digits. </p></td><td colspan="1" rowspan="1"><p><code> 05 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %H </code></p></td><td colspan="1" rowspan="1"><p><code> H, HH </code></p></td><td colspan="1" rowspan="1"><p> Hour (24-hour). A single H displays 1 digit unless the hour is 10, 11, or 12. An HH displays hours such as 05 and 04. </p></td><td colspan="1" rowspan="1"><p><code> 22 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %M </code></p></td><td colspan="1" rowspan="1"><p><code> mm </code></p></td><td colspan="1" rowspan="1"><p> Minutes </p></td><td colspan="1" rowspan="1"><p><code> 17 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %S </code></p></td><td colspan="1" rowspan="1"><p><code> ss </code></p></td><td colspan="1" rowspan="1"><p> Seconds </p></td><td colspan="1" rowspan="1"><p><code> 55 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %Q </code></p></td><td colspan="1" rowspan="1"><p> N/A (deprecated) </p></td><td colspan="1" rowspan="1"><p> Quarter number (1-4) </p></td><td colspan="1" rowspan="1"><p><code> 3 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %n </code></p></td><td colspan="1" rowspan="1"><p><code> MM </code></p></td><td colspan="1" rowspan="1"><p> Double-digit month (01-12) </p></td><td colspan="1" rowspan="1"><p><code> 09 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %e </code></p></td><td colspan="1" rowspan="1"><p><code> dd </code></p></td><td colspan="1" rowspan="1"><p> Day of month (01-31) </p></td><td colspan="1" rowspan="1"><p><code> 04 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %a </code></p></td><td colspan="1" rowspan="1"><p><code> E, EE, EEE, EEEE </code></p></td><td colspan="1" rowspan="1"><p> Day of the week. For 3-digit days of the week, E, EE, or EEE should be used. EEEE should be used to output the complete day of the week's name. </p></td><td colspan="1" rowspan="1"><p><code> Thu, Thursday </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %I </code></p></td><td colspan="1" rowspan="1"><p><code> h, hh </code></p></td><td colspan="1" rowspan="1"><p> Hour in 12-hour format (1-12). A single h displays 1 digit unless the hour is 10, 11, or 12. A hh displays hours such as 05 and 04. </p></td><td colspan="1" rowspan="1"><p><code> 12 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %p </code></p></td><td colspan="1" rowspan="1"><p><code> a </code></p></td><td colspan="1" rowspan="1"><p> AM/PM designator </p></td><td colspan="1" rowspan="1"><p><code> AM </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %T </code></p></td><td colspan="1" rowspan="1"><p> N/A (deprecated) </p></td><td colspan="1" rowspan="1"><p> %H:%M:%S (blank if 00:00:00) </p></td><td colspan="1" rowspan="1"><p><code> 22:17:55 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %L </code></p></td><td colspan="1" rowspan="1"><p> N/A (deprecated) </p></td><td colspan="1" rowspan="1"><p> Milliseconds </p></td><td colspan="1" rowspan="1"><p><code> 000 </code></p></td></tr></tbody></table>
+
+<Note>
+  **Notes:**
+
+  * Domo does not recognize time data as such unless it is accompanied by date data. For example, if your DataSet contained a "Time" column with times in the format
+  `H:M`, Domo would not recognize it as time data. However, if you changed your time format to include dates (for example, `MM.dd.yy H:M` ), Domo would recognize it as time data.
+  * If you use a macro in the
+  **Date Output Format** field, you must use a macro for all date format specifier characters.
+  * You can separate time units by adding punctuation or spaces before or after the appropriate macros.
+
+  For example, if you wanted your date format to be `Sep 26 2012, 22:14:55`, you would enter the following in the **Date Output Format** field: `MMM DD yyyy, HH:mm:ss`.
+  * Date output formats for Microsoft Excel spreadsheets are Java-like.
+  * Several shortcuts are available for international dates: L, LL, LLL, LT, and LTS. The order of days, months, years, etc., will depend on the locale.
+
+    + An example of the shortcuts for US English: 
+      - **LT —**
+      h:mm a
+      - **LTS —**
+      h:mm:ss a
+      - **L —**
+      MM/dd/yyyy
+      - **LL —**
+      MMMMM d, yyyy
+      - **LLL —**
+      MMMMM d, yyyy h:mm a
+      - **LLLL —**
+      EEEE, MMMMM d, yyyy h:mm a
+
+</Note>
+
+## Change the Week Display Formatting
+
+By default, when the date grain for a chart is set to **Week**, weeks are represented in the format "Week X," where X is the week number during the year. For example, the week of January 8th to the 14th would appear as "Week 2." However, in the Admin Settings, in **Company Settings > Company Overview,** you can change this formatting so that weeks are represented by dates instead of week numbers. So, for example, the week of January 8th to the 14th would be represented as "1-8" instead of "Week 2." Only users with an "Admin" default security role or a custom role with the "Manage All Company Settings" grant can do this. Note that this is a global setting that affects all charts in a Domo instance; it cannot be turned on for individual users.
+
+<Note>
+  **Note:** When weeks are represented by week numbers as explained above, you cannot change the weekly date format. If you want to format dates for weeks, you will need to select the **Week dates** option in **Admin > Company Settings > Overview**.
+
+</Note>
+
+if the company setting is to format weeks by week number, you will not be able to format weekly data differently. If they wish to format the date they would need to use the `m/d/yyyy` format for weeks in their company settings.
+
+For more information about default security roles, see [Managing Custom Roles](/s/article/360043438973 "Security Role Reference").
+
+Follow these steps to change the week display formatting to show dates:
+
+1. In the Domo nav, select **More** > **Admin** to open the Admin Settings.
+2. Under **Company** **Settings**, select **Company overview**.
+3. On the **Company Overview** page under **Cards**, select **Week dates** in the **Week display** dropdown.
+     
+   <Frame><img alt="Screenshot 2024-08-23 at 4.08.46 PM.png" src="/images/kb/ka0Vq0000004xsj-00N5w00000Ri7BU-0EMVq000002NPCf.jpg"/></Frame>
+4. Select **Save**.
+
+## International Date Format (video)
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/B0bYXTjCjj8" width="560"></iframe>

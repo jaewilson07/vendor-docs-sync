@@ -1,0 +1,252 @@
+---
+title: "Dropbox for Business Connector"
+excerpt: "Deprecated Dropbox for Business 2.x connector reference; migrate to the Dropbox for Business Advanced 3.x connector for continued data access."
+---
+
+<Warning>
+**Important:** Dropbox has deprecated the Dropbox for Business v1 API and disabled the endpoints as of May 30, 2019. Domo has updated the Dropbox for Business connectors so that our customers can leverage the new Dropbox v2 API. Due to changes in authentication and schema in the new API, we will be deprecating the 2.x version of the Domo Dropbox for Business and Dropbox for Business Advanced connectors. In addition, Domo plans to consolidate the two connectors into a single Dropbox for Business Advanced connector. In order to minimize the interruptions with your Dropbox data, please be aware of the following dates for these changes.
+
+**May 31, 2019**: The 2.x version of the Dropbox for Business and Dropbox for Business Advanced connectors will be deprecated. Customers will still have access to all existing DataSets but will no longer be able to create new ones using the 2.x connectors. The updated 3.x version of the Dropbox for Business Advanced connector will be available for use on this date. In order to create new DataSets, customers will need to create a new Dropbox for Business Advanced DataSet and enter credentials there. Customers should begin migrating/re-creating existing Dropbox for Business and Dropbox for Business Advanced DataSets immediately to use the new 3.x Dropbox for Business Advanced connector.
+
+**June 19, 2019**: The 2.x versions of the Dropbox for Business and Dropbox for Business Advanced connectors will be disabled DataSets created using these versions of the connectors will no longer function. Customers will need to have created new accounts and DataSets using the updated 3.x version of Dropbox for Business Advanced connector by this date.
+
+</Warning>
+
+## Intro
+
+Dropbox for Business is a file sharing and storage solution that allows users to share, store, and sync files securely. You can use Domo's Dropbox for Business connector to compile reports about account information, team information, audit log, and team usage statistics. To learn more about the Dropbox for Business API, go to https://www.dropbox.com/developers/business.
+
+Domo also includes an advanced Dropbox for Business connector that offers an additional report ("Groups Information") and provides additional filtering options for the "Audit Log" report. For more information, see [Dropbox For Business Advanced Connector](/s/article/360043434813 "Dropbox For Business Advanced Connector").
+
+This topic discusses the fields and menus that are specific to the Dropbox for Business connector user interface. For general information about adding DataSets, setting update schedules, and editing DataSet information, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a">
+  <tbody>
+    <tr>
+      <td class="mt-noheading" colspan="1" rowspan="1">
+        <p>
+          <b> Primary Use Cases </b>
+        </p>
+      </td>
+      <td class="mt-noheading" colspan="1" rowspan="1">
+        <p> Use this connector to get information about system usage and make governance decisions. </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="mt-noheading" colspan="1" rowspan="1">
+        <p>
+          <b> Primary Metrics </b>
+        </p>
+      </td>
+      <td class="mt-noheading" colspan="1" rowspan="1">
+        <ul>
+          <li>
+            <p> Storage usage </p>
+          </li>
+          <li>
+            <p> Membership </p>
+          </li>
+          <li>
+            <p> User activity </p>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="mt-noheading" colspan="1" rowspan="1">
+        <p>
+          <b> Primary Company Roles </b>
+        </p>
+      </td>
+      <td class="mt-noheading" colspan="1" rowspan="1">
+        <p> Dropbox system administrator </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="mt-noheading" colspan="1" rowspan="1">
+        <p>
+          <b> Average Implementation Time </b>
+        </p>
+      </td>
+      <td class="mt-noheading" colspan="1" rowspan="1">
+        <p> Less than 1 hour </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="mt-noheading" colspan="1" rowspan="1">
+        <p>
+          <b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b>
+        </p>
+      </td>
+      <td class="mt-noheading" colspan="1" rowspan="1">
+        <p> 2 </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Prerequisites
+
+To connect to your Dropbox account and create a Dropbox for Business connector DataSet, you must have the following:
+
+- The account you use to log into your Dropbox account.
+- The password you use to log into your Dropbox account.
+
+If you don't have credentials you can get them here: [https://www.dropbox.com/business](https://www.dropbox.com/business "https://www.dropbox.com/business")
+
+## Connecting to your Dropbox account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Dropbox for Business connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Dropbox for Business connector uses OAuth to connect to Dropbox for Business. (Domo does not store or transmit user passwords.) Click **Connect** (or select **Add Account** if you have existing Dropbox accounts in Domo) to open the Dropbox OAuth screen where you can enter the account and password associated with your Dropbox account. After you have entered valid Dropbox credentials, you can use the same account in Domo any time you create a Dropbox for Business DataSet.
+
+You can manage connector accounts in the **Accounts** tab in the **Data Center**. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane includes a single menu from which you select a report type. The following table describes all of the reports you can create using the Dropbox for Business connector:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1">
+            <b> Report </b>
+          </span>
+        </p>
+      </th>
+      <th colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1">
+            <b> Description </b>
+          </span>
+        </p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Audit Log </span>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Accesses the Dropbox for Business audit log for a team. </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Linked Devices </span>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Retrieves reporting data about a team's linked devices. </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Members </span>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Lists members of a team. </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Membership </span>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Retrieves reporting data about a team's membership. </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Storage usage </span>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Retrieves reporting data about a team's storage usage. </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Team Information </span>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Retrieves information about a team. </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> User Activity </span>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1">
+        <p class="p3">
+          <span class="s1"> Retrieves reporting data about a team's user activity. </span>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Troubleshooting
+
+Check credentials and permissions against the error code received.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="How do I know my Dropbox account credentials are secure?">
+
+The login process uses the OAuth process, so your Dropbox credentials are never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No.
+
+</Accordion>
+
+<Accordion title="What's the difference between this connector and Dropbox For Business Advanced connector?">
+
+The Dropbox For Business Advanced connector offers an additional report for "Groups Information" and provides additional filtering options for the "Audit Log" report.
+
+</Accordion>
+</AccordionGroup>

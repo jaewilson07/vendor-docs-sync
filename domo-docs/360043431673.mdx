@@ -1,0 +1,42 @@
+---
+title: "OpenX Connector"
+excerpt: "Connect Domo to OpenX using a server hostname, username, and password to pull banner management and tracking statistics into a DataSet."
+---
+
+## Intro
+
+OpenX is an open-source advertising platform which features an integrated banner management interface and tracking system for gathering statistics. To learn more about the OpenX API, visit their page ([https://docs.openx.com/Content/developers/about\_topics\_dev.html](http://www.openx.com/community/developers) ).
+
+You connect to your OpenX account in the Data Center. This topic discusses the fields and menus that are specific to the OpenX connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your OpenX account and create a DataSet, you must have the following:
+
+* The hostname or IP address of your OpenX Ad server. The hostname must include the API package directory name. For example:
+
+  http:///openx/www/api/v1/xmlrpc/
+* The username for your OpenX account. The user with this username must be an administrative user.
+* The password for your OpenX account.
+
+## Connecting to Your OpenX Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the OpenX Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your OpenX account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the hostname or IP address of your OpenX Ad server. The hostname must include the API package directory name. For example: <span class="nowiki"><span class="mt-font-courier-new"><a href="http:///openx/www/api/v1/xmlrpc/" rel="noopener" target="_blank"> http:///openx/www/api/v1/xmlrpc/ </a></span></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your OpenX username. The user with this username must be an administrative user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your OpenX password. </p></td></tr></tbody></table>
+
+Once you have entered valid OpenX credentials, you can use the same account any time you go to create a new OpenX DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the OpenX report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Advertisers List </p></td><td colspan="1" rowspan="1"><p> Returns a list of advertisers. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Advertiser Stats </p></td><td colspan="1" rowspan="1"><p> Returns statistics for a selected advertiser. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Agencies List </p></td><td colspan="1" rowspan="1"><p> Returns a list of agencies. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Agency Stats </p></td><td colspan="1" rowspan="1"><p> Returns statistics for a selected agency. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Banners List </p></td><td colspan="1" rowspan="1"><p> Returns a list of banners. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Banner Stats </p></td><td colspan="1" rowspan="1"><p> Returns statistics for a selected banner. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaigns List </p></td><td colspan="1" rowspan="1"><p> Returns a list of campaigns. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Stats </p></td><td colspan="1" rowspan="1"><p> Returns statistics for a selected campaigns. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Publishers List </p></td><td colspan="1" rowspan="1"><p> Returns a list of publishers. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Publisher Stats </p></td><td colspan="1" rowspan="1"><p> Returns statistics for a selected publisher. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Zones List </p></td><td colspan="1" rowspan="1"><p> Returns a list of zones. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Zone Stats </p></td><td colspan="1" rowspan="1"><p> Returns statistics for a selected zone. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Agency Name </p></td><td colspan="1" rowspan="1"><p> Select the agency you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Advertiser </p></td><td colspan="1" rowspan="1"><p> Select the advertiser you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign </p></td><td colspan="1" rowspan="1"><p> Select the campaign you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Publisher </p></td><td colspan="1" rowspan="1"><p> Select the publisher you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Group By </p></td><td colspan="1" rowspan="1"><p> Selected how you want your report data to be aggregated. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Past Days </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days you want to pull data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

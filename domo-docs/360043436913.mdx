@@ -1,0 +1,93 @@
+---
+title: "Box Writeback Connector"
+excerpt: "Configure Domo's Box Writeback connector to export DataSet data into your Box cloud file-sharing account."
+---
+
+## Intro
+
+Box is a cloud content management and file-sharing service for businesses. Use this connector to export data from a Domo DataSet into your Box account. To learn more about the Box API, visit their website. ([https://developers.box.com/](https://developers.box.com/ "https://developers.box.com/") )
+
+You export Domo data to Box in the Data Center. This topic discusses the fields and menus that are specific to the Box Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+</Note>
+
+## Prerequisites
+
+To configure this connector, you must have: 
+
+* A Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+* The email address and password for your Box account.
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Box Writeback Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client secret. </p></td></tr></tbody></table>
+
+For information about obtaining these credentials, see "Prerequisites," above.
+
+After you connect, you are taken to the Box OAuth screen where you are prompted to enter your Box email address and password.
+
+You can use the same account any time you go to set up a new Domo-Box connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Manage Connector Accounts").
+
+## Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> File Upload Criteria </p></td><td colspan="1" rowspan="1"><p> Select the Box directory in which you want to upload your file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Folder </p></td><td colspan="1" rowspan="1"><p> Select the Box folder in which you want to store your file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sub Folder </p></td><td colspan="1" rowspan="1"><p> Select the subfolder in which you want to store the file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Input DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to Box. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following datasources/. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4 </span>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Filename </p></td><td colspan="1" rowspan="1"><p> Select whether you want to reference your DataSet using the <b><b> Input DataSet ID </b></b> or an output file name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filename </p></td><td colspan="1" rowspan="1"><p> Enter the output file name for your data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include BOM Characters </p></td><td colspan="1" rowspan="1"><p> Select this checkbox, to include the BOM characters, preventing garbled text when opened in Excel. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Parallel Connections </p></td><td colspan="1" rowspan="1"><p> The number of parallel http connections used for uploading files to box. The default value suggested by the Box SDK is 3. </p></td></tr><tr><td colspan="1" rowspan="1"><p> TimeOut </p></td><td colspan="1" rowspan="1"><p> The time needed before killing the upload job in hours. The default is 1 hour. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What do I do if I just upload a file to box.com, but the Box connector says the file does not exist when I try to pull in the file?">
+
+Make sure all your connector settings match your file and are free of typos. Files may not be available via the Box API up to 30 minutes after the file is uploaded. Ensure the file has been in the Box for at least 30 minutes, and then attempt to run the DataSet again.
+
+Many users have also reported that they still cannot find a file using the search field in Box even after the file has been in Box for 30 minutes. This issue stems from a problem with Box's Search API. It means that your account has not yet been synced with the most recent files and is not available through the API.
+
+</Accordion>
+
+<Accordion title="What do I do if I can't connect to box.com with valid credentials?">
+
+This problem might stem from an issue with your option settings in Box. Domo is an unpublished application in [box.com](http://box.com) terminology, and one of the options Box gives to its users is to disable unpublished applications by default. Therefore, if a customer is using this option, Domo users may not be able to authenticate or connect to Box to import data from Box to Domo.
+
+The box gives customers the option to allow any unpublished application to use a customer's Box instance, which appears to be what most customers have enabled in their Box account settings. Some customers do not want to enable all unpublished applications but would like to enable Domo to use Box. In this case, there is also an option Box provides to allow exceptions. To enable an exception for Domo, Domo's public API key for Box needs to be added to the exception list.
+
+The public API key for Domo at Box is wmiawbgvombfafa0jj4dgvmvq5ivq83m.
+
+</Accordion>
+
+<Accordion title="What is the difference between the Box connector and the Box Advanced connector?">
+
+The Box connector allows you to specify the name and type of the file to pull the data. The Box Advanced connector offers an additional advanced section to specify the data formatting details, along with the name and type of the file.
+
+</Accordion>
+
+<Accordion title="Can I use the same Box account for multiple DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+As often as required.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>

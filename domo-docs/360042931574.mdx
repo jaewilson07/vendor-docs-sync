@@ -1,0 +1,59 @@
+---
+title: "You've Got Leads Connector"
+excerpt: "Use Domo's You've Got Leads Connector to retrieve referral data for senior living communities into a Domo DataSet."
+---
+
+## Intro
+
+You've Got Leads delivers web-based customer relationship management solutions to senior living communities. Use Domo's You've Got Leads connector to retrieve referral data for senior living communities. To learn more about the You've Got Leads API, visit their page ([https://www.youvegotleads.com/webser.../documentation](https://www.youvegotleads.com/webservices/documentation "https://www.youvegotleads.com/webservices/documentation") ).
+
+You connect to your You've Got Leads account in the Data Center. This topic discusses the fields and menus that are specific to the You've Got Leads connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your You've Got Leads account and create a DataSet, you must have your You've Got Leads username and password.
+
+## Connecting to Your You've Got Leads Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the You've Got Leads Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your You've Got Leads account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your You've Got Leads username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your You've Got Leads password. </p></td></tr></tbody></table>
+
+Once you have entered valid You've Got Leads credentials, you can use the same account any time you go to create a new You've Got Leads DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the You've Got Leads report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Community List </td><td colspan="1" rowspan="1"> Returns a list of senior living communities in your account. </td></tr><tr><td colspan="1" rowspan="1"> Details for a Community </td><td colspan="1" rowspan="1"> Returns details for a given community. </td></tr><tr><td colspan="1" rowspan="1"> Details for All Communities </td><td colspan="1" rowspan="1"> Returns details for all communities in your account. </td></tr><tr><td colspan="1" rowspan="1"> Lead Details for a Community </td><td colspan="1" rowspan="1"> Returns referral information for a given community. </td></tr><tr><td colspan="1" rowspan="1"> Details for a Lead </td><td colspan="1" rowspan="1"> Returns details for a given referral. </td></tr><tr><td colspan="1" rowspan="1"> Leads for a Community </td><td colspan="1" rowspan="1"> Returns a list of referrals for a given community. </td></tr><tr><td colspan="1" rowspan="1"> Task Details for a Lead </td><td colspan="1" rowspan="1"> Returns task details for a given referral. </td></tr><tr><td colspan="1" rowspan="1"> Tasks for a Community </td><td colspan="1" rowspan="1"> Returns a list of tasks for a given community. </td></tr><tr><td colspan="1" rowspan="1"> Tasks for a Lead </td><td colspan="1" rowspan="1"> Returns a list of tasks for a given referral. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Community </td><td colspan="1" rowspan="1"> Select the community you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> Lead </td><td colspan="1" rowspan="1"> Select the referral you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> Task </td><td colspan="1" rowspan="1"> Select the task you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> Filter (Optional) </td><td colspan="1" rowspan="1"><p> Add filter criteria if you would like to narrow down the data returned in your report. For example: <span class="mt-font-courier-new"> CreatedOn+gt+'2014-05-20' </span></p><p> For more information, see You've Got Leads' API documentation at <a href="https://www.youvegotleads.com/webservices/documentation" target="_blank" title="https://www.youvegotleads.com/webservices/documentation"> https://www.youvegotleads.com/webser.../documentation </a>. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I use the same account to create multiple DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+While YGL may enforce rate call limits, you should not need to worry about them.
+
+</Accordion>
+</AccordionGroup>
+

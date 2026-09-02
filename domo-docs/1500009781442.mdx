@@ -1,0 +1,84 @@
+---
+title: "Workshop Connector"
+excerpt: "Use the Workshop Connector to retrieve customer, product, invoice, supplier, and vehicle data from Workshop Software into a Domo DataSet."
+---
+
+## Intro
+
+Workshop Software frees up your time and transforms your business into a streamlined profit machine by managing and optimizing your entire workflow. It saves your time and retains more customers. With this connector, you can get the detailed data about your customers, products, invoices, suppliers, and vehicles. Use this data to enhance your workshop into a powerfully efficient & profitable workshop.
+
+You connect to your Workshop Software account in the Data Center. This topic discusses the fields and menus that are specific to the Workshop connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Workshop Software account and create a DataSet, you must have the following:
+
+* Your Workshop Software username and password.
+* The base domain of your workshop software instance. Example:
+
+  https://my.workshopsoftware.com.au
+
+## Connecting to Your Workshop Software Account
+
+This section enumerates the options in the Credentials and Details panes in the Workshop Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Workshop Software account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your Workshop Software username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your Workshop Software password. </td></tr></tbody></table>
+
+Once you have entered valid Workshop Software credentials, you can use the same account any time you go to create a new Workshop DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the <span> Workshop </span> report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Customers </td><td colspan="1" rowspan="1"> Returns list of all customers. </td></tr><tr><td colspan="1" rowspan="1"> Invoice Items </td><td colspan="1" rowspan="1"> Returns list of all invoice line items. </td></tr><tr><td colspan="1" rowspan="1"> Invoices </td><td colspan="1" rowspan="1"> Returns list of all invoice headers. </td></tr><tr><td colspan="1" rowspan="1"> Products </td><td colspan="1" rowspan="1"> Returns list of all products. </td></tr><tr><td colspan="1" rowspan="1"> Supplier Invoice Items </td><td colspan="1" rowspan="1"> Returns list of all supplier invoice line items. </td></tr><tr><td colspan="1" rowspan="1"> Supplier Invoices </td><td colspan="1" rowspan="1"> Returns list of all supplier invoice headers. </td></tr><tr><td colspan="1" rowspan="1"> Suppliers </td><td colspan="1" rowspan="1"> Returns list of all suppliers. </td></tr><tr><td colspan="1" rowspan="1"> Vehicles </td><td colspan="1" rowspan="1"> Returns list of all vehicles. </td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What endpoint is the base URL for this connector?">
+
+The base URL for the Workshop connector is `https://{domain}/api/motorserve`.
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL </th></tr><tr><td colspan="1" rowspan="1"> Customers </td><td colspan="1" rowspan="1"> /customers </td></tr><tr><td colspan="1" rowspan="1"> Invoice Items </td><td colspan="1" rowspan="1"> /invoice_items </td></tr><tr><td colspan="1" rowspan="1"> Invoices </td><td colspan="1" rowspan="1"> /invoices </td></tr><tr><td colspan="1" rowspan="1"> Products </td><td colspan="1" rowspan="1"> /products </td></tr><tr><td colspan="1" rowspan="1"> Supplier Invoice Items </td><td colspan="1" rowspan="1"> /supplier_invoice_items </td></tr><tr><td colspan="1" rowspan="1"> Supplier Invoices </td><td colspan="1" rowspan="1"> /supplier_invoices </td></tr><tr><td colspan="1" rowspan="1"> Suppliers </td><td colspan="1" rowspan="1"> /suppliers </td></tr><tr><td colspan="1" rowspan="1"> Vehicles </td><td colspan="1" rowspan="1"> /vehicles </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the username and password associated with your Workshop Software account. You also need the base domain of your workshop software instance. Example:
+
+https://my.workshopsoftware.com.au
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

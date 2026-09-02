@@ -1,0 +1,90 @@
+---
+title: "Aha! Connector"
+excerpt: "Use the Aha! Connector to retrieve roadmap data on releases, ideas, integrations, and features from Aha! into a Domo DataSet."
+---
+
+## Intro
+
+Aha! is roadmap software that helps you manage your product releases, ideas, integrations, features, and more. Use Domo's Aha! connector to retrieve your Aha! data in Domo, and build better and faster products. Once your Aha! data is in Domo, you can give managers, stakeholders, and team members transparency with real-time, interactive dashboards. Combine your Aha! data with data from Marketing, Development, Project Management, CRM, and more to see the big product picture. Set up alerts to be notified of changes in your key data points. And you can access all your data in real time, from any device. To learn more about the Aha! API, visit their page
+
+[https://www.aha.io/api](https://www.aha.io/api "https://www.aha.io/api").
+
+You connect to your Aha! account in the Data Center. This topic discusses the fields and menus that are specific to the Aha! connector user interface.
+
+General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Aha! account and create a DataSet, you must have the following:
+
+* Your Aha! API key.
+* The domain of your Aha! instance. Example: If your instance is located at https://domo.aha.io/, you would enter domo here.
+
+## Connecting to Your Aha! Account
+
+This section enumerates the options in the Credentials and Details panes in the Aha! Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Aha! account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your Aha! api key. </td></tr><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"> Enter the domain of your Aha! instance. Example: If your instance is located at <span></span><span class="mt-font-courier-new"><a href="https://domo.aha.io/" rel="noopener" target="_blank"> https://domo.aha.io/ </a></span>, you would enter <span></span><span class="mt-font-courier-new"> domo </span> here. </td></tr></tbody></table>
+
+Once you have entered valid Aha! credentials, you can use the same account any time you go to create a new Aha! DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Aha! report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> All Features </td><td colspan="1" rowspan="1"> Retrieve all features. </td></tr><tr><td colspan="1" rowspan="1"> All Ideas </td><td colspan="1" rowspan="1"> Retrieve all ideas. </td></tr><tr><td colspan="1" rowspan="1"> All Initiatives </td><td colspan="1" rowspan="1"> Retrieve all initiatives. </td></tr><tr><td colspan="1" rowspan="1"> All Master Features </td><td colspan="1" rowspan="1"> Retrieve all master features. </td></tr><tr><td colspan="1" rowspan="1"> All Products </td><td colspan="1" rowspan="1"> Retrieve all account products. </td></tr><tr><td colspan="1" rowspan="1"> All Releases </td><td colspan="1" rowspan="1"> Retrieve all releases. </td></tr><tr><td colspan="1" rowspan="1"> All Tasks </td><td colspan="1" rowspan="1"> Retrieve all tasks. </td></tr><tr><td colspan="1" rowspan="1"> All Users </td><td colspan="1" rowspan="1"> Retrieve all users. </td></tr><tr><td colspan="1" rowspan="1"> Feature Comments </td><td colspan="1" rowspan="1"> Retrieve all feature comments. </td></tr><tr><td colspan="1" rowspan="1"> Feature Tasks </td><td colspan="1" rowspan="1"> Retrieve all feature tasks. </td></tr><tr><td colspan="1" rowspan="1"> Goal Comments </td><td colspan="1" rowspan="1"> Retrieve all goal comments. </td></tr><tr><td colspan="1" rowspan="1"> Initiative Comments </td><td colspan="1" rowspan="1"> Retrieve all initiative comments. </td></tr><tr><td colspan="1" rowspan="1"> Master Feature Features </td><td colspan="1" rowspan="1"> Retrieve all master feature features. </td></tr><tr><td colspan="1" rowspan="1"> Product Comments </td><td colspan="1" rowspan="1"> Retrieve all Product Comments. </td></tr><tr><td colspan="1" rowspan="1"> Product Competitors </td><td colspan="1" rowspan="1"> Retrieve all product competitors. </td></tr><tr><td colspan="1" rowspan="1"> Product Features </td><td colspan="1" rowspan="1"> Retrieve all product features. </td></tr><tr><td colspan="1" rowspan="1"> Product Goals </td><td colspan="1" rowspan="1"> Retrieve all product goals. </td></tr><tr><td colspan="1" rowspan="1"> Product Idea Categories </td><td colspan="1" rowspan="1"> Retrieve all product idea categories. </td></tr><tr><td colspan="1" rowspan="1"> Product Ideas </td><td colspan="1" rowspan="1"> Retrieve all product ideas. </td></tr><tr><td colspan="1" rowspan="1"> Product Initiatives </td><td colspan="1" rowspan="1"> Retrieve all product initiatives. </td></tr><tr><td colspan="1" rowspan="1"> Product Integrations </td><td colspan="1" rowspan="1"> Retrieve all product integrations. </td></tr><tr><td colspan="1" rowspan="1"> Product Master Features </td><td colspan="1" rowspan="1"> Retrieve all product master features. </td></tr><tr><td colspan="1" rowspan="1"> Product Pages </td><td colspan="1" rowspan="1"> Retrieve all product pages. </td></tr><tr><td colspan="1" rowspan="1"> Product Personas </td><td colspan="1" rowspan="1"> Retrieve all product personas. </td></tr><tr><td colspan="1" rowspan="1"> Product Releases </td><td colspan="1" rowspan="1"> Retrieve all product releases. </td></tr><tr><td colspan="1" rowspan="1"> Release Features </td><td colspan="1" rowspan="1"> Retrieve all release features. </td></tr><tr><td colspan="1" rowspan="1"> Release Master Features </td><td colspan="1" rowspan="1"> Retrieve all release master features. </td></tr><tr><td colspan="1" rowspan="1"> Release Phases </td><td colspan="1" rowspan="1"> Retrieve all release phases. </td></tr><tr><td colspan="1" rowspan="1"> Release Tasks </td><td colspan="1" rowspan="1"> Retrieve all release tasks. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Sub Report </td><td colspan="1" rowspan="1"> Select the sub report you would like to be included. </td></tr><tr><td colspan="1" rowspan="1"> Fields </td><td colspan="1" rowspan="1"> If you would like to specify the returned fields, enter a comma separated list of the fields here. Domo will attempt to retrieve all fields from Aha!, if nothing is entered. Example: field1,field2,field3 </td></tr><tr><td colspan="1" rowspan="1"> Sublist to Flatten </td><td colspan="1" rowspan="1"> Select the field that you would like to flatten. This will cause multiple rows to show each object in the selected field. You will not be able to flatten any list, if "None" is selected. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Aha! API does this connector use?">
+
+This connector uses v1 of the Aha! API (`https://{company}`. [aha.io/api/v1/](http://aha.io/api/v1/) ).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this Connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="75%"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> All Features </td><td colspan="1" rowspan="1"> /features </td></tr><tr><td colspan="1" rowspan="1"> All Ideas </td><td colspan="1" rowspan="1"> /ideas </td></tr><tr><td colspan="1" rowspan="1"> All Initiatives </td><td colspan="1" rowspan="1"> /initiatives </td></tr><tr><td colspan="1" rowspan="1"> All Master Features </td><td colspan="1" rowspan="1"> /master_features </td></tr><tr><td colspan="1" rowspan="1"> All Products </td><td colspan="1" rowspan="1"> /products </td></tr><tr><td colspan="1" rowspan="1"> All Releases </td><td colspan="1" rowspan="1"> /products/{product_id}/releases </td></tr><tr><td colspan="1" rowspan="1"> All Tasks </td><td colspan="1" rowspan="1"> /tasks </td></tr><tr><td colspan="1" rowspan="1"> All Users </td><td colspan="1" rowspan="1"> /users </td></tr><tr><td colspan="1" rowspan="1"> Feature Comments </td><td colspan="1" rowspan="1"> /features/{feature_id}/comments </td></tr><tr><td colspan="1" rowspan="1"> Feature Tasks </td><td colspan="1" rowspan="1"> /features/{feature_id}/tasks </td></tr><tr><td colspan="1" rowspan="1"> Goal Comments </td><td colspan="1" rowspan="1"> /goals/{goal_id}/comments </td></tr><tr><td colspan="1" rowspan="1"> Initiative Comments </td><td colspan="1" rowspan="1"> /initiatives/{initiative_id}/comments </td></tr><tr><td colspan="1" rowspan="1"> Master Feature Features </td><td colspan="1" rowspan="1"> /master_features/{master_feature_id}/features </td></tr><tr><td colspan="1" rowspan="1"> Product Comments </td><td colspan="1" rowspan="1"> /products/{product_id}/comments </td></tr><tr><td colspan="1" rowspan="1"> Product Competitors </td><td colspan="1" rowspan="1"> /products/{product_id}/competitors </td></tr><tr><td colspan="1" rowspan="1"> Product Features </td><td colspan="1" rowspan="1"> /products/{product_id}/features </td></tr><tr><td colspan="1" rowspan="1"> Product Goals </td><td colspan="1" rowspan="1"> /products/{product_id}/goals </td></tr><tr><td colspan="1" rowspan="1"> Product Idea Categories </td><td colspan="1" rowspan="1"> /products/{product_id}/ideas_categories </td></tr><tr><td colspan="1" rowspan="1"> Product Ideas </td><td colspan="1" rowspan="1"> /products/{product_id}/ideas </td></tr><tr><td colspan="1" rowspan="1"> Product Initiatives </td><td colspan="1" rowspan="1"> /products/{product_id}/initiatives </td></tr><tr><td colspan="1" rowspan="1"> Product Integrations </td><td colspan="1" rowspan="1"> /products/{product_id}/integrations </td></tr><tr><td colspan="1" rowspan="1"> Product Master Features </td><td colspan="1" rowspan="1"> /products/{product_id}/master_features </td></tr><tr><td colspan="1" rowspan="1"> Product Pages </td><td colspan="1" rowspan="1"> /products/{product_id}/pages </td></tr><tr><td colspan="1" rowspan="1"> Product Personas </td><td colspan="1" rowspan="1"> /products/{product_id}/personas </td></tr><tr><td colspan="1" rowspan="1"> Product Releases </td><td colspan="1" rowspan="1"> /products/{product_id}/releases </td></tr><tr><td colspan="1" rowspan="1"> Release Features </td><td colspan="1" rowspan="1"> /releases/{release_id}/features </td></tr><tr><td colspan="1" rowspan="1"> Release Master Features </td><td colspan="1" rowspan="1"> /releases/{release_id}/master_features </td></tr><tr><td colspan="1" rowspan="1"> Release Phases </td><td colspan="1" rowspan="1"> /releases/{release_id}/release_phases </td></tr><tr><td colspan="1" rowspan="1"> Release Tasks </td><td colspan="1" rowspan="1"> /releases/{release_id}/release_tasks </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this Connector?">
+
+You need your Aha! API key and domain of your Aha! instance. For example, if your instance is located at "https://domo.aha.io/," you would enter "domo" here.
+
+</Accordion>
+
+<Accordion title="Can I use the same account to create multiple datasets?">
+
+Yes
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

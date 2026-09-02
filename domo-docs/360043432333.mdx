@@ -1,0 +1,145 @@
+---
+title: "Salesforce Advanced Connector"
+excerpt: "Connect Domo to Salesforce using the Domo Connector Package to import prebuilt tabular reports or fields from any Salesforce object into a DataSet."
+---
+
+## Intro
+
+[Salesforce.com](http://Salesforce.com) builds the world's most popular customer relationship management (CRM) product. Use Domo's Salesforce Advanced connector to import prebuilt tabular reports or retrieve fields from a given Salesforce object. To learn more about Salesforce's APIs, visit their page ([https://trailhead.salesforce.com/en/content/learn/modules/api\_basics](https://trailhead.salesforce.com/en/content/learn/modules/api_basics "https://developer.salesforce.com/page/Salesforce_APIs") ).
+
+You connect to your Salesforce account in the Data Center. This topic discusses the fields and menus that are specific to the Salesforce connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Salesforce account and create a DataSet, you must have Salesforce credentials. You must also have an installed Domo Connector Package from the Salesforce AppExchange (required as of August 1, 2018; see next section for installation instructions)
+
+### Installing the Domo Connector Package
+
+The "Domo Connector Package" found in Salesforce AppExchange allows Salesforce users to import their data into Domo. Follow these instructions to download and install the Connector Package from the AppExchange.
+
+**To install Domo's Salesforce Managed Package,**
+
+1. Log into Salesforce.
+2. Navigate to the Salesforce AppExchange at
+   [https://appexchange.salesforce.com](https://appexchange.salesforce.com "https://appexchange.salesforce.com") and search for "Domo Connector Package," then click on it.
+3. Customers can go directly to the package with the following link:
+   
+   [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN "Follow link")
+4. If you are installing into a sandbox organization you must replace the initial portion of the URL with
+   [http://test.salesforce.com](http://test.salesforce.com/ "Follow link")
+   
+   <Frame><img alt="sfmp_1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyZ.png"/></Frame>
+
+   Alternatively, you can go directly to [https://appexchange.salesforce.com/a...A00000EcrsyUAB](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB").
+5. Click **Get It Now**.
+   
+   <Frame><img alt="sfmp_2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyV.png"/></Frame>
+
+6. Choose whether you want to install in a production environment or sandbox.
+     
+   <Frame><img alt="sfmp_3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyK.png"/></Frame>
+
+7. Check the box reading "I have read and agree to the terms and conditions," after Reading the terms and conditions.
+8. Click
+   **Confirm and Install**.
+     
+   <Frame><img alt="sfmp_4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyW.png"/></Frame>
+
+9. Click the
+   **Install for All Users** tile.
+     
+   <Frame><img alt="sfmp_5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyP.png"/></Frame>
+
+For more details, see Salesforce's documentation at [https://help.salesforce.com/articleV...ges.htm&type=5](https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5 "https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5").
+
+## Connecting to Your Salesforce Account
+
+This section enumerates the options in the **Credentials** and **Data Selection** panes in the Salesforce Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Salesforce Advanced connector uses OAuth to connect, so there is no need to enter credentials within Domo. Select the desired Salesforce environment (either **Sandbox**
+
+or **Salesforce**) then click **Connect** (or select **Add Account** if you have existing Salesforce accounts in Domo) to open the Salesforce OAuth screen where you can enter your Salesforce credentials. Once you have entered valid Salesforce credentials, you can use the same account any time you go to create a new Salesforce DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Salesforce when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Salesforce.
+
+</Note>
+
+### Data Selection Pane
+
+This pane provides access to four different routes for pulling Salesforce data into Domo. Each of these is described in continuation.
+
+#### Browse Objects and Fields
+
+Use this option to select a Salesforce object and define its associated fields and relationships. Any configuration options you choose here are reflected in the SOQL query, which is automatically generated in the **Query** tab.
+
+The following table describes the configuration options available when choosing this route:
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Which Salesforce Object Would You Like to Use? </p></td><td colspan="1" rowspan="1"><p> Select the Salesforce object you want to import into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> What Fields Would You Like to Retrieve? </p></td><td colspan="1" rowspan="1"><p> Select all the fields you want to retrieve. You can select as many fields as you want. You can drill down on an object to show the fields under that object, or you can search for a specific field using the <b> Search </b> box. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Would You Like to Filter by Date? </p></td><td colspan="1" rowspan="1"><p> Select a date filtering option. A number of options is available, including the creation date, last activity date, last viewed date, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> What Relationships Would You Like to Include? </p></td><td colspan="1" rowspan="1"><p> Select all relationships you want to include in your DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Column Name Styles </p></td><td colspan="1" rowspan="1"><p> Select whether to use Salesforce internal names or labels as the column names in the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Retrieve All Fields </p></td><td colspan="1" rowspan="1"><p> Select whether new fields will be automatically retrieved from Salesforce if all the fields under a parent object are selected. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Type of Records to Retrieve </p></td><td colspan="1" rowspan="1"><p> Specify whether you want to import all records (including deleted records) or active fields only. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reset Schema? </p></td><td colspan="1" rowspan="1"><p> Specify whether you want your DataSet columns to be reset when a query or field selection is modified. </p></td></tr></tbody></table>
+
+#### Query
+
+Use this option to pull Salesforce data into Domo by inputting a query.
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr><tr><td colspan="1" rowspan="1"><p> Enter your SOQL Query </p></td><td colspan="1" rowspan="1"><p> Enter the desired SOQL query. Note that a query is automatically generated here when you specify configuration options in the <b> Browse Objects and Fields </b> tab. However, you can edit this query if you want, or even enter an entirely new query. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Retrieval -- Type of Records to Retrieve </p></td><td colspan="1" rowspan="1"><p> Specify whether you want to import all records (including deleted records) or active records only. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schema Options -- Reset Schema </p></td><td colspan="1" rowspan="1"><p> Specify whether you want your DataSet columns to be reset when a query or field selection is modified. </p></td></tr></thead></table>
+
+#### Tabular Reports
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Select a Salesforce Tabular Report </p></td><td colspan="1" rowspan="1"><p> Select a tabular report to import from Salesforce. </p><p></p></td></tr><tr><td colspan="1" rowspan="1"> Select a Unique Key Present in the Data </td><td colspan="1" rowspan="1"> Select a unique key in your DataSet. This is necessary if you want to import more than 2000 rows of data. </td></tr><tr><td colspan="1" rowspan="1"> Select the Date Format Returned by the Report </td><td colspan="1" rowspan="1"> Select how you want dates to be formatted in your report. </td></tr></tbody></table>
+
+#### Sharing Rules Settings
+
+This option is locked to reduce the risk of error when creating reports.
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="When should I use this connector?">
+
+Use Domo's salesforce advanced connector when you want connect your Salesforce data in Domo to help convert more leads and close more deals. The Domo Salesforce advanced connector integrates Domo with Salesforce so you can visualize data on your customers, from prospect to acquisition to retention. With Domo, you can pull Salesforce data—along with data from any other platform—into a single, intuitive dashboard. This enables you to see Salesforce in the context of other business metrics, and leverage its data in ways never before possible.
+
+</Accordion>
+
+<Accordion title="What version of the Salesforce API does this connector use?">
+
+This connector uses version 62.0 of the Salesforce API (`https://{customer instance}.salesforce.com/services/data/v62.0`).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> Browse Objects and Fields </td><td colspan="1" rowspan="1"> /query </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> /query </td></tr><tr><td colspan="1" rowspan="1"> Reports </td><td colspan="1" rowspan="1"> /analytics/reports/{reportId}/describe </td></tr><tr><td colspan="1" rowspan="1"> Sharing Rules and Settings </td><td colspan="1" rowspan="1"> /knowledgeManagement/settings </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need to select the Salesforce environment you would like to authenticate against, and the email address and password associated with your Salesforce account.
+
+</Accordion>
+
+<Accordion title="How do I know my Salesforce account credentials are secure?">
+
+The login process uses the OAuth process so your Saleforce credentials are never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="I keep getting an &quot;INVALID\_QUERY\_LOCATOR&quot; error. How do I fix that?">
+
+Salesforce allows a user to run a maximum of 10 queries at a time. Make sure your dataset runs are spread out.
+
+</Accordion>
+
+<Accordion title="I keep getting a &quot;QUERY\_TIMEOUT&quot; error. How do I fix that?">
+
+This error appears if your SOQL query exceeds 20K character limit or contains too many formula fields. To fix this issue you need to simplify your query.
+
+</Accordion>
+</AccordionGroup>
+

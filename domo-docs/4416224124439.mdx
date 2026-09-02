@@ -1,0 +1,90 @@
+---
+title: "Social Studio Connector"
+excerpt: "Connect Domo to Social Studio to retrieve posts, profiles, keywords, workspaces, and other social media metrics into a DataSet."
+---
+
+The Social Studio API is a REST-ful web service for retrieving, analyzing, and modifying social media data contained in your Social Studio Account. It is a one-stop solution to manage, schedule, create, and monitor posts. Social Studio offers powerful real-time publishing and engagement. Having a clear view of your social account performance is always essential. With Domo's Social Studio Connector, you can easily monitor the key social metrics across your social studio account.
+
+Use this Connector to monitor and manage different media types, posts, keywords, profiles, contents, filters, workspaces, and much more, and quickly determine your social account's strengths, weaknesses, and opportunities.
+
+To learn about the Social Studio API, see https://developer.salesforce.com/docs/atlas.en-us.api_social.meta/api_social/1-introduction-to-the-social-studio-marketing-cloud.htm.
+
+The Social Studio Connector is a "Cloud App" Connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the Connector page for this and other Cloud App Connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Social Studio account in the Data Center.  This topic discusses the fields and menus that are specific to the Social Studio Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Social Studio account and create a DataSet, you must have the following:
+
+* The username and password for your Social Studio account.
+* The API key and API secret associated with your Social Studio account.
+
+## Connecting to Your Social Studio Account
+
+This section enumerates the options in the Credentials and Details panes in the Social Studio Connector page. The components of the other panes in this page,**Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Social Studio account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username you use to log into your Social Studio account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Social Studio password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter the API key associated with your Social Studio account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Secret </p></td><td colspan="1" rowspan="1"><p> Enter the API secret associated with your Social Studio account. </p></td></tr></tbody></table>
+
+Once you have entered valid Social Studio credentials, you can use the same account any time you go to create a new Social Studio DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Social Studio report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Approval Rules </td><td colspan="1" rowspan="1"> Retrieves one or more approval rules for a workspace. </td></tr><tr><td colspan="1" rowspan="1"> Case </td><td colspan="1" rowspan="1"> Retrieves a collection of cases. </td></tr><tr><td colspan="1" rowspan="1"> Client </td><td colspan="1" rowspan="1"> Retrieves the Social Studio organization of the company. Currently, this call returns only the client for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> Imported Posts </td><td colspan="1" rowspan="1"> Retrieves posts and their metrics imported to a workspace. </td></tr><tr><td colspan="1" rowspan="1"> Keyword Groups </td><td colspan="1" rowspan="1"> Returns a specified keyword group from a workspace. </td></tr><tr><td colspan="1" rowspan="1"> Languages </td><td colspan="1" rowspan="1"> Retrieves information about all languages available when managing your topic profile. </td></tr><tr><td colspan="1" rowspan="1"> Macros </td><td colspan="1" rowspan="1"> Retrieves all macros within a Social Studio organization. This macro can contain several different actions within the JSON payload, indicating actions to perform when the macro receives an execute call. </td></tr><tr><td colspan="1" rowspan="1"> Media Type </td><td colspan="1" rowspan="1"> Retrieves a collection of media types on supplied parameters. </td></tr><tr><td colspan="1" rowspan="1"> Posts </td><td colspan="1" rowspan="1"> Retrieves post data from available broad listening topic profiles and social accounts. </td></tr><tr><td colspan="1" rowspan="1"> Publish Profiles </td><td colspan="1" rowspan="1"> Retrieves publish macros in the Social Studio organization. </td></tr><tr><td colspan="1" rowspan="1"> Regions </td><td colspan="1" rowspan="1"> Retrieves information about all regions available when managing your topic profile. </td></tr><tr><td colspan="1" rowspan="1"> Salesforce Organizations </td><td colspan="1" rowspan="1"> Returns information on all Salesforce organizations registered within the tenant for the user executing the call. </td></tr><tr><td colspan="1" rowspan="1"> Shared Content </td><td colspan="1" rowspan="1"> Retrieves content available for use within a workspace. </td></tr><tr><td colspan="1" rowspan="1"> Short Url </td><td colspan="1" rowspan="1"> Returns Bitly accounts within a workspace. </td></tr><tr><td colspan="1" rowspan="1"> Source Filters </td><td colspan="1" rowspan="1"> Returns all source groups available to the authenticated users. </td></tr><tr><td colspan="1" rowspan="1"> Source Filter Queries </td><td colspan="1" rowspan="1"> Returns all source filter queries associated with a social filter. </td></tr><tr><td colspan="1" rowspan="1"> Social Properties </td><td colspan="1" rowspan="1"> Retrieves social properties the user can access. This object contains information about a managed account topic profile and associated external user account. </td></tr><tr><td colspan="1" rowspan="1"> Topic Profiles </td><td colspan="1" rowspan="1"> Retrieves specific details on topic profiles based on user permissions and role. </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> Retrieves information for all users within an account. </td></tr><tr><td colspan="1" rowspan="1"> Workspace </td><td colspan="1" rowspan="1"> Retrieves a paginated list of workspaces within the Social Studio organization. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Owner ID </td><td colspan="1" rowspan="1"><span> Enter the Owner ID. </span></td></tr><tr><td colspan="1" rowspan="1"> Owner Type </td><td colspan="1" rowspan="1"><span> Enter the Owner Type. </span></td></tr><tr><td colspan="1" rowspan="1"> Include </td><td colspan="1" rowspan="1"><span> Select a metric to include the additional information on the workflow. </span></td></tr><tr><td colspan="1" rowspan="1"> Workspace </td><td colspan="1" rowspan="1"><span> Select the workspace. </span></td></tr><tr><td colspan="1" rowspan="1"> Network </td><td colspan="1" rowspan="1"><span> Select the social network for post. </span></td></tr><tr><td colspan="1" rowspan="1"> Keyword Group ID </td><td colspan="1" rowspan="1"><span> Select the keyword group ID. </span></td></tr><tr><td colspan="1" rowspan="1"> Topic ID </td><td colspan="1" rowspan="1"><span> Select the topic ID. </span></td></tr><tr><td colspan="1" rowspan="1"> Priority </td><td colspan="1" rowspan="1"><span> Select the priority. </span></td></tr><tr><td colspan="1" rowspan="1"> Sentiment </td><td colspan="1" rowspan="1"><span> Select the sentiment. </span></td></tr><tr><td colspan="1" rowspan="1"> Filter </td><td colspan="1" rowspan="1"><span> Select the filter. </span></td></tr><tr><td colspan="1" rowspan="1"> Search Characters </td><td colspan="1" rowspan="1"><span> Enter the characters to search for in the title. A string should contain minimum 3 characters. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Select the source filter id. </span></td><td colspan="1" rowspan="1"><span> Select the source filter ID. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Types </span></td><td colspan="1" rowspan="1"><span> Select the social network types. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Views </span></td><td colspan="1" rowspan="1"><span> Select the view. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Status </span></td><td colspan="1" rowspan="1"><span> Select the status of topic profile to return. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Enabled </span></td><td colspan="1" rowspan="1"><span> Select 'True' to only retrieve active users; otherwise, select 'False'. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Visibility </span></td><td colspan="1" rowspan="1"><span> Specify whether a workspace is visible to all users or private users. </span></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What endpoint is the base URL for this Connector?">
+
+The base URL for the Social Studio Connector is https://api.socialstudio.radian6.com/.
+
+</Accordion>
+
+<Accordion title="Which endpoint does each report call in this connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL </th></tr><tr><td colspan="1" rowspan="1"> Approval Rules </td><td colspan="1" rowspan="1"> /v1/approvalflows </td></tr><tr><td colspan="1" rowspan="1"> Case </td><td colspan="1" rowspan="1"> /v1/cases </td></tr><tr><td colspan="1" rowspan="1"> Client </td><td colspan="1" rowspan="1"> /v3/client </td></tr><tr><td colspan="1" rowspan="1"> Imported Posts </td><td colspan="1" rowspan="1"> /v1/importedposts </td></tr><tr><td colspan="1" rowspan="1"> Keyword Groups </td><td colspan="1" rowspan="1"> /v3/keywordGroups/{ID} </td></tr><tr><td colspan="1" rowspan="1"> Languages </td><td colspan="1" rowspan="1"> /v3/languages </td></tr><tr><td colspan="1" rowspan="1"> Macros </td><td colspan="1" rowspan="1"> /v3/macros </td></tr><tr><td colspan="1" rowspan="1"> Media Type </td><td colspan="1" rowspan="1"> /v3/mediaTypes </td></tr><tr><td colspan="1" rowspan="1"> Posts </td><td colspan="1" rowspan="1"> /v3/posts </td></tr><tr><td colspan="1" rowspan="1"> Publish Profiles </td><td colspan="1" rowspan="1"> /v3/publishprofiles </td></tr><tr><td colspan="1" rowspan="1"> Regions </td><td colspan="1" rowspan="1"> /v3/regions </td></tr><tr><td colspan="1" rowspan="1"> Salesforce Organizations </td><td colspan="1" rowspan="1"> /v3/salesforceOrganizations </td></tr><tr><td colspan="1" rowspan="1"> Shared Content </td><td colspan="1" rowspan="1"> /v1/clips </td></tr><tr><td colspan="1" rowspan="1"> Short Url </td><td colspan="1" rowspan="1"> /v1/shorturls </td></tr><tr><td colspan="1" rowspan="1"> Source Filters </td><td colspan="1" rowspan="1"> /v3/sourceFilters </td></tr><tr><td colspan="1" rowspan="1"> Source Filter Queries </td><td colspan="1" rowspan="1"> /v3/sourceFilters/{ID}/sourceFilterQueries </td></tr><tr><td colspan="1" rowspan="1"> Social Properties </td><td colspan="1" rowspan="1"> /v3/socialProperties </td></tr><tr><td colspan="1" rowspan="1"> Topic Profiles </td><td colspan="1" rowspan="1"> /v3/topics </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> /v3/users </td></tr><tr><td colspan="1" rowspan="1"> Workspace </td><td colspan="1" rowspan="1"> /v1/workspaces </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up the Social Studio Connector?">
+
+You need the username, password, API key, and API secret associated with your Social Studio account.
+
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+
+<Accordion title="Can I use the same account to create multiple datasets?">
+
+Yes
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

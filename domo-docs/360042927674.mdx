@@ -1,0 +1,53 @@
+---
+title: "Bazaarvoice Connector"
+excerpt: "Connect to Bazaarvoice with a base URL and API key to compile reports on products, reviews, questions, and answers in Domo DataSets."
+---
+
+## Intro
+
+Bazaarvoice is a network that connects brands, retailers, and consumers, delivering ROI through reviews, analytics, and targeted media. Use Domo's Bazaarvoice connector to compile reports about products, reviews, questions, and answers. For more information about the Bazaarvoice API, visit their website. ([https://developer.bazaarvoice.com/conversations-api/home](https://developer.bazaarvoice.com/conversations-api/home "https://developer.bazaarvoice.com/docs/read/conversations_api"))
+
+The Bazaarvoice connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Bazaarvoice account in the Data Center. This topic discusses the fields and menus that are specific to the Bazaarvoice connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Retrieving answer data from reviews for certain products/categories. </p></li><li><p> Determining product/category sentiment. </p></li><li><p> Reviewing specific feedback customers are providing about products/categories. </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Top/bottom product ratings </p></li><li><p> Reviewer satisfaction levels </p></li><li><p> Campaign sentiment </p></li><li><p> Average product ratings </p></li><li><p> Reviewer demographics </p></li><li><p> Number of product reviews per product </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Marketing director </p></li><li><p> Marketing manager </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 15-30 minutes </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Best Practices
+
+If you have a large number of products/categories, consider running reports on only the products/categories you'd like to see.
+
+## Prerequisites
+
+To connect to your Bazaarvoice account and create a DataSet, you must have the following:
+
+* The base URL for your Bazaarvoice instance. Usually, this is [http://api.bazaarvoice.com](http://api.bazaarvoice.com "http://api.bazaarvoice.com") for production and [http://stg.api.bazaarvoice.com](http://stg.api.bazaarvoice.com "http://stg.api.bazaarvoice.com") for staging.
+* Your Bazaarvoice API key. For information about obtaining an API key, see [https://developer.bazaarvoice.com/co...sting-api-keys](https://developer.bazaarvoice.com/conversations-api/api-key-processes/requesting-api-keys "https://developer.bazaarvoice.com/conversations-api/api-key-processes/requesting-api-keys").
+
+## Connecting to Your Bazaarvoice Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Bazaarvoice Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Bazaarvoice account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> Field </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> Base URL </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Enter your Bazaarvoice base URL. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> API Key (Passkey) </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Enter your Bazaarvoice API key. </span></p></td></tr></tbody></table>
+
+For more information about obtaining the above credentials, see "Prerequisites," above.
+
+Once you have entered valid Bazaarvoice credentials, you can use the same account any time you go to create a new Bazaarvoice DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Report** menu in which you select a report type, as well as various other fields and menus that may or may not appear, depending on the selected report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> Menu </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Select a Bazaarvoice report. The following reports are available: </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b><span class="s1"> Report Name </span></b></p></td><td colspan="1" rowspan="1"><p><b><span class="s1"> Description </span></b></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Answers </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Retrieves answers to users questions for a given product. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Base Metrics </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Retrieves review and question counts for a given product. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Products </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns product details such as brand name and ID, product name, description, part number, etc. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Product Metrics </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns product metrics such as name, total comments, rating, positive and negative feedback count, etc. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Product Metrics Details </p></td><td colspan="1" rowspan="1"> Returns product metrics data along with its product name. </td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Questions </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns user questions about a given product, with answer count, user nickname, feedback count, etc. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Review </td><td colspan="1" rowspan="1"> Returns user reviews for a given product. </td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Reviews </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns all user reviews for all products. </span></p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Product/Category Name </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Enter the name of the product or category you want to retrieve data for. If you leave this blank, data will be retrieved for all products and categories. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Past Submission Days </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Enter the number of past days you want to retrieve submitted reviews for. For example, if you entered </span><span class="s3"> 30 </span><span class="s1">, your report would contain reviews submitted within the past 30 days. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Past Modification Days </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Enter the number of past days you want to retrieve modified reviews for. For example, if you entered </span><span class="s3"> 30 </span><span class="s1">, your report would contain reviews modified within the past 30 days. </span></p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+Ensure product/category names are consistent with naming conventions in BazaarVoice.

@@ -1,0 +1,40 @@
+---
+title: "Microsoft Word Connector"
+excerpt: "Use Domo's Microsoft Word Connector to import Microsoft Word files from an SFTP server into a Domo DataSet."
+---
+
+## Intro
+
+Microsoft Word is a widely-used word processing tool developed by Microsoft. To learn more about the Microsoft Office API, visit their page ([https://msdn.microsoft.com/en-us/lib.../fp179696.aspx](https://msdn.microsoft.com/en-us/library/office/fp179696.aspx "https://msdn.microsoft.com/en-us/library/office/fp179696.aspx") ).
+
+You connect to your Microsoft Word account in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft Word connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to the SFTP server with Microsoft Word files you want to import, you must have the following:
+
+* The hostname or IP address of the SFTP server
+* The port number of the SFTP server (default is 22)
+* The username and password you use to log into the SFTP server
+
+## Connecting to Your Microsoft Word Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Microsoft Word Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Microsoft Word account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the hostname or IP address of the SFTP server with Microsoft Word files you want to import. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number of the SFTP server with Microsoft Word files you want to import (the default is <span class="mt-font-courier-new"> 22 </span> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username for the SFTP server. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password for the SFTP server. </p></td></tr></tbody></table>
+
+Once you have entered valid Microsoft Word credentials, you can use the same account any time you go to create a new Microsoft Word DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains two fields where you enter information for connecting to Microsoft Word files.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> File Path </p></td><td colspan="1" rowspan="1"><p> Enter the file path of the Microsoft Word file you want to import on the SFTP server. For example: <span class="mt-font-courier-new"> /home/user/MyFile.docx </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> File Password (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the password for the file you want to import, if one has been set. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

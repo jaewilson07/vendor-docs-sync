@@ -1,0 +1,539 @@
+---
+title: "Brightcove Connector"
+excerpt: "Use Domo's Brightcove Connector to import video hosting and player metrics from your Brightcove account into Domo as a DataSet."
+---
+
+## Intro
+
+Brightcove is a leading online video hosting platform and video player solution. To learn more about the Brightcove API, visit their page ([https://support.brightcove.com](https://support.brightcove.com "https://support.brightcove.com") ).
+
+You connect to your Brightcove account in the Data Center. This topic discusses the fields and menus that are specific to the Brightcove connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Brightcove account and create a DataSet, you must have the following:
+
+* A Brightcove client ID
+* A Brightcove client secret
+
+For information about obtaining these credentials, see [https://support.brightcove.com/managing-api-authentication-credentials](https://support.brightcove.com/managing-api-authentication-credentials "https://support.brightcove.com/en/video-cloud/docs/managing-api-authentication-credentials").
+
+## Connecting to Your Brightcove Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Brightcove Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Brightcove account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr>
+<th colspan="1" rowspan="1">
+<p>
+<span class="s1"> Field </span>
+</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>
+<span class="s1"> Description </span>
+</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Client ID </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter your Brightcove client ID. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Client Secret </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter your Brightcove client secret. </p>
+</td>
+</tr>
+</tbody>
+</table>
+
+Once you have entered valid Brightcove credentials, you can use the same account any time you go to create a new Brightcove DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus for configuring your report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr>
+<th colspan="1" rowspan="1">
+<p> Menu </p>
+</th>
+<th colspan="1" rowspan="1">
+<p> Description </p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Report </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the Brightcove report you want to run. </p>
+<table border="1" cellpadding="1" cellspacing="1">
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"> Analytics </td>
+<td colspan="1" rowspan="1">
+<span> The Analytics API allows you to obtain analytics data for your Video Cloud accounts directly. </span>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Video by Player </td>
+<td colspan="1" rowspan="1">
+<span> The report allows you to obtain video data for a particular player in your Video Cloud accounts directly. </span>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> View Events </span>
+</td>
+<td colspan="1" rowspan="1">
+<span> The report allows you to obtain view events for a Video Cloud account. </span>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Account IDs </td>
+<td colspan="1" rowspan="1"> Enter a comma-separated list of Video Cloud account IDs you want to retrieve information for. For example: <span class="mt-font-courier-new"> 12345,98765,10293 </span></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Dimensions </td>
+<td colspan="1" rowspan="1">
+<p> Select all of the dimensions you want to retrieve information for. The following table lists and describes all of the available dimensions: </p>
+<table class="mt-responsive-table">
+<thead>
+<tr>
+<th colspan="1" rowspan="1"> Dimension </th>
+<th colspan="1" rowspan="1"> Description </th>
+<th colspan="1" rowspan="1"> Filter Values </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> account </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Retrieves general analytics data for the account. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> N/A </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> browser_type </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns information about the browser used to view videos. Browsers are not broken down by device type; however, you can combine this with the <span class="mt-font-courier-new"> device_type </span> dimension or use <span class="mt-font-courier-new"> device_type </span> as a filter. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> chrome, edge, firefox, ie, opera, safari, other </span>
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> city </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns analytics data by city. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter a comma-separated list of city names in the <b> Where </b> field, e.g. <span class="mt-font-courier-new"> Seattle,Boston,San Francisco </span></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> country </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns analytics data by country. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter a comma-separated list of ISO-3611-1 country codes in the <b> Where </b> field, e.g. <span class="mt-font-courier-new"> US,CH,MX. </span></p>
+<p> For a list of all codes, see <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank" title="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"> https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 </a>. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> date </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns analytics for a single day interpreted to the current time zone for the account. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> N/A </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> date_hour </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns analytics data in hourly segments. Reports are only valid for ranges within the last 32 days interpreted to the time zone for the account. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> N/A </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> destination_domain </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns the domain in which video views occurred. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> N/A </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> destination_path </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns the path in which video views occurred. Often used with the <span class="mt-font-courier-new"> destination_domain </span> dimension. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> N/A </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> device_manufacturer </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns information about the manufacturer of the device videos were viewed on. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> amazon, apple, asus, blackberry, fujitsu, google, htc, huawei, kyocera, lenovo, lg, micromax, microsoft, nintendo, panasonic, roku, samsung, sharp, sony, vizio, zte, other </span>
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> device_os </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Provides information about the operating system of the device that videos were viewed on. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> android, bada, ios, rim, symbian, web_os, windows, os_x, mac, linux, other </span>
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> device_type </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Provides information about the type of the device that videos were viewed on. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> mobile, tablet, tv, desktop, other </span>
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> player </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Provides analytics for video players. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter player IDs in the <b> Where </b> field as a comma-separated list. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> referrer_domain </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns the top private domain of the referrer URL on a page where events are collected for analytics. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter domains in the <b> Where </b> field as a comma-separated list, e.g. <span class="mt-font-courier-new">
+<a href="http://brightcove.com" rel="noopener" target="_blank"> brightcove.com </a>, <a href="http://docs.brightcove.com" rel="noopener" target="_blank"> docs.brightcove.com </a>
+</span>. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> region </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns information about where videos were viewed. Data is returned as ISO-3611-2 region codes (example: <span class="mt-font-courier-new"> US-WA </span> ). How regions are defined varies by country. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter a comma-separated list of ISO-3611-2 region codes in the <b> Where </b> field, e.g. <span class="mt-font-courier-new"> US-WA. </span></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> search_terms </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns analytics for search terms. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter a comma-separated list of search terms in the <b> Where </b> field, e.g. <span class="mt-font-courier-new"> players,videos. </span></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> source_type </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns the traffic source that results in events being collected for analytics. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> direct, referral, organic_search, paid_search, secure_search </span>
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> social_platform </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns analytics for social platforms such as Twitter, Facebook, and YouTube, if you distributed your videos to those platforms using the Video Cloud Radius module. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> facebook,twitter,youtube </span>
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>
+<span class="mt-font-courier-new"> video </span>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Returns analytics by video. </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter a comma-separated list of videos in the <b> Where </b> field, or use the query <span class="mt-font-courier-new"> `video.q=={video field}:{value}` </span>. </p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Fields </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select all fields to include in your report. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Other Fields </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter a comma-separated list of custom or calculated fields for your report. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+Where
+</td>
+<td colspan="1" rowspan="1">
+Enter an optional 
+<span class="mt-font-courier-new"> WHERE </span> clause to filter the result set. See the "Dimensions" table above for filter values for each dimension.The general syntax for this field is
+<span class="mt-font-courier-new"> dimension1==value1;dimension2==value2.</span>
+For example, if you had selected
+<span class="mt-font-courier-new"> video </span> and <span class="mt-font-courier-new"> device_type </span> as dimensions, you could enter filters for both using a query like the following: 
+<p>
+<span class="mt-font-courier-new"> video==123456789;device_type==tablet </span>
+</p>
+<p> Commas are treated as logical <span class="mt-font-courier-new"> OR </span> s, and semicolons as logical <span class="mt-font-courier-new"> AND </span> s. For example, the query <span class="mt-font-courier-new"> video==1234,5678;player=9876 </span> is interpreted as "where video=1234 OR 5678 AND player=9876." </p>
+<p> Using the special <span class="mt-font-courier-new"> where=video.q=={property}:{value} </span> filter, you can limit your report to a specific set of videos based on a variety of properties, including all of the following: </p>
+<ul>
+<li>
+<p>
+<span class="mt-font-courier-new"> tags </span>
+</p>
+</li>
+<li>
+<p>
+<span class="mt-font-courier-new"> reference_id </span>
+</p>
+</li>
+<li>
+<p>
+<span class="mt-font-courier-new"> custom_fields (internal name) </span>
+</p>
+</li>
+<li>
+<p>
+<span class="mt-font-courier-new"> {a_specific_custom_field} </span>
+</p>
+</li>
+<li>
+<p>
+<span class="mt-font-courier-new"> published_at </span>
+</p>
+</li>
+</ul>
+<p> Examples: </p>
+<p>
+<span class="mt-font-courier-new"> Tags: video.q==tags:foo,bar <br/> Custom Fields: video.q==custom_fields.thefieldname:foo <br/> Tags and custom Fields: video.q==tags:foo,bar+custom_fields.field2:fish </span>
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Player </td>
+<td colspan="1" rowspan="1"> Select the video player you want to retrieve information for. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Duration </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select whether you want to pull data for a specific date or a date range. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Report Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select whether the report data is for a specific date or for a relative number of days back from today. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Select Specific Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the date for the report. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Days Back </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the number of past days that should appear in the report. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Start Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> End Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Select Specific Start Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the first date in your date range. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Select Specific End Date </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the second date in your date range. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Days Back to Start From </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p>
+<p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Days Back to End At </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p>
+<p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

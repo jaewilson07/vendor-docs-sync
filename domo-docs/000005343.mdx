@@ -1,0 +1,34 @@
+---
+title: "Clari Connector"
+excerpt: "Use Domo's Clari Connector to retrieve forecast export and opportunity data from the Clari revenue platform using an API token."
+---
+
+## About Clari Connector
+
+Clari is the nucleus of your organization's revenue and holds critical revenue data. Clari APIs enable customers to retrieve revenue data from the Clari platform and pushes the missing revenue-critical data into the platform. The Clari API enables you to retrieve revenue data from the Clari platform and improves downstream reporting and revenue systems. To learn more about the Clari API, see [Clari API Documentation](https://developer.clari.com/documentation/external_spec#/Administrative%20API/limits "Clari API Documentation").
+
+You connect to your Clari account in the Data Center. This article illustrates the fields and menus specific to the Clari connector user interface. To add Datasets, set update schedules, and edit DataSet information see, [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to Clari account and create a DataSet, you must have the **API KEY** associated with the Clari account.
+
+## Connect to Your Clari Account
+
+This section explains the options in the **Credentials** and **Details** panes in the  Clari Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account.
+
+The Domo Clari connector uses API token authentication, which requires a token generated from web UI. Once you enter the valid Clari credentials, you can use the same account to create a new Clari DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="2"> Report </td><td colspan="1" rowspan="1"> Export Forecast Report </td><td colspan="1" rowspan="1"> Configure and start processing a forecast export job with a provided Forecast ID to retrieve forecast data. </td></tr><tr><td colspan="1" rowspan="1"><p> Opportunity Report </p></td><td colspan="1" rowspan="1"> Retrieve opportunity data from a provided Opp ID(s). </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,36 @@
+---
+title: "IBM Digital Analytics Connector"
+excerpt: "Use the IBM Digital Analytics connector to pull marketing channel, country, metric, and top page data into a Domo DataSet."
+---
+
+## Intro
+
+IBM Digital Analytics, formerly Coremetrics, allows marketers to gain insight from digital analytics and comparative benchmarks. Use Domo's IBM Digital Analytics connector to retrieve data about top visiting countries, marketing channels and programs, metrics, and top pages. For more information about IBM Digital Analytics, visit their website. ([http://www-03.ibm.com/software/produ...ital-analytics](http://www-03.ibm.com/software/products/en/digital-analytics "http://www-03.ibm.com/software/products/en/digital-analytics") )
+
+You connect to your IBM Digital Analytics account in the Data Center. This topic discusses the fields and menus that are specific to the IBM Digital Analytics connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your IBM Digital Analytics account and create a DataSet, you must have the Username and the User Auth Key, you use to log into your account at [https://welcome.coremetrics.com](https://welcome.coremetrics.com "https://welcome.coremetrics.com").
+
+## Connecting to Your IBM Digital Analytics Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the IBM Digital Analytics Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your IBM Digital Analytics account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username for your IBM Digital Analytics account. </td></tr><tr><td colspan="1" rowspan="1"> User Auth Key </td><td colspan="1" rowspan="1"> Enter the User Authentication Key. </td></tr></tbody></table>
+
+Once you have entered valid IBM Digital Analytics credentials, you can use the same account any time you go to create a new IBM Digital Analytics DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the IBM Digital Analytics report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Predefined Reports </td><td colspan="1" rowspan="1"> Exports the report created in your IBM Digital Analytics instance. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Client IDs </td><td colspan="1" rowspan="1"> Enter a comma-separated list of all IBM Digital Analytics client IDs you want to retrieve data for. For example: <span class="mt-font-courier-new"> 123,456,789 </span></td></tr><tr><td colspan="1" rowspan="1"> Start Days </td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> End Days </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Days </b>, the report would contain data for 10 days ago up until 5 days ago. The maximum number of days back for this parameter is 93. Today's data is not available until tomorrow. </p></td></tr><tr><td colspan="1" rowspan="1"> End Days </td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day that should be represented in the report. Combine with <b> Start Days </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Days </b>, the report would contain data for 10 days ago up until 5 days ago. The maximum number of days back for this parameter is 93. Today's data is not available until tomorrow. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

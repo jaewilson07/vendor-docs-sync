@@ -1,0 +1,41 @@
+---
+title: "XTM Cloud Connector"
+excerpt: "Use Domo's XTM Cloud Connector to retrieve translation project statistics, metrics, estimates, and status data from your XTM Cloud account."
+---
+
+## Intro
+
+XTM Cloud develops and sells XTM, a web-based, computer-assisted translation tool and translation management system. Use Domo's XTM Cloud C onnector to retrieve data about aspects of XTM projects, including statistics, cost estimates, actual costs, and more. To learn more about the XTM Cloud API, visit their page ([https://xtm.cloud/api/](https://xtm.cloud/api/ "https://xtm-intl.com/api/") ).
+
+You connect to your XTM Cloud account in the Data Center. This topic discusses the fields and menus that are specific to the XTM Cloud C onnector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your XTM Cloud account and create a DataSet, you must have the following:
+
+* The user ID and password for your XTM account.
+* Your client name associated with your XTM account.
+* Your XTM domain. This is essentially the URL of your XTM instance minus the
+  http://. For example, if your instance was http://domo.xtm-intl.com, you would enter [domo.xtm-intl.com](http://domo.xtm-intl.com).
+
+## Connecting to Your XTM Cloud Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the XTM International Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your XTM Cloud account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the user ID (not your username) for your XTM account. <span> You can find the User ID in XTM on the User list. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password for your XTM account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client </p></td><td colspan="1" rowspan="1"><p> Enter the <span> Client name for your XTM account. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p><span> Enter the Domain where you log in to your XTM account. </span></p><p><span> Example: If you logged in at " <a href="https://www.xtm-cloud.com," rel="noopener" target="_blank"> https://www.xtm-cloud.com," </a> " you would enter " <a href="http://www.xtm-cloud.com" rel="noopener" target="_blank"> www.xtm-cloud.com </a> " here. </span></p></td></tr></tbody></table>
+
+Once you have entered valid XTM Cloud credentials, you can use the same account any time you go to create a new XTM Cloud DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the XTM Cloud report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Concordance </td><td colspan="1" rowspan="1"> Returns a concordance that matches the specified search parameters. </td></tr><tr><td colspan="1" rowspan="1"> Customers </td><td colspan="1" rowspan="1"> Returns a list of customers. </td></tr><tr><td colspan="1" rowspan="1"> Job Metrics </td><td colspan="1" rowspan="1"> Returns original and up-to-date metrics for the specified jobs. </td></tr><tr><td colspan="1" rowspan="1"> Project Estimates </td><td colspan="1" rowspan="1"> Returns estimates for the specified project. </td></tr><tr><td colspan="1" rowspan="1"> Project Metrics </td><td colspan="1" rowspan="1"> Returns original and up-to-date metrics for all jobs and general metrics for the whole project for each target language or one specified target language. </td></tr><tr><td colspan="1" rowspan="1"> Project Statistics </td><td colspan="1" rowspan="1"> Returns up-to-date user statistics for all jobs for the whole project for each target language or one specified target language. </td></tr><tr><td colspan="1" rowspan="1"> Project Status </td><td colspan="1" rowspan="1"> Returns the status of a specified project. There are three levels of response: project, jobs and workflow steps. </td></tr><tr><td colspan="1" rowspan="1"> Projects </td><td colspan="1" rowspan="1"> Returns the list of Projects. </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> Returns all users associated with the account. </td></tr><tr><td colspan="1" rowspan="1"> Workflows </td><td colspan="1" rowspan="1"> Returns all workflows related to the projects associated in the account. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><span> Search Phrase </span></td><td colspan="1" rowspan="1"><span> Enter the search phrase. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Resource to search in </span></td><td colspan="1" rowspan="1"><span> Select the resource to search in. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Select the Source Language </span></td><td colspan="1" rowspan="1"><span> Select the source language for the project. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Select the Target Languages </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Select the target language for the project. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Exact Match </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Select the option to enable or disable exact match searching. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Select the Project </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Select the project. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Project Select Type </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Specify whether you want to retrieve the data for all projects or selected projects. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Select the Projects </span></td><td colspan="1" rowspan="1"><span> Select the projects. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Fetch level of statuses </span></td><td colspan="1" rowspan="1"><span> Select fetch level of statuses. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Skip Failed Projects </span></td><td colspan="1" rowspan="1"><span> When this option is checked, if XTMIntl fails to return details for a Projects, it will be excluded from the dataset and Domo will continue processing instead of failing the entire dataset run. This may result in missing data. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Select the Job ID </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Select the Job Id. </span></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

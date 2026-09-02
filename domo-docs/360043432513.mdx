@@ -1,0 +1,41 @@
+---
+title: "Bullhorn REST Connector"
+excerpt: "Connect Domo to your Bullhorn REST account using a client ID and secret to pull staffing CRM and operations data into a DataSet."
+---
+
+## Intro
+
+Bullhorn provides customer relationship management and operations software for the staffing industry. To learn more about the Bullhorn REST API, visit their page ([http://developer.bullhorn.com/documentation](http://developer.bullhorn.com/documentation "http://developer.bullhorn.com/documentation") ).
+
+You connect to your Bullhorn REST account in the Data Center. This topic discusses the fields and menus that are specific to the Bullhorn REST connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Bullhorn REST account and create a DataSet, you must have the following:
+
+* A Bullhorn client ID
+* A Bullhorn client secret
+
+To obtain credentials, reach out to your Bullhorn representative.
+
+## Connecting to Your Bullhorn REST Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Bullhorn REST Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Bullhorn REST account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Bullhorn client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Bullhorn client secret. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Center </p></td><td colspan="1" rowspan="1"><p><span> Select the Bullhorn Data Center. Visit </span><a href="http://bullhorn.github.io/Data-Center-URLs/" target="_blank"> Bullhorn Data-center-specific API URLs </a><span> for more. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your Bullhorn username. <br/><b> Note: </b> This is an optional field required to refresh expired tokens. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your Bullhorn password. <br/><b> Note: </b> This is an optional field required to refresh expired tokens. </td></tr></tbody></table>
+
+Once you have entered valid Bullhorn REST credentials, you can use the same account any time you go to create a new Bullhorn REST DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Ent </p></td><td colspan="1" rowspan="1"><p> Select the Bullhorn REST report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> All Corporate Notes </p></td><td colspan="1" rowspan="1"><p> Returns all notes in the specified Client Corporation. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Department Entities </p></td><td colspan="1" rowspan="1"><p> Returns the entities for the current user's departments, for the following entity types: Candidate,ClientContact, ClientCorporation, JobOrder, Placement, and Note. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Entities </p></td><td colspan="1" rowspan="1"><p> Returns the entities that belong to the current user for the following entity types: Candidate, ClientContact,ClientCorporation, JobOrder, Placement, and Note </p></td></tr><tr><td colspan="1" rowspan="1"><p> Meta </p></td><td colspan="1" rowspan="1"><p> Returns the list of available entities and their respective base URLs. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Meta Entity </p></td><td colspan="1" rowspan="1"><p> Returns entity and property metadata for the specified entity type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Entity </p></td><td colspan="1" rowspan="1"><p> Performs a SQL-style query. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Metadata </p></td><td colspan="1" rowspan="1"><p> Returns a search field names and, optionally, the field type and lookup names. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Entity </p></td><td colspan="1" rowspan="1"><p> Performs a Lucene search. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Enter the Starting Word of the Corporation Name </p></td><td colspan="1" rowspan="1"><p> Enter the first word in the corporation you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Corporation Name </p></td><td colspan="1" rowspan="1"><p> Select the client corporation you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Entity Type </p></td><td colspan="1" rowspan="1"><p> Select the entity you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Where Clause to Query </p></td><td colspan="1" rowspan="1"><p> Enter the SQL-like <span class="mt-font-courier-new"> WHERE </span> clause query you want to execute. For example: </p><p><code> id is not null </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Lucene Search Clause </p></td><td colspan="1" rowspan="1"><p> Enter the Lucene search query you want to execute. For example: </p><p><code> isDeleted:false </code></p><p> You can use specific or relative dates in your query. </p><p><b> Specific Dates </b></p><p> For specific dates you should use a <span class="mt-font-courier-new"> yyyymmdd </span> format. For example, <span class="mt-font-courier-new"> createdDate:[20160401 TO 20160402] </span> would query where the <span class="mt-font-courier-new"> createdDate </span> is between Apr 1, 2016 and Apr 2, 2016. For date and time use a format such as <span class="mt-font-courier-new"> 2016042110000000 </span>. That would be Apr 21, 2016 10:00AM. For open-ended ranges you can use the <span class="mt-font-courier-new"> * </span>. For example, <span class="mt-font-courier-new"> updatedAt:[20160401 TO *] </span> would account for anything greater than Apr 1, 2016. </p><p><b> Relative dates </b></p><p> The connector supports relative dates. For example, <span class="mt-font-courier-new"> dateAdded:[today-7 TO today] </span> would query where the <span class="mt-font-courier-new"> dateAdded </span> field is between seven days ago and today. <br/><br/> For a list of searchable fields, run the "Search Metadata" report. </p><p> For more information on Lucene queries, <a href="https://lucene.apache.org/core/3_6_2/queryparsersyntax.html" target="_blank"> see here </a>. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

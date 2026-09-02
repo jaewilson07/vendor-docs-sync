@@ -1,0 +1,78 @@
+---
+title: "Twilio Connector"
+excerpt: "Use the Twilio connector to pull accounts, calls, conferences, notifications, SMS messages, and usage records into a Domo DataSet."
+---
+
+## Intro
+
+Twilio is a cloud communications company that allows developers to programmatically make and receive phone calls and send and receive text messages using its web service APIs. You can use the Domo Twilio connector to retrieve data on accounts, calls, conferences, notifications, SMS messages, and usage records. For more information about the Twilio API, go to https://www.twilio.com/docs/api.
+
+The Twilio connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+This version of the connector differs from the advanced version in that it provides no date filtering capabilities. It simply pulls in all available data. For information about the advanced version, see [Twilio Advanced Connector](/s/article/360043435233 "Twilio Advanced Connector").
+
+This topic discusses the fields and menus that are specific to the Twilio connector user interface. For general information about adding DataSets, setting update schedules, and editing DataSet information, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is used for compiling reports about Twilio calls, conferences, notifications, etc. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Call Traffic </p></li><li><p> SMS Traffic </p></li><li><p> Cost Trend </p></li><li><p> Call completion rate </p></li><li><p> Average call duration </p></li><li><p> Call cost </p></li><li><p> SMS cost </p></li><li><p> Abandon rate </p></li><li><p> Daily call volume </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Product owner </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ~1 hour </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Best Practices
+
+One account can own only 1000 subaccounts by default. For more, you must mail Twilio at [help@twilio.com](mailto:help@twilio.com "mailto:help@twilio.com")
+
+## Prerequisites
+
+To connect to your Twilio account and create a DataSet, you must have the following:
+
+* A Twilio account SID.
+* A Twilio auth token.
+
+You can find both of these items in your Twilio account settings page, in the **API Credentials** section. For more information, see http://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it.
+
+## Connecting to Your Twilio Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Twilio Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Twilio account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Account SID </p></td><td colspan="1" rowspan="1"><p> Enter your Twilio account SID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Auth Token </p></td><td colspan="1" rowspan="1"><p> Enter your Twilio auth token. </p></td></tr></tbody></table>
+
+After you have entered valid Twilio credentials, you can use the same account in Domo any time you create a Twilio DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Report** menu in which you select a report type, as well as other fields and menus that appear, depending on the selected report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p> Select a Twilio report. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Accounts </p></td><td colspan="1" rowspan="1"><p> Returns information about the authenticated user's accounts, including SID, name, type, status, auth token, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Alerts </p></td><td colspan="1" rowspan="1"><p> Returns a list of alerts generated for the authenticated user's account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Calls </p></td><td colspan="1" rowspan="1"><p> Returns information about calls, including phone number, call status, inbound or outbound, call start and end time, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Conferences </p></td><td colspan="1" rowspan="1"><p> Returns information about conferences, including SID, name, status, created and updated dates, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Notifications </p></td><td colspan="1" rowspan="1"><p> Returns information about notifications, including SID, message text, message date, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> SMS Messages </p></td><td colspan="1" rowspan="1"><p> Returns information about SMS messages, including SID, body text, status, price, date sent, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Usage Records </p></td><td colspan="1" rowspan="1"><p> Returns information about usage records, including category, SID, start and end date, price, description, etc. </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Name (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the name of the account you want to pull alerts data for. If you do not enter an account name, data is pulled for all accounts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> To Number (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter a telephone number to filter your report to show placed calls or SMS messages from that number. </p></td></tr><tr><td colspan="1" rowspan="1"><p> From Number (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter a telephone number to filter your report to show received calls or SMS messages from that number. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Status </p></td><td colspan="1" rowspan="1"><p> Select a call status to filter your report to show items with that status. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Log </p></td><td colspan="1" rowspan="1"><p> Select a log to filter your report to show items from that log. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Log Level </p></td><td colspan="1" rowspan="1"><p> Select the log level you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Category </p></td><td colspan="1" rowspan="1"><p> Select a category to break down the usage records by. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+Twilio may limit API calls. To prevent rate limiting, reduce the number of DataSets scheduled to run at the same time.
+
+</Accordion>
+
+<Accordion title="Can I use the same Twilio account for multiple DataSets?">
+
+Yes.
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Double-check your credentials.
+* Log into Twilio and check the dashboard for data.

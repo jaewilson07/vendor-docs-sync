@@ -1,0 +1,61 @@
+---
+title: "QuickBooks Multi Account Connector"
+excerpt: "Use the QuickBooks Multi Account connector to combine multiple QuickBooks accounts in Domo for consolidated financial reporting and dashboards."
+---
+
+## Intro
+
+QuickBooks is an accounting software used to help small businesses accept payments, pay bills, and complete payroll. With Domo you can combine multiple QuickBooks accounts through a one-click authentication process, providing you with consolidated reporting across multiple metrics. Using Domo and QuickBooks together gives you customizable dashboards that you can create by integrating your QuickBooks data with essential marketing, sales, or operational data.
+
+Once your data is in Domo, you can give stakeholders financial transparency with powerful and flexible charts, visualizing things like balance sheets, profit and loss, vendor balances, and more. And you can access all your data in real time, from any device. Easily see all your QuickBooks accounts in one dashboard, with real-time updates, so you can make better decisions for your business. To learn more about the QuickBooks API, go to https://developer.intuit.com/docs/0050_quickbooks_api.
+
+This topic discusses the fields and menus that are specific to the QuickBooks Multi Account connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+No credentials required. You can add multiple QuickBooks accounts that you want to fetch the reports for in the Details section.
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account Selection </td><td colspan="1" rowspan="1"><span> Select how would you like to choose your accounts. </span></td></tr><tr><td colspan="1" rowspan="1"> Accounts Discovery </td><td colspan="1" rowspan="1"><span> Select the Accounts. </span><span><br/></span></td></tr><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><th colspan="1" rowspan="1"> Report </th><th colspan="1" rowspan="1"> Description </th></tr><tr><td colspan="1" rowspan="1"> Accounts </td><td colspan="1" rowspan="1"> Retrieves a list of accounts. </td></tr><tr><td colspan="1" rowspan="1"> Account List </td><td colspan="1" rowspan="1"> Shows the name, type, and balance for each account. </td></tr><tr><td colspan="1" rowspan="1"> Accounts Payable Aging Detail </td><td colspan="1" rowspan="1"> Shows detailed information about unpaid bills in accounts payable. </td></tr><tr><td colspan="1" rowspan="1"> Accounts Payable Aging Summary </td><td colspan="1" rowspan="1"> Summarizes the status of unpaid bills in accounts payable. </td></tr><tr><td colspan="1" rowspan="1"> Accounts Receivable Aging Detail </td><td colspan="1" rowspan="1"> Shows detailed information about outstanding amounts in accounts receivable. </td></tr><tr><td colspan="1" rowspan="1"> Accounts Receivable Aging Summary </td><td colspan="1" rowspan="1"> Shows accounts receivable, along with the amount of time the amounts have been outstanding. </td></tr><tr><td colspan="1" rowspan="1"> Balance Sheet </td><td colspan="1" rowspan="1"> Summarizes assets, liabilities, and shareholders' equities </td></tr><tr><td colspan="1" rowspan="1"> Budget </td><td colspan="1" rowspan="1"> Retrieves a list of budgets. </td></tr><tr><td colspan="1" rowspan="1"> Expenses by Vendor </td><td colspan="1" rowspan="1"> Shows expenses by vendor. </td></tr><tr><td colspan="1" rowspan="1"> Profit and Loss Summary </td><td colspan="1" rowspan="1"> Summarizes income and expenses. </td></tr><tr><td colspan="1" rowspan="1"> Profit and Loss Detail </td><td colspan="1" rowspan="1"> Shows detailed information about income and expenses. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date Filter By </td><td colspan="1" rowspan="1"><span> Select the date filter method. </span></td></tr><tr><td colspan="1" rowspan="1"> Created Date Duration </td><td colspan="1" rowspan="1"><span> Select the created date duration for the report. </span></td></tr><tr><td colspan="1" rowspan="1"> Account Status </td><td colspan="1" rowspan="1"><span> Select account status. </span></td></tr><tr><td colspan="1" rowspan="1"> Transaction Date </td><td colspan="1" rowspan="1"><span> Select the start date for the report. </span></td></tr><tr><td colspan="1" rowspan="1"> Report Date </td><td colspan="1" rowspan="1"><span> Select whether the data in the report is for a specific date or for a relative number of days. </span><span> Relative meaning the relative number of days back that you would like to get data from. </span><span> To get the data starting from a specific date, select the date using the date selector. </span></td></tr><tr><td colspan="1" rowspan="1"> Date Offset </td><td colspan="1" rowspan="1"><span> Enter the number of days back that will be used to offset your relative date. This adjusts the current date with the given number of days into the past. Example: 0 for today, 1 for yesterday. </span></td></tr><tr><td colspan="1" rowspan="1"> Select Specific Date </td><td colspan="1" rowspan="1"><span> Select the report date using the date picker, this option is only available when Report Date is set to 'Specific'. </span></td></tr><tr><td colspan="1" rowspan="1"> Aging Method </td><td colspan="1" rowspan="1"><span> Select the aging method. </span></td></tr><tr><td colspan="1" rowspan="1"> Days Per Aging Period </td><td colspan="1" rowspan="1"><span> Enter the number of days per aging period. </span></td></tr><tr><td colspan="1" rowspan="1"> Number of Periods </td><td colspan="1" rowspan="1"><span> Enter the number of aging periods to be shown in the report. </span></td></tr><tr><td colspan="1" rowspan="1"> Due Date Duration </td><td colspan="1" rowspan="1"><span> Select the due date duration for the report. </span></td></tr><tr><td colspan="1" rowspan="1"> Transaction Date Duration </td><td colspan="1" rowspan="1"><span> Select the transaction date range for the report. </span></td></tr><tr><td colspan="1" rowspan="1"> Accounting Method </td><td colspan="1" rowspan="1"><span> Select the desired accounting method. </span></td></tr><tr><td colspan="1" rowspan="1"> Summarize Column By </td><td colspan="1" rowspan="1"><span> Select how you want your report data to be broken down. </span></td></tr><tr><td colspan="1" rowspan="1"> Select Columns (Checkbox) </td><td colspan="1" rowspan="1"><p><span> Check this to be given an option, otherwise a default selection will be given. Schema will always be maintained, even if selections are changed. </span></p><p><span><b> Note </b> - This is for advanced users as QuickBooks may return errors based on column selection. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Select Columns </td><td colspan="1" rowspan="1"><span> Select the columns desired. A single selection may result in multiple columns. </span></td></tr><tr><td colspan="1" rowspan="1"> Skip Account Errors </td><td colspan="1" rowspan="1"><span> This field controls how the connector behaves if one or more QBO accounts have issues connecting to QuickBooks. When you select <b> Yes </b>, the connector ignores any accounts that have issues connecting to QuickBooks, and will skip and process to the next account in the list. When you select <b> No </b>, the connector immediately fails if it encounters any account that cannot connect successfully, no matter the status of other accounts. In this case, the dataset will not be updated. </span></td></tr><tr><td colspan="1" rowspan="1"> Skip Application Error </td><td colspan="1" rowspan="1"><span> This field controls how the connector behaves if one or more QBO accounts have an application error connecting to Quickbooks. When you select <b> Yes </b>, the connector ignores any accounts that have application issues connecting to Quickbooks, and will skip and proceed to the next account in the list. When you select <b> No </b>, the connector immediately fails if it encounters any application errors, no matter the status of other accounts. In this case, the dataset will not be updated. </span></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Quickbooks API does this connector use?">
+
+This connector uses version 3 of the Quickbooks API (https://quickbooks.api.intuit.com/v3/company/).
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+No credentials required. You can add multiple QuickBooks accounts that you want to fetch the reports for in the Details section.
+
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+Most information about the summary is updated every 24 hours. It is recommended to configure the datasets to run every 24 hours.
+
+</Accordion>
+
+<Accordion title="Can this connector pull custom fields?">
+
+No. Reports and columns are predefined by QuickBooks.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to know?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+

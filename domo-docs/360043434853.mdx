@@ -1,0 +1,73 @@
+---
+title: "Basecamp V3 Connector"
+excerpt: "Use the Basecamp V3 connector with OAuth to pull documents, attachments, calendar events, projects, and people into a Domo DataSet."
+---
+
+## Intro
+
+Basecamp V3 is a web-based project management tool. The Basecamp V3 connector integrates Domo with Basecamp V3 to extract data from the Basecamp V3 API. You can use this connector to retrieve data about documents, attachments, calendar events, projects, people, and the like. To learn more about the Basecamp V3 API, visit their Github page ([https://github.com/Basecamp V3/bc3-api](https://github.com/basecamp/bc3-api "https://github.com/basecamp/bc3-api")).
+
+The Basecamp V3 connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Basecamp V3 account in the Data Center. This topic discusses the fields and menus that are specific to the Basecamp V3 connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is appropriate for retrieving project status and task and project completion rates. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Project managers </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10 minutes </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to your Basecamp V3 account and create a DataSet, you must have the following:
+
+* The username or email address you use to log into Basecamp V3
+* The password you use to log into Basecamp V3
+
+## Connecting to Your Basecamp V3 Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Basecamp V3 Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+The Domo Basecamp V3 connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Basecamp V3 accounts in Domo) to open the Basecamp V3 OAuth screen where you can enter your Basecamp V3 username/email address and password. Once you have entered valid Basecamp V3 credentials and authorized Domo to connect to Basecamp V3, you can use the same account any time you go to create a new Basecamp V3 DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Basecamp V3 when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Basecamp V3.
+
+</Note>
+
+## Details Pane
+
+This pane contains two primary menus, **Account ID** and **Reports**, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Menu </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Account ID </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select the Basecamp V3 account ID you want to retrieve information for. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select a Basecamp V3 report. The following reports are available: </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><b><span class="s1"> Report Name </span></b></p></td><td colspan="1" rowspan="1"><p class="p1"><b><span class="s1"> Description </span></b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Basecamps </p></td><td colspan="1" rowspan="1"> Retrieves a list of basecamps. </td></tr><tr><td colspan="1" rowspan="1"><p> Basecamp by Basecamp ID </p></td><td colspan="1" rowspan="1"> Retrieves a basecamp by its Basecamp ID. </td></tr><tr><td colspan="1" rowspan="1"><p> Campfire by Basecamp ID </p></td><td colspan="1" rowspan="1"> Retrieves a campfire by its related Basecamp ID. </td></tr><tr><td colspan="1" rowspan="1"><p> Campfires </p></td><td colspan="1" rowspan="1"> Retrieve a list of campfires. </td></tr><tr><td colspan="1" rowspan="1"><p> Documents </p></td><td colspan="1" rowspan="1"> Retrieves a list of active document. </td></tr><tr><td colspan="1" rowspan="1"><p> Events </p></td><td colspan="1" rowspan="1"> Retrieve a list of Events. </td></tr><tr><td colspan="1" rowspan="1"><p> Forwards </p></td><td colspan="1" rowspan="1"> Retrieves a list of forwards. </td></tr><tr><td colspan="1" rowspan="1"><p> People </p></td><td colspan="1" rowspan="1"> Retrieves a list of people. </td></tr><tr><td colspan="1" rowspan="1"><p> People by Basecamp ID </p></td><td colspan="1" rowspan="1"> Retrieves a list of people related to a specific Basecamp ID. </td></tr><tr><td colspan="1" rowspan="1"><p> Pingable Persons </p></td><td colspan="1" rowspan="1"> Retrieves a list of pingable persons. </td></tr><tr><td colspan="1" rowspan="1"><p> Recordings </p></td><td colspan="1" rowspan="1"> Retrieves a list of recordings. </td></tr><tr><td colspan="1" rowspan="1"><p> Templates </p></td><td colspan="1" rowspan="1"> Retrieves a list of templates. </td></tr><tr><td colspan="1" rowspan="1"><p> Uploads </p></td><td colspan="1" rowspan="1"> Retrieves a list of active uploads. </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Project Type </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select a Basecamp V3 project type. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> To-Do List Type </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select a Basecamp V3 to-do list type. </span></p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="How do I know my Basecamp V3 3 account credentials are secure?">
+
+The login process uses the OAuth process so your Basecamp V3 credentials are never seen or stored by Domo. This keeps your login secure.
+
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Can this connector pull custom fields?">
+
+No. Reports and columns are predefined by Basecamp V3.
+
+</Accordion>
+
+<Accordion title="What is the difference between the Basecamp V3 and the Basecamp V3 3 connector?">
+
+The Basecamp V3 3 connector provides more reports and also has more options available to retrieve filtered, customized, and meaningful data.
+
+</Accordion>
+</AccordionGroup>
+

@@ -1,0 +1,53 @@
+---
+title: "SAP Fieldglass Connector"
+excerpt: "Connect Domo to your SAP Fieldglass account using a username and password to pull services procurement and external workforce data into a DataSet."
+---
+
+## Intro
+
+SAP Fieldglass is a Vendor Management System that helps you manage services procurement and external workforce programs. Use Domo's SAP Fieldglass connector to retrieve data from SAP Fieldglass based on  connector name and arguments. To learn more about the SAP Fieldglass API, visit their page ([http://www.fieldglass.com/resources/topic/integration](http://www.fieldglass.com/resources/topic/integration "http://www.fieldglass.com/resources/topic/integration") ).
+
+You can connect to your SAP Fieldglass account in the Data Center. This topic discusses the fields and menus that are specific to the SAP Fieldglass connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your SAP Fieldglass account and create a DataSet, you must have a SAP Fieldglass username and password.
+
+## Connecting to Your SAP Fieldglass Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SAP Fieldglass Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your SAP Fieldglass account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your SAP Fieldglass username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your SAP Fieldglass password. </p></td></tr></tbody></table>
+
+Once you have entered valid SAP Fieldglass credentials, you can use the same account any time to create a new SAP Fieldglass DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various options for configuring your report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the SAP Fieldglass report you want to run. Currently only a single report type is available. </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Downloads </p></td><td colspan="1" rowspan="1"><p> Returns download data from SAP Fieldglass based on a provided connector name and argument. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Connector Name </p></td><td colspan="1" rowspan="1"><p> Enter the name of the SAP Fieldglass connector you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Arguments </p></td><td colspan="1" rowspan="1"><p> Enter the arguments required to import your data from SAP Fieldglass. For example: </p><p><code> __p1=personId=xxxx;reportId=xxxx </code></p><p> Some reports do not require arguments. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Delimiter </p></td><td colspan="1" rowspan="1"><p> Select the delimiter used in your CSV file. If your delimiter is not listed, select <b> Other </b>, <b></b> then enter the delimiter in the <b> Specify Your Delimiter </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specify Your Delimiter </p></td><td colspan="1" rowspan="1"><p> Enter the delimiter used in your CSV file. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+DataSets can be updated as often as once an hour.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

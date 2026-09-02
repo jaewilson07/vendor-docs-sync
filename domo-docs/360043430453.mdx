@@ -1,0 +1,39 @@
+---
+title: "Dayforce Connector"
+excerpt: "Configure the Dayforce connector in Domo to pull human capital management data into a DataSet from the Dayforce platform."
+---
+
+## Intro
+
+Dayforce is an industry-leading, online human capital management platform. To learn more about the Dayforce API, visit their page ([https://usconfigr57.dayforcehcm.com/api/ddn/swagger/](https://usconfigr57.dayforcehcm.com/api/ddn/swagger/ "https://usconfigr57.dayforcehcm.com/api/ddn/swagger/") ).
+
+You connect to your Dayforce account in the Data Center. This topic discusses the fields and menus that are specific to the Dayforce connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Dayforce account and create a DataSet, you must have the following:
+
+* Your Dayforce username and password
+* The client name space that uniquely identifies the Dayforce instance.
+
+## Connecting to your Dayforce account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Dayforce Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials pane
+
+This pane contains fields for entering credentials to connect to your Dayforce account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client Facing Environments </p></td><td colspan="1" rowspan="1"><p> From the drop-down list, select any one of the client-facing environments. </p><ul><li> Production </li><li> Test </li><li> Config </li><li> Stage </li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your Dayforce username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Dayforce password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Name Space </p></td><td colspan="1" rowspan="1"><p> Enter the client name space that uniquely identifies your Dayforce instance. </p></td></tr></tbody></table>
+
+Once you have entered valid Dayforce credentials, you can use the same account any time you go to create a new Dayforce DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Dayforce report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Get Report </p></td><td colspan="1" rowspan="1"><p> Retrieves the data of the report customized on Dayforce. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Documents </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of documents. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Availability </p></td><td colspan="1" rowspan="1"><p> Retrieves employee availability information. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Compensation Summary </p></td><td colspan="1" rowspan="1"><p> Retrieves compensation information. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Details </p></td><td colspan="1" rowspan="1"><p> Retrieves details for a given employee. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Ethnicity </p></td><td colspan="1" rowspan="1"><p> Retrieves employee ethnicity information. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Locations </p></td><td colspan="1" rowspan="1"><p> Retrieves employee location data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Managers </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of employee managers. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Org Info </p></td><td colspan="1" rowspan="1"><p> Retrieves data for where employees fall in the organization. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Punch </p></td><td colspan="1" rowspan="1"><p> Retrieves employee punchcard data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Raw Punch </p></td><td colspan="1" rowspan="1"><p> Retrieves employees' punchcard data in raw format. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Schedule </p></td><td colspan="1" rowspan="1"><p> Retrieves employee scheduling information. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Time Away from Work </p></td><td colspan="1" rowspan="1"><p> Retrieves data for how much time employees are spending away from work. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Union </p></td><td colspan="1" rowspan="1"><p> Retrieves employee union data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Work Assignments </p></td><td colspan="1" rowspan="1"><p> Retrieves employee work assignment information. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Work Contracts </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of employee work contracts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Job Postings </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of job postings. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> X Ref Code Type </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for all employees (<b> All </b> ) or for a specific employee based on their employee code (<b> Select XRef Code </b> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Skip Employee Without Documents? </p></td><td colspan="1" rowspan="1"><p> Check this box if you want your report to ignore employees who do not have documents in the system. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Code </p></td><td colspan="1" rowspan="1"><p> Select the code for the employee you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Code </p></td><td colspan="1" rowspan="1"><p> Select the report you want to import into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Status </p></td><td colspan="1" rowspan="1"><p> Select the status you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Date Filter? </p></td><td colspan="1" rowspan="1"><p> Check this box if you wish to filter your report by date. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Dates </p></td><td colspan="1" rowspan="1"><p> Select the desired date range for your report. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

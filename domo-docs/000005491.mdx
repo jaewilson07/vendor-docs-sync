@@ -1,0 +1,39 @@
+---
+title: "Amazon Ads Advanced Connector"
+excerpt: "Configure the Amazon Ads Advanced Connector to pull DSP, Sponsored Products, and other advertising performance data into Domo."
+---
+
+## Intro
+
+Amazon Ads helps you find, attract, and engage millions of Amazon customers at every stage of their journey, where they share, read, listen, purchase, research, and download online. With your Amazon Ads data in Domo, you get an overview of how your advertising is performing. You can see how your content is performing across devices and make adjustments to improve product visibility and boost brand awareness.
+
+You can connect to your Amazon Ads Advanced account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon Ads Advanced connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Amazon Ads Advanced account and create a DataSet, you must the following:
+
+* Select a Marketplace Region
+* Your Amazon login credentials.
+
+## Connecting to Your Amazon Ads Advanced Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Amazon Ads Advanced Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Amazon Ads Advanced account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Marketplace Region </p></td><td colspan="1" rowspan="1"><p> Select the region for the Amazon marketplace you want to access. </p></td></tr></tbody></table>
+
+Once you have entered valid Amazon Ads Advanced credentials, you can use the same account any time you go to create a new Amazon Ads Advanced DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Advertising Type </td><td colspan="1" rowspan="1"> By default DSP campaigns is selected. </td></tr><tr><td colspan="1" rowspan="1"> Account Type </td><td colspan="1" rowspan="1"> Select the account type. </td></tr><tr><td colspan="1" rowspan="1"> Profile </td><td colspan="1" rowspan="1"> Select the Profile. </td></tr><tr><td colspan="1" rowspan="1"> Report Type </td><td colspan="1" rowspan="1"> Select the report type. </td></tr><tr><td colspan="1" rowspan="1"> Time Unit </td><td colspan="1" rowspan="1"> Select the time unit. </td></tr><tr><td colspan="1" rowspan="1"> Dimensions </td><td colspan="1" rowspan="1"> Select the dimension from the available option. </td></tr><tr><td colspan="1" rowspan="1"> Metrics </td><td colspan="1" rowspan="1"> Select the metrics. </td></tr><tr><td colspan="1" rowspan="1"> Dates </td><td colspan="1" rowspan="1"><p> You can select how you want to import your data.. </p><ul><li> Append Data </li><li> Rolling Window </li><li> Specific Date Range (not recommended) </li></ul></td></tr><tr><td colspan="1" rowspan="1"> Start Date for Historical Data </td><td colspan="1" rowspan="1"><div> Select the start date to retrieve historical data for the first run. <b> Note </b>: Changing this date after the first run affects the amount of data kept in your dataset. This option appears when you select <b> Append Data </b>. </div></td></tr><tr><td colspan="1" rowspan="1"> Last Days </td><td colspan="1" rowspan="1"><p> Select the number of days to keep in the datasets. For example: last 30 days. This option appears when you select <b> Rolling Window </b>. </p></td></tr><tr><td colspan="1" rowspan="1"> Start Date </td><td colspan="1" rowspan="1"><p> This option appears when you select <b> Specific Date Range (not recommended) </b>. Select the specific start date. </p></td></tr><tr><td colspan="1" rowspan="1"> End Date </td><td colspan="1" rowspan="1"><p> Select the specific end date. This option appears when you select <b> Specific Date Range (not recommended) </b>. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

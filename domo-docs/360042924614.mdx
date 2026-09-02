@@ -1,0 +1,28 @@
+---
+title: "Grouped Bar Chart"
+excerpt: "Build a Grouped Bar chart in vertical or horizontal orientation to compare multiple series side by side across each category."
+---
+
+## Intro
+
+grouped bar charts are [Bar charts](/s/article/360043428493 "Bar Graph") in which multiple sets of data items are compared, with a single color used to denote a specific series across all sets. As with basic Bar charts, both vertical and horizontal versions of grouped bar charts are available.
+
+## Powering grouped bar charts
+
+Grouped bar charts require three columns or rows of data from your DataSet—one for series, one for categories, and one for values. If you have more than two series, each additional series is implemented as an additional bar. For information about value, category, and series data, see [Understanding Chart Data](/s/article/360043428693 "Understanding Chart Data").
+
+In the Analyzer, you choose the columns containing the data for your grouped bar chart. For more information about choosing data columns, see [Applying DataSet Columns to Your Chart](/s/article/360043428713 "Applying DataSet Columns to Your Chart").
+
+For more information about formatting charts in the Analyzer, see [Visualization Card Building Part 2: The Analyzer](/s/topic/0TO5w000000ZaoUGAS "KPI Card Building Part 2: The Card Builder").
+
+The following graphic shows you how the data from the series, categories, and values columns in a typical column-based spreadsheet is converted into a vertical grouped bar chart:
+
+<Frame><img alt="" src="/images/kb/ka05w00000123nr-00N5w00000Ri7BU-0EM5w000005vP9Q.png"/></Frame>
+The following graphic shows you how the data from the series, categories, and values columns in a typical column-based spreadsheet is converted into a horizontal grouped bar chart:
+
+<Frame><img alt="" src="/images/kb/ka05w00000123nr-00N5w00000Ri7BU-0EM5w000005vP9W.png"/></Frame>
+## Customizing grouped bar charts
+
+You can customize the appearance of a grouped bar chart by editing its **Chart Properties**. For information about all chart properties, see [Chart Properties](/s/topic/0TO5w000000ZaodGAC "Chart Properties").
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><tbody><tr><td colspan="1" rowspan="1"> General &gt; Sort Each Category </td><td colspan="1" rowspan="1"><p> Allows you to sort the items in each individual category in most kinds of multi-series bar and lollipop charts. You can choose an ascending or descending sort. If you select <b> Default </b>, the default sort is applied. This option does not work when the <b> Value Scale &gt; Log Scale </b> box is checked. </p><p> In the example at right, bars within all categories are sorted in descending order. </p></td><td colspan="1" rowspan="1"><a target="_blank" title="/@api/deki/files/4171/sort_each_category.png"><img alt="" src="/images/kb/ka05w00000123km-00N5w00000Ri7BU-0EM5w000005vOzS.png"/></a></td></tr><tr><td colspan="1" rowspan="1"> General &gt; Sort on Totals </td><td colspan="1" rowspan="1"><p> Allows you to sort categories in many kinds of bar and lollipop charts by their total values, in either ascending or descending order. If you select <b> Default </b>, the default sort is applied. This option does not work when the chart has automatic time scaling applied. (You can turn off automatic time scaling by checking the box for <b> Category Scale &gt; Never Use Time Scale </b>. </p><p> In the example at right, the categories are sorted by their totals in ascending order. </p></td><td colspan="1" rowspan="1"><a target="_blank" title="/@api/deki/files/4170/sort_on_totals.png"><img alt="" src="/images/kb/ka05w00000123km-00N5w00000Ri7BU-0EM5w000005vOzH.png"/></a></td></tr></tbody></table>

@@ -1,0 +1,59 @@
+---
+title: "Intercom Connector"
+excerpt: "Use Domo's Intercom connector to retrieve admins, companies, contacts, conversations, segments, and tags into a DataSet."
+---
+
+## Intro
+
+Intercom is a platform used to integrate customer messaging apps for sales, marketing and support connected on one platform. To learn more about the Intercom API, visit their page ([https://developers.intercom.com/inte...ence/reference](https://developers.intercom.com/intercom-api-reference/reference "https://developers.intercom.com/intercom-api-reference/reference") ).
+
+You connect to your Intercom account in the Data Center. This topic discusses the fields and menus that are specific to the Intercom connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Intercom account and create a DataSet, you must have an Intercom access token. For information about obtaining an access token, see [https://developers.intercom.com/docs...-access-tokens](https://developers.intercom.com/docs/personal-access-tokens "https://developers.intercom.com/docs/personal-access-tokens"). Note that some reports require your access token to have "extended scope."
+
+## Connecting to Your Intercom Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Intercom Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Intercom account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Token </p></td><td colspan="1" rowspan="1"><p> Enter your Intercom access token. For more information, see "Prerequisites," above. </p></td></tr></tbody></table>
+
+Once you have entered valid Intercom credentials, you can use the same account any time you go to create a new Intercom DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Intercom report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Admins </p></td><td colspan="1" rowspan="1"><p> Returns a list of admins for this connector. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Attached Companies </p></td><td colspan="1" rowspan="1"><p> Returns a list of companies that are associated with a contact. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Attached Contacts </p></td><td colspan="1" rowspan="1"><p> Returns a list of all the contacts that are associated with a company. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Attached Tags </p></td><td colspan="1" rowspan="1"><p> Returns a list of all the tags that are associated with a contact. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Companies </p></td><td colspan="1" rowspan="1"><p> Returns a list of companies. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contacts </p></td><td colspan="1" rowspan="1"><p> Returns a list of all the contacts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact by Contact Id </p></td><td colspan="1" rowspan="1"><p> Returns the details of a specific contact. </p></td></tr><tr><td colspan="1" rowspan="1"> Conversations </td><td colspan="1" rowspan="1"><p> Returns a list of all the conversations. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Conversations by Conversation Id </p></td><td colspan="1" rowspan="1"><p> Returns the details of a single conversation. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Counts </p></td><td colspan="1" rowspan="1"><p> Returns the count of your application. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Notes </p></td><td colspan="1" rowspan="1"><p> Returns a list of notes that are associated with a contact. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Notes by Notes Id </p></td><td colspan="1" rowspan="1"><p> Returns the details of a single note. </p></td></tr><tr><td colspan="1" rowspan="1"> Segments </td><td colspan="1" rowspan="1"> Returns a list of all the segments. </td></tr><tr><td colspan="1" rowspan="1"> Tags </td><td colspan="1" rowspan="1"> Returns a list of all the tags. </td></tr><tr><td colspan="1" rowspan="1"> Teams </td><td colspan="1" rowspan="1"> Returns a list of all the available teams. </td></tr><tr><td colspan="1" rowspan="1"><p> AI content import sources </p></td><td colspan="1" rowspan="1"> Returns a list of all content import sources for a workspace. </td></tr><tr><td colspan="1" rowspan="1"><p> AI external pages </p></td><td colspan="1" rowspan="1"> Returns a list of all external pages for a workspace. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Event Type </p></td><td colspan="1" rowspan="1"><p> Select whether to pull user or lead events. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Conversation Admin Type </p></td><td colspan="1" rowspan="1"><p> Select the type of conversation admin to pull data for. </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> All </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Retrieves all conversations for both assigned and unassigned users. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Specific </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Retrieves all conversations for a given admin. Note that when querying conversations for a given user, Intercom carries out message matching for the user and your existing auto messages. This will happen at most once every 15 minutes. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Unassigned </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Retrieves unassigned conversations. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Company </p></td><td colspan="1" rowspan="1"><p> Select the company you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Segments </p></td><td colspan="1" rowspan="1"><p> Select the segments you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tags </p></td><td colspan="1" rowspan="1"><p> Select the tags you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Select the users you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Leads </p></td><td colspan="1" rowspan="1"><p> Select the leads you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email ID </p></td><td colspan="1" rowspan="1"><p> Enter the lead you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Admin </p></td><td colspan="1" rowspan="1"><p> Select the admin you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Option to Expand </p></td><td colspan="1" rowspan="1"><p> Select the column you want to expand. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Skip Failed Conversations </p></td><td colspan="1" rowspan="1"><p> When you check this box, if Intercom fails to return details for a conversation, it will be excluded from the DataSet, and Domo will continue processing instead of failing the run. This may result in missing data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Conversation Status </p></td><td colspan="1" rowspan="1"><p> Select the conversation status you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Order </p></td><td colspan="1" rowspan="1"><p> Select whether you want to sort your data by created or last updated date. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+DataSets can be updated as often as once an hour, though this should be decreased if rate limits are encountered.
+
+</Accordion>
+
+<Accordion title="Are there any API rate limits I should be aware of?">
+
+Intercom allows 83 calls per 10 seconds or roughly 500 per minute.
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power this connector?">
+
+Intercom requires an access token to authenticate. Be aware that some reports require that your access token include "extended access" to work. If you receive an authentication error and your key is valid, check with your Intercom administrator to get "extended access" added to your API key.
+
+</Accordion>
+</AccordionGroup>
+

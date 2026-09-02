@@ -1,0 +1,36 @@
+---
+title: "Sysomos Connector"
+excerpt: "Use the Sysomos connector with an API key to pull unified social platform insights and analytics into a Domo DataSet."
+---
+
+## Intro
+
+Sysomos is a unified, insights-driven social platform that lets marketers search, discover, listen, publish, engage, and analyze at scale across earned, owned, and paid media. To learn more about the Sysomos API, visit their page ([https://sysomos.com/products/api-data-partners/](https://sysomos.com/products/api-data-partners/ "https://sysomos.com/products/api-data-partners/") ).
+
+You connect to your Sysomos account in the Data Center. This topic discusses the fields and menus that are specific to the Sysomos connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Sysomos account and create a DataSet, you must have a Sysomos API key. If you do not have an API key, reach out to your Sysomos account representative.
+
+## Connecting to Your Sysomos Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Sysomos Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Sysomos account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your Sysomos API key. </td></tr></tbody></table>
+
+Once you have entered valid Sysomos credentials, you can use the same account any time you go to create a new Sysomos DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Sysomos report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Analytics Blogs </td><td colspan="1" rowspan="1"> Returns aggregate analytics (sentiment, trend, demographics, etc.) for blog posts. </td></tr><tr><td colspan="1" rowspan="1"> Analytics Forums </td><td colspan="1" rowspan="1"> Returns aggregate analytics (sentiment, trend, demographics, etc.) for forums. </td></tr><tr><td colspan="1" rowspan="1"> Analytics News </td><td colspan="1" rowspan="1"> Returns aggregate analytics (sentiment, trend, demographics, etc.) for news sites. </td></tr><tr><td colspan="1" rowspan="1"> Analytics Twitter </td><td colspan="1" rowspan="1"> Returns aggregate analytics (sentiment, trend, demographics, etc.) for Twitter. </td></tr><tr><td colspan="1" rowspan="1"> Search Blogs </td><td colspan="1" rowspan="1"> Returns search results from blogs for the provided query. </td></tr><tr><td colspan="1" rowspan="1"> Search Forums </td><td colspan="1" rowspan="1"> Returns search results from forums for the provided query. </td></tr><tr><td colspan="1" rowspan="1"> Search News </td><td colspan="1" rowspan="1"> Returns search results from news sites for the provided query. </td></tr><tr><td colspan="1" rowspan="1"> Search Twitter </td><td colspan="1" rowspan="1"> Returns search results from Twitter for the provided query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Search Term </td><td colspan="1" rowspan="1"> Enter the search term you want to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> Start Days </td><td colspan="1" rowspan="1"> Enter the number of days back you want to begin pulling data for. Pair with <b> End Days </b> to pull data for a range of days. For example, if you entered <span class="mt-font-courier-new"> 14 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 7 </span> for <b> End Days </b>, each time the report ran it would pull data for 14 days ago up until 7 days ago. </td></tr><tr><td colspan="1" rowspan="1"> End Days </td><td colspan="1" rowspan="1"> Enter the number of days back you want to stop pulling data for. Pair with <b> Start Days </b> to pull data for a range of days. For example, if you entered <span class="mt-font-courier-new"> 14 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 7 </span> for <b> End Days </b>, each time the report ran it would pull data for 14 days ago up until 7 days ago. </td></tr><tr><td colspan="1" rowspan="1"> Countries to Report </td><td colspan="1" rowspan="1"> Enter a comma-separated list of two-letter postal codes for countries you want to include in your report (e.g. <span class="mt-font-courier-new"> US,CN,MX </span> ). </td></tr><tr><td colspan="1" rowspan="1"> Record Limit </td><td colspan="1" rowspan="1"> Enter the maximum number of records you want to retrieve. At least this many records will be returned, but there will likely be more. Up to 50,000 records can be fetched. </td></tr><tr><td colspan="1" rowspan="1"> Report Country Results Individually </td><td colspan="1" rowspan="1"> Select whether you want individual results to be shown for countries entered in the <b> Countries to Report </b> field. If you select <b> Yes </b>, all countries you've entered will have their results shown separately. If you select <b> No </b>, the statistics for all countries you've entered will be aggregated. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,147 @@
+---
+title: "Domo AI Pro"
+excerpt: "Domo AI Pro overview covering advanced AI capabilities, consumption-based pricing, AI credits, and token usage by model."
+---
+
+## Intro
+
+Domo AI Pro is the advanced tier of Domo AI. It provides customizable, consumption-based AI capabilities for teams that need greater control, flexibility, and scalable AI usage.
+
+This article explains:
+
+*   What each AI Pro feature does and the problems it solves
+*   How AI credits and AI tokens are consumed
+*   Where to find more information about each capability
+*   [Consumption Supplemental Terms](https://www.domo.com/consumption-terms)
+*   [Domo AI Pro Pricing](https://www.domo.com/consumption-terms/ai-model-pricing)
+
+<Note>
+**Note:** AI Chat continues to operate at its existing rate until it is fully integrated into AI Pro.
+</Note>
+
+---
+
+## How Pricing Works in Domo AI Pro
+
+Domo AI Pro uses a transparent, consumption-based pricing model with two components: 1\) AI operation charges and 2\) model token usage.
+
+### AI Operation Charges
+
+*   Every AI Pro operation consumes **0.01 Domo Consumption credits**.
+*   An _operation_ represents a single AI invocation within Domo AI Pro.
+
+### Model Token Usage
+
+*   Each operation also incurs token charges based on the model used and the size of the input and output.
+*   Token pricing varies by model and is listed on the [Rate Card tab](/s/article/000005326#rate-card-tab) on the Credit Utilization page in Admin.
+*   Customer-provided models do not incur credit charges for tokens.
+*   Domo-hosted models consume credits per token.
+
+<Warning>
+**Important:** Standard features such as Beast Mode Assist and SQL Assistant remain included in your contract at no additional cost. Only AI Pro features incur operation and token charges.
+</Warning>
+
+Learn more about [credit utilization](/s/article/000005326#credit-utilization) to see real-time usage and costs.
+
+## Security and Privacy
+
+Domo AI Pro follows the same enterprise-grade security and privacy standards as all Domo AI features:
+
+*   Models run within Domo's secure infrastructure.
+*   Prompt data and model interactions remain inside your Domo instance.
+*   Domo does not use your data to train external public models.
+
+For more details, see [Domo's AI Security and Privacy documentation](https://web-assets.domo.com/blog/wp-content/uploads/2024/05/Domo.AI-Security-and-Privacy-FAQ.pdf).
+
+## AI Pro Features
+
+### AI Agent Tasks in Workflows
+
+AI agent tasks embed AI reasoning and decision-making into automated workflows, such as routing requests or generating summaries.
+
+*   Each sub-call within an agent task counts as a separate operation.
+*   Token usage depends on prompt size, response length, and the number of steps executed.
+
+***Example:*** A simple text summarization task may use 1 AI operation and consume \~200 total tokens. A larger workflow that generates structured reports across several steps may trigger multiple operations and consume thousands of tokens across inputs and outputs. This variability is expected and reflects the work the agent performs.
+
+Learn how to build an [AI agent tasks in Workflows](/s/article/000005865).
+
+### Magic ETL AI Pro Capabilities
+
+#### Magic ETL Text Generation Tile
+
+Use the text generation tile to create narrative explanations and summaries within Magic ETL workflows.
+
+*   Each run consumes one operation plus tokens based on data volume.
+
+***Example:*** Processing approximately 300,000 rows may generate about 4 million input tokens and 11,000 output tokens. This makes the text generation tiles powerful for batch enrichment, but best suited for use cases where narrative value outweighs token volume.
+
+Learn how to use the [Magic ETL text generation tile](/s/article/000005741#text-generation-tile).
+
+#### Magic ETL Sentiment Analysis Tile
+
+Use the sentiment analysis tile to automatically classify text (reviews, social media, surveys) as positive,
+negative, or neutral. It enables businesses to monitor brand reputation in real-time, improve customer service 
+by identifying frustrated users, and analyze trends for better decision-making within Magic ETL workflows.
+
+*   Each run consumes one operation plus tokens based on data volume.
+
+#### Magic ETL Classification Tile
+
+Use the classification tile to categorizes data (text, images, files) into predefined classes within Magic ETL workflows.
+
+*   Each run consumes one operation plus tokens based on data volume.
+
+#### Magic ETL Vector Output Tile
+
+Use the vector output tile to generate vector-based assets, such as SVG files, within Magic ETL.
+
+*   Consumption includes one or more operations and tokens based on output complexity.
+
+### Advanced AI Pro Capabilities
+
+#### AI Playground
+
+AI Playground is a safe environment for prototyping prompts, testing models, and understanding token usage before embedding AI into workflows, ETL, or applications.
+
+*   Each prompt consumes one operation and tokens equal to the combined size of the prompt and response.
+
+***Examples:***
+
+*   Text-to-SQL prompt: \~2,600 input tokens and \~40 output tokens
+*   Text generation: \~140 total tokens
+*   RegEx generation: \~550 total tokens
+
+Learn more about Domo's [AI Playground](/s/article/000005236).
+
+#### AI-Powered Analysis in Jupyter
+
+AI-powered analysis extends Jupyter Workspaces with AI-assisted forecasting and advanced modeling.
+
+*   Each AI invocation consumes AI operation charges and tokens based on model usage.
+*   Some scenarios (such as forecasting) may primarily incur AI operation charges with minimal token usage.
+
+Learn how to [use AI prompts in Jupyter](/s/article/000005544).
+
+#### AI Services Direct API Calls
+
+You can invoke AI Services directly from Jupyter notebooks, custom applications, or external systems.
+
+*   Operation and token consumption depend on which AI service is called, prompt complexity, and any data or files included in context.
+*   Simple requests resemble AI Playground usage, while complex requests align with broader AI consumption pricing.
+
+### Documents
+
+**Documents: File & Agent Knowledge Storage**
+
+*   Files stored in the Documents feature will consume credits based on GB stored by Day. 
+*   Agent Knowledge stored in the Documents feature will consume credits based on GB stored by Day. If a Subscriber enables Agent Knowledge, additional credits will be consumed for Agent Knowledge storage based on GB stored by Day.
+
+**Documents: Agent Knowledge Processing**
+
+Processing files into Agent Knowledge will consume credits based on file type.
+
+**Documents: Agent Knowledge Query**
+
+Queries issued against Agent Knowledge will consume credits based on each query.
+

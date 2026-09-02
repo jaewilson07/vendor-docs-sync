@@ -1,0 +1,47 @@
+---
+title: "Associated Press Connector"
+excerpt: "Use the Associated Press connector to pull current AP news headlines by category into a Domo DataSet without credentials."
+---
+
+## Intro
+
+The Associated Press (AP) is an American multinational nonprofit news agency headquartered in New York City. You can use Domo's Associated Press connector to compile reports containing current Associated Press feed content. For more information about the Associated Press API, see [https://developer.ap.org/api-console](https://developer.ap.org/api-console "https://developer.ap.org/api-console").
+
+The Associated Press connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You create an Associated Press DataSet in the **Data Center**. This topic discusses the fields and menus that are specific to the Associated Press connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is useful for pulling current news headlines into cards in Domo. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector provides a qualitative list of news stories by category. As such there are not many metrics that can be pulled. However, some users may want a count of headlines by category or the results of specific topic mentions. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Executive </p></li><li><p> Director </p></li><li><p> Manager </p></li><li><p> Analyst </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> A few minutes at most </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+None. (Associated Press's data is publicly accessible.)
+
+## Creating an Associated Press DataSet
+
+This section describes how to create an Associated Press DataSet in the Associated Press Connector page in Domo. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Details Pane
+
+This pane contains a single menu in which you select an Associated Press report type.
+
+The following table describes all of the predefined reports you can create using the Domo Associated Press connector.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> Menu </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> Business </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns business news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Entertainment </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns entertainment news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Health </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns health news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Politics </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns political news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Science </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns science news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Sports </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns sports news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Strange </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns offbeat news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Technology </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns technology news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Top Headlines </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns top headlines. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> U.S. National </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns U.S. national news. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> World </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Returns world news. </span></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Troubleshooting
+
+This is an open connection with no credentials required. Just ensure that the correct report type and schedule have been selected.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="Can this connector pull custom fields?">
+No.
+</Accordion>
+</AccordionGroup>
+

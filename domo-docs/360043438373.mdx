@@ -1,0 +1,351 @@
+---
+title: "Form Builder App"
+excerpt: "Use the Form Builder app to create custom forms, templates, and questionnaires that collect user input and store responses as DataSets in Domo."
+---
+
+## Intro
+
+With the Form Builder app, you can create and edit custom forms, form templates, and questionnaires to collect feedback from your users. Use the [Form Viewer](/s/article/360042933614) app to enter data into your forms. You can download and install both apps from the Domo Appstore. You can download Form Builder in trial mode. If you then purchase the app, Domo converts the trial version to a full version.
+
+<Note>
+  **Note:** The trial version of Form Builder is **not** feature-restricted.
+
+</Note>
+
+Form Builder can exist on one or more Domo dashboards. Response data entered into a form using Form Viewer is stored in the app database, and then synced to the Domo Data Center. Usually, you must then transform the data in Domo.
+
+### Response DataSets
+
+You can use one form that you create in Form Builder to collect data, whether in one or more instances of Form Viewer, or in Form Builder itself.
+
+##### Example
+
+For example, Person A and Person B each use a separate instance of Form Viewer to enter data into the same form. Person C, who created the form in Form Builder, also enters data into the same form.
+
+In this situation, there are three DataSets of responses to the form: Person A's responses, Person B's responses, and Person C's responses.
+
+By default, these DataSets have the following naming convention:
+
+\< *form name*> Responses - \<*GUID of form*>\_\<*GUID of instance of Form Builder or Viewer* >
+
+To learn more about the response data, see [Understanding Form Response Data](/s/article/9485049422103).
+
+---
+
+## Prerequisites
+
+Before you can create forms, templates, or questionnaires, you need to create the following groups in your Domo instance:
+
+* \_FB\_CreateForms\_
+* \_FB\_CreateTemplate\_
+
+Each of these groups grants a unique set of permissions to its members while using Form Builder.
+
+* Members of the **\_FB\_CreateForms\_** group are granted permission to create and manage forms for their Domo groups.
+* Members of the **\_FB\_CreateTemplate\_** group are granted permission to manage all questionnaires, templates, and forms for all Domo groups and users.
+
+  <Note>
+    **Note:** You do not need to be a member of one of these groups to enter data into a form. Only users who need to create and edit forms should be members of the groups.
+
+  </Note>
+
+## Configuration
+
+Download Form Builder from the [Appstore](https://www.domo.com/appstore/). When you download the app, Domo creates a dashboard for it automatically. You can add additional cards for the app from the Domo [Asset Library](/s/article/4403442101143).
+
+<Note>
+  **Note:** When you deploy a new card for the app, you may see an error message that states, "An error occurred while fetching data from the server." This is because some of the underlying application data isn't created until you save the card. You can ignore this error.
+
+</Note>
+
+To use Form Builder, access the dashboard deployed for it and choose one of the tasks outlined later in this article.
+
+#### FormDefinition DataSets
+
+After you create your first form in Form Builder, a series of FormDefinition DataSets are created in Domo and appear in the Data Center. These DataSets contain the metadata that define the forms. You need to connect these FormDefinition DataSets to Form Viewer to use the app.
+
+<Warning>
+  **Important:** The user who owns the app assets must be an active user. If the user is inactive, the DataSets will not be updated.
+
+</Warning>
+
+The FormDefinition DataSets are listed below:
+
+* ExportForms
+* ExportGroups
+* ExportTags
+* ExportSubmittedUsers
+* ExportSections
+* ExportItems
+* ExportColumns
+* ExportFilters
+* ExportPreviousResponseItems
+
+To learn how to connect to these DataSets in Form Viewer, see [Form Viewer](/s/article/360042933614).
+
+## Create a Form
+
+After you have installed the app, and if you are a member of one of the **\_FB\_CreateForms\_** or **\_FB\_CreateTemplate\_** groups, you have access to create and manage forms.
+
+1. Open the Form Builder card and go to the
+**Form** tab.
+
+2. Select
+**Create** **Form**.
+
+<Frame><img alt="create_form.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlx.png"/></Frame>
+The form editor displays.
+
+3. Define your form. See below for information on form definition.
+
+### Basic Form Definition
+
+When creating a new form or managing an existing form, you can choose how users find and interact with your form by configuring the basic form definition with the following items in the form editor.
+
+* **Name  —** the name of the form
+* **Description (optional) —** a description of the form
+* **Tags (optional) —** searchable tags so you can locate a form faster
+* **Groups (optional) —** the users who are permitted to respond to your form, designated in one or more groups
+* **Response Type (required) —** determines response limitations and formats
+* **Form Settings (optional) —** various ways that users can interact with your form
+
+<Frame><img alt="Screen_Shot_2022-05-04_at_5.00.49_PM.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmK.png"/></Frame>
+#### Response Types
+
+There are several different response types that govern how end users can interact with your form. Each type is appropriate for specific use cases. The following table defines four of the possible response types available in the form editor, including some notes about possible use cases.
+
+Bulk response is defined below the table.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Response Type </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Crowdsourced <br/> (Collaborative) </p></td><td colspan="1" rowspan="1"><p> Crowdsourced responses allow multiple users to contribute to the same submission. </p><p> When loading an active submission, users may see other users' unsubmitted responses. </p><p> Users can save form submissions without submitting and return later to modify the submission before submitting. </p></td></tr><tr><td colspan="1" rowspan="1"><p> One response per user </p></td><td colspan="1" rowspan="1"><p> Each user may only submit one response. </p><p> This type can be useful for collecting votes or obtaining other one-time responses. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Multiple responses per user </p></td><td colspan="1" rowspan="1"><p> Users can submit multiple responses. </p><p> This type can be useful for collecting data on multiple occasions, such as for a maintenance request. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Multi-session form </p></td><td colspan="1" rowspan="1"><p> Users can submit multiple responses. Users may have multiple named sessions active at one time. When visiting the form, users are prompted to start a new entry or resume an existing session. </p><p> To rename an existing session, select the session name to activate the text entry, enter the desired title, and then click away from the text input to save the new name. <a id="bulk_response" target="_blank"></a></p><p> Users can save form submissions without submitting and return later to modify the submission before submitting. </p></td></tr></tbody></table>
+
+##### Bulk Response
+
+The bulk response option is not available in the **Response Type** menu in the form editor. To use it, follow the steps below.
+
+1. In the
+**Form Settings** in the form editor, check the box to **Allow bulk response uploads**.
+
+<Frame><img alt="allow_bulk_response.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXli.png"/></Frame>
+2. Finish configuring your form in Form Builder.
+
+3. In
+**Form Viewer**, select **Bulk Upload**.
+
+The Bulk Upload menu displays.
+
+4. Select
+**Download Template**.
+
+<Frame><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmf.png" /></Frame>
+The bulk response template is formatted as a comma separated value file (.CSV). By default, the first four lines are filled and include important metadata to ensure that, when uploaded, the file and responses can be parsed and submitted correctly. In order, the default values in the template are:
+
+1. Section ID
+2. Section Name
+3. Question ID
+4. Question Name
+
+<Note>
+  **Note:** You can learn more about these values and the other response data in [Understanding Form Response Data.](/s/article/9485049422103)
+
+</Note>
+
+5. Fill out your responses in the.CSV file.
+
+6. In Form Viewer, select
+**Bulk Upload** > **Upload Bulk Responses**.
+
+7. Upload the file containing your responses.
+
+8. Wait for the bulk response to process. If any errors are found, you are notified and all responses are rejected until the errors have been resolved.
+
+<Warning>
+  **Important:** The first four lines in the bulk response template should remain unchanged. Altered templates may be rejected when submitted
+
+</Warning>
+
+#### Form Settings
+
+This table defines each of the Form Settings available in the form editor.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Setting </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Show submit button on every page </p></td><td colspan="1" rowspan="1"><p> Indicates whether the submit button is displayed on all pages or on only the final page of the form. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Make all questions required </p></td><td colspan="1" rowspan="1"><p><b> If the box is checked — </b> Users are required to enter a valid response to all questions before submitting the form (does not apply to table sections). </p><p><b> If the box is unchecked — </b> Users may choose not to respond to questions that are marked 'optional.' </p><p><br/><b> Note: </b> If you check the <b> Make all questions required </b> box, you can no longer change the required setting for individual questions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Allow bulk response uploads </p></td><td colspan="1" rowspan="1"><p> Indicates whether users can perform bulk submissions (see <a href="#bulk-response" target="_blank"> Bulk Response </a> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Allow previous submissions to be viewed </p></td><td colspan="1" rowspan="1"><p> Indicates whether users can see their own previous submitted responses to a form. <br/><br/> You can <b> Select preview fields </b> to allow user to configure the fields that are displayed on the <b> Previous Submissions </b> page. </p></td></tr><tr><td colspan="1" rowspan="1"> Allow previous submissions to be edited </td><td colspan="1" rowspan="1"><p> Indicates whether users can edit previous submitted responses to a form. </p><p> Is not available unless <b> Allow previous submissions to be viewed </b> is enabled. </p></td></tr><tr><td colspan="1" rowspan="1"> Allow previous submissions to be deleted </td><td colspan="1" rowspan="1"><p> Indicates whether users can delete previous submitted responses to a form. <a id="sections" target="_blank"></a></p><p> Is not available unless <b> Allow previous submissions to be viewed </b> is enabled. </p></td></tr></tbody></table>
+
+#### Sections
+
+After filling out the form definition, before adding questions to your form, you need to add at least one section. Each section you define displays as a page of the form when end users are entering data. You can use sections to your advantage if you keep related questions in the same section.
+
+Form Builder supports two types of sections:
+
+* **Item Sections** **—** support standard question types such as text inputs and dropdown selections
+* **Table Sections** **—** use a Table Card to prompt users for itemized input
+
+##### Add a Section
+
+In the section management menu to the right of the form editor, select <img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmf-1.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **A** **dd Item Section** or <img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5m000005vXmb.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **A** **dd Table Section**.
+
+<Frame><img alt="section_management_menu.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlm.png"/></Frame>
+The new unnamed section displays below the form editor.
+
+We recommend you name each section by entering a **Section Name** to keep things organized.
+
+<Frame><img alt="section.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmc.png"/></Frame>
+##### Reorder Sections
+
+1. Select
+<img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXma.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **R** **eorder** in the section management menu.
+
+The **Reorder Sections** modal displays.
+
+<Frame><img alt="Screen_Shot_2022-09-19_at_5.08.08_PM.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmM.png"/></Frame>
+2. Hover over the
+<img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlw.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> click-and-drag handle for the section you want to move til the cursor changes to a hand.
+
+3. Click on the handle and drag the section to the position that you want.
+
+##### Delete a Section
+
+1. Find the section you wish to remove and select
+<img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXls.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **More Options**.
+
+<Frame><img alt="section_options.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXm0.png"/></Frame>
+2. Select
+**<img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5m000005vXmI.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> D** **elete**.
+
+A dialog displays to confirm deletion. Selecting **Delete** again deletes the section. This action cannot be undone.
+
+<Frame><img alt="Screen_Shot_2022-09-19_at_4.27.51_PM.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXm5.png"/></Frame>
+### Item Sections
+
+The following table defines the item and question types supported in item sections.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Icon </p></th><th colspan="1" rowspan="1"><p> Name </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmS.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/></p></td><td colspan="1" rowspan="1"><p> Title and Description </p></td><td colspan="1" rowspan="1"><p> Additional metadata and contextual information. </p><p> Can be used to create logical breaks within a single section or simply to provide additional information. </p></td></tr><tr><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmg.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/></p></td><td colspan="1" rowspan="1"><p> Text </p></td><td colspan="1" rowspan="1"><p> Prompts the user for free-form text response. </p></td></tr><tr><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5m000005vXmd.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/></p></td><td colspan="1" rowspan="1"><p> Dropdown </p></td><td colspan="1" rowspan="1"><p> Limits user input to a list of configurable options. </p></td></tr><tr><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmQ.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/></p></td><td colspan="1" rowspan="1"><p> Date </p></td><td colspan="1" rowspan="1"><p></p><p> Prompts the user for a date or date range. </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmN.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/></td><td colspan="1" rowspan="1"> Image </td><td colspan="1" rowspan="1"> Displays an image in your form (does not support user input). </td></tr><tr><td colspan="1" rowspan="1"><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXll.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/></td><td colspan="1" rowspan="1"> Lookup </td><td colspan="1" rowspan="1"> A dropdown question for which the list of options is generated from the unique values of a Table Card (supports PDP). </td></tr><tr><td colspan="1" rowspan="1"><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlk.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/></td><td colspan="1" rowspan="1"> File Attachment </td><td colspan="1" rowspan="1"> Allows the user to attach a file as part of their response. </td></tr></tbody></table>
+
+To choose an item type, select the icon in the item management menu at the bottom of the section definition. For more more information about item and question types, see Advanced Item Configuration below.
+
+<Frame><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlo.png" /></Frame>
+### Table Sections
+
+<Frame><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmU.png" /></Frame>
+Table sections leverage Domo Table Cards to display data and prompt users for input in a row/column format.
+
+When you select a table section, select the **Table Card** menu in the section and find and select the page/dashboard where your Table Card resides.
+
+<Frame><img alt="Screen_Shot_2022-09-20_at_2.57.52_PM.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXm9.png"/></Frame>
+Then use the next menu control to find the Table Card from the page/dashboard you selected. Choose the Table Card you want to use and select **Connect** to begin the connection process.
+
+<Frame><img alt="Screen_Shot_2022-09-20_at_2.59.31_PM.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXm1.png"/></Frame>
+<Note>
+  **Note:** Table sections support PDP.
+
+</Note>
+
+### Connect a Table Card
+
+After you select the Table Card you want to connect to your table section, a modal displays.
+
+You must select one or more columns from the table whose values, when combined, can be used to uniquely identify every row. Some Table Cards may have a unique id column while others may require multiple identifier columns. In the example below, the identifier columns are: Region, State, and City.
+
+After you've chosen your identifier column(s), select **Connect** to complete the connection process.
+
+<Frame><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXln.png" /></Frame>
+#### Table Columns
+
+After the connection process is complete, the table section of your form in Form Builder displays the list of columns that make up the Table Card. You can change the input type of a column by choosing one of the available options in the menu option on the right hand side of the column's list entry.
+
+<Frame><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmB.png" /></Frame>
+The following table describes the input types that table columns support.
+
+<Note>
+  **Note:** Identifier columns cannot be configured as input columns.
+
+</Note>
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Input </p></th><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Custom Column Supported </p></th><th colspan="1" rowspan="1"> Existing Column Supported </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> None </p></td><td colspan="1" rowspan="1"><p> No input control </p><p> Displays existing data from Table Card </p></td><td colspan="1" rowspan="1"><p> No </p></td><td colspan="1" rowspan="1"> Yes </td></tr><tr><td colspan="1" rowspan="1"><p> Checkbox </p></td><td colspan="1" rowspan="1"><p> Select one or more rows from the table by checking a box </p></td><td colspan="1" rowspan="1"><p> Yes </p></td><td colspan="1" rowspan="1"> Yes </td></tr><tr><td colspan="1" rowspan="1"><p> Dropdown </p></td><td colspan="1" rowspan="1"><p> Limit user input to a set of values configured in the form editor </p><p><img alt="mceclip28.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmi.png"/></p></td><td colspan="1" rowspan="1"><p> Yes </p></td><td colspan="1" rowspan="1"> Yes </td></tr><tr><td colspan="1" rowspan="1"><p> Lookup </p></td><td colspan="1" rowspan="1"><p> Limit user input to the unique values from the column of a table card; select a page, card, and column to configure the lookup options </p><p><img alt="mceclip29.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmD.png"/></p></td><td colspan="1" rowspan="1"><p></p><p> Yes </p><p></p></td><td colspan="1" rowspan="1"> Yes </td></tr><tr><td colspan="1" rowspan="1"> Single Select (radio) </td><td colspan="1" rowspan="1"> Choose/mark a single row from the table </td><td colspan="1" rowspan="1"> Yes </td><td colspan="1" rowspan="1"> Yes </td></tr><tr><td colspan="1" rowspan="1"> Text </td><td colspan="1" rowspan="1"> Allows freeform text entry </td><td colspan="1" rowspan="1"> Yes </td><td colspan="1" rowspan="1"> Yes </td></tr><tr><td colspan="1" rowspan="1"> Validated Input </td><td colspan="1" rowspan="1"><p> Detects the type assigned to the table card's column to display the correct input control type. </p><p> Supported types: </p><ul><li> Text - freeform, no validation enforced </li><li> Date (short) - does not support time value </li><li> Date (datetime) - supports time values </li><li> Numeric (long) - does not support decimal values </li><li> Numeric (decimal/double) - supports decimal values </li></ul></td><td colspan="1" rowspan="1"> No </td><td colspan="1" rowspan="1"> Yes </td></tr></tbody></table>
+
+You may add custom columns by selecting **A** **dd column** at the bottom of the column list. To change the name of a custom column, hover over the space where the name should be and select the gray box to activate the text editor. Enter the desired name then click anywhere outside the text input.
+
+<Frame><img alt="blobid1.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlu.png"/></Frame>
+To delete a custom column or to change the visibility of an existing column, hover over the left side of a column's list entry and select <img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXme.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Delete** or <img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlq.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Hide Column**.
+
+<Frame><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlt.png" /></Frame>
+#### Table Filters (Filter Fields)
+
+Under the **Filter field** sub-menu, you can manage fields that can be used to filter the table rows. Filter fields are dropdown menus (select boxes) that contain the unique values from their assigned columns. When a user changes the selection in these fields and applies the new selection, a filtered view of the table card is loaded so that only rows that match their filter configuration are displayed. To add a filter field, select a column from the **filter field** input control and click **add filter**. To allow users to select multiple values in a single filter, check the **multi-select** box on the right side of the list entry.
+
+<Frame><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmh.png" /></Frame>
+#### Table Settings
+
+To help manage how your table section is displayed and used, table sections support the following settings:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Setting </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Freeze identifier columns </p></td><td colspan="1" rowspan="1"><p> Freezes the identifier columns to the left side of the table so they are always visible. </p><p> Aids users in identifying the distinct row which is being viewed or modified. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Interdependent filter fields </p></td><td colspan="1" rowspan="1"><p> Causes the options in each table filter field to be filtered based on preceding selections. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Prefer page filters over filter fields </p></td><td colspan="1" rowspan="1"><p> If enabled, the table is filtered based on the Page Filter configuration, allowing for a more rich filtering experience. </p><p> For instructions to enable Page Filters on your forms, see <a href="" target="_self"> Using Page Filters </a>. <a id="advanced_item_configuration" target="_blank"></a></p></td></tr></tbody></table>
+
+## Advanced Item Configuration
+
+The following table displays configuration supported by the various item and question types:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Type of item/question </p></th><th colspan="1" rowspan="1"><p> Configuration </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="2"><p> All item and question types </p></td><td colspan="1" rowspan="1"><p> Descriptions </p></td><td colspan="1" rowspan="1"><p> Provides additional information and context for a question. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Required questions </p></td><td colspan="1" rowspan="1"><p> All items that take user input can be flagged as <b> required </b>, preventing form submission until a response has been provided ('title and description' and 'image' items do not support the <b> required </b> setting as they do not take user input). </p><p> Each question can be marked as required individually or all questions can be marked simultaneously by using the form level setting (see <a href="" target="_self"> Form Settings </a> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Text questions </p></td><td colspan="1" rowspan="1"><p> Multiline </p></td><td colspan="1" rowspan="1"><p> Use the <b> Multiline </b> setting to display a larger text input (textarea). </p></td></tr><tr><td colspan="1" rowspan="2"><p> Dropdown questions </p></td><td colspan="1" rowspan="1"><p> Multiselect </p></td><td colspan="1" rowspan="1"><p></p><p> Enable the <b> Multiselect </b> setting to allow users to choose more than one value for their response. </p><p></p></td></tr><tr><td colspan="1" rowspan="1"> Explanation field </td><td colspan="1" rowspan="1"> To prompt the user for additional information about their selection, you can add an explanation field by clicking <img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXly.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> to open the <b> additional options </b> menu and choosing <b> include explanation field </b>. You can choose the prompt's message by entering your desired note in the newly displayed text box. If left empty, the default message of 'Please explain your response' will be used. </td></tr><tr><td colspan="1" rowspan="1"> Date questions </td><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Allows users to select a date range (start and end date) by enabling the <b> date range </b> setting. </td></tr><tr><td colspan="1" rowspan="2"><p> Lookup questions </p><p> To configure a lookup question select a page, card, and column from which to retrieve the options displayed in the select/input control. </p></td><td colspan="1" rowspan="1"> Use Page Filters to filter available options </td><td colspan="1" rowspan="1"> To quickly and easily locate the desired value(s), you can use page filters to narrow down the option list (see <a href="" target="_self"> Using Page Filters </a> for setup instructions). </td></tr><tr><td colspan="1" rowspan="1"> Filter based on preceding lookup question responses </td><td colspan="1" rowspan="1"><p> When you have several lookup questions <b> built from the same table card </b> in the same section, you can build a chain of dependence that uses the selected value of a preceding lookup question to filter the options available in subsequent lookup questions. When building the chain of dependence, here are some things to keep in mind: </p><ul><li> Lookup questions can only be made dependent on other lookup questions built from <b> different columns of the same table card </b></li><li> Lookup questions can only be made dependent on other lookup questions in the same section </li><li> If the order in which the lookup questions appear in the section is altered, the chain of dependence may be broken and must be rebuilt for the questions directly affected by the change in order </li><li> When viewing the dependent lookup questions in an active response session, child lookup questions are disabled (preventing user input) until their parent has a response </li></ul><p> For a configuration example see <a href="" target="_self"> Configuration Examples </a> &gt; <a href="" target="_self"> Dependent Lookup Questions </a>. </p></td></tr><tr><td colspan="1" rowspan="1"> File attachment </td><td colspan="1" rowspan="1"> Allowed file types </td><td colspan="1" rowspan="1"><p> You can restrict the format of the uploaded file to ensure it's always the correct type. If no type is selected, any file of a format supported by the Domo file service will be allowed. </p><p><b> Note: </b> When a user submits a file attachment, use this URL to read the file from inside your instance of Domo: https://\{INSTANCE}.domo.com/api/data/v1/data-files/\{FILE_ID}. <br/> INSTANCE is the user's individual instance of Domo, and FILE_ID is the unique identifier of the form returned in the output DataSet. <a id="use_page_filters" target="_blank"></a><br/> You may want to consider generating the complete URL through a Beast Mode or ETL using concatenation. </p></td></tr></tbody></table>
+
+## Use Page Filters
+
+To make your forms feel like an integrated part of Domo, the Form Builder and Form Viewer applications both support Page Filters. Follow the steps below to connect your DataSet to an application and enable Page Filters.
+
+#### Connecting Data to Form Builder and Form Viewer
+
+1. Open Form Builder or Form Viewer.
+
+2. Select
+**Card options**.
+
+3. Select
+**Edit Card**.
+
+The card editor opens.
+
+4. Scroll to the bottom and find the list of
+**FilterConfiguration** DataSets.
+
+Both the Form Builder and Form Viewer have 25 placeholder DataSets you can change for your own DataSets which you want to use for table and lookup filtering.
+
+5. Select one of the unused
+**FilterConfiguration** DataSets.
+
+6. Under
+**Select DataSet**, select the DataSet.
+
+The **Select a DataSet** modal displays.
+
+7. Search for and select the DataSet you want to connect to your application.
+
+8. Select
+**Choose DataSet**.
+
+9. Select
+**S** **ave & Finish** to close the editor.
+
+Now that you've connected your DataSet to the application, its Page Filters are also applied to the relevant queries.
+
+<Note>
+  **Note:** Page Filters are only applied to lookup questions or table sections if the Table Card used to create the lookup question/table section matches the DataSet targeted by the Page Filters.
+
+</Note>
+
+## Configuration Use Case
+
+Consider the following Table Card:
+
+<Frame><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmL.png" /></Frame>
+Using this Table Card, we can create a lookup question for each column:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead></thead><tbody><tr><td colspan="1" rowspan="1"><p> Region Lookup Question </p><p><img alt="mceclip40.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlz.png" style={{width: 449, height: 342}}/></p></td></tr><tr><td colspan="1" rowspan="1"><p> State Lookup Question </p><p><img alt="mceclip41.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlv.png" style={{width: 451, height: 526}}/></p></td></tr><tr><td colspan="1" rowspan="1"><p> City Lookup Question </p><p><img alt="mceclip43.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmO.png" style={{width: 449, height: 524}}/></p></td></tr></tbody></table>
+
+If we want to restrict the list of states to those in the region selected by the user in the **Region** lookup question, we can choose **Region** in the menu labeled **Use previous lookup question response to filter available options** under the **State** lookup question. The new **State** lookup question configuration:
+
+<Frame><img alt="mceclip44.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmJ.png"/></Frame>
+Similarly, if we want to restrict the available cities to those in the state chosen by the user in the **State** lookup question, we can configure the **City** lookup question like this:
+
+<Frame><img alt="mceclip45.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlj.png"/></Frame>
+Now, when the user views these questions in an active session, they'll see the following:
+
+<Frame><img src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXm3.png" /></Frame>
+Making the **State** dependent on the **Region** also disables the **State** input until the user has chosen a region. Additionally, the available **State** values are limited to those that correspond to the selected **Region** while the **City** values are limited to those corresponding with the selected **State**:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead></thead><tbody><tr><td colspan="1" rowspan="1"><p><img alt="mceclip48.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXlh.png"/></p></td><td colspan="1" rowspan="1"><p><img alt="mceclip47.png" src="/images/kb/ka0Vq000000BsDB-00N5w00000Ri7BU-0EM5w000005vXmJ.png"/></p></td></tr></tbody></table>

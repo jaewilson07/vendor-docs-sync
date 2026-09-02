@@ -1,0 +1,51 @@
+---
+title: "CDC Connector"
+excerpt: "Use Domo's CDC Connector to import data from more than 800 public Centers for Disease Control and Prevention datasets into a DataSet."
+---
+
+## Intro
+
+As the USA's health protection agency, CDC (Centers for Disease Control and Prevention) saves lives and protects people from health, safety, and security threats. Use Domo's CDC connector to retrieve data from more than 800 public datasets. To learn more about CDC APIs, visit their page (https://open.cdc.gov/apis.html).
+
+You connect to CDC datasets in the Data Center. This topic discusses the fields and menus that are specific to the CDC connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+None. All of the data available through this connector is public, so there is no need to enter credentials.
+
+## Connecting to CDC datasets
+
+This section enumerates the options in the **Details** pane in the CDC Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Details Pane
+
+This pane contains a primary **Report** menu, along with a **Dataset ID** menu from which you can select your desired CDC dataset.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select a report from the menu. Currently only a single report type is available. </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> CDC Dataset </td><td colspan="1" rowspan="1"> Lets you select a CDC dataset in the <b> DataSet ID </b> menu. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Dataset ID </td><td colspan="1" rowspan="1"><p> Select the CDC dataset you want to pull into Domo. You can search for a specific dataset in the <b> Search </b> field or filter the list to show only datasets you have selected by clicking the eye icon. </p><p> You can view available datasets and their descriptions at <a href="https://data.cdc.gov/browse" target="_blank" title="https://data.cdc.gov/browse"> https://data.cdc.gov/browse </a>. </p></td></tr><tr><td colspan="1" rowspan="1"> Update Data </td><td colspan="1" rowspan="1"><p><span> Generally CDC updates data once a month. Please select YES if you only want updated data on Scheduled runs and select NO if you want to return existing/updated data if CDC has not-updated/updated data on Scheduled runs </span></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+No credentials required.
+
+</Accordion>
+
+<Accordion title="How often should I update my CDC DataSets?">
+
+DataSets cannot be updated more than once per day, and in most cases it is recommended that you only update once per month.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+

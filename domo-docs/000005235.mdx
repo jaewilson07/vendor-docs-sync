@@ -1,0 +1,66 @@
+---
+title: "Google Analytics 4 Real Time Connector"
+excerpt: "Use the Google Analytics 4 Real Time Connector to pull near-real-time site and app activity reports into Domo via OAuth."
+---
+
+## Intro
+
+Real-Time allows you to monitor activity as it happens on your site or app. The reports are updated continuously and each hit is reported seconds after it occurs. To learn more about the Google Analytics API, visit their website ([https://developers.google.com/analytics/devguides/reporting](https://developers.google.com/analytics/devguides/reporting "https://developers.google.com/analytics/devguides/reporting") ).
+
+You connect to your Google account in the Data Center. This topic discusses the fields and menus that are specific to the Google Analytics Real Time connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to the Google Analytics 4 Real Time API and create a DataSet, you must have a Google email address and password.
+
+## Connecting to Your Google Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Google Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+The Domo Google Analytics 4 Real Time connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Google accounts in Domo) to open the Google OAuth screen where you can enter your Google email address and password. After you have entered valid Google credentials, you can use the same account any time you go to create a new Google Analytics 4 Real Time Dataset. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+<Note>
+**Note:** If you are already logged into Google when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Google.
+</Note>
+
+### Details Pane
+
+This pane contains three menus from which you select your profile, metrics, and dimensions.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Properties Selection </td><td colspan="1" rowspan="1"> Select whether to retrieve data for all properties or only specific ones. </td></tr><tr><td colspan="1" rowspan="1"> Properties </td><td colspan="1" rowspan="1"> Select the properties for which you want to retrieve the data. </td></tr><tr><td colspan="1" rowspan="1"> Metrics </td><td colspan="1" rowspan="1"> Select at least one metric for your report. </td></tr><tr><td colspan="1" rowspan="1"> Dimensions </td><td colspan="1" rowspan="1"> Select up to 9 dimensions for your report. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What can I do with this connector?">
+
+* Display active viewers of a page and create a sense of urgency for users looking at an item with finite inventory.
+* Create and display a real time dashboard.
+
+</Accordion>
+
+<Accordion title="Why does my data appear incorrect?">
+
+If your data looks incorrect, check which filters are being applied to the **View** field. It is best to use an unfiltered view when debugging the tracking code implementations. Changes made to views may take up to two hours to reflect in the Google Analytics Realtime connector.
+
+</Accordion>
+
+<Accordion title="Why am I limited to 9 dimensions?">
+
+This is a limitation given by the Google Analytics API. There is no way to add more than 9 dimensions to a report.
+
+</Accordion>
+
+<Accordion title="What is the difference between this connector and the Google Analytics Connector?">
+
+The Google Analytics 4 Real Time connector uses the real time reporting API and returns the real time data. The Google Analytics connector uses the reporting API and returns the historical data.
+
+</Accordion>
+</AccordionGroup>
+

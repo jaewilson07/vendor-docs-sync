@@ -1,0 +1,70 @@
+---
+title: "SpringServe Connector"
+excerpt: "Connect to SpringServe with a username and password to retrieve groups, partners, tags, and domain ad-serving data in Domo DataSets."
+---
+
+## Intro
+
+SpringServe provides a suite of ad serving tools designed to make digital advertising more efficient. Use Domo's SpringServe connector to retrieve lists of SpringServe groups, partners, tags, and domains. To learn more about the SpringServe API, visit their page ([https://wiki.springserve.com/display/SSD/Reporting+API](https://wiki.springserve.com/display/SSD/Reporting+API "https://springserve.atlassian.net/wiki/spaces/SSD/pages/15826974/Reporting+API") ).
+
+You connect to your SpringServe account in the Data Center. This topic discusses the fields and menus that are specific to the SpringServe connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your SpringServe account and create a DataSet, you must have a SpringServe username and password.
+
+## Connecting to Your SpringServe Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SpringServe Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your SpringServe account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your SpringServe username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your SpringServe password. </p></td></tr></tbody></table>
+
+Once you have entered valid SpringServe credentials, you can use the same account any time you go to create a new SpringServe DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the SpringServe report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Demand Groups </p></td><td colspan="1" rowspan="1"><p> Returns a list of demand groups. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Demand Partners </p></td><td colspan="1" rowspan="1"><p> Returns a list of demand partners. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Demand Tag </p></td><td colspan="1" rowspan="1"><p> Returns a list of demand tags. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain Lists </p></td><td colspan="1" rowspan="1"><p> Returns a list of domain lists. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domains in Domain List </p></td><td colspan="1" rowspan="1"><p> Returns the domains in a given domain list. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reporting </p></td><td colspan="1" rowspan="1"><p> Returns the requested report data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Supply Groups </p></td><td colspan="1" rowspan="1"><p> Returns a list of supply groups. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Supply Partners </p></td><td colspan="1" rowspan="1"><p> Returns a list of supply partners. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Supply Tags </p></td><td colspan="1" rowspan="1"><p> Returns a list of supply tags. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the domain you want to return data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Interval </p></td><td colspan="1" rowspan="1"><p> Select the time interval you want to return data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Dimensions </p></td><td colspan="1" rowspan="1"><p> Select all of the dimensions you want to return data for. The <b> Domain </b> dimension is only available when you select a date range instead of a specific date. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Type Selector </p></td><td colspan="1" rowspan="1"><p> Select whether you want to show data for a specific date (<b> DatePicker </b> ) or a range of days (<b> DateRange </b> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Range </p></td><td colspan="1" rowspan="1"><p> Select whether to pull data for today, yesterday, or 7 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Type of Date Range </p></td><td colspan="1" rowspan="1"><p> Select whether to pull data for a specific date or a given number of days back. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Select the start date for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Select the end date for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Offset </p></td><td colspan="1" rowspan="1"><p> Enter the number of days back you want to pull data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### FAQ
+
+<AccordionGroup>
+<Accordion title="What version of the SpringServe API does this connector use?">
+
+This connector uses version 0 of the [SpringServe API](https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started).
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width=""> Report Name </th><th colspan="1" rowspan="1" width=""> Endpoint URL </th></tr><tr><td colspan="1" rowspan="1"> Demand Groups </td><td colspan="1" rowspan="1"> /demand_groups </td></tr><tr><td colspan="1" rowspan="1"> Demand Partners </td><td colspan="1" rowspan="1"> /demand_partners </td></tr><tr><td colspan="1" rowspan="1"> Demand Tag </td><td colspan="1" rowspan="1"> /demand_tags </td></tr><tr><td colspan="1" rowspan="1"> Domain Lists </td><td colspan="1" rowspan="1"> /domain_lists </td></tr><tr><td colspan="1" rowspan="1"> Domains in Domain List </td><td colspan="1" rowspan="1"> /domain_lists/{domain_id}/domains </td></tr><tr><td colspan="1" rowspan="1"> Reporting </td><td colspan="1" rowspan="1"> /report </td></tr><tr><td colspan="1" rowspan="1"> Supply Groups </td><td colspan="1" rowspan="1"> /supply_groups </td></tr><tr><td colspan="1" rowspan="1"> Supply Partners </td><td colspan="1" rowspan="1"> /supply_partners </td></tr><tr><td colspan="1" rowspan="1"> Supply Tags </td><td colspan="1" rowspan="1"> /supply_tags </td></tr></tbody></table>
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the username and password associated with your SpringServe account.
+</Accordion>
+
+<Accordion title="Can I use the same account multiple times to create datasets?">
+
+Yes.
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No.
+</Accordion>
+</AccordionGroup>

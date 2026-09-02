@@ -1,0 +1,49 @@
+---
+title: "New Relic Connector"
+excerpt: "Use the New Relic connector with an API key to pull software analytics data such as response time, throughput, and error rate into Domo."
+---
+
+## Intro
+
+New Relic is a software analytics tool suite.  To learn more about the New Relic API, visit their website ([https://docs.newrelic.com/docs/apis/...ic-rest-api-v2](https://docs.newrelic.com/docs/apis/rest-api-v2/getting-started/introduction-new-relic-rest-api-v2 "https://docs.newrelic.com/docs/apis/rest-api-v2/getting-started/introduction-new-relic-rest-api-v2") ).
+
+The New Relic connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your New Relic account in the Data Center. This topic discusses the fields and menus that are specific to the New Relic connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is useful for understanding how a new software product is performing with regards to user experience. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Apdex </p></li><li><p> Response time </p></li><li><p> Throughput </p></li><li><p> Error rate </p></li><li><p> CPU usage </p></li><li><p> Memory </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Software developers </p></li><li><p> Product managers </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> It takes about 15 to 30 minutes to set up an API key. The rest of the implementation is straightforward and should not take long. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## Best Practices
+
+Ensure that your tags for tracking user experience are clearly defined in New Relic and you are tagging the specifics of what you want to measure.
+
+## Prerequisites
+
+To connect to your New Relic account and create a DataSet, you must have a New Relic API key. For information about generating an API key, see [https://docs.newrelic.com/docs/apm/apis/requirements/api-key](https://docs.newrelic.com/docs/apm/apis/requirements/api-key "https://docs.newrelic.com/docs/apm/apis/requirements/api-key").
+
+## Connecting to Your New Relic Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the New Relic Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your New Relic account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter the API key you use to log into your New Relic account. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new New Relic DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains two primary menus, **Connector Version** and **Report**, along with various other menus which may or may not appear depending on the connector version and report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select a New Relic report. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Application Metrics </p></td><td colspan="1" rowspan="1"><p> Returns information about applications monitored by New Relic, including response time, Apdex, throughput and settings. </p></td></tr><tr><td colspan="1" rowspan="1"> List Application Metric Values </td><td colspan="1" rowspan="1"> Returns a list of data for the Application Metric. </td></tr><tr><td colspan="1" rowspan="1"> Mobile Applications List </td><td colspan="1" rowspan="1"> Returns a list of Mobile Applications. </td></tr><tr><td colspan="1" rowspan="1"> Mobile Applications Metric Names </td><td colspan="1" rowspan="1"> Returns a list of Mobile Metrics. </td></tr><tr><td colspan="1" rowspan="1"> Mobile Application Metric Data </td><td colspan="1" rowspan="1"> Returns the list of Mobile Metrics Data. </td></tr><tr><td colspan="1" rowspan="1"> Mobile Crash Metrics Data </td><td colspan="1" rowspan="1"> Returns the list of Mobile Crash Metrics Data. </td></tr><tr><td colspan="1" rowspan="1"> Application Metrics V2 </td><td colspan="1" rowspan="1"> Returns a list of Application Metrics based on the Application Name. </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Applications </p></td><td colspan="1" rowspan="1"><p> Select the application(s) you want to retrieve data for. The connector version determines how many applications you may select. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Metric Names (version 2 only) </p></td><td colspan="1" rowspan="1"><p> Select the metrics you want to appear in your report. You can select as many metrics as you like. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date (for version 1) </p></td><td colspan="1" rowspan="1"><p> Enter the start date for the report using the format <span class="mt-font-courier-new"> yyyy-MM-dd. </span> You can also utilize relative start dates by inputting the keywords <span class="mt-font-courier-new"> today </span> or <span class="mt-font-courier-new"> yesterday. </span> Or you can specify offsets like <span class="mt-font-courier-new"> yesterday-3, </span> which would set the start date to 3 days in the past, starting from yesterday's date. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date (for version 2) </p></td><td colspan="1" rowspan="1"><p> Select the start date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date (for version 1) </p></td><td colspan="1" rowspan="1"><p> Enter the end date for the report using the format <span class="mt-font-courier-new"> yyyy-MM-dd. </span> You can also utilize relative end dates by inputting the keywords <span class="mt-font-courier-new"> today </span> or <span class="mt-font-courier-new"> yesterday. </span> Or you can specify offsets like <span class="mt-font-courier-new"> yesterday-3 </span>, which would set the end date to 3 days in the past, starting from yesterday's date. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date (for version 2) </p></td><td colspan="1" rowspan="1"><p> Select the end date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Backfill (version 1 only) </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days you want to retrieve data for on the first run (based on the <b> End Date </b> value). Subsequent runs do not backfill data. </p><p> For example, if you entered <span class="mt-font-courier-new"> yesterday </span> for <b> End Date </b> and <span class="mt-font-courier-new"> 30 </span> for <b> Backfill </b>, the report would gather the last 31 days of data on its first run. On subsequent runs, the report would gather only yesterday's data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Zone </p></td><td colspan="1" rowspan="1"><p> Select the UTC time zone for your data. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Troubleshooting
+
+* Make sure access and logins have not changed for the New Relic system. Often if an account is deleted, you will need to generate another API Token.
+* Sometimes event tagging will not be setup correctly in the New Relic system and will not pull the metrics needed. Sometimes adjustments with even tracking and tagging are needed to facilitate the reporting desired.

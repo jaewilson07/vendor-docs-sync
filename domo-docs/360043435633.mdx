@@ -1,0 +1,59 @@
+---
+title: "Cargowatch Connector"
+excerpt: "Use Domo's Cargowatch Connector to import messages, asset and device commands, and geofence status data from your Cargowatch telematics account."
+---
+
+## Intro
+
+Cargowatch is a telematics application that optimizes logistics management solutions for transportation service providers who use freight transportation assets. Use Domo's Cargowatch connector to get visibility into dry assets, maximize usage, reduce operational costs, and improve delivery predictability. To learn more about Cargowatch, visit their page ([https://documenter.getpostman.com/view/1578800/TVYCBLqC#intro](https://documenter.getpostman.com/view/1578800/TVYCBLqC#intro "https://documenter.getpostman.com/view/1578800/TVYCBLqC#intro") ).
+
+You can connect to your Cargowatch account in the Data Center. This topic discusses the fields and menus that are specific to the Cargowatch connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Cargowatch account and create a DataSet, you must have a Cargowatch username and password.
+
+## Connecting to Your Cargowatch Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Cargowatch Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Cargowatch account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your Cargowatch username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Cargowatch password. </p></td></tr></tbody></table>
+
+Once you have entered valid Cargowatch credentials, you can use the same account any time you go to create a new Cargowatch DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Cargowatch report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Messages </p></td><td colspan="1" rowspan="1"><p> Returns all messages you've received about your cargo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Asset Commands </p></td><td colspan="1" rowspan="1"><p> Returns the available commands for a given Asset ID pertaining to a provided Datagate ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Device Commands </p></td><td colspan="1" rowspan="1"><p> Returns the available commands for a given device pertaining to a provided Datagate ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Geofence Status </p></td><td colspan="1" rowspan="1"><p> Returns a list of geofences that have changed since your "Last Modified" date. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Dategate ID </p></td><td colspan="1" rowspan="1"><p> Enter your Datagate ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time </p></td><td colspan="1" rowspan="1"><p> Enter the time you want to retrieve status for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I use the same account to create multiple DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

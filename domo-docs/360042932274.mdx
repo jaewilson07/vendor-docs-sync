@@ -1,0 +1,56 @@
+---
+title: "Google Cloud Storage Writeback Connector"
+excerpt: "Use Domo's Google Cloud Storage Writeback Connector to export data from a Domo DataSet to a Google Cloud Storage bucket."
+---
+
+## Intro
+
+Google Cloud Storage is an Internet service used to store data in Google's cloud. Use this connector to export your data from a Domo DataSet to a Google Cloud Storage bucket. To find out more about the Google Cloud Storage API, visit [https://cloud.google.com/storage/docs/json\_api/](https://cloud.google.com/storage/docs/json_api/ "https://cloud.google.com/storage/docs/json_api/").
+
+You export data to Google Cloud Storage in the Data Center. This topic discusses the fields and menus that are specific to the Google Cloud Storage Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042932274?language=en_US "Adding a DataSet Using a Connector").
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+</Note>
+
+## Prerequisites
+
+To configure this connector, you will need the following:
+
+* A Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+* A Google Service Token JSON file. To obtain this file, do the following:
+
+  1. Open the
+     [Google Cloud Platform Console](/s/article/360042932334 "Google Sheets Writeback Connector").
+  2. In the
+     ****Service account**** menu, select ****New service account****.
+  3. In the
+     ****Service account name**** field, enter a descriptive name for the account.
+  4. In the
+     ****Role**** dropdown, select ****Project owner****.
+  5. Make sure
+     ****Key type**** is set to ****JSON****.
+  6. Click
+     ****Create****.
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Google Cloud Storage Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account as well as your Google Cloud Storage bucket. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client ID. For more information, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client secret. For more information, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Service Token JSON </p></td><td colspan="1" rowspan="1"><p> Paste the JSON Service Token you generated in the Google Cloud Platform Console. For more information, see "Prerequisites," above. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-Google Cloud Storage connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Project </p></td><td colspan="1" rowspan="1"><p> Enter the API ID of the project you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Bucket </p></td><td colspan="1" rowspan="1"> Select the bucket in which you want to store the data. </td></tr><tr><td colspan="1" rowspan="1"><p> Input DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to S3. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following <span class="mt-font-courier-new"> datasources/ </span>. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Filename </p></td><td colspan="1" rowspan="1"><p> Select whether you want to reference your DataSet using the <b> Input DataSet ID </b> or an output file name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filename </p></td><td colspan="1" rowspan="1"><p> Enter the output file name for your data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> My input DataSet is large </p></td><td colspan="1" rowspan="1"><p> Select this check box if you are exporting a large dataset from Domo to Google Cloud Storage. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

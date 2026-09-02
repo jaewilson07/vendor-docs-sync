@@ -1,0 +1,37 @@
+---
+title: "IoT Device Management Connector"
+excerpt: "Use the IoT Device Management Connector to pull AWS IoT things, thing groups, types, and OTA updates into Domo."
+---
+
+## Intro
+
+AWS IoT Device Management is a cloud-based device management service that makes it possible for you to securely manage your IoT devices throughout their lifecycle. AWS IoT Device Management enables you to securely onboard, organize, monitor, and remotely manage IoT devices at scale. AWS IoT Device Management connector helps to manage your IoT device's data in DOMO.
+
+You can connect to your IoT Device Management account in the Data Center. This topic discusses the fields and menus that are specific to the IoT Device Management connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your IoT Device Management account and create a DataSet, you must have the following:
+
+* Your AWS Access Key and Secret Key.
+* You need to select the AWS IoT service Region.
+
+## Connecting to Your IoT Device Management Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the IoT Device Management Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your IoT Device Management account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Key </p></td><td colspan="1" rowspan="1"><p> Enter the Amazon Web Services Access Key. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Region </p></td><td colspan="1" rowspan="1"><p> Select the AWS IoT service region. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Secret Key </p></td><td colspan="1" rowspan="1"><p> Enter the Amazon Web Services Secret Key. </p></td></tr></tbody></table>
+
+Once you have entered valid IoT Device Management credentials, you can use the same account at any time to create a new IoT Device Management DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the IoT Device Management report you want to run. The following reports are available: </p><p></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> List OTA Updates </p></td><td colspan="1" rowspan="1"> Lists over-the-air device updates to help your devices updated and secure. </td></tr><tr><td colspan="1" rowspan="1"><p> List Thing Groups </p></td><td colspan="1" rowspan="1"> Lists IoT Thing groups. </td></tr><tr><td colspan="1" rowspan="1"><p> List Things </p></td><td colspan="1" rowspan="1"> Lists IoT Devices. </td></tr><tr><td colspan="1" rowspan="1"><p> List Thing Types </p></td><td colspan="1" rowspan="1"> Lists IoT Thing Types. </td></tr></tbody></table></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

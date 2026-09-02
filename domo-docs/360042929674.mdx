@@ -1,0 +1,54 @@
+---
+title: "Zendesk Chat Connector"
+excerpt: "Use Domo's Zendesk Chat connector to return a list of all Zendesk Chat conversations from your Zendesk Support instance into a DataSet."
+---
+
+## Intro
+
+Zendesk Chat (formerly Zopim) is an online marketing, live chat support and web analytics product that enables companies to chat with visitors in real-time on their websites. You can use this connector to return a list of all Zendesk chats for your account. To learn more about the Zendesk Chat API, visit their page ([https://developer.zendesk.com/rest\_a...t/introduction](https://developer.zendesk.com/rest_api/docs/chat/introduction "https://developer.zendesk.com/rest_api/docs/chat/introduction") ).
+
+You connect to your Zendesk Chat account in the Data Center. This topic discusses the fields and menus that are specific to the Zendesk Chat connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+For information about the Zendesk Connector, see [Zendesk Connector](/s/article/360042929694 "Zendesk Connector").
+
+## Prerequisites
+
+To connect to your Zendesk Chat account and create a DataSet, you must have the following:
+
+* The subdomain for your Zendesk Support instance (for example, if your Support instance was [mycompany.zendesk.com](http://mycompany.zendesk.com), you would enter mycompany for your subdomain)
+* Your Zendesk Chat client ID
+* Your Zendesk Chat client secret
+
+To create or modify a Zendesk API client, navigate to
+
+`https://{yourdomain}.zendesk.com/chat/agent#account/api`, where `{yourdomain}` is the subdomain for your Zendesk Support instance.
+
+## Connecting to Your Zendesk Chat Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Zendesk Chat Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Zendesk Chat account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Zendesk Chat client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Zendesk Chat client secret. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> Enter the subdomain for your Zendesk Support instance. </p></td></tr></tbody></table>
+
+For information about finding this information, see "Prerequisites," above.
+
+Once you have entered valid Zendesk Chat credentials, you can use the same account any time you go to create a new Zendesk Chat DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a single menu from which you select your Zendesk Chat report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Zendesk Chat report you want to run. Currently only a single report is available. </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Agent Timeline </p></td><td colspan="1" rowspan="1"><p> Returns a list of agent timeline objects. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chats </p></td><td colspan="1" rowspan="1"><p> Returns a list of all chats for the authenticated Zendesk Chat account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Incremental Chat Report </p></td><td colspan="1" rowspan="1"><p> Returns a list of chats for the account using the incremental export endpoint. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Expand List Column </p></td><td colspan="1" rowspan="1"><p> Select the column to expand. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Engagement details </p></td><td colspan="1" rowspan="1"><p> Select the checkbox to include the engagement details in data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Selection </p></td><td colspan="1" rowspan="1"><p> Select the date to start retrieving data on the first run. To append or merge update modes, the subsequent runs automatically retrieves the newly created and updated items. If you modify the date after the first run, this date will be used for the next run and the existing data will be replaced. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<Accordion title="I am getting an internal server error when I try to authenticate.">
+  Try replacing the redirect URL in Zendesk with the following URL: https://oauth.domo.com/api/data/v2/oauth/providers/zendeskchat/exchange. 
+</Accordion>

@@ -1,0 +1,169 @@
+---
+title: "Magic ETL Tiles: Pivot"
+excerpt: "Configure the Dynamic Unpivot, Pivot, and Unpivot tiles in Magic ETL to reshape rows and columns in your DataFlow."
+---
+
+## Intro
+
+There are three available tiles under **Pivot** in Magic ETL:
+
+* Dynamic Unpivot
+* Pivot
+* Unpivot
+
+Learn what it means to [pivot a table](#video) in the video below.
+
+Learn how to [Create a Magic ETL DataFlow](/s/article/360055259234 "Creating a Magic ETL DataFlow").
+
+<Warning>
+
+  <Frame><img alt="Pivot_Tiles.png" src="/images/kb/ka0Vq0000001kYf-00N5w00000Ri7BU-0EM5w000005vNig.png"/></Frame>
+</Warning>
+
+---
+
+## Dynamic Unpivot Tile
+
+<Frame><img alt="Dynamic_Unpivot.png" src="/images/kb/ka0Vq0000001kYf-00N5w00000Ri7BU-0EM5w000005vNj0.png"/></Frame>
+The Dynamic Unpivot tile lets you "unpivot" or normalize data in tables, transforming multiple columns in a single row into a single column with multiple rows. This tile is good in situations where the number of columns could potentially change. As columns are added, the Dynamic Unpivot tile automatically unpivotsthem.
+
+#### Example
+
+For example, the Dynamic Unpivot tile converts data where two products (Product A and Product B) appear in separate columns...
+
+<Frame><img alt="download.png" src="/images/kb/ka0Vq0000001kYf-00N5w00000Ri7BU-0EM5w000005vNip.png"/></Frame>
+... to data where all products appear in the same column...
+  
+<Frame><img alt="download__1_.png" src="/images/kb/ka0Vq0000001kYf-00N5w00000Ri7BU-0EM5w000005vNib.png"/></Frame>
+In this image, a third product (Product C) has been added to the `Product` column.
+  
+<Frame><img alt="download__2_.png" src="/images/kb/ka0Vq0000001kYf-00N5w00000Ri7BU-0EM5w000005vNie.png"/></Frame>
+The following configuration was used to achieve the results above.
+
+* In step 1 of the Dynamic Unpivot tile editor, choose **Month**. This column is not pivoted.
+* In step 2, name the column that will hold the pivoted column names. In this example, this column name is `Product.`
+* In step 3, name the column that will hold the pivoted column values. In this example, this column name is `Sales.`
+
+<Frame><img alt="download__3_.png" src="/images/kb/ka0Vq0000001kYf-00N5w00000Ri7BU-0EM5w000005vNiS.png"/></Frame>
+Follow these steps to configure the Dynamic Unpivot tile:
+
+1. Drag the **Dynamic** **Unpivot** tile to the canvas and connect it to the rest of your flow.
+2. (Optional) Rename the tile. In the **Configuration** tab of the tile editor, select <i className="icon-pencil sm" aria-hidden="true" /> **Edit**.
+     
+   <Frame><img alt="edit tile name.jpg" src="/images/kb/ka0Vq0000001kYf-00N5w00000Ri7BU-0EMVq000002MxQ5.jpg"/></Frame>
+3. In step 1 of the tile editor, enter the name of the column that you DO NOT want to be pivoted. This will duplicate the value in this row per column that is being pivoted.
+4. In step 2, name the column you want to create to contain the column headings from the columns to unpivot.
+5. In step 3, name the column you want to create to contain the row values from the columns to be unpivoted.
+
+Now, each new column added to this DataSet will automatically be pivoted unless you add it to Step 1 (these columns are not pivoted.)
+
+<Tip>
+  **Tip:** You can preview the data transformed by a tile by running a preview, clicking the tile in the canvas, then clicking the **Preview** tab.
+
+</Tip>
+
+## Pivot Tile
+
+<Frame><img src="/images/kb/ka0Vq0000001kYf-00N5w00000Ri7BU-0EM5w000005vNiU.png" /></Frame>
+The Pivot tile lets you "pivot" or de-normalize data in tables using key-value pairs, transforming a single column with multiple rows into multiple columns in a single row.
+
+<Note>
+  **Note:** If you create a table that reaches the 1500-column limit, you will receive an error. You must reduce the number of columns to continue running your Magic ETL DataFlow.
+
+</Note>
+
+**Example**
+
+For example, the Pivot tile converts data where products A, B, and C are in the same column...
+
+<Frame><img alt="etl_rowdenormalizer_datain.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNhH.png"/></Frame>
+... to data where products A, B, and C each have their own column.
+
+<Frame><img alt="etl_rowdenormalizer_dataout.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNi9.png"/></Frame>
+The following configuration was used to achieve the results above.
+
+* In step 1 of the Pivot tile editor, choose **Product**.
+* In step 2, select the column(s) that identify a row. In this example, the column is `Month.`
+* In step 3, name the new column(s) to create. In this example, three columns are created, `Product A,` `Product B,` and `Product C.`
+* In step 4, provide the label that identifies the rows that belong in each new column. In this example, the labels are `A,` `B,` and `C.`
+* In step 5, select what column values will populate the new column. In this example, the column for each product is `Sales.`
+
+<Frame><img alt="etl_rowdenormalizer_sampleui.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNhF.png"/></Frame>
+Follow these steps to configure the Pivot tile:
+
+1. Drag the **Pivot** tile to the canvas and connect it to the rest of your flow.
+2. (Optional) Rename the tile. In the **Configuration** tab of the tile editor, select <i className="icon-pencil sm" aria-hidden="true" /> **Edit**.
+3. Enter the name of the key column you want to pivot into new column headers.
+     
+   For example, "Product".
+4. Select the column to use to group the row values of the new columns.
+     
+   For example, "Month".
+5. For each new column you want to create from the key column, do the following:
+
+   1. Enter the name of the new column header.
+        
+      For example, "Product A".
+   2. Enter a value from the key column that represents the column header to be pivoted.
+        
+      For example, "A".
+   3. Select the value column to use to fill the row value of the new column.
+   4. For example, "Sales".
+
+   <Note>
+     **Note:** For each column you add to be pivoted, select the same value column.
+
+   </Note>
+
+   5. (Conditional) If you want to add another column, then click **Add Column**.
+
+      <Tip>
+        **Tip:** You can preview the data transformed by a tile by running a preview, clicking the tile in the canvas, then viewing the **Preview** tab.
+
+      </Tip>
+
+## Unpivot Tile
+
+<Frame><img src="/images/kb/ka0Vq0000001kYf-00N5w00000Ri7BU-0EM5w000005vNj4.png" /></Frame>
+The Unpivot tile lets you "unpivot" or "normalize" data in tables, transforming multiple columns in a single row into a single column with multiple rows. This action is useful only for unpivoting data in which the number of columns stays the same. If you add another column of data to the original file, this action does not unpivot the new column.
+
+**Example**
+
+For example, the Unpivot tile converts data in this pivoted format...
+
+<Frame><img alt="etl_rownormalizer_datain.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNi7.png"/></Frame>
+... to data in this format...
+
+<Frame><img alt="etl_rownormalizer_dataout.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNi3.png"/></Frame>
+... using this configuration:
+
+<Frame><img alt="etl_rownormalizer_sampleui.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNh2.png"/></Frame>
+**To configure the Unpivot tile,**
+
+1. Click the **Unpivot** tile in the canvas.
+2. (Optional) Rename the tile by clicking
+   <i className="icon-pencil sm" aria-hidden="true" />, then entering the name you want.
+3. Enter the name of the column you want to create to contain the column headings from the columns to unpivot.
+     
+   For example, "Product".
+4. Enter the name of the column you want to create to contain the row values from the columns to be unpivoted.
+     
+   For example, "Sales".
+5. For each column you want to unpivot, do the following:
+
+   1. Select a column to normalize.
+        
+      For example, "Product A".
+   2. Enter a value representing the column header to be normalized.
+        
+      The value appears in the row of the new column. For example, "A".
+   3. (Conditional) If you want to unpivot another column, then click **Add Column**.
+
+      <Tip>
+        **Tip:** You can preview the data transformed by a tile by running a preview, clicking the tile in the canvas, then clicking the **Preview** tab.
+
+      </Tip>
+
+## What it Means to Pivot a Table (video)
+
+<iframe allowfullscreen="allowfullscreen" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/F77TK52_VOg" width="560"></iframe>

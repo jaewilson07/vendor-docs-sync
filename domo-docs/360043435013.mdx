@@ -1,0 +1,161 @@
+---
+title: "Procore Connector"
+excerpt: "Use the Procore connector with OAuth to pull construction project, document, and team collaboration data into a Domo DataSet."
+---
+
+## Intro
+
+Procore allows large teams of construction companies, property owners, project managers, contractors, and partners to collaborate on large-scale construction projects and share access to documents, planning systems and data. To learn more about the Procore API, visit their page ([https://www.procore.com/platform/procore-connect.php](https://www.procore.com/platform/procore-connect.php)).
+
+You connect to your Procore account in the Data Center. This topic discusses the fields and menus that are specific to the Procore connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Procore account and create a DataSet, you must the email address you use to log into Procore, along with your Procore password.
+
+## Connecting to Your Procore Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Procore Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+The Domo Procore connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Procore accounts in Domo) to open the Procore OAuth screen where you can enter your Procore email address and password. Once you have entered valid Procore credentials, you can use the same account any time you go to create a new Procore DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Menu</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Report</p></td>
+      <td colspan="1" rowspan="1"><p>Select the Procore report you want to run. The following reports are available:</p><table border="1" cellpadding="1" cellspacing="1" colspan="1" rowspan="1"><tr><th>Report</th><th>Description</th></tr><tr><td>All Activity Details</td><td>Returns activity details for all RFIs across company projects.</td></tr><tr><td>All RFI Replies</td><td>Returns replies for all RFIs across company projects.</td></tr><tr><td>Budget Items</td><td>Returns a list of all budget line items.</td></tr><tr><td>Calendar Events</td><td>Returns calendar events for a specified project.</td></tr><tr><td>Change Order Request Details</td><td>Returns detailed information for change order requests for a specified contract.</td></tr><tr><td>Change Orders</td><td>Returns change orders for a specified contract.</td></tr><tr><td>Change Orders Requests</td><td>Returns change order requests for a specified contract.</td></tr><tr><td>Change Reason Templates</td><td>Returns change reason templates.</td></tr><tr><td>Checklist Templates</td><td>Returns inspection checklist templates for a specified project.</td></tr><tr><td>Checklists</td><td>Returns inspection checklists for a specified project.</td></tr><tr><td>Companies</td><td>Returns companies visible to the authenticated user.</td></tr><tr><td>Company Insurances</td><td>Returns insurances for a specified company.</td></tr><tr><td>Company Users</td><td>Returns users associated with a company.</td></tr><tr><td>Company Vendor Insurances</td><td>Returns vendor insurances for a specified company.</td></tr><tr><td>Company Vendors</td><td>Returns vendors associated with a company.</td></tr><tr><td>Contract Payments</td><td>Returns contract payments.</td></tr><tr><td>Cost Codes</td><td>Returns company-level cost code lists.</td></tr><tr><td>Direct Costs</td><td>Returns direct cost items for a project.</td></tr><tr><td>Drawing Areas</td><td>Returns drawing areas in a project.</td></tr><tr><td>Drawings</td><td>Returns drawings for a specified drawing area.</td></tr><tr><td>Environmentals</td><td>Returns environmental records for a project.</td></tr><tr><td>Equipment</td><td>Returns project equipment.</td></tr><tr><td>Harm Sources</td><td>Returns harm sources for a company.</td></tr><tr><td>Incidents</td><td>Returns incident records for a project.</td></tr><tr><td>Injuries</td><td>Returns injury records for a project.</td></tr><tr><td>Inspectors (checklists)</td><td>Returns possible inspectors for a project.</td></tr><tr><td>Line Item Types</td><td>Returns defined line item types.</td></tr><tr><td>Locations</td><td>Returns project locations.</td></tr><tr><td>Manpower Logs</td><td>Returns approved manpower logs for a specified date.</td></tr><tr><td>Meetings</td><td>Returns meetings for a project.</td></tr><tr><td>Meetings Categories</td><td>Returns categories for a specified meeting.</td></tr><tr><td>Near Misses</td><td>Returns near-miss records for a project.</td></tr><tr><td>Notes Logs</td><td>Returns notes logs for the current date.</td></tr><tr><td>Observation Category Configurable Field Sets</td><td>Returns observation category field sets.</td></tr><tr><td>Observation Default Distribution Members</td><td>Returns default distribution members for observations.</td></tr><tr><td>Observation Item Response Logs</td><td>Returns response logs for observation items.</td></tr><tr><td>Observation Items</td><td>Returns observation items.</td></tr><tr><td>Observation Potential Distribution Members</td><td>Returns potential distribution members for observations.</td></tr><tr><td>Observation Types</td><td>Returns observation types.</td></tr><tr><td>Observations Response Logs</td><td>Returns response logs for observations.</td></tr><tr><td>Photo Albums</td><td>Returns photo albums for a project.</td></tr><tr><td>Photos</td><td>Returns images from a project photo album.</td></tr><tr><td>Plan Revision Logs</td><td>Returns plan revision logs for the current date.</td></tr><tr><td>Potential Change Order Details</td><td>Returns details for potential change orders.</td></tr><tr><td>Potential Change Orders</td><td>Returns potential change orders.</td></tr><tr><td>Prime Contract (Attachment)</td><td>Returns the prime contract with attachments.</td></tr><tr><td>Prime Contract (Change Orders)</td><td>Returns the prime contract with change orders.</td></tr><tr><td>Prime Contract (Line Items)</td><td>Returns the prime contract with line items.</td></tr><tr><td>Prime Contract (Order Packages)</td><td>Returns the prime contract with order packages.</td></tr><tr><td>Prime Contract (Order Requests)</td><td>Returns the prime contract with order requests.</td></tr><tr><td>Prime Contract (Payment Received)</td><td>Returns the prime contract with received payments.</td></tr><tr><td>Programs</td><td>Returns company programs.</td></tr><tr><td>Project Dates</td><td>Returns project dates.</td></tr><tr><td>Project Details</td><td>Returns details for a specified project.</td></tr><tr><td>Project Details (Budget)</td><td>Returns budget information for project details.</td></tr><tr><td>Project Folders</td><td>Returns folders and files for a project.</td></tr><tr><td>Project Insurances</td><td>Returns insurances for a project.</td></tr><tr><td>Project Roles</td><td>Returns project roles.</td></tr><tr><td>Project Users</td><td>Returns users associated with a project.</td></tr><tr><td>Project Vendors</td><td>Returns vendors for a project.</td></tr><tr><td>Projects</td><td>Returns active projects.</td></tr><tr><td>Property Damages</td><td>Returns property damage records for a project.</td></tr><tr><td>Punch Item Types</td><td>Returns punch item types.</td></tr><tr><td>Punch Items</td><td>Returns punch items for a project.</td></tr><tr><td>Purchase Order Contract</td><td>Returns purchase order contracts.</td></tr><tr><td>Quantity Logs</td><td>Returns quantity logs for the current date.</td></tr><tr><td>Recently Updated Photos</td><td>Returns recently updated photos for a project.</td></tr><tr><td>RFIs</td><td>Returns RFIs for a project.</td></tr><tr><td>Standard Cost Code Lists</td><td>Returns company-level cost code lists.</td></tr><tr><td>Standard Cost Codes</td><td>Returns standard cost codes for a list.</td></tr><tr><td>Submittals</td><td>Returns submittals for a project.</td></tr><tr><td>TimeCard Entries</td><td>Returns timecard entries for the current date.</td></tr><tr><td>TimeCard Time Types</td><td>Returns timecard time types for a project.</td></tr><tr><td>Trades</td><td>Returns trades associated with a company.</td></tr><tr><td>Visitor Logs</td><td>Returns visitor logs for the current date.</td></tr><tr><td>Waste Logs</td><td>Returns waste logs for the current date.</td></tr><tr><td>Work Breakdown Structure Codes</td><td>Returns WBS codes for a project.</td></tr><tr><td>Work Logs</td><td>Returns work logs for the current date.</td></tr><tr><td>Work Order Contract</td><td>Returns work order contracts for a project.</td></tr></table></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Company</p></td>
+      <td colspan="1" rowspan="1"><p>Select the company you want to retrieve information for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Sub Report</p></td>
+      <td colspan="1" rowspan="1"><p>Choose the sub list to flatten.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Project Filter</p></td>
+      <td colspan="1" rowspan="1"><p>Specify whether you want to retrieve data for all projects, active projects only, or inactive projects only.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Project</p></td>
+      <td colspan="1" rowspan="1"><p>Select the project you want to retrieve information for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Scope</p></td>
+      <td colspan="1" rowspan="1"><p>Returns only codes that match the selected WBS scope.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Contract</p></td>
+      <td colspan="1" rowspan="1"><p>Select the contract you want to retrieve information for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Contract Selection Method</p></td>
+      <td colspan="1" rowspan="1"><p>Choose the method to select contracts. This discovery will return a list of contracts. Manual entry will allow you to enter a Contract ID.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Contract ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the Contract ID.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>PCO Id Selection Method</p></td>
+      <td colspan="1" rowspan="1"><p>Choose the method to select PCO Ids. Selecting "All" will returns data for all PCO Ids. Selecting "Manual" will return a list of PCO Ids for entered contract Id.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>PCO ID</p></td>
+      <td colspan="1" rowspan="1"><p>Select PCO Id to run the report for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>COR ID Selection Method</p></td>
+      <td colspan="1" rowspan="1"><p>Choose the method to select COR Ids. Selecting "All" will returns data for all COR Ids. Selecting "Manual" will return a list of COR Ids for entered contract Id.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>COR ID</p></td>
+      <td colspan="1" rowspan="1"><p>Select COR Id to run the report for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Company Vendor</p></td>
+      <td colspan="1" rowspan="1"><p>Select the vendor you want to retrieve information for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Drawing Area</p></td>
+      <td colspan="1" rowspan="1"><p>Select the drawing area you want to retrieve information for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Meetings</p></td>
+      <td colspan="1" rowspan="1"><p>Select the meeting you want to retrieve information for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Album</p></td>
+      <td colspan="1" rowspan="1"><p>Select the album you want to retrieve information for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Standard Cost Code</p></td>
+      <td colspan="1" rowspan="1"><p>Select the standard cost code list you want to retrieve information for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Duration</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether you want to pull data for a specific date or a date range.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Number of photos</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the numbers of recent photos you want to retrieve.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select the dates to retrieve data for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Report Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether the report data is for a specific date or for a relative number of days back from today.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Specific Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select the date for the report.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Days Back</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the number of past days that should appear in the report.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Start Date</p></td>
+      <td colspan="1" rowspan="1"><p>Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b>End Date</b>.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>End Date</p></td>
+      <td colspan="1" rowspan="1"><p>Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b>Start Date</b>.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Specific Start Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select the first date in your date range.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Specific End Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select the second date in your date range.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Days Back to Start From</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the number of the farthest day back that should be represented in the report. Combine with <b>Days Back to End At</b> to create a range of represented days.  For example, if you entered 10 for <b> Days Back to Start From</b> and 5 for <b> Days Back to End At</b>, the report would contain data for 10 days ago up until 5 days ago.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Days Back to End At</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the number of the most recent day back that should be represented in the report. Combine with <b>Days Back to Start From</b> to create a range of represented days.  For example, if you entered 10 for <b> Days Back to Start From</b> and 5 for <b> Days Back to End At</b>, the report would contain data for 10 days ago up until 5 days ago.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

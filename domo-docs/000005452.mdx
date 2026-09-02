@@ -1,0 +1,38 @@
+---
+title: "Sprout Social Connector"
+excerpt: "Use the Sprout Social connector with an API Key to pull social profile analytics, messages, topics, and case data into Domo."
+---
+
+## Intro
+
+Sprout Social is a social media management and intelligence tool for brands and agencies of all sizes to manage conversations and surface the actionable insights that drive real business impact. Their fully integrated platform provides solutions for superior social marketing, customer service, data analysis, social listening, and employee advocacy.
+
+Sprout connector pulls analytics of your social profiles you've integrated with Sprout. Profile-level data is shown in PST and Post-level data is shown according to the social channels own time zone. To learn more about the Sprout Social API, see ([https://api.sproutsocial.com/docs/](https://api.sproutsocial.com/docs/ "https://api.sproutsocial.com/docs/") ).
+
+You can connect to your Sprout Social account in the Data Center. This topic discusses the fields and menus that are specific to the Sprout Social connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Sprout Social account and create a DataSet, you must have an API Key.
+
+## Connecting to Your Sprout Social Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Sprout Social Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Sprout Social account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter your Sprout Social account's API key. </p></td></tr></tbody></table>
+
+Once you have entered valid Sprout Social credentials, you can use the same account any time to create a new Sprout Social DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Sprout Social report you want to run. The following reports are available: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Cases </td><td colspan="1" rowspan="1"> Returns the list of sprout cases information. </td></tr><tr><td colspan="1" rowspan="1"> Customer Profiles </td><td colspan="1" rowspan="1"> Returns the list of customer profile IDs you have access to. </td></tr><tr><td colspan="1" rowspan="1"> Customer Tags </td><td colspan="1" rowspan="1"> Returns the list of customer tags you have access to. </td></tr><tr><td colspan="1" rowspan="1"> Customer Topics </td><td colspan="1" rowspan="1"> Returns all Topics associated with your customer ID. </td></tr><tr><td colspan="1" rowspan="1"> Customer Users </td><td colspan="1" rowspan="1"> Returns all users associated with your customer ID. </td></tr><tr><td colspan="1" rowspan="1"> Customer Groups </td><td colspan="1" rowspan="1"> Returns the list of groups you created in Sprout. </td></tr><tr><td colspan="1" rowspan="1"> Topic Messages </td><td colspan="1" rowspan="1"> Returns topic Messages extracts raw messages for further processing or providing sample messages within dashboards. </td></tr><tr><td colspan="1" rowspan="1"> Topics Metrics </td><td colspan="1" rowspan="1"> Returns topic metrics aggregate data across the Topic. </td></tr><tr><td colspan="1" rowspan="1"> Messages </td><td colspan="1" rowspan="1"> Returns detailed data and metadata about your Sprout messages. </td></tr><tr><td colspan="1" rowspan="1"> Post Analytics </td><td colspan="1" rowspan="1"> Returns query profile-level metrics for a given set of profiles. </td></tr><tr><td colspan="1" rowspan="1"> Owned Profile Analytics </td><td colspan="1" rowspan="1"> Returns query profile-level metrics for a given set of profiles. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Customer ID </td><td colspan="1" rowspan="1"> Select the Customer Id to proceed with the report configuration. </td></tr><tr><td colspan="1" rowspan="1"> Topic </td><td colspan="1" rowspan="1"> Select the topic to proceed with for the report configuration. </td></tr><tr><td colspan="1" rowspan="1"> Network Type </td><td colspan="1" rowspan="1"> Select the Network Type to proceed with the report configuration. </td></tr><tr><td colspan="1" rowspan="1"> Dimensions </td><td colspan="1" rowspan="1"> Select the dimensions to proceed with the report configuration. </td></tr><tr><td colspan="1" rowspan="1"> Metrics </td><td colspan="1" rowspan="1"> Select the Metrics to proceed with the report configuration. </td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> Select the time period for which you would like to receive the data. </td></tr><tr><td colspan="1" rowspan="1"> Customer Profiles </td><td colspan="1" rowspan="1"> Select the Customer Profiles to proceed with the report configuration. </td></tr><tr><td colspan="1" rowspan="1"> Handle Failing Customer Profile Id(s) (checkbox) </td><td colspan="1" rowspan="1"><p> This checkbox appears when you select any one of the following three reports, and when you select atleast one customer profile from the <b> Customer Profiles </b> field. <b></b></p><ul><li><b> Owned Profile Analytics </b></li><li><b> Post Analytics </b></li><li><b> Messages </b></li></ul><p> Select this checkbox to remove unauthorized customer profile IDs from the backend automatically. This checkbox will only check for the profiles which you have selected in the <b> Customer Profiles </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"> Groups </td><td colspan="1" rowspan="1"> Select the Group to proceed with the report configuration. </td></tr><tr><td colspan="1" rowspan="1"> Fields </td><td colspan="1" rowspan="1"> Select the Fields to proceed with the report configuration. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

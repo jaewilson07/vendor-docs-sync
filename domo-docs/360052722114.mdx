@@ -1,0 +1,83 @@
+---
+title: "AWS Data Exchange V2 Connector"
+excerpt: "Configure the AWS Data Exchange V2 connector to import subscribed third-party DataSets from your Amazon S3 bucket into Domo."
+---
+
+## Intro
+
+AWS Data Exchange makes it easy to find, subscribe to, and use third-party data in the cloud. You can access datasets from qualified data providers that include category-leading brands such as Reuters, who curate data from over 2.2 million unique news stories per year in multiple languages; Change Healthcare, who process and anonymize more than 14 billion healthcare transactions and $1 trillion in claims annually; Dun & Bradstreet, who maintain a database of more than 330 million global business records; and Foursquare, whose location data is derived from 220 million unique consumers and includes more than 60 million global commercial venues. Use Domo's Data Exchange Connector to import data into Domo from your Amazon S3 bucket. With the powerful datasets from AWS combined with the ability to visualize and create business solutions in Domo, you can create high-value solutions by combining your own data with external datasets. This connector lists only the AWS Data Exchange datasets that you've subscribed to and approved. To learn more about the Amazon S3 API, visit their page ([http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html") ).
+
+You connect to your AWS Data Exchange V2 account in the Data Center. This topic discusses the fields and menus that are specific to the AWS Data Exchange V2 connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><p><b><b> Primary Use Cases </b></b></p></td><td colspan="1" rowspan="1"><p> This connector is an excellent choice for retrieving flat files when APIs are not an option. </p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> Primary Metrics </b></b></p></td><td colspan="1" rowspan="1"><p> N/A </p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> Primary Company Roles </b></b></p></td><td colspan="1" rowspan="1"><ul><li> Data specialists </li><li> Marketing roles </li><li> Finance roles </li><li> Anyone who has data stored in S3 </li></ul></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> Average Implementation Time </b></b></p></td><td colspan="1" rowspan="1"><p> Less than an hour if you have the correct file types in S3. </p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></b></p></td><td colspan="1" rowspan="1"><p> 4 </p></td></tr></tbody></table>
+
+## Best Practices
+
+Understanding the data stored in S3 and its relation to other S3 databases will be a huge asset in using this connector.
+
+## Prerequisites
+
+To connect to your AWS Data Exchange V2 account and create a DataSet, you must have the following:
+
+* Your AWS access key. You can find this in the
+  ****Security Credentials**** section of the AWS Console. Alternatively, if you are using IAM, you can find it under ****Users****.
+* Your AWS secret key, which was provided when you created your access key. You can generate a new secret key in the AWS Console.
+
+Your AWS Access Key and Secret Key should also have AWS Data Exchange Full access.
+
+### Creating a User with the Proper Permissions
+
+You must create a user with the proper permissions in the IAM Amazon Console before you can connect to S3 data in Domo.
+
+****To configure your user:****
+
+1. In the Identity and Access Management Amazon Console, click
+**Users**.
+
+<Frame><img alt="screen1.png" src="/images/kb/ka05w00000123MS-00N5w00000Ri7BU-0EM5w000005vO6X.png"/></Frame>
+
+2. Click on the
+**Add User** button.
+
+<Frame><img alt="screen2.png" src="/images/kb/ka05w00000123MS-00N5w00000Ri7BU-0EM5w000005vO6V.png"/></Frame>
+
+3. Add a new user, setting options as follows:
+
+* In the
+  **Details** pane, check the box for **Programmatic Access** under **Select AWS access type**.
+* In the
+  **Permissions** pane, select **Attach existing policies directly**, then check the box for either **AmazonS3FullAccess** or **AmazonS3ReadOnlyAccess**.
+    
+  Customer-managed policies *do not work*.
+
+<Frame><img alt="Set_Permissions.png" src="/images/kb/ka05w00000123MS-00N5w00000Ri7BU-0EM5w000005vO6E.png"/></Frame>
+
+* Click
+  **Next: Tags** button to add tags. Adding tags is optional.
+* In the
+  **Review** pane, click **Create User**.
+
+4.  Once your user is created, copy the access and secret keys to use in the
+**Credentials** pane in Domo.
+
+## Connecting to Your AWS Data Exchange V2 Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the AWS Data Exchange V2 Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your AWS Data Exchange V2 account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> Enter your AWS access key. For information about finding your access key, see Prerequisites above. </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> Enter your AWS secret key. For information about finding your secret key, see Prerequisites above. </td></tr></tbody></table>
+
+Once you have entered valid AWS Data Exchange V2 credentials, you can use the same account any time you go to create a new AWS Data Exchange V2 DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane lists the AWS Data Exchange datasets along with the different parameters that you can select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> List Data Sets </td><td colspan="1" rowspan="1"> Select the datasets. This connector lists only the AWS Data Exchange datasets that you've subscribed to and approved. </td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"><p> Select the AWS region where the AWS Data Exchange is available. Visit <a class="link-https" href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/" target="_blank" title="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/"> AWS Regional Services List </a> to get a detailed and updated list of the regions. </p></td></tr><tr><td colspan="1" rowspan="1"> What asset type would you like to import? </td><td colspan="1" rowspan="1"> Select the asset type that you would like to parse and import </td></tr><tr><td colspan="1" rowspan="1"> Select the delimiting character </td><td colspan="1" rowspan="1"> Select the delimiting character used in your file. If your delimiter is not listed select 'Other.' </td></tr><tr><td colspan="1" rowspan="1"> Specify your delimiter </td><td colspan="1" rowspan="1"> Enter the character used to delimit your character separated values (CSV) text. </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> Select the desired quote character for parsing CSV files. (Double quote is the default quote character for CSV standard) </td></tr><tr><td colspan="1" rowspan="1"> Custom Quote Character </td><td colspan="1" rowspan="1"> Enter the desired CSV Quote character. </td></tr><tr><td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> Select the desired escape character for parsing CSV files. </td></tr><tr><td colspan="1" rowspan="1"> Custom Escape Character </td><td colspan="1" rowspan="1"> Enter the desired CSV escape character. </td></tr><tr><td colspan="1" rowspan="1"> Enter the WorkBook Sheet Name </td><td colspan="1" rowspan="1"> Enter the WorkBook Sheet Name. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

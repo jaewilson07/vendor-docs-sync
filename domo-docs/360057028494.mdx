@@ -1,0 +1,40 @@
+---
+title: "OData Connector"
+excerpt: "Configure Domo's OData Connector to pull data exposed through OData REST endpoints into a DataSet using credentials, filters, and pagination options."
+---
+
+## Intro
+
+OData (Open Data Protocol) is an OASIS standard that defines the best practice for building and consuming queryable and interoperable REST APIs in a simple and standard way. OData helps you focus on your business logic while building RESTful APIs without having to worry about the various approaches to define request and response headers, status codes, HTTP methods, URL conventions, payload formats, query options, etc. Use Domo's OData connector to pull the data exposed through the OData endpoints. To learn more about OData, visit their page https://www.odata.org/.
+
+You connect to your OData account in the Data Center. This topic discusses the fields and menus that are specific to the OData connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your OData account and create a DataSet, you must the following:
+
+* Username
+* Password
+* Base URL
+
+## Connecting to Your OData Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the OData Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your OData account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username associated with your OData account. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password associated with your OData account. </td></tr><tr><td colspan="1" rowspan="1"> Base URL </td><td colspan="1" rowspan="1"> Enter the OData endpoint URL. </td></tr></tbody></table>
+
+Once you have entered valid OData credentials, you can use the same account any time you go to create a new OData DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> URL </td><td colspan="1" rowspan="1"> Enter the OData endpoint URL. </td></tr><tr><td colspan="1" rowspan="1"> Data Tag </td><td colspan="1" rowspan="1"> Enter the data tag key. </td></tr><tr><td colspan="1" rowspan="1"> Fields To Expand </td><td colspan="1" rowspan="1"> Enter the comma separated list of fields you want to expand in the data. This will cause multiple rows to show each object for the entered fields. </td></tr><tr><td colspan="1" rowspan="1"> Select Data Filter </td><td colspan="1" rowspan="1"><p> Specify the data filter method for your data. </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Data Filter </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> All Data </td><td colspan="1" rowspan="1"> Returns all the available data. </td></tr><tr><td colspan="1" rowspan="1"> Use Date Filter </td><td colspan="1" rowspan="1"> Filters the data for the selected date range. </td></tr><tr><td colspan="1" rowspan="1"> Backfill Data </td><td colspan="1" rowspan="1"> Backfills the data for the specific field. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Add Rate Limit Parameters (checkbox) </td><td colspan="1" rowspan="1"><p> Select this check box to add specific rate limiting parameters. For example,5 calls per minute. </p></td></tr><tr><td colspan="1" rowspan="1"> Select Pagination Type </td><td colspan="1" rowspan="1"><p> Select the pagination type for the API calls to be made. </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Client Based </td><td colspan="1" rowspan="1"> Select Client Based pagination if your API supports pagination with <b> $top </b> and <b> $skip </b> parameters. </td></tr><tr><td colspan="1" rowspan="1"> Server Based </td><td colspan="1" rowspan="1"> Select Server Based pagination if you want to paginate using <b> @nextLink </b> from response. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Data Filter Field </td><td colspan="1" rowspan="1"> Enter the same date filter field name available in response in order to filter the response. </td></tr><tr><td colspan="1" rowspan="1"> Filter Field Date Format </td><td colspan="1" rowspan="1"> Enter the date format for the specified date filter field. For example, yyyy-MM-dd, yyyy-MM-dd'T'HH:mm:ss'Z', and so on. </td></tr><tr><td colspan="1" rowspan="1"> Backfill Field </td><td colspan="1" rowspan="1"> Enter the field name that you want to backfill your data for. This functionality works only for the append mode. <br/><b><b> Note </b></b>: The Backfill field must be present in the response and it must be of integer type. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,85 @@
+---
+title: "Amazon S3 User Specific Permissions Connector"
+excerpt: "Use Domo's Amazon S3 User Specific Permissions Connector to retrieve S3 files scoped to a prefix path using AWS access keys into a DataSet."
+---
+
+## Intro
+
+Amazon S3 is an online file storage web service that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. To learn more about the Amazon S3 API, visit their page ([http://docs.aws.amazon.com/AmazonS3/...I/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html") ).
+
+You set up your Amazon S3 connection in the Data Center. This topic discusses the fields and menus that are specific to the Amazon S3 User-Specific Permissions Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Amazon S3 account and create a DataSet, you must have the following:
+
+* Your AWS access key. You can find this in the
+  ****Security Credentials**** section of the AWS Console. Alternatively, if you are using IAM, you can find it under ****Users****.
+* Your AWS secret key, which was provided when you created your access key. You can generate a new secret key in the AWS Console.
+* The name of the AWS S3 Bucket you want to retrieve files from.
+* The prefix path for the file you want to pull data from. Domo initially populates all the S3 Objects present from the prefix path (in the
+  **Credentials** section), then filters these results based on the **Input Format**, **Partial File Name** and **File Name Match** (from the **Details** section). The Prefix can be /path/directory/subdir/subdir/subdir/.
+* You need to select the Amazon S3 Region.
+
+## Connecting to Your Amazon S3 Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Amazon S3 Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Amazon S3 account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Key </p></td><td colspan="1" rowspan="1"><p> Enter your AWS access key. For information about finding your access key, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Secret Key </p></td><td colspan="1" rowspan="1"><p> Enter your AWS secret key. For information about finding your secret key, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Bucket </p></td><td colspan="1" rowspan="1"><p> Enter the Amazon S3 Bucket you want to pull files from. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Prefix </p></td><td colspan="1" rowspan="1"><p> Enter the prefix path for the file you want to retrieve. For more information about the prefix path, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Region </p></td><td colspan="1" rowspan="1"><p> Select the Amazon S3 Region. </p></td></tr></tbody></table>
+
+Once you have entered valid Amazon S3 credentials, you can use the same account any time you go to create a new Amazon S3 User-Specific Permissions DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> File Type to Import </p></td><td colspan="1" rowspan="1"><p> Select the type of file you want to import into Domo. Available file types include CSV, JSON, XML, XLS, TSV, and TXT. </p></td></tr><tr><td colspan="1" rowspan="1"><p> How Would You Like to Choose Your Filename? </p></td><td colspan="1" rowspan="1"><p> Select how you want Domo to identify your file. Options are as follows: </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Complete Filename </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> You enter the complete path to the file. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Partial Filename </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> You enter a partial file name and specify whether the file to retrieve starts with or contains the name you have entered. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> FilesDiscovery </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> A list of files in the selected bucket appears and you choose the one you want. This option is available <em><em> only </em></em> when your selected S3 bucket contains fewer than 100 files. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Partial Filename </p></td><td colspan="1" rowspan="1"><p> Enter the name of the Amazon S3 file you want to import. <br/><br/> Example: <span class="mt-font-courier-new"> folder_name/file_name. </span><br/><br/> If more than one file begins with or contains this string, the connector will choose the last modified file to import. </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Name Match Type </p></td><td colspan="1" rowspan="1"><p> Specify whether the filename you want to retrieve starts with or contains the text you entered into the <b> Partial Filename </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Compression Type </p></td><td colspan="1" rowspan="1"><p> Select the compression type for the file you want to retrieve. If the file is not compressed, select <b><b> None </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> ZIP File Encoding </p></td><td colspan="1" rowspan="1"><p> Select the desired ZIP file encoding type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> How Would You Like to Choose Your File Inside a ZIP? </p></td><td colspan="1" rowspan="1"><p> Select whether you want to enter the name of your ZIP file or have it be discovered. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter File Name Inside ZIP </p></td><td colspan="1" rowspan="1"><p> Enter the file name inside the ZIP file you want to retrieve. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Are Headers Present in CSV File? </p></td><td colspan="1" rowspan="1"><p> Select <b><b> Yes </b></b> if the CSV/TSV file you are importing contains headers; otherwise select <b><b> No </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select the Delimiting Character </p></td><td colspan="1" rowspan="1"><p> Select the delimiter used in the CSV/TSV file you want to retrieve. If your delimiter is not listed, select <b><b> Other </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specify Your Delimiter </p></td><td colspan="1" rowspan="1"><p> Enter the custom delimiter used in the CSV/TSV file you want to retrieve. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Quote Character </p></td><td colspan="1" rowspan="1"><p> Select a quote character to parse the CSV/TSV file you want to retrieve. A double quote (") is the CSV standard. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Escape Character </p></td><td colspan="1" rowspan="1"><p> Select an escape character to parse the CSV/TSV file you want to retrieve. A backslash (\) is the CSV standard. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Escape Character </p></td><td colspan="1" rowspan="1"><p> Enter the custom escape character used in the CSV/TSV file you want to retrieve. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Add Filename Column? </p></td><td colspan="1" rowspan="1"><p> Choose <b> Yes </b> to add a column to your data that specifies the name of the file imported. This column is named "BATCH_FILE_NAME_." </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Encoding </p></td><td colspan="1" rowspan="1"><p> Select the desired file encoding. The default is <b> UTF-8 </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enable Parsing for Large JSON Files? </p></td><td colspan="1" rowspan="1"><p> Specify whether parsing is enabled for large JSON files. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Sublist to Flatten (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the comma-separated lists you want to flatten out in your data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Does Your JSON Text Require a Line Reader? </p></td><td colspan="1" rowspan="1"><p> Specify whether the text in your JSON file includes multiple lines that should be read. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Should the Backslash be Escaped? </p></td><td colspan="1" rowspan="1"><p> Specify whether the text in your JSON file contains backslash characters that should be escaped. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Do You Require Attributes in Data? </p></td><td colspan="1" rowspan="1"><p> Select <b> Yes </b> if you require attributes values as a part of the data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Data Tag (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the tag for the data in your JSON or XML file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Fields to Exclude (Optional) </p></td><td colspan="1" rowspan="1"><p> Provide a comma-separated list of fields to exclude in your JSON/XML import. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Header Tag (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the tag for the header in your JSON or XML file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Is Password Protected? </p></td><td colspan="1" rowspan="1"><p> Select <b><b> Yes </b></b> if the file you are retrieving is password-protected; otherwise select <b><b> No </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Header Start Row </p></td><td colspan="1" rowspan="1"><p> Enter the number of the header row in the Excel file you are retrieving. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Start Row </p></td><td colspan="1" rowspan="1"><p> Enter the number of the first data row in the Excel file you are retrieving. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Footer </p></td><td colspan="1" rowspan="1"><p> Enter the number of the footer row in the Excel file you are retrieving. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blank Rows </p></td><td colspan="1" rowspan="1"><p> Select the action that should be taken if blank rows are encountered. If you select <b><b> Skip blank rows </b></b>, any blank rows are skipped; if you select <b><b> Stop at the first blank column </b></b>, the data import stops when a column with a blank row is encountered. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Empty Column Headers </p></td><td colspan="1" rowspan="1"><p> Specify what should happen if empty column headers are encountered. If you choose <b><b> Add blank columns </b></b>, column names are automatically generated for the new columns. If you select <b><b> Stop at the first blank column </b></b>, the data import stops when an empty header is encountered. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Why is the Connector not pulling data?">
+
+Ensure that the file is present in the S3 bucket, and specify the correct file type in the Connector settings. Also, remove NULL columns to allow the Connector to retrieve the data.
+
+</Accordion>
+
+<Accordion title="How can I import files from subdirectories?">
+
+Domo initially populates all the S3 Objects present from the prefix path (in the **Credentials** section), then filters these results based on the **Input Format**, **Partial File** **Name** and **File Name Match** (from the **Details** section). The **Prefix** can be /path/directory/subdir/subdir/subdir/.
+
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Can I use the same Amazon S3 account for multiple DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="I don't see the files I expect in my DataSet? What's going on here?">
+
+This Connector pulls in only one file. If you select **Partial File Name**, and there are multiple files in your prefix path that match, the connector imports only the most recently modified file.
+
+</Accordion>
+
+<Accordion title="I want to import multiple files into one DataSet from my Amazon S3 bucket. How do I do this?">
+
+This connector only pulls in one file. If you want multiple Amazon S3 files in one Domo DataSet, use the Amazon S3 Advanced Connector (documentation still in progress).
+
+</Accordion>
+</AccordionGroup>
+

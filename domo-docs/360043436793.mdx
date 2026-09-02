@@ -1,0 +1,39 @@
+---
+title: "Microsoft SQL Server Reporting Service Connector"
+excerpt: "Configure Domo's Microsoft SQL Server Reporting Service connector to import SSRS reports into a DataSet using Active Directory credentials."
+---
+
+## Intro
+
+Microsoft SQL Server Reporting Service (SSRS) is a server-based report-generating software system from Microsoft. To learn more about the Microsoft SQL Server Reporting Service Connector, see ([https://docs.microsoft.com/en-us/sql...inated-reports](https://docs.microsoft.com/en-us/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports "https://docs.microsoft.com/en-us/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports") ).
+
+You can connect to your Microsoft SQL Server Reporting Service account in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft SQL Server Reporting Service connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to SSRS and import SharePoint reports, you must have the following:
+
+* Your Active Directory username and password that provides access to SSRS.
+* The Active Directory domain name that allows access to MS Reporting Services and SharePoint.
+
+## Connecting to Your Microsoft SQL Server Reporting Service
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Microsoft SQL Server Reporting Service Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Microsoft SQL Server Reporting Service account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your Active Directory username you use to connect to SSRS. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Active Directory password you use to connect to SSRS. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain Name </p></td><td colspan="1" rowspan="1"><p> Enter the Active Directory domain name of the SSRS server. </p></td></tr></tbody></table>
+
+Once you have entered valid SSRS credentials, you can use the same account any time to create a new Microsoft SQL Server Reporting Service DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains menus for selecting and configuring a SharePoint report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Document URL </p></td><td colspan="1" rowspan="1"><p> Enter the URL of the SharePoint report you want to import into Domo. For example: <span class="nowiki"><span class="mt-font-courier-new"><a href="http://myserver/mysite/Reports/myReport.rdl" rel="noopener" target="_blank"> http://myserver/mysite/Reports/myReport.rdl </a></span></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> SharePoint Report Server URL </p></td><td colspan="1" rowspan="1"><p> Enter the URL of the SharePoint report server. For example: <span class="mt-font-courier-new"><span class="nowiki"><a href="http://myserver/mysite/_vti_bin/ReportServer/ReportExecution2005.asmx" rel="noopener" target="_blank"> http://myserver/mysite/_vti_bin/ReportServer/ReportExecution2005.asmx </a></span></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Starting Row </p></td><td colspan="1" rowspan="1"><p> Enter the number of the row in the report in which the data starts. Usually this is the row with the column headers. The default starting row is 1. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,36 @@
+---
+title: "TikTok Third Party Connector"
+excerpt: "Use Domo's TikTok Connector to import user profile information and video statistics from your TikTok account into a DataSet."
+---
+
+## Intro
+
+TikTok is a social media platform for creating and sharing short videos with music and filters. TikTok connector allows you to use TikTok API to import statistics provided by TikTok into your Domo instance. This data includes your user profile and your video statistics.
+
+You can connect to your TikTok account in the Data Center. This topic discusses the fields and menus that are specific to the TikTok Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your TikTok account and create a DataSet, you must have the authentication information to login your TikTok account.
+
+## Connecting to Your TikTok Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the TikTok Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+If you already have an authenticated TikTok account and want to use it, select it from the Account drop-down in this pane. If you want to add another account, click **Add Account**. If you do not have any TikTok account, click the **Connect** button in this pane.
+
+The TikTok authentication screen will pop up, use your TikTok credentials to log in.
+
+Once you have entered valid TikTok credentials, you can use the same account any time you go to create a new TikTok DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu from which you can select a report, along with other menus and fields that may appear depending on the selected report type.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> User </p></td><td colspan="1" rowspan="1"><p> This report contains the user profile of the authenticated account. This information is at the time of connector execution. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Video List </p></td><td colspan="1" rowspan="1"><p> This report contains all your video list and its statistics like play count or share count. This information is at the time of connector execution. </p></td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

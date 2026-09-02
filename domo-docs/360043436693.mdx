@@ -1,0 +1,41 @@
+---
+title: "Microsoft Azure Blob Storage Connector"
+excerpt: "Configure Domo's Microsoft Azure Blob Storage connector to pull CSV, TSV, and TXT files from an Azure Blob Storage account into a DataSet."
+---
+
+## Intro
+
+Microsoft Azure Blob Storage is designed to easily and efficiently store any type of unstructured data, such as images, videos, audio, and documents. Use Domo's Microsoft Azure Blob Storage connector to pull CSV, TSV, and TXT data files from your Microsoft Azure Blob Storage account into Domo. Combine your Azure data with data from other data sources throughout your company for a comprehensive view of your business. Set up custom alerts to be notified in real-time when your key metrics change, so you can make faster, better business decisions. To learn more about the Azure Blob Storage API, visit their page ([https://docs.microsoft.com/en-us/res...rvice-rest-api](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api "https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api")).
+
+You connect to your Microsoft Azure Blob Storage account in the Data Center. This topic discusses the fields and menus that are specific to the Azure Blob Storage connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Azure Blob Storage account and create a DataSet, you must have the following:
+
+* Your Microsoft Azure Blob Storage account name
+* Your Microsoft Azure Blob Storage account key
+
+If you do not know your credentials, reach out to your Microsoft account representative.
+
+## Connecting to Your Azure Blob Storage Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Azure Blob Storage Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Azure Blob Storage account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Account Name </p></td><td colspan="1" rowspan="1"><p> Enter your Microsoft Azure Blob Storage account name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Key </p></td><td colspan="1" rowspan="1"><p> Enter your Microsoft Azure Blob Storage account key. </p></td></tr></tbody></table>
+
+Once you have entered valid Azure Blob Storage credentials, you can use the same account any time you go to create a new Azure Blob Storage DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+This pane contains various options for selecting and configuring the file you want to import into Domo.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> What File Type Would You Like to Import? </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull a CSV, TSV, TXT, XLS, or XLSX file into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select File Compression Type </p></td><td colspan="1" rowspan="1"><p> Select the compression type of your file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blob Containers </p></td><td colspan="1" rowspan="1"><p> Select the desired container. </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Encoding </p></td><td colspan="1" rowspan="1"><p> Select the file encoding. By default, <b> UTF-8 </b> is selected. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Format </p></td><td colspan="1" rowspan="1"><p> Select the date format used in the selected file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blob Search Type </p></td><td colspan="1" rowspan="1"><p> Select whether you want to filter the blobs with simple or advanced options. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Limit the Search To Directory </p></td><td colspan="1" rowspan="1"><p> Enter the path to limit the search to a directory, subdirectory. Leave it empty if you want to search for the blob in the container root and all directories. For example <b> directory/subdirectory/nesteddirectory/ </b><br/><em> Do not include the container name. </em></p></td></tr><tr><td colspan="1" rowspan="1"><p> Blob Name </p></td><td colspan="1" rowspan="1"><p> Enter partial or full name of the blob (Do not include extension). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blob Name Match Type </p></td><td colspan="1" rowspan="1"><p> Select how to match the blob names in Azure with the provided Blob Name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ignore Case (checkbox) </p></td><td colspan="1" rowspan="1"><p> Should Domo ignore the cases while matching the provided Blob Name? </p></td></tr><tr><td colspan="1" rowspan="1"><p> Invert Match (checkbox) </p></td><td colspan="1" rowspan="1"><p> Pull the files with the provided prefix that do not match the provided criteria of Blob Name match </p></td></tr><tr><td colspan="1" rowspan="1"><p> Advanced Filter For Blobs </p></td><td colspan="1" rowspan="1"><p> The <b> All Blobs </b> option is selected by default and the connector pulls all the blobs for the configured dataset. </p><p> The <b> Latest </b><b> Updated Blobs </b> option pulls all the latest updated blobs for the configured dataset. </p><p> The <b> Recent Blob </b> option pulls only the latest blob from all the obtained blobs for the configured dataset. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Does Your Blob Containers Have Directories? </p></td><td colspan="1" rowspan="1"><p> Select 'Yes' if your blob containers have directories. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blob Directories </p></td><td colspan="1" rowspan="1"><p> Select the blob directory. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Block Blob </p></td><td colspan="1" rowspan="1"><p> Select the desired file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Pull All Files (checkbox) </p></td><td colspan="1" rowspan="1"><p> Select this checkbox if you would like to pull all files from a directory. </p></td></tr><tr><td colspan="1" rowspan="1"><p> How Would You Like To Choose Your Block Blob? </p></td><td colspan="1" rowspan="1"><p> Specify whether you would like to select your block blob or enter it manually. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Block Blob </p></td><td colspan="1" rowspan="1"><p> Enter the desired file name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Block Blob Match Type </p></td><td colspan="1" rowspan="1"><p> Specify whether the block blob should start with or contain the name you have entered in <b> Enter Block Blob </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blobs Search Type </p></td><td colspan="1" rowspan="1"><p> Select whether you want to filter the blobs with simple or advanced options. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

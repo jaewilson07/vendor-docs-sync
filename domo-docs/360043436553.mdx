@@ -1,0 +1,90 @@
+---
+title: "Dropbox File Advanced Connector"
+excerpt: "Use Domo's Dropbox File Advanced Connector to import CSV, XLS, XLSX, JSON, XML, and ZIP files from Dropbox via OAuth with advanced parsing options."
+---
+
+## Intro
+
+Dropbox is a personal cloud storage service frequently used for file sharing and collaboration. You can use Domo's Dropbox File Advanced connector to retrieve CSV, XLS, XLSX, JSON, XML, and ZIP files from a selected Dropbox account. To learn more about the Dropbox API, go to [https://www.dropbox.com/developers](https://www.dropbox.com/developers "https://www.dropbox.com/developers").
+
+This connector is different from the standard Dropbox File connector in that it allows you to import JSON, XML, and ZIP file types in addition to CSV, XLS, and XLSX. It also provides more filter options for locating your file. For more information about the standard Dropbox File connector, see [Dropbox File Connector](/s/article/360042931974 "Dropbox File Connector").
+
+You connect to your Dropbox account in the Data Center. This topic discusses the fields and menus that are specific to the Dropbox File Advanced connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Dropbox account and create a DataSet, you must have the following:
+
+* The email address you enter to access your Dropbox account.
+* Your Dropbox password.
+
+## Connecting to Your Dropbox Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Dropbox File Advanced Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+The Domo Dropbox File Advanced connector uses OAuth to connect. Click **Connect** (or select **Add Account** if you have existing Dropbox accounts in Domo) to open the Dropbox OAuth screen where you can enter the email address associated with your Dropbox account and your Dropbox password. Once you have entered valid Dropbox credentials, you can use the same account any time you go to create a new Dropbox File Advanced DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Dropbox when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Dropbox.
+</Note>
+
+### Details Pane
+
+In this pane, you specify the file name and file type of the Dropbox file you want to import into Domo and configure various other options.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> File Type </p></td><td colspan="1" rowspan="1"><p> Select the file type for the file you want to import. You can choose to import CSV, XLS, XLSX, XML, JSON, and ZIP files. </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Name </p></td><td colspan="1" rowspan="1"><p> Enter the name of the file you want to import from Dropbox into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"> Is File Shared with Team Space Configuration? </td><td colspan="1" rowspan="1"> Select <b> Yes </b> if your file is shared in team and team space configuration is used. If selected <b> No </b>, it will search only your dropbox files. </td></tr><tr><td colspan="1" rowspan="1"><p> Match Type </p></td><td colspan="1" rowspan="1"><p> Select whether the file name you've entered in the <b><b> File Name </b></b> field <em><em> contains </em></em> the specified string, <em><em> starts </em></em> with the specified string, or is an <em> exact match </em> for the specified string. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Layout </p></td><td colspan="1" rowspan="1"><p> Select the layout of your Excel file. The following options are available: </p><ul><li><p><b><b> Column as Header </b></b>. Indicates that your Excel data uses a column-based layout (i.e. each column has a header). </p></li><li><p><b><b> Row as Header </b></b>. Indicates that your Excel data uses a row-based layout (i.e. each row has a header). </p></li><li><p><b><b> Cross Tab </b></b>. Indicates that your Excel data uses a cross-tab (pivot) layout. </p></li><li><p><b><b> Raw </b></b>. Indicates that your Excel data is raw (unformatted). </p></li><li><p><b><b> Advanced </b></b>. Use this option if you want to configure advanced layout options such as header and data start rows, footer rows to skip, date format, etc. </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Mode </p></td><td colspan="1" rowspan="1"><p> Select whether you want your Excel cell range to be detected automatically or if you would prefer to enter it manually. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Column/Row Header Range </p></td><td colspan="1" rowspan="1"><p> Enter the range of Excel cells which will be used as headers (e.g. <span class="mt-font-courier-new"> A2:F8 </span> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Range </p></td><td colspan="1" rowspan="1"><p> Enter the range of Excel cells which will be used as data (e.g. <span class="mt-font-courier-new"> A3:F20 </span> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sheet Name </p></td><td colspan="1" rowspan="1"><p> Select the Excel sheet containing the data you want to import. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Would You Like to Choose File from Folder? </p></td><td colspan="1" rowspan="1"><p> Select <b> Yes </b> if your file is found within a folder in Dropbox. You will then be prompted to enter the folder name in the <b> Folder Name </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Folder Name </p></td><td colspan="1" rowspan="1"><p> Enter the name of the folder containing the file you want to import. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Zipped File Type </p></td><td colspan="1" rowspan="1"><p> Choose the file type for the zipped data file you want to retrieve. </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Name to Search for in Zip </p></td><td colspan="1" rowspan="1"><p> Enter the name of the zipped file you want to retrieve. </p></td></tr></tbody></table>
+
+### Advanced Pane - XLS and XLSX
+
+In this pane, you configure advanced options for your Excel file.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr><tr><td colspan="1" rowspan="1"><p> Header Start Row (optional) </p></td><td colspan="1" rowspan="1"><p> Enter the header row number. If you do not enter a number, the first row is considered the header row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Start Row (optional) </p></td><td colspan="1" rowspan="1"><p> Enter the starting data row number. If you do not enter a number, the first row after the header row is considered the starting row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Footer (optional) </p></td><td colspan="1" rowspan="1"><p> If there are one or more rows at the bottom of the file you do not want to import, enter the number of rows to skip. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Manually Enter Encoding (menu) </p></td><td colspan="1" rowspan="1"><p> Select <b> Yes </b> if the file you want to import contains an uncommon encoding type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Manually Enter Encoding (field) </p></td><td colspan="1" rowspan="1"><p> Enter the encoding of the given file. This must be in standard format such as <span class="mt-font-courier-new"> ISO-8859-1 </span> for Western Europe, or <span class="mt-font-courier-new"> GB18030 </span> for Chinese. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blank Rows </p></td><td colspan="1" rowspan="1"><p> Select the desired outcome if blank rows are encountered in the Excel file. If you select <b><b> Skip blank rows </b></b>, the file is processed as normal without the blank rows. If you select <b><b> Stop at the first blank row </b></b>, everything is pulled up until the first blank row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Empty Column Headers </p></td><td colspan="1" rowspan="1"><p> Select the desired outcome if empty column headers are encountered in the Excel file. If you select <b><b> Add </b></b><b><b> blank columns </b></b>, new columns are generated with default names applied. If you select <b><b> Stop at the first blank column </b></b>, everything is pulled up until the first column with an empty header. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Format </p></td><td colspan="1" rowspan="1"><p> Select the date format used in the Excel data. If you want dates to be represented as text, select <b><b> Show Dates as Strings </b></b>. </p></td></tr></thead></table>
+
+### Advanced Pane - CSV
+
+In this pane, you configure advanced options for your CSV file.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr><tr><td colspan="1" rowspan="1"><p> Header Start Row (optional) </p></td><td colspan="1" rowspan="1"><p> Enter the header row number. If you do not enter a number, the first row is considered the header row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Start Row (optional) </p></td><td colspan="1" rowspan="1"><p> Enter the starting data row number. If you do not enter a number, the first row after the header row is considered the starting row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Footer (optional) </p></td><td colspan="1" rowspan="1"><p> If there are one or more rows at the bottom of the file you do not want to import, enter the number of rows to skip. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Manually Enter Encoding (menu) </p></td><td colspan="1" rowspan="1"><p> Select <b> Yes </b> if the file you want to import contains an uncommon encoding type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Manually Enter Encoding (field) </p></td><td colspan="1" rowspan="1"><p> Enter the encoding of the given file. This must be in standard format such as <span class="mt-font-courier-new"> ISO-8859-1 </span> for Western Europe, or <span class="mt-font-courier-new"> GB18030 </span> for Chinese. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Empty Column Headers </p></td><td colspan="1" rowspan="1"><p> Select the desired outcome if empty column headers are encountered in the CSV file. If you select <b><b> Add </b></b><b><b> blank columns </b></b>, new columns are generated with default names applied. If you select <b><b> Stop at the first blank column </b></b>, everything is pulled up until the first column with an empty header. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Format </p></td><td colspan="1" rowspan="1"><p> Select the date format used in the CSV data. If you want dates to be represented as text, select <b><b> Show Dates as Strings </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Delimiter </p></td><td colspan="1" rowspan="1"><p> Select the desired delimiter for parsing your CSV file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Quote Character </p></td><td colspan="1" rowspan="1"><p> Select the desired quote character for parsing your CSV file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Escape Character </p></td><td colspan="1" rowspan="1"><p> Select the desired escape character for parsing your CSV file. </p></td></tr></thead></table>
+
+### Advanced Pane - JSON
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr><tr><td colspan="1" rowspan="1"><p> Does Your JSON Text Require a Line Reader? </p></td><td colspan="1" rowspan="1"><p> Select <b><b> Yes </b></b> if your JSON text includes multiple lines to read. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Should the Backslash Be Escaped? </p></td><td colspan="1" rowspan="1"><p> Select <b><b> Yes </b></b> if your JSON text includes backslash characters that should be escaped. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Header Tag (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the tag for the header in your JSON text. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Tag (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the tag for the data in your JSON text. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fields to Exclude (Optional) </p></td><td colspan="1" rowspan="1"><p> Provide a comma-separated list of fields to exclude from the JSON import. </p></td></tr></thead></table>
+
+### Advanced Pane - XML
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr><tr><td colspan="1" rowspan="1"><p> Data Tag </p></td><td colspan="1" rowspan="1"><p> Enter the tag for the data in your XML text. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Do You Require Attributes in Data? </p></td><td colspan="1" rowspan="1"><p> Enter <b> Yes </b> if your data requires attribute values. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fields to Exclude (Optional) </p></td><td colspan="1" rowspan="1"><p> Provide a comma-separated list of fields to exclude from the XML import. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter XPath Expression (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter your XPath query using standard XPath syntax as defined by the World Wide Web Consortium. (<a href="http://www.w3.org/TR/2014/REC-xpath-30-20140408/)" target="_blank"> http://www.w3.org/TR/2014/REC-xpath-30-20140408/) </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Manually Enter Encoding (menu) </p></td><td colspan="1" rowspan="1"><p> Select <b> Yes </b> if the file you want to import contains an uncommon encoding type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Manually Enter Encoding (field) </p></td><td colspan="1" rowspan="1"><p> Enter the encoding of the given file. This must be in standard format such as <span class="mt-font-courier-new"> ISO-8859-1 </span> for Western Europe, or <span class="mt-font-courier-new"> GB18030 </span> for Chinese. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Format </p></td><td colspan="1" rowspan="1"><p> Select the date format used in the CSV data. If you want dates to be represented as text, select <b><b> Show Dates as Strings </b></b>. </p></td></tr></thead></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How do I know my Dropbox credentials are secure?">
+
+The login process uses OAuth, so your Dropbox credentials are never seen or stored by Domo. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="Can I use the same account to create multiple DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="What's the difference between this connector and the standard version?">
+
+The Dropbox File connector imports only CSV, XLS and XLSX files, whereas the Dropbox File Advanced connector also imports JSON, XML and ZIP files. The Dropbox File Advanced connector also provides some advanced filters to import the data from the file.
+
+</Accordion>
+</AccordionGroup>
+

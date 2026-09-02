@@ -1,0 +1,59 @@
+---
+title: "HealthData Connector"
+excerpt: "Use the HealthData Connector to fetch public health datasets from HealthData.gov into a Domo DataSet across categories like medical devices and mental health."
+---
+
+## Intro
+
+The [HealthData.gov](http://HealthData.gov) is dedicated to making valuable health data discoverable and available to the public in the hopes of better health outcomes for all. It provides data on a wide range of topics, including environmental health, medical devices, social services, community health, and mental health. The Domo HealthData connector helps you to fetch the public health information datasets for various categories. Use Domo's HealthData connector to get the recently added datasets and retrieve updated public health data. To learn more about the HealthData API, visit [https://www.hhs.gov/web/developer/index.html](https://www.hhs.gov/web/developer/index.html "https://www.hhs.gov/web/developer/index.html").
+
+This topic discusses the fields and menus that are specific to the HealthData connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Primary Use Cases </b></td><td class="mt-noheading" colspan="1" rowspan="1"> This Connector lets you retrieve the recently added datasets and updated public health data. </td></tr><tr><td colspan="1" rowspan="1"><b> Primary Metrics </b></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li> The recent and updated public health data. </li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Primary Company Roles </b></td><td colspan="1" rowspan="1"><ul><li> Medical practitioners </li><li><p> Facilities roles </p></li><li><p> Director of Operations </p></li><li><p> Data Analysts </p></li><li><p> Strategic planners </p></li><li><p> Hospital managements </p></li><li> Doctors and Nurses </li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Average Implementation Time </b></td><td class="mt-noheading" colspan="1" rowspan="1"><span> Less than 1 minute </span></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></td><td colspan="1" rowspan="1"> 1 </td></tr></tbody></table>
+
+## Prerequisites
+
+This connector returns public data, so no credentials are required.
+
+## Accessing the public health dataset
+
+This section enumerates the options in the **Details** panes in the HealthData Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Details Pane
+
+This pane contains list of the recently updated health datasets.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Dataset </td><td colspan="1" rowspan="1"> Select a Dataset to fetch the data for. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What endpoint is the base URL for this connector?">
+
+The base URL for the HealthData connector is https://www.healthdata.gov/.
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+This connector returns public data, so no credentials are required.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+

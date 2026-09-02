@@ -1,0 +1,89 @@
+---
+title: "Zendesk Sell Firehose Connector"
+excerpt: "Use the Zendesk Sell Firehose Connector to retrieve events for appointments, calls, contacts, deals, leads, tasks, and users into a Domo DataSet."
+---
+
+## Intro
+
+Zendesk Sell (formerly Base CRM) is sales force automation software to enhance productivity, processes, and pipeline visibility for sales teams. Use Domo's Zendesk Sell Firehose connector to retrieve your events related to appointments, calls, contacts, deals, leads, tags, tasks, users, etc. To learn more about the Zendesk Sell Firehose API, visit their page ([https://developers.getbase.com/docs/...ehose/overview](https://developers.getbase.com/docs/rest/articles/firehose/overview "https://developers.getbase.com/docs/rest/articles/firehose/overview") ).
+
+You connect to your Zendesk Sell Firehose account in the Data Center. This topic discusses the fields and menus that are specific to the Zendesk Sell Firehose connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Zendesk Firehose account and create a DataSet, you must have the email address and password associated with your Zendesk Sell account. Alternatively, you can directly sign in with your Zendesk account, if you have registered after January 2020.
+
+## Connecting to Your Zendesk Account
+
+This section enumerates the options in the Credentials and Details panes on the Zendesk Sell Firehose Connector page. The components of the other panes on this page, **Scheduling,** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+The Domo Zendesk Sell Firehose connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Zendesk accounts in Domo) to open the Zendesk OAuth screen where you can enter your Zendesk credentials. Once you have entered valid Zendesk credentials, you can use the same account any time you go to create a new Zendesk Sell Firehose DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Zendesk when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of your Zendesk account.
+</Note>
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the <span> Zendesk Sell Firehose </span> report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Appointments </td><td colspan="1" rowspan="1"> This report returns the stream of appointment events. </td></tr><tr><td colspan="1" rowspan="1"> Calls </td><td colspan="1" rowspan="1"> This report returns the stream of call events. </td></tr><tr><td colspan="1" rowspan="1"> Collaborations </td><td colspan="1" rowspan="1"> This report returns the stream of collaboration events. </td></tr><tr><td colspan="1" rowspan="1"> Collaboration Requests </td><td colspan="1" rowspan="1"> This report returns the stream of collaboration request events. </td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> This report returns the stream of contacts events. </td></tr><tr><td colspan="1" rowspan="1"> Custom Fields </td><td colspan="1" rowspan="1"> This report returns the stream of custom field events. </td></tr><tr><td colspan="1" rowspan="1"> Deals </td><td colspan="1" rowspan="1"> This report returns the stream of deals events. </td></tr><tr><td colspan="1" rowspan="1"> Documents </td><td colspan="1" rowspan="1"> This report returns the stream of document events. </td></tr><tr><td colspan="1" rowspan="1"> Leads </td><td colspan="1" rowspan="1"> This report returns the stream of lead events. </td></tr><tr><td colspan="1" rowspan="1"> Line Items </td><td colspan="1" rowspan="1"> This report returns the stream of line item events. </td></tr><tr><td colspan="1" rowspan="1"> Loss Reasons </td><td colspan="1" rowspan="1"> This report returns the stream of loss reason events. </td></tr><tr><td colspan="1" rowspan="1"> Notes </td><td colspan="1" rowspan="1"> This report returns the stream of note events. </td></tr><tr><td colspan="1" rowspan="1"> Orders </td><td colspan="1" rowspan="1"> This report returns the stream of order events. </td></tr><tr><td colspan="1" rowspan="1"> Products </td><td colspan="1" rowspan="1"> This report returns the stream of product events. </td></tr><tr><td colspan="1" rowspan="1"> Sources </td><td colspan="1" rowspan="1"> This report returns the stream of source events. </td></tr><tr><td colspan="1" rowspan="1"> Stages </td><td colspan="1" rowspan="1"> This report returns the stream of stage events. </td></tr><tr><td colspan="1" rowspan="1"> Tags </td><td colspan="1" rowspan="1"> This report returns the stream of tag events. </td></tr><tr><td colspan="1" rowspan="1"> Tasks </td><td colspan="1" rowspan="1"> This report returns the stream of task events. </td></tr><tr><td colspan="1" rowspan="1"> Unqualified Reasons </td><td colspan="1" rowspan="1"> This report returns the stream of unqualified reason events. </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> This report returns the stream of user events. </td></tr><tr><td colspan="1" rowspan="1"> Visits </td><td colspan="1" rowspan="1"> This report returns the stream of visit events. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Retrieve Historical Data On The First Run? </td><td colspan="1" rowspan="1"> Indicate if you want to retrieve historical data on the first run of the dataset. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What API version does this connector use?">
+
+The Zendesk Sell Firehose connector uses version 3 of the Zendesk API ([https://api.getbase.com/v3/](https://api.getbase.com/v3/ "https://api.getbase.com/v3/") ).
+
+</Accordion>
+
+<Accordion title="Which endpoint does each report call in this connector?">
+
+<table><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL </th></tr><tr><td colspan="1" rowspan="1"> Appointments </td><td colspan="1" rowspan="1"> /appointments/stream </td></tr><tr><td colspan="1" rowspan="1"> Calls </td><td colspan="1" rowspan="1"> /calls/stream </td></tr><tr><td colspan="1" rowspan="1"> Collaborations </td><td colspan="1" rowspan="1"> /collaborations/stream </td></tr><tr><td colspan="1" rowspan="1"> Collaboration Requests </td><td colspan="1" rowspan="1"> /collaboration_requests/stream </td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> /contacts/stream </td></tr><tr><td colspan="1" rowspan="1"> Custom Fields </td><td colspan="1" rowspan="1"> /custom_fields/stream </td></tr><tr><td colspan="1" rowspan="1"> Deals </td><td colspan="1" rowspan="1"> /deals/stream </td></tr><tr><td colspan="1" rowspan="1"> Documents </td><td colspan="1" rowspan="1"> /documents/stream </td></tr><tr><td colspan="1" rowspan="1"> Leads </td><td colspan="1" rowspan="1"> /leads/stream </td></tr><tr><td colspan="1" rowspan="1"> Line Items </td><td colspan="1" rowspan="1"> /line_items/stream </td></tr><tr><td colspan="1" rowspan="1"> Loss Reasons </td><td colspan="1" rowspan="1"> /loss_reasons/stream </td></tr><tr><td colspan="1" rowspan="1"> Notes </td><td colspan="1" rowspan="1"> /notes/stream </td></tr><tr><td colspan="1" rowspan="1"> Orders </td><td colspan="1" rowspan="1"> /orders/stream </td></tr><tr><td colspan="1" rowspan="1"> Products </td><td colspan="1" rowspan="1"> /products/stream </td></tr><tr><td colspan="1" rowspan="1"> Sources </td><td colspan="1" rowspan="1"> /sources/stream </td></tr><tr><td colspan="1" rowspan="1"> Stages </td><td colspan="1" rowspan="1"> /stages/stream </td></tr><tr><td colspan="1" rowspan="1"> Tags </td><td colspan="1" rowspan="1"> /tags/stream </td></tr><tr><td colspan="1" rowspan="1"> Tasks </td><td colspan="1" rowspan="1"> /tasks/stream </td></tr><tr><td colspan="1" rowspan="1"> Unqualified Reasons </td><td colspan="1" rowspan="1"> /unqualified_reasons/stream </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> /users/stream </td></tr><tr><td colspan="1" rowspan="1"> Visits </td><td colspan="1" rowspan="1"> /visits/stream </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up the Zendesk connector?">
+
+You need the email address and password associated with your Zendesk Sell account. Alternatively, you can directly sign in with your Zendesk account, if you have registered after January 2020.
+
+</Accordion>
+
+<Accordion title="How do I know my Zendesk credentials are secure?">
+
+The login process uses the OAuth process, so your Zendesk credentials are never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+Zendesk Sell allows up to 36,000 requests per hour (10 requests/ip/second).
+
+</Accordion>
+
+<Accordion title="Can I use the same account to create multiple datasets?">
+
+Yes
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

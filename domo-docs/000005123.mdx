@@ -1,0 +1,81 @@
+---
+title: "Denodo Connector"
+excerpt: "Use the Denodo Connector to import virtualized data from Denodo into Domo for analysis and visualization."
+---
+
+## Intro
+
+Denodo is a platform for data virtualization. Denodo enables real-time access to integrated data across an organization's diverse data sources without the need for data replication. Domo's Denodo connector allows you to import any data from Denodo into Domo for in-depth analysis and visualization. To learn more about Denodo Platform, visit their website, [Denodo Platform Overview.](https://www.denodo.com/en/denodo-platform/overview/)
+
+The Denodo connector is a "Database" connector, meaning it retrieves data from different data sources.
+
+You connect to your Denodo account in the Data Center. This topic discusses the fields and menus that are specific to the Denodo connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Pulling data files from Denodo into Domo. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> The time taken to configure depends on the amount of data that is uploaded to Denodo. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to your Denodo account and create a DataSet, you must have the following:
+
+* Denodo hostname you need to use to access your Denodo account.
+* Denodo port number you need to use to access your Denodo account.
+* Denodo Database Name
+* Denodo username.
+* Denodo password.
+
+## Connecting to Your Denodo Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Denodo Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+The Domo Denodo connector uses Denodo Hostname, Denodo Port number, Denodo database name, Denodo username, and Denodo password to connect within Domo. Click **Connect** (or select **Add Account** if you have an existing Denodo account in Domo) to open the Denodo login screen where you can enter the email address and password associated with your Denodo account. Once you have entered valid Denodo credentials, you can use the same account any time you go to create a new Box DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+This pane includes the following fields:
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> Field </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the Denodo hostname. For example, <em><b><a href="http://myserver.domain.com" rel="noopener" target="_blank"> myserver.domain.com </a></b></em>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter the Denodo port number. </p></td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> Enter the Denodo Database Name. </td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the Denodo Username. </p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"> Password </p></td><td colspan="1" rowspan="1"><p class="p1"> Enter the Denodo password. </p></td></tr></tbody></table>
+
+## Details Pane
+
+This pane includes the following fields and menus:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"> Select the report you want to run. The following reports are available: <br/><table border="1" cellpadding="1" cellspacing="1"><thead></thead><tbody><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> Enter the query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Query Helper </td><td colspan="1" rowspan="1"> Select a view and fields to auto-generate your query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> User Query </p></td><td colspan="1" rowspan="1"><p> Enter Denodo VQL query to execute. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fetch Size </p></td><td colspan="1" rowspan="1"><p> Enter the fetch-size for memory performance. If it is blank, the default value will be 1000. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Timeout </p></td><td colspan="1" rowspan="1"><p> Enter the query timeout value in minute(s). If it is blank, the default value set by Denodo will be 15 minutes. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="When can I use this connector?">
+
+Allow real-time access to integrated data across an organization's diverse data sources without the need for data replication by using the connector.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="What is the default fetch-size for memory performance?">
+
+The default value is 1000.
+
+</Accordion>
+
+<Accordion title="What is the default query timeout value?">
+
+The default value set by Denodo is 15 minutes.
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need to obtain the hostname, port number, database account, account username, and account password.
+
+</Accordion>
+</AccordionGroup>
+

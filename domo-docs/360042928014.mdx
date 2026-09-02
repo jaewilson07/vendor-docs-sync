@@ -1,0 +1,66 @@
+---
+title: "Showpad Connector"
+excerpt: "Use Domo's Showpad connector to pull sales enablement platform data into a DataSet using a Showpad Client ID and credentials."
+---
+
+## Intro
+
+Showpad is a sales enablement platform focused on helping sales teams deliver the best buyer experience through smarter and more relevant conversations with their customers and prospects. To learn more about the Showpad API, visit their page ([https://help.showpad.com/hc/en-us/ar...oper-resources](https://help.showpad.com/hc/en-us/articles/115003169134-Developer-resources "https://help.showpad.com/hc/en-us/articles/115003169134-Developer-resources") ).
+
+You connect to your Showpad account in the Data Center. This topic discusses the fields and menus that are specific to the Showpad connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Showpad account and create a DataSet, you must have the following:
+
+* A Showpad Client ID
+* A Showpad Client Secret
+* Showpad Subdomain
+
+To generate these credentials, do the following:
+
+1. In Showpad, go to **Settings > API > Manage OAuth Clients > OAuth Client**.
+2. Use the following as your Redirect URI:
+
+   https://oauth.domo.com/api/data/v2/oauth/providers/showpad/exchange
+3. Check **Automatically refresh access tokens**
+4. Check all **View** boxes.
+
+## Connecting to Your Showpad Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Showpad Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Showpad account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your client ID. The client ID is created by navigating to settings -&gt; API -&gt; Manage OAuth Clients -&gt; + OAuth Client. Redirect URI: <a href="https://oauth.domo.com/api/data/v2/oauth/providers/showpad/exchange" target="_blank" title="https://oauth.domo.com/api/data/v2/oauth/providers/showpad/exchange"> https://oauth.domo.com/api/data/v2/oauth/providers/showpad/exchange </a> and checks automatically the refresh access tokens and all View checkboxes. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your client's secret. For information about generating this, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Showpad Subdomain </p></td><td colspan="1" rowspan="1"><p> Your Showpad Subdomain. For example: mysubdomain (<a href="https://mysubdomain.showpad.biz" target="_blank" title="https://mysubdomain.showpad.biz"> https://mysubdomain.showpad.biz </a> ). </p></td></tr></tbody></table>
+
+Once you have entered valid Showpad credentials, you can use the same account any time you go to create a new Showpad DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Showpad report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Assets </p></td><td colspan="1" rowspan="1"><p> Returns a list of assets in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Asset Tags </p></td><td colspan="1" rowspan="1"><p> Returns a list of asset tags in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channels </p></td><td colspan="1" rowspan="1"><p> Returns a list of channels in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contacts </p></td><td colspan="1" rowspan="1"><p> Returns a list of contacts in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Devices </p></td><td colspan="1" rowspan="1"><p> Returns a list of devices in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Divisions </p></td><td colspan="1" rowspan="1"><p> Returns a list of divisions in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Events </p></td><td colspan="1" rowspan="1"><p> Returns a list of events in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Export Assets </p></td><td colspan="1" rowspan="1"><p> Returns a list of export assets in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Shares </p></td><td colspan="1" rowspan="1"><p> Returns a list of shares in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tags </p></td><td colspan="1" rowspan="1"><p> Returns a list of tags in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tickets </p></td><td colspan="1" rowspan="1"><p> Returns a list of tickets in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users Detail </p></td><td colspan="1" rowspan="1"><p> This report returns a list of users with all their details. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Groups </p></td><td colspan="1" rowspan="1"><p> Returns a list of user groups in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Returns a list of users in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User User Groups </p></td><td colspan="1" rowspan="1"><p> Returns a list of user user groups in your account. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is specific or relative. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is specific or relative. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data from 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data from 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

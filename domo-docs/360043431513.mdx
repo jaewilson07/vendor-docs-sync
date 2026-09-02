@@ -1,0 +1,43 @@
+---
+title: "Mapp Digital Connector"
+excerpt: "Connect Domo to Mapp Digital (formerly BlueHornet) using an API key and shared secret to pull marketing automation statistics into a DataSet."
+---
+
+## Intro
+
+Mapp Digital (formerly known as BlueHornet Corp.) is a marketing automation SaaS company which develops automated marketing and demand generation software and services for marketers. Use Domo's Mapp Digital connector to compile reports on marketing statistics such as contacts, emails opened, website visits, subscribes and unsubscribes, and so on. To learn more about Mapp Digital API, visit their website ([http://bh-ems-static-content.s3.amaz...tication1.html](http://bh-ems-static-content.s3.amazonaws.com/mappapi/authentication1.html "http://bh-ems-static-content.s3.amazonaws.com/mappapi/authentication1.html") ).
+
+You connect to your Mapp Digital account in the Data Center. This topic discusses the fields and menus that are specific to the Mapp Digital connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Mapp Digital account and create a DataSet, you must have the following:
+
+* The API key for your Mapp Digital account
+* The Shared Secret for your Mapp Digital account
+
+To learn more about the Mapp Digital API and obtaining credentials, see [https://developers.mapp.com/](https://developers.mapp.com/ "https://developers.mapp.com/").
+
+## Connecting to Your Mapp Digital Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Mapp Digital Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Mapp Digital account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter the API key you use to log into your Mapp Digital account. </td></tr><tr><td colspan="1" rowspan="1"> Shared Secret </td><td colspan="1" rowspan="1"> Enter the Shared Secret you use to log into your Mapp Digital account. </td></tr></tbody></table>
+
+For information about obtaining these credentials, see "Prerequisites," above.
+
+Once you have entered valid Mapp Digital credentials, you can use the same account any time you go to create a new Mapp Digital DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Mapp Digital report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Account Categories </td><td colspan="1" rowspan="1"> Returns a collection of all categories created for your account. </td></tr><tr><td colspan="1" rowspan="1"> Account Custom Fields </td><td colspan="1" rowspan="1"> Returns a collection of all custom fields created for your account. </td></tr><tr><td colspan="1" rowspan="1"> Account Relational Fields </td><td colspan="1" rowspan="1"> Returns relational table data. </td></tr><tr><td colspan="1" rowspan="1"> Account Static Segments </td><td colspan="1" rowspan="1"> Returns a collection of all static segments created for your account. </td></tr><tr><td colspan="1" rowspan="1"> Legacy Message Stats </td><td colspan="1" rowspan="1"> Returns message delivery and response metrics. </td></tr><tr><td colspan="1" rowspan="1"> Legacy Message Stats with Links </td><td colspan="1" rowspan="1"> Returns message delivery and response metrics including links. </td></tr><tr><td colspan="1" rowspan="1"> Legacy Segment Category Data </td><td colspan="1" rowspan="1"> Returns all the static segments and categories for a client's account. </td></tr><tr><td colspan="1" rowspan="1"> Legacy Segment Group Data </td><td colspan="1" rowspan="1"> Returns all the static segments and groups for a client's account. </td></tr><tr><td colspan="1" rowspan="1"> Legacy Unsubscribes </td><td colspan="1" rowspan="1"> Returns a list of contacts who have unsubscribed. </td></tr><tr><td colspan="1" rowspan="1"> Message Subscriber Data </td><td colspan="1" rowspan="1"> Returns subscriber response data for a specified promotional message. </td></tr><tr><td colspan="1" rowspan="1"> Tasks </td><td colspan="1" rowspan="1"> Returns current status of specified tasks. </td></tr><tr><td colspan="1" rowspan="1"> Transactional Bounce List </td><td colspan="1" rowspan="1"> Returns a list of bounce codes for a specified email. </td></tr><tr><td colspan="1" rowspan="1"> Transactional Message Contact Activity </td><td colspan="1" rowspan="1"> Returns message recipient response data for a specified transactional message. </td></tr><tr><td colspan="1" rowspan="1"> Transactional Templates </td><td colspan="1" rowspan="1"> Returns a list of all templates in a client's account along with associated information. </td></tr><tr><td colspan="1" rowspan="1"> Welcome Messages </td><td colspan="1" rowspan="1"> Returns descriptive information about all welcome messages <br/> created in your account. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Message ID </td><td colspan="1" rowspan="1"> Enter the ID for the message you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> Template ID </td><td colspan="1" rowspan="1"> Enter the ID number for the template you want to retrieve information for. </td></tr><tr><td colspan="1" rowspan="1"> End Days </td><td colspan="1" rowspan="1"> Enter the number of the most recent day that should be represented in the report. Combine with <b> Start Days </b> to create a range of represented days. For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Days </b>, the report would contain data for 10 days ago up until 5 days ago. Enter <span class="mt-font-courier-new"> 0 </span> for today. </td></tr><tr><td colspan="1" rowspan="1"> Start Days </td><td colspan="1" rowspan="1"> Enter the number of the farthest day back that should be represented in the report. Combine with <b> End Days </b> to create a range of represented days. For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Days </b>, the report would contain data for 10 days ago up until 5 days ago. Enter <span class="mt-font-courier-new"> 0 </span> for today. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

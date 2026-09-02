@@ -1,0 +1,99 @@
+---
+title: "ADP WorkforceNow V2"
+excerpt: "Configure Domo's ADP WorkforceNow V2 connector using OAuth 2.0 and mTLS to securely import employee and HR data into Domo."
+---
+
+## Intro
+
+ADP Workforce Now is a cloud-based Human Capital Management (HCM) software that automates payroll, HR, talent management, and benefits administration into a single, scalable system. 
+
+Use this Domo's ADP WorkforceNow V2connector to securely retrieve and synchronize employee-related data, enabling seamless integration with your downstream systems and applications.
+
+## Prerequisites
+
+To connect to your ADP Workforce Now V2 account and create a DataSet, you must have the following:
+
+In ADP Workforce Now, authentication requires two distinct layers: OAuth 2.0 (identity) and Mutual TLS (secure transport). Each of the four credentials plays a specific role in these layers: 
+
+* Environment: You must select a production or User Acceptance Testing (UAT) sandbox environment in ADP Workforce Now.
+* Client ID: This is the username for your application. Identifies the service or application connecting to ADP Workforce Now.
+* Client Secret: This is the password for your application. The Client Secret proves that the application is authorized to connect (authenticates your application's identity).
+
+<Note>**Note:** The Client ID and Client Secret act as the Username and Password for your application to identify itself to ADP's authorization server.</Note>
+   
+* ADP Certificate: This is the digital certificate used for authentication with ADP Workforce Now. It is generated after you submit a Certificate Signing Request (CSR) to ADP. It informs ADP's servers that your specific server is authorized to talk to them.
+
+<Note>**Note:** ADP requires a second layer of security called Mutual Transport Layer Security (mTLS: Mutual TLS). It is a security process where both parties (the client and the server) verify each other's digital certificates at the same time. This ensures that not only is the app identified (via OAuth), but the actual connection between your server and ADP's server is encrypted and trusted.</Note>
+
+* ADP Private Key: This is the private key associated with the ADP Certificate. The ADP Private Key is generated first, and it is the most important step in creating the ADP Certificate. The private key is used to create the CSR, which is then signed by ADP to create the certificate. The private key must be kept secure, as it is used to establish the mTLS connection with ADP.
+
+### The Authentication Flow
+
+To successfully pull data from ADP, your application must:
+
+1. Establish a secure mTLS connection using the Certificate and Private Key.
+2. Send the Client ID and Client Secret over that secure connection to receive an Access Token.
+3. Use that Access Token to make the final API calls to ADP Workforce Now.
+
+## Connecting to Your ADP Workforce Now V2 Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the ADP Workforce Now V2 Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](/s/article/360042926274).
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your ADP Workforce Now V2 account. The following table describes what is needed for each field:
+
+|  Field    |  Description                                                                                                                                                                                                                                   |
+|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Environment  |  Select production or UAT Sandbox environment.
+|Client ID  |  Enter the Client ID. If you do not have a Client ID, contact your client representative.  |
+|Client Secret  |   Enter the Client Secret. If you do not have a Client Secret, contact your client representative.   |
+|ADP Certificate |  Enter the ADP Certificate value.  |
+|ADP Private Key  |  Enter the ADP Private Key value.  |
+
+Once you have entered valid ADP Workforce Now V2 Connector credentials, you can use the same account any time you go to create a new ADP Workforce Now V2 Connector DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054).
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+|  Field    |  Description                                                                                                                                                                                                                                   |
+|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Report |  Select the report to retrieve data from.  |
+|Unmask Data |  If you select this checkbox and the specified account has permission to view full data, the returned data is not masked.  |
+|Columns To Ignore |  Enter the comma-separated list of column names you want to ignore.  |
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](/s/article/360042926274).
+
+## FAQ
+
+<AccordionGroup>
+
+<Accordion title="What is the difference between TLS and SSL?">
+TLS is the modern, more secure successor to SSL. While most people still use the term "SSL," almost all modern connections (including those with ADP Workforce Now) actually use TLS to encrypt data.
+</Accordion>
+
+<Accordion title="Why do I need an ADP Certificate?">
+ADP is extremely strict about security. They won't let your computer talk to their servers unless you show this digital passport first. This is called Mutual Authentication.
+
+* The Secret Handshake: Before your app can even send a Client ID, it "shows" the Certificate to ADP.
+* The Validation: ADP checks its records. If the certificate matches what they issued you, they open the door.
+* The Encryption: Once the door is open, the certificate helps "lock" the connection so hackers can't see the data moving back and forth.
+</Accordion>
+
+<Accordion title="How do I get an ADP Certificate?">
+Follow these steps to request an ADP Certificate:
+
+* You use a tool (like the ADP Certificate Signing Tool) to create a request file.
+* You upload that request to the ADP Developer Portal.
+* ADP signs it and gives you back the Certificate (.pem or .cer file).
+</Accordion>
+
+<Accordion title="What is mTLS?">
+mTLS stands for Mutual Transport Layer Security. It is a security process in which both parties (the client and the server) verify each other's digital certificates simultaneously.
+</Accordion>
+
+</AccordionGroup>
+

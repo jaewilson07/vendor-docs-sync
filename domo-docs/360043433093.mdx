@@ -1,0 +1,43 @@
+---
+title: "Amazon CloudWatch Connector"
+excerpt: "Connect Domo to your Amazon CloudWatch account using AWS access and secret keys to pull cloud resource and application monitoring data into a DataSet."
+---
+
+## Intro
+
+Amazon CloudWatch is a monitoring service for AWS cloud resources and applications. Use Domo's Amazon CloudWatch connector to gain system-wide visibility into resource utilization, application performance, and operational health. To learn more about the Amazon CloudWatch API, visit their page ([http://docs.aws.amazon.com/AmazonClo...e/Welcome.html](http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html") ).
+
+You connect to your Amazon CloudWatch account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon CloudWatch connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Amazon CloudWatch account and create a DataSet, you must have the following:
+
+* The access key for your AWS account
+* The secret key for your AWS account
+
+For information about obtaining these credentials, see [http://docs.aws.amazon.com/general/l...et-access-keys](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys "http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys").
+
+## Connecting to Your Amazon CloudWatch Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Amazon CloudWatch Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Amazon CloudWatch account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> Enter the access key for your AWS account. </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> Enter the secret key for your AWS account. </td></tr></tbody></table>
+
+For information about obtaining these credentials, see [http://docs.aws.amazon.com/general/l...et-access-keys](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys "http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys").
+
+Once you have entered valid Amazon CloudWatch credentials, you can use the same account any time you go to create a new Amazon CloudWatch DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Amazon CloudWatch report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Alarms for Metrics </p></td><td colspan="1" rowspan="1"><p> Retrieves all alarms for a single metric. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Describe Alarm History </p></td><td colspan="1" rowspan="1"><p> Retrieves the history for all the authenticated user's alarms. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Describe Alarms </p></td><td colspan="1" rowspan="1"><p> Retrieves all of the authenticated user's alarms. </p></td></tr><tr><td colspan="1" rowspan="1"> GetLogEvents </td><td colspan="1" rowspan="1"><p> Lists log events from the specified log stream. </p></td></tr><tr><td colspan="1" rowspan="1"> GetAllLogEvents </td><td colspan="1" rowspan="1"><p> Retrieves log events for all the log streams in the specified date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Metrics </p></td><td colspan="1" rowspan="1"><p> Returns a list of valid metrics stored for the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Metric Statistics </p></td><td colspan="1" rowspan="1"><p> Returns statistics for a specified metric. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Metric Name </p></td><td colspan="1" rowspan="1"><p> Enter the name of the metric you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Namespace </p></td><td colspan="1" rowspan="1"><p> Enter the namespace for the metric you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Period </p></td><td colspan="1" rowspan="1"><p> Enter the period value to return data for. This should be a multiple of 60 (such as 60, 120, 180, etc.). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Statistics </p></td><td colspan="1" rowspan="1"><p> Enter a comma-separated string of statistics you want to retrieve data for. You can choose from any of the following statistics: </p><ul><li><p> Average </p></li><li><p> Sum </p></li><li><p> SampleCount </p></li><li><p> Maximum </p></li><li><p> Minimum </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Dimensions </p></td><td colspan="1" rowspan="1"><p> Enter a comma-separated string of dimensions you want to fetch, in the format <span class="mt-font-courier-new"> dimension:value </span>. For example: </p><p><code> StreamName:my-stream-name,ShardID:my-shard-id </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Select whether to pull data for a specific or relative start date. If you select <b> Specific </b>, you will be asked to choose a specific start date from a date picker. If you select <b> Relative </b>, you will be asked to enter an offset value (i.e. the number of days in the past you want to start pulling data for). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the date you want to start pulling data for. Combine with <b> Select Specific End Date </b> to create a range of dates. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Select whether to pull data for a specific or relative end date. If you select <b> Specific </b>, you will be asked to choose a specific end date from a date picker. If you select <b> Relative </b>, you will be asked to enter an offset value (i.e. the number of days in the past you want to stop pulling data for). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the date you want to stop pulling data for. Combine with <b> Select Specific Start Date </b> to create a range of dates. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

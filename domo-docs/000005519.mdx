@@ -1,0 +1,42 @@
+---
+title: "ABLSoft Connector"
+excerpt: "Use the ABLSoft Connector to import borrower, loan, ledger, and balance data from your ABLSoft lending platform into Domo."
+---
+
+## Intro
+
+ABLSoft is a SaaS lending software solution that helps lenders grow profitably with intelligent automation. Use Domo's ABLSoft connector to retrieve detailed data about your Borrowers, loans, ledgers, and balances. If you want to learn more about the ABLSoft API, you can see ([https://apidocs.ablsoft.com/](https://apidocs.ablsoft.com/ "https://apidocs.ablsoft.com/") ).
+
+You can connect to your ABLSoft account in the Data Center. This topic discusses the fields and menus that are specific to the ABLSoft connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your ABLSoft account and create a DataSet, you must have the following:
+
+* Username
+* Password
+* Client ID
+* Client Secret
+* Domain
+
+**Note:** To obtain the Client ID and Client Secret, contact the technical support or the system administrator of your company.
+
+## Connecting to Your ABLSoft Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the ABLSoft Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your ABLSoft account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your ABLSoft account username </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your ABLSoft account password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Your ABLSoft developer account Client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Your ABLSoft developer account Client Secret. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> Your ABLSoft company domain. If you are logged into ABLSoft at <a href="https://myCompany.ablsoft.com" target="_blank" title="https://myCompany.ablsoft.com"> https://myCompany.ablsoft.com </a>, you should enter <b> myCompany </b> in this field. </p></td></tr></tbody></table>
+
+Once you have entered valid ABLSoft credentials, you can use the same account any time to create a new ABLSoft DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the ABLSoft report you want to run. The following reports are available: </p><p></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Borrowers </p></td><td colspan="1" rowspan="1"> Returns the detailed borrower's information. </td></tr><tr><td colspan="1" rowspan="1"><p> Daily Loan Balances </p></td><td colspan="1" rowspan="1"> Returns the daily balance information within the selected specific loan and date range. </td></tr><tr><td colspan="1" rowspan="1"><p> Loan Ledgers </p></td><td colspan="1" rowspan="1"> Returns the loan ledger information within the selected specific loan and date range. </td></tr><tr><td colspan="1" rowspan="1"><p> Loans </p></td><td colspan="1" rowspan="1"> Returns the detail loan information within the specified date range. </td></tr><tr><td colspan="1" rowspan="1"><p> Monthly Loan Balances </p></td><td colspan="1" rowspan="1"> Returns the monthly balance information within the selected specific loan and date range. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Loan Selection Type </td><td colspan="1" rowspan="1"> Select how you want to select your loans. </td></tr><tr><td colspan="1" rowspan="1"> Portfolio ID </td><td colspan="1" rowspan="1"> Enter a portfolio ID if you want to see the loan details from only loans within that portfolio. </td></tr><tr><td colspan="1" rowspan="1"> Loan Ids </td><td colspan="1" rowspan="1"> Enter a comma separated list of loan Ids to be included in your results. </td></tr><tr><td colspan="1" rowspan="1"> Loan Date Range </td><td colspan="1" rowspan="1"> Enter the date range for which you want to get the data. This date filter is specific to the Loan date. </td></tr><tr><td colspan="1" rowspan="1"> Data Date Range </td><td colspan="1" rowspan="1"> Enter the date range for which you want to get the data. This date filter filters data within the loans specified. For example, transactions or balances of the loan, and not the loan date itself. </td></tr><tr><td colspan="1" rowspan="1"> Include Inactive Borrowers </td><td colspan="1" rowspan="1"> Select the checkbox if you want the inactive borrowers with your search results. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").

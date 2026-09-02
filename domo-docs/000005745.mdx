@@ -1,0 +1,32 @@
+---
+title: "Google Cloud Storage - FileWatch Connector"
+excerpt: "Configure the Google Cloud Storage FileWatch Connector to watch a bucket and ingest matching files into Domo."
+---
+
+## Intro
+
+Google Cloud Storage is an internet service for storing data in Google's cloud. You can use Domo's Google Cloud Storage connector to generate reports about project buckets and objects in Google Cloud Storage.
+
+You can connect to your Google Cloud Storage - FileWatch account in the Data Center. This topic discusses the fields and menus specific to the Google Cloud Storage - FileWatch connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+You need Google credentials to connect to your Google Cloud Storage—FileWatch account and create a DataSet.
+
+## Connecting to Your Google Cloud Storage - FileWatch Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Google Cloud Storage - FileWatch Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+You need your Google credentials to connect to the connector.
+
+Once you have entered valid Google Cloud Storage - FileWatch credentials, you can use the same account at any time to create a new Google Cloud Storage - FileWatch DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:201;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Storage Type </td><td colspan="1" rowspan="1"> Select the Google Cloud Storage type to run. </td></tr><tr><td colspan="1" rowspan="1"> Project ID </td><td colspan="1" rowspan="1"> Enter the API ID of the project for which you want to retrieve the data. </td></tr><tr><td colspan="1" rowspan="1"> Bucket Name </td><td colspan="1" rowspan="1"> Enter the name of the bucket to watch. </td></tr><tr><td colspan="1" rowspan="1"> File Name </td><td colspan="1" rowspan="1"> Enter the partial file name. This will be used to search the <b> files starting with this pattern </b> in the specified bucket. </td></tr><tr><td colspan="1" rowspan="1"> Ignore Files Before Date </td><td colspan="1" rowspan="1"> Select the date. Files <b> created </b> before this date will be ignored by the connector. </td></tr><tr><td colspan="1" rowspan="1"> File Type </td><td colspan="1" rowspan="1"> Select the file type for the data file that you want to retrieve. </td></tr><tr><td colspan="1" rowspan="1"> Contains Header Row? </td><td colspan="1" rowspan="1"> Select No, if the CSV file does not contain a header row. The Connector will generate header rows for such files. </td></tr><tr><td colspan="1" rowspan="1"> Select the delimiting character </td><td colspan="1" rowspan="1"> Select the character used by your character-separated values (CSV) text to separate your columns. If your delimiter is not listed, then select 'Other'. </td></tr><tr><td colspan="1" rowspan="1"> Specify your delimiter </td><td colspan="1" rowspan="1"> Enter the character used to delimit your character-separated values (CSV) text. Also, the user can enter Unicode value for a character. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

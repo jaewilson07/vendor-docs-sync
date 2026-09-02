@@ -1,0 +1,53 @@
+---
+title: "Firebase Connector"
+excerpt: "Use Domo's Firebase connector to pull real-time database data into a DataSet using a Firebase API Authentication Key and Firebase Name."
+---
+
+## Intro
+
+Firebase provides a real-time database for storing and syncing your data.  To learn more about the Firebase API, visit their page ([https://firebase.google.com/docs/reference/](https://firebase.google.com/docs/reference/ "https://firebase.google.com/docs/reference/") ).
+
+You connect to your Firebase account in the Data Center. This topic discusses the fields and menus that are specific to the Firebase connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Firebase account and create a DataSet, you must have a Firebase API Authentication Key and a Firebase Name.
+
+## Connecting to Your Firebase Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Firebase Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Firebase account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Authentication Key </p></td><td colspan="1" rowspan="1"><p> Enter your Firebase API authentication key. (To generate Authentication Key, Login into firebase console, click the project. Project Overview &gt; Settings Gear icon &gt; Project Settings &gt; Service Accounts &gt; Database Secrets &gt; Add Secret). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Firebase Name </p></td><td colspan="1" rowspan="1"><p> Enter the Firebase Name. Login into firebase console, click the project. Project Overview &gt; Settings Gear icon &gt; Project Settings &gt; Database Name. </p></td></tr></tbody></table>
+
+Once you have entered valid Firebase credentials, you can use the same account any time you go to create a new Firebase DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains several menus for configuring your Firebase report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Data Tag Name </p></td><td colspan="1" rowspan="1"><p> Enter the data tag name in the format <span class="mt-font-courier-new"> tag/data </span>. For example, if you wanted to fetch the data for "coordinates," which is under the "geometry" tag, you would enter <span class="mt-font-courier-new"> geometry/coordinates </span>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Root Tag Name </p></td><td colspan="1" rowspan="1"><p> Enter the root tag for the data in your JSON text. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+DataSets should be set to update no more than once every 15 minutes.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+While Firebase may enforce rate call limits, you should not have to worry about them.
+
+</Accordion>
+</AccordionGroup>
+

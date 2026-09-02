@@ -1,0 +1,48 @@
+---
+title: "Sample Data Connector"
+excerpt: "Use Domo's Sample Data Connector to generate non-private sample data for Cloud App connectors without supplying credentials, useful for prototyping Cards and Dashboards."
+---
+
+## Intro
+
+You can use Domo's Sample Data Connector to generate sample data for any of our Cloud App connectors without actually needing to supply credentials for that system. This is useful for seeing the kind of data available for a given connector as well as the types of cards you can build from it. Note that this connector is used to generate sample data for our Cloud App connectors, such as Facebook and Salesforce reports. It cannot be used to retrieve files (such as Excel or Box files) or data from databases (such as MySQL query data). For more information about these connector types, see [Adding a DataSet using a connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+You can import sample data for a connector in the Data Center. This topic discusses the fields and menus that are specific to the Sample Data Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+You can find out more about this connector here: [https://developer.domo.com/docs/appstore/data-resources-2#Sample%20Data%20Engine](https://developer.domo.com/docs/appstore/data-resources-2#Sample%20Data%20Engine "https://developer.domo.com/docs/appstore/data-resources-2#Sample%20Data%20Engine").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is useful in the following use cases: </p><ul><li><p> When you're trying to understand what Domo might be able to offer for a given third-party system you're considering (especially when you don't currently have access to the system). </p></li><li><p> When you need non-private data that still tells a story to prototype cards, dashboards, or Apps. </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> N/A </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Developers </p></li><li><p> Software purchasers </p></li><li><p> BI analysts </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Less than 5 minutes </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+**Video - Sample Data Connector**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/tHJTuzBy5lA" width="560"></iframe>
+
+## Best Practices
+
+Be aware that when the actual connectors change versions due to API updates by the third party, there is a lag time for the sample data version to be updated to correspond with the new connector's reports and DataSets.
+
+## Prerequisites
+
+None. The Sample Data Engine connector does not require credentials or any other information to work—all you need to do is select the Domo Cloud App connector you want to generate sample data for, as well as the specific report.
+
+## Connecting to Sample Data
+
+Because this is sample data, the Sample Data Engine connector has no **Credentials** pane and only the **Details** pane needs to be configured.
+
+<Frame><img alt="Sample_data_engine_connetor_-_Details.png" src="/images/kb/ka05w000001237t-00N5w00000Ri7BU-0EM5w000005vO0G.png"/></Frame>
+
+#### Datasource
+
+Use the drop-down to select the third party connector for which you want to generate sample data.
+
+#### Report
+
+Select a report from the drop-down for which you would like to generate sample data.
+
+Using the above configuration, my sample data will look like this:
+
+<Frame><img alt="Sample_data_engine_connector_-_sample_data.png" src="/images/kb/ka05w000001237t-00N5w00000Ri7BU-0EM5w000005vO0F.png"/></Frame>
+
+### Other Panes
+
+For information about the **Scheduling** and **Name & Describe Your DataSet** panes, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

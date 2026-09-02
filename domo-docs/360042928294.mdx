@@ -1,0 +1,41 @@
+---
+title: "Taleo Connector"
+excerpt: "Use Domo's Taleo Cloud App connector to compile reports about job candidates, completed interviews, and employee requisitions into a DataSet."
+---
+
+## Intro
+
+Taleo is a cloud-based talent management software vendor. Use Domo's Taleo connector to compile reports about potential job candidates, completed interviews, and requisitions for additional employees. To learn more about the Taleo API, visit their website ([http://www.oracle.com/technetwork/documentation/default-1841567.html](http://www.oracle.com/technetwork/documentation/default-1841567.html "http://www.oracle.com/technetwork/documentation/default-1841567.html") ).
+
+The Taleo connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Taleo account in the Data Center. This topic discusses the fields and menus that are specific to the Taleo connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Taleo account and create a DataSet, you must have the following:
+
+* Your company code. This is the portion of the URL of your company's Taleo instance following the slashes (subdomain). For example, in the URL [https://domo.taleo.net](https://domo.taleo.net "https://domo.taleo.net"), the company code is domo.
+* The username and password you use to log into Taleo.
+
+## Connecting to Your Taleo Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Taleo Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Taleo account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Company Code </p></td><td colspan="1" rowspan="1"><p> Enter your Taleo company code. For more information, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username you use to log into Taleo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password you use to log into Taleo. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials and connected to Taleo, you can use the same account any time you go to create a new Taleo DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains a primary **Report** menu, along with other fields and menus that may or may not appear depending on the selected report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"> Menu </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Taleo report you want to run. The following reports are available: </p> <Note><div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> Note: </b> The word "replace" in a report name indicates that new report data replaces old data; it is <em> not </em> appended. When using one of these reports, you must select "Replace" as your <b> Update Method </b> in the <b> Scheduling </b> tab. For more information, see <a href="https://domo-support.domo.com/s/article/360042926274?language=en_US" target="_blank" title="Adding a DataSet Using a Connector"> Adding a DataSet Using a Connector </a>. </div></div></div> </Note><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Candidates </p></td><td colspan="1" rowspan="1"> Retrieves the data for potential candidates. </td></tr><tr><td colspan="1" rowspan="1"><p> Candidates Applications </p></td><td colspan="1" rowspan="1"> Retrieves the data for candidates who have applied for positions. </td></tr><tr><td colspan="1" rowspan="1"><p> Candidate History </p></td><td colspan="1" rowspan="1"> Retrieves the history for individual candidates. </td></tr><tr><td colspan="1" rowspan="1"><p> Candidate Interview Feedback </p></td><td colspan="1" rowspan="1"> Retrieves the feedback for individual candidate's interviews. </td></tr><tr><td colspan="1" rowspan="1"><p> Departments </p></td><td colspan="1" rowspan="1"> Retrieves a list of departments. </td></tr><tr><td colspan="1" rowspan="1"><p> Locations </p></td><td colspan="1" rowspan="1"> Retrieves a list of locations. </td></tr><tr><td colspan="1" rowspan="1"><p> Requisitions </p></td><td colspan="1" rowspan="1"> Retrieves the data about requisitions for additional employees. </td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"> Retrieves a list of users. </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Date </p></td><td colspan="1" rowspan="1"><p> Select the date for your report. The report will return records for this date only. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Select the start date for your report. The report will return records created on or after this date. Pair with <b> End Date </b> to include a range of dates in your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Select the end date for your report. The report will return records created on or before this date. Pair with <b> Start Date </b> to include a range of dates in your report. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

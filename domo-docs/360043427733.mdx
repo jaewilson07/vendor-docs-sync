@@ -1,0 +1,139 @@
+---
+title: "Old Magic ETL Tiles: Combine Data"
+excerpt: "Use the legacy Magic ETL Append Rows and Join Data tiles to combine rows from multiple DataSets or merge columns from two DataSets."
+---
+
+## Intro
+
+<Note>
+  **Note:** This article is for the old Magic ETL. For information on the new Magic ETL, see [Magic ETL](/s/topic/0TO5w000000ZanvGAC).
+
+</Note>
+
+This topic discusses two methods for combing data in a Magic ETL transformation flow: the Append Rows tile, which lets you append rows from multiple DataSets into one DataSet; and the Join Data tile, which lets you combine columns from two DataSets.
+
+For information about creating a Magic ETL DataFlow, see Creating a Magic ETL DataFlow.
+
+For information about the Data Center, see [Data Center Layout](https://domo-support.domo.com/s/article/360047553253?language=en_US).
+
+## Append Rows
+
+The Append Rows tile lets you append rows from multiple DataSets (with similar columns and data structure) into one DataSet, returning occurrences of all matches, including duplicate rows.
+
+<Note>
+  **Note:** You can only append data rows from input DataSets having the same data structure and data type. If the data structures do not match, the Append Rows tile creates extra columns to accommodate the non-matching data. For example, if you tried to append text to a whole numbers column, two columns would be created—one for the whole numbers column and one for the text column.
+
+</Note>
+
+**Video - Appending Rows in Magic ETL**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/FadGCVhLSjI" width="560"></iframe>
+
+**Example**
+
+For example, using this transform flow...
+
+<Frame><img alt="etl_appendrows_transformflow.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgZ.png"/></Frame>
+... the Append Rows tile transforms this data...
+
+<Frame><img alt="etl_appendrows_datain1.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgH.png"/></Frame>
+and this data...
+
+<Frame><img alt="etl_appendrows_datain2.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgT.png"/></Frame>
+... to this...
+
+<Frame><img alt="etl_appendrows_dataout.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgU.png"/></Frame>
+... using this configuration:
+
+<Frame><img alt="etl_appendrows_sampleui.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgR.png"/></Frame>
+<Note>
+  **Note:** When previewing, the transformed data might not sort rows in the order you expect. You can control the row order when displaying data in table cards.
+
+</Note>
+
+**To configure the Append Rows tile,**
+
+1. Click the **Append Rows** tile in the canvas.
+2. (Optional) Rename the tile by clicking
+   <i className="icon-pencil sm" aria-hidden="true" />, then entering the name you want.
+3. Select the option for including columns.
+
+   <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Include columns from DataSet </p></td><td colspan="1" rowspan="1"><p> Includes the columns from the DataSet you select. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include all columns </p></td><td colspan="1" rowspan="1"><p> Includes unique columns from all of the input DataSets. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Only include shared columns </p></td><td colspan="1" rowspan="1"><p> Includes only columns that are used in every input DataSet. </p></td></tr></tbody></table>
+
+4. Review changes to be made to each DataSet.
+
+<Tip>
+  **Tip:** You can preview the data transformed by a tile by running a preview, clicking the tile in the canvas, then clicking the **Preview** tab.
+
+</Tip>
+
+## Join Data
+
+The Join Data tile lets you combine columns from two DataSets or data "streams" into one DataSet using common values in a specific column (or set of columns). The columns *must* exist in both input DataSets and have the same data structure.
+
+<Note>
+  **Note:** JOINs in Magic ETL for matching the lookup and matching columns are case-sensitive.
+
+</Note>
+
+**Video - Comparing Types of Joins in Magic ETL**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/zmjzOjP2_l0" width="560"></iframe>
+
+**Video - Multiple Joins in Magic ETL** 
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/wpPRmgxchtM" width="560"></iframe>
+
+**Example**
+
+For example, using this transform flow...
+
+<Frame><img alt="etl_joindata_transformflow.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNg6.png"/></Frame>
+... the Join Data tile transforms this data...
+
+<Frame><img alt="etl_joindata_datain1.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgX.png"/></Frame>
+and this data...
+
+<Frame><img alt="etl_joindata_datain2.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgS.png"/></Frame>
+... to this...
+
+<Frame><img alt="etl_joindata_dataout.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgQ.png"/></Frame>
+... using this configuration:
+
+<Frame><img alt="etl_joindata_sampleui.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgI.png"/></Frame>
+<Note>
+  **Notes:**
+
+  * In the transformed data, Domo adds "\_1" to the name of specified matching columns.
+  * When previewing, the transformed data might not sort rows in the order you expect. You can control the row order when displaying data in table cards.
+
+</Note>
+
+**To configure the Join Data tile,**
+
+1. Click the **Join Data** tile in the canvas.
+2. (Optional) Rename the tile by clicking
+   <i className="icon-pencil sm" aria-hidden="true" />, then entering the name you want.
+3. Determine the column to use in combining data.
+
+<Note>
+  **Notes:** 1) The specific column used to combine rows *must* exist in both DataSets and have the same data structure. 2) Domo refers to the column in the first input DataSet as the *identifying column* and refers to the column in the second input DataSet as the *matching column.* 3) For Inner, Left Outer, and Full Outer joins, specify the primary or "lookup table" with the unique values as the first input DataSet (on the left). (The identifying column *cannot* have more than 10,000 duplicates of any value.)
+
+</Note>
+
+4. Select the first input DataSet (on the left), then select the identifying column you want.
+     
+   The identifying column must be paired with a matching column in the second input DataSet.
+5. Select the second input DataSet (on the right), then select the matching column you want.
+     
+   The matching column must be paired with a matching identifying column in the first input DataSet.
+6. Click the join type icon, then select the type of join to perform.
+
+   <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Join Type </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><img src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgJ.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/><br/> Inner </p></td><td colspan="1" rowspan="1"><p> Includes only matching rows in both input DataSets. </p></td></tr><tr><td colspan="1" rowspan="1"><p><img src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNg9.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/><br/> Left Outer </p></td><td colspan="1" rowspan="1"><p> Includes all rows from the first input DataSet (on the left) and matching rows from the second input DataSet (on the right). </p></td></tr><tr><td colspan="1" rowspan="1"><p><img src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgE.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/><br/> Right Outer </p></td><td colspan="1" rowspan="1"><p> Includes all rows from the second input DataSet (on the right) and matching rows from the first input DataSet (on the left). </p></td></tr><tr><td colspan="1" rowspan="1"><p><img src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgG.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/><br/> Full Outer </p></td><td colspan="1" rowspan="1"><p> Includes all rows from both input DataSets. </p></td></tr></tbody></table>
+
+7. (Conditional) If you want to define another pair of columns, click **Match Another Column**, then configure the paired columns.
+
+   <Tip>
+     **Tip:** You can preview the data transformed by a tile by running a preview, clicking the tile in the canvas, then clicking the **Preview** tab.
+
+   </Tip>

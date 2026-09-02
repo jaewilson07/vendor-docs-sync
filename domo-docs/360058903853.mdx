@@ -1,0 +1,131 @@
+---
+title: "Microsoft Teams Connector"
+excerpt: "Configure Domo's Microsoft Teams Connector to retrieve team and group conversation data from Microsoft Teams using an Azure app registration."
+---
+
+## Intro
+
+Microsoft Teams is a unified communication and collaboration platform that combines persistent workplace chat, video meetings, file storage (including collaboration on files), and application integration. The service integrates with the Office 365 subscription office productivity suite and features extensions that can integrate with non-Microsoft products. Microsoft Teams is a competitor to the business communication services such as Slack, and is the evolution and upgrade path from Microsoft Skype for Business. Use Domo's Microsoft Teams connector to retrieve the details about teams and groups conversations in your organization. To learn more about the Microsoft Teams API, visit [https://docs.microsoft.com/en-us/graph/teams-concept-overview](https://docs.microsoft.com/en-us/graph/teams-concept-overview "https://docs.microsoft.com/en-us/graph/teams-concept-overview").
+
+You connect to your Microsoft Teams account in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft Teams connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Microsoft Teams account and create a DataSet, you must select one of the following authentication methods:
+
+- **Microsoft Teams:** Requires a Client ID and Client Secret.
+- **Microsoft Teams (Single Tenant):** Requires a Client ID, Client Secret, and Tenant Domain Name.
+
+#### To find the Client ID, do the following:
+
+1. Go to
+   [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com") and sign in using your Microsoft credentials.
+2. Select
+   ********Azure Active Directory > App registrations********.
+3. Find your app and click on it.
+4. Locate the "Application ID" from the web app (this is the client ID).
+
+#### To generate a new Client Secret, do the following:
+
+1. Go to
+   [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com") and sign in using your Microsoft credentials.
+2. Select
+   ********Azure Active Directory > App registrations********.
+3. Find your app and click on it.
+4. Open
+   ********Certificates and secrets********.
+5. Click
+   **+New Client secret** in the Client secret section.
+
+### Creating an Azure App for Enterprise OAuth
+
+To create a Microsoft Azure app, do the following:
+
+1. Log into
+[https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com").
+
+2. Click on
+********App registrations********.
+  
+<Frame><img alt="Capture1.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz7.png"/></Frame>
+
+3. Click
+********New registration********.
+
+4. Enter the application name, and select the supported account types for your application. Here, the supported accounts MUST be Multitenant.
+
+<Frame><img alt="clipboard_eb9eab104154ca1097aaf631fb1227879.png" src="/images/kb/ka0Vq0000000NXh-00N5w00000Ri7BU-0EM5w000005vNzv.png"/></Frame>
+
+5. Enter the Redirect URI for as
+[https://oauth.domo.com/api/data/v1/oauth/providers/microsoft-teams/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/microsoft-reports/exchange "https://oauth.domo.com/api/data/v1/oauth/providers/microsoft-teams/exchange").
+
+<Frame><img alt="clipboard_e3ca801b61e568ac88bbaaf31c0352398.png" src="/images/kb/ka0Vq0000000NXh-00N5w00000Ri7BU-0EM5w000005vO06.png"/></Frame>
+
+6. Click
+********Register********.
+
+7. Once the application is registered, assign the required API permissions for your application.
+
+8. Click
+**API Permissions > +Add a permission**.
+
+<Frame><img alt="API_Permission-Add_Permission.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNyw.png"/></Frame>
+
+9. Request API Permissions page appears displaying the commonly used Microsoft APIs.
+
+<Frame><img alt="Request_API_permissions-2.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz1.png"/></Frame>
+
+10. Select the desired API, and add the Delegated and Application permissions as required.
+
+<Frame><img alt="clipboard_e3d304305b31d867dddacb886005e89dc.png" src="/images/kb/ka0Vq0000000NXh-00N5w00000Ri7BU-0EM5w000005vO00.png"/></Frame>
+
+11. Click on
+**Grant admin consent**, then click **Yes** to allow the admin consent for your permissions. The added permissions will appear in the **Configured permissions** section with their details.
+
+<Frame><img alt="clipboard_e4414e0905f035dd543503e9d06485c22.png" src="/images/kb/ka0Vq0000000NXh-00N5w00000Ri7BU-0EM5w000005vNzy.png"/></Frame>
+
+12. Now, click on
+****Certificates & Secrets****. Certificates can be used as secrets to prove the application's identity when requesting a token. Also, can be referred to as public keys.
+
+<Frame><img alt="Capture4.PNG" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNyu.png"/></Frame>
+
+13. Click on
+****+ New Client Secret**** button.
+
+<Frame><img alt="Capture5.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz3.png"/></Frame>
+
+14. Specify the client secret description and the expiry period for your client secret, and click
+********Add********.
+
+<Frame><img alt="Capture6.PNG" src="/images/kb/ka05w00000123LH-00N5w00000Ri7BU-0EM5w000005vO62.png"/></Frame>
+
+15. Copy the
+**value** and paste it into the ********Client Secret******** field in the Connector credentials section in Domo.
+
+<Frame><img alt="Secret.png" src="/images/kb/ka0Vq0000000NXh-00N5w00000Ri7BU-0EM5w000005vO03.png"/></Frame>
+
+## Connecting to Your Microsoft Teams Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Microsoft Teams Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Microsoft Teams account.
+
+There are two authentication methods available for the Microsoft Teams connector. If you select the **Microsoft Teams** method, you will need to provide a Client ID and Client Secret. If you select the **Microsoft Teams (Single Tenant)** method, you will need to provide a Client ID, Client Secret, and Tenant Domain Name.
+
+The fields required are as follows:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter the client ID for your installed Azure web app. For more information, see "Prerequisites." </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Enter the client secret that was generated when you created your app. For more information, see "Prerequisites." </td></tr><tr><td colspan="1" rowspan="1"> Tenant </td><td colspan="1" rowspan="1"> Enter your tenant domain name. </td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new Microsoft Teams DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Microsoft Teams report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> S. No </b></td><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> 1 </td><td colspan="1" rowspan="1"> All Channels </td><td colspan="1" rowspan="1"> Returns a list of all channels for the selected team ID. </td></tr><tr><td colspan="1" rowspan="1"> 2 </td><td colspan="1" rowspan="1"> All Events </td><td colspan="1" rowspan="1"> Returns a list of event objects from the specified group. </td></tr><tr><td colspan="1" rowspan="1"> 3 </td><td colspan="1" rowspan="1"> All Joined Teams </td><td colspan="1" rowspan="1"> Returns a list of the teams in Microsoft Teams that the user is a direct member of. </td></tr><tr><td colspan="1" rowspan="1"> 4 </td><td colspan="1" rowspan="1"> All Teams </td><td colspan="1" rowspan="1"> Returns a list of all teams in an organization. </td></tr><tr><td colspan="1" rowspan="1"> 5 </td><td colspan="1" rowspan="1"> Calendar View </td><td colspan="1" rowspan="1"> Returns the occurrences, exceptions, and single instances of events in a calendar view defined by a time range, from a specified group. </td></tr><tr><td colspan="1" rowspan="1"> 6 </td><td colspan="1" rowspan="1"><p> Channel Messages </p></td><td colspan="1" rowspan="1"> Retrieves a list of messages in a channel of a team. </td></tr><tr><td colspan="1" rowspan="1"> 7 </td><td colspan="1" rowspan="1"><p> Channel Message Replies </p></td><td colspan="1" rowspan="1"> Retrieves a list of all the replies of a message in a channel of a team. </td></tr><tr><td colspan="1" rowspan="1"> 8 </td><td colspan="1" rowspan="1"> Groups </td><td colspan="1" rowspan="1"> Returns a list of groups in an organization. </td></tr><tr><td colspan="1" rowspan="1"> 9 </td><td colspan="1" rowspan="1"> Group Attachments </td><td colspan="1" rowspan="1"> Returns a list of attachment objects attached to a post. </td></tr><tr><td colspan="1" rowspan="1"> 10 </td><td colspan="1" rowspan="1"> Group Conversations </td><td colspan="1" rowspan="1"> Returns a list of conversations in the group. </td></tr><tr><td colspan="1" rowspan="1"> 11 </td><td colspan="1" rowspan="1"> Group Members </td><td colspan="1" rowspan="1"> Returns a list of group's direct members. </td></tr><tr><td colspan="1" rowspan="1"> 12 </td><td colspan="1" rowspan="1"> Group Owners </td><td colspan="1" rowspan="1"> Returns a list of group owners. </td></tr><tr><td colspan="1" rowspan="1"> 13 </td><td colspan="1" rowspan="1"> Group Posts </td><td colspan="1" rowspan="1"> Returns a list of the posts for the specified thread. </td></tr><tr><td colspan="1" rowspan="1"> 14 </td><td colspan="1" rowspan="1"> Group Threads </td><td colspan="1" rowspan="1"> Returns a list of all threads of a group. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Group ID </td><td colspan="1" rowspan="1"> Select the group ID. </td></tr><tr><td colspan="1" rowspan="1"> Team ID </td><td colspan="1" rowspan="1"> Select the team ID. </td></tr><tr><td colspan="1" rowspan="1"> Thread ID </td><td colspan="1" rowspan="1"> Select the thread ID. </td></tr><tr><td colspan="1" rowspan="1"> Post ID </td><td colspan="1" rowspan="1"> Select the post ID. </td></tr><tr><td colspan="1" rowspan="1"> Dates Selection </td><td colspan="1" rowspan="1"> Select the date format for your data. </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> Select whether the report data is for a specific date or for a relative number of days back from today. </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> Select the specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for in the <b><b> Days Back </b></b> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data from (start day). Combine with <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> and 5 for <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data to (end day). Combine with <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> and 5 for <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> Specify the time period that you would like to receive data for. </td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> Select the day you would like your week to start with. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

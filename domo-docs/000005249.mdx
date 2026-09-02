@@ -1,0 +1,57 @@
+---
+title: "RMS Third Party Connector"
+excerpt: "Use Domo's Rakuten Merchant Server Connector to import order, license, and Rakuten Pay data from RMS into a DataSet."
+---
+
+## Intro
+
+Rakuten Merchant Server (RMS) is a system that integrates four functions (store construction, order management, email distribution, and data analysis) that are essential for smooth store operations and user interaction. The Domo's Rakuten Merchant Server Connector allows you to use order information on Domo. For more information on the RMS API, refer to https://webservice.rms.rakuten.co.jp/merchant-portal/backToMenu.
+  
+Use of the RMS API is subject to the [RMS API Terms of Service](https://webservice.rms.rakuten.co.jp/merchant-portal/applicationContract), and use of the API constitutes acceptance of the API Terms of Service.
+  
+You connect to your RMS account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon DynamoDB connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your RMS account and create a DataSet, you must have the following::
+
+1. The serviceSecret and licenseKey for your RMS Account.
+    
+    To find your API Key, see [Steps for using RMS APIs](https://webservice.rms.rakuten.co.jp/merchant-portal/view/ja/common/1-1_service_index/rmswebserviceauthentication/).
+  2. Set each of the following APIs to the status of **in use** on the RMS APIs:
+      
+    Refer to https://webservice.rms.rakuten.co.jp/merchant-portal/configurationApi for more details.
+
+    * ```
+      APIs：LicenseManagementAPI: license.expiryDate.get, 
+      ```
+    * ```
+      PurchaseItemAPI: purchaseitem.searchOrderItem, purchaseitem.getOrderItem,
+      ```
+    * ```
+      RakutenPay_OrderAPI: rpay.order.searchOrder, rpay.order.getOrder
+      ```
+
+## Connecting to Your RMS Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the RMS Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your RMS account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> serviceSecret </p></td><td colspan="1" rowspan="1"><p> Enter your RMS serviceSecret. </p></td></tr><tr><td colspan="1" rowspan="1"><p> licenseKey </p></td><td colspan="1" rowspan="1"><p> Enter your RMS licenseKey. </p></td></tr></tbody></table>
+
+For information about obtaining these credentials, see **Prerequisites** above.
+
+Once you have entered valid RMS credentials, you can use the same account any time you go to create a new RMS DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors.](/s/article/360042926054)
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p><span> Select the report you want to run. The following reports are available: </span></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Purchase Item </td><td colspan="1" rowspan="1"> Returns the accessible order information in your account. </td></tr><tr><td colspan="1" rowspan="1"> Item Model </td><td colspan="1" rowspan="1"> Returns the accessible information of product order in your account. </td></tr><tr><td colspan="1" rowspan="1"> Rakuten Pay Order </td><td colspan="1" rowspan="1"> Returns the accessible order information paid by Rakuten Pay in your account. </td></tr><tr><td colspan="1" rowspan="1"> Rakuten Pay Order without PII </td><td colspan="1" rowspan="1"> Returns the accessible order information (except personal identification information) paid by Rakuten Pay in your account. </td></tr><tr><td colspan="1" rowspan="1"> Rakuten Pay Order Item Model </td><td colspan="1" rowspan="1"> Returns the accessible information of product order paid by Rakuten Pay in your account. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Updated </p></td><td colspan="1" rowspan="1"><p> Select in <b> Date selection </b> whether a single day or a date range when filter the result by update date of items. </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Single date </td><td colspan="1" rowspan="1"> Select the specific or relative single date. </td></tr><tr><td colspan="1" rowspan="1"> Date range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Time period </td><td colspan="1" rowspan="1"> Select the time period from <b> Time period </b> dropdown for your report. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Updated - Date </p></td><td colspan="1" rowspan="1"><p> Select in <b> Date Type </b> from the followings whether the report data is for a specific date or for a relative number of days back from today. </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Relative </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for in the <b> Days Back </b> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Specific </td><td colspan="1" rowspan="1"> Select the specific date using the date selector in the <b> Date </b> field. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Updated - Start Date </td><td colspan="1" rowspan="1"> Select in <b> Date Type </b> from the followings: <br/><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Relative </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data from (start day). Combine with <b> End Date </b> to create a range of represented days. <br/> For example, if you entered <b> 10 </b> for <b> Start Date </b> and <b> 5 </b> for <b> End Date </b>, the report would contain data for 10 days ago up until 5 days ago. </td></tr><tr><td colspan="1" rowspan="1"> Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Updated - End Date </td><td colspan="1" rowspan="1"><p> Select in <b> Date Type </b> from the followings: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Relative </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data to (end day). Combine with <b> Start Date </b> to create a range of represented days. <br/> For example, if you entered <b> 10 </b> for <b> Start Date </b> and <b> 5 </b> for <b> End Date </b>, the report would contain data for 10 days ago up until 5 days ago. </td></tr><tr><td colspan="1" rowspan="1"> Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Updated - Time period </td><td colspan="1" rowspan="1"> Choose the time period for which you would like to receive data. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

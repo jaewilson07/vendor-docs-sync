@@ -1,0 +1,190 @@
+---
+title: "Zendesk Support Connector with Upsert"
+excerpt: "Configure Domo's Zendesk Support Connector with Upsert to compile ticket and user reports from Zendesk and merge changes into your DataSet."
+---
+
+## Intro
+
+Zendesk Support Connector with Upsert provides a cloud-based customer service program that includes ticketing, self-service options, and customer support features. It enhances productivity, processes, and pipelines for your sales teams. Use Domo's Zendesk Support Connector with Upsert to compile reports about tickets, users, and more. To learn more about the Zendesk Support Connector with Upsert API, visit their page ([https://developer.Zendesk Support Connector with Upsert.com/rest\_api/docs/core/introduction](https://developer.zendesk.com/rest_api/docs/core/introduction)).
+
+The Zendesk Support Connector with Upsert is a "Cloud App" Connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the Connector page for this and other Cloud App Connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Zendesk Support Connector with an Upsert account in the Data Center. This topic discusses the fields and menus that are specific to the Zendesk Support Connector with Upsert user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect your Zendesk Support Connector with an Upsert account and create a DataSet, you need the Zendesk URL and the Zendesk credentials for your company.
+
+## Connecting to Your Zendesk Support Connector with Upsert Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Zendesk Support Connector with Upsert page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most Connector types and are discussed in great detail in [Adding a DataSet Using a Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Zendesk Support Connector with Upsert account. The following table describes what is needed for each field:  
+
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Field</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Zendesk URL</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the Zendesk URL in the format <i>mycompany.zendesk.com</i>. Do not include <i>https://</i>.  Once you enter the Zendesk URL, you will be prompted to enter the Zendesk credentials.</p></td>
+    </tr>
+  </tbody>
+</table>
+Once you have entered valid Zendesk Support Connector with Upsert credentials, you can use the same account any time to create a new Zendesk Support Connector with Upsert. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Menu</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Report</p></td>
+      <td colspan="1" rowspan="1"><p>Select the Zendesk Support Connector with Upsert report you want to run. The following reports are available:</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Associated Data</p></td>
+      <td colspan="1" rowspan="1"><p>Select the associated data you want loaded along with the tickets.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Include Attachments</p></td>
+      <td colspan="1" rowspan="1"><p>Specify whether you would like to include the attachments in the results.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select the date to start retrieving data on the first run. Subsequent runs will automatically retrieve newly created and updated tickets, users or organizations</p></td>
+      <td colspan="1" rowspan="1"><p>Select the date to start retrieving data on the first run. Subsequent runs will automatically retrieve newly created and updated items. If you modify the date after the first run, this date will be used for the next run and the existing data will be replaced.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Date Selection</p></td>
+      <td colspan="1" rowspan="1"><p>Select the Date to start retrieving data on the first run. Subsequent runs will automatically retrieve newly created and updated tickets, users, or organizations.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Single Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether the report data is for a specific date or for a relative number of days back from today.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Specific Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select the specific date using the date selector.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Relative Date</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the number of days back that you would like to get data for in the <b>Days Back</b> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Legacy Schema Selection</p></td>
+      <td colspan="1" rowspan="1"><p>Select this check box to use legacy schema for backward compatibility with the Zendesk Support Connector with Upsert Connector.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Exclude Deleted Records</p></td>
+      <td colspan="1" rowspan="1"><p>Select this check box to exclude the deleted records from the data.</p></td>
+    </tr>
+  </tbody>
+</table>
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure schedule, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+
+<Accordion title="What endpoint is the base URL for this connector?">
+The base URL for the Zendesk Support Connector with Upsert Upsert connector is [https://{subdomain}.Zendesk Support Connector with Upsert.com/api/v2](https://%7Bsubdomain%7D.zendesk.com/api/v2).
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Report Name</p></th>
+      <th colspan="1" rowspan="1"><p>Enpoint URL</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Brands</p></td>
+      <td colspan="1" rowspan="1"><p>/api/v2/brands.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Organizations</p></td>
+      <td colspan="1" rowspan="1"><p>/incremental/organizations.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Specify Query</p></td>
+      <td colspan="1" rowspan="1"><p>/api/v2/search/export.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Tickets</p></td>
+      <td colspan="1" rowspan="1"><p>/incremental/tickets.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Ticket Activities</p></td>
+      <td colspan="1" rowspan="1"><p>/api/v2/activities.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Ticket Audits</p></td>
+      <td colspan="1" rowspan="1"><p>/ticket\_audits.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Ticket Fields</p></td>
+      <td colspan="1" rowspan="1"><p>/ticket\_fields.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Ticket Forms - Agent Conditions</p></td>
+      <td colspan="1" rowspan="1"><p>/ticket\_forms.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Ticket Forms - End User Conditions</p></td>
+      <td colspan="1" rowspan="1"><p>/ticket\_forms.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Ticket Comments</p></td>
+      <td colspan="1" rowspan="1"><p>/tickets/{currentTicketId}/comments.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Ticket Metric Events</p></td>
+      <td colspan="1" rowspan="1"><p>/incremental/ticket\_metric\_events.json</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Users</p></td>
+      <td colspan="1" rowspan="1"><p>/incremental/users.json</p></td>
+    </tr>
+  </tbody>
+</table>
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up the this connector?">
+You need the Zendesk Support Connector with Upsert username, password or API token, and the Zendesk Support Connector with Upsert instance URL. The Zendesk Support Connector with Upsert user account used for this connector must be an Admin within Zendesk Support Connector with Upsert.
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+As often as needed.
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+No
+</Accordion>
+
+<Accordion title="Can I use the same Zendesk Support Connector with Upsert account to create multiple datasets?">
+Yes
+</Accordion>
+
+<Accordion title="What's the difference between the Zendesk Support Connector with Upsert and Zendesk Support Connector with Upsert Upsert connectors?">
+The Zendesk Support Connector with Upsert supports a Merge mode along with the Append and Replace modes to update your dataset. The Merge mode replaces all updated rows, while any new rows are appended. Thus, it avoids duplicate entries.  
+The Zendesk Support Connector with Upsert supports the Append and Replace modes to update your datasets.
+</Accordion>
+
+</AccordionGroup>

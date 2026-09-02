@@ -1,0 +1,63 @@
+---
+title: "XML Advanced Connector"
+excerpt: "Use the XML Advanced Connector to import XML files from an SFTP server or via HTTP/HTTPS calls into Domo."
+---
+
+## Intro
+
+Extensible Markup Language (XML) is a simple, very flexible text format. The Domo XML Advance Connector allows you to access XML files that you have uploaded to a SFTP server. You can also import files via HTTP or HTTPS calls. For more information about XML, see [https://www.w3.org/TR/REC-xml/](https://www.w3.org/TR/REC-xml/ "https://www.w3.org/TR/REC-xml/")
+
+You connect to your XML account in the Data Center. This topic discusses the fields and menus that are specific to the XML connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Pulling XML data formatted as rows and columns into Domo. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> N/A </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> IT </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 hours </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## Best Practices
+
+Make sure the XML is valid before using the connector.
+
+## Prerequisites
+
+To connect to your XML account and create a DataSet, you must have credentials for the server in which the XML file is found.
+
+You must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses](https://domo-support.domo.com/s/article/360043630093?language=en_US "Whitelisting IP Addresses").
+
+## Connecting to Your XML Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the XML Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your XML account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"> Enter your domain name. For example, s <a href="ftp://hostname" rel="noopener" target="_blank"> ftp://hostname </a>, then enter only the hostname. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username for the server where the XML file is located. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password for the server where the XML file is located. </td></tr></tbody></table>
+
+Once you have entered valid XML credentials, you can use the same account any time you go to create a new XML DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+In this pane you specify the server/SFTP site to connect to, the name of the XML file, and other configuration settings.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> What Is The Connection Method To Access The Xml File? </td><td colspan="1" rowspan="1"><p> SFTP is used when your XML file is on a SFTP server. <br/><br/> HTTP Request is used when you want to access your XML file using a HTTP GET request. The request is triggered by a unique URL Parameter defined by the service providing the XML file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter The Path To Your XML File </p></td><td colspan="1" rowspan="1"><p> Enter the path to your XML file. <br/><br/> You must provide the complete qualified path including the file name. <br/><b> Example (SFTP): </b><br/> /home/test/file.xml <br/><br/> You can also specify the file to process by using our date function and name your file using the following date format. <br/><b> Example for specific date: </b><br/> file_[yyyyMMdd]_suffix.xml <br/><br/> Also you can select the most recent file by using this naming convention. <br/><b> Example: </b><br/> [latest].xml </p></td></tr><tr><td colspan="1" rowspan="1"> Enter Your Data Tag </td><td colspan="1" rowspan="1"> Enter the tag containing your data in the XML text. </td></tr><tr><td colspan="1" rowspan="1"> Do You Require Additional Options? </td><td colspan="1" rowspan="1"> Select <b> Yes </b>, <b></b> if you need to exclude specific fields or use XPath. </td></tr><tr><td colspan="1" rowspan="1"> Do You Require Attributes In Data? </td><td colspan="1" rowspan="1"> Select <b> Yes </b>, <b></b> if you require attributes values as part of data. </td></tr><tr><td colspan="1" rowspan="1"> Enter Fields To Exclude </td><td colspan="1" rowspan="1"> Provides a comma separated list of fields you want to exclude from the XML import. </td></tr><tr><td colspan="1" rowspan="1"> Enter XPath Expression </td><td colspan="1" rowspan="1"> Enter your XPath query using standard XPath syntax as defined by the World Wide Web Consortium. (<a href="http://www.w3.org/TR/2014/REC-xpath-30-20140408/" target="_blank" title="http://www.w3.org/TR/2014/REC-xpath-30-20140408/"> http://www.w3.org/TR/2014/REC-xpath-30-20140408/ </a> ). </td></tr><tr><td colspan="1" rowspan="1"> HTTPS Headers </td><td colspan="1" rowspan="1"> Enter additional headers for the HTTPS XML URL. Provide in the following format: headerName1 = 'headerValue1' and headerName2 = 'headerValue2'. </td></tr><tr><td colspan="1" rowspan="1"> HTTPS Body </td><td colspan="1" rowspan="1"> Enter additional request body for the HTTPS XML URL. Provide in the following format: name1 = 'Value1' and name2 = 'Value2'. </td></tr><tr><td colspan="1" rowspan="1"> Query Parameter Format </td><td colspan="1" rowspan="1"><b> Normal </b>: <b></b> Allows multiple parameters to be sent. <br/><br/> Select <b> RAW </b> if you need to send a string of parameters as the value of one single parameter. <br/><br/> Select <b> Plain </b>, <b></b> and provide the value to be appended to the end of the provided URL. Note that if <b> Plain </b> is selected, the provided value will be appended as it is, and URL encoding will occurs. </td></tr><tr><td colspan="1" rowspan="1"> Query Parameters </td><td colspan="1" rowspan="1"> Enter additional query parameters for XML URL. Provide in the following format: paramName1 = 'paramValue1' and paramName2 = 'paramValue2'. </td></tr><tr><td colspan="1" rowspan="1"> Date Query Parameters </td><td colspan="1" rowspan="1"> Enter additional date query parameters for the XML URL and provide the detail in the following format: paramName1 = 'paramValue1' and paramName2 = 'paramValue2'. Specify paramValue as X, XDay or XDays, where X is a positive integer. For example: 30Days. </td></tr><tr><td colspan="1" rowspan="1"> Date Format For Date Query Parameters </td><td colspan="1" rowspan="1"> Enter the required date format for date query parameters. </td></tr><tr><td colspan="1" rowspan="1"><p> Parser </p></td><td colspan="1" rowspan="1"><p> Select <b> Parser </b> to parse XML. By default, <b> Recursive XML Parser </b> is used. If Recursive Parser parse fails, then try XML Parser or Easy XML parser. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Is Pagination Required? </p></td><td colspan="1" rowspan="1"><p> Select <b> Yes </b> if your xml response is paginated. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Type Of Pagination </p></td><td colspan="1" rowspan="1"><p> Select <b> Pagination using next page URL from response </b> if the XML response contains the URL to the next page. Select <b> Pagination using page parameter </b> if pagination is achieved using page parameter. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Response Tag For Next Page URL </p></td><td colspan="1" rowspan="1"><p> Refer the table below to find the expected value to be entered in this field for the next page URL tag format. </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Possible URL Tag Format </b></td><td colspan="1" rowspan="1"><b> Expected Input Value </b></td></tr><tr><td colspan="1" rowspan="1"> &lt;link rel="next" href=" <a href="https://someurl.com" target="_blank"> https://someurl.com </a> " /&gt; </td><td colspan="1" rowspan="1"> link:rel=next:href </td></tr><tr><td colspan="1" rowspan="1"> &lt;nextUrl&gt; <a href="https://someurl.com" target="_blank"> https://someurl.com </a> &lt;/nextUrl&gt; </td><td colspan="1" rowspan="1"> nextUrl </td></tr><tr><td colspan="1" rowspan="1"> &lt;nextLink href=" <a href="https://someurl.com" target="_blank"> https://someurl.com </a> " /&gt; </td><td colspan="1" rowspan="1"> nextLink:href </td></tr><tr><td colspan="1" rowspan="1"> &lt;url rel="next"&gt; <a href="https://someurl.com" target="_blank"> https://someurl.com </a> &lt;/url&gt; </td><td colspan="1" rowspan="1"> url:rel=next </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Tag For Page Parameter </p></td><td colspan="1" rowspan="1"><p> Enter the tag where you can find the page parameter. <br/> For example, If your page parameter resides in &lt; data &gt; tag of your xml response then enter 'data' here. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Name Of The Page Parameter </p></td><td colspan="1" rowspan="1"><p> Enter the name of the page parameter you want to use for pagination. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Troubleshooting
+
+* Make sure the XML data is valid and that the credentials are up-to-date.
+* Whitelist necessary IP addresses.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="What kind of credentials do I need to power up this connector?">
+    If you are retrieving an XML file from an SFTP server, you will need the username, password, and host name. If you are importing an XML file from a URL, you will need the URL, and optionally, a username and password.
+  </Accordion>
+  <Accordion title="How often can the data be updated?">
+    Datasets should be set to update no more than once every hour.
+  </Accordion>
+  <Accordion title="Are there any API limits that I need to be aware of?">
+    While the data provider may enforce call rate limits, you should not have to worry about them.
+  </Accordion>
+</AccordionGroup>

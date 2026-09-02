@@ -1,0 +1,40 @@
+---
+title: "Microsoft Fabric Connector"
+excerpt: "Configure the Microsoft Fabric Connector to ingest data from Microsoft Fabric into Domo using SQL queries or a query builder."
+---
+
+## Intro
+
+Microsoft Fabric is an end-to-end analytics and data platform designed for enterprises that require a unified solution. It includes data movement, processing, ingestion, transformation, real-time event routing, and report building. It offers a comprehensive suite of services, including Data Engineering, Data Factory, Data Science, Real-Time Analytics, Data Warehouse, and Databases. Use Domo's Microsoft Fabric connector to ingest data into Domo.
+
+You can connect to your Microsoft Fabric account in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft Fabric connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Microsoft Fabric account and create a DataSet, you need the following:
+
+* Server Name
+* Port number
+* Database name
+* Username and Password for the server
+* Hostname in Certificate
+
+## Connecting to Your Microsoft Fabric Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Microsoft Fabric Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Microsoft Fabric account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Server Name </td><td colspan="1" rowspan="1"> Enter the server name. </td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port number. </td></tr><tr><td colspan="1" rowspan="1"> Database </td><td colspan="1" rowspan="1"> Enter the database name. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username for the server. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password for the server. </td></tr><tr><td colspan="1" rowspan="1"> Hostname in Certificate </td><td colspan="1" rowspan="1"> Enter the hostNameInCertificate obtained from the show database connection strings. </td></tr></tbody></table>
+
+Once you have entered valid Microsoft Fabric credentials, you can use the same account at any time to create a new Microsoft Fabric DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"> Description </td></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> Enter the query you want to execute. </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> Select a table and field to autogenerate your query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter the SQL query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Database Schemas </td><td colspan="1" rowspan="1"> Select the schema. </td></tr><tr><td colspan="1" rowspan="1"> Database Tables </td><td colspan="1" rowspan="1"> Select the table. </td></tr><tr><td colspan="1" rowspan="1"> Table Columns </td><td colspan="1" rowspan="1"> Select the columns. </td></tr><tr><td colspan="1" rowspan="1"> Query Helper </td><td colspan="1" rowspan="1"> This field is automatically generated using the above selected fields. Updating the auto generated query will not update your selections in the Field table above. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

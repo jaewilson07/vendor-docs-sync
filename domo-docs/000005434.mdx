@@ -1,0 +1,40 @@
+---
+title: "SAP Connector"
+excerpt: "Connect Domo to SAP using Host URL, username, and password to centralize ERP, CRM, and analytics data into DataSets."
+---
+
+## Intro
+
+SAP is a market-leading cloud business software company that provides platforms for ERP, CRM, analytics, and more. The Domo SAP connector makes it easy to bring all your data from SAP into Domo.This connector helps you use Domo in conjunction with your SAP data to get a centralized view of your most mission-critical data.
+  
+Get faster, more relevant insights to help drive your business forward, with real-time data that is available to any team member on any device. You can also set up custom alerts to be notified instantly when your key metrics deviate from thresholds you've defined.
+
+You can connect to your SAP account in the Data Center. This topic discusses the fields and menus that are specific to the SAP connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your SAP account and create a DataSet, you must have the following:
+
+* Host URL
+* Username
+* Password
+
+## Connecting to Your SAP Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SAP Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your SAP account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Host URL </td><td colspan="1" rowspan="1"><p> Enter Host URL. </p></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"><p> Enter the username. </p></td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"><p> Enter the password. </p></td></tr></tbody></table>
+
+Once you have entered valid SAP credentials, you can use the same account any time you go to create a new SAP DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Report Category </td><td colspan="1" rowspan="1"> Select the Report Type. </td></tr><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"> Select the Report. </td></tr><tr><td colspan="1" rowspan="1"> Date From </td><td colspan="1" rowspan="1"> Select report date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector </td></tr><tr><td colspan="1" rowspan="1"> Date From Offset </td><td colspan="1" rowspan="1"> This adjusts the current date, given the number of days into the past. For example: 0 for today, 1 for yesterday. </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Date From </td><td colspan="1" rowspan="1"> Select the report date using the date picker, this option is only available when Report Date is set to 'Specific'. </td></tr><tr><td colspan="1" rowspan="1"> Date To </td><td colspan="1" rowspan="1"> Select report date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Date To Offset </td><td colspan="1" rowspan="1"> This adjusts the current date the given number of days into the past. Example: 0 for today, 1 for yesterday. </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Date To </td><td colspan="1" rowspan="1"> Select the report date using the date picker, this option is only available when Report Date is set to 'Specific'. </td></tr><tr><td colspan="1" rowspan="1"> Web Service Address </td><td colspan="1" rowspan="1"> Enter the location of the web service address. This value can be found in the WSDL. Look for "soap:address" in your WSDL and remove the server portion. It should look something like this: '/sap/bc/srt/rfc/sap/z_domo_so/800/z_domo_so/binding'. </td></tr><tr><td colspan="1" rowspan="1"> Clean XML Data </td><td colspan="1" rowspan="1"> Select Clean XML Data if the dataset fails due to invalid XML characters. This option will attempt to remove any invalid XML characters from the data. <br/><b> NOTE: </b> Selecting this option increases the amount of time it takes to update a dataset. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,53 @@
+---
+title: "Recurly Connector"
+excerpt: "Connect Domo to your Recurly account using an API key to pull billing and subscription management data into a DataSet."
+---
+
+## Intro
+
+Recurly is a billing and subscription management platform. To learn more about the Recurly API, visit their page ([https://dev.recurly.com/docs](https://dev.recurly.com/docs "https://dev.recurly.com/docs") ).
+
+You connect to your Recurly account in the Data Center. This topic discusses the fields and menus that are specific to the Recurly connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Recurly account and create a DataSet, you must have a Recurly API key. To learn how to obtain a Recurly API key, go here: [https://docs.recurly.com/docs/api-keys](https://docs.recurly.com/docs/api-keys "https://docs.recurly.com/docs/api-keys")
+
+## Connecting to Your Recurly Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Recurly Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Recurly account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter your Recurly API key. To learn how to obtain a Recurly API key, go here: <a href="https://docs.recurly.com/docs/api-keys" target="_blank" title="https://docs.recurly.com/docs/api-keys"> https://docs.recurly.com/docs/api-keys </a></p></td></tr></tbody></table>
+
+Once you have entered valid Recurly credentials, you can use the same account any time you go to create a new Recurly DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a single menu from which you select a Recurly report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Recurly report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Accounts </p></td><td colspan="1" rowspan="1"><p> Returns a list of Recurly accounts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Coupons </p></td><td colspan="1" rowspan="1"><p> Returns a list of Recurly coupons. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Invoices </p></td><td colspan="1" rowspan="1"><p> Returns a list of Recurly invoices. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Plans </p></td><td colspan="1" rowspan="1"><p> Returns a list of Recurly plans. </p></td></tr><tr><td colspan="1" rowspan="1"> Subdomain </td><td colspan="1" rowspan="1"> Enter the subdomain of your company Recurly instance URL. This is the portion of the URL following <span class="mt-font-courier-new"> https:// </span>. So if your company instance was <span class="mt-font-courier-new"><a href="https://mycompany.recurly.com" target="_blank" title="https://mycompany.recurly.com"> https://mycompany.recurly.com </a></span>, the subdomain would be <span class="mt-font-courier-new"> mycompany </span>. </td></tr><tr><td colspan="1" rowspan="1"><p> Subscriptions </p></td><td colspan="1" rowspan="1"><p> Returns a list of Recurly subscriptions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Transactions </p></td><td colspan="1" rowspan="1"><p> Returns a list of Recurly transactions. </p></td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

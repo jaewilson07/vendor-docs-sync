@@ -1,0 +1,94 @@
+---
+title: "Google Drive Enterprise Writeback Connector"
+excerpt: "Use Domo's Google Drive Enterprise Writeback Connector to export data from a Domo DataSet into Google Drive for enterprise environments."
+---
+
+## Intro
+
+Google Drive is a file storage and synchronization service developed by Google that allows users to store files in the cloud, synchronize files across devices, and share files. Use this connector to export your data from a Domo DataSet into Google Drive. To learn more about the Google Drive API, visit their page ([https://developers.google.com/drive/](https://developers.google.com/drive/ "https://developers.google.com/drive/") ).
+
+You export data to Google Drive in the Data Center. This topic discusses the fields and menus that are specific to the Google Drive Enterprise Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+
+</Note>
+
+## Prerequisites
+
+To configure this connector, you will need the following:
+
+* A project created in the Google Developers Console with the Google Drive and Google People APIs enabled (for more information about the Google People API, see https://developers.google.com/people/?hl=en_US)
+* A Domo Client ID and Client Secret
+* A Google developer client ID and client secret
+
+For information about obtaining a Google developer client ID and client secret, see the following:
+
+https://developers.google.com/identity/protocols/OAuth2#basicsteps
+
+The following steps explain in detail how to create your project.
+
+### Step 1: Creating a Project in the Google Developers Console
+
+To create a project in the Google Developers Console, do the following:
+
+1. Go to
+   [https://console.developers.google.com](https://console.developers.google.com "https://console.developers.google.com").
+2. Click the dropdown arrow next to
+   **My Project**.
+     
+   <Frame><img alt="googlesheets_writeback_1.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5e.png"/></Frame>
+
+3. Click
+   **New Project**.
+     
+   <Frame><img alt="googlesheets_writeback_2.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5Z.png"/></Frame>
+
+4. Name your project and select the parent folder.
+5. Click
+   **Create**.
+
+   <Note>
+   **Note:** You can also use an existing project if you want.
+   </Note>
+
+### Step 2: Enabling the Google Drive API
+
+To enable the Google Drive API for your project, do the following:
+
+1. In the Google Developers Console, select your project and click
+   **Library**.
+     
+   <Frame><img alt="googlesheets_writeback_3.png" src="/images/kb/ka05w00000123QW-00N5w00000Ri7BU-0EM5w000005vOA9.png"/></Frame>
+
+2. Search for the Google Drive API.
+3. Click
+   **Enable**.
+     
+   <Frame><img alt="googledrive_writeback_1.png" src="/images/kb/ka05w00000123QW-00N5w00000Ri7BU-0EM5w000005vOAK.png"/></Frame>
+
+### Step 3: Get Your Domo Client ID and Client Secret
+
+Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Google Drive Enterprise Writeback Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account as well as your Google developer account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Google developer client ID. For more information, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Google developer client secret. For more information, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client ID. For more information, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"> Enter your Domo client secret. For more information, see "Prerequisites," above. </td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-Google Drive connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Input DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to Google Drive. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following <span class="mt-font-courier-new"> datasources/ </span>. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Filename </p></td><td colspan="1" rowspan="1"><p> Select whether you want to reference your DataSet using the <b><b> Input DataSet ID </b></b> or an output file name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Filename </p></td><td colspan="1" rowspan="1"><p> Enter the output file name for your data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> MIME Type </p></td><td colspan="1" rowspan="1"><p> Select the MIME type for your data. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

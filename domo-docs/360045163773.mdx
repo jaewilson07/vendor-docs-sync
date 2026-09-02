@@ -1,0 +1,56 @@
+---
+title: "Integration Studio"
+excerpt: "Use Integration Studio to build an end-to-end pipeline in Magic ETL by configuring a Connector, transforms, and a Writeback Connector."
+---
+
+## Intro
+
+Integration Studio allows you to build your data pipeline from start to finish, all in Magic ETL. With Integration Studio you can configure a Connector, build your pipeline, and then configure your Writeback Connector all from the Magic ETL canvas.
+
+<Note>
+  **Note:** Integration Studio is enabled after you purchase a Writeback Connector. For a list of available Writeback Connectors, see Writeback Connectors.
+
+</Note>
+
+## Using Integration Studio
+
+1. Drag the
+**Input DataSet** tile onto the Magic ETL Canvas.
+
+<Frame><img alt="1.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuQ.png"/></Frame>
+2. Choose
+**Select DataSet** and then either choose a pre-existing DataSet or **Create New** to configure a new Connector.
+
+<Frame><img alt="2.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOug.png"/></Frame>
+3. Search for the Connector you want in the Search Connectors Box.
+
+<Frame><img alt="3.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOui.png"/></Frame>
+4. Configure each step of the Connector Wizard and select
+**Save** to finish. Your DataSet will build and the columns will appear in the **Configuration** section.
+
+<Frame><img alt="4.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuV.png"/></Frame>
+5. Add more tiles to cleanse and manipulate your data if desired.
+
+6. Drag the
+**Writeback** tile onto the Canvas found in the **DataSets** section of Magic ETL.
+
+7. Name the output DataSet and add an optional description. Then, select
+**Configure Writeback**.
+
+<Frame><img alt="5.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOue.png"/></Frame>
+8. Select the Writeback Connector you would like to use.
+
+<Frame><img alt="6.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuS.png"/></Frame>
+9. Set up the Connector configuration (you will need a Client ID and Secret from
+[https://developer.domo.com](https://developer.domo.com "https://developer.domo.com").)
+
+<Frame><img alt="7.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuT.png"/></Frame>
+10. Choose,
+**O** **n dataset update** to update the Writeback DataSet whenever the DataFlow runs, or set a schedule to run at specified times.
+
+<Frame><img alt="8.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuY.png"/></Frame>
+11. Choose
+**Save and Run** to run your DataFlow and the Writeback Connector.
+  
+<Frame><img alt="9.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuO.png"/></Frame>
+Your Writeback Connector is now properly configured and you can continue to build your Magic ETL DataFlow.

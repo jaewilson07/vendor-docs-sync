@@ -1,0 +1,40 @@
+---
+title: "Microsoft Dynamics CRM Rest Enterprise OAuth Connector"
+excerpt: "Configure the Microsoft Dynamics CRM Rest Enterprise OAuth Connector to pull customer relationship management data into Domo using a tenant domain and resource."
+---
+
+## Intro
+
+Microsoft Dynamics CRM Rest Enterprise OAuth is a customer relationship management software package that is part of the Microsoft Dynamics family of business applications. Increase your profitability by streamlining administrative processes in your sales, marketing, and service divisions, and focus on building and maintaining the customer relationships that matters.
+
+You can connect to your Microsoft Dynamics CRM Rest Enterprise OAuth installation in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft Dynamics CRM Rest Enterprise OAuth REST connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/General_Guide_to_Connecting_with_Connectors/01Adding_a_DataSet_Using_a_Data_Connector "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Microsoft Dynamics CRM Rest Enterprise OAuth to retrieve the information, you must have the following:
+
+* OAuth Configuration
+* Tenant Domain
+* Resource
+
+## Connecting to Your Microsoft Dynamics CRM Rest Enterprise OAuth Installation
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Microsoft Dynamics CRM Rest Enterprise OAuth REST Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/General_Guide_to_Connecting_with_Connectors/01Adding_a_DataSet_Using_a_Data_Connector "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to a Microsoft Dynamics CRM Rest Enterprise OAuth. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> OAuth Configuration </td><td colspan="1" rowspan="1"><span> OAuth Configurations have service credentials stored by your administrator that automatically log you in, so only your personal OAuth login is required. Your administrator may create and edit configurations in the Data Center in the Accounts tab. </span></td></tr><tr><td colspan="1" rowspan="1"> Tenant Domain </td><td colspan="1" rowspan="1"><p> Enter the tenant domain. </p><p> Navigate to <a href="http://portal.azure.com" rel="noopener" target="_blank"> portal.azure.com </a> &gt; Azure Active directory &gt; Properties. The Directory ID is the tenant ID. </p></td></tr><tr><td colspan="1" rowspan="1"> Resource </td><td colspan="1" rowspan="1"> Enter the resource name. </td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time to create a new Microsoft Dynamics CRM Rest Enterprise OAuth REST DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains menus in which you can select a Microsoft Dynamics CRM Rest Enterprise OAuth entity and specify other options for your report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Entity </td><td colspan="1" rowspan="1"> Select the entity for your report. This list includes every entity in the Dynamics CRM installation that the authenticated user has access to. </td></tr><tr><td colspan="1" rowspan="1"> Fetch All Data </td><td colspan="1" rowspan="1"> Select <b> Yes </b> to fetch all data, or <b> No </b> to fetch the data based on filters. </td></tr><tr><td colspan="1" rowspan="1"> Include Formatted Values </td><td colspan="1" rowspan="1"> Select the checkbox to include the formatted values in the data. </td></tr><tr><td colspan="1" rowspan="1"> Attributes </td><td colspan="1" rowspan="1"> Select all attributes for the given entity, which you want to appear in your report. </td></tr><tr><td colspan="1" rowspan="1"> Advanced Options </td><td colspan="1" rowspan="1"> Select the Advanced Options to filter the results using attribute filters. </td></tr><tr><td colspan="1" rowspan="1"> Filter on </td><td colspan="1" rowspan="1"> Select the attribute to filter resulting entities. This list includes all attributes for the selected entity if it does not have created on attribute. Otherwise you can filter entities with the created on attribute. </td></tr><tr><td colspan="1" rowspan="1"> Duration </td><td colspan="1" rowspan="1"> Select the duration for the report (a Single Date, or a Date Range). </td></tr><tr><td colspan="1" rowspan="1"> Created On Date </td><td colspan="1" rowspan="1"> Select report date using relative or specific dates. Relative indicates the number of days from today or a specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Date </td><td colspan="1" rowspan="1"> Select the report date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Days back </td><td colspan="1" rowspan="1"> The number of days back that you would like to get data for. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Start Date </td><td colspan="1" rowspan="1"> Select report start date using relative or specific dates. Relative indicates the number of days from today or a specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Start Date </td><td colspan="1" rowspan="1"> Select the report date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Days back to start from </td><td colspan="1" rowspan="1"> The number of days back that you would like to get data from (start day). Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> End Date </td><td colspan="1" rowspan="1"> Select report end date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Select Specific End Date </td><td colspan="1" rowspan="1"> Select the report date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Days back to end at </td><td colspan="1" rowspan="1"> The number of days back that you would like to get data to (end day). Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Filter Condition </td><td colspan="1" rowspan="1"> Select the operator, for which you would like to apply for filtering. </td></tr><tr><td colspan="1" rowspan="1"> Filter Value </td><td colspan="1" rowspan="1"> Enter the value with which you want to compare the selected attribute's value. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/General_Guide_to_Connecting_with_Connectors/01Adding_a_DataSet_Using_a_Data_Connector "Adding a DataSet Using a Connector").

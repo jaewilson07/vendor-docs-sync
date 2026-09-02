@@ -1,0 +1,80 @@
+---
+title: "Microsoft Dynamics 365 Finance & Operations Connector"
+excerpt: "Connect Domo to Microsoft Dynamics 365 Finance & Operations by registering an Azure app to retrieve financial data into DataSets."
+---
+
+## About
+
+Use the Microsoft Dynamics 365 Finance & Operations connector to retrieve your financial data. Combine this data with other sources to get a holistic view of your organizations operations.
+
+You can connect to your Microsoft Dynamics 365 Finance & Operations account in the Data Center. This article explains the fields and menus that are specific to the Microsoft Dynamics 365 Finance & Operations Connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To register in Azure portal and create a client Id and Client Secret, follow the below steps:
+
+1. Use your account credentials to log into Azure portal ([https://portal.azure.com/](https://portal.azure.com/)).
+2. Click the **App registrations** tile.
+
+<Frame><img src="/images/kb/ka0Vq0000000vCn-00N5w00000Ri7BU-0EMVq0000018LwL.jpg"/></Frame>
+
+3. In the App registrations window, click
+   **+New registration**, and enter the required details.
+
+<Frame><img src="/images/kb/ka0Vq0000000vCn-00N5w00000Ri7BU-0EMVq0000018Lxx.jpg"/></Frame>
+
+4. In the Register an application window, under
+   **Name**, enter the name of your choice, for example, **Domo Microsoft Dynamics 365 Finance Operations**, under **Supported account types**, select **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox),** and click **Register**.
+
+<Frame><img src="/images/kb/ka0Vq0000000vCn-00N5w00000Ri7BU-0EMVq0000018M1B.jpg"/></Frame>
+
+When you select the **Overview** section on the left pane, the Registered app details appears along with the **Application (client) ID**, and **Directory (tenant) ID**.
+  
+<Frame><img src="/images/kb/ka0Vq0000000vCn-00N5w00000Ri7BU-0EMVq0000018NWj.jpg"/></Frame>
+
+5. On the left pane, select **Manage >** **Certificate and secrets > + New client secret**.<br/>
+      The **Add a client secret** window opens.
+
+6. In the Description field enter,
+   **Domo Client Secret**.
+7. From the Expires drop-down list, select
+   **24 months** and click **Add**.
+     
+   <Frame><img src="/images/kb/ka0Vq0000000vCn-00N5w00000Ri7BU-0EMVq0000018NgP.jpg"/></Frame>
+
+8. A new client secret gets created. Ensure to note down the client secret value which appears under the
+   **Value** column.
+     
+   <Frame><img src="/images/kb/ka0Vq0000000vCn-00N5w00000Ri7BU-0EMVq0000018NtJ.jpg"/></Frame>
+
+**Note:** Make a note of the Application (client ID), Directory (tenant) ID and Client secret's Value.
+
+9. Login to the customer D365FO, and navigate to, **System administration** > **Setup** > **Microsoft Entra ID applications**.
+10. Click
+    **New** and enter the ClientID obtained from the Azure portal on the Azure Active Directory applications form and click **Save**.
+
+    <Frame><img src="/images/kb/ka0Vq0000000vCn-00N5w00000Ri7BU-0EMVq0000018Ny9.jpg"/></Frame>
+
+    The D365FO registration in the Azure portal is successfully completed.
+
+## Connecting to Your Microsoft Dynamics 365 Finance & Operations Account
+
+This section lists the options in the **Credentials** and **Details** panes in the Microsoft Dynamics 365 Finance & Operations Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Microsoft Dynamics 365 Finance & Operations account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p><span> Navigate to <b><a href="http://portal.azure.com" rel="noopener" target="_blank"> portal.azure.com </a> &gt; Azure Active directory &gt; App registrations </b>. Find web app and click the web app. The Application ID from the web app is the client id. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Navigate to <b><a href="http://portal.azure.com" rel="noopener" target="_blank"> portal.azure.com </a> &gt; Azure Active directory &gt; App registrations </b>. Find the web app and click the web app. Go to <b> settings &gt; Keys </b> and create the client secret. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tenant ID </p></td><td colspan="1" rowspan="1"><p><span> Enter your tenant domain name. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Resource URL </p></td><td colspan="1" rowspan="1"><p><span> Enter the Resource Domain URL. </span></p></td></tr></tbody></table>
+
+Once you have entered valid Microsoft Dynamics 365 Finance & Operations credentials, you can use the same account to create a new Microsoft Dynamics 365 Finance & Operations DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Data Entities </p></td><td colspan="1" rowspan="1"><p> Select the data entity for your report. This list includes every data entity in the Microsoft Dynamics 365 Finance &amp; Operations installation that the authenticated user has access to. </p></td></tr><tr><td colspan="1" rowspan="1"> Date Column to Filter On </td><td colspan="1" rowspan="1"> Select the date column to filter the entity data. </td></tr><tr><td colspan="1" rowspan="1"> Duration </td><td colspan="1" rowspan="1"> The filter duration. Select <b> Single Date </b> or <b> Date Range </b>. </td></tr><tr><td colspan="1" rowspan="1"> Created On Date </td><td colspan="1" rowspan="1"><p> Select filter date using relative or specific dates. Relative means the number of days from today or a specific date using the date selector. </p><p><b> Specific </b> - The <b> Select Specific Date Field </b> appears. Select the filter date using the date selector. </p><p><b> Relative </b> - The <b> Days Back </b> field appears. The number of days back that you would like to get data for. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. <b></b></p></td></tr><tr><td colspan="1" rowspan="1"> Start Date </td><td colspan="1" rowspan="1"><p> Select filter start date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector </p><p><b> Specific </b> - The <b> Select Specific Start Date </b> field appears. Select the filter date using the date selector. </p><p><b> Relative </b> - The <b> Days Back To Start From </b> field appears. The number of days back that you would like to get data from (start day). Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </p></td></tr><tr><td colspan="1" rowspan="1"> End Date </td><td colspan="1" rowspan="1"><p> Select filter end date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector </p><p><b> Specific </b> - The <b> Select Specific End Date </b> field appears. Select the filter date using the date selector. </p><p><b> Relative </b> - The <b> Days Back To End At </b> field appears. The number of days back that you would like to get data to (end day). Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

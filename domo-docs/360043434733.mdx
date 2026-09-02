@@ -1,0 +1,64 @@
+---
+title: "WeChat Connector"
+excerpt: "Use the WeChat connector with an app ID and secret to pull follower-engagement and article data from your WeChat account into a Domo DataSet."
+---
+
+## Intro
+
+WeChat is a social media platform used primarily in China. It allows businesses to interact with followers and to post articles directly to their followers' feeds. To learn more about the WeChat API, visit their page ([http://admin.wechat.com/wiki/index.p...I\_Introduction](http://admin.wechat.com/wiki/index.php?title=API_Introduction "http://admin.wechat.com/wiki/index.php?title=API_Introduction") ).
+
+You connect to your WeChat account in the Data Center. This topic discusses the fields and menus that are specific to the WeChat connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your WeChat account and create a DataSet, you must have the following:
+
+* A WeChat app ID
+* A WeChat app secret
+
+You can obtain these credentials by signing up to use the WeChat General API.
+
+## Connecting to Your WeChat Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the WeChat Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your WeChat account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> App ID </td><td colspan="1" rowspan="1"> Enter your WeChat app ID. </td></tr><tr><td colspan="1" rowspan="1"> App Secret </td><td colspan="1" rowspan="1"> Enter your WeChat app secret. </td></tr><tr><td colspan="1" rowspan="1"> Account Type </td><td colspan="1" rowspan="1"> Select whether you have a "China" or "International" account. </td></tr></tbody></table>
+
+Once you have entered valid WeChat credentials, you can use the same account any time you go to create a new WeChat DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the WeChat report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Article Summary </p></td><td colspan="1" rowspan="1"><p> Returns daily summary data for articles. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Article Total </p></td><td colspan="1" rowspan="1"><p> Returns cumulative data for articles. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Interface Summary </p></td><td colspan="1" rowspan="1"><p> Returns callback data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> UpStream Message </p></td><td colspan="1" rowspan="1"><p> Returns profile data for user-sent messages. </p></td></tr><tr><td colspan="1" rowspan="1"><p> UpStream Message Distribution </p></td><td colspan="1" rowspan="1"><p> Returns distribution data for user-sent messages. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Cumulate </p></td><td colspan="1" rowspan="1"><p> Returns accumulated followers data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Read </p></td><td colspan="1" rowspan="1"><p> Returns data about users who have been reading messages. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Share </p></td><td colspan="1" rowspan="1"><p> Returns data about users who have been sharing messages. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Summary </p></td><td colspan="1" rowspan="1"><p> Returns user summary data. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select the duration for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I use the same account to create multiple DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API restrictions I should be aware of?">
+
+To prevent loading exceptions caused by program errors, each official account can only call APIs a limited number of times per day.
+
+</Accordion>
+</AccordionGroup>
+

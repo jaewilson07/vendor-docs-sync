@@ -1,0 +1,36 @@
+---
+title: "HipChat"
+excerpt: "Connect Domo to HipChat using an API Auth Token to pull chat room history, member lists, and user data into DataSets."
+---
+
+## About
+
+HipChat is a chat client produced by Atlassian which features cloud storage and flexible communications. Domo's HipChat connector inputs all your HipChat communications into information you can see and understand.
+
+You can connect to your HipChat account in the Data Center. This article explains the fields and menus that are specific to the HipChat connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your HipChat account and create a DataSet, you should add an HipChat account name and you must have the **API Auth Token**.
+
+## Connecting to Your HipChat Account
+
+This section lists the options in the **Credentials** and **Details** panes in the HipChat connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your HipChat account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API AUTH TOKEN </p></td><td colspan="1" rowspan="1"><p><span> Your HipChat API Auth Token generated from API tab within your admin access </span></p></td></tr></tbody></table>
+
+Once you have entered valid inContact CxOne OAuth credentials, you can use the same account to create a new inContact CxOne OAuth DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the HipChat report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Rooms History </td><td colspan="1" rowspan="1"> Receive all chat rooms' message history. </td></tr><tr><td colspan="1" rowspan="1"> Rooms List </td><td colspan="1" rowspan="1"> Receive a list of all chat rooms </td></tr><tr><td colspan="1" rowspan="1"> Rooms Show Member Ids </td><td colspan="1" rowspan="1"> Receive a list of member Ids for all chat rooms </td></tr><tr><td colspan="1" rowspan="1"> Rooms Show Participants </td><td colspan="1" rowspan="1"> Receive a list of participants for all chat rooms </td></tr><tr><td colspan="1" rowspan="1"> User List </td><td colspan="1" rowspan="1"> Receive a list of all users </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Start Days </td><td colspan="1" rowspan="1"> Number of days from today to go back to start the report. For example,1, 0 to return one days worth of data between this time today and this time yesterday. </td></tr><tr><td colspan="1" rowspan="1"> End Days </td><td colspan="1" rowspan="1"> Number of days from today to go back to end the report. Warning: Same start and end date will result in no data being returned. </td></tr><tr><td colspan="1" rowspan="1"> Time Zone </td><td colspan="1" rowspan="1"> Select the time zone for your report data. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

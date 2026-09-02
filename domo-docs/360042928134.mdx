@@ -1,0 +1,70 @@
+---
+title: "GetThere Connector"
+excerpt: "Use Domo's GetThere connector to pull corporate travel reservation system data into a DataSet, configured by Domo on request."
+---
+
+## Intro
+
+GetThere is a corporate travel reservation system serving millions of business travelers in over 100 countries. To learn more about the GetThere API, visit their page ([https://www.sabretravelnetwork.com/h...ons/developer/](https://www.sabretravelnetwork.com/home/solutions/developer/ "https://www.sabretravelnetwork.com/home/solutions/developer/") ).
+
+<Note>
+**Note:** The user interface for building this connector is not yet available in our Connectors listing in the Data Center, meaning you will not be able to configure the connector on your own. However, we at Domo are more than happy to configure the connector for you so you can begin using it to pull your data into Domo. Please don't hesitate to reach out to your CSM or Domo Support. For contact information, see Getting Help.
+</Note>
+
+You connect to your GetThere account in the Data Center. This topic discusses the fields and menus that are specific to the GetThere connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Best Practices
+
+The GetThere API only returns the last 7 days worth of data. Set the connector to Append to build a history of data over time, starting with the previous 7 days and appending new data each time it runs.
+
+## Prerequisites
+
+To connect to your GetThere account and create a DataSet, you must have the following:
+
+* The travel/agency site name you want to retrieve data for.
+* Your GetThere username and password.
+
+## Connecting to Your GetThere Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the GetThere Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your GetThere account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Site Name </p></td><td colspan="1" rowspan="1"><p> Enter the name of the travel/agency site you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your GetThere username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your GetThere password. </p></td></tr></tbody></table>
+
+Once you have entered valid GetThere credentials, you can use the same account any time you go to create a new GetThere DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the GetThere report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Booking Records </td><td colspan="1" rowspan="1"> Returns a list of booking records for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Air Preferences Records </td><td colspan="1" rowspan="1"> Returns air travel preference data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Arrangers Records </td><td colspan="1" rowspan="1"> Returns a list of arrangers for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Car Preferences Records </td><td colspan="1" rowspan="1"> Returns vehicle preference data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Company Info Records </td><td colspan="1" rowspan="1"> Returns company info for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Custom Field Records </td><td colspan="1" rowspan="1"> Returns a list of custom fields for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Delivery Records </td><td colspan="1" rowspan="1"> Returns a list of delivery records for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile EC Info Records </td><td colspan="1" rowspan="1"> Returns EC info for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Gen Preferences Records </td><td colspan="1" rowspan="1"> Returns general preference information for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Hotel Preferences Records </td><td colspan="1" rowspan="1"> Returns hotel preference data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Keys Records </td><td colspan="1" rowspan="1"> Returns key records for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Loyalty Program Records </td><td colspan="1" rowspan="1"> Returns loyalty program data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Passport Records </td><td colspan="1" rowspan="1"> Returns passport data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Punchout Records </td><td colspan="1" rowspan="1"> Returns punchout data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Rail Preferences Records </td><td colspan="1" rowspan="1"> Returns rail travel preference data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Supervisor Info Records </td><td colspan="1" rowspan="1"> Returns supervisor data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Travelers Records </td><td colspan="1" rowspan="1"> Returns travel data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Traveler Security Data Records </td><td colspan="1" rowspan="1"> Returns security data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile User Info Records </td><td colspan="1" rowspan="1"> Returns user information for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Visa Records </td><td colspan="1" rowspan="1"> Returns visa data for the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> User Profile Web Connect Records </td><td colspan="1" rowspan="1"> Returns profile web content for the authenticated user. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Include Customfield </td><td colspan="1" rowspan="1"> Select <b> Yes </b> to include custom fields in your report. </td></tr><tr><td colspan="1" rowspan="1"> Include Subsites </td><td colspan="1" rowspan="1"> Select <b> Yes </b> to include data from subsites in your report. </td></tr><tr><td colspan="1" rowspan="1"><p> Report Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I use the same account multiple times to create DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+DataSets can be updated as often as once an hour. If you get rate limit errors, update the DataSets less frequently.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+The GetThere API has rate limits, but they are not documented. If you run into rate limit errors, try running your DataSets less often, or decrease the amount of data called in a single DataSet run with smaller date ranges.
+
+</Accordion>
+</AccordionGroup>
+

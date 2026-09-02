@@ -1,0 +1,47 @@
+---
+title: "Pinterest Connector"
+excerpt: "Disabled Pinterest connector reference; existing DataSets no longer update and new DataSets cannot be created through this connector."
+---
+
+<Warning>
+**Important:** As of March 2018, this connector is disabled while we negotiate our contract with Pinterest. Any DataSets built through this connector are no longer editable, and any cards powered by Pinterest DataSets will not update. If you want to import Pinterest data into Domo, you will need to use an alternate method such as [DataSet via Email connector](/s/article/360042931954 "Connecting to Data Using Workbench 4").
+
+</Warning>
+
+## Intro
+
+Pinterest is a content sharing service that allows members to "pin" images, videos and other objects to their pinboard. Use Domo's Pinterest connector to retrieve data about followers, pins, likes, and many other Pinterest entities. To learn more about the Pinterest API, visit their page ([https://developers.pinterest.com/](https://developers.pinterest.com/ "https://developers.pinterest.com/") ).
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is appropriate for pulling Pinterest data such as pins, likes, and so on. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Pinterest follower counts </p></li><li><p> Engagement as measured by likes </p></li><li><p> Number of pins </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Organic social media manager </p></li><li><p> CMO </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10 minutes or less </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+You connect to your Pinterest account in the Data Center. This topic discusses the fields and menus that are specific to the Pinterest connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Pinterest account and create a DataSet, you must have credentials for the account (the email address you use to log into Pinterest and your Pinterest password) OR Facebook or Google credentials.
+
+## Connecting to Your Pinterest Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Pinterest Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Pinterest connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Pinterest accounts in Domo) to open the Pinterest OAuth screen where you can enter the email address you use to log into Pinterest along with your Pinterest password. Alternatively, you can choose to enter Facebook or Google credentials. Once you have entered valid credentials, you can use the same account any time you go to create a new Pinterest DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into Pinterest when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Pinterest.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Pinterest report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Account </td><td colspan="1" rowspan="1"> Returns the first and last name, ID, and URL of the authenticated user. </td></tr><tr><td colspan="1" rowspan="1"> Boards </td><td colspan="1" rowspan="1"> Returns a list of the authenticated user's public boards, including the URL, ID, and name. </td></tr><tr><td colspan="1" rowspan="1"> Board Pins </td><td colspan="1" rowspan="1"> Returns a list of Pins on the board with their IDs, URLs, links, and descriptions. </td></tr><tr><td colspan="1" rowspan="1"> Followers </td><td colspan="1" rowspan="1"> Returns the users who follow the authenticated user. The default response returns the first and last name, ID, and URL of the users. </td></tr><tr><td colspan="1" rowspan="1"> Following Boards </td><td colspan="1" rowspan="1"> Returns the boards that the authenticated user follows. The default response returns the ID, name and URL of the board. </td></tr><tr><td colspan="1" rowspan="1"> Following Interests </td><td colspan="1" rowspan="1"> Returns the topics that the authenticated user follows. The default response returns the ID and name of the topic. </td></tr><tr><td colspan="1" rowspan="1"> Following Users </td><td colspan="1" rowspan="1"> Returns the users that the authenticated user follows. The default response returns the first and last name, ID and URL of the users. </td></tr><tr><td colspan="1" rowspan="1"> Likes </td><td colspan="1" rowspan="1"> Returns the ID, link, URL and description of the Pins the authenticated user has liked. </td></tr><tr><td colspan="1" rowspan="1"> Pins </td><td colspan="1" rowspan="1"> Returns the ID, link, URL and descriptions of the authenticated user's Pins. </td></tr><tr><td colspan="1" rowspan="1"> Search Boards </td><td colspan="1" rowspan="1"> Searches the authenticated user's board names (but not Pins on boards). An empty response indicates that nothing was found that matched your search terms. The default response returns the ID, name and URL of boards matching your query. </td></tr><tr><td colspan="1" rowspan="1"> Search Pins </td><td colspan="1" rowspan="1"> Searches the authenticated user's Pin descriptions. An empty response indicates that nothing was found that matched your search terms. The default response returns the ID, link, URL and description of Pins matching your query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Board Pins </td><td colspan="1" rowspan="1"> Enter the ID of the board you want to retrieve pins for. </td></tr><tr><td colspan="1" rowspan="1"> Search Query </td><td colspan="1" rowspan="1"> Enter a term to search for. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+Be aware that Follower results are often truncated (shortened). For example, you might have 9,700 followers but your DataSet would show this as "9.7." It takes logic to analyze and adjust to the correct number.

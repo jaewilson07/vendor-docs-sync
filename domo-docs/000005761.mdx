@@ -1,0 +1,37 @@
+---
+title: "VK Connector"
+excerpt: "Configure the VK Connector to pull Community Wall Posts and user information from the VK social network into Domo."
+---
+
+## Intro
+
+VK is a Russian-based online social media and social networking service. It is available in several languages but is especially popular among Russian-speaking users.
+
+You can connect to your VK account in the Data Center. This topic discusses the fields and menus that are specific to the VK connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your VK account and create a DataSet, you need the following:
+
+* Application ID
+* Application Secure Key
+
+## Connecting to Your VK Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the VK Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your VK account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Application ID </td><td colspan="1" rowspan="1"> Enter the Application ID of your VK App. </td></tr><tr><td colspan="1" rowspan="1"> Application Secure Key </td><td colspan="1" rowspan="1"> Enter the Secure Key assigned to your VK App. </td></tr></tbody></table>
+
+Once you have entered valid VK credentials, you can use the same account at any time to create a new VK DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the VK report you want to run. The following reports are available: </p><p></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Community Wall Posts </p></td><td colspan="1" rowspan="1"> Returns a list of posts on the wall of a Community that the authenticated user is a member of. </td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"> Returns the information about users. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> User IDs </td><td colspan="1" rowspan="1"><p> Enter the IDs of the users for whom you want to search separated by a comma. </p><p> You can leave this field blank to return information about the authenticated user. </p></td></tr><tr><td colspan="1" rowspan="1"> Community </td><td colspan="1" rowspan="1"> Select the community whose Wall Posts should be returned. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

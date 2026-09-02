@@ -1,0 +1,41 @@
+---
+title: "SearchForce Connector"
+excerpt: "Connect Domo to SearchForce using a username and security token to pull paid search and social media ad management data into a DataSet."
+---
+
+## Intro
+
+SearchForce is a paid search and social media ad management platform for niche digital marketers.  API documentation for SearchForce is not available online, but you can visit their website at [https://www.searchforce.com/](https://www.searchforce.com/ "https://www.searchforce.com/").
+
+You connect to your SearchForce account in the Data Center. This topic discusses the fields and menus that are specific to the SearchForce connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your SearchForce account and create a DataSet, you must have the following:
+
+* Your SearchForce username
+* A SearchForce security token
+
+To obtain a security token, please reach out to your SearchForce representative.
+
+## Connecting to Your SearchForce Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SearchForce Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your SearchForce account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Environment </p></td><td colspan="1" rowspan="1"><p> Select whether you want to connect to the SearchForce staging or production environment. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your SearchForce username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Token </p></td><td colspan="1" rowspan="1"><p> Enter your SearchForce security token. </p></td></tr></tbody></table>
+
+Once you have entered valid SearchForce credentials, you can use the same account any time you go to create a new SearchForce DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains two primary menus, **Report Type** and **Report**, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report Type </p></td><td colspan="1" rowspan="1"><p> Select the SearchForce primary report type you want to run. The following report types are available. (If you select "Reporting," you will then be asked to select a SearchForce subreport.) </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Data Update </p></td><td colspan="1" rowspan="1"><p> Returns a list of every date after a given date in which the search engine account has had a data update. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Raw Data </p></td><td colspan="1" rowspan="1"><p> Returns raw data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reporting </p></td><td colspan="1" rowspan="1"><p> Returns data for a selected report type (see the next row). </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the "Reporting" report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Ad Group </p></td><td colspan="1" rowspan="1"><p> Returns ad group data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign </p></td><td colspan="1" rowspan="1"><p> Returns campaign data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Keyword </p></td><td colspan="1" rowspan="1"><p> Returns keyword data. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Account </p></td><td colspan="1" rowspan="1"><p> Select the SearchForce account you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Publisher ("Raw Data" report only) </p></td><td colspan="1" rowspan="1"><p> Select the publisher you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Aggregation </p></td><td colspan="1" rowspan="1"><p> Select whether you want your report data to be broken down by day or month. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

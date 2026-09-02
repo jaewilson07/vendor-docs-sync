@@ -1,0 +1,53 @@
+---
+title: "Kochava Connector"
+excerpt: "Connect to Kochava with an API key to track mobile app installs and related user activity in Domo DataSets."
+---
+
+## Intro
+
+Kochava is a tool for keeping track of user installs of mobile applications and the actions leading to those installs.  To learn more about the Kochava API, visit their page ([https://support.kochava.com/analytics-reports-api/](https://support.kochava.com/analytics-reports-api/ "https://support.kochava.com/analytics-reports-api/") ).
+
+You connect to your Kochava account in the Data Center. This topic discusses the fields and menus that are specific to the Kochava connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Kochava account and create a DataSet, you must have a Kochava API key. To create an API key, go here: [https://support.kochava.com/analytic...interface-key/](https://support.kochava.com/analytics-reports-api/create-and-manage-application-programming-interface-key/ "https://support.kochava.com/analytics-reports-api/create-and-manage-application-programming-interface-key/")
+
+## Connecting to Your Kochava Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Kochava Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Kochava account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter your Kochava API key. </p></td></tr></tbody></table>
+
+Once you have entered valid Kochava credentials, you can use the same account any time you go to create a new Kochava DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Kochava report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Create Detail Report </p></td><td colspan="1" rowspan="1"><p> Returns a detailed report for your Kochava account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Create Summary Report </p></td><td colspan="1" rowspan="1"><p> Returns a summarized report for your Kochava account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List All Apps </p></td><td colspan="1" rowspan="1"><p> Returns a list of apps associated with a specified API key. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Scheduled Query Report </p></td><td colspan="1" rowspan="1"><p> Returns data for a scheduled query report associated with the selected app and specified report token. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> App Name </p></td><td colspan="1" rowspan="1"><p> Select the app you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Traffic Type and Counters </p></td><td colspan="1" rowspan="1"><p> Select the traffic type and counters you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Traffic Includes (Optional) </p></td><td colspan="1" rowspan="1"><p> Select any traffic includes you want in your report in addition to the regular fields. Choose <b> Custom </b> if you want to enter any traffic includes not listed. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Traffic Includes </p></td><td colspan="1" rowspan="1"><p> Enter a comma-separated list of the custom traffic includes you want in your report in addition to the regular fields. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Series </p></td><td colspan="1" rowspan="1"><p> Enter the desired time series for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Token </p></td><td colspan="1" rowspan="1"><p> Enter the report token for the desired report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Zone </p></td><td colspan="1" rowspan="1"><p> Select the desired time zone for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+</AccordionGroup>
+

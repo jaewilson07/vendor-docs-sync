@@ -1,0 +1,48 @@
+---
+title: "Azure Storage Blob SAS Token Connector"
+excerpt: "Use the Azure Storage Blob SAS Token Connector to import data files from Microsoft Azure Blob Storage into Domo via an account-level SAS token."
+---
+
+## Intro
+
+Microsoft Azure Blob Storage is designed to easily and efficiently store any type of unstructured data, such as images, videos, audio, and documents. Use this connector to pull data files from your Microsoft Azure Blob Storage account into Domo. Combine your Azure data with data from other data sources throughout your company for a comprehensive view of your business. Set up custom alerts to be notified in real-time when your key metrics change, so you can make faster, better business decisions. To learn more about the Azure Blob Storage API, visit their page ([https://docs.microsoft.com/en-us/res...rvice-rest-api](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api "https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api") ).
+
+You export data to Azure Blob Storage in the Data Center. This topic discusses the fields and menus that are specific to the Azure Blob Storage SAS Token connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To configure this connector, you will need the following:
+
+* The Storage Account Name
+* An Account access level SAS token
+
+<Note>
+**Note:** This connector works only with the **account access level SAS** token. So, if you receive an authentication error, please confirm if you are entering a container access level token instead.
+
+</Note>
+
+## Configuring the Connection
+
+This section enumerates the options in the ****Credentials**** and ****Details**** panes in the Azure Blob Storage SAS Token Connector page. The components of the other panes in this page, ****Scheduling**** and ****Name & Describe Your DataSet****, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Azure Blob Storage container. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account Name </td><td colspan="1" rowspan="1"> Enter the storage account name. </td></tr><tr><td colspan="1" rowspan="1"> Shared Access Signature (SAS) Token </td><td colspan="1" rowspan="1"> Enter your account access level <span> SAS token </span>. </td></tr></tbody></table>
+
+After you have entered valid credentials, you can use the same account any time you go to set up a new Domo-Azure Blob Storage connection. You can manage connector accounts in the ****Accounts**** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> What file type would you like to import? </td><td colspan="1" rowspan="1"> Select the file type you want to import. </td></tr><tr><td colspan="1" rowspan="1"> Blob Containers </td><td colspan="1" rowspan="1"> Select the Azure Blob container you want to send your Domo data to. </td></tr><tr><td colspan="1" rowspan="1"> How would you like to choose your Blob? </td><td colspan="1" rowspan="1"> Specify how would you like to pull your blob file. </td></tr><tr><td colspan="1" rowspan="1"> Enter Blob Name Prefix </td><td colspan="1" rowspan="1"> Enter the blob name prefix. </td></tr><tr><td colspan="1" rowspan="1"> Blob Match Type </td><td colspan="1" rowspan="1"> In the <b> Enter Blob Name Prefix, </b> specify whether the blob should contains, <b> startsWith </b> or <b> endsWith </b> the name you have entered. </td></tr><tr><td colspan="1" rowspan="1"> File Encoding </td><td colspan="1" rowspan="1"> Select the file encoding. By default, <b> UTF-8 </b> is selected. </td></tr><tr><td colspan="1" rowspan="1"> Advanced </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Select the delimiting character </td><td colspan="1" rowspan="1"> Select the delimiting character used in your file. If your delimiter is not listed select <b> Other </b>. </td></tr><tr><td colspan="1" rowspan="1"> Specify your delimiter </td><td colspan="1" rowspan="1"> Enter the character used to delimit your character separated values (CSV) text. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Input DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the DataSet ID (GUID) for the DataSet you want to copy to the selected Azure Blob Storage container. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following datasources/. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4. </p></td></tr><tr><td colspan="1" rowspan="1"> Select Filename </td><td colspan="1" rowspan="1"> Select whether you want to reference your DataSet using the <b><b><b><b> Input DataSet ID </b></b></b></b> or an output file name. </td></tr><tr><td colspan="1" rowspan="1"> Filename </td><td colspan="1" rowspan="1"> Enter the output file name for your data. </td></tr></tbody></table>
+
+### Advanced
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Select the delimiting character </td><td colspan="1" rowspan="1"> Select the delimiting character used in your file. If your delimiter is not listed select 'Other. </td></tr><tr><td colspan="1" rowspan="1"> Specify your delimiter </td><td colspan="1" rowspan="1"> Enter the character used to delimit your character separated values (CSV) text. </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> Select the desired quote character for parsing CSV files (Double quote is the default quote character for CSV standard.) </td></tr><tr><td colspan="1" rowspan="1"> Custom Quote Character </td><td colspan="1" rowspan="1"> Enter the desired CSV Quote character. </td></tr><tr><td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> Select the desired escape character for parsing CSV files. </td></tr><tr><td colspan="1" rowspan="1"> Custom Escape Character </td><td colspan="1" rowspan="1"> Enter the desired CSV escape character. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

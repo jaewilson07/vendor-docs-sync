@@ -1,0 +1,173 @@
+---
+title: "JSON Advanced Connector"
+excerpt: "Use Domo's JSON Advanced Connector to import JSON files from an SFTP server or via HTTPS calls into a Domo DataSet."
+---
+
+## Intro
+
+JavaScript Object Notation (JSON) is a lightweight data-interchange format that is easy to use. The Domo JSON connector allows you to access JSON files that you have uploaded to an SFTP server.
+
+<Note>
+**Note:** Due to security concerns, Domo no longer permits uploading data using FTP. If necessary, please update your server settings to support SFTP instead of FTP.
+</Note>
+
+You can also import files via HTTPS calls. To learn more about the JSON API, visit their page ([http://jsonapi.org](http://jsonapi.org "http://jsonapi.org") ).
+
+You connect to your JSON account in the Data Center. This topic discusses the fields and menus that are specific to the JSON connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is useful for parsing JSON data from an API. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> N/A </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> IT roles </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ~3 hours </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 4 </p></td></tr></tbody></table>
+
+## Best Practices
+
+Check your JSON code in a [JSON validator](http://jsonviewer.stack.hu/ "JSON Advanced Connector") before using the connector.
+
+## Prerequisites
+
+To connect to your JSON account and create a DataSet, you must have credentials for the server in which the JSON file is found.
+
+## Connecting to Your JSON Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the JSON Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your JSON account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Connection Scheme </td><td colspan="1" rowspan="1"> Select the connection scheme to access the JSON file. </td></tr><tr><td colspan="1" rowspan="1"> Host/Domain </td><td colspan="1" rowspan="1"> Enter the host or domain name where your JSON files are located. <br/> For example: <b><a href="http://files.myhost.com" rel="noopener" target="_blank"> files.myhost.com </a></b> or IP (<b> 121.123.123.123 </b> ). </td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port to use for SFTP/HTTP connection. Leave it blank to use the default port. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username for the server where the JSON file is located. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password for the server where the JSON file is located. </td></tr></tbody></table>
+
+Once you have entered valid JSON credentials, you can use the same account any time you go to create a new JSON DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+In this pane, you specify the server/SFTP site to connect to, the name of the JSON file, and other configuration settings.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a">
+<thead>
+<tr>
+<th colspan="1" rowspan="1">
+<p> Menu </p>
+</th>
+<th colspan="1" rowspan="1">
+<p> Description </p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"> URL to Your JSON File </td>
+<td colspan="1" rowspan="1">
+<p> Enter the URL for the JSON file. Supported protocols are HTTPS and SFTP. </p>
+<Note>
+**Note:** Due to security concerns, Domo no longer permits uploading data using FTP. If necessary, please update your server settings to support SFTP instead of FTP.
+</Note>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Connection Method </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select whether you want to connect to your JSON file via file transfer (SFTP) or HTTP request. </p>
+<ul>
+<li>
+<p> Select <b> File Transfer (SFTP) </b> if your JSON file is on an SFTP server. </p>
+</li>
+<li>
+<p> Select <b> HTTP Request </b> if you need to access your JSON file using an HTTP GET request. The request is triggered by the use of a unique URL parameter defined by the service providing the JSON file. </p>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Does Your JSON Text Require a Line Reader? </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select <b> Yes </b> if your JSON text includes multiple lines to read. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Should the Backslash Be Escaped? </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select <b> Yes </b> if your JSON text includes backslash characters that should be escaped. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Do You Require Additional Options? </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select <b> Yes </b> if you need to enter header or data tags or exclude fields. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Header Tag (Optional) </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the tag for the header in your JSON text. JSON headers are not normally included in JSON, but when they are included, they will most likely use one of the following formats: </p>
+<p>
+```json
+{
+  "People": {
+    "name": "John",
+    "age": 30,
+    "car": null
+  }
+}
+```
+<br/>
+</p>
+<p> or </p>
+<p>
+```json
+{
+  "header": [
+    "name",
+    "age",
+    "car"
+  ],
+  "data": [
+    "John",
+    30,
+    null
+  ]
+}
+```
+</p>
+<p>
+</p>
+<p> Note that the first example does not include the "header" tag, while the second does. In the second example, the headers are listed separately from the actual data tags. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Data Tag (Optional) </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the tag for the data in your JSON text. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Fields to Exclude (Optional) </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Provide a comma-separated list of fields to exclude from the JSON import. </p>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Troubleshooting
+
+* Ensure that the JSON text is valid JSON. If any values contain newline characters, set **Does Your JSON Text Require a Line Reader?** to **Yes**.
+* JSON text should include a list of objects. Key names in each object will be the columns. The following picture shows how this should look:
+    
+  <Frame><img alt="json_architecture.png" src="/images/kb/ka05w00000127Y1-00N5w00000Ri7BU-0EM5w000005vO7Z.png"/></Frame>

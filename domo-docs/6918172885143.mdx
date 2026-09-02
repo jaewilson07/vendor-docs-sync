@@ -1,0 +1,75 @@
+---
+title: "Agentbox Connector"
+excerpt: "Use the Agentbox connector to pull sales and property management data from your Agentbox account into Domo using a client ID and API key."
+---
+
+## Intro
+
+Agentbox offers agencies a complete cloud-based software solution for Sales and Property Management teams. Cutting edge design, robust training methodology, and ownership with integrity are its strengths.
+
+Use Domo to track and monitor how the data changes over time, and create customizable reports to tell compelling stories behind the data. Within just a few minutes you'll be able to quickly and easily create powerful visualizations that identify key metrics to track.
+
+The Agentbox Connector is a "Cloud App" Connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the Connector page for this and other Cloud App Connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Agentbox account in the Data Center. This topic discusses the fields and menus that are specific to the Agentbox Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Agentbox account and create a DataSet, you must have the client ID and the API key associated with your Agentbox account.
+
+## Connecting to Your Agentbox Account
+
+This section enumerates the options in the Credentials and Details panes in the Agentbox Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Agentbox account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter your Agentbox client ID. </td></tr><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your Agentbox API key. </td></tr></tbody></table>
+
+Once you have entered valid Agentbox credentials, you can use the same account any time you go to create a new Agentbox DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Agentbox report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> Returns a set of contact records meeting the supplied criteria. </td></tr><tr><td colspan="1" rowspan="1"> Enquiries </td><td colspan="1" rowspan="1"> Returns a list of enquiries based on the search criteria. </td></tr><tr><td colspan="1" rowspan="1"> Inspections </td><td colspan="1" rowspan="1"> Returns a list of inspections based on the search criteria. </td></tr><tr><td colspan="1" rowspan="1"> Notes </td><td colspan="1" rowspan="1"> Returns a set of notes records meeting the supplied criteria information. </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Listings </p></td><td colspan="1" rowspan="1"> Returns a set if listings meeting the supplied criteria </td></tr><tr><td colspan="1" rowspan="1"> Listing Details </td><td colspan="1" rowspan="1"> Returns a single listing record </td></tr><tr><td colspan="1" rowspan="1"> Listings Details with Images </td><td colspan="1" rowspan="1"> Returns detail of listing ids which fall under searched criteria with image(s) data which will be expanded as columns. </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Offices </p></td><td colspan="1" rowspan="1"> Returns all office records (Full Details) </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Gross Commission Allocation report </p></td><td colspan="1" rowspan="1"> Returns Gross Commission Allocation report </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Gross Commission Allocation External report </p></td><td colspan="1" rowspan="1"> Returns Gross Commission Allocation External report </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Gross Commission Allocation Summary report </p></td><td colspan="1" rowspan="1"> Returns Gross Commission Allocation Summary report </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Marketing Funds Expenses Summary </p></td><td colspan="1" rowspan="1"> Returns Marketing Funds Expenses Summary report </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Performance </p></td><td colspan="1" rowspan="1"> Returns performance metrics </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Staff Members </p></td><td colspan="1" rowspan="1"> Returns all staff member records </td></tr><tr><td colspan="1" rowspan="1"> Staff Performance </td><td colspan="1" rowspan="1"> Returns all staff member records. </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Staged Commission Payments </p></td><td colspan="1" rowspan="1"><div><div><div> Returns the list of staged commission payments. </div></div></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Tasks </p></td><td colspan="1" rowspan="1"> Returns a set of tasks records meeting the supplied criteria </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><span> Only Import Records Modified Since Last Run </span></td><td colspan="1" rowspan="1"> Select 'Yes' if you want to <span> import the records modified since the last run else select 'No.' </span></td></tr><tr><td colspan="1" rowspan="1"><span> Fields to Include </span></td><td colspan="1" rowspan="1"><span> Select the output additional objects that you would like to include in the response. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Performance Period Start Date </span></td><td colspan="1" rowspan="1"><span> Select the start date for the performance period. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Performance Period End Date </span></td><td colspan="1" rowspan="1"><span> Select the end date for the performance period. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Sale Status </span></td><td colspan="1" rowspan="1"><span> Select the sales status for the 'Sales Written' related metrics. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Filter By </span></td><td colspan="1" rowspan="1"><span> Select whether you want to fetch the data by the modified date or created date. </span></td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> Select the date format for your data. </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> Select whether the report data is for a specific date or for a relative number of days back from today. </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> Select the specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for in the <span></span><b> Days Back </b><span></span> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data from (start day). Combine with <b><b><b><b> End Date </b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b> Start Date </b></b></b></b> and 5 for <b><b><b><b> End Date </b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data to (end day). Combine with <b><b><b><b> Start Date </b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b> Start Date </b></b></b></b> and 5 for <b><b><b><b> End Date </b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> Specify the time period that you would like to receive data for. </td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> Select the day you would like your week to start with. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What endpoint is the base URL for this connector?">
+
+The base URL for the Agentbox connector is https://api.agentboxcrm.com.au.
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this Connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="2" rowspan="1"> Report Name </th><th colspan="1" rowspan="1"> Endpoint URL(s) </th></tr><tr><td colspan="2" rowspan="1"><span> Contacts </span></td><td colspan="1" rowspan="1"><span> /contacts </span></td></tr><tr><td colspan="2" rowspan="1"><span> Enquiries </span></td><td colspan="1" rowspan="1"><span> /enquiries </span></td></tr><tr><td colspan="2" rowspan="1"> Gross Commission Allocation External report </td><td colspan="1" rowspan="1"> /reports/gross-commission-allocation-external </td></tr><tr><td colspan="2" rowspan="1"> Gross Commission Allocation report </td><td colspan="1" rowspan="1"> /gross-commission-allocation </td></tr><tr><td colspan="2" rowspan="1"> Gross Commission Allocation Summary report </td><td colspan="1" rowspan="1"> /reports/gross-commission-allocation-summary </td></tr><tr><td colspan="2" rowspan="1"> Inspections </td><td colspan="1" rowspan="1"> /inspections </td></tr><tr><td colspan="2" rowspan="1"> Listings </td><td colspan="1" rowspan="1"> /listings </td></tr><tr><td colspan="2" rowspan="1"> Marketing Funds Expenses Summary and Performance </td><td colspan="1" rowspan="1"> /reports/marketing-funds-expenses-summary </td></tr><tr><td colspan="2" rowspan="1"> Notes </td><td colspan="1" rowspan="1"> /notes </td></tr><tr><td colspan="2" rowspan="1"> Offices </td><td colspan="1" rowspan="1"> /offices </td></tr><tr><td colspan="2" rowspan="1"> Staff Members and Tasks </td><td colspan="1" rowspan="1"> /staff </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this Connector?">
+
+You need the client ID and the API key associated with your Agentbox account.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No
+
+</Accordion>
+
+<Accordion title="Can I use the same account to create multiple datasets?">
+
+Yes
+
+</Accordion>
+</AccordionGroup>
+

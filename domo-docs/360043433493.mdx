@@ -1,0 +1,39 @@
+---
+title: "Okta Connector"
+excerpt: "Use the Okta connector with your company domain and an API token to pull identity management data into a Domo DataSet."
+---
+
+## Intro
+
+Okta provides secure identity management and Single Sign-On for any application. To learn more about the Okta API, visit their page ([https://developer.okta.com/docs/api/...ces/users.html](https://developer.okta.com/docs/api/resources/users.html "https://developer.okta.com/docs/api/resources/users.html") ).
+
+You connect to your Okta account in the Data Center. This topic discusses the fields and menus that are specific to the Okta connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Okta account and create a DataSet, you must have the following:
+
+* The domain for your company Okta instance (e.g. [okta.mycompany.com](http://okta.mycompany.com) ).
+* An Okta API token. For information about obtaining a token, see [https://developer.okta.com/docs/api/...g\_a\_token.html](https://developer.okta.com/docs/api/getting_started/getting_a_token.html "https://developer.okta.com/docs/api/getting_started/getting_a_token.html").
+
+## Connecting to Your Okta Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Okta Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Okta account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"> Enter the domain for your company Okta instance (e.g. <span class="mt-font-courier-new"><a href="http://okta.mycompany.com" rel="noopener" target="_blank"> okta.mycompany.com </a></span> ). </td></tr><tr><td colspan="1" rowspan="1"> API Token </td><td colspan="1" rowspan="1"> Enter your Okta API token. For information about obtaining a token, see <a href="https://developer.okta.com/docs/api/getting_started/getting_a_token.html" target="_blank" title="https://developer.okta.com/docs/api/getting_started/getting_a_token.html"> https://developer.okta.com/docs/api/...g_a_token.html </a>. </td></tr></tbody></table>
+
+Once you have entered valid Okta credentials, you can use the same account any time you go to create a new Okta DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Okta report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Applications (Apps) </p></td><td colspan="1" rowspan="1"><p> Returns a list of Okta-enabled apps added to your organization. </p></td></tr><tr><td colspan="1" rowspan="1"> Applications Groups </td><td colspan="1" rowspan="1"> Returns a list of all application group assignment. </td></tr><tr><td colspan="1" rowspan="1"> Application User </td><td colspan="1" rowspan="1"> Returns a list of all users assigned to a selected applications. </td></tr><tr><td colspan="1" rowspan="1"><p> Events </p></td><td colspan="1" rowspan="1"><p> Returns a list of events from your Okta organization system log. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Groups </p></td><td colspan="1" rowspan="1"><p> Returns a list of Okta groups in your organization. </p></td></tr><tr><td colspan="1" rowspan="1"> Groups by Application </td><td colspan="1" rowspan="1"> Enumerates all the group assignments for selected applications. </td></tr><tr><td colspan="1" rowspan="1"> Group Users </td><td colspan="1" rowspan="1"> Enumerates all users that are a member of any groups. </td></tr><tr><td colspan="1" rowspan="1"> System Log </td><td colspan="1" rowspan="1"> Returns a list of all the system log data close to the real-time data for the organization. </td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Returns a list of Okta users in your organization. </p></td></tr><tr><td colspan="1" rowspan="1"> Users Assigned To Application </td><td colspan="1" rowspan="1"> Returns a list of all the users assigned to the application. </td></tr><tr><td colspan="1" rowspan="1"><p> Zones </p></td><td colspan="1" rowspan="1"><p> Returns a list of zones. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Search Term (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the term you want to return data for in your "Groups" report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Published Start Date </p></td><td colspan="1" rowspan="1"><p> Select the start date for your "Events" report. Pair with <b> Published End Date </b> to return a range of dates. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Published End Date </p></td><td colspan="1" rowspan="1"><p> Select the end date for your "Events" report. Pair with <b> Published Start Date </b> to return a range of dates. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter By </p></td><td colspan="1" rowspan="1"><p> Select whether you want to filter by group or user. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Name </p></td><td colspan="1" rowspan="1"><p> Select the user you want to filter by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Group Name </p></td><td colspan="1" rowspan="1"><p> Select the group you want to filter by. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

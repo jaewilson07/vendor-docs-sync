@@ -1,0 +1,45 @@
+---
+title: "Snowflake Key Pair Domo Managed Unload Connector"
+excerpt: "Configure Domo's Snowflake Key Pair Domo Managed Unload Connector to move very large query results through S3 into Domo using key pair authentication."
+---
+
+## Intro
+
+Snowflake is a cloud-based data warehouse designed to support all your data and users.
+
+If you need to execute very large queries and move the results to Domo, use the Snowflake Key Pair Domo Managed Connector.
+
+* This connector first unloads data from your Snowflake instance into an Amazon S3 bucket.
+* The unloaded files are then automatically imported from Amazon S3 into Domo.
+
+**Note:** Choose this connector as the preferred method over the standard Snowflake connector when processing extremely large query result sets.
+
+You can connect to your Snowflake Key Pair Domo Managed Unload account in the Data Center. This topic discusses the fields and menus that are specific to the Snowflake Key Pair Domo Managed Unload connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Snowflake Key Pair Domo Managed Unload account and create a DataSet, you need the following:
+
+* Account Identifier
+* Username
+* Private Key
+
+## Connecting to Your Snowflake Key Pair Domo Managed Unload Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Snowflake Key Pair Domo Managed Unload Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Snowflake Key Pair Domo Managed Unload account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account Identifier </td><td colspan="1" rowspan="1"><p> Specify the name of your Snowflake account based on its region: </p><ul><li><p><b> US West Region: </b> Use the format <code> account_name </code>. </p></li><li><p><b> All Other Regions: </b> Use the format <code> account_name.region_id </code>. </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username to connect to your Snowflake host. </td></tr><tr><td colspan="1" rowspan="1"> Private Key </td><td colspan="1" rowspan="1"> Enter the Private Key. </td></tr><tr><td colspan="1" rowspan="1"> Passphrase </td><td colspan="1" rowspan="1"><p> If you choose to create an encrypted private key, OpenSSL will prompt you to enter a passphrase <b>. </b> This passphrase is used to encrypt the private key file. Enter the required passphrase when prompted. </p></td></tr><tr><td colspan="1" rowspan="1"> Role </td><td colspan="1" rowspan="1"><p> Enter your role. </p></td></tr></tbody></table>
+
+Once you have entered valid Snowflake Key Pair Domo Managed Unload credentials, you can use the same account at any time to create a new Snowflake Key Pair Domo Managed Unload DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> How would you like to import data into Domo? </td><td colspan="1" rowspan="1"><p> Select any one of the methods below to import your data into Domo. </p><ul><li> Standard Update </li><li> Use Partition </li><li> Use Upsert </li></ul></td></tr><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"><p> Select the query type from the drop-down list. </p><table><tbody><tr><th colspan="1" rowspan="1"> QueryType </th><th colspan="1" rowspan="1"> Description </th></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> Enter the SQL query you want to execute. </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> Select a table and the fields to autogenerate your query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Warehouses </td><td colspan="1" rowspan="1"><p> Select the warehouse. </p></td></tr><tr><td colspan="1" rowspan="1"> Databases </td><td colspan="1" rowspan="1"><p> Select the database. </p></td></tr><tr><td colspan="1" rowspan="1"> Schemas </td><td colspan="1" rowspan="1"><p> Select the schema. </p></td></tr><tr><td colspan="1" rowspan="1"> Database Objects </td><td colspan="1" rowspan="1"><p> Choose the database object. </p></td></tr><tr><td colspan="1" rowspan="1"> Tables </td><td colspan="1" rowspan="1"><p> Select the table. </p></td></tr><tr><td colspan="1" rowspan="1"> Views </td><td colspan="1" rowspan="1"><p> Select the view. </p></td></tr><tr><td colspan="1" rowspan="1"> Table Column Names </td><td colspan="1" rowspan="1"><p> Select the table columns you want to include in your report. </p></td></tr><tr><td colspan="1" rowspan="1"> View Column Names </td><td colspan="1" rowspan="1"><p> Select the view columns you want to include in your report. </p></td></tr><tr><td colspan="1" rowspan="1"> Table Query Helper </td><td colspan="1" rowspan="1"><p> Enter the generated query based on the selected fields. </p></td></tr><tr><td colspan="1" rowspan="1"> View Query Helper </td><td colspan="1" rowspan="1"><p> A query is generated based on the selected fields. </p></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"><p> Enter the SQL query you want to execute. </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Criteria </td><td colspan="1" rowspan="1"><p> Select whether you want to partition your data using the date keys, non-date keys, or a meta query. </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Date Key Table Column Name </td><td colspan="1" rowspan="1"><p> Select the partition column name. </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Date Key View Column Name </td><td colspan="1" rowspan="1"><p> Select the partition column name. Only date fields will be displayed. </p></td></tr><tr><td colspan="1" rowspan="1"> Enter Partition Date Key Column Name </td><td colspan="1" rowspan="1"><p> Enter the partition column name. </p></td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"><p> Enter the number of past days for which you want to retrieve the data. This value must be a positive integer (e.g., 30). </p></td></tr><tr><td colspan="1" rowspan="1"> Date Format </td><td colspan="1" rowspan="1"><p> Select the required date format. By default, <b> yyyy-MM-dd </b> will be used. </p></td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"><p> Enter the custom date format. </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Non Date Key Table Column Name </td><td colspan="1" rowspan="1"><p> Select the partition column name. </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Non Date Key View Column Name </td><td colspan="1" rowspan="1"><p> Select a non-date key column name to partition the data. All the fields, excluding Date fields, will be displayed. </p></td></tr><tr><td colspan="1" rowspan="1"> Enter Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"><p> Enter the partition column name. </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Query to determine partition tags </td><td colspan="1" rowspan="1"><p> Enter the partition query to determine the distinct partition tags. The column containing the <b> Date </b> data is your partition column. Example: Select <b> Date </b> from Table_Name. </p></td></tr><tr><td colspan="1" rowspan="1"> Upsert Key Column(s) </td><td colspan="1" rowspan="1"><p> Enter the upsert key column name or a comma-separated list of upsert key column names. Required only when the Update method is Merge. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

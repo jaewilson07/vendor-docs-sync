@@ -1,0 +1,34 @@
+---
+title: "JSON Easy Connector"
+excerpt: "Paste JSON text directly into the JSON Easy Connector to import it as a new Domo DataSet without authentication."
+---
+
+## Intro
+
+JavaScript Object Notation (JSON) is a lightweight data-interchange format that is easy to use. The Domo JSON Easy Connector enables you to cut and paste from your JSON file into a text box and import your JSON data as a new Domo datasource. More advanced JSON uploads can be made using the Domo JSON Advanced Connector.
+
+JSON connector is capable of parsing any text that is in valid JSON format.  JSON connector only accepts JSON text as input. If more advanced functionality is desired (for example, connection to FTP/SFTP server to fetch a JSON resource or connecting to HTTP/HTTPS JSON resource), refer to [JSON Advanced](https://wikidev.domo.com/confluence/display/CON/JSON+Advanced+Feasibility "JSON Advanced") connector.
+
+You can connect to your JSON Easy account in the Data Center. This topic discusses the fields and menus that are specific to the JSON Easy connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+No prerequisites are required to connect to your JSON Easy account and create a DataSet.
+
+## Connecting to Your JSON Easy Account
+
+No authentication is required for the JSON connector.
+
+This section enumerates the options in the **Details** panes in the JSON Easy Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+No credentials are required to power up this connector. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Paste Your JSON Text Here </p></td><td colspan="1" rowspan="1"><p> Copy JavaScript Object Notation (JSON) text from a file and paste into the provided text box. <br/><br/> It is recommend that you use an FTP/SFTP file upload for files with over 2 million characters. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Does Your JSON Text Require A Line Reader? </p></td><td colspan="1" rowspan="1"><p> Select 'Yes', if your JSON text includes consecutive ones that should be read. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Should The Backlash Be Escaped? </p></td><td colspan="1" rowspan="1"><p> Select 'Yes', if your JSON text has backslash characters that needs to escape. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Do You Require Additional Options? </p></td><td colspan="1" rowspan="1"><p> Select 'Yes', if you want to specify header tags, data tags or exclude specific fields. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Header Tag </p></td><td colspan="1" rowspan="1"><p> Enter the tag for the header in your JSON text. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Data Tag </p></td><td colspan="1" rowspan="1"><p> Enter the tag for the data in your JSON. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Fields To Exclude </p></td><td colspan="1" rowspan="1"><p> Provides a comma separated list of fields you want to exclude from the JSON import. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

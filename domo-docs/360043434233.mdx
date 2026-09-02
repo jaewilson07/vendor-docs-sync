@@ -1,0 +1,39 @@
+---
+title: "Jive Connector"
+excerpt: "Use the Jive connector with username, password, and instance URL to pull online community and social network data into a Domo DataSet."
+---
+
+## Intro
+
+Jive integrates the functionality of online communities, microblogging, social networking, discussion forums, blogs, wikis, and IM under one unified user interface. To learn more about the Jive API, visit their page ([https://developers.jivesoftware.com/...est/index.html](https://developers.jivesoftware.com/api/v3/cloud/rest/index.html "https://developers.jivesoftware.com/api/v3/cloud/rest/index.html") ).
+
+You connect to your Jive account in the Data Center. This topic discusses the fields and menus that are specific to the Jive connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Jive account and create a DataSet, you must have the following:
+
+* Your Jive username and password
+* Your Jive URL (e.g. https://community.jivesoftware.com)
+
+## Connecting to Your Jive Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Jive Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Jive account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username for your Jive account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password for your Jive account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Jive URL </p></td><td colspan="1" rowspan="1"><p> Enter your Jive URL (e.g. <span class="nowiki"><a href="https://community.jivesoftware.com" rel="noopener" target="_blank"> https://community.jivesoftware.com </a></span> ) </p></td></tr></tbody></table>
+
+Once you have entered valid Jive credentials, you can use the same account any time you go to create a new Jive DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Jive report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Activities </p></td><td colspan="1" rowspan="1"><p> Returns a list of activities matching the specified criteria. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Announcements </p></td><td colspan="1" rowspan="1"><p> Returns a list of announcements. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contents </p></td><td colspan="1" rowspan="1"><p> Returns a list of contents matching the specified criteria. </p></td></tr><tr><td colspan="1" rowspan="1"><p> People </p></td><td colspan="1" rowspan="1"><p> Returns a list of people matching the specified criteria. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Places </p></td><td colspan="1" rowspan="1"><p> Returns a list of places matching the specified criteria. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Search </p></td><td colspan="1" rowspan="1"><p> Enter a search keyword to retrieve data about that search term. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Days </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days you want to pull data for. Use <span class="mt-font-courier-new"> 0 </span> for today and <span class="mt-font-courier-new"> 1 </span> for yesterday. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

@@ -1,0 +1,87 @@
+---
+title: "Amazon Redshift Unload Connector"
+excerpt: "Use Domo's Amazon Redshift Unload Connector to unload Redshift query results into an S3 bucket and import them into Domo as a DataSet."
+---
+
+## Intro
+
+Amazon Redshift is a fast and powerful, fully managed, petabyte-scale data warehouse service in the cloud.
+
+You connect to your Amazon Redshift Unload account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon Redshift Unload connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to Amazon Redshift so you can begin creating Amazon Redshift Unload DataSets, you must have the following:
+
+* The host name for the Redshift database
+* The database name for the Redshift database
+* Your Redshift username and password
+* The port number of your Redshift database
+* Your AWS access key
+* Your AWS secret access key
+* The name of the S3 bucket data will be unloaded into
+* The name of the S3 bucket region
+
+CA certificate text or URL path is required **only** if you select ****Certificate string**** or ****URL path****, respectively, in the ****Certificate type**** menu.
+
+If you do not know any of the information for Redshift, contact your Amazon Redshift Database Administrator.
+
+To find your AWS Access Key and Secret Access Key:
+
+1. Log in to your AWS Management Console.
+2. Click on your username at the top right of the page.
+3. Select
+   ****Security Credentials**** in the dropdown menu.
+4. In the
+   ****Access Credentials**** section, copy the latest Access Key ID.
+5. Click on the
+   ****Show link**** in the same row, and copy the Secret Access Key.
+
+### Whitelisting
+
+Before you can connect to Redshift, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093 "Whitelisting IP Addresses for Connectors").
+
+## Connecting to Your Amazon Redshift Unload Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Amazon Redshift Unload Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Amazon Redshift Unload account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the host name for the Redshift database you want to pull data from. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> Enter the database name for the Redshift database you want to pull data from. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username for your Redshift account, </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password for your Redshift account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number for the Redshift database you want to pull data from. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Format </p></td><td colspan="1" rowspan="1"><p> Select a certificate format. If you do not want to include a certificate, leave the default <b><b> No certificate </b></b> option selected. If you select <b> Certificate string </b>, you must paste the text for your certificate in the <b><b> Certificate </b></b> field. If you select <b><b> URL path </b></b>, you must enter the URL where your certificate is located in the <b><b> Certificate </b></b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> Paste the text for your CA certificate or enter the URL where your certificate is located. This is optional. If you do not want to include a certificate, select <b><b> No certificate </b></b> in the <b><b> Certificate Format </b></b> menu. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Access Key </p></td><td colspan="1" rowspan="1"><p> Enter your AWS access key. For information about obtaining an access key, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Secret Access Key </p></td><td colspan="1" rowspan="1"><p> Enter your AWS secret key. For information about obtaining an access key, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> S3 Bucket </p></td><td colspan="1" rowspan="1"><p> Enter the name of the S3 bucket to use in pulling in data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> S3 Bucket Region </p></td><td colspan="1" rowspan="1"><p> Select the region containing the desired S3 bucket. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new Amazon Redshift Unload DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains various options for specifying the data you want to pull into Domo.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Header Query (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the SQL query to use in obtaining the correct header metadata for the query specified below (in the <b> Query</b> field). This is necessary because Redshift does not dump header data using UNLOAD. If you leave this blank, header data will be retrieved using the query you enter in the <b> Query</b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Cache Last Good Header? </p></td><td colspan="1" rowspan="1"><p> If you select <b> Yes</b> for this option, the connector caches the header so it does not create an additional query. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><p> Select the desired query type. If you select <b> Query</b>, you will be prompted to enter a regular SQL query without a parameter. If you select <b> Query Parameter</b>, you will be prompted to enter a SQL query with a parameter. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the SQL query you want to use to pull in data. </p><p> For example: </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> You can use the <b><b> Generated Query</b></b> parameter to help you write a usable SQL query. To use the <b> Generated Query</b>, do the following: </p><ol><li><p> Select your database table and table columns in the appropriate menus. </p></li><li><p> Copy the SQL statement that appears in the <b><b> Generated Query</b></b> field. </p></li><li><p> Paste the copied SQL statement into the <b><b> Query</b></b> field. </p></li></ol><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Fetch Size (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the fetch size for memory performance. If you leave this blank, a default value of 1000 will be used. If an "Out of Memory" error is generated, try decreasing the fetch size. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter </p></td><td colspan="1" rowspan="1"><p> Enter the query parameter value. This is the initial value for the query parameter. The "Last Run" date is optional. If you do not enter this date, a default date of "02/01/1700" is used. </p><p> For example: </p><p><span class="mt-font-courier-new"> `!{lastvalue:_id}!=1,!{lastrundate:start_date}!=02/01/1944,!{lastmaxvalue:size}!=0` </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Validation Type </p></td><td colspan="1" rowspan="1"><p> Select the desired validation type. If you select <b> Validate schema</b>, the previous schema is validated against the current schema. If these are not the same, the validation fails. If you select this option, you are asked to select a validation case in the <b> Validate By</b> menu. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Validate By </p></td><td colspan="1" rowspan="1"><p> Select the desired validation case option. </p><p> If you select <b> Column case sensitive</b>, if the previous schema and current schema are the same except for differences in letter case, the schemas are not considered the same and the validation fails. </p><p> If you select <b> Column by order</b>, if the previous schema and current schema are the same except for column order differences, the schemas are not considered the same and the validation fails. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Boolean Format </p></td><td colspan="1" rowspan="1"><p> Select the desired Boolean format for returned data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Tables (Optional) </p></td><td colspan="1" rowspan="1"><p> Select the database tables you want to pull into Domo, if desired. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns (Optional) </p></td><td colspan="1" rowspan="1"><p> Select the table columns you want to pull into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Generated Query (Optional) </p></td><td colspan="1" rowspan="1"><p> Copy and paste the SQL statement in this field into the <b><b> Query</b></b> field. For more information, see <b><b> Query</b></b>, above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Timeout (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the desired query timeout value. </p></td></tr><tr><td colspan="1" rowspan="1"> Use High Bandwidth Upload </td><td colspan="1" rowspan="1"> Select this checkbox to use high bandwidth upload transfer. </td></tr><tr><td colspan="1" rowspan="1"><p> Keep Files in S3? </p></td><td colspan="1" rowspan="1"><p> Select whether or not you want to keep your files in S3. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+This depends on your server configuration.
+
+</Accordion>
+
+<Accordion title="Why can't I connect to my Redshift database? Do I need to whitelist any IP addresses?">
+
+Before you can connect to a Redshift database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses](/s/article/360043630093 "Whitelisting IP Addresses for Connectors").
+
+</Accordion>
+</AccordionGroup>
+

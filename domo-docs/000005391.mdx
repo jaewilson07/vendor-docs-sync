@@ -1,0 +1,32 @@
+---
+title: "SendGrid Webhook Connector"
+excerpt: "Subscribe to SendGrid event notifications in Domo by configuring the Webhook URL in SendGrid Mail Settings to ingest email events into a DataSet."
+---
+
+## Intro
+
+SendGrid is a cloud-based SMTP provider that enables you to send email without having to maintain email servers. SendGrid manages all technical details, from scaling the infrastructure to ISP outreach and reputation monitoring to whitelist services and real time analytics. Use the SendGrid Webhook connector to subscribe to SendGrid's event notifications. To learn more about the SendGrid Webhook API, visit their page ([https://SendGrid Webhook.com/docs/API\_Reference/index.html](https://sendgrid.com/docs/API_Reference/index.html "https://sendgrid.com/docs/API_Reference/index.html") ).
+
+You connect to your SendGrid Webhook account in the Data Center. This topic discusses the fields and menus that are specific to the SendGrid Webhook connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+No prerequisites are required for this connector.
+
+## Connecting to Your SendGrid Webhook Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SendGrid Webhook Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Webhook URL </td><td colspan="1" rowspan="1"><h4> To enable event notifications: </h4><ol><li> Copy the Unique URL by selecting the <b> Copy Link </b> button. </li><li> In a new window, open <a href="https://app.sendgrid.com/settings/mail_settings" target="_blank"> Settings &gt; Mail Settings </a> in the SendGrid UI. </li><li> Turn on <b> Event Notification. </b></li><li> In the <b> HTTP POST URL </b> field, paste the unique URL copied in step 1. </li><li> Select the Event notifications of your choice. </li><li> Select the checkmark in the top corner to save these updates into your settings. </li></ol></td></tr><tr><td colspan="1" rowspan="1"> Update Method </td><td colspan="1" rowspan="1"><p> When Domo retrieves your data from the source, you can determine how the new data is imported into the current DataSet. For this connector we offer <b> Append </b> and <b> Replace </b> option. </p><p><b> Append: </b> This method takes your new data and adds it to your current DataSet. This creates duplicate data entries. </p><p><b> Replace: </b> This method takes your current DataSet and replaces with new data. This may result in some data loss. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

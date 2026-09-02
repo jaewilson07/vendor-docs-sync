@@ -1,0 +1,189 @@
+---
+title: "Manage User Roles and Grants"
+excerpt: "Create and manage custom roles in Domo by combining grants that govern user access to specific features and capabilities across the platform."
+---
+
+## Intro
+
+In Domo, every user has a role that determines their access to features and capabilities. By default, Domo has five system roles to manage access to Domo features: Admin, Privileged, Editor, Participant, and Social. The [System Roles reference](/s/article/360043438953) describes each one. Roles consist of various grants or specific permissions. Domo users receive the grants associated with their assigned role.
+
+When assigning roles to new users, admins often need more flexibility and granularity than the system roles provide. For these cases, they can create and define custom roles with different grants. This article describes how to create and configure custom roles.
+
+<Note>
+  **Instance default role:** The role that a user has when first logging into Domo depends on how they were added or invited to Domo, their organization's SSO configuration, and other considerations. Learn more about the [instance default role](/s/article/000005839) and the Roles Allowlist.
+
+</Note>
+
+#### What Grants Are Available?
+
+Grants govern user privileges to specific features or capabilities in Domo. For example, there are multiple associated grants for AI Services, such as:
+
+* Create AI Service Models
+* Manage AI Services
+* Use AI Chat
+* Use AI Services
+
+People with a Social role have no AI Services grants, so they have no access to AI Services. People with a Participant role can use AI Chat and AI Services. People assigned to Privileged and Editor roles can create AI Service Models, use AI Chat, and use AI Services; only people with an Admin role have the Manage AI Services grant, so only they can manage AI Services.
+
+Admins can choose which of these grants, and any other available grants, are assigned to each custom role created in their instance.
+
+To view a list of all available grants and how they are assigned to each system and custom role in your instance, navigate to **Admin** > **Governance** > **Roles**. Then, go to the **Grid** tab.
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QQ6f.jpg"/></Frame>
+
+---
+
+## Required Grants
+
+To manage roles and grants, including creating, editing, and deleting roles, assigning roles to users, and configuring Role Settings, you must have an Admin system role or a custom role with the Manage All Roles grant enabled.
+
+<Note>
+  **Note:** Users with the Assign Users to a Role grant can assign roles included in the [Roles Allowlist](/s/article/000005839), but can't perform other role-related actions.
+
+</Note>
+
+## Access the Role Management Interface
+
+You can access the role management interface from the Admin Settings. Go to **Admin** > **Governance** > **Roles**.
+  
+The **Roles** tab displays.
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006R4P3.jpg"/></Frame>
+## Create a New Custom Role
+
+In Domo, new roles are created by using existing roles as templates. Since system roles cannot be modified, all new roles are custom roles. Admins can use any system role or existing custom role as a template, duplicate it, add or remove grants, and save it as a new role.
+
+Follow the steps below to create a new custom role:
+
+1. Access the role management interface, as described
+   [above](#access-the-role-management-interface).
+2. Select **+** **New** **Role** to open the new role modal.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006OYGQ.jpg"/></Frame>
+3. In the modal, use the dropdown to choose an existing role to copy. This can be a system role or another custom role.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006ObCf.jpg"/></Frame>
+4. Give your new role a name and description to help you and others understand the purpose of this role.
+     
+   For example, this new sales admin role (Sales Admin 2) has all the same grants as the Sales Admin role except for the ability to create workflows.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006Obvp.jpg"/></Frame>
+5. Save your changes to display the grants interface for the role.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006Obz3.jpg"/></Frame>
+6. In the **Grants** tab for the role, use the checkboxes to add/remove grants from the role.
+   <Warning>
+     **Important:** Grants marked with a warning icon (<img src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000005P0Rl.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> ) provide access to highly sensitive capabilities, such as configuring the security settings of the Domo instance or elevating user roles. These grants are only intended for admin-level users and should be assigned with care.
+
+   </Warning>
+
+7. When finished, select **Save** in the blue banner at the top of the page.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006OdCr.jpg"/></Frame>
+## Modify a Custom Role/Add or Remove Grants
+
+Admins can modify the grant configuration for custom roles. They cannot modify any of the system roles (Admin, Privileged, Editor, Participant, or Social).
+
+Follow these steps to modify a custom role:
+
+1. Access the role management interface, described
+   [above](#access-the-role-management-interface).
+2. In the **Roles** tab, locate and select the custom role you want to modify.
+3. Use the checkboxes to add/remove grants assigned to this role.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QPFS.jpg"/></Frame>
+4. Select **Save** in the banner at the top of the screen to keep your changes.
+
+## Duplicate a Role
+
+Sometimes, an existing role includes nearly all of the grant an admin wants to provide a user, but requires minor revision. Admins can duplicate any existing role, add/remove grants, and save the new role so it can be assigned. This is the same process as creating a new role. Learn how to [create a new role](#create-a-new-custom-role) above.
+
+## Delete a Custom Role
+
+Admins can delete custom roles from their Domo instance. System roles (Admin, Privileged, Editor, Participant, or Social) cannot be deleted.
+
+<Warning>
+  **Important:** A role cannot be deleted if any people are assigned to it. You must change the role of any currently assigned people before deleting it.
+
+</Warning>
+
+Follow these steps to delete a custom role:
+
+1. Access the role management interface, described
+   [above](#access-the-role-management-interface).
+2. In the **Roles** tab, locate and select the custom role you want to delete to open the role details.
+3. (Conditional) If there any current people assigned to this role, go to the **People** tab.
+   1. Check the box for each current assignee. You can check multiple boxes at once if you are reassigning multiple people to the same role.
+   2. Use the dropdown to choose the new role for one or more people.
+   3. Repeat for all currently assigned people.
+4. Select
+   <img src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QFb3.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Delete** (trash can icon).
+5. Confirm deletion.
+
+## Change a User's Role
+
+Admins and those with the Manage All Roles grant can change a person's assigned role (whether system or custom) at any time. Users with the Assign Users to a Role grant can also assign user roles, but only those included in the Roles Allowlist. Learn more about the [Roles Allowlist](/s/article/000005839).
+
+<Warning>
+  **Caution:** If a person's role is changed and they lose associate grants, they may also lose access to certain assets, depending on their ownership.
+  
+  For example, if a card was shared with someone in a Privileged role, they may lose access to the card when reassigned to a Participant role.
+
+</Warning>
+
+Follow these steps to change a user's role:
+
+1. Navigate **Admin** > **Governance** > **People**.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QI2f.jpg"/></Frame>
+2. Locate the person whose role you want to change in the list and select their name to open their personnel details.
+3. In the fields under their name, hover over **Role:** to display the <img src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QI5t.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Edit** (pencil icon).
+4. Select
+   <img src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QI5t.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Edit**.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QIDx.jpg"/></Frame>
+5. In the dropdown, choose the person's new role.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QIQr.jpg"/></Frame>
+6. Select **Save** to change the person's role.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QIlp.jpg"/></Frame>
+## Bulk Add Users to a Role
+
+Admins and those with the Manage All Roles grant can add more than one person at a time to a specific system or custom role. Users with the Assign Users to a Role grant can also assign user roles, but only those included in the Roles Allowlist. Learn more about the [Roles Allowlist](/s/article/000005839).
+
+<Tip>
+  **Tip:** You can also change user roles in bulk from the People settings (**Admin** > **Governance** > **People**). Check the box by each name, select <img src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006oe0Q.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Update user attributes** (pencil icon)in the banner, and use the modal to choose a new user role to apply to each selected person.
+
+  <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006oidW.jpg"/></Frame>
+</Tip>
+
+Follow these steps to bulk add users to a role from the role management interface:
+
+1. Access the role management interface, as described
+   [above](#access-the-role-management-interface).
+2. In the **Roles** tab, locate and select the custom role you want to assign to more than one person.
+     
+   The role details display.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QR2j.jpg"/></Frame>
+3. Go to the **People** tab.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QR5x.jpg"/></Frame>
+4. Select **+ Add People**.
+     
+   The add people modal displays.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QRAn.jpg"/></Frame>
+5. In the modal, search for and select each person to which you want to assign this role and save your changes.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QRFd.jpg"/></Frame>
+The role is assigned to each selected person.
+
+## Explore Instance Grants
+
+Admins can view all instance grants, including what roles they are associated with, the feature they relate to, and the number of people who hold the grant as part of their assigned role.
+
+Access this information by going to **Admin** > **Governance** > **Roles**. Then go to the **Grants** tab.
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000BYG5-00N5w00000Ri7BU-0EMVq000006QRNh.jpg"/></Frame>

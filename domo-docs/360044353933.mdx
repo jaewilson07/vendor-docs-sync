@@ -1,0 +1,187 @@
+---
+title: "Snowflake Federated Agent"
+excerpt: "Install and configure the Snowflake Federated Agent to visualize on-premise Snowflake data in Domo in real time without storing it in Domo."
+---
+
+## Intro
+
+The Domo Federated Agent is a solution that allows you to connect your on-premise data to Domo through Snowflake. The agent makes a socket connection to Domo and then proxies requests to your database which allows you to visualize your snowflake data in Domo in real-time, any time, anywhere. With the Snowflake Federated Agent, your data always stays in your database and is never stored in Domo.
+
+## How to get the Federated Agent
+
+For more information on the Snowflake Federated Agent pricing and access, contact your Customer Success Manager (CSM).
+
+## Prerequisites
+
+* Admin access to your database and the ability to write a new table to your database.
+* Database access credentials
+* Admin level access in Domo
+* Database connection URL
+* (Optional) [Manage Access Tokens](/s/article/360042934494)
+
+## Agent Configuration
+
+###### To properly configure your Domo Federated Agent,
+
+1. Navigate to the conf directory in the unzipped file Domo provided.
+2. Open the agent configuration file titled agentConfig.yml
+
+   <Note>
+   **Note:** The configuration files are all.yml files are case and character sensitive.
+   </Note>
+
+3. Fill in your Domo domain.
+   
+   <Frame><img alt="Snowflake_Federated_Customer_Domain.jpg" src="/images/kb/ka05w00000129Cv-00N5w00000Ri7BU-0EM5w000005vNuI.jpg"/></Frame>
+
+4. Uncomment the `adapterType: snowflake` and `configurationFileName: snowflakeAdapterConfig.yml` lines.
+   
+   <Frame><img alt="adapterType.png" src="/images/kb/ka05w00000129Cv-00N5w00000Ri7BU-0EM5w000005vNuP.png"/></Frame>
+
+There are two ways to authenticate to Domo—using a developerToken property (recommended) or using Oauth2 (default). Using a developerToken is recommended because it automatically authenticates to Domo every time. By using Oauth2, for every change or restart of the agent, you will need to reauthorize.
+
+**To authenticate using a developerToken,**
+
+1. Create an Access Token in Domo. See [Manage Access Tokens](/s/article/360042934494 "Managing Access Tokens") for detailed instructions on creating an Access Token.
+2. Uncomment the developerToken line and enter the Access Token.
+     
+   <Frame><img alt="Snowflake_Federated_Access_Token.gif" src="/images/kb/ka05w00000129Cv-00N5w00000Ri7BU-0EM5w000005vNuO.gif"/></Frame>
+
+**To authenticate using Oauth2,**
+
+No additional configuration is needed. Leave the developerToken line commented out, and the agent will prompt you to authenticate by Oauth login.
+
+## Adapter Configuration
+
+1. In the conf directory of the unzipped file Domo provided, open the snowflakeAdapterConfig.yml file.
+2. Enter the required information on the uncommented lines.
+
+For every table you wish to visualize in Domo, the `tableName:` line must be copied.
+
+<Frame><img alt="tableName.png" src="/images/kb/ka05w00000129Cv-00N5w00000Ri7BU-0EM5w000005vNuK.png"/></Frame>
+
+<Warning>
+**Important:** If table names are not specified, the Snowflake Agent will visualize all tables available in your database.
+</Warning>
+
+## Password Encryption
+
+In order to run the Snowflake Federated Agent, you will need to set a password. Optionally, your password can be used to encrypt your database passwords and Domo Access Token.
+
+If you choose not to encrypt, you still need to generate a password and store it in one of two ways.
+
+### Set the password as an Environment Variable
+
+<Warning>
+**Important:** This is the recommended way to set the encryption password
+</Warning>
+
+Variable: `DOMO_FD_ENCRYPTION_PW`
+
+E.g. `DOMO_FD_ENCRYPTION_PW=<your encryption password>`
+
+### Pass it as a command line property
+
+<Note>
+**Note:** -p or --encryptionPassword may be used.
+</Note>
+
+If this method is chosen, you must edit the [startAgent.sh](http://startAgent.sh) or startAgent.bat file, found in the bin directory, and add the `-p=<yourPassword>` property at the end of the java -jar line. Using this method, the password will be stored in the command history.
+
+E.g. `java -jar libs/federated-agent.jar -p=testpw`
+
+<Frame><img alt="Snowflake_Federated_Command_Line_Property.jpg" src="/images/kb/ka05w00000129Cv-00N5w00000Ri7BU-0EM5w000005vNuM.jpg"/></Frame>
+
+Optionally, the database passwords and Domo Auth Token can be encrypted using our encryption jar. You can also place your passwords in plain text in the configuration files.
+
+To encrypt your passwords or token run the [startEncryption.sh](http://startEncryption.sh) or startEncryption.bat file found in the bin folder and follow the instructions there. Copy the newly encrypted database password and store it in the appropriate adapter configuration.
+
+## Standard Calendar Table Configuration
+
+In order for date grain queries to work in Domo, the domo.standardcalendar must be loaded into your database.
+
+<Warning>
+**Important:**
+
+* If the Standard Calendar Table is not configured, any query that includes a date type column will fail.
+* Domo uses double quotes for identifiers in SQL queries, which may result in queries containing identifiers that cannot be found in Snowflake due to differences in case. To prevent this situation from occurring, Snowflake provides a session parameter, QUOTED\_IDENTIFIERS\_IGNORE\_CASE, that ensures all alphabetical characters in identifiers created within the session are stored in uppercase, regardless of whether the identifier is double-quoted. You can fix any problems with this by setting the session parameter at the user level using the ALTER USER command. The syntax is as follows:
+    
+  ```
+  ALTER USER [ IF EXISTS ]
+  <name>
+  SET { [ objProperties ] [ sessionParams ] }
+  ```
+    
+    
+  For more information, see https://docs.snowflake.net/manuals/sql-reference/parameters.html#quoted-identifiers-ignore-case.
+</Warning>
+
+**To configure the Standard Calendar table,**
+
+1. Navigate to the standardCalendar folder of the unzipped file provided by Domo.
+2. Select the snowflake folder. There are create table statements listed under each database type in the format `<databaseName>Standardcalendar.sql`.
+
+   <Note>
+   **Note:** For each database used, a standard calendar table using the schema below will need to be created.
+   </Note>
+
+3. Once the table is created, load the data using either the standardcalendar\_data.csv or standardcalendar\_data.txt file found in the standardCalendar file.
+
+   <Note>
+   **Note:** Fields are terminated with the ',' character and lines are terminated with the '\r\n' return. There are no quotes surrounding any of the data, and no need to escape any fields. The dates are in the format "yyyy-MM-dd".
+   </Note>
+
+4. Optionally, there is a standard\_calendar\_data.sql file where the data is formatted as insert statements.
+
+##### domo.standardcalendar Schema
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> Field Name </th><th colspan="1" rowspan="1"> Data Type </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domo_Key </td><td colspan="1" rowspan="1"> Date </td></tr><tr><td colspan="1" rowspan="1"> Date </td><td colspan="1" rowspan="1"> Date </td></tr><tr><td colspan="1" rowspan="1"> DayOfWeek </td><td colspan="1" rowspan="1"> String </td></tr><tr><td colspan="1" rowspan="1"> DayNumberInWeek </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> DayNumberInMonth </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> DayNumberInQuarter </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> DayNumberInYear </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> MonthName </td><td colspan="1" rowspan="1"> String </td></tr><tr><td colspan="1" rowspan="1"> MonthAbrv </td><td colspan="1" rowspan="1"> String </td></tr><tr><td colspan="1" rowspan="1"> MonthNumberInYear </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> Quarter </td><td colspan="1" rowspan="1"> String </td></tr><tr><td colspan="1" rowspan="1"> Year </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> CalendarMonth </td><td colspan="1" rowspan="1"> String </td></tr><tr><td colspan="1" rowspan="1"> CalendarQuarter </td><td colspan="1" rowspan="1"> String </td></tr><tr><td colspan="1" rowspan="1"> WeekStart </td><td colspan="1" rowspan="1"> Date </td></tr><tr><td colspan="1" rowspan="1"> QuarterStart </td><td colspan="1" rowspan="1"> Date </td></tr><tr><td colspan="1" rowspan="1"> DaySinceEpoch </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> WeekSinceEpoch </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> MonthSinceEpoch </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> QuarterSinceEpoch </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> YearSinceEpoch </td><td colspan="1" rowspan="1"> Integer </td></tr><tr><td colspan="1" rowspan="1"> MonthStart </td><td colspan="1" rowspan="1"> Date </td></tr><tr><td colspan="1" rowspan="1"> YearStart </td><td colspan="1" rowspan="1"> Date </td></tr><tr><td colspan="1" rowspan="1"> QuarterNumberInYear </td><td colspan="1" rowspan="1"> Integer </td></tr></tbody></table>
+
+## Fiscal Calendar Configuration
+
+If a fiscal calendar needs to be set up for Federated Data, please send an email to [labs@domo.com](mailto:labs@domo.com "mailto:labs@domo.com") including the following items:
+
+* Domo domain
+
+Then, we will provide you with the schema and steps for adding the calendar to your database.
+
+## Running the Agent
+
+Once all components above are properly configured, it is time to run the agent.
+
+**To run the Agent,**
+
+1. Using the appropriate startAgent file for your machine from your bin folder found in the Domo provided file.
+
+   * For Windows, use the.bat file.
+   * For Mac or Linux, use the.sh file.
+2. Make sure a DataSet was created in Domo for your tables by navigating to the Data Center in Domo.
+   * Filter to the DataSet type of Data Anywhere to see any federated queried DataSets.
+
+You can now use your federated datasets in Domo to create cards and consume your on-premise data.
+
+<Tip>
+**Tip:** To use multiple databases of the same type, copy the type configuration and point to another configuration file.
+</Tip>
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="Can I still use PDP and create Beastmodes on federated DataSets?">
+
+Yes, you can still use **PDP** and create **Beastmodes** just like on a standard DataSet.
+
+</Accordion>
+
+<Accordion title="Can I use my federated DataSets in Domo DataFlows?">
+
+No, federated DataSets are not supported as inputs in **Magic ETL**, **MySQL DataFlows**, or **Fusion**.
+
+</Accordion>
+
+<Accordion title="Can I set Alerts on cards powered from a federated DataSet?">
+
+No, **Alerts** are not currently supported on cards powered by a federated DataSet.
+
+</Accordion>
+</AccordionGroup>

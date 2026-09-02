@@ -1,0 +1,125 @@
+---
+title: "Applying DataSet Columns to Your Chart"
+excerpt: "Apply Dimensions and Measures from a DataSet to chart fields in Analyzer to power categories, values, and series for any chart type."
+---
+
+## Intro
+
+The most important task in constructing a chart is selecting category (dimension), value (metrics), and series data from columns in a DataSet to power that chart. All chart types except tables, heat map tables, calendars, and Gantt charts require value (or numerical) data, and most require category and series data. For more information about these data types, see [Understanding Chart Data](/s/article/360043428693 "Understanding Chart Data").
+
+In the Analyzer, all columns in the DataSet are divided into two groups: **Dimensions** and **Measures**. For any given chart type, one or more fields appear. These fields contain the names of regions or elements within the chart. For the chart to be powered up, data columns must be applied to the appropriate fields. To apply a column to your chart, you drag it from its group to the desired field in the chart. For example, a percent of total chart is accompanied by two fields— **Bar Name** and **Bar Value.** To power up this chart, you would drag a category (dimension) column into the **Bar Name** field and a value (measure) column into the **Bar Value** field.
+
+The number of required fields differs between chart types. Some chart types have only two, while others may have seven or more. Many chart types also have optional fields. For example, single bar charts do not require a series column, but you can add one if you want (in which case, the chart is no longer a single bar chart, but a multi-bar chart such as a grouped or stacked bar chart). For tables and heat map tables, only one column is required but you can add as many as you want, without regard to data type.
+
+Many chart types allow you to add additional series beyond what is required for the chart if the columns are aggregated. This produces a "trellis chart," in which additional dimensions are represented as boxes in the chart. You can also do this with date columns using "Tiered Dates"—this allows you to incorporate multiple time periods in a single view.
+
+A preview of the chart appears when appropriate columns have been dragged into each field. If you change a column in a field, the preview changes accordingly.
+
+When you power a new Card, Domo builds an initial chart, depending on your data, by automatically selecting a chart type, filling in the required fields, and choosing a date grain (if available). For example, if your DataSet contained a value column, a category column, and a series column, Domo might initially build a preview of a vertical stacked bar chart. You can change these automatic selections if you want.
+
+When you drop a column name in a field, a panel opens with additional options you can apply to the data in the associated column. The options available for a column depends on the data type of the column and the chart type. For example, a value column in a stacked bar chart opens a pane with options for changing the goal, label, and number format, whereas a category column shows only the label option.
+
+If you drag a column onto a field that already contains a column, the new column replaces the old one.
+
+If you apply a column with PDP restrictions to a chart, you see only data permitted by your policy. However, if you were to save the chart, a viewer not restricted by that policy would see all of the data. For more information about PDP, see [Personalized Data Permissions (PDP)](/s/article/360042934614 "Personalized Data Permissions (PDP)").
+
+For more information about the Analyzer, see [Analyzer Layout](/s/article/360042924034 "Card Builder Layout").
+
+For more information about the specific requirements for each chart type, see Chart Types.
+
+## Choosing a category column
+
+Category data is the data being measured in your chart. To apply category data to your chart, you drag a column from the **Dimensions** group into the desired field.
+
+<Tip>
+  **Tip:** If the column names in the left-hand pane are too long to read, you can expand them by clicking and dragging the border on the right side of the pane.
+
+</Tip>
+
+For example, in the chart below, the creator wanted to measure the rental prices of five condominium complexes, so she dragged the **Condominium Park** column into the **X Axis** field. These items are then represented along the horizontal axis.
+
+<Frame><img alt="1.png" src="/images/kb/ka0Vq0000000sYH-00N5w00000Ri7BU-0EM5w000005vOyA.png"/></Frame>
+In charts where information is recorded over time, the column with the date and/or time data is usually applied as the category.
+
+You typically apply category columns to a chart by dragging them into the **X Axis** field. However, in some chart types, the fields into which you typically drag category columns have different names:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:199;a"><thead><tr><th colspan="1" rowspan="1"><p> Chart type </p></th><th colspan="1" rowspan="1"><p> Field where category data is usually applied </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Most vertical bar charts, all horizontal line charts, all vertical area charts, all vertical lollipop charts, stream, vertical symbol, vertical symbol overlay </p></td><td colspan="1" rowspan="1"><p><b> X Axis </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Most horizontal bar charts, all vertical line charts, all horizontal area charts, all horizontal lollipop charts, category scatter, stream funnel </p></td><td colspan="1" rowspan="1"><p><b> Y Axis </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Vertical percent of total, horizontal percent of total </p></td><td colspan="1" rowspan="1"><p><b> Bar Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Pie, nautilus </p></td><td colspan="1" rowspan="1"><p><b> Pie Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Funnel, folded funnel, funnel bar </p></td><td colspan="1" rowspan="1"><p><b> Funnel Section Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Donut, nautilus donut </p></td><td colspan="1" rowspan="1"><p><b> Donut Slice Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Pareto </p></td><td colspan="1" rowspan="1"><p><b> Pareto Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Radar, histogram </p></td><td colspan="1" rowspan="1"><p><b> Category Names </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Vertical bullet, horizontal bullet </p></td><td colspan="1" rowspan="1"><p><b> Names </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> US map, Australia map, Germany map, Austria map, Brazil map, India map, Malaysia map, Nigeria map </p></td><td colspan="1" rowspan="1"><p><b> State Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Japan map </p></td><td colspan="1" rowspan="1"><p><b> Prefecture Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Canada map, China map, Indonesia map, Panama map, South Korea map, Spain map </p></td><td colspan="1" rowspan="1"><p><b> Province Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> New Zealand map, United Kingdom map </p></td><td colspan="1" rowspan="1"><p><b> Division Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Chile map, France map, Ghana map, Italy map </p></td><td colspan="1" rowspan="1"><p><b> Region Name </b></p></td></tr><tr><td colspan="1" rowspan="1"> Peru map </td><td colspan="1" rowspan="1"><b> Department Name </b></td></tr><tr><td colspan="1" rowspan="1"> Portugal map </td><td colspan="1" rowspan="1"><b> District Name </b></td></tr><tr><td colspan="1" rowspan="1"> Switzerland map </td><td colspan="1" rowspan="1"><b> Canton Name </b></td></tr><tr><td colspan="1" rowspan="1"> UAE map </td><td colspan="1" rowspan="1"><b> Emirate Name </b></td></tr><tr><td colspan="1" rowspan="1"> Mexico map </td><td colspan="1" rowspan="1"><b> State Code/Name </b></td></tr><tr><td colspan="1" rowspan="1"><p> World map, all continental and regional maps </p></td><td colspan="1" rowspan="1"><p><b> Country Code/Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Heat map </p></td><td colspan="1" rowspan="1"><p><b> Category 1 </b><em> and </em><b> Category 2 </b> (Heat maps require two category columns) </p></td></tr><tr><td colspan="1" rowspan="1"><p> TreeMap </p></td><td colspan="1" rowspan="1"><p><b> TreeMap Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Radial gauge, filled gauge, face gauge, progress bar gauge </p></td><td colspan="1" rowspan="1"><p><b> Gauge Name </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Word cloud </p></td><td colspan="1" rowspan="1"><p><b> Word Names </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Gantt, candlestick, high low </p></td><td colspan="1" rowspan="1"><p><b> Category </b> (<em> optional </em><em> in Gantt charts </em> ) </p></td></tr><tr><td colspan="1" rowspan="1"><p> Vertical waterfall, Horizontal waterfall </p></td><td colspan="1" rowspan="1"><p><b> Summary Group </b><em> and </em><b> Item Names </b> (Waterfall charts require two category columns) </p></td></tr><tr><td colspan="1" rowspan="1"> Vertical box plot, Horizontal box plot </td><td colspan="1" rowspan="1"><b> Category Names </b></td></tr><tr><td colspan="1" rowspan="1"><p> All data science charts, table, heat map table </p></td><td colspan="1" rowspan="1"><p> None </p></td></tr></tbody></table>
+
+## Choosing a value column
+
+The specific measurements or metrics in your chart constitute value data. To apply value data to your chart, you drag a column from the **Measures** group into the desired field above the chart.
+
+<Tip>
+  **Tip:** If the column names in the left-hand pane are too long to read, you can expand them by clicking and dragging the border on the right side of the pane.
+
+</Tip>
+
+For example, in the Monthly Rental Prices chart, the creator wanted to assign the monthly rental prices as the values, so she dragged the "Price per Month" column into the **Y** **Axis** field. These items are then represented along the vertical axis.
+
+<Frame><img alt="2.png" src="/images/kb/ka0Vq0000000sYH-00N5w00000Ri7BU-0EM5w000005vOyD.png"/></Frame>
+You usually apply value columns to a chart by dragging them into the **Y Axis** field. However, in some chart types, the fields into which you typically drag category columns have different names:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:199;a"><thead><tr><th colspan="1" rowspan="1"><p> Chart type </p></th><th colspan="1" rowspan="1"><p> Menu with value data </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Most horizontal bar charts, all vertical line charts, all horizontal area charts, all horizontal lollipop charts, category scatter, stream funnel </p></td><td colspan="1" rowspan="1"><p><b> X Axis </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Most vertical bar charts, all horizontal line charts, all vertical area charts, all vertical lollipop charts, stream, vertical symbol, vertical symbol overlay </p></td><td colspan="1" rowspan="1"><p><b> Y Axis </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Vertical percent of total, horizontal percent of total </p></td><td colspan="1" rowspan="1"><p><b> Bar Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Pie, nautilus </p></td><td colspan="1" rowspan="1"><p><b> Pie Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Funnel, folded funnel, funnel bar </p></td><td colspan="1" rowspan="1"><p><b> Funnel Section Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Donut, nautilus donut </p></td><td colspan="1" rowspan="1"><p><b> Donut Slice Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Pareto </p></td><td colspan="1" rowspan="1"><p><b> Pareto Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Radar </p></td><td colspan="1" rowspan="1"><p><b> Radar Values </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Vertical bullet, horizontal bullet </p></td><td colspan="1" rowspan="1"><p><b> Actual Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> US map, Australia map, Germany map, Austria map, Brazil map, India map, Malaysia map, Nigeria map </p></td><td colspan="1" rowspan="1"><p><b> State Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Japan map </p></td><td colspan="1" rowspan="1"><p><b> Prefecture Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Canada map, China map, Indonesia map, Panama map, South Korea map, Spain map </p></td><td colspan="1" rowspan="1"><p><b> Province Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> New Zealand map, United Kingdom map </p></td><td colspan="1" rowspan="1"><p><b> Division Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Chile map, France map, Ghana map, Italy map </p></td><td colspan="1" rowspan="1"><p><b> Region Value </b></p></td></tr><tr><td colspan="1" rowspan="1"> Peru map </td><td colspan="1" rowspan="1"><b> Department Name </b></td></tr><tr><td colspan="1" rowspan="1"> Portugal map </td><td colspan="1" rowspan="1"><b> District Name </b></td></tr><tr><td colspan="1" rowspan="1"> Switzerland map </td><td colspan="1" rowspan="1"><b> Canton Name </b></td></tr><tr><td colspan="1" rowspan="1"> UAE map </td><td colspan="1" rowspan="1"><b> Emirate Name </b></td></tr><tr><td colspan="1" rowspan="1"> Mexico map </td><td colspan="1" rowspan="1"><b> State Code/Name </b></td></tr><tr><td colspan="1" rowspan="1"><p> World map, all continental and regional maps </p></td><td colspan="1" rowspan="1"><p><b> Country Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Heat map, vertical and horizontal waterfall </p></td><td colspan="1" rowspan="1"><p><b> Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> TreeMap </p></td><td colspan="1" rowspan="1"><p><b> TreeMap Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Radial gauge, filled gauge, face gauge, progress bar gauge </p></td><td colspan="1" rowspan="1"><p><b> Gauge Value </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> All data science chart types </p></td><td colspan="1" rowspan="1"><p><b> X Axis </b><em> and </em><b> Y Axis </b> (these chart types have two value scales) </p></td></tr><tr><td colspan="1" rowspan="1"><p> Word cloud </p></td><td colspan="1" rowspan="1"><p><b> Word Values </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Table, heat map table, Gantt, box plot </p></td><td colspan="1" rowspan="1"><p> None </p></td></tr></tbody></table>
+
+## Choosing a series column or row
+
+A data series is a component in a category. Most chart types require series data. For example, in a vertical grouped bar chart, each "set" of bars is a category, and each bar in a set is a series. Series in a chart are often represented in a legend. Typically, to apply a series you drag textual (non-date-time) columns from the **Dimensions** grouping into the **Series** field. However, you can set date-time and value columns as series if you want. This is discussed in more detail in the next section.
+
+In the Monthly Rental Prices chart, the prices for the condominium parks are broken down by unit type, so the user dragged the "Unit Type **"** column into the **Series** field.
+
+<Frame><img alt="3.png" src="/images/kb/ka0Vq0000000sYH-00N5w00000Ri7BU-0EM5w000005vOyF.png"/></Frame>
+Vertical bar charts, horizontal bar charts, and line charts do not require series data, but for each of these chart types you can add a series if you want. You do this by simply dragging and dropping a column into the Series field.
+
+For example, the following simple vertical bar chart lacks a series:
+
+<Frame><img alt="" src="/images/kb/ka0Vq0000000sYH-00N5w00000Ri7BU-0EM5w000005vOy6.png"/></Frame>
+After adding a series that breaks down the categories into "Product" and "Service," the following displays:
+
+<Frame><img alt="" src="/images/kb/ka0Vq0000000sYH-00N5w00000Ri7BU-0EM5w000005vOy8.png"/></Frame>
+Likewise, this basic line chart has no series:
+
+<Frame><img alt="" src="/images/kb/ka0Vq0000000sYH-00N5w00000Ri7BU-0EM5w000005vOy4.png"/></Frame>
+After adding the same series as before, two separate line charts appear in one chart, each one for a different type, as follows:
+
+<Frame><img alt="" src="/images/kb/ka0Vq0000000sYH-00N5w00000Ri7BU-0EM5w000005vOyB.png"/></Frame>
+## Adding value and date columns as series
+
+You can also apply a column containing value or date data as a series. However, to add multiple series that contain value or date data, these columns must be aggregated (applying a count to the column). This functionality makes it possible to have multiple values or date columns represented as series in your chart.
+
+For example, to add an additional column in your series field,
+
+1. Drag and drop a column in the **Series** field
+2. Click the **Aggregation** drop-down and select the appropriate aggregation
+3. Another Series field becomes available
+
+## Adding additional categories as series ("trellis chart")
+
+In most kinds of charts that include series data, you can add up to two additional dimensions besides the required series. The additional dimensions are represented using boxes overlaid on top of each grouping (sometimes referred to as a "trellis chart"). The following screenshot shows an example of this, in which an additional dimension has been added to show the lead source.
+
+<Frame><img alt="trellis_example.png" src="/images/kb/ka05w00000129u4-00N5w00000Ri7BU-0EM5w000005vOk6.png"/></Frame>
+To add an additional dimension, you must first turn on the Trellis feature by navigating to the chart properties and clicking **Trellis/Tiered Date Settings**. Then, select **Trellis Categories** from the **Show As** drop-down (If this chart property isn't available, then the trellis functionality is not available on that chart type.) Drag the desired category from the **Dimensions** grouping into the **Category 2** field above the chart preview area. When you do this, another field, **Category 3**, appears. If you want a second additional dimension in the chart, you can include it by dragging another category into this field.
+
+Note that the above functionality is recommended only for *string* columns. When you add date columns as additional categories in this way, your dates may appear out of order. If you want to show multiple levels of dates in a chart, it is recommended that you use "Tiered Dates," which are described in the next section.
+
+## Adding additional date categories
+
+Tiered Dates provide for greater ease of understanding by presenting multiple time periods in a single view. For example, you can show weekly data that is also grouped by month and by quarter—all on the same chart. This provides a view similar to that of the "trellis chart" as described above. For any chart, you can choose up to 3 date tiers.
+
+<Frame><img alt="tiered_dates_example.png" src="/images/kb/ka05w00000129u4-00N5w00000Ri7BU-0EM5w000005vOjw.png"/></Frame>
+The process for adding Tiered Dates is different from that of adding a trellis chart, as you must do so using the Chart Properties rather than dragging columns into fields over the chart. To add Tiered Dates, navigate to the Chart Properties, click **Trellis/Tiered Date Settings**, and choose **Tiered Dates** in the **Show As** drop-down. Then, select the desired number of tiers in the **Tiered Date Levels** drop-down.
+
+## Aggregating your data
+
+When you drop a column in a value or series field, a menu appears with options you can select to aggregate your data.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:199;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> No Aggregation </p></td><td colspan="1" rowspan="1"><p> The chart shows the final value for each category in the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sum </p></td><td colspan="1" rowspan="1"><p> The chart shows the sum of all values for each category in the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Minimum </p></td><td colspan="1" rowspan="1"><p> The chart shows the smallest value for each category in the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Maximum </p></td><td colspan="1" rowspan="1"><p> The chart shows the largest value for each category in the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Average </p></td><td colspan="1" rowspan="1"><p> The chart shows the average value for each category in the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Count </p></td><td colspan="1" rowspan="1"><p> The chart shows the number of values for each category in the DataSet. </p></td></tr></tbody></table>
+
+For value columns, all options are available. For series columns, typically only **No Aggregation** and **Count** are available. However, if you add a value or date column as a series, then all the options are available.
+
+For information about changing the aggregation type for your summary number, see [Configuring Your Chart Summary Number](/s/article/360043428753 "Configuring Your Chart Summary Number").
+
+For information about building each specific chart type by plugging in data, see Building Each Chart Type.
+
+**Video - Aggregating Columns in Analyzer**
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/gBQafGYgC2w" width="560"></iframe>

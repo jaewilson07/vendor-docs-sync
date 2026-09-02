@@ -1,0 +1,45 @@
+---
+title: "NUVI Connector"
+excerpt: "Use the NUVI connector with PostgreSQL credentials to pull real-time social media analytics from your NUVI account into Domo."
+---
+
+## Intro
+
+NUVI is a real-time analytics platform for social media. NUVI does not have API documentation available, but you can visit their website at [https://www.nuvi.com/](https://www.nuvi.com/ "https://www.nuvi.com/").
+
+You connect to your NUVI account in the Data Center using PostgreSQL credentials. This topic discusses the fields and menus that are specific to the NUVI connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+Domo's NUVI connector pulls data from a PostgreSQL database. To connect to your NUVI account and create a DataSet, you must have PostgreSQL credentials, as follows:
+
+* The username and password you use to log into your PostgreSQL database
+* The host name for the database
+* The port number for the database
+* The database name
+
+CA certificate text or URL path is required *only* if you select **Certificate text** or **URL path**, respectively, in the **Certificate type** menu.
+
+Before you can connect to a PostgreSQL database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see Whitelisting IP Addresses.
+
+## Connecting to Your NUVI Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the NUVI Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to NUVI's PostgreSQL database. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your PostgreSQL username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your PostgreSQL password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the host name for the SQL database. For example: <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number for the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> Paste the text for your CA certificate or enter the URL where your certificate is located. This is optional. If you do not want to include a certificate, select <b> No certificate </b> in the <b> Certificate Type </b> menu. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Type </p></td><td colspan="1" rowspan="1"><p> Select a certificate type. If you do not want to include a certificate, select <b> No certificate </b>. If you select Certificate text, you must paste the text for your certificate in the <b> Certificate </b> field. If you select <b> URL path </b>, you must enter the URL where your certificate is located in the <b> Certificate </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> Enter the name of the SQL database. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new NUVI DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the NUVI report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Authors and Sentiment </p></td><td colspan="1" rowspan="1"><p> Returns author and sentiment data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Authors, Genders, Posts, and Sharing </p></td><td colspan="1" rowspan="1"><p> Returns data about authors, genders, posts, and sharing. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Categories </p></td><td colspan="1" rowspan="1"><p> Returns a list of categories. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Hashtags </p></td><td colspan="1" rowspan="1"><p> Returns a list of hashtags. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Keywords </p></td><td colspan="1" rowspan="1"><p> Returns a list of keywords. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Last 100,000 Mentions </p></td><td colspan="1" rowspan="1"><p> Returns a list of the last 100,000 mentions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Locations </p></td><td colspan="1" rowspan="1"><p> Returns a list of locations. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sentiment </p></td><td colspan="1" rowspan="1"><p> Returns a list of sentiments. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Themes </p></td><td colspan="1" rowspan="1"><p> Returns a list of themes. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Mentions </p></td><td colspan="1" rowspan="1"><p> Returns a list of user mentions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Query </p></td><td colspan="1" rowspan="1"><p> Returns data based on a specified query. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter a custom query to return data based on that query. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Name </p></td><td colspan="1" rowspan="1"><p> Select the table containing the data you want to pull into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Column Names </p></td><td colspan="1" rowspan="1"><p> Select the columns containing the data you want to pull into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper (Optional) </p></td><td colspan="1" rowspan="1"><p> Copy and paste the SQL statement in this field into the <b> Query </b> field. For more information, see <b> Query </b>, above. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

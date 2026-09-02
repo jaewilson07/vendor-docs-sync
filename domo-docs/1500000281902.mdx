@@ -1,0 +1,47 @@
+---
+title: "data.world Connector"
+excerpt: "Configure Domo's data.world Connector to query data.world DataSets using SQL or SPARQL with an API token and user ID."
+---
+
+<Warning>**Important:** The data.world connector has been retired following the discontinuation of the data.world Open Data Community on July 13, 2026. Access to data.world accounts and associated data is no longer available through this service. If you have data stored in data.world, export and download it for future use. For instructions, see [Export and Download Your Data](https://docs.data.world/en/408855-how-to-export-and-download-your-data.html). </Warning>
+
+## Intro
+
+Data.World is the modern catalog for data and analysis. It activates the hidden data workforce within your enterprise, multiplies your data value, and creates a faster data-driven culture. The modern, intuitive user experience brings together employees of all roles, backgrounds, and skills to collaborate, and keeps the data connected to everything people need to find, understand, and use. As a result, your data, analysis, and expertise become more discoverable, trustworthy, and reusable. Use Domo's DataWorld Connector to pull your data to get clear, accurate, and fast answers to your business question. To learn more about the Data.World API, visit [https://apidocs.data.world/](https://apidocs.data.world/ "https://apidocs.data.world/").
+
+You connect to your Data.World account in the Data Center. This topic discusses the fields and menus that are specific to the Data.World Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Data.World account and create a DataSet, you must have the following:
+
+* Your API Token associated with the Data.World account. You can find it under
+  ****User Setting >> Advanced Tab****.
+* Your Data.World User ID. You can find your user ID under your profile icon below your user name, in the upper right corner of the screen.
+
+<Note>
+**Note:** The "@" sign is not a part of your user ID. Please do not include "@" while entering your user id.
+
+</Note>
+
+## Connecting to Your Data.World Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Data.World Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most Connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Data.World account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Your API Token associated with the Data.World account. You can find it under <b><b> User Setting &gt;&gt; Advanced Tab </b></b>. </td></tr><tr><td colspan="1" rowspan="1"> User ID </td><td colspan="1" rowspan="1"><p> Your Data.World User ID. You can find your user ID under your profile icon below your user name, in the upper right corner of the screen. </p><p><b> Note </b>: <em> The "@" sign is not a part of your user ID. Please do not include "@" while entering your user id. </em></p></td></tr><tr><td colspan="1" rowspan="1"> Branded/single-tenant instance URL </td><td colspan="1" rowspan="1"><p><span> Please enter branded/single-tenant instance URL. (For example: </span><span class="error"> [customername] </span><span>.data.world) This URL is necessary if you have a branded/single-tenant instance </span></p></td></tr></tbody></table>
+
+Once you have entered valid Data.World credentials, you can use the same account any time you go to create a new Data.World DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains a number of fields and menus for entering your query and specifying the location of the data you want to retrieve.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Query Language </td><td colspan="1" rowspan="1"> Specify whether you want to use SQL or SPARQL as the query language for your query. </td></tr><tr><td colspan="1" rowspan="1"> Select the DataSet Type </td><td colspan="1" rowspan="1"> Specify whether you want to fetch the data from your own DataSets or public DataSets. </td></tr><tr><td colspan="1" rowspan="1"> Enter the User ID </td><td colspan="1" rowspan="1"><p> Enter the User ID you want to fetch the data for. </p> <Note><div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><span><b> Note: </b></span> The User ID is only visible if you select the Public Dataset option in the Dataset Type. Note that the User ID entered here is the creator of the Public DataSet you want to fetch. </div><div class="info-box-content"><b> Example </b>: To discover a public DataSet created by a user XYZ, you need to enter XYZ as the user ID. </div></div></div> </Note></td></tr><tr><td colspan="1" rowspan="1"> DataSets </td><td colspan="1" rowspan="1"> Select the dataset you want to fetch the data from. </td></tr><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"> Specify whether you want to write a customized query or an auto-generated query using the query builder. </td></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"><p> Enter the SQL query to execute based on the selected dataset. If your table contains space or hyphens then replace them with an underscore. </p><p> Example: If the table name is <b> Sample-Data Info </b> then it will become <b> Sample_Data_Info </b></p></td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> Select a table and fields to auto-generate your query. </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter your database query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Database Tables </td><td colspan="1" rowspan="1"> Select the database table you want to fetch the data from. </td></tr><tr><td colspan="1" rowspan="1"> Table Columns </td><td colspan="1" rowspan="1"> Select the table columns you want to fetch the data from. </td></tr><tr><td colspan="1" rowspan="1"> Data Model Type </td><td colspan="1" rowspan="1"><p><span> Specify whether you want to fetch the data from your DataSets or Projects File. </span><span></span></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

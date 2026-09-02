@@ -1,0 +1,45 @@
+---
+title: "Oracle Database Connector"
+excerpt: "Use the Oracle Database Connector to pull data from an Oracle database into a Domo DataSet by providing connection details and a SQL query."
+---
+
+## Intro
+
+Oracle Database is an object-relational database management system produced and marketed by Oracle Corporation. You can use Domo's Oracle Database Connector to pull data from your Oracle database and compile custom reports. You indicate the data you want by inputting an SQL query.
+
+You connect to Oracle Database in the Data Center. This topic discusses the fields and menus that are specific to the Oracle Database connector user interface.
+
+To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to Oracle Database and create a DataSet, you must have the following:
+
+* Your Oracle database server username and password
+* The hostname or IP address of your Oracle database server
+* Your Oracle port number
+* Your Oracle database service name
+
+Before you can connect to Oracle Database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](https://domo-support.domo.com/s/article/360043630093?language=en_US "Whitelisting IP Addresses for Connectors").
+
+## Connecting to Your Oracle Account
+
+This section enumerates the options in the Credentials and Details panes in the Oracle Database Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Oracle Database account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username for your Oracle database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password for your Oracle database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the hostname or IP address of your Oracle server. <span> Example <a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p><span> Enter your Oracle database port number. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Service Name </p></td><td colspan="1" rowspan="1"><p><span> Enter your Oracle database service name. </span></p></td></tr></tbody></table>
+
+Once you have entered valid Oracle database credentials, you can use the same account any time you go to create a new Oracle Database DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><p><span> Select a query type. </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Query Type </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><span> Query </span></td><td colspan="1" rowspan="1"><span> Regular SQL query without parameter. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Query Parameter </span></td><td colspan="1" rowspan="1"><span> SQL query with parameter. </span></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"><span> Enter the SQL query to execute. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Query Parameter </span></td><td colspan="1" rowspan="1"><span> Enter the query parameter value. It is the initial value for query parameter. The last run date is optional. By default, it is '02/01/1700' if is not provided. Example: <tt> `!{lastvalue:_id}!=1,!{lastrundate:start_date}!=02/01/1944` </tt></span></td></tr><tr><td colspan="1" rowspan="1"><span> Database Tables </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Select the database table. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Table Columns </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Select the table columns. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Query Helper </span><span><br/></span></td><td colspan="1" rowspan="1"><span> This query is automatically generated when you select a table and columns in the Database Table and Table Columns fields, respectively. Copy and paste this query into the Query field if you need help building a query. </span></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

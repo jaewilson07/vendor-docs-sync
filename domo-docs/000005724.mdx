@@ -1,0 +1,59 @@
+---
+title: "IBM Watson Adapter"
+excerpt: "Enable IBM Watson in the AI Service Layer and add an IBM Watson account so you can bring Watson models into Domo."
+---
+
+## Intro
+
+With Cloud Integrations, you can bring models and workspaces built on the IBM platform into Domo as ML flow models.
+
+Before bringing models into Domo, you must enable IBM Watson in the AI Service Layer and add your IBM Watson account to Domo. This article describes how.
+
+---
+
+## Enable IBM Watson in the AI Service Layer
+
+Follow these steps to enable IBM Watson in the AI Service Layer:
+
+1. In the Domo navigation, select **More** > **Admin**. In the Admin Settings under **AI Service Layer**, choose **Settings**.
+     
+   <Frame><img src="/images/kb/ka0Vq0000005JBh-00N5w00000Ri7BU-0EMVq00000413sn.jpg"/></Frame>
+2. In the AI Service Layer settings, you must enable IBM Watson AI in two locations:
+
+  + Under **Domo Provided Models**, toggle the switch labeled **IBM watsonx. ai**.
+
+     <Frame><img alt="Screenshot 2024-12-05 at 1.53.46 PM.png" src="/images/kb/ka0Vq0000005JBh-00N5w00000Ri7BU-0EMVq000004BVhJ.jpg"/></Frame>
+  + Under **ML Connectors**, toggle the switch labeled **IBM Watson AI**.
+      
+    <Frame><img alt="Screenshot 2024-12-05 at 1.53.55 PM.png" src="/images/kb/ka0Vq0000005JBh-00N5w00000Ri7BU-0EMVq000004BRVe.jpg"/></Frame>
+You can now add an IBM Watson account to Domo. Learn more about creating an account below. After your account is created, you can add IBM Watson models to the Domo AI Models interface. Learn how to [add models](/s/article/000005502).
+
+## Add IBM Watson Account
+
+Follow these steps to add an IBM Watson account to your Domo instance.
+
+1. In the Domo navigation, select **Data** to open the Data Center.
+2. Select
+   <img src="/images/kb/ka0Vq0000005Erx-00N5w00000Ri7BU-0EMVq00000159tJ.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Accounts** in the left sidebar.
+3. On the **Integration Accounts** page, select **Add New** > **Account.** The **Add Account** modal opens.
+4. In the **Add Account** modal, search for and select IBM Watson AI.
+5. Fill out the information required for the IBM Watson AI Account. This connection requires an API key, region, and version.
+
+  + **API Key —**   Obtain the API Key from IBM Watson.
+  + **Region —** You can choose from four different regional options: Dallas (us-south), Frankfurt (eu-de), London (eu-gb), and Tokyo (jp-tok).
+  + **Version —** The version is today's date (if you are finalizing your IBM Watson account in Domo today). This input requires a yyyy-mm-dd format. (*Example:* 2024-11-13)
+
+  <Frame><img src="/images/kb/ka0Vq0000005JBh-00N5w00000Ri7BU-0EMVq00000411So.jpg"/></Frame>
+  <Note>
+    **Note:** You can use the **Assign Somone** option in the modal to choose someone else in your organization to connect their account.
+
+    <Frame><img alt="Screenshot 2024-11-25 at 2.20.43 PM.png" src="/images/kb/ka0Vq0000005Erx-00N5w00000Ri7BU-0EMVq0000040twh.jpg"/></Frame>
+  </Note>
+
+6. Select **Connect**.
+
+Now that your IBM Watson account is connected, you can add your IBM Watson models to the Domo AI Models repository. Learn how to [add and test new models](/s/article/000005502).
+
+<Tip>
+  **Tip:** Need to learn how to edit, share, or delete an existing account? See [Manage Connector/Adapter Accounts](/s/article/360042926054).
+</Tip>

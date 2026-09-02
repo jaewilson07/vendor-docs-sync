@@ -1,0 +1,38 @@
+---
+title: "SmartDB Third Party Connector"
+excerpt: "Use Domo's SmartDB Connector to retrieve documents from a binder view on SmartDB by providing a binder token and filtering by date."
+---
+
+## Intro
+
+SmartDB is a no-code/low-code development platform equipped with workflow and web database functionalities. In Domo, you can connect to the SmartDB API and retrieve data from any binder view on SmartDB.
+
+You connect to your SmartDB account in the Data Center. This topic discusses the fields and menus that are specific to the Xero connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To create a DataSet by connecting to a SmartDB account, a binder token is required. For information on how to obtain the binder token, please refer to the [SmartDB](https://doc.support-dreamarts.com/SmartDB/Document/SmartDB_%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E7%AE%A1%E7%90%86%E3%82%AC%E3%82%A4%E3%83%89/security/114000/index.html "SmartDB") website.
+
+## Connecting to Your SmartDB Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SmartDB Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Xero connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Xero accounts in Domo) to open the Xero OAuth screen where you can enter your Xero credentials. Once you have entered valid Xero credentials, you can use the same account any time you go to create a new Xero DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<table border="1" data-aura-rendered-by="33:195;a"><thead><tr><td colspan="1" rowspan="1"><b> Field </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"> Enter the subdomain of your SmartDB account. </td></tr><tr><td colspan="1" rowspan="1"> Binder Token </td><td colspan="1" rowspan="1"> Enter your binder token. </td></tr></tbody></table>
+
+For information about obtaining these credentials, see **Prerequisites** above.
+
+Once you have entered valid Spotify credentials, you can use the same account any time you go to create a new SmartDB DataSet. You can manage connector accounts in the Accounts tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the report you want to run. Currently, 'ビューの文書一覧' (List of Documents in a View) is the only available option. </p></td></tr><tr><td colspan="1" rowspan="1"> Binder ID </td><td colspan="1" rowspan="1"> Enter the binder ID or binder key you wish to retrieve. </td></tr><tr><td colspan="1" rowspan="1"> View ID </td><td colspan="1" rowspan="1"> Enter the view ID or view key you wish to retrieve. </td></tr><tr><td colspan="1" rowspan="1"> Date Type </td><td colspan="1" rowspan="1"> Select the type of date for the data to be retrieved. You can choose between '最終更新日' (Last Updated Date) and '登録日' (Registered Date). </td></tr><tr><td colspan="1" rowspan="1"> Date </td><td colspan="1" rowspan="1"><p> Select in <b> Date selection </b> whether a single day or a date range when filter the result by update date of items. </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Single date </td><td colspan="1" rowspan="1"> Select the specific or relative single date. </td></tr><tr><td colspan="1" rowspan="1"> Date range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Time period </td><td colspan="1" rowspan="1"> Select the time period from Time period dropdown for your report. </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"> Date – Date </td><td colspan="1" rowspan="1"><p> Select in <b> Date Type </b> from the followings whether the report data is for a specific date or for a relative number of days back from today: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Relative </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for in the <b> Days Back </b> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Specific </td><td colspan="1" rowspan="1"> Select the specific date using the date selector in the <b> Date </b> field. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date – Start Date </td><td colspan="1" rowspan="1"><p> Select in <b> Date Type </b> from the followings: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data from (start day). Combine with <b> End Date </b> to create a range of represented days. </p><p> For example, if you entered 10 for <b> Start Date </b> and 5 for <b> End Date </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date – End Date </td><td colspan="1" rowspan="1"><p> Select in <b> Date Type </b> from the followings: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data to (end day). Combine with <b> Start Date </b> to create a range of represented days. </p><p> For example, if you entered 10 for <b> Start Date </b> and 5 for <b> End Date </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date – Time period </td><td colspan="1" rowspan="1" valign="top"><p> Choose the time period for which you would like to receive data. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

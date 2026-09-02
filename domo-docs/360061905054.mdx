@@ -1,0 +1,77 @@
+---
+title: "Podium Connector"
+excerpt: "Configure Domo's Podium Connector to track online reviews data from sources like Google and Facebook using an API Token and Organization ID."
+---
+
+## Intro
+
+Podium allows users to track their online reviews from a large number of review sites including Google and Facebook. Use the Podium connector to understand your online reviews data with the Domo Podium integration. To learn more about the Podium API, visit their page ([https://podium.readthedocs.io/en/latest/API.html](https://podium.readthedocs.io/en/latest/API.html "https://podium.readthedocs.io/en/latest/API.html") ).
+
+You connect to your Podium account in the Data Center. This topic discusses the fields and menus that are specific to the Podium connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Podium account and create a DataSet, you must have the API Token and Organization ID associated with your Podium account.
+
+## Connecting to Your Podium Account
+
+This section enumerates the options in the Credentials and Details panes in the Podium Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Podium account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Token </td><td colspan="1" rowspan="1"> Enter the API Token. You may need to contact Podium to request this. </td></tr><tr><td colspan="1" rowspan="1"> Organization ID </td><td colspan="1" rowspan="1"> Enter the organization ID. You may need to contact Podium to request this. </td></tr></tbody></table>
+
+Once you have entered valid Podium credentials, you can use the same account any time you go to create a new Podium DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the <span> Podium </span> report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Invites </td><td colspan="1" rowspan="1"> Returns a location's invites </td></tr><tr><td colspan="1" rowspan="1"> Location Summary </td><td colspan="1" rowspan="1"> Returns a summary of data about a location </td></tr><tr><td colspan="1" rowspan="1"> Organization's Locations </td><td colspan="1" rowspan="1"> Returns a list of your organization's locations </td></tr><tr><td colspan="1" rowspan="1"> Private Feedback </td><td colspan="1" rowspan="1"> Returns private feedback that has been provided for a location </td></tr><tr><td colspan="1" rowspan="1"> Reviews </td><td colspan="1" rowspan="1"> Returns reviews about a specific location </td></tr><tr><td colspan="1" rowspan="1"> Sites Summary </td><td colspan="1" rowspan="1"> Returns summary data about a location, broken down by website </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Location </td><td colspan="1" rowspan="1"> Select Location ID. </td></tr><tr><td colspan="1" rowspan="1"> Report Duration </td><td colspan="1" rowspan="1"> Select the duration for the report (a Single Date, or a Date Range) </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> Select whether the report data is for a specific date or for a relative number of days back from today. </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> Select the specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for in the <b><b> Days Back </b></b> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data from (start day). Combine with <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> and 5 for <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data to (end day). Combine with <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b><b><b><b><b> Start Date </b></b></b></b></b></b></b></b> and 5 for <b><b><b><b><b><b><b><b> End Date </b></b></b></b></b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Podium API does this connector use?">
+
+This connector uses version 2 of the Podium API ([https://podium.co/api/v2/](https://podium.co/api/v2/ "https://podium.co/api/v2/") ).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> Invites </td><td colspan="1" rowspan="1"> /locations/{locationId}/invites </td></tr><tr><td colspan="1" rowspan="1"> Location Summary </td><td colspan="1" rowspan="1"> /locations/{locationId}/summary </td></tr><tr><td colspan="1" rowspan="1"> Organization's Locations </td><td colspan="1" rowspan="1"> /organizations/{orgId}/locations </td></tr><tr><td colspan="1" rowspan="1"> Private Feedback </td><td colspan="1" rowspan="1"> /locations/{locationId}/private-feedback </td></tr><tr><td colspan="1" rowspan="1"> Reviews </td><td colspan="1" rowspan="1"> /locations/{locationId}/reviews </td></tr><tr><td colspan="1" rowspan="1"> Sites Summary </td><td colspan="1" rowspan="1"> /locations/{locationId}/sites/summary </td></tr><tr><td colspan="1" rowspan="1"> Users Summary </td><td colspan="1" rowspan="1"> /locations/{locationId}/users/summary </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the API token and organization id associated with your Podium account.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

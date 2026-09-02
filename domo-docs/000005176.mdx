@@ -1,0 +1,154 @@
+---
+title: "Google BigQuery Workload Identity Federation Connector"
+excerpt: "Use the Google BigQuery Workload Identity Federation connector to query BigQuery tables in Domo using short-lived federated tokens."
+---
+
+## Intro
+
+Querying massive datasets can be time consuming and expensive without the right hardware and infrastructure. Google Big Query solves this problem by enabling super-fast, SQL-like queries against append-only tables, using the processing power of Google's infrastructure. Data first needed to be loaded into Google BigQuery from where it could be effectively queried by data vendors.
+
+Workload Identity Federation allows for more secure connection as the input only contains external credentials metadata without any sensitive information. The external credential metadata can be used on external environment to generate temporary/short-live token for required operations. For more details, refer to [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation "Workload Identity Federation").
+
+This topic discusses the fields and menus that are specific to the Google BigQuery Workload Identity Federation Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<Note>
+**Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+</Note>
+
+## Prerequisites
+
+To configure this connector, you will need the following:
+
+* **WORKLOAD IDENTITY FEDERATION CLIENT LIBRARY CONFIG JSON KEY**
+  as a JSON Configuration file.
+* A Project ID for a GCP project.
+
+Follow the steps below to obtain the credentials:
+
+1. Create a project in the Google Developers Console if you do not have an existing project in GCP.
+2. Enable the Big Query APIs in your GCP instance.
+3. Create a Workload Identity Pool and Provider.
+4. Create a service account and associate it with the pool or with an existing service account with the pool.
+5. Download the JSON configuration file to use with the connector.
+
+The following steps explain in detail how to create your project and obtain the needed credentials.
+
+### Step 1: Creating a Project in the Google Developers Console
+
+<Note>
+**Note:** If you already have a project you'd like to use, you can skip this step.
+</Note>
+
+To create a project in the Google Developers Console, do the following:
+
+1. Go to
+   [https://console.developers.google.com](https://console.developers.google.com "https://console.developers.google.com").
+2. Click the dropdown arrow next to
+   **My Project**.
+     
+   <Frame><img alt="googlesheets_writeback_1.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5e.png"/></Frame>
+
+3. Click
+   **New Project** and provide a name for the new project and the Parent organization or folder for the new project.
+     
+   <Frame><img alt="Select Project Name.jpg" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uVQq.jpg"/></Frame>
+
+4. Click
+   **Create**.
+
+### Step 2: Enabling the Google BigQuery API
+
+To enable the Google BigQuery API for your project, do the following:
+
+1. Click the burger menu and select the
+   **API & Services** menu.
+     
+   <Frame><img alt="Enable Bigquery api.jpg" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uVQv.jpg"/></Frame>
+
+2. Select
+   **Library** and then search for the Google BigQuery API.
+3. Click the Google
+   **BigQuery API** **Enable**
+
+### Step 3: Creating a Workload Identity Pool and Provider
+
+Follow the steps given below to create a Workload Identity Pool and Provider:
+
+1. Click the burger menu in the console and select
+   **IAM & Admin**.
+
+   <Frame><img alt="IAM and Admin.png" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uWEW.jpg"/></Frame>
+
+2. Select the
+   **Workload Identity Federation** option.
+3. Click
+   **create pool**.
+
+   <Frame><img alt="create pool.png" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uWEg.jpg"/></Frame>
+
+4. Enter a name for the pool in Step-1 and ensure that the
+   **enable pool** is selected.
+
+   <Frame><img alt="Enable Pool.png" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uWEl.jpg"/></Frame>
+
+5. In step 2, you will be prompted to select a provider. Select
+   **AWS**.
+6. Under the
+   **provider details** tab, enter the name of the Provider and ID, for example, **Domo AWS**.
+
+   <Frame><img alt="Add Provider Pool.png" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uWEq.jpg"/></Frame>
+
+7. You will need to provide Domo's AWS account id in the
+   **AWS Account ID box**.
+   
+   Based on where your Domo instance is located, use one of the account ids listed below:
+   
+   ```
+   US: 339405024189
+   AU: 010251424122
+   EMEA (IE): 687132894031
+   JP: 622384692065
+   CA: 710710207408
+   ```
+8. Contact Domo Support if you are unsure which id to use.
+9. You can optionally configure additional provider attributes in Step-3.
+
+### Step 4: Grant a Service Account access to the Workload Pool
+
+1. On the burger menu, navigate to
+   **IAM** and select **Workload identity federation** list and then select the recently created pool.
+2. Select
+   **Grant Access** located at the top of the window.
+3. On the right-side pane, you will be prompted to select which service account you want to give access to.
+4. Select the appropriate service account from the
+   **Select Service Account** dropdown.
+5. Click
+   **Save**.
+6. Under
+   **Configure your application**, select the provider you created with Domo's AWS account id.
+7. Click the
+   **Download Config** button to download the JSON configuration file.
+     
+   This file will be used to power up the connector.
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Google BigQuery Workload Identity Federation Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> WORKLOAD IDENTITY FEDERATION CLIENT LIBRARY CONFIG JSON KEY </p></td><td colspan="1" rowspan="1"><p> Configuration of external credentials JSON file containing external authentication metadata. This file is obtained from Step-4 in the instructions above. </p></td></tr><tr><td colspan="1" rowspan="1"> Project ID </td><td colspan="1" rowspan="1"> Project id of the project in GCP that has access to Google BigQuery and the workload pool. </td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo Google BigQuery Workload Identity Federation connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a number of fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"> Run the following reports based on the requirements: <br/><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Runs a Google BigQuery SQL query and returns results if it is successful. </td></tr><tr><td colspan="1" rowspan="1"> Table Data </td><td colspan="1" rowspan="1"> Retrieves table data. </td></tr><tr><td colspan="1" rowspan="1"> Table Information </td><td colspan="1" rowspan="1"> Returns the specified table resource by table ID. This method does not return the data in the table, it only returns the table resource, which describes the structure of this table. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> SQL Dialect </td><td colspan="1" rowspan="1"> Select SQL Dialect that you want to use. Defaults to Standard SQL. </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter the query text. </td></tr><tr><td colspan="1" rowspan="1"> Query Parameters </td><td colspan="1" rowspan="1"> Enter the query parameter value, it is the initial value for query parameter. The last run date is optional by default it is '02/01/1700' if is not provided. For example: `!{lastvalue:_id}!=1,!{lastrundate:start_date}!=02/01/1944`. </td></tr><tr><td colspan="1" rowspan="1"> Allow Large Results </td><td colspan="1" rowspan="1"> If enabled, allows arbitrarily large results to be written to the temporary destination table and delete it when the job is finished. Dataset name is required to create the temporary table. </td></tr><tr><td colspan="1" rowspan="1"> Dataset_Names </td><td colspan="1" rowspan="1"> Select the dataset names from the available list of datasets. </td></tr><tr><td colspan="1" rowspan="1"> Table Names </td><td colspan="1" rowspan="1"> Select table names from available list of tables. </td></tr><tr><td colspan="1" rowspan="1"> Processing Location </td><td colspan="1" rowspan="1"> Enter a location where your query will run. Queries that run in a specific location may only reference data in that location. </td></tr><tr><td colspan="1" rowspan="1"> Max Results </td><td colspan="1" rowspan="1"> Max Results is the number of results returned per page of data. By default, Max Results is 10,000 results per page. If your dataset throws an out of memory error, decrease Max Results. </td></tr><tr><td colspan="1" rowspan="1"> Use Google BigQuery Schema </td><td colspan="1" rowspan="1"> Select this checkbox to use the schema received from Google BigQuery.&lt;br&gt; This is useful when a column's datatype may be perceived incorrectly to Domo: e.g. your table has '123' in a String column. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

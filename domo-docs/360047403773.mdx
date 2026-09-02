@@ -1,0 +1,491 @@
+---
+title: "Understanding the Workbench 4 User Interface"
+excerpt: "Tour the Workbench 4 interface, including the Accounts pane, Buttons toolbar, Job status pane, Dynamic Options pane, and Preview output."
+---
+
+<Warning>
+**Important:** Support for Workbench 4 ended on **April 15, 2021**. Workbench may continue to run on installed machines, but it will no longer receive feature enhancements and security updates. When issues are encountered in Workbench 4, the recommended course of action from the Domo Support team will be to upgrade to the latest version of Workbench 5. To see this article for Workbench 5, click [**here**](/s/article/360042932654).
+</Warning>
+
+## Intro
+
+In the Workbench application, you can connect to your Domo server; configure settings for creating DataSet Jobs; import and export job files; preview, schedule, validate, and run jobs; etc.
+
+This topic discusses the user interface components of Workbench.
+
+## Workbench Interface
+
+The following screenshot points out the main sections of the Workbench user interface. These sections are discussed in more detail throughout the remainder of this topic.
+
+<Frame><img alt="wb4_application.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLH.png"/></Frame>
+
+The following table describes the sections pointed out in the preceding screenshot:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Section </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Accounts pane </p></td><td colspan="1" rowspan="1"><p> Lists all connected accounts. For each account, you can access <b> Logs </b> and <b> Settings </b> options, along with all of the DataSet Jobs associated with the account. For each DataSet Job, you can access options such as <b> Settings </b>, <b> Schedule </b>, <b> Transforms </b>, etc. Clicking an item in the <b> Accounts </b> pane opens information or options for that item in the Dynamic Options pane in the center of the application. For example, selecting <b> Settings &gt; Account </b> for a particular account would open options for configuring this account in the Options pane. </p><p> You can move the <b> Accounts </b> pane anywhere on the screen by clicking on the pushpin icon in the top corner of the pane and dragging the pane. </p><p> For more information about adding accounts, see <a href="/s/article/360047416513" target="_self" title="Adding an Account in Workbench 4"> Adding an Account in Workbench 4 </a>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Buttons toolbar </p></td><td colspan="1" rowspan="1"><p> Provide access to various Workbench options. Buttons are divided across two tabs— <b> Home </b> and <b> More </b>. The <b> Home </b> tab provides options for working with accounts, DataSet jobs, and transforms. The <b> More </b> tab provides options for getting help with Workbench, such as accessing online help, opening help videos, viewing log files, etc., and also provides access to the Plugin Manager. </p></td></tr><tr><td colspan="1" rowspan="1"> Job status pane </td><td colspan="1" rowspan="1"> Provides you with insights around when jobs are being run and allows you to make changes, pause, cancel and run jobs. </td></tr><tr><td colspan="1" rowspan="1"><p> Dynamic Options pane </p></td><td colspan="1" rowspan="1"><p> Provides information and/or options depending on the item currently selected in the <b> Accounts </b> pane. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Preview/output panes </p></td><td colspan="1" rowspan="1"><p> Show preview and output information for a DataSet job. These panes are not populated until you click <b> Preview </b> for a DataSet job in the buttons toolbar at the top of the screen. A tab for the DataSet job is then added to both the <b> Preview </b> and <b> Output </b> panes. If you click <b> Preview </b> for another DataSet job, separate tabs for that job are added to the <b> Preview </b> and <b> Output </b> panes. </p></td></tr></tbody></table>
+
+## Buttons toolbar
+
+The options in the Buttons toolbar provide various functions within Workbench. These are organized into two tabs, **Home** and **More**. You can switch between these by clicking **Home** or **More** at the top of the window.
+
+### Home buttons
+
+The buttons in the **Home** tab provide options for working with accounts, DataSet Jobs, and transforms.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Button </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Add New (Account) </p></td><td colspan="1" rowspan="1"><p> Opens the account creation wizard so you can add a new server account to your Workbench. For more information, see <a href="/s/article/360047416513" target="_self" title="Adding an Account in Workbench 4"> Adding an Account in Workbench 4 </a>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Delete (Account) </p></td><td colspan="1" rowspan="1"><p> Lets you delete a server account from Workbench. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Save (Account) </p></td><td colspan="1" rowspan="1"><p> Lets you save changes made to the account in the <b> Settings </b> options. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Add New (DataSet Job) </p></td><td colspan="1" rowspan="1"><p> Opens the DataSet Job Creation Wizard so you can add a new DataSet Job to Workbench. For more information, see <a href="/s/article/360046856414" target="_self" title="Creating a Job for Uploading Data Using Workbench 4"> Creating a Job for Uploading Data Using Workbench 4 </a>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Delete (DataSet Job) </p></td><td colspan="1" rowspan="1"><p> Lets you delete one or more DataSet Jobs from Workbench. You can also delete a DataSet Job by right-clicking on the job name in the <b> Accounts </b> pane and selecting <b> Delete DataSet Job </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Save (DataSet Job) </p></td><td colspan="1" rowspan="1"><p> Lets you save changes made to the DataSet Job currently selected in the <b> Accounts </b> pane. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Revert </p></td><td colspan="1" rowspan="1"><p> Cancels all changes made to the currently selected DataSet Job since you last saved. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Preview </p></td><td colspan="1" rowspan="1"><p> Opens a preview of the currently open job in the <b> Preview </b> field and an output log in the <b> Output </b> field. You can also open the preview and output log for a DataSet Job by right-clicking on the job name in the <b> Accounts </b> pane and selecting <b> Preview DataSet Job </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Run </p></td><td colspan="1" rowspan="1"><p> Runs the currently selected DataSet Job, i.e. builds or updates the specified DataSet in Domo. You can also execute a job by right-clicking on the job name in the <b> Accounts </b> pane and selecting <b> Execute DataSet Job </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Cancel </p></td><td colspan="1" rowspan="1"><p> Cancels a currently running DataSet Job. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tools </p></td><td colspan="1" rowspan="1"><p> Provides access to a number of options, including the following: </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"> Import </td><td class="mt-noheading" colspan="1" rowspan="1"> Lets you import a DataSet Job file in JSON format into Workbench. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Export </td><td class="mt-noheading" colspan="1" rowspan="1"><p> Lets you export DataSet Job files from Workbench in JSON format. </p><p> New with Workbench 4.5.1, you can bulk-export Jobs. If you choose this option while <b> DataSet Jobs </b> or anything higher is selected in your hierarchy, Workbench returns all Jobs in your account. You can then export as many Jobs as you want just by clicking their checkboxes then choosing the directory you want to export them to. </p><p> If you choose the <b> Export </b> option while a Job is selected in the hierarchy, your File Explorer opens, allowing you to select a single Job for export. </p><p> You can also export a DataSet Job by right-clicking on the job name in the <b> Accounts </b> pane and selecting <b> Export DataSet Job </b>. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Schedule </td><td class="mt-noheading" colspan="1" rowspan="1"> Lets you set up and manage groups of DataSet Jobs with the same update schedule. For more information, see <a href="/s/article/360046857074" target="_self" title="Creating a Schedule Group in Workbench 4"> Creating a Schedule Group in Workbench 4 </a>. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Fetch Jobs </td><td class="mt-noheading" colspan="1" rowspan="1"> Checks to see if there are DataSet Jobs that need to be run. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Migrate </td><td class="mt-noheading" colspan="1" rowspan="1"> Searches for Workbench 2 DataSet Jobs and allows you to migrate them into Workbench 4. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Add New (Transform) </p></td><td colspan="1" rowspan="1"><p> Lets you add a transform to the currently selected DataSet Job. Transforms let you transform the data in a DataSet in a number of ways, including changing the date format, encrypting sensitive data, creating calculated fields, etc. </p><p> For more information, see all of the following: </p><ul><li><p><a href="/s/article/360046861474" target="_self" title="Creating Columns in Workbench 4 Using Calculations"> Creating Columns in Workbench 4 Using Calculations </a></p></li><li><p><a href="/s/article/360047504673" target="_self" title="Setting the Time Zone for a Workbench 4 Job"> Setting the Time Zone for a Workbench 4 Job </a></p></li><li><p><a href="/s/article/360047501293" target="_self" title="Encrypting and Decrypting Workbench 4 Data"> Encrypting and Decrypting Workbench 4 Data </a></p></li><li><p><a href="/s/article/360047504553" target="_self" title="Setting a Custom Date Format on a Column in Workbench 4"> Setting a Custom Date Format on a Column in Workbench 4 </a></p></li><li><p><a href="/s/article/360046864074" target="_self" title="Filtering Columns in Workbench 4"> Filtering Columns in Workbench 4 </a></p></li><li><p><a href="/s/article/360046864274" target="_self" title="Replacing a Column Value in Workbench 4"> Replacing a Column Value in Workbench 4 </a></p></li><li><p><a href="/s/article/360046861014" target="_self" title="Combining DataSets in Workbench 4"> Combining DataSets in Workbench 4 </a></p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Delete (Transform) </p></td><td colspan="1" rowspan="1"><p> Deletes the currently selected transform. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Authorize Company File (QuickBooks only) </p></td><td colspan="1" rowspan="1"><p> Lets you authorize Workbench to connect to the selected QuickBooks file. For more information, see <a href="/s/article/360046860414" target="_self" title="Creating a Job for Uploading Data Using Workbench 4"> Connecting to QuickBooks data </a>. </p></td></tr></tbody></table>
+
+### More buttons
+
+The buttons in the **More** tab provide options for getting help with Workbench and accessing the Plugin Manager.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Button </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Send Logs </p></td><td colspan="1" rowspan="1"><p> Copies your log files to your Windows Clipboard so you can email them to Domo as a <span class="mt-font-courier-new">.zip </span> file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> View Logs </p></td><td colspan="1" rowspan="1"><p> Opens the log file folder in Windows Explorer. Typically, log files are located in <span class="mt-font-courier-new"> C:\ProgramData\DomoWorkbench </span>. You can open log (<span class="mt-font-courier-new">.txt </span> ) files in a text editor. </p><p> Log files for manual or scheduled jobs are named based on the job (<span class="mt-font-courier-new">.xml </span> ) filename and the date: <span class="mt-font-courier-new"> myjob_yyyy-mm-dd </span>. </p><p> Log entries for jobs run at the command line are named based on the application name and the date: <span class="mt-font-courier-new"> DomoWorkbench_yyyy-mm-dd </span>. For more information about running Workbench from the command line, see <a href="/s/article/360046772834" target="_self" title="Running Workbench 4"> Running Workbench 4 from the command line </a>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Wiki </p></td><td colspan="1" rowspan="1"><p> Opens Domo's Workbench help documentation. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Community </p></td><td colspan="1" rowspan="1"><p> Opens the Workbench help forum. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Videos </p></td><td colspan="1" rowspan="1"><p> Opens training videos for Workbench. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Plugins </p></td><td colspan="1" rowspan="1"><p> Opens the Plugin Manager. Here you can see existing plugins by category and add new plugins for use in Workbench. For more information, see <a href="/s/article/360047496013" target="_self" title="Managing Plugins in Workbench 4"> Managing Plugins in Workbench 4 </a>. </p></td></tr></tbody></table>
+
+## Accounts pane
+
+In the **Accounts** pane, you can view logs, edit settings, and access DataSet Job options for individual accounts. Clicking any item in this list (except for top-level accounts) opens information and/or options in the Dynamic Options panel in the center of Workbench.
+
+Items in this pane are laid out in a tree structure with five levels of navigation, with accounts on the topmost level. Each account includes the following branches, which make up the second level of navigation: **Logs**, **Settings**, and **DataSet Jobs**. **Settings** includes three sub-branches— **Account**, **Proxy**, and **Updates,** and **DataSet Jobs** includes a sub-branch for each DataSet job associated with this account; these make up the third level of navigation. For each job sub-branch, these options are available: **Settings**, **Schedule**, **Source**, **Schema**, **Transforms**, **Notifications**, and **Logs** (fourth level). In addition, **Transforms** may include one or more sub-branches of its own (fifth level).
+
+The following screenshot shows an example of this tree structure:
+
+<Frame><img alt="wb4_accounts_structure.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLb-2.png"/></Frame>
+
+A <img src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLl.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> to the left of a list item indicates that there are items hidden beneath it; click the icon to expand those items. Click <img src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLe-2.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> to the left of an item to collapse the items beneath that item.
+
+You can drag the **Accounts** pane anywhere you want it in the Workbench interface. When you drag the pane, arrow buttons appear, indicating the top, bottom, left side, and right side of the interface. If you drag the pane onto one of these buttons, the corresponding area of the interface is highlighted. Dropping the pane onto a button causes it to be "docked" in the corresponding area. For example, if you dropped the pane onto either up arrow, it would dock in the upper portion of the Workbench window.
+
+<Note>
+**Note:** A pane must be in Dock mode to be draggable. To put a pane in Dock mode, click the sideways pushpin icon <img src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLV.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>. This allows you to drag it and dock it.
+
+</Note>
+
+### Jobs List
+
+You can open the jobs list view by clicking **View Jobs List** just above the status panel. This list view allows you to search and sort DataSet jobs, see upcoming schedules, and organize jobs by status, giving better visibility into jobs to facilitate job management in an instance.
+
+<Frame><img alt="wb4_list_view_rn.png" src="/images/kb/ka05w00000123rc-00N5w00000Ri7BU-0EM5w000005vPLM.png"/></Frame>
+
+### Logs
+
+When you click **Logs** for a given account, the logs for that account are shown in the Dynamic Options panel.
+
+<Frame><img alt="wb4_accounts_logs.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL2.png"/></Frame>
+
+Log information is shown chronologically in reverse. You can show the logs for any day by clicking in the **Log Date** menu and selecting the desired date from the date picker. You can sort the logs in chronological or reverse chronological order. You can also filter logs by error level (ERROR, INFO, or WARN ).
+
+### Settings
+
+In **Settings**, you can see a connection summary, change your account information, configure proxy settings, and set your update URL and frequency. You can access settings options by clicking **Settings** or any of its subtabs in the pane on the left side of Workbench. (Note that there are two **Settings** items available in the **Accounts** pane. The version of **Settings** discussed here refers to the one on the 2nd level of navigation, located under **Logs**. These settings are used to configure account and connection details in your Workbench, while the settings discussed later on are specific to DataSet Jobs.)
+
+#### Connection summary
+
+Click **Settings** to see a summary of your connection information, including your agent ID, Domo server, job check frequency, proxy, and software update settings.
+
+<Frame><img alt="wb4_connection_summary.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL1.png"/></Frame>
+
+#### Account tab
+
+Lets you edit your connection information for Domo.
+
+<Frame><img alt="wb4_account_tab.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPKz.png"/></Frame>
+
+You can refer to the following table to find out more about the components in this tab:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Server </p></td><td colspan="1" rowspan="1"><p> The URL for the connected server, which you specify when you set up your Workbench account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> The API key for the account to use in connecting to Domo. You can generate a new API key by clicking the arrow on the right side of the field, entering your email address and password, and clicking <b> Create Token </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ignore Certificate Errors </p></td><td colspan="1" rowspan="1"><p> If turned on, certificate errors are ignored when connecting to this server. </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Test Connection </p></td><td colspan="1" rowspan="1"><p> Lets you test the provided connection credentials. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Check for new DataSet Job every </p></td><td colspan="1" rowspan="1"><p> Specifies the frequency at which Workbench checks to see if DataSet Jobs need to be processed. Units range from <b> Seconds </b> to <b> Years </b>. Set <b> Never </b> if you don't want Workbench to check for unprocessed jobs. </p></td></tr><tr><td colspan="1" rowspan="1"> Limit Concurrent Jobs </td><td colspan="1" rowspan="1"> Lets you limit the number of DataSet Jobs that may run at the same time. </td></tr><tr><td colspan="1" rowspan="1"><p> Only run locally managed jobs </p></td><td colspan="1" rowspan="1"><p> If checked, Workbench runs only DataSet Jobs managed locally, <em> not </em> those on networks. </p></td></tr><tr><td colspan="1" rowspan="1"> Require impersonation credentials for all jobs (Workbench 4.5 only) </td><td colspan="1" rowspan="1"> If checked, Workbench requests non-default credentials for all DataSet Jobs (that is, the <b> Requires Impersonation </b> toggle for all Jobs is turned off and cannot be switched back on). This option is only available if you have administrator privileges. </td></tr></tbody></table>
+
+#### Proxy tab
+
+Lets you specify settings for more securely connecting to Domo using a proxy server.
+
+<Frame><img alt="wb4_proxy_settings.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLd.png"/></Frame>
+
+<Note>
+**Note:** When you initially connect to Domo via Workbench, Workbench leverages your Windows system proxy settings; you cannot enter your proxy settings manually at this time. However, after you connect to Domo for the first time, you can manually configure the proxy settings in the **Proxy** tab.
+
+</Note>
+
+You can refer to the following table to find out more about the components in this tab:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> No Proxy Server </p></td><td colspan="1" rowspan="1"><p> Does <em> not </em> use a proxy server to connect. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Automatically Detect Proxy Settings </p></td><td colspan="1" rowspan="1"><p> Determines your proxy settings automatically. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Manual Proxy Configuration </p></td><td colspan="1" rowspan="1"><p> Lets you manually specify the proxy server information to use in connecting. You can do this only after initially connecting to Domo via Workbench. (The first time you connect, your system proxy settings are used.) </p><p> Enter the server address and port. </p><p> If the proxy server requires credentials, set <b> Requires Authentication </b> to <b> On </b>, then specify the username and password. </p></td></tr><tr><td colspan="1" rowspan="1"> Use System Proxy Settings (Workbench 4.5 only) </td><td colspan="1" rowspan="1"> Determines your proxy settings based on your system proxy settings. </td></tr></tbody></table>
+
+After you enter proxy credentials, you can test your connection by clicking **Test Proxy**. The color of the icon next to this button indicates whether the proxy settings have been validated.
+
+#### Updates tab
+
+Lets you specify how Workbench software updates are handled.
+
+<Frame><img alt="wb4_updates_settings.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLk-2.png"/></Frame>
+
+You can refer to the following table to find out more about the components in this tab:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Workbench Update URL </p></td><td colspan="1" rowspan="1"><p> Specifies the URL that is to be used for Workbench software updates. </p></td></tr><tr><td colspan="1" rowspan="1"><p> When to Check for Software Updates </p></td><td colspan="1" rowspan="1"><p> Specifies how frequently Workbench should check for software updates. Units range from minutes to years. </p><p> Select <b> Never </b> if you don't want Workbench to check for software updates. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Install updates automatically </p></td><td colspan="1" rowspan="1"><p> When turned on, Workbench software is updated automatically. </p></td></tr></tbody></table>
+
+### DataSet Jobs
+
+In the **DataSet Jobs** section of the **Accounts** pane, you can access information and options for all DataSet Jobs that have been created in your Workbench instance.
+
+When you click **DataSet Jobs**, a summary of all your created jobs appears in the Dynamic Options pane. Each summary shows the job ID, DataSet name, creation date, dates of the last run and the next scheduled run, and a message. Jobs in a healthy state are shown with green circles; jobs in an unhealthy state are shown with orange circles.
+
+<Frame><img alt="wb4_dataset_jobs_summary.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLh-2.png"/></Frame>
+
+When you click a job (i.e. the job name, not any of the options beneath it in the hierarchy), details about the job and its execution history open in the **Dynamic Options** pane. The following screenshot shows the job details for a DataSet Job named "Europe Sales":
+
+<Frame><img alt="wb4_individual_job_summary.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL5.png"/></Frame>
+
+Right-clicking the name of a DataSet Job provides quick access to a number of options also available in the Buttons toolbar at the top of the Workbench window, namely **Preview DataSet Job** (which also sends an output log to the **Output** pane, like the **Preview** button), **Execute DataSet Job**, **Delete DataSet Job**, and **Export DataSet Job**.
+
+<Frame><img alt="wb4_dataset_job_rightclick_options.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLf.png"/></Frame>
+
+When a DataSet Job name appears in italics with an asterisk, this indicates that unsaved changes have been made to the job settings.
+
+Each DataSet Job includes a number of parameters that are shown beneath the job name in the hierarchy in the **Accounts** pane. Clicking a parameter opens information and/or options for that parameter in the Dynamic Options pane. For example, clicking the **Schedule** parameter for the "Europe Sales" DataSet job would open an interface with options for setting the run schedule for that job.
+
+The following table lists and describes the parameters available for each job in the **Accounts** pane. These are all described in greater detail in continuation.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Parameter </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Settings </p></td><td colspan="1" rowspan="1"><p> Lets you configure the DataSet Job name, the DataSet type, the destination DataSet, update method, error handling, and additional settings. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schedule </p></td><td colspan="1" rowspan="1"><p> Lets you configure how often this DataSet is updated. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Source </p></td><td colspan="1" rowspan="1"><p> Lets you configure settings for your source DataSet—transport method, credentials, data source properties, etc. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schema </p></td><td colspan="1" rowspan="1"><p> Shows the schema for your DataSet (but only appears after you click <b> Preview </b> for the job). Here you can rename destination columns, change the data type, and include or exclude columns. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Transforms </p></td><td colspan="1" rowspan="1"><p> Lets you edit all transforms that have been added to this DataSet Job. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Notifications </p></td><td colspan="1" rowspan="1"><p> Lets you configure notifications for individual users in Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Logs </p></td><td colspan="1" rowspan="1"><p> Shows all of the logs for this DataSet Job. </p></td></tr></tbody></table>
+
+#### Settings
+
+When you select **Settings** for a DataSet job in the **Accounts** pane, options for configuring settings for the job appear in the Dynamic Options pane. (Note that there are two **Settings** items available in the **Accounts** pane. The version of **Settings** discussed here refers to the one found under the DataSet Jobs heading and is specific to the selected DataSet Job.)
+
+<Frame><img alt="wb4_dataset_jobs_settings.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLB.png"/></Frame>
+
+The following table describes the options available in the **Settings** for a DataSet job:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Name </p></td><td colspan="1" rowspan="1"><p> The name of this job. You initially name a job when you create it in the <b> Workbench DataSet Job Creation Wizard </b>, but you can rename it here. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo DataSet </p></td><td colspan="1" rowspan="1"><p> The DataSet generated by Workbench in Domo, i.e. the destination data source. A blue "i" next to the DataSet name indicates that the DataSet has not yet been created in Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Update Method </p></td><td colspan="1" rowspan="1"><p> Determines whether new data replaces or is appended to the DataSet when updating. </p></td></tr><tr><td colspan="1" rowspan="1"><p> DataSet Type </p></td><td colspan="1" rowspan="1"><p> The type of DataSet as shown in Domo. You can select a type from the menu or enter a custom name. </p><p> The DataSet type you select or enter here is for informational purposes in Domo only. For example, you might be connecting to an ODBC database that contains Twitter data. In this case the best option would be to enter "Twitter" rather than selecting <b> ODBC </b> because the data you are representing in Domo is from Twitter. </p></td></tr><tr><td colspan="1" rowspan="1"> DataSet Description </td><td colspan="1" rowspan="1"> The description for this DataSet you entered when you went through the <b> Workbench DataSet Job Creation Wizard </b>. You can edit the description here. </td></tr><tr><td colspan="1" rowspan="1"> Disable Job </td><td colspan="1" rowspan="1"> Prevents this job from executing. </td></tr><tr><td colspan="1" rowspan="1"><p> Error Handling </p></td><td colspan="1" rowspan="1"><p> Determines what happens when errors are encountered in a DataSet Job. Options include the following: </p><ul><li><p> Replace invalid cells with NULL value <br/> When invalid cells are encountered, the values are replaced with a "NULL" value. </p></li><li><p> Skip entire row if it contains invalid cell(s) <br/> When invalid cells are encountered, the rows in which they are found are skipped. </p></li><li><p> Abort Job on invalid data error <br/> When invalid cells are encountered, the entire DataSet Job is aborted. </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Requires Impersonation </p></td><td colspan="1" rowspan="1"><p> Used when you need to authenticate using non-default credentials. New to 4.5, if an admin user checked the box for <b> Require impersonation credentials for all jobs </b> under <b> Settings &gt; Account </b>, this option is turned on by default and cannot be turned off. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> Specifies the domain when you are authenticating using non-default credentials (impersonation). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Specifies your username when you are authenticating using non-default credentials (impersonation). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Specifies your password when you are authenticating using non-default credentials (impersonation). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Terminate job if it runs longer than </p></td><td colspan="1" rowspan="1"><p> Lets you specify a time frame (in hours) in which a long-running job is to be terminated. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Upload even if data hasn't changed </p></td><td colspan="1" rowspan="1"><p> Lets you upload data to Domo even though the data has not changed. Useful when you want the DataSet freshness in Domo to be updated. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Clear Domo DataSet if DataSet Job returns zero rows </p></td><td colspan="1" rowspan="1"><p> Lets you clear the DataSet in Domo if zero rows are returned when a job runs. If disabled, Workbench does <em> not </em> send a command to Domo to clear out data in the DataSet. If you have a process where you want to upload data in a table after data in another table has been updated, you could disable this option and add some script in your query that looks at the "status" table, running the query if the data is ready. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Allow schema changes </p></td><td colspan="1" rowspan="1"><p> Allows schema changes to be pushed to Domo when the job is left unattended. </p></td></tr><tr><td colspan="1" rowspan="1"> Wait for Adrenaline Indexing (Workbench 4.5 only) </td><td colspan="1" rowspan="1"> Tells Workbench to wait for Adrenaline indexing (Domo indexing data in the cloud) after a DataSet Job uploads. If this option is turned off, Workbench marks the job as successful immediately after an upload. </td></tr></tbody></table>
+
+#### Schedule
+
+When you select **Schedule** for a DataSet Job in the **Accounts** pane, options for scheduling updates for the job appear in the Dynamic Options pane.
+
+<Frame><img alt="wb4_dataset_jobs_scheduling.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLS.png"/></Frame>
+
+In the **Schedule Type** menu you select the type of schedule you want.
+
+In the **Update** menu you select the update frequency for this DataSet Job. Options range from **Every 30 Minutes** to **Every Month**. If you select **Manually**, the DataSet does *not* update on a schedule; you must run the DataSet Job yourself from within Workbench. If you select **Watch File**, this DataSet Job will run every time the file is updated.
+
+For more information about updating a DataSet, see [Updating or Refreshing the DataSet for a Visualization Card](/s/article/360043429893 "Updating or Refreshing the DataSet for a KPI Card").
+
+When you select a frequency in the menu, the next four upcoming update times are shown at the bottom of the Options pane.
+
+For more information about setting a schedule, see [Scheduling a Job in Workbench 4](/s/article/360046856934 "Scheduling a Job in Workbench 4").
+
+You can also create a group of DataSet Jobs that share the same update schedule. For more information, see [Creating a Schedule Group in Workbench 4](/s/article/360046857074 "Creating a Schedule Group in Workbench 4").
+
+#### Source
+
+When you select **Source** for a DataSet Job in the **Accounts** pane, options for configuring the transport method and data source for the job appear in the Dynamic Options pane.
+
+##### Transport Method
+
+Transport methods determine how data sources are brought into Workbench. You select a transport method in the **Workbench DataSet Job Creation Wizard** and configure options for the selected method in the **Source** pane for the DataSet Job. Options are different for each transport method.
+
+###### Local File Provider
+
+The **Local File Provider** transport method lets you select a file from your machine or a network. This method is used for transporting [XML](/s/article/360046860474 "Creating a Job for Uploading Data Using Workbench 4") data sources into Domo.
+
+The following screenshot shows the options available when this method is selected:
+
+<Frame><img alt="wb4_transport_localfile.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLC.png"/></Frame>
+
+You can use the following table to learn more about these options:
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> File Path </p></td><td colspan="1" rowspan="1"><p> Specifies the file path for the local file you want to pull into Workbench. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Network Username/Password </p></td><td colspan="1" rowspan="1"><p> Specifies the username and password for the network the file is located on, if any. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Validate Configuration </p></td><td colspan="1" rowspan="1"><p> Lets you validate the transport settings you have configured. </p></td></tr></tbody></table>
+
+###### SFTP File Provider
+
+Use the SFTP File Provider transport method when you want to retrieve a file via FTP, SFTP (SSH-FTP) or FTPS (FTP-SSL). This method is used for transporting [XML](/s/article/360046860474 "Creating a Job for Uploading Data Using Workbench 4") data sources into Domo.
+
+The following screenshot shows the options available when this method is selected:
+
+<Frame><img alt="wb4_transport_sftp.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLK.png"/></Frame>
+
+You can use the following table to learn more about these options:
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Server </p></td><td colspan="1" rowspan="1"><p> Specifies the server URL for your FTP server. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Specifies your username for connecting to the server. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Specifies your password for connecting to the server. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Protocol </p></td><td colspan="1" rowspan="1"><p> Determines whether you are retrieving data via FTP, SFTP, or FTPS. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host Key Fingerprint (SSL Certificate Settings) </p></td><td colspan="1" rowspan="1"><p> Specifies the host key fingerprint for your SSL certificate, if one is required. Host fingerprints are used to ensure that the SFTP server is the same one you are expecting. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Allow untrusted server certificates </p></td><td colspan="1" rowspan="1"><p> Lets you upload SSL certificates that don't meet trust requirements. If you are using a self-signed certificate, you must check this box. </p></td></tr><tr><td colspan="1" rowspan="1"><p> PKCS#8 File (SSL Certificate Settings) </p></td><td colspan="1" rowspan="1"><p> Specifies the PKCS#8 file for your SSL certificate. This is used alongside username and password credentials for more secure authentication. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password (SSL Certificate Settings) </p></td><td colspan="1" rowspan="1"><p> Specifies the password for your SSL certificate. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Remote File </p></td><td colspan="1" rowspan="1"><p> Specifies the file path for the file you want to connect to. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Validate Configuration </p></td><td colspan="1" rowspan="1"><p> Lets you validate the transport settings you have configured. </p></td></tr></tbody></table>
+
+###### External Process File Provider
+
+Use the External Process File Provider transport method when you are using a third-party application to pull data into Domo using a script. When you use this method, you select the executable file for your application, specify arguments, and enter a file path for the output. For CSV files, you can also set a **Direct Upload** option. Virtually any kind of executable file can be converted into an [XML](/s/article/360046860474 "Creating a Job for Uploading Data Using Workbench 4") data source in Workbench. For example, you could use this method to convert a MySQL database file to an Excel file. You could then specify options for the Excel file and send it to Domo.
+
+The following screenshot shows the options available when this method is selected:
+
+<Frame><img alt="wb4_transport_external.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLE.png"/></Frame>
+
+You can use the following table to learn more about these options:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Program Executable </p></td><td colspan="1" rowspan="1"><p> Lets you select the executable application file to use to pull data into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Arguments </p></td><td colspan="1" rowspan="1"><p> Specifies arguments for your script. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Output File Path </p></td><td colspan="1" rowspan="1"><p> Specifies the file path for the output. The file type should be the same as the data source type you selected in the <b> Workbench DataSet Job Creation Wizard </b>. </p></td></tr><tr><td colspan="1" rowspan="1"> Direct Upload (CSV only) </td><td colspan="1" rowspan="1"> Lets you turn on Direct Upload for this job. For more information, see <a href="/s/article/360047538593" target="_self" title="Setting Up Direct Upload in Workbench"> Setting Up Direct Upload in Workbench 4 </a>. </td></tr><tr><td colspan="1" rowspan="1"> Validate Configuration </td><td colspan="1" rowspan="1"> Lets you validate the transport settings you have configured. </td></tr></tbody></table>
+
+###### OLEDB Connection Provider
+
+Use the OLEDB Connection Provider when you want to send data to Domo using an OLEDB (OLAP) connection. The following screenshot shows the options available when this method is selected:
+
+<Frame><img alt="wb4_transport_olap.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLc-2.png"/></Frame>
+
+You can use the following table to learn more about these options:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> OLAP Connection </p></td><td colspan="1" rowspan="1"><p> Opens the <b> Connection Builder </b>, where you specify all of the details of your OLAP connection. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Requires 32b Execution </p></td><td colspan="1" rowspan="1"><p> Determines whether this file transport requires 32b execution. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Source </p></td><td colspan="1" rowspan="1"><p> Specifies the server where the database is located. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Provider </p></td><td colspan="1" rowspan="1"><p> Select a provider, either MSOLAP or Essbase. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Catalog </p></td><td colspan="1" rowspan="1"><p> Specifies the Initial Catalog for your OLAP connection. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Specifies the username for this OLAP connection. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Specifies the password for this OLAP connection. </p></td></tr><tr><td colspan="1" rowspan="1"> Validate Configuration </td><td colspan="1" rowspan="1"> Lets you validate the transport settings you have configured. </td></tr></tbody></table>
+
+For more information about connecting to OLAP data, see [Connecting to an OLAP cube](/s/article/360047496273 "Creating a Job for Uploading Data Using Workbench 4").
+
+###### ODBC Connection Provider
+
+Use the ODBC Connection Provider when you want to send data to Domo using an ODBC connection. The following screenshot shows many of the options available when this method is selected. (In this example, **System DSN** is selected as the **Connection Type**. Other options appear if you select a different **Connection Type**.)
+
+<Frame><img alt="wb4_transport_odbc.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL3.png"/></Frame>
+
+You can use the following table to learn more about these options:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Connection Type </p></td><td colspan="1" rowspan="1"><p> Lets you select a method for connecting to ODBC data. </p><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Connection Type </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> System DSN </p></td><td colspan="1" rowspan="1"><p> You select the DSN to use for the desired DataSet from all of the DSNs available in your system. You can indicate whether credentials are required. </p> <Note><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><p><b> Note: </b> When uploading data from an ODBC DataSet, you must specify an existing Data Source Name (DSN). You can create a DSN using the Windows ODBC Data Source Administrator. (You can access the the Windows ODBC Data Source Administrator by entering "ODBC" in the Start Menu search, then selecting "Data Sources (ODBC)".) For more information about creating a DSN, refer to the Windows ODBC Help (by searching for "ODBC" in Windows Help and Support) or view the training video in <a href="/s/article/360046761214" target="_self" title="Workbench 4"> Workbench 4 FAQs </a>. </p><p></p><p> For information about defining DataSet names (DSNs) and using Open Database Connectivity (ODBC) to access data, refer to documentation for ODBC. </p></div></div></div></Note></td></tr><tr><td colspan="1" rowspan="1"><p> User DSN </p></td><td colspan="1" rowspan="1"><p> You select the DSN to use for the desired DataSet from those DSNS for which you have access. You can indicate whether database credentials are required. The selection menu does not populate with your DSNs until you configure the <b> Impersonation </b> settings in the <b> Settings </b> tab for the DataSet Job. </p><Note><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><p><b> Note: </b> When uploading data from an ODBC DataSet, you must specify an existing Data Source Name (DSN). You can create a DSN using the Windows ODBC Data Source Administrator. (You can access the the Windows ODBC Data Source Administrator by entering "ODBC" in the Start Menu search, then selecting "Data Sources (ODBC)".) For more information about creating a DSN, refer to the Windows ODBC Help (by searching for "ODBC" in Windows Help and Support) or view the training video in <a href="/s/article/360046761214" target="_self" title="Workbench 4"> Workbench 4 FAQs </a>. </p><p></p><p> For information about defining DataSet names (DSNs) and using Open Database Connectivity (ODBC) to access data, refer to documentation for ODBC. </p></div></div></div></Note></td></tr><tr><td colspan="1" rowspan="1"><p> Connection Builder </p></td><td colspan="1" rowspan="1"><p> You enter details for your ODBC connection, such as login credentials, driver, server URL, database name, port, timeout value, and connection parameters. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Connection String </p></td><td colspan="1" rowspan="1"><p> You enter a single string for your connection. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> System DSN (System DSN only) </p></td><td colspan="1" rowspan="1"><p> Lets you select the DSN to use for the desired DataSet from all of the DSNs available in your system. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Requires Credentials (System DSN and User DSN) </p></td><td colspan="1" rowspan="1"><p> Determines whether credentials are required for the specified DSN. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username (System DSN and Connection Builder) </p></td><td colspan="1" rowspan="1"><p> Specifies the username you use to connect to the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User DSN (User DSN only) </p></td><td colspan="1" rowspan="1"><p> Lets you select the DSN to use for the desired DataSet from the DSNs available to you. This menu does <em> not </em> populate until you turn on <b> Requires Impersonation </b> in the DataSet Job <b> Settings </b> tab and fill in the parameters. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Connection Username (User DSN only) </p></td><td colspan="1" rowspan="1"><p> Specifies the username to connect to the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Connection Password (User DSN only) </p></td><td colspan="1" rowspan="1"><p> Specifies the password to connect to the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password (System DSN and Connection Builder) </p></td><td colspan="1" rowspan="1"><p> Specifies the password you use to connect to the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Driver (Connection Builder only) </p></td><td colspan="1" rowspan="1"><p> Specifies the name of the driver used to access the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Server (Connection Builder only) </p></td><td colspan="1" rowspan="1"><p> Specifies the server name or URL for the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port (Connection Builder only) </p></td><td colspan="1" rowspan="1"><p> Specifies the port number where the database is found. The default port is the MySQL port. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database (Connection Builder only) </p></td><td colspan="1" rowspan="1"><p> Specifies the name of the database to access. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Timeout (Connection Builder only) </p></td><td colspan="1" rowspan="1"><p> Lets you select the desired timeout value in seconds (60=1 minute) that the connection is kept alive before it is refreshed from the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Connection Parameters (Connection Builder only) </p></td><td colspan="1" rowspan="1"><p> Lets you specify additional parameters for connecting to the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Connection String (Connection String only) </p></td><td colspan="1" rowspan="1"><p> Enter a connection string to connect to the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"> Validate Configuration </td><td colspan="1" rowspan="1"> Lets you validate the transport settings you have configured. </td></tr></tbody></table>
+
+For more information, see [Connecting to ODBC data](/s/article/360047499793 "Creating a Job for Uploading Data Using Workbench 4").
+
+###### JIRA Connection
+
+Use the JIRA Connection transport method when you want to send JIRA or JSO Ndata to Domo. The following screenshot shows the options available when this method is selected:
+
+<Frame><img alt="wb4_transport_jira.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL6.png"/></Frame>
+
+You can use the following table to learn more about these options:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Specifies the username used to connect to your JIRA instance. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Specifies the password used to connect to your JIRA instance. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Server URL </p></td><td colspan="1" rowspan="1"><p> Specifies the URL of your company's JIRA server. </p></td></tr><tr><td colspan="1" rowspan="1"><p> JIRA Query </p></td><td colspan="1" rowspan="1"><p> Specifies the query for the JIRA data you want to send to Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Validate Configuration </p></td><td colspan="1" rowspan="1"><p> Lets you validate the transport settings you have configured. </p></td></tr></tbody></table>
+
+For more information, see [Connecting to JIRA data](/s/article/360046860074 "Creating a Job for Uploading Data Using Workbench 4").
+
+##### Data Source Properties
+
+You can use the options in **Data Source Properties** to configure properties for your data source before it is sent to Domo. **Data Source Properties** are dependent on the Data Source you have selected in the Workbench DataSet Job Creation Wizard. For example, if you selected **CSV** as the Data Source, you are given options for configuring delimiters, specifying start and end rows, etc., whereas if you selected **OLAP**, options center around writing queries.
+
+###### CSV
+
+When CSV is the selected Data Source type, you can specify the delimiter and escape sequence characters and configure advanced settings.
+
+<Note>
+**Notes:**
+
+* The name and description for a DataSet in Domo can be different than the name and description in Workbench if someone edits the name and description in Domo. (DataSets do not depend on the names and descriptions matching for data uploads to occur properly.)
+* A CSV file *must*
+    + be a text file
+    + have data delimited by a single character
+</Note>
+
+The following screenshot shows all of the components of **Data Source Properties** for a CSV data source.
+
+<Frame><img alt="wb4_source_csv.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLi-2.png"/></Frame>
+
+You can use the following table to find out more about all of these components:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Field Delimiters </p></td><td colspan="1" rowspan="1"><p> Specifies the delimiter character to use in the specified CSV file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Encapsulate Fields With </p></td><td colspan="1" rowspan="1"><p> Specifies the character to use for encapsulating fields. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Escape Sequence Character </p></td><td colspan="1" rowspan="1"><p> Specifies the character to use for escaping. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Comment Character </p></td><td colspan="1" rowspan="1"><p> Specifies the character to use for commenting. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Missing Fields Handling </p></td><td colspan="1" rowspan="1"><p> Determines whether to generate an error for missing field values or replace the fields with empty values. </p></td></tr><tr><td colspan="1" rowspan="1"><p> First row contains column headers </p></td><td colspan="1" rowspan="1"><p> Indicates whether file defines column headers in the first row. </p><p> If the file has column headers, they should be defined in the first row. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ignore starting rows </p></td><td colspan="1" rowspan="1"><p> Specifies the number of rows to skip at the beginning of the data so you can start importing a specific row. </p><p> The <b> Ignore starting rows </b> field does <em> not </em> include the header row containing the column names. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ignore ending rows </p></td><td colspan="1" rowspan="1"><p> Specifies the number of rows to skip at the end of the data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Text encoding </p></td><td colspan="1" rowspan="1"><p> Specifies the character encoding used in the CSV file. </p></td></tr></tbody></table>
+
+For more information about connecting to CSV files, see [Connecting to CSV data](/s/article/360047496473 "Creating a Job for Uploading Data Using Workbench 4").
+
+###### Excel
+
+When Excel is the selected Data Source type, you can specify the range of data you want to send to Domo. This can be a specific range of cells, a named range, or a dynamic range.
+
+<Note>
+**Note:** A Microsoft Excel spreadsheet file *must* be in a supported file format:.xlsx,.xls,.xlsm
+</Note>
+
+The following screenshot shows many of the components of **Data Source Properties** for an Excel data source. (In this example, **Cell Range** is selected as the **Selection Range**. Other options appear if you select a different **Selection Range**.)
+
+<Frame><img alt="wb4_source_excel.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLj-2.png"/></Frame>
+
+You can use the following table to find out more about these components:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Selection Range </p></td><td colspan="1" rowspan="1"><p> Lets you select a method for pulling ranged data from the specified Excel file. Methods are as follows: </p><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Method </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Cell Range </p></td><td colspan="1" rowspan="1"><p> Lets you specify the Excel sheet from which you want to pull data, along with the starting cell, ending row, and ending column. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Named Range </p></td><td colspan="1" rowspan="1"><p> Lets you select a named range from a list. If you have not created any named ranges for this file in Excel, no options appear in this menu. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Dynamic Range </p></td><td colspan="1" rowspan="1"><p> Lets you skip a specified number of lines at the end of the Excel sheet. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Sheet Name (Cell Range and Dynamic Range) </p></td><td colspan="1" rowspan="1"><p> Lets you select the Excel sheet from which you want to pull data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Starting Cell (Cell Range and Dynamic Range) </p></td><td colspan="1" rowspan="1"><p> Specifies the first cell in the Excel sheet from which data will be pulled. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ending Row (Cell Range only) </p></td><td colspan="1" rowspan="1"><p> Specifies the ending row for the cell range you want to pull data for. This option is available only when <b> Continue until empty row </b> is unchecked. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ending Column (Cell Range only) </p></td><td colspan="1" rowspan="1"><p> Specifies the ending column for the cell range you want to pull data for. This option is available only when <b> Continue until empty column </b> is unchecked. </p></td></tr><tr><td colspan="1" rowspan="1"><p> First row contains column headers </p></td><td colspan="1" rowspan="1"><p> Determines whether the first row contains column headers. This is important when building cards in Domo because column headers are used to reference the data in those columns. For more information, see <a href="/s/article/360043428713" target="_self" title="Applying DataSet Columns to Your Chart"> Applying DataSet Columns to Your Chart </a>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Named Ranges (Named Range only) </p></td><td colspan="1" rowspan="1"><p> Lets you pick a named range from a list. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ignore Ending Rows (Dynamic Range only) </p></td><td colspan="1" rowspan="1"><p> Specifies how many rows at the end of the sheet you want to ignore. </p></td></tr></tbody></table>
+
+For more information about connecting to Excel data, see [Connecting to Excel data](/s/article/360047499333 "Creating a Job for Uploading Data Using Workbench 4").
+
+###### JSON
+
+When JSON is the selected Data Source type, you can specify the desired data node, the delimiter, and flattening options.
+
+<Frame><img alt="wb4_source_json.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLJ.png"/></Frame>
+
+For more information about connecting to JSON data, see [Connecting to JSON data](/s/article/360046860134 "Creating a Job for Uploading Data Using Workbench 4").
+
+###### XML
+
+When XML is the selected Data Source type, you can specify the desired data node and also indicate nodes that should be ignored.
+
+<Frame><img alt="wb4_source_xml.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLI.png"/></Frame>
+
+For more information about connecting to XML data, see [Connecting to XML data](/s/article/360046860474 "Creating a Job for Uploading Data Using Workbench 4").
+
+###### OLAP and ODBC
+
+When OLAP or ODBC is the selected Data Source type, you can configure queries and replacement variables.
+
+<Frame><img alt="wb4_source_odbc.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLT.png"/></Frame>
+
+You can use the following table to learn more about these options:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Lets you enter the query you want to get data. </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Replacement Variables </p></td><td colspan="1" rowspan="1"><p> Lets you define replacement variables for use in your query. </p><p></p></td></tr></tbody></table>
+
+For more information about connecting to databases, see [Connecting to ODBC data](/s/article/360047499793 "Creating a Job for Uploading Data Using Workbench 4").
+
+###### QuickBooks
+
+When QuickBooks is the selected Data Source type, you can choose from any of a variety of different reports. You can also instruct Workbench to stop QuickBooks if connection errors are encountered.
+
+<Note>
+**Note:** In order to run QuickBooks jobs, you must authorize Workbench to connect to QuickBooks by clicking **Authorize Company File** in the Buttons toolbar at the top of Workbench.
+</Note>
+
+<Warning>
+**Important:** You *must* be running the 32-bit version of Workbench to use the QuickBooks DataSet type. For information about running Workbench, see [Running Workbench 4](/s/article/360046772834 "Running Workbench 4").
+</Warning>
+
+The following screenshot shows many of the components of **Data Source Properties** for a QuickBooks data source. (In this example, **General Summary Report** is selected as the report type. Other options appear if you select a different report type.)
+
+<Frame><img alt="wb4_source_qb.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL0.png"/></Frame>
+
+You can use the following table to find out more about all of these components.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Allow Workbench to stop QuickBooks on connection errors </p></td><td colspan="1" rowspan="1"><p> If checked, QuickBooks shuts down if Workbench encounters errors while executing a DataSet job. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Type </p></td><td colspan="1" rowspan="1"><p> Lets you select a primary report type. All report types have a number of sub-reports you can choose from. </p><p> Primary report types are as follows: </p><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Report </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> General Detail Report </p></td><td colspan="1" rowspan="1"><p> Shows detailed information for any of a number of different report types, such as "Income by Customer Detail," "Check Detail," "Pending Sales," etc. You can select the desired date range for your report by selecting the start and end dates using the <b> From </b> and <b> To </b> date pickers, respectively. If you want, you can manually select which columns appear in the report by selecting them in the <b> Columns </b> menu. </p></td></tr><tr><td colspan="1" rowspan="1"><p> General Summary Report </p></td><td colspan="1" rowspan="1"><p> Shows summary information for any of a number of different report types, such as "CustomerBalanceSummary," "IncomeTaxSummary," "PhysicalInventoryWorksheet," etc. You can select the desired date range for your report by selecting the start and end dates using the <b> From </b> and <b> To </b> date pickers, respectively. You can also select a date granularity for your report data (for example, you could summarize data by day, by month, etc.). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Budget Summary Report </p></td><td colspan="1" rowspan="1"><p> Shows balance sheet and profit and loss reports. You can select the desired fiscal year for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List </p></td><td colspan="1" rowspan="1"><p> Shows any of a number of reports in list format, such as "Employee" (a list of company employees), "Vendors" (a list of your vendors), and so on. Because this information is not arranged by date, there are no options for setting a date range or choosing a fiscal year. </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date Range (General Detail Report and General Summary Report) </p></td><td colspan="1" rowspan="1"><p> Lets you select the start and end date for this report from a date picker. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Maximum days to return in single result (General Detail Report only) </p></td><td colspan="1" rowspan="1"><p> Specifies the maximum number of days to return in your QuickBooks report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Columns (General Detail Report only) </p></td><td colspan="1" rowspan="1"><p> Lets you select the columns that appear in your QuickBooks report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Summarize Report Columns By (General Summary Report only) </p></td><td colspan="1" rowspan="1"><p> Lets you choose the date granularity for your QuickBooks report. For example, if you <b> Month </b>, report data is broken down by month. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fiscal Year (Budget Summary Report only) </p></td><td colspan="1" rowspan="1"><p> Lets you select the fiscal year for the report. </p></td></tr></tbody></table>
+
+For more information about connecting to QuickBooks data, see [Connecting to QuickBooks data](/s/article/360046860414 "Creating a Job for Uploading Data Using Workbench 4").
+
+###### JIRA
+
+When JIRA is the selected Data Source type, you can unselect attributes from the data source that you do not want to be included in the DataSet. You can also add new attributes.
+
+<Frame><img alt="wb4_source_jira.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL4.png"/></Frame>
+
+For more information about connecting to JIRA, see [Connecting to JIRA data](/s/article/360046860074 "Creating a Job for Uploading Data Using Workbench 4").
+
+#### Schema
+
+When you select **Schema** for a DataSet job in the **Accounts** pane, options for configuring properties for columns in your data source appear in the Dynamic Options pane. (You must click **Preview** in the Buttons toolbar for schema information to appear here.) Here you can change column names and data types and include or exclude certain columns.
+
+The following screenshot shows an example of the **Schema** tab for a DataSet job.
+
+<Frame><img alt="wb4_schema.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLg.png"/></Frame>
+
+You can use the following table to learn more about the components of the **Schema** interface:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Source Column </p></td><td colspan="1" rowspan="1"><p> The name of this column in the original data source. You cannot interact with a source column; any changes you make are applied to the <em> destination </em> column (i.e. the column in the Domo DataSet after you execute this DataSet job). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Destination Column </p></td><td colspan="1" rowspan="1"><p> The name of this column in the Domo DataSet. Any changes you make to a column are applied to this column, not the column from the original data source. You can rename a destination column by clicking in the name field and typing in the desired name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Type </p></td><td colspan="1" rowspan="1"><p> Indicates the data type for the given column. You can change a data type by clicking in the field and selecting the new data type from the menu. The following data types are available: </p><ul><li><p><span class="mt-font-courier-new"> LONG </span> stores numbers as numeric values, including fractional and whole numbers. </p></li><li><p><span class="mt-font-courier-new"> DOUBLE </span> stores double-precision floating point number values. </p></li><li><p><span class="mt-font-courier-new"> DECIMAL </span> stores numbers as decimal values. </p></li><li><p><span class="mt-font-courier-new"> STRING </span> stores alphanumeric characters as text. </p></li><li><p><span class="mt-font-courier-new"> DATETIME </span> stores year, month, day, hour, minute, and second values. </p></li><li><p><span class="mt-font-courier-new"> DATE </span> stores year, month, and day values. </p></li><li><p><span class="mt-font-courier-new"> TIME </span> stores hour, minute, and second values. </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Include </p></td><td colspan="1" rowspan="1"><p> Determines whether data for this column appears in the DataSet in Domo. You can choose which columns of data are uploaded by checking or unchecking <b> Include </b> for each column heading. </p></td></tr></tbody></table>
+
+#### Transforms
+
+When you select **Transforms** for a DataSet job in the **Accounts** pane, a list of transforms you have added to this DataSet job appear in the Dynamic Options pane. If you have not added any transforms by clicking **Add** **New Transform** in the Buttons toolbar (or right-clicking **Transforms** in the navigation tree) then selecting the desired transform type, nothing appears here.
+
+You can interact with your transforms individually by selecting the desired transform in the **Accounts** pane. All transforms you have added to a DataSet are arranged in a numbered list under the **Transforms** heading.
+
+<Frame><img alt="wb4_transforms.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLX.png"/></Frame>
+
+Selecting a transform opens options for configuring that transform in the Dynamic Options pane. All transforms have different options. You can have as many transforms for a DataSet as you want.
+
+Transforms are applied in the same order in which they appear in the navigation tree. You can rearrange transforms in the list by right-clicking the transform you want to move then selecting **Move Up** or **Move Down** as necessary.
+
+For information about all available transforms, see the following topics:
+
+* [Creating Columns in Workbench 4 Using Calculations](/s/article/360046861474 "Creating Columns in Workbench 4 Using Calculations")
+* [Setting the Time Zone for a Workbench 4 Job](/s/article/360047504673 "Setting the Time Zone for a Workbench 4 Job")
+* [Encrypting and Decrypting Workbench 4 Data](/s/article/360047501293 "Encrypting and Decrypting Workbench 4 Data")
+* [Setting a Custom Date Format on a Column in Workbench 4](/s/article/360047504553 "Setting a Custom Date Format on a Column in Workbench 4")
+* [Filtering Columns in Workbench 4](/s/article/360046864074 "Filtering Columns in Workbench 4")
+* [Replacing a Column Value in Workbench 4](/s/article/360046864274 "Replacing a Column Value in Workbench 4")
+* [Combining DataSets in Workbench 4](/s/article/360046861014 "Combining DataSets in Workbench 4")
+
+##### Calculation
+
+With the **Calculations** transform, you can you specify a calculation to use to derive a value in a new column based on a value in another column. Clicking **Calculations** in the **Accounts** pane opens the Calculation Builder in the Dynamic Options pane. Here you can specify a name for the calculation then build your calculation by applying functions to columns in your data source as necessary.
+
+<Frame><img alt="wb4_calculation_builder.png" src="/images/kb/ka05w00000123qb-00N5w00000Ri7BU-0EM5w000005vPKL.png"/></Frame>
+
+For more information about building calculations, see [Creating Columns in Workbench 4 Using Calculations](/s/article/360046861474 "Creating Columns in Workbench 4 Using Calculations").
+
+##### Custom Date Format
+
+You can use the **Custom Date Format** transform to change the date format for a given column.
+
+<Frame><img alt="wb4_transform_customdate.png" src="/images/kb/ka05w00000123qM-00N5w00000Ri7BU-0EM5w000005vPJt.png"/></Frame>
+
+For more information, see [Setting a Custom Date Format on a Column in Workbench 4](/s/article/360047504553 "Setting a Custom Date Format on a Column in Workbench 4").
+
+##### Filter
+
+You can use the **Filter** transform to apply filters to a selected column. You can choose to have Workbench return matches or non-matches for the specified filter query. You can also include or exclude blank cells in your filtered data.
+
+<Frame><img alt="wb4_transform_filter.png" src="/images/kb/ka05w00000123qZ-00N5w00000Ri7BU-0EM5w000005vPKK.png"/></Frame>
+
+For more information, see [Filtering Columns in Workbench 4](/s/article/360046864074 "Filtering Columns in Workbench 4").
+
+##### Lookup Table
+
+You can combine data sources in Workbench by using Lookup Tables. A "Lookup Table" is a DataSet you combine with a primary DataSet. The Lookup Table DataSet and primary DataSet must both contain one column with unique matching values ("key columns"). Once you match key columns, a new DataSet is created by joining all columns from both DataSets. Combining DataSets in this way is equivalent to using a LEFT JOIN in SQL.
+
+<Frame><img alt="wb4_transform_lookuptable.png" src="/images/kb/ka05w00000123qc-00N5w00000Ri7BU-0EM5w000005vPKH.png"/></Frame>
+
+For more information, see [Combining DataSets in Workbench 4](/s/article/360046861014 "Combining DataSets in Workbench 4").
+
+##### Shift Date Timezone
+
+With the **Shift Date Timezone** transform, you can set the time zone for the data in a data source by selecting your desired time zone from a menu.
+
+<Frame><img alt="wb4_transform_timezone.png" src="/images/kb/ka05w00000123qL-00N5w00000Ri7BU-0EM5w000005vPJu.png"/></Frame>
+
+For more information, see [Setting the Time Zone for a Workbench 4 Job](/s/article/360047504673 "Setting the Time Zone for a Workbench 4 Job").
+
+##### Encrypt
+
+You can use the **Encrypt** transform to encrypt one or more columns of data in your data source. After the DataSet has been pulled into Domo, it can only be decrypted in a Sumo table, by users who have been given special access in the **User Access** listing for the DataSet job in Workbench. For more information about Sumo, see Understanding Sumo cards.
+
+<Frame><img alt="wb4_transform_encrypt.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLR.png"/></Frame>
+
+For more information about encryption and decryption, see [Encrypting and Decrypting Workbench 4 Data](/s/article/360047501293 "Encrypting and Decrypting Workbench 4 Data").
+
+##### Search & Replace
+
+You can use the **Search & Replace** transform to replace a specified value in a column with another value. You can also specify a default value to appear in cells in which your search value does not appear. For search and replace values you can open a regular expression builder that includes a number of categories of regular expression constructs.
+
+<Frame><img alt="wb4_transform_searchreplace.png" src="/images/kb/ka05w00000123qN-00N5w00000Ri7BU-0EM5w000005vPK0.png"/></Frame>
+
+For more information, see [Replacing a Column Value in Workbench 4](/s/article/360046864274 "Replacing a Column Value in Workbench 4").
+
+#### Notifications
+
+When you select **Notifications** for a DataSet job in the **Accounts** pane, options for configuring notifications for the job appear in the Dynamic Options pane. Here you can specify who in your Domo instance is notified when jobs are completed successfully and/or fail. For any user in your instance, you can specify whether he/she is notified upon job success, failure, or both. You can also filter the rows in any column as well as set up custom filters. For more information about notifications, see [Setting Notifications in Workbench 4](/s/article/360047494393 "Setting Notifications in Workbench 4").
+
+<Frame><img alt="wb4_dataset_jobs_notifications.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLA.png"/></Frame>
+
+#### Logs
+
+When you select **Logs** for a DataSet job in the **Accounts** pane (as opposed to selecting the **Logs** option at the top of the **Accounts** pane, which opens the logs for the account), you can view the logs for that DataSet job in the Dynamic Options pane. For each log item, you can see the process ID, the thread ID, the error level (either "Info" or "Error"), the timestamp, and the log message. You can select logs for any day you want using a date picker. You can also sort logs in ascending or descending timestamp order of filter by error level (ERROR, INFO, or WARN ).
+
+<Frame><img alt="wb4_dataset_logs.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLm.png"/></Frame>
+
+## Dynamic Options pane
+
+In the Dynamic Options pane, you can configure options for DataSet jobs. The options available in this pane update according to what you select in the **Accounts** pane. Unlike the other panes in Workbench, this pane cannot be moved.
+
+## Preview and Output panes
+
+The **Preview** and **Output** panes provide information about a selected DataSet job. The **Preview** pane shows a preview of what the DataSet looks like with all of the settings you have applied, and the **Output** pane provides a log of actions taken as the preview is loaded. Nothing appears in either pane until you click **Preview** in the Buttons toolbar at the top of the Workbench window. If you click **Preview** for more than one DataSet job, tabs for each job appear in the **Preview** and **Output** panes. The following screenshot shows an example of this, where the user has enabled previews for the DataSet jobs "Monthly Sales Data" and "Revenue2012":
+
+<Frame><img alt="wb4_preview_tabs.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLY.png"/></Frame>
+
+Preview and output data is lost when you close Workbench.
+
+By default, the **Preview** and **Output** panes are located side by side in the bottom left corner of the Workbench window. Mousing over a pane causes it to pop open for viewing; if you move the cursor away from a pane, it closes, but you can force it to stay open by clicking anywhere on it.
+
+You can drag the **Preview** and **Output** panes anywhere you want it in the Workbench interface. When you drag a pane, arrow buttons appear, indicating the top, bottom, left side, and right side of the interface. If you drag the pane onto one of these buttons, the corresponding area of the interface is highlighted. Dropping the pane onto a button causes it to be "docked" in the corresponding area. For example, if you dropped the pane onto either up arrow, it would dock in the upper portion of the Workbench window.
+
+<Note>
+**Note:** A pane must be in Dock mode to be draggable. To put a pane in Dock mode, click the sideways pushpin icon <img src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLV.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>. This allows you to drag it and dock it.
+</Note>
+
+## DataSet Job Groups Wizard
+
+In the **DataSet Job Groups Wizard**, you can select any number of DataSet jobs to run on the same schedule. After selecting DataSet jobs for a schedule group, Windows Task Scheduler opens and you can set up scheduling for the jobs in the group there. You can also use the **DataSet Job Groups Wizard** to edit your existing groups. For more information about managing groups, see [Creating a Schedule Group in Workbench 4](/s/article/360046857074 "Creating a Schedule Group in Workbench 4").
+
+## Plugin Manager
+
+In the **Plugin Manager**, you can view all of the plugins in Workbench 4, with their names, publishers, version numbers, descriptions, and assembly names. You can add a plugin to your registered plugins list by entering a search path.
+
+<Frame><img alt="wb4_plugin_manager.png" src="/images/kb/ka05w00000123r2-00N5w00000Ri7BU-0EM5w000005vPKZ.png"/></Frame>
+
+To access the **Plugin Manager**, click **Plugin Manager** in the **More** tab at the top of the Workbench window.
+
+For more information about managing plugins, see [Managing Plugins in Workbench 4](/s/article/360047496013 "Managing Plugins in Workbench 4").

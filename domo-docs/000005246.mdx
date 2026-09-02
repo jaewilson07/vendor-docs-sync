@@ -1,0 +1,43 @@
+---
+title: "Amazon DynamoDB Assume Role Connector"
+excerpt: "Use Domo's Amazon DynamoDB Assume Role Connector to pull DynamoDB table data into a DataSet via an assumed AWS IAM role."
+---
+
+## Intro
+
+Amazon DynamoDB is a nonrelational database that delivers reliable performance at any scale. It's a fully managed, multi-region, multi-master database that provides consistent single-digit millisecond latency, and offers built-in security, backup and restore, and in-memory caching. With Domo, carry your data security measures from Amazon all the way through to your organization's visualizations and reporting. Let Domo update all data points in real time while applying row-level security and a myriad of other controls like 2FA, SSO, and BYOK encryption.
+  
+Domo connects directly to Amazon DynamoDB and delivers the information you need in real-time visualizations that make analysis faster, easier, and more effective. Plus, you can see your DynamoDB data alongside metrics from any other system, all in a single platform, and get instant notifications when your metrics hit thresholds that you determine.
+
+You connect to your AWS account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon DynamoDB connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to AWS and create an Amazon DynamoDB Assume Role DataSet, you must have the following:
+
+* Amazon Resource Name (ARN)
+* Role Session Name
+* External ID
+* Region
+
+## Connecting to Your Amazon DynamoDB Assume Role Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Amazon DynamoDB  Assume Role Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Amazon DynamoDB account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Role ARN </p></td><td colspan="1" rowspan="1"><p> Enter your Amazon Resource Name (ARN) of the role to assume. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Role Session Name </p></td><td colspan="1" rowspan="1"><p> Enter the identifier for the assumed role session. </p></td></tr><tr><td colspan="1" rowspan="1"> External ID </td><td colspan="1" rowspan="1"> Get the External ID by clicking the <b> GENERATE CODE </b> button. </td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"> Select the DynamoDB region. </td></tr></tbody></table>
+
+Once you have entered valid Amazon DynamoDB  Assume Role credentials, you can use the same account any time you go to create a new Amazon DynamoDB DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors.](/s/article/360042926054)
+
+### Details Pane
+
+This pane contains two dropdown menus in which you select the desired region name and table.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> How would you like to fetch your data? </p></td><td colspan="1" rowspan="1"><p><span> Select whether you want to fetch your data by attribute names or by providing a query. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p><span> Enter the SQL query to execute. </span></p><p><span> Example: <b> select * from table_name </b>. </span></p><p><span><b> Note </b>: Enter all the column names in double quotes, if any. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Name </p></td><td colspan="1" rowspan="1"><p> Select the Amazon DynamoDB table you want to pull into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"> How would you like to provide attribute names? </td><td colspan="1" rowspan="1"> Choose whether you want to provide attribute names through discovery or manually. </td></tr><tr><td colspan="1" rowspan="1"><span> Attribute Names (Maximum selection allowed is 1498) </span></td><td colspan="1" rowspan="1"><p><span> Select the attribute names to pull. If you want to pull all attributes, then do not select any attribute from the list. Maximum selection allowed is 1498. </span></p><Note><div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> Note: </b> If you do not select any attributes then this Connector will bring in all fields by default. </div></div></div></Note></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

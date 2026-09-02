@@ -1,0 +1,44 @@
+---
+title: "Openfire Connector"
+excerpt: "Use Domo's Openfire Connector to import instant messaging and groupchat data from your Openfire XMPP server into a DataSet."
+---
+
+## Intro
+
+Openfire (previously known as Wildfire and Jive Messenger) is an instant messaging (IM) and groupchat server that uses XMPP server written in Java. To learn more about the Openfire API, visit their page ([https://www.igniterealtime.org/proje...pi/readme.html](https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html "https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html") ).
+
+You connect to your Openfire account in the Data Center. This topic discusses the fields and menus that are specific to the Openfire connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Openfire account and create a DataSet, you must have the following:
+
+* The hostname or IP address where the Openfire database is stored.
+* The port number used to communicate with the database.
+* The database name.
+* The credentials (username and password) for the account.
+* The certificate key for the Openfire database.
+
+You must also whitelist a number of IP address as described in Whitelisting IP Addresses.
+
+## Connecting to Your Openfire Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Openfire Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Openfire account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Hostname </p></td><td colspan="1" rowspan="1"><p> Enter the hostname or IP address of the Openfire server. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number used to communicate with the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> Enter the name of the Openfire database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your Openfire username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Openfire password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Key </p></td><td colspan="1" rowspan="1"><p> Enter your certificate key for the database. </p></td></tr></tbody></table>
+
+Once you have entered valid Openfire credentials, you can use the same account any time you go to create a new Openfire DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains only a single field where you enter your SQL query.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> SQL Statement </p></td><td colspan="1" rowspan="1"><p> Enter the Openfire SQL query you want to retrieve data for. </p><p> For example: <span class="mt-font-courier-new"> SELECT * FROM ofPresence </span></p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

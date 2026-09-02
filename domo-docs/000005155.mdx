@@ -1,0 +1,47 @@
+---
+title: "Circular Sankey Chart"
+excerpt: "Use a circular Sankey chart to visualize recursive flows such as web traffic where flows can circle back to previous nodes."
+---
+
+## Intro
+
+The Sankey chart—often called a flow diagram—is a great way to illustrate flows, including flows of energy, materials, and web page paths. In addition to the flow of an item, the Sankey chart captures the relative size of the flow itself by changing the line width from node to node. For more information, see our [Sankey Chart](https://domo-support.domo.com/s/article/360043429273?language=en_US) article.
+
+Sankey charts consist of nodes, or end points, and colored arrows or lines. See below for a simple Sankey chart.
+
+<Frame><img alt="image.png" src="/images/kb/ka05w00000127d6-00N5w00000Ri7BU-0EM5w000006u8bV.jpg"/></Frame>
+
+The original Sankey chart is ideal for physical flows that go to a destination once per flow, like energy and materials. However, it's not ideal for recursive concepts like web traffic, where flows need to circle back to previous nodes and require special treatment to display properly. To meet these needs, Domo has created the circular Sankey chart.
+
+The following image emphasizes the chart's circular reference:
+
+<Frame><img alt="Circular Sankey Chart.png" src="/images/kb/ka05w00000127d6-00N5w00000Ri7BU-0EM5w000006uAbr.jpg"/></Frame>
+
+## Powering Circular Sankey Charts
+
+A circular Sankey chart requires each of the following:
+
+* **A `From` dimension** — The source of the flow.
+* **A `To` dimension** — The destination of the flow.
+* **A value** — The size of the flow.
+
+For information about value, category, and series data, see our [Understanding Chart Data](https://domo-support.domo.com/s/article/360043428693?language=en_US) article.
+
+In Analyzer, you can choose the columns containing the data for your circular Sankey chart. For more information about choosing data columns, see our article about [Applying DataSet Columns to Your Chart](https://domo-support.domo.com/s/article/360043428713?language=en_US).
+
+The following image shows how data from a typical column-based spreadsheet is converted into a circular Sankey chart:
+
+<Frame><img alt="image.png" src="/images/kb/ka05w00000127d6-00N5w00000Ri7BU-0EM5w000006u8e0.jpg"/></Frame>
+
+## Customizing Circular Sankey Charts
+
+You can customize the appearance of a circular Sankey chart in several ways, many of which are possible with the **Chart Properties** tool. For more information, see our [Chart Properties](https://domo-support.domo.com/s/article/360042925374?language=en_US) article.
+
+<Warning>
+  **Important:** Circular Sankey charts have a 500-row limit.
+
+</Warning>
+
+Some unique properties of circular Sankey charts are shown in the following table:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Property </p></th><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Example </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> General &gt; Value Format </p></td><td colspan="1" rowspan="1"><p> Determines whether currency symbols are appended to values. </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> General &gt; Value Decimal Places </p></td><td colspan="1" rowspan="1"><p> Determines the number of decimal places in values. </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> General &gt; Percent Value Decimal Places </p></td><td colspan="1" rowspan="1"><p> Determines the number of decimal places in percent values. </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> General &gt; Layout method </p></td><td colspan="1" rowspan="1"><p> Allows you to select different layouts for your Sankey data. You can see which one works best for your data. </p></td><td colspan="1" rowspan="1"><p><img alt="image.png" src="/images/kb/ka05w00000127d6-00N5w00000Ri7BU-0EM5w000006u8ej.jpg"/></p></td></tr><tr><td colspan="1" rowspan="1"><p> General &gt; Hide Circular </p></td><td colspan="1" rowspan="1"><p> Allows you to hide circular references in the chart. </p><p> When you select this checkbox, the chart handles recursion but doesn't display the loops back. </p></td><td colspan="1" rowspan="1"><p><img alt="image.png" src="/images/kb/ka05w00000127d6-00N5w00000Ri7BU-0EM5w000006u8eo.jpg"/></p></td></tr><tr><td colspan="1" rowspan="1"><p> Node Options </p></td><td colspan="1" rowspan="1"><p> Allows you to set the fill and border colors for nodes. </p></td><td colspan="1" rowspan="1"><p><img alt="image.png" src="/images/kb/ka05w00000127d6-00N5w00000Ri7BU-0EM5w000006u8eQ.jpg"/></p></td></tr><tr><td colspan="1" rowspan="1"><p> Flow Options </p></td><td colspan="1" rowspan="1"><p> Allows you to set the fill and border colors for flows. </p></td><td colspan="1" rowspan="1"><p><img alt="image.png" src="/images/kb/ka05w00000127d6-00N5w00000Ri7BU-0EM5w000006u8ey.jpg"/></p></td></tr></tbody></table>

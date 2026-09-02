@@ -1,0 +1,39 @@
+---
+title: "WhatCounts Connector"
+excerpt: "Connect Domo to your WhatCounts Publicaster account using an encrypted account ID to pull email marketing reports into a DataSet."
+---
+
+## Intro
+
+WhatCounts is an email marketing company that provides data management, software, and services to marketing professionals.  To learn more about the WhatCounts API, visit their page (https://support.whatcounts.com/hc/en-us/categories/201240476-API-Rest).
+
+You connect to your WhatCounts account in the Data Center. This topic discusses the fields and menus that are specific to the WhatCounts connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your WhatCounts account and create a DataSet, you must have the following:
+
+* For most reports, an encrypted account ID. You can find this in the **Account Preferences** section of WhatCounts Publicaster Edition. For the "Accounts" report, you will need to enter your Publicaster user email address instead.
+* Your WhatCounts password.
+
+## Connecting to Your WhatCounts Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the WhatCounts Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your WhatCounts account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Encrypted Account ID </p></td><td colspan="1" rowspan="1"><p> For the "Accounts" report, enter your Publicaster email address. For all other reports, enter the encrypted account ID found in the <b> Account Preferences </b> section of WhatCounts Publicaster Edition. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your WhatCounts password. </p></td></tr></tbody></table>
+
+Once you have entered valid WhatCounts credentials, you can use the same account any time you go to create a new WhatCounts DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the WhatCounts report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Account Managers </p></td><td colspan="1" rowspan="1"><p> Returns information about the account manager for this account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Accounts </p></td><td colspan="1" rowspan="1"><p> Returns information about the accounts and subaccounts available for your credentials. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Distributions </p></td><td colspan="1" rowspan="1"><p> Returns the 100 most recent non-test, non-cancelled distributions sent from this account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Lists </p></td><td colspan="1" rowspan="1"><p> Returns information about your mailing lists. </p></td></tr><tr><td colspan="1" rowspan="1"><p> MacroStats3 </p></td><td colspan="1" rowspan="1"><p> Returns macro reporting information about a campaign distribution or date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Subscribers </p></td><td colspan="1" rowspan="1"><p> Returns mailing list subscribers. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Lists </p></td><td colspan="1" rowspan="1"><p> Select the lists you want to retrieve subscriber data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

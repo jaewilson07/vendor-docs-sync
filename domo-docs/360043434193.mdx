@@ -1,0 +1,62 @@
+---
+title: "Freshdesk Connector"
+excerpt: "Use the Freshdesk connector with an API token and domain to pull online help desk support data into a Domo DataSet."
+---
+
+## Intro
+
+Freshdesk is an online help desk software program that integrates traditional support channels such as email, phone, chat, and the web with new social channels. To learn more about the Freshdesk API, visit their page ([https://freshdesk.com/api](https://freshdesk.com/api "https://freshdesk.com/api") ).
+
+You connect to your Freshdesk account in the Data Center. This topic discusses the fields and menus that are specific to the Freshdesk connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Freshdesk account and create a DataSet, you must have the following:
+
+* A Freshdesk API token
+* The domain of your Freshdesk instance
+
+## Connecting to Your Freshdesk Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Freshdesk Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Freshdesk account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Token </p></td><td colspan="1" rowspan="1"><p> Enter your Freshdesk API token. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> Enter the URL of your company Freshdesk instance. </p></td></tr></tbody></table>
+
+Once you have entered valid Freshdesk credentials, you can use the same account any time you go to create a new Freshdesk DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Freshdesk report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> All Groups </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of groups in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> All Solution Articles </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of solution articles in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> All Solution Categories </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of solution categories in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> All Solution Folders </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of solution folders in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Comments in Topics </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of comments in topics in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email Config </p></td><td colspan="1" rowspan="1"><p> Retrieves email configuration details. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Forums in Categories </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of forums in categories in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Agents </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of agents. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List All Business Hours </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of business hours. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List All Contacts </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of contacts in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List All Time Entries </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of time entries in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Companies </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of companies in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Conversation Tickets </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of conversation tickets in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Entries Tickets </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of entry tickets in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Forum Categories </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of forum categories in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Roles </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of roles in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Satisfaction Rating Tickets </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of satisfaction rating tickets in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Tickets </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of tickets in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Products </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of products in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Satisfaction Ratings </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of satisfaction ratings in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> SLA Policies </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of SLA policies in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Surveys </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of surveys in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics in Forums </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of forum topics in your account. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Select Forum </p></td><td colspan="1" rowspan="1"><p> Select the forum you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Forum Category </p></td><td colspan="1" rowspan="1"><p> Select the forum category you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Execution Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ticket Display Number </p></td><td colspan="1" rowspan="1"><p> Enter the display number of the ticket you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ticket Filter </p></td><td colspan="1" rowspan="1"><p> Select a filter for the tickets in your report. If you do not want to filter tickets, select <b> All </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Since </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date (<b> Specific </b> ) or a set number of days back (<b> Relative </b> ). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date you want to pull data for in the date picker. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of days back you want this report to pull data for each time it runs. For example, if you entered <span class="mt-font-courier-new"> 5 </span>, the report would pull data for 5 days ago each time it ran. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I use the same account multiple times to create DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

@@ -1,0 +1,44 @@
+---
+title: "Webtrends Connector"
+excerpt: "Connect to Webtrends with credentials and an account name to retrieve profiles, spaces, reports, and key web analytics metrics in Domo DataSets."
+---
+
+## Intro
+
+Webtrends provides web, social and mobile analytics, and a number of other software solutions related to digital marketing. Use Domo's Webtrends connector to retrieve lists of profiles and spaces, profile reports, and key metrics. To learn more about the Webtrends API, visit their page (http://help.webtrends.com/en/dxapi/).
+
+Ben Green<br/>
+Sep 29, 2016, 3:07 PM
+
+The Webtrends connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Webtrends account in the Data Center. This topic discusses the fields and menus that are specific to the Webtrends connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Webtrends account and create a DataSet, you must have the following:
+
+* The username and password for your Webtrends account
+* Your Webtrends account name
+
+## Connecting to Your Webtrends Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Webtrends Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Webtrends account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Account Name </p></td><td colspan="1" rowspan="1"><p> Enter your Webtrends account name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username you use to log into your Webtrends account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password you use to log into your Webtrends account. </p></td></tr></tbody></table>
+
+Once you have entered valid Webtrends credentials, you can use the same account any time you go to create a new Webtrends DataSet. You can manage connector accounts in the Accounts tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Report** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p> Select the Webtrends report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Profile Reports </p></td><td colspan="1" rowspan="1"><p> Returns a list of reports for a specified profile. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Profiles </p></td><td colspan="1" rowspan="1"><p> Returns a list of profiles that have been defined in the Webtrends web UI. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Profiles Keymetrics </p></td><td colspan="1" rowspan="1"><p> Returns a list of key metrics for all profiles. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Data </p></td><td colspan="1" rowspan="1"><p> Returns data for a given profile report within a given date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Definitions </p></td><td colspan="1" rowspan="1"><p> Returns detail data about a given profile report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Periods </p></td><td colspan="1" rowspan="1"><p> Returns a list of valid date ranges for a given profile report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Space Profiles </p></td><td colspan="1" rowspan="1"><p> Returns a list of profiles that belong to a given space. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Spaces </p></td><td colspan="1" rowspan="1"><p> Returns a list of spaces in the account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Spaces Keymetrics </p></td><td colspan="1" rowspan="1"><p> Returns a list of key metrics data for all spaces in the account. </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Profile </p></td><td colspan="1" rowspan="1"><p> Select the Webtrends profile you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Profile Report </p></td><td colspan="1" rowspan="1"><p> Select the Webtrends profile report you want to retrieve. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Granularity </p></td><td colspan="1" rowspan="1"><p> Select whether to return data as a single row for the entire date range or as a row of data per day. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Days </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> End Days </b> to create a range of represented days. For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Days </b>, the report would contain data for 10 days ago up until 5 days ago. Enter <span class="mt-font-courier-new"> 0 </span> for today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Days </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Start Days </b> to create a range of represented days. For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Days </b>, the report would contain data for 10 days ago up until 5 days ago. Enter <span class="mt-font-courier-new"> 0 </span> for today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Space </p></td><td colspan="1" rowspan="1"><p> Select the Webtrends space you want to retrieve data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

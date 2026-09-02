@@ -1,0 +1,86 @@
+---
+title: "Tune Advertiser Connector"
+excerpt: "Use the Tune Advertiser Connector to retrieve customized statistical reports about advertiser traffic and performance into a Domo DataSet."
+---
+
+## Intro
+
+Tune Advertiser is performance marketing software that enables ad networks, publishers, agencies, and media buyers to measure and optimize advertising traffic. The Tune Advertiser platform offers complete partner management, proactive fraud prevention, comprehensive payment processing, and all the tools you need to build better relationships. It helps you maximize ROI with your most important partners, affiliates, agencies, and any other business development relationships. Use Domo's Tune Advertiser connector to retrieve customized statistical reports for the advertisers and make better decisions. To learn more about the Tune Advertiser API, visit their page ([https://developers.tune.com/affiliat...port-getstats/](https://developers.tune.com/affiliate/affiliate_report-getstats/ "https://developers.tune.com/affiliate/affiliate_report-getstats/") ).
+
+You connect to your Tune Advertiser account in the Data Center. This topic discusses the fields and menus that are specific to the Tune Advertiser connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Tune Advertiser account and create a DataSet, you must have the following:
+
+* The individual domain name (network ID) that is used to log into your Tune Advertiser account.
+* The API key. You can generate it by logging into Tune Advertiser account.
+
+## Connecting to Your Tune Advertiser Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Tune Advertiser Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Tune Advertiser account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Network ID </td><td colspan="1" rowspan="1"> Enter your individual domain name (network ID) that is used to log into your Tune Advertiser account. </td></tr><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter the API key. You can generate it by logging into Tune Advertiser account. </td></tr></tbody></table>
+
+Once you have entered valid Tune Advertiser credentials, you can use the same account any time you go to create a new Tune Advertiser DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the <span> Tune Advertiser </span> report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Stats Report </td><td colspan="1" rowspan="1"> Returns Advertiser Report Stats based on numerous fields. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Fields </td><td colspan="1" rowspan="1"> Select the Fields that you want to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> Filter 1 </td><td colspan="1" rowspan="1"> Select filter 1. </td></tr><tr><td colspan="1" rowspan="1"> Operator 1 </td><td colspan="1" rowspan="1"> Select operator 1. </td></tr><tr><td colspan="1" rowspan="1"> Filter Value 1 </td><td colspan="1" rowspan="1"> Enter the filter value. </td></tr><tr><td colspan="1" rowspan="1"> Filter 2 </td><td colspan="1" rowspan="1"> Select filter 2. </td></tr><tr><td colspan="1" rowspan="1"> Operator 2 </td><td colspan="1" rowspan="1"> Select operator 2. </td></tr><tr><td colspan="1" rowspan="1"> Filter Value 2 </td><td colspan="1" rowspan="1"> Enter the filter value. </td></tr><tr><td colspan="1" rowspan="1"> Filter 3 </td><td colspan="1" rowspan="1"> Select filter 3. </td></tr><tr><td colspan="1" rowspan="1"> Operator 3 </td><td colspan="1" rowspan="1"> Select operator 3. </td></tr><tr><td colspan="1" rowspan="1"> Filter Value 3 </td><td colspan="1" rowspan="1"> Enter the filter value. </td></tr><tr><td colspan="1" rowspan="1"> Filter 4 </td><td colspan="1" rowspan="1"> Select filter 4. </td></tr><tr><td colspan="1" rowspan="1"> Operator 4 </td><td colspan="1" rowspan="1"> Select operator 4. </td></tr><tr><td colspan="1" rowspan="1"> Filter Value 4 </td><td colspan="1" rowspan="1"> Enter the filter value. </td></tr><tr><td colspan="1" rowspan="1"> Filter 5 </td><td colspan="1" rowspan="1"> Select filter 5. </td></tr><tr><td colspan="1" rowspan="1"> Operator 5 </td><td colspan="1" rowspan="1"> Select operator 5. </td></tr><tr><td colspan="1" rowspan="1"> Filter Value 5 </td><td colspan="1" rowspan="1"> Enter the filter value. </td></tr><tr><td colspan="1" rowspan="1"> Filter 6 </td><td colspan="1" rowspan="1"> Select filter 6. </td></tr><tr><td colspan="1" rowspan="1"> Operator 6 </td><td colspan="1" rowspan="1"> Select operator 6. </td></tr><tr><td colspan="1" rowspan="1"> Filter Value 6 </td><td colspan="1" rowspan="1"> Enter the filter value. </td></tr><tr><td colspan="1" rowspan="1"> Date </td><td colspan="1" rowspan="1"> Select the date value you want to filter the data by. </td></tr><tr><td colspan="1" rowspan="1"> Hour Offset </td><td colspan="1" rowspan="1"> Enter Hour Offset to shift the time stamps by a number of positive or negative hours from your network's default time zone. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Tune Advertiser API does this connector use?">
+
+This connector uses version 3 of the Tune Advertiser API (https:/{networkId}.api.Tune [Advertiser.com/Apiv3](http://Advertiser.com/Apiv3) /json.)
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1" width="30%"><p> Report Name </p></th><th colspan="1" rowspan="1" width="70%"><p> Endpoint URL </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Stats Report </td><td colspan="1" rowspan="1">?Target=Advertiser_Report&amp;Method=getStats </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this Connector?">
+
+You need the network ID and API key associated with your Tune Advertiser account. You can generate the API key by logging into your Tune Advertiser account.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+
+<Accordion title="What's the difference between the Tune Advertiser and Tune Advertiser connectors?">
+
+The Tune Advertiser connector returns the affiliate stats data whereas the Tune Advertiser connector returns the advertiser stats data. Also, the Tune Advertiser connector supports filter parameters for data filtering.
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

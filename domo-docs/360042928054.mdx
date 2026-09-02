@@ -1,0 +1,74 @@
+---
+title: "Velocify Connector"
+excerpt: "Use Domo's Velocify Cloud App connector to pull sales automation data about leads, campaigns, milestones, and custom reports into a DataSet."
+---
+
+## Intro
+
+Velocify provides cloud-based intelligent sales automation software designed for fast-paced sales environments . Use Domo's Velocify connector to retrieve data about leads, campaigns, milestones, and the like. To learn more about the Velocify API, visit their page ([https://service.leads360.com/ClientService.asmx](https://service.leads360.com/ClientService.asmx "https://service.leads360.com/ClientService.asmx") ).
+
+There are two versions of the Velocify connector—a standard and an advanced version. The only difference between these is that the advanced version allows you to pull in custom reports from Velocify, whereas the standard version does not. For more information about the standard version, see [Velocify Connector](https://domo-support.domo.com/s/article/360043432433?language=en_US "Velocify Connector").
+
+The Velocify connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your Velocify account in the Data Center . This topic discusses the fields and menus that are specific to the Velocify connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Velocify account and create a DataSet, you must have a Velocify username and password.
+
+## Connecting to Your Velocify Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Velocify Connector page. The components of the other panes on this page, **Scheduling**, **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Velocify account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username you use to log into your Velocify account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password you use to log into your Velocify account. </p></td></tr></tbody></table>
+
+Once you have entered valid Velocify credentials, you can use the same account any time you go to create a new Velocify DataSet. You can manage connector accounts in the Accounts tab in the Data Center . For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a menu in which you select a Velocify report, along with other menus that may or may not appear depending on your selected report. The following table describes all of the reports you can create using the Velocify connector.
+
+<Tip>
+  **Tip:** Velocify allows users to create a custom report through their UI, which is then accessible through the API. If you want to connect to a custom report in Domo, you can do so using the Velocify Advanced connector. If you would like to use this connector, speak to your Domo CSR.
+
+</Tip>
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Agents </p></td><td colspan="1" rowspan="1"><p> Returns a list of users in your database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaigns </p></td><td colspan="1" rowspan="1"><p> Returns a list of campaigns in your database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Leads </p></td><td colspan="1" rowspan="1"><p> Returns a list of leads that have been generated during the past 30 days. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Milestones </p></td><td colspan="1" rowspan="1"><p> Returns a list of lead milestones in your database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Programs </p></td><td colspan="1" rowspan="1"><p> Returns a list of lead distribution programs in your database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Providers </p></td><td colspan="1" rowspan="1"><p> Returns a list of lead provider integrations in your database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reports </p></td><td colspan="1" rowspan="1"><p> Returns a list of reports you have access to. </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Reports </p></td><td colspan="1" rowspan="1"><p> Select the Velocify report you want to import into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Report ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the Velocify report you want to import into Domo. To see a list of all reports with IDs, run the "Reports" report. </p></td></tr><tr><td colspan="1" rowspan="1"> Past Days (Optional) </td><td colspan="1" rowspan="1"> Enter the number of past days you want to retrieve data for. If you do not enter a value, data is pulled for all days. </td></tr></thead></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What is the difference between the standard and advanced versions of the connector?">
+
+The only difference is that the advanced version gives you the capability to pull in custom reports from Velocify, while the standard version does not. Other than that, the available reports are the same.
+
+</Accordion>
+
+<Accordion title="Can I use the same account to create multiple DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+英語
+
+</Accordion> </AccordionGroup>

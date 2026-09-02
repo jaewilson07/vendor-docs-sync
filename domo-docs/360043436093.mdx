@@ -1,0 +1,52 @@
+---
+title: "Domo Dataset Query Connector"
+excerpt: "Use Domo's DataSet Query Connector to query an existing Domo DataSet with SQL via the Domo developer API and load the results as a new DataSet."
+---
+
+## Intro
+
+The Domo DataSet Query connector allows you to query data from an existing Domo DataSet.
+
+This connector is designed for simple queries with hard limitations of one million records to be returned from your query and a 60 second time out.
+
+You configure the Domo DataSet Query connector in the Data Center. This topic discusses the fields and menus that are specific to the Domo DataSet Query connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To configure this connector, you must have a Domo Client ID and Client Secret. Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+
+If you want to select your DataSet manually rather than by choosing it from a list of DataSets, you must also have the ID of the DataSet you want to query data from.  You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following datasources/. For example, in the URL https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview, the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4.
+
+## Configuring the connection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Domo DataSet Query Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Domo client secret. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new Domo DataSet Query DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various fields and menus for configuring your query.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the report you want to run. Currently only a single report is available. </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Lets you retrieve data from an existing Domo DataSet by querying against it. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> DataSet Selection </p></td><td colspan="1" rowspan="1"><p> Select whether you want to select your DataSet from a list or manually by inputting its ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> DataSet </p></td><td colspan="1" rowspan="1"><p> Select the DataSet you want to query against. </p></td></tr><tr><td colspan="1" rowspan="1"><p> DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the DataSet you want to query against. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following <span class="mt-font-courier-new"> datasources/ </span>. For example, in the URL <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span>, the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4 </span>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter your SQL query. Note that you must use a backtick (`) to enclose column names with spaces. You should also use single quotes (') when quotes are necessary. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What should I be aware of when writing a query?">
+
+* Be sure to use single quote characters (') when quotes are necessary.
+* Use backticks (`) to enclose column names with spaces.
+
+</Accordion>
+</AccordionGroup>
+

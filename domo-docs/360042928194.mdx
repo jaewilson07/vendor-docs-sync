@@ -1,0 +1,59 @@
+---
+title: "HireVue Connector"
+excerpt: "Use Domo's HireVue connector to pull video recruiting platform data into a DataSet using your HireVue account credentials."
+---
+
+## Intro
+
+HireVue is an online video recruiting software suite with a focus on technology to hire the best talent faster. To learn more about the HireVue API, visit their page ([https://www.hirevue.com/why-hirevue/partners](https://www.hirevue.com/why-hirevue/partners "https://www.hirevue.com/why-hirevue/partners") ).
+
+You connect to your HireVue account in the Data Center. This topic discusses the fields and menus that are specific to the HireVue connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your HireVue account and create a DataSet, you must have the following:
+
+* The email address associated with your HireVue account.
+* Your HireVue API key. If you do not have an API key, reach out to your HireVue account manager.
+* The domain for your HireVue account. For example, if you log in to your account at https://domo.hirevue.com, you would enter "domo.hirevue.com" here. The standard domain is [app.hirevue.com](http://app.hirevue.com), but this could vary depending on your account.
+
+## Connecting to Your HireVue Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the HireVue Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your HireVue account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the email address associated with your HireVue account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter your HireVue API key. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> Enter your HireVue company domain. </p></td></tr></tbody></table>
+
+For information about obtaining these credentials, see "Prerequisites," above.
+
+Once you have entered valid HireVue credentials, you can use the same account any time you go to create a new HireVue DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the HireVue report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Assessments </p></td><td colspan="1" rowspan="1"><p> Returns assessment data by position per interview according to the selected filters. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Evaluations </p></td><td colspan="1" rowspan="1"><p> Returns interview evaluations for a given position. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Interviews </p></td><td colspan="1" rowspan="1"><p> Returns interview data according to your selected filters. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Positions </p></td><td colspan="1" rowspan="1"><p> Returns data about positions according to your selected filters. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Position Details </p></td><td colspan="1" rowspan="1"><p> Returns detailed position data according to the selected filters. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Questions </p></td><td colspan="1" rowspan="1"><p> Returns interview questions for a given position. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Teams </p></td><td colspan="1" rowspan="1"><p> Returns team and user data. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Status </p></td><td colspan="1" rowspan="1"><p> Select the interview status you want to filter your results by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Positions in Archived State </p></td><td colspan="1" rowspan="1"><p> Select whether you want to include archived positions in your results. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Positions in Draft State </p></td><td colspan="1" rowspan="1"><p> Select whether you want to include positions in draft state in your results. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Type (for "Evaluations," "Questions," and "Positions" reports) </p></td><td colspan="1" rowspan="1"><p> Select whether to filter on Created Date or Position Due Date. "Evaluations" and "Questions" reports are filtered based on the dates of the positions they relate to. Note that if no Position Due Date has been set on a position, no data will be returned when filtering on Position Due Date. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Type (for "Interviews" report) </p></td><td colspan="1" rowspan="1"><p> Select whether to filter on the Created Date or Taken Date. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sub Report </p></td><td colspan="1" rowspan="1"><p> Select a subreport to include with your report, if desired. If you do not want to include a subreport, select <b> None </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Why is my DataSet missing &quot;positions&quot;?">
+
+Depending on the filters you select, you may be unintentionally excluding positions. For example, if you use "due date" as your date filter, but your position does not have a "due date" assigned, the position will never be returned, no matter what range you select in the date selector. You must also specifically request that archived and draft positions be returned using the available checkboxes in the UI.
+
+</Accordion>
+
+<Accordion title="How do the filters work for the &quot;Evaluations&quot; and &quot;Questions&quot; reports?">
+
+You may find these filters a bit confusing because you aren't actually filtering the evaluations or questions. In this case, Domo requests positions for the criteria you select and we return the evaluations or questions that apply to each position that matches the filter criteria.
+
+</Accordion>
+</AccordionGroup>
+

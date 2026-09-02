@@ -1,0 +1,128 @@
+---
+title: "Couchbase connector"
+excerpt: "Use the Couchbase connector to pull JSON document data from your Couchbase database into Domo using SQL queries."
+---
+
+## Intro
+
+Couchbase connector is a widely used open-source relational database management system. You can use Domo's Couchbase connector Connector to pull data from your Couchbase connector database and compile custom reports. You indicate the data you want by inputting an SQL query. For more information about the Couchbase connector API, visit their website. ([Start Here! | Couchbase Docs](https://docs.couchbase.com/server/current/getting-started/start-here.html "Start Here! | Couchbase Docs") )
+
+Couchbase is the modern database for enterprise applications. Couchbase is a distributed, JSON document database, with all the desired capabilities of a relational DBMS. It is a robust database, built for microservices and serverless consumption-based computing on the cloud on one end, and edge computing for occasionally and locally connected edge Mobile/IoT devices on the other.
+
+Couchbase manages JSON documents, eliminating the need for a hard coded schema in the database. The application object definition, available within JSON, is the schema controlled by the developer.
+
+You connect to your Couchbase connector
+
+database in the Data Center. This topic discusses the fields and menus that are specific to the Couchbase connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<Note>
+**Notes:**
+
+* Couchbase is:
+
+  + A distributed database. No more scaling or availability issues.
+  + A cache and a database. No more cache invalidation or coherency issues.
+  + A database and a search engine. No more crawlers.
+  + An operational and an analytical database. No more ETL.
+  + A desktop, mobile, and clusterable database. No compromises between Server and Mobile.
+
+</Note>
+
+## Best Practices
+
+* Limit the results set size as much as possible.
+* Keep the number of columns to a minimum.
+
+## Prerequisites
+
+To connect to a Couchbase connector
+
+database and create a DataSet, you must have the following:
+
+* The username and password you use to log into your
+  Couchbase connector
+
+  database.
+* The Hostname for the database.
+* Bucket for the database.
+
+You can also include the URL where your SSL CA Certificate is located, though this is optional.
+
+### Creating Couchbase Database Accounts
+
+You can create Couchbase account
+
+accounts two ways:
+
+* By using account-management statements intended for creating accounts and establishing their privileges, such as CREATE USER and GRANT. These statements cause the server to make appropriate modifications to the underlying grant tables.
+* By manipulating the Couchbase grant tables directly with statements such as INSERT, UPDATE, or DELETE.
+
+The preferred method is to use account management statements because they are more concise and less error-prone than manipulating the grant tables directly. Another option for creating accounts is to use the GUI tool MySQL Workbench. Also, several third-party programs offer capabilities for Couchbase account administration, such as phpMyAdmin.
+
+### Whitelisting
+
+Before you can connect to a Couchbase database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093 "Whitelisting IP Addresses for Connectors").
+
+## Connecting to Your Couchbase Database
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Couchbase Connector page. The components of the other panes in this page, **Scheduling,** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<Tip>
+**Note:** When using the copy/paste function for your credentials, ensure there is no whitespace at the beginning or end of the string. By accidentally pasting whitespace, it will cause the connector to error when trying to connect.
+</Tip>
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your database. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host Name </p></td><td colspan="1" rowspan="1"><p> Enter the hostname for the Couchbase database. For example <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your <span> Couchbase </span> username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your <span> Couchbase </span><span></span> password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Bucket </p></td><td colspan="1" rowspan="1"><p> Enter the Couchbase bucket you want to pull files from </p></td></tr></tbody></table>
+
+Once you have entered valid Couchbase credentials, you can use the same account any time you go to create a new Couchbase DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+In this pane you create an SQL query to pull data from your database, with or without a parameter.
+
+<table cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><p> Select the desired <span> Couchbase </span> query type—either with or without a parameter. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the Structured Query Language (SQL) query to use in selecting the data you want. For example: </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> You can use the <b> Query Helper </b> parameter to help you write a usable SQL query. To use the <b> Query Helper </b>, do the following: </p><ol><li><p> Select your database table and table columns in the appropriate menus. </p></li><li><p> Copy the SQL statement that appears in the <b> Query Helper </b> field. </p></li><li><p> Paste the copied SQL statement into the <b> Query </b> field. </p></li></ol><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter </p></td><td colspan="1" rowspan="1"><p> Enter the query parameter value. This is the initial value for the query parameter. You can use this option to retrieve new data since the last run. </p><p> For example, if you entered the following query in the <b> Query </b> field... </p><p>`select * from test.lastValue where id <=!{lastvalue:id}! order by id desc`</p><p>...and then entered the following for the <b> Query Parameter </b>... </p><p><code> `!{lastvalue:id}!=3` </code></p><p>...then the first run would return 3 rows, and all subsequent runs would return 1 row, and the results would be ordered from largest to smallest. </p><p> Similarly, if you entered the following in the <span></span><b> Query </b> field... </p><p>`select * from test.lastValue where time >!{lastrundate:time}!`</p><p>...and then entered the following for the <b> Query Parameter </b>... </p><p><code> `!{lastrundate:time}!=01/01/1990` </code></p><p>...then the first run would return 5 rows and all subsequent runs would return 0 rows. </p></td></tr><tr><td colspan="1" rowspan="1"><p> TinyInt Values Treated as Boolean Values? </p></td><td colspan="1" rowspan="1"><p> Select <b> Yes </b> if you want TinyInt values to be treated as Boolean. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Cast Boolean Values To... </p></td><td colspan="1" rowspan="1"><p> Select whether Boolean values will be cast to integers or strings. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Tables (Optional) </p></td><td colspan="1" rowspan="1"><p> Select the database table you want to import into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns (Optional) </p></td><td colspan="1" rowspan="1"><p> Select the table columns you want to import into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper (Optional) </p></td><td colspan="1" rowspan="1"><p> Copy and paste the SQL statement in this field into the <b> Query </b> field. For more information, see <b> Query </b>, above. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### FAQ
+
+<AccordionGroup>
+<Accordion title="What permissions do I need on Couchbase Database?">
+
+You need the read and write permissions for Couchbase Database
+</Accordion>
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need Domo client credentials (client ID and client secret) and Couchbase credentials (host name, database name, username and password, and bucket). Learn how to get your [Domo Client ID and Secret](/s/article/000005240#create-api-clients).
+</Accordion>
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+Limits depend on your server configuration.
+</Accordion>
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+</Accordion>
+<Accordion title="Why can't I connect to my Couchbase database? Do I need to whitelist any IP addresses?">
+
+Before you can connect to a Couchbase database in Domo, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses](/s/article/360043630093 "Whitelisting IP Addresses").
+</Accordion>
+<Accordion title="How do I find the Input Dataset ID?">
+
+Your Domo input dataset id is in the URL of the dataset you are exporting data from. For example:
+
+`https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings`
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Verify the credentials using MySQL Workbench.
+* Confirm the server supports encrypted connections.
+* Confirm the Domo IPs are whitelisted.
+* To speed up your runtime, make sure the tables you are joining don't have duplicate column names and that you call each column only once.

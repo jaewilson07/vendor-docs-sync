@@ -1,0 +1,79 @@
+---
+title: "Amazon S3 Analytics Connector"
+excerpt: "Use the Amazon S3 Analytics connector to pull Storage Class Analysis data from S3 into Domo to optimize storage tier decisions."
+---
+
+## Intro
+
+Amazon S3 Analytics Connector is an online file storage web service offered by Amazon Web Services that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. To learn more about the Amazon S3 API, visit their page ([http://docs.aws.amazon.com/AmazonS3/...I/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html")).
+
+The Amazon S3 and Amazon S3 Advanced connectors are almost the same. The only difference is in how they handle multiple files that begin with the prefix string you provide in the **Details** section of the connector.
+
+By using Amazon S3 analytics *Storage Class Analysis* you can analyze storage access patterns to help you decide when to transition the right data to the right storage class. This new Amazon S3 analytics feature observes data access patterns to help you determine when to transition less frequently accessed STANDARD storage to the STANDARD\_IA (IA, for infrequent access) storage class. For more information about storage classes, see [Using Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html).
+
+You connect to your Amazon S3 Analytics Connector account in the Data Center. This topic discusses the fields and menus that are specific to the Amazon S3 connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Primary Use Cases </b></td><td class="mt-noheading" colspan="1" rowspan="1"><span> This connector is an excellent choice for retrieving flat files when APIs are not an option. </span></td></tr><tr><td colspan="1" rowspan="1"><b> Primary Metrics </b></td><td class="mt-noheading" colspan="1" rowspan="1"><p> NA </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Primary Company Roles </b></td><td colspan="1" rowspan="1"><ul><li> Data specialists </li><li> Marketing roles </li><li> Finance roles </li><li> Anyone who has data stored in S3 </li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Average Implementation Time </b></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Less than an hour if you have the correct file types in S3. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></td><td colspan="1" rowspan="1"> 4 </td></tr></tbody></table>
+
+## Best Practices
+
+* Understanding the data stored in S3 Analytics Connector and its relation to other S3 databases will be a huge asset in using this connector.
+
+## Prerequisites
+
+You must create a user with the proper permissions in the IAM Amazon Console before you can connect to S3 data in Domo.
+
+**To configure your user in the IAM Amazon Console,**
+
+1. Add a new user, setting options as follows:
+
+      1. In the **Details** pane, check the box for **Programmatic Access** under **Select AWS access type**.
+         
+         <Frame><img alt="" src="/images/kb/ka05w00000123KN-00N5w00000Ri7BU-0EM5w000005vO5B.png"/></Frame>
+
+      2. In the **Permissions** pane, select **Attach existing policies directly**, then check the box for either **AmazonS3FullAccess** or **AmazonS3ReadOnlyAccess**. Customer-managed policies *do not work*.
+         
+         <Frame><img alt="" src="/images/kb/ka05w00000123KN-00N5w00000Ri7BU-0EM5w000005vO5G.png"/></Frame>
+
+      3. In the **Review** pane, click **Create User**.
+2. After you create your user, copy the access and secret keys to use in the **Credentials** pane in Domo.
+
+## Connecting to Your Amazon S3 Analytics Connector Account
+
+This section enumerates the options in the Credentials and Details panes in the [insert Connector name here] Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+The Domo Amazon S3 Analytics Connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Amazon S3 Analytics Connector accounts in Domo to open the Amazon S3 Analytics Connector OAuth screen where you can enter your Amazon S3 Analytics username and password. Once you have entered valid credentials, you can use the same account any time you go to create a new Amazon S3 Analytics DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+<Note>
+**Note:**
+
+If you are already logged into Amazon S3 Analytics Connector
+
+when you connect in Domo, you are authenticated automatically when you click
+
+**Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of Amazon S3 Analytics Connector.
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> Enter your AWS access key. For information about finding your access key, see "Prerequisites," above. </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> Enter your AWS secret key. For information about finding your secret key, see "Prerequisites," above. </td></tr></tbody></table>
+</Note>
+
+### Details Pane
+
+This pane contains various menus for locating and configuring the file you want to pull into Domo.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> S3 Bucket Region </p></td><td colspan="1" rowspan="1"><p> Select the S3 Bucket Region where your file is located. </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> File Type to Import </p></td><td colspan="1" rowspan="1"><p> Select the type of file you want to import into Domo, either CSV, JSON, or XML. </p></td></tr><tr><td colspan="1" rowspan="1"><p> How Would You Like to Choose Your Filename? </p></td><td colspan="1" rowspan="1"><p> Select how you want Domo to identify your file. Options are as follows: </p><table border="1" cellpadding="1" cellspacing="1" class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Complete Filename </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> You enter the complete path to the file. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Partial Filename </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> You enter a partial file name and specify whether the file to retrieve starts with or contains the name you have entered. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> FilesDiscovery </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> A list of files in the selected bucket appears and you choose the one you want. This option is available <em> only </em> when your selected S3 bucket contains fewer than 100 files. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Prefix (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter a prefix to filter results by. A prefix limits results to only those keys that begin with the given prefix. Note that with this standard version of the connector, only the latest modified file will be imported. The advanced version of the connector retrieves all files with the same prefix, provided they have the same schema. For more information, see <a href="/s/article/360043436353" target="_blank" title="Amazon S3 Advanced Connector"> Amazon S3 Advanced Connector </a>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Complete Filepath </p></td><td colspan="1" rowspan="1"><p> Enter the complete path for the desired file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Name </p></td><td colspan="1" rowspan="1"><p> Enter the name of the file you want to import, with or without the file path. For example: <span class="mt-font-courier-new"><em> folder_name/file_name </em></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> File Name Match Type </p></td><td colspan="1" rowspan="1"><p> Specify whether the file you want to retrieve starts with or contains the text you entered under <b> File Name </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Compression Type </p></td><td colspan="1" rowspan="1"><p> Select the compression type for the file you want to retrieve. If the file is not compressed, select <b> None </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Are Headers Present in CSV File? </p></td><td colspan="1" rowspan="1"><p> Select <b> Yes </b> if the CSV file you are importing contains headers; otherwise select <b> No </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List of Files </p></td><td colspan="1" rowspan="1"><p> Select the file you want to retrieve. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select the Delimiting Character </p></td><td colspan="1" rowspan="1"><p> Select the delimiter used in the CSV file you want to retrieve. If your delimiter is not listed, select <b> Other </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Quote Character </p></td><td colspan="1" rowspan="1"><p> Select a quote character to parse the CSV file you want to retrieve. A double quote (") is the CSV standard. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Escape Character </p></td><td colspan="1" rowspan="1"><p> Select an escape character to parse the CSV file you want to retrieve. A backslash (\) is the CSV standard. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enable Parsing for Large JSON Files? </p></td><td colspan="1" rowspan="1"><p> Specify whether parsing is enabled for large JSON files. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Does Your JSON Text Require a Line Reader? </p></td><td colspan="1" rowspan="1"><p> Specify whether the text in your JSON file includes multiple lines that should be read. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Should the Backslash be Escaped? </p></td><td colspan="1" rowspan="1"><p> Specify whether the text in your JSON file contains backslash characters that should be escaped. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Data Tag </p></td><td colspan="1" rowspan="1"><p> Enter the tag for the data in your JSON or XML file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Fields to Exclude </p></td><td colspan="1" rowspan="1"><p> Provide a comma-separated list of fields to exclude in your JSON/XML import. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Header Tag </p></td><td colspan="1" rowspan="1"><p> Enter the tag for the header in your JSON or XML file. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Do You Require Attributes in Data? </p></td><td colspan="1" rowspan="1"><p> Specify whether you require attributes values as part of your XML data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter XPath Expression </p></td><td colspan="1" rowspan="1"><p> Enter your XPath expression. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Is Password Protected? </p></td><td colspan="1" rowspan="1"><p> Select <b> Yes </b> if the file you are retrieving is password-protected; otherwise select <b> No </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Header Start Row </p></td><td colspan="1" rowspan="1"><p> Enter the number of the header row in the Excel file you are retrieving. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Start Row </p></td><td colspan="1" rowspan="1"><p> Enter the number of the first data row in the Excel file you are retrieving. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Footer </p></td><td colspan="1" rowspan="1"><p> Enter the number of the footer row in the Excel file you are retrieving. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blank Rows </p></td><td colspan="1" rowspan="1"><p> Select the action that should be taken if blank rows are encountered. If you select <b> Skip blank rows </b>, any blank rows are skipped; if you select <b> Stop at the first blank column </b>, the data import stops when a column with a blank row is encountered. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Empty Column Headers </p></td><td colspan="1" rowspan="1"><p> Specify what should happen if empty column headers are encountered. If you choose <b> Add blank columns </b>, column names are automatically generated for the new columns. If you select <b> Stop at the first blank column </b>, the data import stops when an empty header is encountered. </p></td></tr></tbody></table>
+
+## Troubleshooting
+
+* Ensure that the file is present in the S3 bucket and that the correct file type is specified in the connector settings.
+* NULL columns
+  *must* be removed before the connector can successfully retrieve data.
+* If you run into a "Failed to Import Successfully" error when trying to import a CSV file, you can often get around this by changing the option in the
+  **Quote Character** menu to **No Quote Character**.
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see
+
+[Adding a DataSet Using a Data Connector](/s/article/360042926274).

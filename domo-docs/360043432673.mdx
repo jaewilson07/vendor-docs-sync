@@ -1,0 +1,68 @@
+---
+title: "Zenefits Connector"
+excerpt: "Connect Domo to your Zenefits application using OAuth and scope selections to pull HR and benefits data into a DataSet."
+---
+
+## Intro
+
+Zenefits offers cloud-based software as a service for managing human resources, with a focus on health insurance coverage. To learn more about the Zenefits API, visit their page (https://www.zenefits.com/app-connect/).
+
+You connect to your Zenefits account in the Data Center. This topic discusses the fields and menus that are specific to the Zenefits connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Zenefits application and create a DataSet, you must have the following:
+
+* The list of scopes you want to request from Zenefits. For more information about scopes, see [https://developers.zenefits.com/docs/permissions](https://developers.zenefits.com/docs/permissions "https://developers.zenefits.com/docs/permissions").
+* The username and password for your Zenefits account.
+
+## Connecting to Your Zenefits Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Zenefits Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Zenefits application. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Scopes </td><td colspan="1" rowspan="1"><p> Enter the list of scopes you want to request from Zenefits. Separate scopes with the "+" symbol. For example: </p><p><span class="mt-font-courier-new"> platform+people+companies+locations+departments+employments+banks+company_banks+people.department+people.location+people.manager+people.work_email+people.date_of_birth+people.gender </span></p><p> Some column date will only be returned when the appropriate scope is added. For more information about scopes, see <a href="https://developers.zenefits.com/docs/permissions" target="_blank" title="https://developers.zenefits.com/docs/permissions"> https://developers.zenefits.com/docs/permissions </a>. </p></td></tr></tbody></table>
+
+Once you have entered valid Zenefits credentials, you are taken to the Zenefits OAuth screen where you are asked to enter your Zenefits credentials. You can use the same account any time you go to create a new Zenefits DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Zenefits report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Companies </p></td><td colspan="1" rowspan="1"><p> Returns a list of companies. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Company Bank Accounts </p></td><td colspan="1" rowspan="1"><p> Returns information about bank accounts for a given company. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Departments </p></td><td colspan="1" rowspan="1"><p> Returns a list of departments for a given company. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Bank Accounts </p></td><td colspan="1" rowspan="1"><p> Returns a list of bank accounts for a given employee. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employments </p></td><td colspan="1" rowspan="1"><p> Returns a list of employments for a given employee. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Locations </p></td><td colspan="1" rowspan="1"><p> Returns a list of locations for a given company.` </p></td></tr><tr><td colspan="1" rowspan="1"><p> People </p></td><td colspan="1" rowspan="1"><p> Returns a list of employees for a given company. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Sub Report </p></td><td colspan="1" rowspan="1"><p> Select the desired sub report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Company ID </p></td><td colspan="1" rowspan="1"><p> Select the company you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Person ID </p></td><td colspan="1" rowspan="1"><p> Select the person you want to retrieve information for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Which endpoint is the base URL for this Connector?">
+
+The base URL for Zenefits is https://api.zenefits.com/core/.
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call using this Connector?">
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Report Name </p></th><th colspan="1" rowspan="1"><p> Endpoint URL </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Companies </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /companies </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Company Bank Accounts </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /companies/{company_id}/company_banks </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Departments </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /departments </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Employees Bank Accounts </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /people/{person_id}/banks </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Employments </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /employments </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Locations </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /locations </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> People </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /people </span></p></td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API call limits I should be aware of?">
+
+Zenefits allows 100 API calls per subscription per minute.
+
+</Accordion>
+</AccordionGroup>
+

@@ -1,0 +1,39 @@
+---
+title: "Verizon ThingSpace IoT Connector"
+excerpt: "Configure the Verizon ThingSpace IoT Connector to retrieve IoT device metadata, sensor history, and subscriptions in Domo."
+---
+
+## Intro
+
+Verizon ThingSpace is an Internet of Things (IoT) cloud platform allowing simple and secure IoT device connectivity over Verizon's network. Use the Domo Verizon ThingSpace IoT connector to retrieve data about IoT devices and recent device sensor values.
+
+You can connect to your Verizon ThingSpace IoT account in the Data Center. This topic discusses the fields and menus that are specific to the Verizon ThingSpace IoT connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Verizon ThingSpace IoT account and create a DataSet, you need the following:
+
+* Verizon ThingSpace Account ID
+* Developer key
+* Verizon ThingSpace Username and Password
+* Client Secret.
+
+## Connecting to Your Verizon ThingSpace IoT Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Verizon ThingSpace IoT Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Verizon ThingSpace IoT account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account ID </td><td colspan="1" rowspan="1"> Enter your Verizon ThingSpace Account ID. If you do not know your key, contact your Verizon account representative. </td></tr><tr><td colspan="1" rowspan="1"> Key </td><td colspan="1" rowspan="1"> Enter the developer key. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your Verizon ThingSpace password. </td></tr><tr><td colspan="1" rowspan="1"> Secret </td><td colspan="1" rowspan="1"> Enter the client secret. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your Verizon ThingSpace username. </td></tr></tbody></table>
+
+Once you have entered valid Verizon ThingSpace IoT credentials, you can use the same account at any time to create a new Verizon ThingSpace IoT DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Verizon ThingSpace IoT report you want to run. The following reports are available: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Query Devices </p></td><td colspan="1" rowspan="1"> Returns the metadata about IoT devices. </td></tr><tr><td colspan="1" rowspan="1"><p> Search Devices </p></td><td colspan="1" rowspan="1"> Search for IoT device data based on a query. Leaving the query blank will return all sensors. </td></tr><tr><td colspan="1" rowspan="1"><p> Search Device Fields </p></td><td colspan="1" rowspan="1"> Returns the IoT device sensor events based on a query. Leaving the query blank will return all events. </td></tr><tr><td colspan="1" rowspan="1"><p> Device Sensor History </p></td><td colspan="1" rowspan="1"> Returns the readings of IoT device sensors. </td></tr><tr><td colspan="1" rowspan="1"><p> Search Subscriptions </p></td><td colspan="1" rowspan="1"> Returns the data about ThingSpace IoT subscriptions. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Enter the date range for which you would like to get the data. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

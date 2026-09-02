@@ -1,0 +1,41 @@
+---
+title: "Azure Synapse Active Directory Service Principal Connector"
+excerpt: "Connect Domo to Azure Synapse Analytics using an Active Directory service principal to pull data warehouse tables and queries."
+---
+
+## Intro
+
+Azure Synapse Analytics lets you quickly implement a high-performance, globally available, and secure cloud data warehouse. Use Domo's Azure Synapse Active Directory Service Principal SQL connector (formerly the Azure SQL Data Warehouse connector) to bring your Azure data into Domo. Combine your Azure data with data from other sources throughout your company for a comprehensive view of your business. Set up custom alerts to be notified in real-time when your key metrics change, so that you can make faster, better business decisions.
+
+You can connect to your Azure Synapse Active Directory Service Principal account in the Data Center. This topic discusses the fields and menus specific to the Azure Synapse Active Directory Service Principal connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Azure Synapse Active Directory Service Principal account and create a DataSet, you need the following:
+
+* Server Name
+* Port
+* Database
+* Azure App Service Principal Client Id
+* Azure App Service Principal Client Secret
+* Host Name In Certificate
+
+## Connecting to Your Azure Synapse Active Directory Service Principal Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Azure Synapse Active Directory Service Principal Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Azure Synapse Active Directory Service Principal account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Server Name <div><div></div></div></td><td colspan="1" rowspan="1"><p> To know your server name: </p><ol><li> Navigate to the Azure Portal. </li><li> Click Azure Synapse Analytics. </li><li> Click the Synapse SQL Pool you want to connect. </li><li> Locate the full server name. For example, <b><a href="http://yourserver.database.windows.net" rel="noopener" target="_blank"> yourserver.database.windows.net </a></b></li></ol></td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port number from where the server is listening. </td></tr><tr><td colspan="1" rowspan="1"> Database </td><td colspan="1" rowspan="1"> Enter the name of the database that you want to connect to. </td></tr><tr><td colspan="1" rowspan="1"> Azure App Service Principal Client Id </td><td colspan="1" rowspan="1"> Enter your Active Directory Service Principal client id. </td></tr><tr><td colspan="1" rowspan="1"> Azure App Service Principal Client Secret` </td><td colspan="1" rowspan="1"> `Enter your Active Directory Service Principal client secret. </td></tr><tr><td colspan="1" rowspan="1"> Host Name In Certificate </td><td colspan="1" rowspan="1"> Enter the host name to be used to validate the SQL Server TLS/SSL certificate. </td></tr></tbody></table>
+
+Once you have entered valid Azure Synapse Active Directory Service Principal credentials, you can use the same account at any time to create a new Azure Synapse Active Directory Service Principal DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Query Type </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> Enter the query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> Select a table and fields to autogenerate your query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter the SQL query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Database Tables </td><td colspan="1" rowspan="1"> Select the table. </td></tr><tr><td colspan="1" rowspan="1"> Table Columns </td><td colspan="1" rowspan="1"> Select the columns. </td></tr><tr><td colspan="1" rowspan="1"> Query Helper </td><td colspan="1" rowspan="1"> This field is automatically generated using the above selected fields. Updating the auto generated query will not update your selections in the above Field table. </td></tr><tr><td colspan="1" rowspan="1"> Query Time Out </td><td colspan="1" rowspan="1"> The number of seconds to wait before a timeout has occurred on a query. The default value is -1, which indicates infinite timeout. Setting this value to 0 also implies to wait indefinitley. </td></tr><tr><td colspan="1" rowspan="1"> MaxResultBuffer </td><td colspan="1" rowspan="1"><p><b> maxResultBuffer </b> can be used to set the maximum bytes to read when reading a result set. If this is not specified, then the entire result set is read. Size can be specified in two styles: </p><ol><li> As size of bytes (for example, 100, 150M, 300K, 400G). <ol><li> As a percent of maximum heap memory (for example, 10p, 15pct, 20percent). </li></ol></li></ol></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

@@ -1,0 +1,43 @@
+---
+title: "Airtable OAuth Connector"
+excerpt: "Use Domo's Airtable OAuth Connector to pull data from your Airtable tables and views into a DataSet using OAuth authentication."
+---
+
+## About
+
+Use the **Airtable OAuth Connector** to effectively pull all your Airtable data within minutes. Due to the nature of the Airtable API, precision is required when entering your credentials.
+
+To learn more about the Airtable OAuth API, see [Airtable OAuth API](https://airtable.com/developers/web/api/introduction "Airtable OAuth API").
+
+You can connect to your Airtable OAuth account in the Data Center. This article explains the fields and menus that are specific to the Airtable OAuth Connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Airtable OAuth account and create a DataSet, you must have the following:
+
+* Your Airtable Email Address
+* Your Airtable Password
+
+## Connecting to Your Airtable OAuth Account
+
+This section lists the options in the **Credentials** and **Details** panes in the Airtable OAuth Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+The Airtable OAuth Connector uses Oauth for authentication.
+
+This pane contains fields for entering credentials to connect to your Airtable OAuth account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Email </td><td colspan="1" rowspan="1"> Enter the Email Address associated with your Airtable account. </td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"> Enter the password associated with your Airtable account. </td></tr></tbody></table>
+
+Once you have entered valid Airtable OAuth credentials, you can use the same account to create a new Airtable OAuth DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> App ID </td><td colspan="1" rowspan="1"> The EXACT (include cases and spaces) application ID. This can be found by accessing your specific API documentation. To do this, go to <a href="https://airtable.com/api" target="_blank"> https://airtable.com/api </a>, sign into your account, and then select the specific report for which you want to retrieve the data. The app ID can be found in the URL after <a href="http://airtable.com" rel="noopener" target="_blank"> airtable.com </a> /, beginning with app. </td></tr><tr><td colspan="1" rowspan="1"> Table </td><td colspan="1" rowspan="1"> The EXACT (include cases and spaces) table name that you want to retrieve the data for. </td></tr><tr><td colspan="1" rowspan="1"> View (optional) </td><td colspan="1" rowspan="1"> The EXACT (include cases and spaces) view name or view id that you would like to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> Field Selection Method </td><td colspan="1" rowspan="1"> To fetch the data, specify if you want to select all fields/columns or enter the fields/columns manually. </td></tr><tr><td colspan="1" rowspan="1"> Flatten Sublists? (checkbox) </td><td colspan="1" rowspan="1"> Select the checkbox if you want to flatten sublists. Selecting this checkbox may result in errors, due to too many columns. Not flattening may result in some boxes having the value <b> List </b> instead of the actual data sublist. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

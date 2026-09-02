@@ -1,0 +1,50 @@
+---
+title: "PlayVox Connector"
+excerpt: "Use the PlayVox connector to pull user analytics, communication analytics, poll votes, activities, and coaching stats into a Domo DataSet."
+---
+
+## Intro
+
+PlayVox is a free collaboration platform designed to manage and motivate people at call centers. Use Domo's PlayVox connector to retrieve user analytics, communication analytics, poll votes, activities, and so on. For more information about integrating PlayVox, visit their website. ([https://docs.playvox.apiary.io/](https://docs.playvox.apiary.io/ "https://docs.playvox.apiary.io/") )
+
+The PlayVox connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your PlayVox account in the Data Center. This topic discusses the fields and menus that are specific to the PlayVox connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your PlayVox account and create a DataSet, you must have the following:
+
+* Your PlayVox User ID.
+* Your PlayVox API Key.
+
+To obtain your User ID and API Key, do the following:
+
+1. Go to [https://my.playvox.com/login](https://my.playvox.com/login "https://my.playvox.com/login") and log in using your domain, username, and password.
+2. Click on **Settings** (the Gear icon) **> Integrations**.
+3. Click **API**.
+4. Copy and paste the User ID and API Key into the correct fields in Domo.
+
+## Connecting to Your PlayVox Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the PlayVox Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your PlayVox account. For information about obtaining these credentials, see "Prerequisites," above.
+
+The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> Field </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> User ID </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Enter the User ID for your PlayVox account. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> API Key </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Enter your PlayVox API Key. </span></p></td></tr></tbody></table>
+
+Once you have entered valid PlayVox credentials, you can use the same account any time you go to create a new PlayVox DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Report** menu in which you select a report type, along with other menus which may appear depending on the selected report type.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Menu </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> Description </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Select a PlayVox report. The following reports are available: </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> Activity Analytics </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Retrieves a summary of total posts created by type, post comments, and recognitions. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Achieved Recognition Analytics </p></td><td colspan="1" rowspan="1"><p> Retrieves total achieved recognitions grouped and filtered by the desired fields. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Coaching Analytics </p></td><td colspan="1" rowspan="1"><p> Retrieves a summary of coaching stats. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Communication Analytics </p></td><td colspan="1" rowspan="1"><p> Retrieves total messages grouped and filtered by the desired fields. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Get Poll Votes </p></td><td colspan="1" rowspan="1"><p> Retrieves the total votes and votes by answer associated with a poll activity. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Activities </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of activities. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Activity Comments </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of comments associated with an activity. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Activity Likes </p></td><td colspan="1" rowspan="1"><p> Returns a list of users who liked an activity. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Comment Likes </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of users who liked a comment. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Management Users Analytics </p></td><td colspan="1" rowspan="1"><p> Returns total users grouped by and filtered by the parameters specified in the requests. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Management Users Metrics Analytics </p></td><td colspan="1" rowspan="1"><p> Returns daily user interaction stats by different PlayVox clients. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Quality Analytics </p></td><td colspan="1" rowspan="1"><p> Retrieves a summary with total evaluations, achieved evaluations, average score, effectiveness goal, and different error stats. </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Group By </span></p></td><td colspan="1" rowspan="1"><p> Lets you group analytics by a field or a combination of fields separated by commas. For example: <span class="mt-font-courier-new"> created_at </span>, <span class="mt-font-courier-new"> assigned_to </span>, etc. </p><p> You can find Group By fields in PlayVox's API documentation at <a href="http://docs.playvox.apiary.io/" target="_blank" title="http://docs.playvox.apiary.io/"> http://docs.playvox.apiary.io/ </a>. For example, to find the Group By fields for "Coaching," you would do the following: </p><ol><li><p> Go to the PlayVox API at the above URL. </p></li><li><p> Click on the reference link for <b> Coaching </b>. </p></li><li><p> Click the <b> Get coaching stats </b> box. </p></li><li><p> Under the parameters section, expand the <b> group_by </b> label to see the possible values to use. For "Coaching" this would be <span class="mt-font-courier-new"> created_at </span>, <span class="mt-font-courier-new"> campaign_id </span>, <span class="mt-font-courier-new"> coach_id </span>, <span class="mt-font-courier-new"> trainee_id </span>, and <span class="mt-font-courier-new"> follow_up </span>. </p></li></ol></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Lets you add more complex filters. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Poll ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the poll you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Fields </p></td><td colspan="1" rowspan="1"><p> Enter any fields that should be returned by the report, separated by commas. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Activity ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the activity you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Comment ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID of the comment you want to retrieve information for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

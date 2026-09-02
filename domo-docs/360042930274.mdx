@@ -1,0 +1,39 @@
+---
+title: "MindTouch Connector"
+excerpt: "Use Domo's MindTouch connector to retrieve pages, users, groups, site activity, page ratings, and search analytics into a DataSet."
+---
+
+## Intro
+
+MindTouch is a document content management system that helps you organize your documentation so users can easily find it. To learn more about the MindTouch API, visit their page ([https://success.mindtouch.com/Soluti...\_Documentation](https://success.mindtouch.com/Solutions/Knowledge_Management/MindTouch_Tools_and_Features/API_Documentation "https://success.mindtouch.com/Solutions/Knowledge_Management/MindTouch_Tools_and_Features/API_Documentation") ).
+
+You connect to your MindTouch account in the Data Center. This topic discusses the fields and menus that are specific to the MindTouch connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your MindTouch account and create a DataSet, you must have the following:
+
+* The domain for your MindTouch instance (e.g. [mycompany.mindtouch.com](http://mycompany.mindtouch.com))
+* The username and password for your MindTouch account
+
+## Connecting to Your MindTouch Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the MindTouch Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This page contains fields for entering credentials to connect to your MindTouch account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> Enter the domain for your MindTouch instance (e.g. <span class="mt-font-courier-new"><a href="http://mycompany.mindtouch.com" rel="noopener" target="_blank"> mycompany.mindtouch.com </a></span> ) </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your MindTouch username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your MindTouch password. </p></td></tr></tbody></table>
+
+Once you have entered valid MindTouch credentials, you can use the same account any time you go to create a new MindTouch DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the MindTouch report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Archive Files </p></td><td colspan="1" rowspan="1"><p> Retrieves the information for all deleted files. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Archive Pages </p></td><td colspan="1" rowspan="1"><p> Retrieves the information for all deleted pages. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content ID Associations </p></td><td colspan="1" rowspan="1"><p> Retrieves the Content ID to Page associations. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content IDs </p></td><td colspan="1" rowspan="1"><p> Retrieves the Content IDs and descriptions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Events Page Hierarchy </p></td><td colspan="1" rowspan="1"><p> Retrieves a site history summary (last 1000 events per page). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Events Page </p></td><td colspan="1" rowspan="1"><p> Retrieves a page history summary (last 1000 events per page). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Groups </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of all groups in your MindTouch instance. </p></td></tr><tr><td colspan="1" rowspan="1"><p> License </p></td><td colspan="1" rowspan="1"><p> Retrieves the information about your MindTouch license. If you are an Admin user in MindTouch, all license information is retrieved; otherwise only the public information is retrieved. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Page Rating </p></td><td colspan="1" rowspan="1"><p> Retrieves the page rating data for the MindTouch site. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Pages </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of pages for the MindTouch site. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Page Security </p></td><td colspan="1" rowspan="1"><p> Retrieves the information about page security settings, such as public or private visibility. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Terms and Queries </p></td><td colspan="1" rowspan="1"><p> Retrieve the Search Terms and Queries data. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Site Activity </p></td><td colspan="1" rowspan="1"><p> Retrieves site activity for a specific date or relative number of days back. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Usage </p></td><td colspan="1" rowspan="1"><p> Retrieves the data about site usage. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of users in your MindTouch site. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Filter </p></td><td colspan="1" rowspan="1"><p> Select whether to retrieve all pages or only those that have been rated. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date Type </p></td><td colspan="1" rowspan="1"><p> Select whether to retrieve data for a specific date or relative number of days back. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of days back you want to retrieve data for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

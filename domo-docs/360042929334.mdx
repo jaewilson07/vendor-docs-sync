@@ -1,0 +1,58 @@
+---
+title: "Matomo Connector"
+excerpt: "Use Domo's Matomo connector to pull web analytics reports for actions, events, goals, referrers, and visit data into a DataSet."
+---
+
+## Intro
+
+Matomo is open-source web analytics software that lets users collect and visualize data from websites, apps, and IOT. To learn more about the Matomo API, visit their page ([https://matomo.org/docs/analytics-api/](https://matomo.org/docs/analytics-api/ "https://matomo.org/docs/analytics-api/") ).
+
+You connect to your Matomo account in the Data Center. This topic discusses the fields and menus that are specific to the Matomo connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Matomo account and create a DataSet, you need the following:
+
+* Your Matomo Access Token (`token_auth`)
+* Your Matomo Analytics Subdomain.
+
+To find your access token, log into Matomo (Piwik), click **Administration** in the top menu, then click **API** in the left menu.
+
+## Connecting to Your Matomo Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Matomo Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Matomo account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Token </p></td><td colspan="1" rowspan="1"><p> Enter your Matomo access token (<span class="mt-font-courier-new"> token_auth </span> ). For information about finding your token, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Analytics Subdomain </p></td><td colspan="1" rowspan="1"><p> Enter your Matomo analytics subdomain. </p></td></tr></tbody></table>
+
+Once you have entered valid Matomo credentials, you can use the same account any time you go to create a new Matomo DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Matomo report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Actions </p></td><td colspan="1" rowspan="1"><p> Returns a list of visitor actions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Advanced Campaign Reporting </p></td><td colspan="1" rowspan="1"><p> Returns a list of Campaign Reporting reports. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Click Path </p></td><td colspan="1" rowspan="1"><p> Returns a list of reports for Visitors Click Path Tracking. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contents </p></td><td colspan="1" rowspan="1"><p> Returns report data for Content Visited by Visitors. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Devices Detection </p></td><td colspan="1" rowspan="1"><p> Returns a list of detected devices used by visitors. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Events </p></td><td colspan="1" rowspan="1"><p> Returns a list of user custom events. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Goals </p></td><td colspan="1" rowspan="1"><p> Returns existing goals for one or more websites. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Referrers </p></td><td colspan="1" rowspan="1"><p> Returns a list of websites, search engines, keywords, and campaigns used to access your website. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Transitions </p></td><td colspan="1" rowspan="1"><p> Returns a list of tracked transitions within websites. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Country </p></td><td colspan="1" rowspan="1"><p> Returns a list of users' continents and countries. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Visit Frequency </p></td><td colspan="1" rowspan="1"><p> Returns metrics for returning visitors. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Visit Time </p></td><td colspan="1" rowspan="1"><p> Returns a list of visits by server time and by local time of your visitors. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Visit Summary </p></td><td colspan="1" rowspan="1"><p> Returns a summary of visits. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Get All Sites </p></td><td colspan="1" rowspan="1"><p> Specify whether to return data for all sites or only those you specify. </p></td></tr><tr><td colspan="1" rowspan="1"><p> ID Site </p></td><td colspan="1" rowspan="1"><p> Select the IDs of all websites you want to return data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Subtable ID </p></td><td colspan="1" rowspan="1"><p> Enter the ID for the subtable you want to return data for. For example, each row in the <span class="mt-font-courier-new"> Referrers.getSearchEngines </span> response have an "idsubdatatable" field. This is the idSubtable of the table that contains all keywords for this search engine. </p></td></tr><tr><td colspan="1" rowspan="1"><p> URL </p></td><td colspan="1" rowspan="1"><p> Enter the URL you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Title </p></td><td colspan="1" rowspan="1"><p> Enter the page title you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Field to Flatten </p></td><td colspan="1" rowspan="1"><p> Select the field you want to break down your data by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Period </p></td><td colspan="1" rowspan="1"><p> Select the time period you want to pull data for. For example, if you selected <b> Week </b>, data would be retrieved for the week you select in the date picker for <b> Date </b>. If you select <b> Range </b>, you are prompted to select a range of dates to pull data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Granularity </p></td><td colspan="1" rowspan="1"><p> This field populates, if you select <b> Range </b> from the <b> Period </b> drop-down list. Granularity fetches data for each day. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

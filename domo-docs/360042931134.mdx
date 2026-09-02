@@ -1,0 +1,65 @@
+---
+title: "Nielsen Music Connect Connector"
+excerpt: "Use Domo's Nielsen Music Connect Connector to import performance and trend metrics for artists, albums, and songs from Nielsen into a DataSet."
+---
+
+## Intro
+
+Nielson Music Connect delivers granular and up-to-date data across multiple measurement metrics for artists, albums and songs as a complete view of performance and trends. To learn more about the Nielsen Music Connect API, visit their page ([https://portal.developer.nielsen.com/home](https://portal.developer.nielsen.com/home "https://portal.developer.nielsen.com/home") ).
+
+You connect to your Nielsen Music Connect account in the Data Center. This topic discusses the fields and menus that are specific to the Nielsen Music Connect connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Nielsen Music Connect account and create a DataSet, you must have the following:
+
+* The credentials (username and password) for your Nielsen Music Connect account
+* A Nielsen Music Connect client ID
+* A Nielsen Music Connect password
+
+For help finding your credentials, reach out to your Nielsen representative.
+
+## Connecting to Your Nielsen Music Connect Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Nielsen Music Connect Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Nielsen Music Connect account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username for your Nielsen Music Connect account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password for your Nielsen Music Connect account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Nielsen Music Connect client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Nielsen Music Connect client secret. </p></td></tr></tbody></table>
+
+Once you have entered valid Nielsen Music Connect credentials, you can use the same account any time you go to create a new Nielsen Music Connect DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Nielsen Music Connect report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Barcode Data </p></td><td colspan="1" rowspan="1"><p> Returns metrics data for a given barcode. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart Data </p></td><td colspan="1" rowspan="1"><p> Returns data for a specific chart. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart List </p></td><td colspan="1" rowspan="1"><p> Returns a list of charts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart Options </p></td><td colspan="1" rowspan="1"><p> Returns a detailed list of available markets and metrics. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Feed </p></td><td colspan="1" rowspan="1"><p> Retrieves data feed results. </p></td></tr><tr><td colspan="1" rowspan="1"><p> ISRC Data </p></td><td colspan="1" rowspan="1"><p> Returns metrics for a given ISRC. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Barcode </p></td><td colspan="1" rowspan="1"><p> Enter the barcode you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> ISRC </p></td><td colspan="1" rowspan="1"><p> Enter the ISRC you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Week Number (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the week number you want to retrieve data for, in the format <span class="mt-font-courier-new"> YYYYWW </span>, in which <span class="mt-font-courier-new"> YYYY </span> is the year and <span class="mt-font-courier-new"> WW </span> is the week number. For example, if you entered <span class="mt-font-courier-new"> 201801 </span>, you would get data for the first week of 2018. If you leave this blank, data for the current week will be returned. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Country </p></td><td colspan="1" rowspan="1"><p> Select the country you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart Name </p></td><td colspan="1" rowspan="1"><p> Select the name of the chart you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filters </p></td><td colspan="1" rowspan="1"><p> Select all filters you want to apply to your chart. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Market Code </p></td><td colspan="1" rowspan="1"><p> Select the market code you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Genre Code </p></td><td colspan="1" rowspan="1"><p> Select the genre code you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Metric Cide </p></td><td colspan="1" rowspan="1"><p> Select the metric code you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Request Type </p></td><td colspan="1" rowspan="1"><p> Select the desired request type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart Filter Key </p></td><td colspan="1" rowspan="1"><p> Select the desired chart filter key. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="Can I use the same account to create multiple DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+Nay.
+
+</Accordion>
+</AccordionGroup>
+

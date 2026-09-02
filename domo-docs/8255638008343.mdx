@@ -1,0 +1,98 @@
+---
+title: "QuickBooks Connector"
+excerpt: "Use Domo's QuickBooks Connector to pull accounting reports such as bills, invoices, journal entries, and purchase orders into Domo."
+---
+
+QuickBooks is an accounting software used to help small businesses accept payments, pay bills, and complete payroll. Use the Domo QuickBooks connector to bring QuickBooks data into Domo, including bills, bill payments, deposits, invoices, journal entries, purchase orders, and more. Using Domo and QuickBooks together gives you customizable dashboards that you can create by integrating your QuickBooks data with essential marketing, sales, or operational data.
+  
+Once your data is in Domo, you can give managers and stakeholders financial transparency with powerful and flexible charts, visualizing things like balance sheets, cash flow, vendor balances, and more. And you can access all your data in real time, from any device.
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Pulling financial accounting reports. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> Primary Metrics </b></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Revenue </p></li><li><p> Costs </p></li><li><p> P&amp;L line items </p></li><li><p> Balance sheet items </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Accountants </p></li><li><p> Purchasers </p></li><li><p> CFOs </p></li><li><p> Controllers </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Report runtime will depend on how large the reports in QuickBooks are. Smaller date ranges will take less. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## Best Practices
+
+The connector should run on **Replace** at any reasonable schedule. **Append** will cause duplicates.
+
+## Prerequisites
+
+To connect to your [insert Connector name here] account and create a DataSet, you must have the following:
+
+* Your QuickBooks Connector username.
+* Your QuickBooks Connector password.
+
+## Connecting to Your QuickBooks Connector Account
+
+This section enumerates the options in the Credentials and Details panes in the [insert Connector name here] Connector page. The components of the other panes on this page, **Scheduling,** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo QuickBooks Connector Connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing QuickBooks Connector accounts in Domo) to open the QuickBooks Connector OAuth screen where you can enter your QuickBooks Connector username and password. Once you have entered valid QuickBooks Connector credentials, you can use the same account any time you go to create a new QuickBooks Connector DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into QuickBooks Connector when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of QuickBooks Connector.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the <span> QuickBooks Connector </span> report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Accounts </p></td><td colspan="1" rowspan="1"><p><span> Retrieves a list of accounts </span>. </p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Bill </p></td><td colspan="1" rowspan="1"><p><span> Retrieve a list of bills that represent a request-for-payment from a third party for goods/services rendered, received, or both. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Bill Payment </p></td><td colspan="1" rowspan="1"><p><span> Retrieve a list of data representing payment transactions for a bill. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Credit Memo </p></td><td colspan="1" rowspan="1"><p><span> Retrieves a list of credit memos representing a refund or credit of payment. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Deposit </p></td><td colspan="1" rowspan="1"><span> Retrieves a list of transactions representing deposits. </span></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Estimate </p></td><td colspan="1" rowspan="1"><span> Retrieves a list of estimates that represent a proposal for a financial transaction from a business to a customer for goods or services. </span></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Employee </p></td><td colspan="1" rowspan="1"><span> Retrieves a list of employees. </span></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Invoice </p></td><td colspan="1" rowspan="1"><span> Retrieves a list of invoices representing a sales form the customer uses to pay for a product or service. </span></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Journal Entry </p></td><td colspan="1" rowspan="1"><span> Retrieves a list of journal entries. </span></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Payment </p></td><td colspan="1" rowspan="1"><span> Retrieves a list of payments. </span></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Purchase </p></td><td colspan="1" rowspan="1"><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> Retrieves a list of purchases such as a purchase made from a vendor. </div></div></div><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"></div></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Purchase Order </p></td><td colspan="1" rowspan="1"><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> Retrieves a list of purchase orders that represent a request to purchase goods. </div></div></div><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"></div></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Refund Receipt </p></td><td colspan="1" rowspan="1"><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> Retrieves a list of refund receipts representing refunds to the customer. </div></div></div><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"></div></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Sales Receipt </p></td><td colspan="1" rowspan="1"><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> Retrieves a list of sales receipts that represent the sales receipt given to a customer. </div></div></div><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"></div></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Time Activity </p></td><td colspan="1" rowspan="1"><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> Retrieves a list of time activities representing a record of time worked by a vendor or employee. </div></div></div><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"></div></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Transfer </p></td><td colspan="1" rowspan="1"><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> Retrieves a list of transfers representing a transfer of funds between two accounts. </div></div></div><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"></div></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Vendor Credit </p></td><td colspan="1" rowspan="1"><div class="AppItemDetails_left_Rnhyi"><div><div class="Tabs-module_tabs__cHJe2 TabPapers_container_26uqt Tabs-module_tabBarPlacement-above__BGHlW"><div class="TabPanes-module_tabPanes__A-xE2"><div class="TabPane-module_tabPane__iOMa6 TabPapers_tabPane_2nBMQ"><div class="Paper_container_2GWPD"><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> Retrieves a list of vendor credits that represent a refund or credit of payment. </div></div></div></div></div></div></div></div></div><div class="AppItemDetails_right_152HJ"><div class="Paper_container_2GWPD"><div class="Actions_container_1rWB_"></div></div></div></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p><span> Date Filter By </span></p></td><td colspan="1" rowspan="1"><p><span> Select the date filter method. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span> Created Date Duration </span></p></td><td colspan="1" rowspan="1"><p><span> Select the created date duration for the report (a Single Date, or a Date Range). </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span> Account Status </span></p></td><td colspan="1" rowspan="1"><p><span> Select account status. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Transaction Date </p></td><td colspan="1" rowspan="1"><p><span> Select the start date for the report. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p><span> Select report date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Date </p></td><td colspan="1" rowspan="1"><p><span> Select the report date using the date picker, this option is only available when Report Date is set to 'Specific' </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Offset </p></td><td colspan="1" rowspan="1"><p><span> This adjusts the current date the given number of days into the past. Example: 0 for today, 1 for yesterday. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Aging Method </p></td><td colspan="1" rowspan="1"><p><span> Select aging method. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Per Aging Period </p></td><td colspan="1" rowspan="1"><p><span> Enter the number of days per aging period. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Number of Periods </p></td><td colspan="1" rowspan="1"><p><span> Enter the number of aging periods to be shown in the report. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Due Date Duration </p></td><td colspan="1" rowspan="1"><p><span> Select the due date duration for the report (a Single Date, or a Date Range). </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Transaction Date Duration </p></td><td colspan="1" rowspan="1"><p><span> Select the transaction date range for the report. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Accounting Method </p></td><td colspan="1" rowspan="1"><p> Select the desired accounting method. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Summarize Column By </p></td><td colspan="1" rowspan="1"><p> Select how you want your report data to be broken down. For example, if you select <b> Month </b>, your report data is broken down by month. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Receivable Paid Status </p></td><td colspan="1" rowspan="1"><p><span> Select account receivable paid status. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Columns </p></td><td colspan="1" rowspan="1"><p><span> Check this to be given an option, otherwise a default selection will be given. Schema will always be maintained, even if selections are changed. Note - this is for advanced users as QuickBooks may return errors based on column selection. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Enable Pivot Parsing </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pivot your report data by the selected <b> Summarize Column By </b><span></span> value. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see
+
+[Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the API does this Connector use?">
+
+This connector uses version 3 of the Quickbooks API (https://quickbooks.api.intuit.com/v3/company/).
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this Connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="2" rowspan="1"> Report Name </th><th colspan="1" rowspan="1"> Endpoint URL(s) </th></tr><tr><td colspan="2" rowspan="1"><span> Accounts </span></td><td colspan="1" rowspan="1"> /account </td></tr><tr><td colspan="2" rowspan="1"><span> Bill </span></td><td colspan="1" rowspan="1"> /bill </td></tr><tr><td colspan="2" rowspan="1"><span> Bill Payment </span></td><td colspan="1" rowspan="1"><span> /billpayment </span></td></tr><tr><td colspan="2" rowspan="1"><span> Credit Memo </span></td><td colspan="1" rowspan="1"> /creditmemo </td></tr><tr><td colspan="2" rowspan="1"><span> Deposit </span></td><td colspan="1" rowspan="1"> /deposit </td></tr><tr><td colspan="2" rowspan="1"><span> Estimate </span></td><td colspan="1" rowspan="1"> /estimate </td></tr><tr><td colspan="2" rowspan="1"><p> Employee </p></td><td colspan="1" rowspan="1"> /Employee </td></tr><tr><td colspan="2" rowspan="1"><span> Invoice </span></td><td colspan="1" rowspan="1"> /i <span> nvoice </span></td></tr><tr><td colspan="2" rowspan="1"><span> Journal Entry </span></td><td colspan="1" rowspan="1"> /journalentry </td></tr><tr><td colspan="2" rowspan="1"> Payment </td><td colspan="1" rowspan="1"> /payment </td></tr><tr><td colspan="2" rowspan="1"> Purchase </td><td colspan="1" rowspan="1"><p> /purchase </p></td></tr><tr><td colspan="2" rowspan="1"> Purchase Order </td><td colspan="1" rowspan="1"> /purchaseorder </td></tr><tr><td colspan="2" rowspan="1"> Refund Receipt </td><td colspan="1" rowspan="1"> /refundreceipt </td></tr><tr><td colspan="2" rowspan="1"> Sales Receipt </td><td colspan="1" rowspan="1"> /salesreceipt </td></tr><tr><td colspan="2" rowspan="1"> Time Activity </td><td colspan="1" rowspan="1"> /timeactivity </td></tr><tr><td colspan="2" rowspan="1"> Transfer </td><td colspan="1" rowspan="1"> /transfer </td></tr><tr><td colspan="2" rowspan="1"> Vendor Credit </td><td colspan="1" rowspan="1"> /vendorcredit </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the email address or user ID, and the password of your Intuit account, or your Google account credentials.
+
+</Accordion>
+
+<Accordion title="How do I know my login credentials are secure?">
+
+The login process uses the OAuth process so your credentials are never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="Do I need a certain kind of account with the data service to set up the connector?">
+
+An Intuit account can be used to set up the connector.
+
+</Accordion>
+
+<Accordion title="How frequently will my data update?">
+
+Most information about the summary is updated every 24 hours. It is recommended to configure the datasets to run every 24 hours.
+
+</Accordion>
+
+<Accordion title="Can this connector pull custom fields?">
+
+No. Reports and columns are predefined by QuickBooks.
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

@@ -1,0 +1,47 @@
+---
+title: "RoviTracker Connector"
+excerpt: "Configure the RoviTracker Connector with OAuth2 to ingest asset telemetry like fuel, battery voltage, and GPS into Domo."
+---
+
+## Intro
+
+RoviTracker is an asset management software and hardware platform that collects critical metrics like fuel level, battery voltage, solar charge, engine run time, and GPS to provide insights into business operations. To learn more about the RoviTracker API, see [RoviTracker API Documentation](http://developers.rovitracker.com/ "RoviTracker API Documentation").
+
+You can connect to your RoviTracker account in the Data Center. This topic discusses the fields and menus specific to the RoviTracker connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your RoviTracker account and create a DataSet, you need your RoviTracker account's Client ID and Client Secret.
+
+## Registration Process
+
+To Integrate with the RovioTracker API, you need to register your application and configure using an OAuth2 authorization process.
+
+The registration process only happens once at the beginning:
+
+1. Register your application with RoviTracker by providing a company name and logo.
+2. You will receive a Client ID and Client Secret.
+
+Note: To receive your Client ID and Client Secret, connect with Domo's support team.
+
+## Connecting to Your RoviTracker Account
+
+Authorization is done using the OAuth2 standard.
+
+This section enumerates the options in the **Credentials** and **Details** panes on the RoviTracker Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your RoviTracker account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Your Rovi Tracker account's Client Id. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Your Rovi Tracker account's Client Secret. </td></tr></tbody></table>
+
+Once you have entered valid RoviTracker credentials, you can use the same account at any time to create a new RoviTracker DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the RoviTracker report you want to run. The following reports are available: </p><p></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Get Assets </p></td><td colspan="1" rowspan="1"> Returns a list of assets belonging to the branch. </td></tr><tr><td colspan="1" rowspan="1"><p> Get AssetsUrl </p></td><td colspan="1" rowspan="1"> Returns the URLs that only show data for a subset of assets. </td></tr><tr><td colspan="1" rowspan="1"><p> Get BranchUrl </p></td><td colspan="1" rowspan="1"> Returns the URLs for the branch. </td></tr><tr><td colspan="1" rowspan="1"><p> Get Fleet </p></td><td colspan="1" rowspan="1"> Returns a fleet of assets with metrics. </td></tr><tr><td colspan="1" rowspan="1"><p> Get Fleet via VIN </p></td><td colspan="1" rowspan="1"> Returns a fleet of subset of assets with metrics via VIN. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Asset </td><td colspan="1" rowspan="1"> Select the asset for which you want to retrieve the metrics. </td></tr><tr><td colspan="1" rowspan="1"> VIN </td><td colspan="1" rowspan="1"> Enter the VIN, for which you want to retrieve the data. </td></tr><tr><td colspan="1" rowspan="1"> Include Date Filter </td><td colspan="1" rowspan="1"> Selecting this option causes your dataset to include date parameters to filter the data. </td></tr><tr><td colspan="1" rowspan="1"> Dates </td><td colspan="1" rowspan="1"> Select the date. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

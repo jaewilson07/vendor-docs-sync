@@ -1,0 +1,48 @@
+---
+title: "Responsys Connector"
+excerpt: "Use Domo's Responsys Connector to retrieve campaigns, events, profile lists, list extensions, and recipient data from Oracle Responsys."
+---
+
+## Intro
+
+Responsys can help your customers resolve this 'campaign crisis' managing and orchestrating marketing interactions across email, mobile, social, display and the web. By bringing together Responsys and Oracle, for the first time CMOs across industries will be equipped to drive exceptional customer experiences across marketing interactions and throughout the customer lifecycle from a single platform.
+
+Responsys makes data from disparate sources actionable by creating precisely targeted audiences and delivering highly personalized messages to those audiences in near real-time. Use Domo's Responsys connector to receive details about campaigns, emails, extensions and more. To learn more about the Responsys API, visit their page [Responsys Api Documentation](https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCED/index.html "Responsys Api Documentation").
+
+You connect to your Responsys account in the Data Center. This topic discusses the fields and menus that are specific to the Responsys connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Responsys account and create a DataSet, you must have the following:
+
+* Your Responsys username
+* Your Responsys password
+* From the Authentication Endpoint URLs drop-down list, if you select Global Routing (REST API) or Global Routing (AFTM), then the Account Token is mandatory.
+
+## Connecting to Your Responsys Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Responsys Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Domo developer account as well as your Responsys Fleet account. The following table describes what is needed for each field:
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Field </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Authentication Endpoint URLs </td><td colspan="1" rowspan="1"> Based on the system that hosts your Responsys account, select any one endpoint in your authentication request. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your Responsys username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your Responsys password. </td></tr><tr><td colspan="1" rowspan="1"> Account Token </td><td colspan="1" rowspan="1"><p> From the <b> Authentication Endpoint URLs </b> drop-down list, if you select <b> Global Routing (REST API) </b> or <b> Global Routing (AFTM) </b>, then the Account Token is mandatory. </p> Click <a href="https://docs.oracle.com/en/cloud/saas/marketing/responsys-rest-api/SendRequests.html" target="_blank"> here </a> for more information. </td></tr></tbody></table>
+
+The Domo Responsys connector uses basic authentication which requires a username, password (base 64 encoded). Click **Connect** (or select **Add Account** if you have existing Responsys accounts in Domo). Once you have entered valid Responsys credentials, you can use the same account any time you go to create a new Responsys DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Responsys report you want to run. The following reports are available: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Campaigns </p></td><td colspan="1" rowspan="1"> This report returns all campaigns. </td></tr><tr><td colspan="1" rowspan="1"><p> Email or Push Campaigns Schedule </p></td><td colspan="1" rowspan="1"> This report returns all the emails or push campaign schedule. </td></tr><tr><td colspan="1" rowspan="1"><p> Events </p></td><td colspan="1" rowspan="1"> This report returns all events. </td></tr><tr><td colspan="1" rowspan="1"><p> List Extensions </p></td><td colspan="1" rowspan="1"> This report returns all profile extensions for a profile list. </td></tr><tr><td colspan="1" rowspan="1"><p> Profile Extensions Recipients </p></td><td colspan="1" rowspan="1"> This report returns profile extension recipient using a query attribute. </td></tr><tr><td colspan="1" rowspan="1"><p> Profile List </p></td><td colspan="1" rowspan="1"> This report returns all profile lists. </td></tr><tr><td colspan="1" rowspan="1"><p> Profile List Recipients </p></td><td colspan="1" rowspan="1"> This report returns the list recipient using the query attribute. </td></tr></tbody></table></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+If you are unable to log in or if you run into connection issues, you may need to Whitelist Domo's IP addresses as explained here ([https://docs.oracle.com/en/cloud/saas/marketing/responsys-user/SubAccountLoginIP.htm](https://docs.oracle.com/en/cloud/saas/marketing/responsys-user/SubAccountLoginIP.htm "https://docs.oracle.com/en/cloud/saas/marketing/responsys-user/SubAccountLoginIP.htm") )
+
+For more details, see [Whitelisting IP Addresses in Domo](/s/article/360043439173 "Whitelisting IP Addresses in Domo").

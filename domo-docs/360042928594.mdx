@@ -1,0 +1,36 @@
+---
+title: "BlackDuck Hub Connector"
+excerpt: "Use Domo's BlackDuck Hub connector to pull open source security risk data into a DataSet using your BlackDuck Hub credentials."
+---
+
+## Intro
+
+BlackDuck Hub open source management helps security and development teams identify and eliminate open source security risks. To learn more about the BlackDuck Hub API, visit their page ([https://documentation.blackduck.com/bundle/bd-hub/page/ReleaseNotes/General/currentRelease.html](https://documentation.blackduck.com/bundle/bd-hub/page/ReleaseNotes/General/currentRelease.html "https://documentation.blackduck.com/bundle/bd-hub/page/ReleaseNotes/General/currentRelease.html") ).
+
+You connect to your BlackDuck Hub account in the Data Center. This topic discusses the fields and menus that are specific to the BlackDuck Hub connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your BlackDuck Hub account and create a DataSet, you must have a BlackDuck Hub username and password.
+
+## Connecting to Your BlackDuck Hub Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the BlackDuck Hub Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your BlackDuck Hub account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username of your BlackDuck Hub account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password of your BlackDuck Hub account. </p></td></tr></tbody></table>
+
+Once you have entered valid BlackDuck Hub credentials, you can use the same account any time you go to create a new BlackDuck Hub DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054 "Manage Connector Accounts").
+
+### Details Pane
+
+This pane contains two menus, one that allows you to import an existing report by inputting a URL and another that lets you pull data from BlackDuck Hub.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Custom Report </p></td><td colspan="1" rowspan="1"><p> Enter the URL for the existing BlackDuck Hub report you want to import into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specified Report </p></td><td colspan="1" rowspan="1"><p> Select the BlackDuck Hub report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Code Locations </p></td><td colspan="1" rowspan="1"><p> Returns a list of code locations. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Components </p></td><td colspan="1" rowspan="1"><p> Returns a list of components. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Files </p></td><td colspan="1" rowspan="1"><p> Returns a list of files. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Security </p></td><td colspan="1" rowspan="1"><p> Returns security information. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Version </p></td><td colspan="1" rowspan="1"><p> Returns version information. </p></td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](/s/article/360042926274 "Adding a DataSet Using a Connector").

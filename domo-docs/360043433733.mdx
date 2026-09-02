@@ -1,0 +1,65 @@
+---
+title: "Brandwatch Connector"
+excerpt: "Use the Brandwatch connector with username and password to pull author, story, and mention social monitoring data into a Domo DataSet."
+---
+
+## Intro
+
+Brandwatch provides social media monitoring and analytics services. You can use Domo's Brandwatch connector to retrieve data about authors, stories, mentions, and so on. To learn more about the Brandwatch API, visit their page ([https://www.brandwatch.com/brandwatch-api/](https://www.brandwatch.com/brandwatch-api/ "https://www.brandwatch.com/brandwatch-api/") ).
+
+You connect to your Brandwatch account in the Data Center. This topic discusses the fields and menus that are specific to the Brandwatch connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Brandwatch account and create a DataSet, you must have your Brandwatch username and password.
+
+## Connecting to Your Brandwatch Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Brandwatch Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Brandwatch account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your Brandwatch username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your Brandwatch password. </td></tr></tbody></table>
+
+Once you have entered valid Brandwatch credentials, you can use the same account any time you go to create a new Brandwatch DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Brandwatch report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Gender Breakdowns for Authors </p></td><td colspan="1" rowspan="1"><p> Get the breakdown list of authors by gender. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Share of Voice by Brand </p></td><td colspan="1" rowspan="1"><p> Get the list of voices by brand. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Top Five Countries for Authors </p></td><td colspan="1" rowspan="1"><p> Get the top five countries for authors. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Top Five Interests for Authors </p></td><td colspan="1" rowspan="1"><p> Get the top five interests for authors. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Top Five Professions for Authors </p></td><td colspan="1" rowspan="1"><p> Get the top five professions for authors. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Top Ten Authors </p></td><td colspan="1" rowspan="1"><p> Get the top ten authors list for a brand over a given date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Top Ten Hashtags on Twitter </p></td><td colspan="1" rowspan="1"><p> Get the top ten Twitter hashtags for a brand. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Top Ten Mentioned Authors on Twitter </p></td><td colspan="1" rowspan="1"><p> Get the top ten most mentioned authors on Twitter. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Top Ten Sites by Volume </p></td><td colspan="1" rowspan="1"><p> Get the top ten domains visiting for a brand. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Top Ten Stories on Twitter </p></td><td colspan="1" rowspan="1"><p> Get the top ten stories for a brand over a given date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Top Ten Twitter Authors </p></td><td colspan="1" rowspan="1"><p> Get the top ten tweeters for a brand over a given date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Top Topics for Brand </p></td><td colspan="1" rowspan="1"><p> Get the list of top topics for a brand. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Total Impressions </p></td><td colspan="1" rowspan="1"><p> Get the list of total impressions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Volume of Mentions (by Sentiment) </p></td><td colspan="1" rowspan="1"><p> Get the list of mentions by sentiment. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Volume of Mentions (by Page Type) </p></td><td colspan="1" rowspan="1"><p> Get the list of mentions by page type. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Volume of Mentions (by Tags) </p></td><td colspan="1" rowspan="1"><p> Get the list of mentions by tags. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Volume of Mentions (by Categories) </p></td><td colspan="1" rowspan="1"><p> Get the list of mentions by categories. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Select Project </p></td><td colspan="1" rowspan="1"><p> Select the project you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Query or Query Group </p></td><td colspan="1" rowspan="1"><p> Select the query you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Group </p></td><td colspan="1" rowspan="1"><p> Select the query group you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter </p></td><td colspan="1" rowspan="1"><p> Select how you would like to filter the data in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter by Author </p></td><td colspan="1" rowspan="1"><p> Select all of the author groups you would like to filter by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter by Category </p></td><td colspan="1" rowspan="1"><p> Select all of the categories you would like to filter by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter by Page Type </p></td><td colspan="1" rowspan="1"><p> Select all of the page types you would like to filter by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter by Sentiment </p></td><td colspan="1" rowspan="1"><p> Select all of the sentiments you would like to filter by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter by Site Type </p></td><td colspan="1" rowspan="1"><p> Select all of the site types you would like to filter by. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="Do I need a certain type of account with the data service to use this connector?">
+
+No. Any Brandwatch account with access to collected data should be usable to set up this connector.
+
+</Accordion>
+
+<Accordion title="Some of the Sentiment values are 0. Is that correct?">
+
+Some reports allow you to choose which sentiment types (positive, neutral, negative) will be reported. If you do not select a sentiment type, then the report will list 0 as the value for that particular sentiment.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+Datasets should be set to update once a day.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

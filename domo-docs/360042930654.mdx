@@ -1,0 +1,63 @@
+---
+title: "WordPress Connector"
+excerpt: "Use Domo's WordPress Connector to import posts, comments, likes, and follower data from your WordPress.com account into a DataSet via OAuth."
+---
+
+## Intro
+
+WordPress is a blog web hosting service provider used by more than 40% of Internet bloggers. Use Domo's WordPress connector to retrieve data on blog posts, comments, likes, followers, and more. To learn more about the WordPress API, visit their page (https://developer.wordpress.com/docs/api/).
+
+<Note>
+**Note:** This connector is used to retrieve data from [WordPress.com](http://WordPress.com), *not* [WordPress.org](http://WordPress.org). The essential difference between these is that with [WordPress.org](http://WordPress.org), you host your own site, whereas with [Wordpress.com](http://Wordpress.com), the hosting is done for you. For a more in-depth explanation of these differences, visit [https://ithemes.com/tutorials/wordpress-com-vs-wordpress-org/](https://ithemes.com/tutorials/wordpress-com-vs-wordpress-org/ "https://ithemes.com/tutorials/wordpress-com-vs-wordpress-org/").
+</Note>
+
+You connect to your WordPress account in the Data Center. This topic discusses the fields and menus that are specific to the WordPress connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your WordPress account and create a DataSet, you must have the username and password you use to log into WordPress. Alternatively, you can login using your Google or Apple credentials.
+
+## Connecting to Your WordPress Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the WordPress Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+The Domo WordPress connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing WordPress accounts in Domo) to open the WordPress OAuth screen where you can enter your WordPress credentials. Once you have entered valid WordPress credentials, you can use the same account any time you go to create a new WordPress DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+<Note>
+**Note:** If you are already logged into WordPress when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of WordPress.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Metrics** menu, along with various other menus which may or may not appear depending on the metric type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the WordPress <span> metric </span> you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Blog Following Status </p></td><td colspan="1" rowspan="1"><p> Indicates whether the specified WordPress blog is following your blog. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Freshly Pressed Posts </p></td><td colspan="1" rowspan="1"><p> Returns a list of Freshly Pressed posts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Information on a Single Category </p></td><td colspan="1" rowspan="1"><p> Returns information for a given category slug within a specified blog. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Information on a Single Tag </p></td><td colspan="1" rowspan="1"><p> Returns information for a given tag slug within a specified blog. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Likes for a Post </p></td><td colspan="1" rowspan="1"><p> Returns the number of likes for a given post in a given blog. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List of a Site's Categories </p></td><td colspan="1" rowspan="1"><p> Returns a list of categories for a given blog. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Matching Posts </p></td><td colspan="1" rowspan="1"><p> Returns a list of matching posts for a given blog. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Notification </p></td><td colspan="1" rowspan="1"><p> Returns a list of your most recent notifications. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Posts from a Tag </p></td><td colspan="1" rowspan="1"><p> Returns posts for a given tag slug. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reblog Status for a Post </p></td><td colspan="1" rowspan="1"><p> Returns the reblog status for a post within a given blog. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Recent Comments </p></td><td colspan="1" rowspan="1"><p> Returns a list of recent comments for a given blog. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Recent Comments for a Post </p></td><td colspan="1" rowspan="1"><p> Returns a list of recent comments for a post within a given blog. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Blog Address </p></td><td colspan="1" rowspan="1"><p> Enter the URL of the blog you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Slug Name </p></td><td colspan="1" rowspan="1"><p> Enter the name of the category or tag slug you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Post Title </p></td><td colspan="1" rowspan="1"><p> Enter the title of the post you want to retrieve information for. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](/s/article/360042926274).
+
+### FAQs
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the username or email address, and password associated with your WordPress account. Alternatively, you can use your Google credentials to login.
+</Accordion>
+
+<Accordion title="How do I know my login credentials are secure?">
+
+The login process uses the OAuth process, so your credentials are never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+Datasets should be set to update once a day.
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+While WordPress may enforce call rate limits, you should not need to worry about them.
+</Accordion>
+</AccordionGroup>

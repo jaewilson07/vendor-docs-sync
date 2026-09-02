@@ -1,0 +1,252 @@
+---
+title: "Use the (Legacy) Domo PowerPoint Plugin"
+excerpt: "Use the legacy Domo PowerPoint plugin to embed Domo Cards in PowerPoint, with guidance to migrate to the supported Domo for Office add-in."
+---
+
+<Warning>
+  **Attention:** Domo no longer supports the Domo PowerPoint **plugin;** it has been superseded by the Domo for Office **add-in**. If you need assistance with this **plugin**, we recommend upgrading to the **add-in**.
+
+  The **plugin** displays this way inside Microsoft products:
+
+  <Frame><img alt="domo plugin.jpg" src="/images/kb/ka0Vq000000Dxn3-00N5w00000Ri7BU-0EM5w000006wFAY.jpg"/></Frame>
+  The **add-in** displays this way:
+
+  <Frame><img alt="domo add-in.jpg" src="/images/kb/ka0Vq000000Dxn3-00N5w00000Ri7BU-0EM5w000006wFAi.jpg"/></Frame>
+  The Domo Microsoft Office **add-ins** support Excel, PowerPoint, and Word (Domo for Office); and Outlook (Domo for Outlook). With the **add-ins**, you receive the latest functionality as soon as it's released.
+
+  Download the **add-ins** from Microsoft AppSource using these links:
+
+  * [Domo for Office](https://appsource.microsoft.com/en-US/product/office/WA200005264?exp=ubp8)
+  * [Domo for Outlook](https://appsource.microsoft.com/en-US/product/office/WA200005307?exp=ubp8&tab=Overview)
+
+  Learn more in our [Domo Add-ins for Microsoft 365 Apps User Guide](/s/article/000005143).
+
+  Learn how to [convert content](/s/article/000005409) inserted by plugins to work with the Domo add-ins.
+
+</Warning>
+
+## Intro
+
+Use the Domo PowerPoint plugin to pull Domo Cards into a PowerPoint presentation. This plugin provides much more power and flexibility than the other available methods for showing Cards in PowerPoint.
+
+<Note>
+  **Notes:**
+
+  * The Domo PowerPoint plugin can be used
+  *only* in PowerPoint on Windows machines and is only supported by Office 2000 and later.
+  * Multi-factor verification is
+  *not* available for the PowerPoint plugin.
+  * This plugin can be used by Admin-, Privileged-, and Editor-level users by default.
+  To enable Participants to access Tool Downloads and obtain this plugin, please contact Support.
+
+</Note>
+
+**Video - PowerPoint Plugin**
+
+<iframe allowfullscreen="allowfullscreen" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/PnLcfNiZiMs" width="560"></iframe>
+
+##### Benefits of the Plugin
+
+Using this plugin, you can do all of the following:
+
+* Connect to the server for the desired Domo instance.
+* Create a template for displaying Cards in your presentation. You can include or exclude attributes such as Card title, summary number, description, owner name, last modify date, and so on.
+* Specify the page in Domo that Cards are being pulled from.
+* Refresh the Cards in a presentation.
+* Specify the types of Cards that are pulled into Domo (Visualization Cards, document Cards, custom Apps, etc.).
+
+##### Download the Plugin
+
+You can download the Domo PowerPoint plugin in the Admin Settings.
+
+**To download the Domo PowerPoint plugin,**
+
+1. In Domo, navigate to **Admin Settings**.
+2. Select **Tool Downloads**.
+3. Scroll down to the **Domo PowerPoint plug-in** section.
+4. Click **Try the PPT Plug-In**.
+5. After the plugin finishes downloading, follow the steps in the wizard to install it to your computer.
+
+The plugin will now be available when you open PowerPoint.
+
+##### Sequence of Steps
+
+The process for using the plugin to pull Domo Cards into PowerPoint can be summarized as follows:
+
+1. **Connect to the server** for the Domo instance you want to pull Cards from.
+2. **Set up a template** to control how Cards will appear when pulled into PowerPoint.
+3. **Download the Cards** from the desired Domo page or subpage into PowerPoint.
+4. After your presentation is saved, you can **refresh the Cards** as necessary to keep the data up to date.
+
+### Parts of the Domo Tab in PowerPoint
+
+After you have installed the Domo PowerPoint plugin, a **Domo** tab appears near the end of the main tab row in PowerPoint. This tab appears as follows:
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000DxqH-00N5w00000Ri7BU-0EM5w000005vOUO.png"/></Frame>
+The following table describes the components of this tab:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> Component </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Connect to Domo </td><td colspan="1" rowspan="1"> Lets you connect to a specified Domo instance. </td></tr><tr><td colspan="1" rowspan="1"> "Templates" Options </td><td colspan="1" rowspan="1"> Let you choose whether one, two, or four Domo Cards appear in the currently selected slide. </td></tr><tr><td colspan="1" rowspan="1"> "Custom Layout" Options </td><td colspan="1" rowspan="1"><p> Let you include various layout items in the currently selected slide. <b> Visualization </b> adds a single-Card visualization layer to the slide. All of the other options add macros for swapping in text. For example, if you clicked <b> Owner Name </b>, a text macro reading "@DomoOwnerName-1" would appear under the visualization layer. This would then be replaced with the actual Card owner's name when the Card was pulled into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"> Clear All </td><td colspan="1" rowspan="1"> Deletes all layout attributes from the currently selected slide (including visualization layers). </td></tr><tr><td colspan="1" rowspan="1"> Choose Page </td><td colspan="1" rowspan="1"> Lets you specify a page in Domo from which to retrieve Cards. The wizard populates with all pages you have access to. </td></tr><tr><td colspan="1" rowspan="1"> Refresh Cards </td><td colspan="1" rowspan="1"> Refreshes all of the Cards in this PowerPoint presentation, updating the underlying data as necessary. </td></tr><tr><td colspan="1" rowspan="1"> Settings </td><td colspan="1" rowspan="1"> Lets you specify the types of Cards that are pulled from Domo into PowerPoint. You can choose Visualization Cards (here called "Chart Cards"), document Cards, table Cards, or custom Domo Apps. Here you can also turn Domo watermarks (Domo's logo on rendered Card images) on or off. Be aware that this option requires a contractual agreement with Domo that allows for white label usage of this tool. </td></tr><tr><td colspan="1" rowspan="1"> Help </td><td colspan="1" rowspan="1"> Provides basic instructions for using the Domo PowerPoint plugin. </td></tr></tbody></table>
+
+### Connect to a Domo Server
+
+You can connect to the server for any Domo instance for which you have access.
+
+**To connect to a Domo server,**
+
+1. Click the **Connect to Domo** button on the left side of the Domo tab in PowerPoint.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000DxqH-00N5w00000Ri7BU-0EM5w000005vOUf.png"/></Frame>
+   A dialog appears requesting that you add a connection.
+2. Click **Add**.
+3. Enter the URL for your Domo server in the field, then click **Next**.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000DxqH-00N5w00000Ri7BU-0EM5w000005vOUl.png"/></Frame>
+4. Enter your Domo credentials in the fields, then click **Next**.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000DxqH-00N5w00000Ri7BU-0EM5w000005vOUp.png"/></Frame>
+   If you have entered your credentials correctly, a "Success" dialog appears. In addition, an access token is created within Domo. For more information about access tokens, see [Manage Access Tokens](/s/article/360042934494).
+5. Click **Finish**.
+
+## Set up a Card Template
+
+Before pulling Domo Cards into PowerPoint, you must set up a template for them. The plugin pulls all Cards from a page and allocates them according to the template in the currently selected slide. For example, if you select a slide with a four-Card template then choose a Domo page with 32 Cards, those Cards would populate the next eight slides in your presentation, with four Cards appearing per slide as per your template.
+
+You can also insert text macros for swapping in Card text attributes such as title, description, owner name, and so on. When the Cards are pulled in, the real text will replace the macros you have inserted. All macros are prefaced with a @ symbol and are thus easily identified.
+
+You can edit Domo Card layout items just as you can any other elements in PowerPoint. For example, you can add text, move elements around on a slide, and so on.
+
+This section discusses the various options available for setting up Card template layouts.
+
+##### Specify the Number of Cards in a Slide
+
+You can specify whether one, two, or four Cards is added to a template. You do this by clicking **Single Card**, **Dual Card**, or **Four Cards**, respectively, in the Domo toolbar. If you click one of these options in a blank slide, a visualization layer is added to the slide, divided into the specified number of Card templates. If you click one of these options in a slide that already contains a template, that option replaces the current template. For example, if the slide contains a two-Card template and you click **Four Cards**, the four-Card template replaces the two-Card template.
+
+The single-Card and two-Card templates come with preinserted text macros for swapping in text. You can move these, remove them entirely, or add different ones if desired.
+
+The single-Card template includes macros for the Card title, summary number, description, owner name, and last update date, as follows:
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000DxqH-00N5w00000Ri7BU-0EM5w000005vOUh.png"/></Frame>
+The dual-Card template includes macros for the titles, summary numbers, owner names, and last update dates for both Cards, as follows (note that description text macro does not appear by default):
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000DxqH-00N5w00000Ri7BU-0EM5w000005vOUj.png"/></Frame>
+The four-Card template does *not* include preinserted text macros; however, you can insert these manually using the **Custom Layout** options. These are described in the next section.
+
+##### Insert Text Using Custom Layout Macros
+
+For any Card template, you can insert macros for Card attributes such as title, description, owner, etc. As described above, when you pull Cards into Domo, the real attribute text replaces the macros.
+
+The following macros are available:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"> Macro </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Card Title </td><td colspan="1" rowspan="1"> The title of this Card as it appears in Domo. For more information about setting Card titles, see <a href="/s/article/360042924174" target="_blank" title="Editing the Name or Description of a KPI Card"> Editing the Name or Description of a Visualization Card </a>. </td></tr><tr><td colspan="1" rowspan="1"> Summary Number </td><td colspan="1" rowspan="1"> This Card's summary number as it appears in Domo. For more information about configuring summary numbers, see <a href="/s/article/360043428753" target="_blank" title="Configuring Your Chart Summary Number"> Configuring Your Chart Summary Number </a>. </td></tr><tr><td colspan="1" rowspan="1"> Description </td><td colspan="1" rowspan="1"> The description of this Card as it appears in Domo. For more information about adding or editing a Card's description, see <a href="/s/article/360042924174" target="_blank" title="Editing the Name or Description of a KPI Card"> Editing the Name or Description of a Visualization Card </a>. </td></tr><tr><td colspan="1" rowspan="1"> Owner Name </td><td colspan="1" rowspan="1"> The name of the Domo user who owns this Card. For more information about Card ownership, see <a href="/s/article/360042923794" target="_blank" title="Changing a Card Owner"> Changing a Card Owner </a>. </td></tr><tr><td colspan="1" rowspan="1"> Data Last Updated </td><td colspan="1" rowspan="1"> The date when the data in this Card was last refreshed. For more information, see <a href="/s/article/360043429893" target="_blank" title="Updating or Refreshing the DataSet for a KPI Card"> Updating or Refreshing the DataSet for a Visualization Card </a>. </td></tr><tr><td colspan="1" rowspan="1"> Card Last Modified </td><td colspan="1" rowspan="1"> The date when this Card was last edited. For more information, see  Understanding Cards . </td></tr></tbody></table>
+
+The other option in this list, **Visualization**, is not a text macro. This is the macro that pulls in the actual content for a given Card. These macros appear in the following format: @DomoVisualization- *x*, where *x* is the number corresponding to this visualization on the slide. This is important because all text macros also end with a number, which matches the number of the corresponding visualization. So, for example, if you had a four-Card template, the visualizations would be numbered 1 through 4. If you then inserted an **Owner Name** macro, it would appear as follows: `@DomoOwnerName-1.` Then, if you were to pull in Cards for this slide, this macro would be replaced by the name of the owner for `@DomoVisualization-1.` Make sure you match up your text macros with the correct visualizations, or you could end up with Cards paired with the wrong attributes!
+
+<Tip>
+  **Tip:** You can quickly add macros with incrementing numbers (`@DomoOwnerName-1, @DomoOwnerName-2,` etc.) by repeatedly clicking the button for that macro.
+
+</Tip>
+
+#### Remove Everything from a Slide
+
+You can quickly remove all visualization layers and macros from a slide by clicking **Clear All** in the Domo tab.
+
+## Pull Cards into PowerPoint
+
+After you have set up a Card template as described in the previous sections, it is time to pull Domo Cards into PowerPoint based on your template. You do this by clicking **Choose Page** then following the steps in the wizard.
+
+<Note>
+  **Note:** When pulling Domo Cards into PowerPoint, make sure you have selected the slide containing your template. Otherwise one card is allocated per slide.
+
+</Note>
+
+Before doing this, you may want to specify the types of Cards pulled into PowerPoint when you import. Currently the following types of Cards can be pulled from Domo into PowerPoint:
+
+* Visualization Cards ("Chart Cards")
+* Table Cards
+* Document Cards
+* Custom Domo Apps
+* Sumo Cards (only pulls Sumo table data, not Card attributes such as colors, etc.)
+
+Poll Cards and Notebook Cards *cannot* be pulled into PowerPoint at this time.
+
+You can select and deselect the types of Cards pulled into PowerPoint from Domo in the **DomoOffice** **Settings** dialog, which you can access by clicking **Settings** in the Domo tab. For each type of Card, you can toggle it on ("Enabled") or off ("Disabled"). For example, in the following screenshot, all Card types are enabled and will be pulled into PowerPoint upon import *except for* custom Domo Apps.
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000DxqH-00N5w00000Ri7BU-0EM5w000005vOUa.png"/></Frame>
+Once you have set up your templates and established the types of Cards to be pulled, you can select the page with Cards to retrieve. You do this in the **Get Cards** dialog, which you can access by clicking **Choose Page** in the Domo tab. This dialog lists all Domo pages and subpages you have access to.
+
+**To download Domo Cards into PowerPoint,**
+
+1. Select the PowerPoint slide that contains the template you want to base your Cards on.
+2. Click **Choose Page** in the Domo tab.
+3. Scroll down to navigate to the page or subpage you want, or filter the list using any of the filters at the top of the dialog.
+     
+   The first filter lets you filter by entering the name of the desired page; the second filter lets you choose from parent pages; and the third filter lets you filter by page owner.
+4. Once you find the page you want to import from, select it then click **Next**.
+     
+   All of the Cards of the type(s) you enabled in **Settings** are downloaded.
+5. Click **Create Slides**.
+     
+   The Domo Cards you have downloaded are inserted into the slides in your presentation.
+
+## Refresh Domo Cards in a Presentation
+
+You can refresh a presentation with Domo Cards. When you do this, all Cards in the presentation are updated to show the most recent data.
+
+**To refresh a presentation with Domo Cards,**
+
+1. Click **Refresh Cards** in the Domo tab.
+
+All of the Cards should update to show their most recent data.
+
+## Troubleshooting
+
+Several users have reported an issue in which Microsoft disables the plugin after a crash; hence the plugin is still installed but is in a disabled state, so the **Domo** tab doesn't appear. Reinstalling the plugin leaves it in the disabled state. Below are instructions to re-enable the plugin.
+
+**To re-enable the PowerPoint Plugin** **,**
+
+1. Open PowerPoint.
+2. Select **File > Options**.
+3. Select **Add-ins**.
+4. In the **Manage** dropdown, select **COM Add-ins**, then click **Go**.
+     
+   <Frame><img alt="" src="/images/kb/ka0Vq000000Dxn3-00N5w00000Ri7BU-0EM5w000005vOV3.png"/></Frame>
+5. Check the box next to **Domo PowerPoint** then click **OK**.
+
+If the box is already checked and the **Domo** tab still doesn't appear, make sure you don't have multiple versions of the plugin installed. You can remove extra instances by doing the following:
+
+1. In the Windows Control Panel, go to **Add/Remove Programs**.
+2. Remove all instances of "Domo PowerPoint."
+3. Reinstall the plugin.
+
+**Reauthorizing Server Connections:**
+
+When you trying to reauthorize a connection for a server of your connections,
+  
+there is a user that is getting the following error in PowerPoint using the plugin-in:
+
+**Case 1:**
+  
+Error getting the user from '. [domo.com](http://domo.com) '.
+  
+Please reauthorize this account.
+  
+or
+  
+**Case 2:**
+  
+There was a problem authenticating with '. [domo.com](http://domo.com) ':
+  
+Could not find an associated user in '. [domo.com](http://domo.com) '
+
+If you face this issue after reauthoring a connection for a server of your connections,
+  
+Below are instructions to re-reauthorize your account using the plugin.
+
+To re-enable the PowerPoint Plugin,
+
+1. Open
+**PowerPoint**. Select **Domo** > **Connected**.
+  
+2. **Delete** your account. Then click **Close** and **PowerPoint**.
+  
+3. **Restart** your PC. **Open** PowerPoint. **Re-Connect** to a Domo server.

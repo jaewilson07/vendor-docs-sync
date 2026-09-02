@@ -1,0 +1,36 @@
+---
+title: "Rival IQ Connector"
+excerpt: "Connect to Rival IQ with an API key to pull social media marketing analytics reports into Domo DataSets."
+---
+
+## Intro
+
+Rival IQ is a social media marketing analytics platform. Use the Domo connector to compile reports about social media posts per day, interactions per post, average shares per day, and more. To learn more about the Rival IQ API, visit their page ([https://www.rivaliq.com/developers/](https://www.rivaliq.com/developers/ "https://www.rivaliq.com/developers/") ).
+
+You connect to your Rival IQ account in the Data Center. This topic discusses the fields and menus that are specific to the Rival IQ connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Rival IQ account and create a DataSet, you must have your Rival IQ API key. You can generate an API key in your Rival IQ [account settings page](https://app.rivaliq.com/account/user "https://app.rivaliq.com/account/user").
+
+## Connecting to Your Rival IQ Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Rival IQ Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Rival IQ account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Enter your Rival IQ API key. </p></td></tr></tbody></table>
+
+Once you have entered valid Rival IQ credentials, you can use the same account any time you go to create a new Rival IQ DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Rival IQ report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> All Metrics - Summary Values </p></td><td colspan="1" rowspan="1"><p> Returns summary values for all metrics. </p></td></tr><tr><td colspan="1" rowspan="1"><p> All Metrics - Time Series </p></td><td colspan="1" rowspan="1"><p> Returns daily values for all metrics for a given time period. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Landscapes </p></td><td colspan="1" rowspan="1"><p> Returns a list of available landscapes. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Positioning </p></td><td colspan="1" rowspan="1"><p> Returns current positioning data for all companies within the landscape. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Social Posts </p></td><td colspan="1" rowspan="1"><p> Returns the top 500 posts for all companies within the landscape for a given time period. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Landscape ID </p></td><td colspan="1" rowspan="1"><p> Select the ID of the landscape you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Summary Type </p></td><td colspan="1" rowspan="1"><p> Select the summary type you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channel </p></td><td colspan="1" rowspan="1"><p> Select the channel you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Type of Time Range </p></td><td colspan="1" rowspan="1"><p> Select whether you want a predefined or custom (<b> User Defined </b> ) time range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Period </p></td><td colspan="1" rowspan="1"><p> Select the time period for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Main Period Start </p></td><td colspan="1" rowspan="1"><p> Select the start date for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Main Period End </p></td><td colspan="1" rowspan="1"><p> Select the end date for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Post Type </p></td><td colspan="1" rowspan="1"><p> Select the type of social posts you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Order By </p></td><td colspan="1" rowspan="1"><p> Select how you want the report data to be sorted. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

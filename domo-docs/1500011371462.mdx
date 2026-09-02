@@ -1,0 +1,55 @@
+---
+title: "MongoDB Partition Connector"
+excerpt: "Use the MongoDB Partition Connector to pull data from a MongoDB collection into a partitioned Domo DataSet using a JSON query filter."
+---
+
+## Intro
+
+MongoDB is a open-source document-oriented database that offers high performance and scalability. Domo's platform offers the best in class analytics and reporting solution for MongoDB users—helping organizations monitor, visualize, and report complex datasets easily. You can use Domo's MongoDB Partition connector to pull data from a MongoDB collection and compile custom reports. You indicate the data you want by inputting JSON query filter. For more information about the MongoDB API, go to http://api.mongodb.org/. Easily combine your MongoDB data with data from numerous other systems, allowing you to combine and transform your data and make it all available for user self-service.
+
+The MongoDB Partition Connector is a "Database" connector, meaning it retrieves data from a database using a query. In the Data Center, you can access the connector page for this and other Database connectors by clicking **Database** in the toolbar at the top of the window.
+
+This topic discusses the fields and menus that are specific to the MongoDB Partition Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<Warning>
+**Important:** An SSL connection is required for this connector to work.
+</Warning>
+
+## Prerequisites
+
+To connect to a MongoDB collection and create a DataSet, you must have the following:
+
+* The username and password you use to log into your MongoDB database
+* The host name for the database server (e.g. [db.company.com](http://db.company.com) ).
+* The port number for the database
+* The database name
+* The CA certificate text or URL path is required *only* if you select **Certificate String** or **URL Path**, respectively, in the **Certificate Format** menu.
+* An SSL connection
+
+<Note>
+**Note:** MongoDB uses "admin" as the database name to establish a connection.
+</Note>
+
+Before you can connect to a MongoDB database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093).
+
+## Connecting to Your MongoDB Collection
+
+This section enumerates the options in the **Credentials** and **Details** panes in the MongoDB Partition Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to a collection within a MongoDB database. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Enter the host name for the MongoDB database. Example- <a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port number for the MongoDB database. </td></tr><tr><td colspan="1" rowspan="1"> Database </td><td colspan="1" rowspan="1"> Enter the name of the MongoDB database. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your MongoDB username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your MongoDB password. </td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Format </p></td><td colspan="1" rowspan="1"><p> Select the certificate format. If you do not want to include a certificate, select <b><b> No Certificate </b></b>. If you select <b><b> Certificate String </b></b>, you must paste the text for your certificate in the <b><b> Certificate </b></b> field. If you select <b><b> URL Path </b></b>, you must enter the URL where your certificate is located in the <b><b> Certificate </b></b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> Paste the text for your CA certificate or enter the URL where your certificate is located. This is optional. If you do not want to include a certificate, select <b><b> No Certificate </b></b> in the <b><b> Certificate Format </b></b> menu. </p></td></tr></tbody></table>
+
+Once you have entered valid MongoDB credentials, you can use the same account any time you go to create a new MongoDB Partition DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+In this pane you create a JSON query to pull data from your MongoDB collection. You can also create optional WHERE, SELECT, GROUP, and SORT clauses, and apply the query filter to find documents in the collection.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> How would you like to select your collection name? </td><td colspan="1" rowspan="1"> Select how would you like to get the collection name. </td></tr><tr><td colspan="1" rowspan="1"> Select Collection Name </td><td colspan="1" rowspan="1"> Select the name of the MongoDB collection. </td></tr><tr><td colspan="1" rowspan="1"> Enter Collection Name </td><td colspan="1" rowspan="1"> Enter the name of the MongoDB collection. </td></tr><tr><td colspan="1" rowspan="1"> Query Method </td><td colspan="1" rowspan="1"> Select a query method to pull data from your MongoDB collection. </td></tr><tr><td colspan="1" rowspan="1"> Find </td><td colspan="1" rowspan="1"> A JSON Query will execute by 'Find Method'. </td></tr><tr><td colspan="1" rowspan="1"> Aggregate </td><td colspan="1" rowspan="1"> A JSON Query will execute by 'Aggregate Method'. </td></tr><tr><td colspan="1" rowspan="1"> JSON Query Filter </td><td colspan="1" rowspan="1"> Enter the query filter to find documents in the collection. </td></tr><tr><td colspan="1" rowspan="1"> Limit Row </td><td colspan="1" rowspan="1"> Enter the number of rows you want to be returned. </td></tr><tr><td colspan="1" rowspan="1"> Batch Size </td><td colspan="1" rowspan="1"> Batch size is the number of documents to be returned per batch which is used internally by the connector. Enter the batch size greater than 1. </td></tr><tr><td colspan="1" rowspan="1"> Where Clause JSON </td><td colspan="1" rowspan="1"> Enter a WHERE clause in JSON format. </td></tr><tr><td colspan="1" rowspan="1"> Select Clause JSON </td><td colspan="1" rowspan="1"> Enter a SELECT clause in JSON format. </td></tr><tr><td colspan="1" rowspan="1"> Group Clause JSON </td><td colspan="1" rowspan="1"> Enter a GROUP clause in JSON format. </td></tr><tr><td colspan="1" rowspan="1"> Sort Clause JSON </td><td colspan="1" rowspan="1"> Enter a SORT clause in JSON format. </td></tr><tr><td colspan="1" rowspan="1"> Partition Column </td><td colspan="1" rowspan="1"> Enter the Partition Column name. The Partition Column should have a 'Date' data type. </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> Enter the number of past days you want to get data for. Value can be X, where X is a positive integer. Example: 30. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

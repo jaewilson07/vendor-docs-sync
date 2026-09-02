@@ -1,0 +1,153 @@
+---
+title: "Salesforce Chatter Connector"
+excerpt: "Use the Salesforce Chatter Connector to pull Chatter collaboration data into Domo for usage analysis and engagement reporting."
+---
+
+## Intro
+
+Salesforce Chatter is a collaboration tool that allows you to collaborate on business processes, take action, and engage in collaboration. With your Chatter data in Domo, you can get an at-a-glance view of how Chatter is being used and make changes to drive usage, share data on usage, and more. To learn more about the Salesforce Chatter API, visit [https://developer.salesforce.com/doc...er\_connect.htm](https://developer.salesforce.com/docs/atlas.en-us.chatterapi.meta/chatterapi/intro_what_is_chatter_connect.htm "https://developer.salesforce.com/docs/atlas.en-us.chatterapi.meta/chatterapi/intro_what_is_chatter_connect.htm").
+
+You connect to your Salesforce account in the Data Center. This topic discusses the fields and menus that are specific to the Salesforce Chatter connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Salesforce account and create a DataSet, you must have the following:
+
+* The username  and password for your Salesforce account
+* An installed Domo Connector Package from the Salesforce AppExchange (required as of August 1, 2018; see next section for installation instructions)
+
+### Installing the Domo Connector Package
+
+The "Domo Connector Package" found in Salesforce AppExchange allows Salesforce users to import their data into Domo. Follow these instructions to download and install the Connector Package from the AppExchange.
+
+**To install Domo's Salesforce Managed Package,**
+
+1. Log into Salesforce.
+2. Navigate to the Salesforce AppExchange at [https://appexchange.salesforce.com](https://appexchange.salesforce.com "https://appexchange.salesforce.com") and search for "Domo Connector Package," then click on it.
+     
+   <Frame><img alt="sfmp_1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyZ.png"/></Frame>
+
+   Alternatively, you can go directly to [https://appexchange.salesforce.com/a...A00000EcrsyUAB](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB").
+3. Click
+   **Get It Now**.
+     
+   <Frame><img alt="sfmp_2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyV.png"/></Frame>
+
+4. Choose whether you want to install in a production environment or sandbox.
+     
+   <Frame><img alt="sfmp_3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyK.png"/></Frame>
+
+5. Check the box reading "I have read and agree to the terms and conditions."
+6. Click
+   **Confirm and Install**.
+     
+   <Frame><img alt="sfmp_4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyW.png"/></Frame>
+
+7. Click the
+   **Install for All Users** tile.
+     
+   <Frame><img alt="sfmp_5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyP.png"/></Frame>
+
+For more details, see Salesforce's documentation at [https://help.salesforce.com/articleV...ges.htm&type=5](https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5 "https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5").
+
+### Verifying your Installation
+
+Use Domo's Salesforce Managed Package Validator to verify that your Salesforce Managed Package has been installed correctly.
+
+**To verify your installation,**
+
+1. In the Connectors page in either the Data Center or Appstore in Domo, search for "Salesforce Managed Package" and double-click on on the icon.
+     
+   <Frame><img alt="sfmp_v1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyJ.png"/></Frame>
+
+2. Click
+   **Get the Data**.
+     
+   <Frame><img alt="sfmp_v2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyQ.png"/></Frame>
+
+3. Under
+   **Credentials**, select your Salesforce account name, then click **Next**.
+     
+   <Frame><img alt="sfmp_v3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyT.png"/></Frame>
+
+4. Under
+   **Details**, click **Next**.
+     
+   <Frame><img alt="sfmp_v4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyL.png"/></Frame>
+
+5. In the
+   **Update** menu, select **Manually**, then click **Next**.
+     
+   <Frame><img alt="sfmp_v5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyN.png"/></Frame>
+
+6. Give your DataSet a name, then click
+   **Save**.
+     
+   <Frame><img alt="sfmp_v6.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyb.png"/></Frame>
+
+The DataSet now runs. If everything has been set up correctly, the run will be successful, and a message will appear reading, "Validation Success: You have set up your Salesforce Managed Package correctly."
+
+<Frame><img alt="sfmp_v7.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyM.png"/></Frame>
+
+If everything has *not* been set up correctly, the DataSet fails, and a message appears reading, "You have not installed Salesforce's Domo Connector Package," with a help link to this article.
+
+<Frame><img alt="sfmp_v8.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyO.png"/></Frame>
+
+## Connecting to Your Salesforce Account
+
+This section enumerates the options in the Credentials and Data Selection panes in the Salesforce Chatter Connector page. The components of the other panes in this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Salesforce Chatter connector uses OAuth to connect, so there is no need to enter credentials within Domo. Choose an environment in the Salesforce Environment menu then click Connect to open the Salesforce login screen. Here you can enter your Salesforce username and password. Once you have entered valid Salesforce credentials, you can use the same account any time you go to create a new Salesforce Chatter DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Data Selection Pane
+
+This pane contains a primary **How Do You Want to Select Your Salesforce Data** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> How Do You Want to Select Your Salesforce Data? </p></td><td colspan="1" rowspan="1"><p> Select the method you want to use to pull data from Salesforce. Methods are as follows: </p><ul><li><p> Browse Objects and Fields - Lets you select Salesforce objects with associated fields and relationships. </p></li><li><p> Query - Lets you enter SOQL queries to retrieve data. </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Query Option </p></td><td colspan="1" rowspan="1"><p><span> Select a predefined query (</span><b> Chatter Activity </b><span> ) or create your own query (</span><b> Custom </b><span> ). </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter your Salesforce SOQL query here. For example: </p><p><span class="mt-font-courier-new"> SELECT <em> Account </em> FROM Account </span></p><p> For more information about writing SOQL queries, see <a href="http://www.salesforce.com/us/developer/docs/officetoolkit/Content/sforce_api_calls_soql.htm" target="_blank"> http://www.salesforce.com/us/developer/docs/officetoolkit/Content/sforce_api_calls_soql.htm </a>. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Troubleshooting
+
+Salesforce is generally a very stable connector so there are just a few common issues that arise with it. Most of the issues are due to insufficient permissions (on both the object and the field). Your Salesforce admin should be able to upgrade permissions on specific objects and fields.
+
+Another common error is the “Query Locator Error.” Salesforce only keeps 10 query locators at a time for a single user and for a maximum of 15 minutes. If too many DataSets are running at the same time, some of these will fail. The best way to avoid this issue is to spread out the times when the DataSets are running.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What version of the Salesforce API does this connector use?">
+
+This connector uses version 44.0 of the Salesforce API (`https://{customer instance}.salesforce.com/services/data/v44.0`.)
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table cellpadding="0" width="648"><thead><tr><th colspan="1" rowspan="1" width="30%"><p> Report Name </p></th><th colspan="1" rowspan="1" width="70%"><p> Endpoint URL(s) </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Browse Objects and Fields </p></td><td colspan="1" rowspan="1"><p> /query </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> /query </p></td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the username and password associated with your Salesforce account.
+
+</Accordion>
+
+<Accordion title="How do I know my Salesforce credentials are secure?">
+
+The login process uses the OAuth process, so your Salesforce credentials are never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+

@@ -1,0 +1,87 @@
+---
+title: "Dynamics 365 Business Central Connector"
+excerpt: "Connect Domo to Dynamics 365 Business Central by registering an Azure app and using Microsoft Entra credentials to retrieve business entities."
+---
+
+## Intro
+
+Dynamics 365 Business Central provides a comprehensive view of your business, delivering real-time insights on every operational aspect. It streamlines processes across departments such as finance, sales, inventory, manufacturing, project management, and so on. This connector enables you to retrieve data from Dynamics 365 Business Central and load into Domo for analysis and visualization. The connector allows you to select any Business Central entity that has been exposed to web services to retrieve data. You can also schedule the data to be updated at regular intervals.
+
+You can connect to your Dynamics 365 Business Central account in the Data Center. This topic discusses the fields and menus that are specific to the Dynamics 365 Business Central connector user interface. To add add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Dynamics 365 Business Central account and create a DataSet, you must have the following:
+
+* Microsoft Entra ID
+* Client ID
+* Client Secret
+
+To complete the Dynamics 365 Business Central registration process in the Azure portal, follow the below steps:
+
+1. Log into the Azure portal (https://portal.azure.com/) using the account credentials.
+2. Click the **App registrations** tile.
+   
+   <Frame><img src="/images/kb/ka0Vq00000010fV-00N5w00000Ri7BU-0EMVq000001Ht9B.jpg"/></Frame>
+
+3. In the App registrations window, click
+   **+ New registration** and enter the details.
+   
+   <Frame><img src="/images/kb/ka0Vq00000010fV-00N5w00000Ri7BU-0EMVq000001HtCP.jpg"/></Frame>
+
+4. In the Register an application window, do the following:
+
+   1. In the **Name** field enter, **Dynamics365BusinessCentral**.
+   2. Under **Supported account types**, select the **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)** radio button.
+   3. From the **Redirect URI (optional)** drop-down, select **Web** and add enter the URL as [https://oauth.domo.com/api/data/v1/oauth/providers/dynamics-365-business-central/exchange.](https://oauth.domo.com/api/data/v1/oauth/providers/dynamics-365-business-central/exchange)
+   4. Click the **Register** button.
+
+   The registered app details appears along with the **Application (client) ID** and the **Directory (tenant) ID**, when you select the Overview section.
+
+   <Frame><img src="/images/kb/ka0Vq00000010fV-00N5w00000Ri7BU-0EMVq000001HtM5.jpg"/></Frame>
+
+5. On the left pane, click **Manage** > **Certificates & secrets** > **Client secrets** > **+ New client secret**.
+   
+   The **Add a client secret** window opens.
+6. Enter the Description as
+   **Domo Client Secret**, and from the drop-down list, select **Expires to 24 months**.
+7. Click
+   **Add**.
+8. A new client secret gets created. Ensure to record the secret
+   **Value**.
+   
+   <Frame><img src="/images/kb/ka0Vq00000010fV-00N5w00000Ri7BU-0EMVq000001HtPJ.jpg"/></Frame>
+
+9. Make a note of the Application (client) ID, Directory (tenant) ID and the Client secrets Value.
+10. On the left pane, click
+    **Manage** > **API permissions** > **+ Add a permission**.
+      
+    <Frame><img src="/images/kb/ka0Vq00000010fV-00N5w00000Ri7BU-0EMVq000001HtSX.jpg"/></Frame>
+
+11. Log in to the customer D365FO and navigate to,
+    **System Administration** > **Setup** > **Microsoft Entra ID applications**.
+12. Click **New**, and provide the ClientID from the Azure portal obtained from the Azure Active Directory applications form, and click **Save**.
+      
+    The Dynamics 365 Business Central registration process in the Azure Portal is successfully completed.
+
+## Connecting to Your Dynamics 365 Business Central Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Dynamics 365 Business Central Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Dynamics 365 Business Central account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Microsoft Entra ID </p></td><td colspan="1" rowspan="1"><p> Enter the Microsoft Entra ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Navigate to <b><a href="http://portal.azure.com" rel="noopener" target="_blank"> portal.azure.com </a></b> &gt; <b> Azure Active directory </b> &gt; <b> App registrations </b>. Find and click the web app. The Application ID from the web app is the client id. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Navigate to <b><a href="http://portal.azure.com" rel="noopener" target="_blank"> portal.azure.com </a></b> &gt; <b> Azure Active directory </b> &gt; <b> App registrations </b>. Find and click the web app. Go to <b> settings </b> &gt; <b> Keys, </b> and create <b></b> the client secret. </p></td></tr></tbody></table>
+
+Once you have entered valid Dynamics 365 Business Central credentials, you can use the same account any time to create a new Dynamics 365 Business Central DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Entities </td><td colspan="1" rowspan="1"> Select the entity to retrieve data. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

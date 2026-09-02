@@ -1,0 +1,191 @@
+---
+title: "CSV SFTP Push Connector"
+excerpt: "Use Domo's CSV SFTP Push Connector to push CSV files to Domo's hosted SFTP server using credentials Domo provides."
+---
+
+## Intro
+
+A character-separated values (CSV) file stores tabular data in plain text form. Domo provides two connectors that allow you to access CSV files you have uploaded to an SFTP (Secure File Transfer Protocol) server:
+
+* The Domo CSV SFTP Pull connector (formerly known as the "CSV-SFTP" connector) allows you to access CSV files that you have uploaded to your own SFTP server.
+* The Domo CSV SFTP Push connector allows you to capture and process CSV files that have been uploaded to Domo's own SFTP. With this connector, Domo gives you credentials, then you push your data to Domo.
+
+This article discusses the CSV SFTP Push connector. For information about the CSV SFTP Pull connector, visit [CSV SFTP Pull Connector](/s/article/360042931894 "CSV-SFTP Connector").
+
+The CSV SFTP Push connector is a "File" connector, meaning it retrieves files and output them to Domo. In the Data Center, you can access the connector page for this and other File connectors by clicking **File** in the toolbar at the top of the window.
+
+You connect to CSV files in the Data Center. This topic discusses the fields and menus that are specific to the CSV SFTP Push connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to a Domo-side SFTP server and import a CSV file, you must have an access key in.pem format. If you do not have a key, Domo allows you to generate one.
+
+## Sending Your CSV File to an SFTP Server
+
+This section shows you how to set up a connection and configure CSV options in the **Credentials** and **Details** panes in the CSV-SFTP Push connector page. The components of the other panes in this page, **Update Mode** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+****To add a CSV DataSet by sending a file to a Domo-hosted SFTP server,****
+
+1. Select <i className="legacy-icon-badge-layout-small sm" aria-hidden="true"/> ****> Data Center****.
+2. Click ****File**** in the tab row at the top of the window.
+3. Locate ****CSV SFTP**** in the connector list and click it.
+4. Enter a name for the new account in the **Name your account** field.
+   
+      This is the name that this account will be known by in the [connector Accounts page](/s/article/360042926054 "Managing User Accounts for Connectors").
+5. Do one of the following:
+
+   * If you want to generate a key...
+
+     1. Select ****Generate a key for me****.
+     2. Check the box acknowledging that you understand you will be able to download your key file only once.
+     3. Click ****Create Key****.
+          
+        A key is downloaded in.pem format.
+   * If you want to enter your own key...
+
+     1. Select ****Use my own key****.
+     2. Paste your RSA public key into the empty box.
+     3. Click ****Save Key****.
+6. (Conditional) If the first row of your CSV file is not the header row, enter the header row number in the **Header Row** field; otherwise leave this field blank.
+7. Select the delimiter for your CSV file in the ****Delimiter**** menu (or leave this set to **Detect delimiter** if you want this to be determined automatically).
+8. (Conditional) If there are one or more rows at the bottom of the file you do not want to import, enter the number of rows to skip in the **Skip Footer Rows** field. Otherwise leave this blank.
+9. (Conditional) If the data in your CSV file starts on a different row than the row following the header row, enter the row number in the **Starting Data Row** field. Otherwise leave this blank.
+10. Select the desired escape character in the  **Escape Character** menu.
+11. Select the desired quote character in the  **Quote Character** menu.
+12. (Conditional) If you would like Domo to detect your encoding type automatically, leave the  **Detect Encoding** box checked. Otherwise, uncheck the box then select the desired encoding type in the **Encoding** menu.
+13. (Conditional) If you would like Domo to keep leading zeros in numeric values like '0123', select this checkbox.
+
+    **Note:** This will parse the values as text.
+14. Select the desired date format in the **Date Format** field.
+15. Click  **Next**.
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Uploading a CSV File Using an SFTP Client
+
+You can upload a CSV file to a Domo SFTP server using an SFTP client. These instructions show you how to do this using the FileZilla SFTP client ([https://filezilla-project.org](https://filezilla-project.org/ "https://filezilla-project.org") ). For instructions about uploading files using other SFTP clients, read the documentation for your chosen client or do a Google search.
+
+****To send a CSV file to a Domo SFTP server using FileZilla,****
+
+1. Configure the CSV connector in Domo by following the instructions under
+   Sending Your CSV File to an SFTP Server.
+2. Move your.pem file into a directory on your machine.
+     
+   In this example we use the /sftp directory.
+3. Create a CSV file in the /sftp directory with the same name as the new DataSet's ID (which you can find in the
+   ****How to Upload**** tab in the details view for the DataSet).
+     
+   For example, if your DataSet ID was cb4ba6a0-0934-440f-8572-1253b9f7525a, the CSV filename would be cb4ba6a0-0934-440f-8572-1253b9f7525a.csv.
+4. In FileZilla, create a new site in the Site Manager.
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7N.png"/></Frame>
+
+5. In the
+   ****General**** tab, configure settings as follows:
+     
+   <table><thead><tr><th colspan="1" rowspan="1"><p> For this setting... </p></th><th colspan="1" rowspan="1"><p>...do this </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the <b><b> Host name </b></b> URL found in the <b><b> How to Upload </b></b> tab in the details view for the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter 22. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Protocol </p></td><td colspan="1" rowspan="1"><p> Select <b><b> SFTP </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Logon Type </p></td><td colspan="1" rowspan="1"><p> Select <b><b> Key file </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User </p></td><td colspan="1" rowspan="1"><p> Enter the value next to <b><b> User name </b></b> in the <b><b> How to Upload </b></b> tab in the details view for the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Key file </p></td><td colspan="1" rowspan="1"><p> Locate your.pem key in the file browser. </p></td></tr></tbody></table>
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7D.png"/></Frame>
+
+6. Open the connection to the site you just configured.
+7. Drag the CSV file you want to upload from the Local file window to the Remote site window.
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7I.png"/></Frame>
+
+8. Close the connection or quit FileZilla.
+
+You should now see the file being uploaded into Domo.
+
+### Uploading a CSV File Using the Command Line
+
+You can send a CSV file to a Domo SFTP server using a command line client. These instructions are specific to Mac/Linux systems and may not work on Windows.
+
+****To send a CSV file to a Domo SFTP server using the command line,****
+
+1. Configure the CSV connector in Domo by following the instructions under
+   Sending Your CSV File to an SFTP Server.
+2. Move your.pem file into a directory on your machine.
+     
+   In this example we use the /sftp directory.
+3. Create a CSV file in the /sftp directory with the same name as the new DataSet's ID (which you can find in the
+   ****How to Upload**** tab in the details view for the DataSet).
+     
+   For example, if your DataSet ID was cb4ba6a0-0934-440f-8572-1253b9f7525a, the CSV filename would be cb4ba6a0-0934-440f-8572-1253b9f7525a.csv.
+4. In the /sftp directory, connect to the SFTP server using this command:
+     
+   ```
+   sftp –i domosftpkey.pem username@mycompany.import.domo.com
+   ```
+     
+   where **username** is the value corresponding to ****User name**** in the ****How to Upload**** tab, **domosftpkey.pem** is the name of your key, and **mycompany** is your Domo domain (i.e. the portion of the URL of your Domo instance immediately following http://).
+5. Use this command to upload the CSV file:
+     
+   ```
+   put cb4ba6a0-0934-440f-8572-1253b9f7525a.csv
+   ```
+6. Exit the server by entering quit.
+     
+   When you exit the server, you will see your file being processed in Domo.
+
+There is a possibility you will see the following message when you try to connect to the server:
+
+<Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7K.png"/></Frame>
+
+If this occurs, run the following command then try connecting again:
+
+```
+chmod 600 /sftp/domosftpkey.pem
+```
+
+where **domosftpkey.pem** is the name of your key.
+
+### Uploading a CSV File Using a Third-Party Service
+
+You can send a CSV file to a Domo SFTP server using any of various third-party services. These instructions show you how to deliver analytics reports using Adobe Analytics. For instructions about uploading files using other services, peruse the documentation for those services or do a Google search.
+
+****To send an Adobe Analytics CSV file to a Domo SFTP server,****
+
+1. Configure the CSV connector in Domo by following the instructions under
+   Sending Your CSV File to an SFTP Server. Make sure you set the following options:
+
+   * Under
+     ****Generate or Select Key****, choose the ****Use my own key**** option. Then paste the RSA public key you received from Adobe in the text field.
+   * Under
+     ****Parsing Options****...
+
+     + Set the delimiter to
+       ****Comma****.
+     + Leave
+       ****Includes Header Row**** checked unless you have it set up to not include one in Adobe.
+2. Switch to Adobe Analytics and log into your account.
+3. Navigate to
+   ****Tools > Data Warehouse****.
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7M.png"/></Frame>
+
+4. In the
+   ****Data Warehouse Request**** tab, enter all the parameters needed to define the report you want to send to Domo. These parameters include ****Request Name****, ****Reporting Date****, ****Segments****, ****Items****, ****Breakdowns****, ****Metrics****, etc.
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7A.png"/></Frame>
+
+5. In the
+   ****Schedule Delivery**** section at the bottom of the page, click ****Advanced Delivery Options****.
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7J.png"/></Frame>
+
+6. Set delivery options as follows:
+
+   <table><thead><tr><th colspan="1" rowspan="1"><p> For this option... </p></th><th colspan="1" rowspan="1"><p>...do this </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report file name </p></td><td colspan="1" rowspan="1"><p> Select <b><b> Custom </b></b>, then enter the Domo DataSet ID in the text field with a.csvextension. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Format </p></td><td colspan="1" rowspan="1"><p> Select <b><b> CSV </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Destination </p></td><td colspan="1" rowspan="1"><p> Select <b><b> FTP </b></b>. Then enter information in the fields as follows: </p><table><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> sftp:// <em><em> hostname </em></em> (as listed on the <b><b> How to Upload </b></b> tab in Domo; for example s <a href="ftp://modocorp.import.domo.com" rel="noopener" target="_blank"> ftp://modocorp.import.domo.com </a> ) </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> 22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Directory </p></td><td colspan="1" rowspan="1"><p> Enter the <b><b> Username </b></b> value found in the <b><b> How to Upload </b></b> tab in Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the <b><b> Username </b></b> value found in the <b><b> How to Upload </b></b> tab in Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Leave this blank. Adobe will use the RSA public key you entered in step 1 above. </p></td></tr></tbody></table><p> Optionally, you can also click the <b><b> Scheduling Options </b></b> tab to specify a one-time immediate delivery or a recurring schedule. </p></td></tr></tbody></table>
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7L.png"/></Frame>
+
+7. Once you have specified all advanced delivery options, click
+   ****Send****.
+     
+   You are taken back to the ****Data Warehouse Request**** page.
+8. Click
+   ****Request this Report**** to save all your settings.
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7C.png"/></Frame>
+
+Adobe now queues the report and delivers it to Domo when ready. It may take some time for Adobe to complete the request.

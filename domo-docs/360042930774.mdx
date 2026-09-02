@@ -1,0 +1,59 @@
+---
+title: "SurveyMonkey Connector"
+excerpt: "Use Domo's SurveyMonkey Connector to import survey responses and completed survey data from SurveyMonkey into a DataSet via OAuth."
+---
+
+## Intro
+
+SurveyMonkey is a cloud-based company that provides free, customizable surveys, as well as a suite of paid back-end programs that include data analysis, sample selection, bias elimination, and data representation tools. To learn more about the SurveyMonkey API, visit their website. ([https://developer.surveymonkey.com/api/v3/](https://developer.surveymonkey.com/api/v3/ "https://developer.surveymonkey.com/api/v3/") ).
+
+The SurveyMonkey connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your SurveyMonkey account in the Data Center. This topic discusses the fields and menus that are specific to the SurveyMonkey connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Survey and response analysis </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Number of people who responded to a survey </p></li><li><p> Response counts </p></li><li><p> Number of completed surveys </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Marketing roles </p></li><li><p> HR roles </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1 hour </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Best Practices
+
+Use this connector to pull historical data, then append new data via a recursive DataFlow. For more information, see [Creating a Recursive/Snapshot Magic ETL DataFlow](/s/article/360043428113 "Creating a Recursive/Snapshot Magic ETL DataFlow").
+
+## Prerequisites
+
+To connect your SurveyMonkey account and create a dataset, choose one of the available authentication methods.
+* If you choose **Enterprise OAuth**, enter the **client ID** and **client secret** associated with your SurveyMonkey app, and then select the domain to use for API calls. In most cases, select **US**. If you are in Canada, select **Canada**. If you are in Europe, select **Europe**.
+* If you choose **US-managed App** authentication method, select the domain to use for API calls. In most cases, select **.com**. If you are in Canada, select **.ca**. If you are in Europe, select **.eu**. 
+
+Finally, you must enter the username and password you use to log into your SurveyMonkey account.
+
+## Connecting to Your SurveyMonkey Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the SurveyMonkey Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+The Domo SurveyMonkey connector uses OAuth to connect. Select the appropriate authentication method. 
+
+If you select **Enterprise OAuth**, configure the following parameters: 
+
+|  Field                    |  Description                                                                                                                                                                                                                                                |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Endpoint url domain       |   Select the domain to use for API calls. Most users use **US**. If you are in Canada, select **Canada**. If you are in Europe, select **Europe**.                                                                                                          |
+| Client ID                 |   Go to the SurveyMonkey API Help page and sign in to your SurveyMonkey account using the correct regional login. In the developer dashboard, open **My Apps**, select your app, and then go to **Settings** or **Credentials** to copy the client ID.      |
+| Client Secret             |   Go to the SurveyMonkey API Help page and sign in to your SurveyMonkey account using the correct regional login. In the developer dashboard, open **My Apps**, select your app, and then go to **Settings** or **Credentials** to copy the client secret.  |
+
+If you select **US-managed App**, configure the following parameter: 
+|  Field                    |  Description                                                                                                                                                                                                                                   |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Endpoint url domain       |   Select the domain to use for API calls. Most users use **.com** domain. If you are in Canada, select **.ca**. If you are in Europe, select **.eu**.                                                                                          |
+
+Click **Connect** (or select **Add Account** if you have existing SurveyMonkey accounts in Domo) to open the SurveyMonkey OAuth screen where you can enter your SurveyMonkey credentials. Once you have entered valid SurveyMonkey credentials, you can use the same account any time you go to create a new SurveyMonkey DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+This pane contains a primary **Report** menu, along with various other menus which may or may not appear depending on the report version you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select a SurveyMonkey report. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> S. No </b></td><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> 1 </td><td colspan="1" rowspan="1"> All Survey Details </td><td colspan="1" rowspan="1"> Returns all responses, questions, and metadata for one or more surveys. </td></tr><tr><td colspan="1" rowspan="1"><p> 2 </p></td><td colspan="1" rowspan="1"><p> Collector List </p></td><td colspan="1" rowspan="1"><p> Returns data about collectors for a selected survey. </p></td></tr><tr><td colspan="1" rowspan="1"><p> 3 </p></td><td colspan="1" rowspan="1"><p> Responses </p></td><td colspan="1" rowspan="1"><p> Returns data about responses for a selected survey. </p></td></tr><tr><td colspan="1" rowspan="1"><p> 4 </p></td><td colspan="1" rowspan="1"><p> Survey Details </p></td><td colspan="1" rowspan="1"><p> Returns details for a selected survey. </p></td></tr><tr><td colspan="1" rowspan="1"><p> 5 </p></td><td colspan="1" rowspan="1"><p> Survey List </p></td><td colspan="1" rowspan="1"><p> Returns a list of completed surveys. </p></td></tr><tr><td colspan="1" rowspan="1"><p> 6 </p></td><td colspan="1" rowspan="1"><p> User Details </p></td><td colspan="1" rowspan="1"><p> Returns information about the current user. </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> All or New Data </p></td><td colspan="1" rowspan="1"><p> Select how much data to retrieve. If you select <b> All data </b>, the report retrieves all data within the given <b> Start Days </b> and <b> End Days </b> range. If you select <b> Since last successful run </b>, the report retrieves all data since the last successful update. If this is a new DataSet, the run retrieves data for the number of days specified in <b> Start Days </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Days </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> End Days </b> to create a range of represented days. For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Start Days </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Days </b>, the report would contain data for 10 days ago up until 5 days ago. Use <span class="mt-font-courier-new"> 0 </span> for today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Days </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Start Days </b> to create a range of represented days. For example, if you entered <code> 10 </code> for <b> Start Days </b> and <span class="mt-font-courier-new"> 5 </span> for <b> End Days </b>, the report would contain data for 10 days ago up until 5 days ago. Use <span class="mt-font-courier-new"> 0 </span> for today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey </p></td><td colspan="1" rowspan="1"><p> Select the survey for which you want to retrieve data. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

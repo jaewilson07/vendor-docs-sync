@@ -1,0 +1,110 @@
+---
+title: "Microsoft Dynamics CRM REST Connector"
+excerpt: "Use Domo's Microsoft Dynamics CRM REST Connector with an Azure app to retrieve entity data from your Dynamics CRM installation via REST."
+---
+
+## Intro
+
+Microsoft Dynamics CRM is a CRM business solution that drives sales productivity and marketing effectiveness through social insights, business intelligence and campaign management. The Domo Microsoft Dynamics CRM REST Connector allows you to retrieve data on your defined entities within Microsoft Dynamics CRM. To do this, you must first create an app in Microsoft Azure. For more information about the Microsoft Dynamics CRM API, visit their website. ([https://learn.microsoft.com/en-us/rest/dynamics365/](https://learn.microsoft.com/en-us/rest/dynamics365/ "https://learn.microsoft.com/en-us/rest/dynamics365/") ). For more information about Azure, see https://azure.microsoft.com/en-us/.
+
+You connect to your Microsoft Dynamics CRM installation in the Data Center. This topic discusses the fields and menus that are specific to the Microsoft Dynamics CRM REST connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/General_Guide_to_Connecting_with_Connectors/01Adding_a_DataSet_Using_a_Data_Connector).
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> This connector is appropriate for: </p><ul><li><p> Sales management </p></li><li><p> Marketing lead generation </p></li><li><p> Pipeline management </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Leads generated </p></li><li><p><span class="scayt-misspell-word"> MQL </span></p></li><li><p><span class="scayt-misspell-word"> MQO </span></p></li><li><p> SAO </p></li><li><p> Won Deals </p></li><li><p> Open Opportunities </p></li><li><p> Win Rates </p></li><li><p> Average Deal Size </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Salespeople, executives, etc. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 30 hours </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 9 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to your Microsoft Dynamics CRM installation in order to retrieve information, you must have the following:
+
+* An installed Microsoft Azure app.
+* Your Azure tenant domain. To find your tenant domain, do the following:
+
+   1. Go to [portal.azure.com](http://portal.azure.com) and sign in using your Microsoft credentials.
+   2. Select **Azure Active Directory > Properties**.
+   3. Locate the "Directory ID" (this is the tenant domain).
+* The client ID for your Azure app. To find the client ID, do the following:
+
+   1. Go to [portal.azure.com](http://portal.azure.com) and sign in using your Microsoft credentials.
+   2. Select **Azure Active Directory > App registrations**.
+   3. Find your app and click on it.
+   4. Locate the "Application ID" from the web app (this is the client ID).
+* The client secret for your Azure app. This is generated when you create your Azure app. To generate a new client secret, do the following:
+
+   1. Go to [portal.azure.com](http://portal.azure.com) and sign in using your Microsoft credentials.
+   2. Select **Azure Active Directory > App registrations**.
+   3. Find your app and click on it.
+   4. Open **Certificates and secrets**.
+   5. Create the client secret.
+
+### Creating an Azure App
+
+To create a Microsoft Azure app, do the following:
+
+1. Log into https://portal.azure.com.
+2. Click on Azure Active Directory.
+3. Open **Properties**.
+4. Copy **Directory ID** and paste it into the **Tenant Domain** field in the Connector credentials section in Domo.
+5. Click on **App registrations**.
+   
+   <Frame><img src="/images/kb/ka0Vq00000003An-00N5w00000Ri7BU-0EMVq0000004C2b.jpg"/></Frame>
+
+6. Click **New registration**.
+7. Fill out the registration form as follows:
+      * Name: *MicrosoftDynamicsCRMRest*
+      * Supported account types: Select an option to specify who can use this application or access this API.
+         
+      Redirect URI: Add and save the following URL: https://oauth.domo.com/api/data/v1/oauth/providers/microsoft-dynamics-crm/exchange. The authentication response is sent to this URI after successfully authenticating the user. Providing the URI at this stage is optional and it can be changed later, but a value is required for most of the authentication scenarios.
+8. Click **Register**. An overview of your registered App will appear.
+
+   <Frame><img src="/images/kb/ka0Vq00000003An-00N5w00000Ri7BU-0EMVq0000004Bg2.jpg"/></Frame>
+
+9. Copy the **Application ID** that appears after the application is created and paste it into the **Client ID** field in the Connector credentials section in Domo.
+10. Click **API Permissions**.
+
+   <Frame><img src="/images/kb/ka0Vq00000003An-00N5w00000Ri7BU-0EMVq0000004C7S.jpg"/></Frame>
+
+11. Click **Add a permission**. **Request API permissions** section appears.
+      
+   <Frame><img src="/images/kb/ka0Vq00000003An-00N5w00000Ri7BU-0EMVq0000004C4E.jpg"/></Frame>
+
+12. Click on **Dynamics CRM** tile.
+
+   <Frame><img src="/images/kb/ka0Vq00000003An-00N5w00000Ri7BU-0EMVq0000004C93.jpg"/></Frame>
+
+13. Select the **Delegated permissions** for your App and click **Add permissions**. The configured permissions will be listed.
+14. Click on **Certificates and secrets**. Certificates can be used as secrets to prove the application's identity when requesting a token. Also, can be referred to as public keys. Click **Upload certificate** to upload a new certificate for your App.
+
+   <Frame><img src="/images/kb/ka0Vq00000003An-00N5w00000Ri7BU-0EMVq0000004CAf.jpg"/></Frame>
+
+15. Click **New client secret**.
+
+   <Frame><img src="/images/kb/ka0Vq00000003An-00N5w00000Ri7BU-0EMVq0000004CCH.jpg"/></Frame>
+
+16. Specify the client secret description and the expiry period for your client secret, and click **Add**.
+17. Copy the value and paste it into the **Client Secret** field in the Connector credentials section in Domo.
+18. Sign into Dynamics CRM at https://dynamics.microsoft.com/en-us/.
+19. 19. Click on **Dynamics 365 Home**. You should see all of your apps here.
+20. Click **Dynamics CRM custom**.
+
+This will redirect you to CRM Online. In our case it is [https://yourcompanv.crm.dynamics.com](https://yourcompanv.crm.dynamics.com/). This goes in the **Resource** field in the connector settings in Domo.
+
+## Connecting to Your Microsoft Dynamics CRM Installation
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Microsoft Dynamics CRM REST Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/General_Guide_to_Connecting_with_Connectors/01Adding_a_DataSet_Using_a_Data_Connector "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to a Microsoft Dynamics CRM installation via Azure. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Tenant Domain </p></td><td colspan="1" rowspan="1"><p> Enter your Azure tenant domain. For more information about finding this, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter the client ID for your installed Azure web app. For more information about finding this, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter the client secret that was generated when you created your app. For information about generating a new key, see "Prerequisites," above. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Resource </p></td><td colspan="1" rowspan="1"><p> Enter the name of the resource you want to connect to. </p></td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you go to create a new Microsoft Dynamics CRM REST DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domohelp.domo.com/Connect/Managing_DataSets/02Managing_User_Accounts_for_Connectors "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains menus in which you can select a Microsoft Dynamics CRM entity and specify other options for your report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Entity </p></td><td colspan="1" rowspan="1"><p> Select the entity for your report. This list includes every entity in the Dynamics CRM installation that the authenticated user has access to. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fetch All Data? </p></td><td colspan="1" rowspan="1"><p> Specify whether you want to retrieve all available data. If you select <b> No </b>, you will choose the data you want by specifying filter options. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Attributes </p></td><td colspan="1" rowspan="1"><p> Select all attributes for the given entity you want to appear in your report. This menu is not populated until you select an entity in the <b> Entity </b> menu. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Advanced Options </p></td><td colspan="1" rowspan="1"><p> Check this box if you want to filter your data using attribute filters. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter On </p></td><td colspan="1" rowspan="1"><p> Select the attribute you want to use to filter resulting entities. The list includes all attributes for the selected entity if it does not have the <span class="mt-font-courier-new"><span class="scayt-misspell-word"> createdon </span></span> attribute. Otherwise you can filter entities using the <span class="mt-font-courier-new"><span class="scayt-misspell-word"> createdon </span></span> attribute. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter Condition </p></td><td colspan="1" rowspan="1"><p> Select the operator you want to use in your filter. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter Value </p></td><td colspan="1" rowspan="1"><p> Enter the desired filter value. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/General_Guide_to_Connecting_with_Connectors/01Adding_a_DataSet_Using_a_Data_Connector).

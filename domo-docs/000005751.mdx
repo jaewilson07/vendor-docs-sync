@@ -1,0 +1,37 @@
+---
+title: "CanvasData Connector"
+excerpt: "Configure the CanvasData Connector to pull Canvas table data into Domo for reporting and queries."
+---
+
+## Intro
+
+Canvas Data is a service from Canvas that provides admins with optimized access to their data for reporting and queries.
+
+You can connect to your CanvasData account in the Data Center. This topic discusses the fields and menus specific to the CanvasData connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your CanvasData account and create a DataSet, you need the following:
+
+* API Key
+* API Secret
+
+## Connecting to Your CanvasData Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the CanvasData Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your CanvasData account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter the API Key. </td></tr><tr><td colspan="1" rowspan="1"> API Secret </td><td colspan="1" rowspan="1"> Enter the API Secret. </td></tr></tbody></table>
+
+Once you have entered valid CanvasData credentials, you can use the same account at any time to create a new CanvasData DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"><p> Select the CanvasData report you want to run. The following reports are available: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Get Tables Data </p></td><td colspan="1" rowspan="1"> Retrieves the data for the selected table. Datasets should be scheduled to run once every hour in Append mode. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Table Name </td><td colspan="1" rowspan="1"> Select the table. </td></tr><tr><td colspan="1" rowspan="1"> Account </td><td colspan="1" rowspan="1"> Please select the account. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

@@ -1,0 +1,130 @@
+---
+title: "2017 Release 9 | September"
+excerpt: "September 2017 release notes covering alert scheduling, alert sharing, mobile alerts, and chart updates including the 100% Stacked Bar with Line."
+---
+
+## New features and enhancements
+
+Features and enhancements in this release include the following:
+
+### Alert Enhancements
+
+#### New Alerting Options
+
+Domo now includes a number of new alert configuration options that give you the ability to provide more actionable context around alerts. These new options bring a whole new experience to Alerts and help you to trust your alerts more than ever before. These new options include the following:
+
+* You can schedule when you want an alert to evaluate so nothing is missed. If you don't want your alert evaluating over the weekends, or after business hours, you can adjust it.
+* You can choose whether to continue to receive notifications for triggered alerts based on the alert evaluation schedule you have set. For example, if you selected **Hourly** for your evaluation schedule, once the alert triggered a notification would be sent once every hour until the triggered state ended or you deactivated the alert.
+* New time-based ("current value") alerts help you to set measurable goals and then be alerted when the progress you expect is not taking place.
+    
+  <Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOm0.png"/></Frame>
+For more information, see [Creating an Alert for a Visualization Card](/s/article/360043430513).
+
+#### Alert Sharing
+
+Get the right alerts into the hands of the right people using the new Alert Sharing feature. You can now share alerts with other users in your Domo so they receive notifications every time that alert triggers. You can also share alerts in Buzz conversations, in which case all users following the conversation receive notifications. Alert sharing allows you to create business alignment by providing shared understanding on critical data conditions.
+
+By popular demand, we also support the ability to share an alert with a group. It is now even easier to align your team on the most critical business conditions. No longer do you need to add each of your team members individually.
+
+  <Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOm6.png"/></Frame>
+  <Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOlk.png"/></Frame>
+
+#### Mobile Alerts
+
+We now provide native alert support for the iOS and Android applications. Alerts enable you to set custom thresholds to be notified when your business KPIs hit a defined limit. This enables you to run your business even more seamlessly. In addition to the power of alerts, Domo users can now receive push notifications for any subscribed triggered alert and be taken right to the card within their native apps. In the card, you can find detailed information about the alert so you can dig in to fully understand the reason for the alert. Available in the iOS and Android app updates.
+
+<Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOm7.png"/></Frame>
+### Chart Updates
+
+The following additions and updates have been made to the visualization experience in Domo:
+
+* A new chart type, 100% Stacked Bar with Line, is now available.
+    
+  <Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOm8.png"/></Frame>
+  For more information, see [100% Stacked Bar with Line Graph](/s/article/360042923854 "100% Stacked Bar with Line Graph").
+* Two new country maps have been added:
+
+  + The Philippines. For more information, see
+    [Country Map](/s/article/360043429033 "Country Map").
+  + Post-2015 France. This map includes updated regional divisions as per the changes that went into effect on January 1, 2016. The legacy version of the map will continue to be available. For more information, see
+    [Country Map](/s/article/360043429033 "Country Map").
+* Another new map, U.S. State, lets you show county-level data for specific states. All you need to power a U.S. State chart is a column with FIPS (county) data and your value column.
+
+  <Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOlm.png"/></Frame>
+  For more information, see [U.S. County Map](/s/article/360042925074 "U.S. County Map").
+* You now have the ability to set line or range scale markers dynamically based on a percentile, percentage, or standard deviation. You can also include scale markers based on quantiles (shown in the following example).
+    
+  <Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOm2.png"/></Frame>
+  For more information about these properties, see [Adding Scale Markers to Your Chart](/s/article/360042925194 "Adding a Scale Marker Range to Your Chart").
+* Various new properties have been implemented for customizing legends, hover legends, and data labels in pie-type graphs. For more information, see
+  [Properties for Pie-Type Charts](/s/article/360042925314 "Properties for Pie-Type Charts").
+* You can now set custom sizing on table cards in the card view when the "Full Size" option is selected—anywhere from 1 to 6 card sizes in both width and height.
+    
+  <Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOm4.png"/></Frame>
+  For more information, see [Changing the Size of Cards in a Page](/s/article/360042923594 "Changing the Size of Cards in a Page").
+* You can access table formatting and total/subtotal options from the column dropdowns above your table preview, allowing you to make quick customizations to specific columns in your table.
+
+### Duplicate Page
+
+Domo now provides a **Save As** option for pages, which allows you to copy all content, collections, layouts, card sizes, and filters. This results in a new page with all content and settings duplicated.
+
+Using this option, you can duplicate a page with all of the following elements copied:
+
+* Cards
+* Card sizes
+* Filters built into cards using Analyzer
+* Collections
+* Page-level filters
+
+This option does *not* copy the following elements from pages:
+
+* Sub-pages
+* Temporary filters created at the card Details level
+* Alerts on cards
+* Scheduled reports
+* Users the original page was being shared with
+
+You can access this option by selecting **Save As** in the wrench menu for the page. You then enter the desired name for the new page, indicate whether you want to open the new page after you save, then save the changes.
+
+<Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOlx.png"/></Frame>
+For more information, see [Duplicating Pages](/s/article/360043428273 "Duplicating Pages").
+
+### Bulk Add Users
+
+You can now easily add teams, departments, and organizations to your Domo instance in a single action. The new "Bulk Add" feature enables you to provide a list of people you want to add to your Domo instance. The file just needs to be in CSV format and include, at a minimum, a list of email addresses and display names.
+
+All you need to do to import your list of users is go into **Admin > People > Bulk Add** and follow the instructions. You can even download a sample CSV file that shows you how your list should be formatted. The days of adding users to Domo one by one are over!
+
+<Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOm5.png"/></Frame>
+For more information, see [Adding Users to Domo](/s/article/360042934274 "Adding Users to Domo in Bulk").
+
+### New Self-Service Connectors
+
+This month we have polished and released another 49 connectors that are now available to all customers in their Domo account. These connectors are self-service, so you no longer need to contact support to get help powering them up. Here are the new connectors. Note that documentation is still in progress for many of these connectors, so please bear with us!
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Connector </p></th><th colspan="1" rowspan="1"><p> Link to Knowledge Base article </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> AD EBiS </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043430773" target="_blank" title="AD EBiS Connector"> AD EBiS Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> AdGear </p></td><td colspan="1" rowspan="1"> AdGear Connector </td></tr><tr><td colspan="1" rowspan="1"><p> AppNexus Log-Level </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360042928554" target="_self" title="AppNexus Log Level Connector"> AppNexus Log-Level Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ArcSight </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360042928574" target="_blank" title="ArcSight Connector"> ArcSight Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Amazon Web Services Billing </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043432693" target="_blank" title="Amazon Web Services Billing Connector"> Amazon Web Services Billing Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> BlueHornet </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043431513" target="_self" title="BlueHornet Connector"> BlueHornet Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> BrightCove </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043435653" target="_blank" title="Brightcove Connector"> Brightcove Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Cake </p></td><td colspan="1" rowspan="1"><a href="/s/article/360043430953" target="_blank" title="Cake Connector"> Cake Connector </a></td></tr><tr><td colspan="1" rowspan="1"><p> Channel Advisor </p></td><td colspan="1" rowspan="1"><a href="/s/article/360043432173" target="_blank" title="ChannelAdvisor Connector"> ChannelAdvisor Connector </a></td></tr><tr><td colspan="1" rowspan="1"><p> CheetahMail </p></td><td colspan="1" rowspan="1"><a href="/s/article/360043431013" target="_blank" title="CheetahMail Connector"> CheetahMail Connector </a></td></tr><tr><td colspan="1" rowspan="1"><p> Christopherson Business Travel </p></td><td colspan="1" rowspan="1"> Third-party connector--no documentation available from Domo </td></tr><tr><td colspan="1" rowspan="1"><p> Clarizen </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360042930374" target="_blank" title="Clarizen Connector"> Clarizen Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ClickPoint </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043432193" target="_blank" title="ClickPoint Connector"> ClickPoint Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> CJ Affiliate (formerly called Commission Junction) </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043431033" target="_self" title="Commission Junction Connector"> CJ Affiliate Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Coupa </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043432793" target="_blank" title="Coupa Connector"> Coupa Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Dial800 </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043435153" target="_blank" title="Dial800 Connector"> Dial800 Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Dovetale </p></td><td colspan="1" rowspan="1"><p> Third-party connector--no documentation available from Domo </p></td></tr><tr><td colspan="1" rowspan="1"><p> Dropbox for Business Advanced </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043434813" target="_blank" title="Dropbox For Business Advanced Connector"> Dropbox For Business Advanced Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Engine Ready </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043431193" target="_blank" title="Engine Ready Connector"> Engine Ready Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> eQuest </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043432573" target="_blank" title="eQuest Connector"> eQuest Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Foresee </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360042930414" target="_blank" title="ForeSee Connector"> ForeSee Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> GinzaMetrics </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043431073" target="_self" title="GinzaMetrics Connector"> GinzaMetrics Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Google AdWords </p></td><td colspan="1" rowspan="1"><p> Google AdWords Connector </p></td></tr><tr><td colspan="1" rowspan="1"><p> Google+ Advanced </p></td><td colspan="1" rowspan="1"><a target="_blank" title="Google+ Advanced Connector"> Google+ Advanced Connector </a></td></tr><tr><td colspan="1" rowspan="1"><p> HappyOrNot </p></td><td colspan="1" rowspan="1"><a href="/s/article/360042930694" target="_blank" title="HappyOrNot Connector"> HappyOrNot Connector </a></td></tr><tr><td colspan="1" rowspan="1"><p> Informatica Cloud Plugin </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360042932934" target="_blank" title="Connecting to Informatica Cloud in Domo"> Connecting to Informatica Cloud in Domo </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> InMoment </p></td><td colspan="1" rowspan="1"><a href="/s/article/360042930714" target="_blank" title="InMoment Connector"> InMoment Connector </a></td></tr><tr><td colspan="1" rowspan="1"><p> Ivinex </p></td><td colspan="1" rowspan="1"><a href="/s/article/360042929594" target="_blank" title="Ivinex Connector"> Ivinex Connector </a></td></tr><tr><td colspan="1" rowspan="1"><p> Custom JSON </p></td><td colspan="1" rowspan="1"><p><span class="mt-color-ff0000"> IN PROGRESS </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Kapost </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360042926874" target="_blank" title="Kapost Connector"> Kapost Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Kenshoo </p></td><td colspan="1" rowspan="1"><p><span class="mt-color-ff0000"> IN PROGRESS </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Kounta </p></td><td colspan="1" rowspan="1"><a href="/s/article/360043432833" target="_blank" title="Kounta Connector"> Kounta Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Neurio </td><td colspan="1" rowspan="1"><a href="/s/article/360043435793" target="_blank" title="Neurio Connector"> Neurio Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Nuvi </td><td colspan="1" rowspan="1"><p><span class="mt-color-ff0000"> IN PROGRESS </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Olo </p></td><td colspan="1" rowspan="1"> Olo Connector </td></tr><tr><td colspan="1" rowspan="1"><p> Oracle Bronto </p></td><td colspan="1" rowspan="1"><p> Bronto Connector </p></td></tr><tr><td colspan="1" rowspan="1"><p> PlayVox </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043434293" target="_blank" title="PlayVox Connector"> PlayVox Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ProBusinessTools </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360042930014" target="_blank" title="ProBusinessTools Connector"> ProBusinessTools Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Qubole </p></td><td colspan="1" rowspan="1"><a href="/s/article/360042929014" target="_blank" title="Qubole Connector"> Qubole Connector </a></td></tr><tr><td colspan="1" rowspan="1"><p> RemedyForce </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360042929054" target="_blank" title="RemedyForce Connector"> RemedyForce Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Sizmek </p></td><td colspan="1" rowspan="1"><p> Sizmek Connector </p></td></tr><tr><td colspan="1" rowspan="1"><p> SpringServe </p></td><td colspan="1" rowspan="1"><a href="/s/article/360042927394" target="_blank" title="SpringServe Connector"> SpringServe Connector </a></td></tr><tr><td colspan="1" rowspan="1"><p> Synthesio </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360042927454" target="_blank" title="Synthesio Connector"> Synthesio Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Sysomos Expion </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360042927474" target="_blank" title="Sysomos Expion Connector"> Sysomos Expion Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Totango </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043434373" target="_blank" title="Totango Connector"> Totango Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Weather Underground </p></td><td colspan="1" rowspan="1"><a href="/s/article/360042931074" target="_blank" title="Weather Underground Connector"> Weather Underground Connector </a></td></tr><tr><td colspan="1" rowspan="1"><p> WhatCounts </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043432093" target="_blank" title="WhatCounts Connector"> WhatCounts Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Wrike </p></td><td colspan="1" rowspan="1"><p><a href="/s/article/360043435133" target="_blank" title="Wrike Connector"> Wrike Connector </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Yext </p></td><td colspan="1" rowspan="1"><p> Third-party connector--no documentation available from Domo </p></td></tr></tbody></table>
+
+### Share and Invite
+
+You can now invite new users to Domo more easily while sharing content with them. The Details and Analyzer views for a card now include buttons that allow you to share the card with your colleagues and invite them to join Domo, all in a single dialog. The button in Analyzer reads **Invite**, while the Details button looks like this: <img src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOll.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
+
+<Frame><img alt="" src="/images/kb/ka05w00000129v8-00N5w00000Ri7BU-0EM5w000005vOli.png"/></Frame>
+For more information about inviting, see [Inviting Others to Join Domo](/s/article/360043438893 "Inviting Others to Join Domo").
+
+### Getting Help
+
+You can view the latest release notes information in the Help Center, which you can access from Domo by clicking <i className="legacy-icon-badge-layout-small sm" aria-hidden="true"/> **> Help Center**.
+
+If you have questions about Domo,
+
+* search for a topic in the Help Center
+* train in Domo University at
+  [http://www.domo.com/university](http://www.domo.com/university "http://www.domo.com/university")
+* get answers in the Domo Community at
+  [https://dojo.domo.com](https://dojo.domo.com "https://dojo.domo.com")
+* contact Technical Support by entering a help ticket in the Domo Support Portal, by sending a Buzz message to `\support`, or by emailing [support@domo.com](mailto:support@domo.com "support@domo.com").
+* reach out to your Domo Customer Success Manager or Technical Consultant
+
+If you have feedback, please send it from within Domo (<i className="legacy-icon-badge-layout-small sm" aria-hidden="true"/> **> Feedback**). Or send an email to [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com").
+
+For more information about getting help, see [Getting Help](/s/article/360042922874 "Getting Help").

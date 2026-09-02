@@ -1,0 +1,362 @@
+---
+title: "Using the Domo Campaign Markup Language"
+excerpt: "Use Domo Campaign Markup Language (DCML) to embed card content, Summary Numbers, Mega Tables, and PDP filters in Campaigns emails."
+---
+
+## Intro
+
+Advanced features of the Campaigns app allow for greater customization of your email campaigns. You can use the Domo Campaigns Markup Language (DCML) to add more Domo content, such as card Summary Numbers or titles, as well as to specify the size of a card or limit the number of rows in a table.
+
+When adding a distribution list to a campaign, you must specify columns that can act as Filters. The Filters are used as Personalized Data Permissions (PDP) within the app. You can always make sure that recipients of your campaign are only seeing the data that is filtered to them.
+
+You can also add paginated Mega Tables and Pivot Tables in the email body and PDF attachments. To learn more about Mega Tables, see [Table Chart](/s/article/360043429573). To learn more about Pivot Tables, see [Pivot Table](/s/article/360043429473).
+
+---
+
+## Add Customized Domo Content
+
+Although you can insert cards and card titles natively in the app, you can also add content by using the Domo Campaign Markup Language. To add dynamic content from a card in Domo, add the following text to your email or attachment body:
+
+`{{domo-content-[card id]-[content type]}}`
+
+1. Replace [ *card id* ] with the ID of the card you wish to pull from.
+2. Replace [ *content type* ] with the part of the card you want to reference.
+
+   <Note>
+     **Note:** Valid content types include card title, Summary Number, and description.
+
+   </Note>
+
+**Example 1**
+
+You want to insert the title from card 1234567, so you would insert the text below in your email or attachment body:
+
+`{{ domo-content-1234567-title }}`
+
+**Example 2**
+
+Now, you want to insert the Summary Number from card 8868777. Insert the following text:
+
+`{{ domo-content-8868777-summarynumber }}`
+
+#### Change Width, Height, and Scale
+
+You can apply specific width, height, and scale customizations to your Domo content. Add the following text to your email or attachment body:
+
+`{{domo-content-[card id]-chart width=[width] height=[height] scale=[scale]}}`
+
+1. Replace [ *card id* ] with the ID of the card you wish to pull from.
+2. [ *width* ] and [ *height* ] specify the size of the image you want to insert into your template.
+3. [ *Scale* ] is optional and always defaults to 1.0 if you do not set it.  This allows you to insert more detailed information in a smaller space as if you've zoomed the chart out.
+
+#### Scale Options
+
+All of the charts below are rendered at 300 width x 400 height but at different scales. At higher scales, you get more detailed content in the same size image.
+
+**Example Chart at Various Scales**
+
+<Frame caption="Scale = 1.0"><img alt="scale 1.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000006vn3U.jpg"/></Frame>
+
+<Frame caption="Scale = 1.5"><img alt="scale 1.5.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000006vn3Z.jpg"/></Frame>
+
+<Frame caption="Scale = 2.0"><img alt="scale 2.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000006vn3e.jpg"/></Frame>
+
+**Example 1**
+
+To insert the chart from card 8868777 and render in 800 width x 600 height, add the following text:
+
+`{{domo-content-8868777-chart width=800 height=600}}`
+
+**Example 2**
+
+If you wanted to insert the same card as the example above but with a scale of 2.0, add the following text:
+
+`{{domo-content-8868777-chart width=800 height=600 scale=2.0}}`
+
+## Increase DPI Resolution for Rendered Content
+
+You can increase the pixel density scale factor to improve the rendered image resolution in the email body and attachments using the DPI-Multiplier parameter in the Campaigns app email editor.
+
+Follow the steps below to choose the scale factor you want to use:
+
+1. In the Campaigns app, go to the **Email Body** or **Email Attachment** tab.
+2. Select **Add Card**.
+3. Use the dpi-multiplier parameter in the Domo content tag and choose a scale factor from 1 to 3, as in the example below:
+
+   {"{{domo-content-1726595141-chart width=800 height=600 scale=1.0 **dpi-multiplier=3** }}"}
+4. (Optional) Preview the email.
+5. Send the email.
+
+<Note>
+  **Note:** Increased email and attachment file size is expected due to higher image resolution. Confirm that your campaigns do not exceed your SMTP server limitations.
+
+</Note>
+
+<Warning>
+  **Important:** This tag does not work for HTML and Sumo Tables.
+
+</Warning>
+
+#### Table Cards
+
+To add Table Cards, add the following text to your email or attachment body:
+
+`{{domo-content-[card id]-table width=[width] height=[height] scale=[scale] max-pages=[maximum number of pages] max-rows=[maximum number of rows]}}`
+
+1. Replace [ *card id* ] with the ID of the table card you wish to pull from.
+2. [ *width* ] and [ *height* ] specify the size of the image you want to insert into your template.
+3. Configuring the [ *scale* ] is optional and always defaults to 1.0.
+4. [ *maximum number of pages* ] and [ *maximum number of rows* ] are optional. Use these options to define the maximum number of pages or rows you want to include.
+
+**Example 1**
+
+If you want to include up to 5 pages of data, set your [ *maximum number of pages* ] attribute to 5, shown below:
+
+`{{domo-content-8868777-chart width=800 height=600 scale=2.0 max-pages=5 max-rows=0}}`
+
+**Example 2**
+
+If you want to include up to 100 rows of data, no matter the number of pages required (up to 200 maximum), set the [ *maximum number of rows* ] attribute to 100 and [ *maximum number of pages* ] to 0, shown below:
+
+`{{domo-content-8868777-chart width=800 height=600 scale=2.0 max-pages=0 max-rows=100}}`
+
+### Limitations and Restrictions
+
+1. Supported components include:
+   * HTML Tables
+   * Mega Tables
+   * Pivot Tables
+2. The maximum number of pages for Mega and Pivot Tables is 200 pages per PDF.
+3. When using max-pages or max-rows tags, note the following:
+   * If the user sets both max-pages and max-rows to zero, the system generates all pages.
+   * The user must only use one pagination tag and set the other to zero. If both pagination tags have values, the app displays the following error:
+
+     <Frame><img alt="Screen Shot 2022-12-14 at 11.36.16 AM.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000005wNIf.jpg"/></Frame>
+   * Mega Tables and Pivot Tables must be sorted by a column set by the user. If the tables are not sorted, the app displays the following error:
+
+     <Frame><img alt="Screen Shot 2022-12-14 at 11.38.07 AM.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000005wNIu.jpg"/></Frame>
+   * The number of pages may vary depending on the width, height, and scale properties.
+   * In preview mode only, the user can experience timeout exceptions when loading a Mega or Pivot Table with a large amount of data when the number of pages is more than 50.
+
+## Distribution List Content
+
+The Domo Campaigns Markup Language (DCML) can also be used to insert fields from the distribution list into campaign emails or attachments.  If you want to add a field, simply add the following text to your email or attachment body:
+
+`{{domo-distribution-[field name]}}`
+
+Replace [ *field name* ] with the name of the column in the distribution list you wish to pull from.
+
+**Example 1**
+
+For example, to insert the `name *`* field from your distribution list, you would use the text below:
+
+`{{domo-distribution-name}}`
+
+<Warning>
+  **Important:** Columns are case-sensitive. (Ex: `Name` is different from `name`.)
+
+</Warning>
+
+## Comment Out References
+
+If you are having problems with a reference or want to comment it out, you can add an exclamation point **(!)** at the beginning of the text.
+
+`{{!domo-distribution-name}}`
+
+If a reference has been commented out, it is removed when rendering the HTML or PDF.
+
+#### Data Filters
+
+Filters are used to send a subset of your data to a given recipient by creating Custom Filters as columns within your distribution list.  You must have at least a single Filter column but can have multiple Filters that are executed together when rendering your Domo content.  Each Filter is made up of 3 separate pieces: the \< *column name>*, the \< *operand* >, and the \< *value* >.  They are all assembled to create a single Filter value, as in this example:
+
+`State is equal to Washington`
+
+<Frame><img alt="DCML - Filter DL.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000005vOQq.png"/></Frame>
+##### Dataset Column Name
+
+The \< *column name* > specifies the column to which the Filter is applied. Values entered here need to match the column names in the DataSet that is powering the cards referenced in your campaign.
+
+**Example 1**
+
+`Order Date is greater than or equal to 01/01/2018 00:00:00`
+
+**Example 2**
+
+Or you could only include the sales data for Washington:
+
+`Name is equal to John Smith`
+
+##### Multiple DataSets
+
+If you are referencing multiple cards in your campaign that are powered by multiple DataSets, then you *must* specify which DataSet the Filter applies to by providing the DataSet ID and the column name in this format:
+
+`[ dataset id ].[ column ]`
+
+**Example 1**
+
+Add a Filter to only include sales data for orders placed this year would look like this:
+
+`4bded6af-0556-4f24-b943-1858b6e84880.Order Date is greater than or equal to 01/01/2018 00:00:00`
+
+<Note>
+  **Note:** If all of your Domo content is powered by a single DataSet, the DataSet ID is implied and is not required.
+
+</Note>
+
+#### Operands
+
+There are 11 different operands that can be used to create your Filter:
+
+* Is equal to
+* Does not equal
+* Is greater than
+* Is greater than or equal to
+* Is less than
+* Is less than or equal to
+* Is between
+* Is in
+* Is not in
+* Is null
+* Is not null
+
+##### Value
+
+There are two different types of values that can be specified in the Filter, a normal value and a column reference.
+
+* **Normal Value —** A normal value is considered an actual value in a column to be filtered on.  For example, if you want to add a Filter where the `state` column is equal to CA, you simply add CA as the value. `State is equal to CA`
+* **Column Reference —** A column reference takes the value from any column in your distribution list and adds that value to your Filter.  So if you want to Filter by state and you already have `state` defined in your distribution list, you can just reference the column by surrounding the column name with %.
+
+**Example 1**
+
+If the first row of your distribution list contains information for John Doe and his state is CA, the Filter is set to "State is equal to CA".
+
+If the second row of your distribution list contains information for Jane Doe and her state is UT, the Filter is set to "State is equal to UT", and so forth.
+
+`State is equal to %State%`
+
+##### Wildcard Filter
+
+If you don't want to specify any Filters and instead want to send unfiltered data and information in your email campaign, you must still define one Filter column with the "Wildcard" value of **\*** in it.  This tells Campaigns that you understand that the data and information being delivered is unfiltered.
+
+##### Multiple DataSets
+
+If you are referencing multiple cards in your campaign that are powered by multiple DataSets, then you must specify which DataSet the Wildcard Filter applies to by providing the DataSet ID in this format:
+
+`[dataset id]=*`
+
+<Tip>
+  **Tip:** You can find the DataSet ID by looking at the URL of any of your DataSets in Domo. The DataSet ID is the portion of this URL that is bolded: https://instancename.domo.com/datasources/ **b936442-01cc-4ddc-836f-44457f123456** /details/overview
+
+</Tip>
+
+**Example 1**
+
+If you are referencing multiple DataSets and want to specify this DataSet as a wildcard, your Filter column would look like this:
+
+`4bded6af-0556-4f24-b943-1858b6e84880=*`
+
+## Use HTML to Format PDF Attachments
+
+You can also utilize HTML to format PDF attachments. You can define the page size, orientation, and custom page breaks when the PDF is rendered.
+
+#### Page Size and Orientation
+
+DCML supports the @page annotation as documented in the [CSS# Paged Media module](https://www.w3.org/TR/css3-page/ "https://www.w3.org/TR/css3-page/").  This allows you to easily specify the size of a page as well as the orientation by simply including some CSS in your HTML definition.  For example, to render the PDF attachment in standard letter size (8.5" x 11") in a landscape orientation, you would include the following code in your HTML header:
+
+```html
+<html>
+  
+<head>
+  
+<style type="text/css">
+  
+@page { size: letter landscape; }
+  
+</style>
+  
+</head>
+  
+<body>
+  
+...
+```
+
+<Note>
+  **Note:** Standard media sizes (A5, A4, A3, B5, B4, letter, legal, and ledger) and orientations (portrait and landscape) are supported.
+
+</Note>
+
+You can also specify any custom size in the @page annotation.  For example, if you want to render the PDF in 5" x 7", you would add the following code to your HTML header:
+
+```html
+<html>
+  
+<head>
+  
+<style type="text/css">
+  
+@page { size: 5in 7in; }
+  
+</style>
+  
+</head>
+  
+<body>
+  
+...
+```
+
+The CSS3 definition also supports more sophisticated and extensive formatting which is also supported by DCML.  You can find more details in the [CSS3 specification](https://www.w3.org/TR/css3-page "DCMLhttps://www.w3.org/TR/css3-page").
+
+#### Page Breaks
+
+In order for page break annotations to work, the **@media all** and **@media print** properties must be defined somewhere in your CSS.  If you don't have a defined CSS, simply include the following code in your HTML header:
+
+```html
+<html>
+  
+<head>
+  
+<style type="text/css">
+  
+@media all {
+  
+.page-break { display: none; }
+  
+}
+  
+@media print {
+  
+.page-break { display: block; page-break-before: always; }
+  
+}
+  
+</style>
+  
+</head>
+  
+<body>
+  
+...
+```
+
+<Note>
+  **Note:** DCML supports all of the CSS page break properties (**page-break-before, page-break-after,** and **page-break-inside**) with the exception of relatively positioned inline content and positioned/floated content which will paginate just like content in the normal flow.
+
+</Note>
+
+To add a manual page break to any document, you can simply add the following code to your HTML:
+
+`<div class="page-break"></div>`
+
+#### HTML Tags Not Rendering
+
+If you have a card title or Summary Number that contains HTML formatting, the HTML does not always render correctly in the PDF attachment.  This is due to the encoding required to convert HTML to a PDF.  In order to fix this issue, add the following flag to your DCML tag:
+
+`encoding=false`
+
+For example,
+
+`{{ domo-content-8868777-summarynumber encoding=false }}`
+
+This stops Domo content from being encoded and allows the HTML formatting to be rendered correctly.

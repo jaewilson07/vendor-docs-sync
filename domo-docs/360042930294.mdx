@@ -1,0 +1,44 @@
+---
+title: "WordPress Connector"
+excerpt: "Use Domo's WordPress connector to retrieve posts, pages, users, comments, categories, tags, and media from your self-hosted WordPress site into a DataSet."
+---
+
+## Intro
+
+WordPress is a free and open-source content management system used for website management and blogging. Use Domo's WordPress connector to retrieve data from WordPress, such as lists of posts, pages, users, comments, and so on. To learn more about the WordPress API, visit their page ([https://codex.WordPress/WordPress\_APIs](https://codex.wordpress.org/WordPress_APIs "https://codex.wordpress.org/WordPress_APIs") ).
+
+<Note>
+  **Note:** This connector is used to retrieve data from WordPress *not* [WordPress.com](http://WordPress.com). The essential difference between these is that with WordPress, you host your own site, whereas with [Wordpress.com](http://Wordpress.com), the hosting is done for you. For a more in-depth explanation of these differences, visit [https://ithemes.com/tutorials/wordpr...wordpress-org/](https://ithemes.com/tutorials/wordpress-com-vs-wordpress-org/ "https://ithemes.com/tutorials/wordpress-com-vs-wordpress-org/").
+
+</Note>
+
+You connect to your WordPress account in the Data Center. This topic discusses the fields and menus that are specific to the WordPress Self-Hosted connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your WordPress account and create a DataSet, you must have the following:
+
+* The host URL of your WordPress blog
+* The username and password for your WordPress site
+
+## Connecting to Your WordPress Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the WordPress Self-Hosted Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your WordPress account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Host URL </td><td colspan="1" rowspan="1"> Enter the host URL of your WordPress site. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username you use to log into your WordPress admin account. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the username you use to log into your WordPress admin account. </td></tr></tbody></table>
+
+Once you have entered valid WordPress credentials, you can use the same account any time you go to create a new WordPress Self-Hosted DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains a menu from which you select a WordPress Self-Hosted report type.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the WordPress Self-Hosted report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Categories </td><td colspan="1" rowspan="1"> Returns a list of WordPress categories. </td></tr><tr><td colspan="1" rowspan="1"> Comments </td><td colspan="1" rowspan="1"> Returns a list of comments made on posts in your site. </td></tr><tr><td colspan="1" rowspan="1"> Media </td><td colspan="1" rowspan="1"> Returns a list of media in your site. </td></tr><tr><td colspan="1" rowspan="1"> Pages </td><td colspan="1" rowspan="1"> Returns a list of pages in your site. </td></tr><tr><td colspan="1" rowspan="1"> Posts </td><td colspan="1" rowspan="1"> Returns a list of your posts. </td></tr><tr><td colspan="1" rowspan="1"> Posts Categories </td><td colspan="1" rowspan="1"> Returns a list of post categories. </td></tr><tr><td colspan="1" rowspan="1"> Posts Meta </td><td colspan="1" rowspan="1"> Returns a list of meta fields for posts. </td></tr><tr><td colspan="1" rowspan="1"> Posts Revision </td><td colspan="1" rowspan="1"> Returns revision data for posts in your site. </td></tr><tr><td colspan="1" rowspan="1"> Posts Tags </td><td colspan="1" rowspan="1"> Returns a list of tags you have used in posts. </td></tr><tr><td colspan="1" rowspan="1"> Posts Types </td><td colspan="1" rowspan="1"> Returns a list of post types. </td></tr><tr><td colspan="1" rowspan="1"> Statuses </td><td colspan="1" rowspan="1"> Returns a list of statuses in your site. </td></tr><tr><td colspan="1" rowspan="1"> Tags </td><td colspan="1" rowspan="1"> Returns a list of tags used in your site. </td></tr><tr><td colspan="1" rowspan="1"> Taxonomies </td><td colspan="1" rowspan="1"> Returns a list of taxonomies. </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> Returns a list of users in your site. </td></tr></tbody></table></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

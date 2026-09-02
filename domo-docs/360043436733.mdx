@@ -1,0 +1,117 @@
+---
+title: "Microsoft Excel SFTP Push Connector"
+excerpt: "Upload Excel files to a Domo SFTP server using FileZilla or another SFTP client to push data into a DataSet."
+---
+
+## Uploading an Excel File Using an SFTP Client
+
+You can upload an Excel file to a Domo SFTP server using an SFTP client. These instructions show you how to do this using the FileZilla SFTP client ([https://filezilla-project.org](https://filezilla-project.org/ "https://filezilla-project.org") ). For instructions about uploading files using other SFTP clients, read the documentation for your chosen client or do a Google search.
+
+****To send an Excel file to a Domo SFTP server using FileZilla,****
+
+1. Configure the Excel connector in Domo by following the instructions under [Connecting to Your Excel File](# "Microsoft Excel SFTP Connector").
+2. Move your.pem file into a directory on your machine.
+     
+   In this example we use the /sftp directory.
+3. Create a Excel file in the /sftp directory with the same name as the new DataSet's ID (which you can find in the ****How to Upload**** tab in the Details view for the DataSet).
+   
+   For example, if your DataSet ID was cb4ba6a0-0934-440f-8572-1253b9f7525a, the Excel filename would be cb4ba6a0-0934-440f-8572-1253b9f7525a.Excel.
+4. In FileZilla, create a new site in the Site Manager.
+   
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7N.png"/></Frame>
+
+5. In the ****General**** tab, configure settings as follows:
+   
+   <table><thead><tr><th colspan="1" rowspan="1"><p> For this setting... </p></th><th colspan="1" rowspan="1"><p>...do this </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the <b><b> Host name </b></b> URL found in the <b><b> How to Upload </b></b> tab in the Details view for the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter 22. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Protocol </p></td><td colspan="1" rowspan="1"><p> Select <b><b> SFTP </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Logon Type </p></td><td colspan="1" rowspan="1"><p> Select <b><b> Key file </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> User </p></td><td colspan="1" rowspan="1"><p> Enter the value next to <b><b> User name </b></b> in the <b><b> How to Upload </b></b> tab in the details view for the DataSet. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Key file </p></td><td colspan="1" rowspan="1"><p> Locate your <span class="mt-font-courier-new">.pem </span> key in the file browser. </p></td></tr></tbody></table>
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7D.png"/></Frame>
+
+6. Open the connection to the site you just configured.
+7. Drag the Excel file you want to upload from the
+   **Local file** window to the **Remote site** window.
+   
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7I.png"/></Frame>
+
+8. Close the connection or quit FileZilla.
+
+You should now see the file being uploaded into Domo.
+
+### Uploading an Excel File Using the Command Line
+
+You can send an Excel file to a Domo SFTP server using a command line client. These instructions are specific to Mac/Linux systems and may not work on Windows.
+
+****To send an Excel file to a Domo SFTP server using the command line,****
+
+1. Configure the Excel connector in Domo by following the instructions under [Connecting to Your Excel File](# "Microsoft Excel SFTP Connector").
+2. Move your.pem file into a directory on your machine.
+   
+   In this example we use the /sftp directory.
+3. Create a Excel file in the /sftp directory with the same name as the new DataSet's ID (which you can find in the ****How to Upload**** tab in the details view for the DataSet).
+   
+   For example, if your DataSet ID was cb4ba6a0-0934-440f-8572-1253b9f7525a, the Excel filename would be cb4ba6a0-0934-440f-8572-1253b9f7525a.Excel.
+4. In the /sftp directory, connect to the SFTP server using this command:<br/><br/>
+   
+   <code>sftp –i domosftpkey.pem username@mycompany.<a href='http://import.domo.com/'>import.domo.com</a></code><br/><br/>
+   
+   where **username** is the value corresponding to ****User name**** in the ****How to Upload**** tab, **domosftpkey.pem** is the name of your key, and **mycompany** is your Domo domain (i.e. the portion of the URL of your Domo instance immediately following http://).
+5. Use this command to upload the Excel file:
+   
+   ```
+   put cb4ba6a0-0934-440f-8572-1253b9f7525a.Excel
+   ```
+6. Exit the server by entering quit.<br/>
+   
+   When you exit the server, you will see your file being processed in Domo.
+
+There is a possibility you will see the following message when you try to connect to the server:
+
+<Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7K.png"/></Frame>
+
+If this occurs, run the following command then try connecting again:
+
+```
+chmod 600 /sftp/domosftpkey.pem
+```
+
+where **domosftpkey.pem** is the name of your key.
+
+### Uploading a Excel File Using a Third-Party Service
+
+You can send an Excel file to a Domo SFTP server using any of various third-party services. These instructions show you how to deliver analytics reports using Adobe Analytics. For instructions about uploading files using other services, peruse the documentation for those services or do a Google search.
+
+****To send an Adobe Analytics Excel file to a Domo SFTP server,****
+
+1. Configure the Excel connector in Domo by following the instructions under [Connecting to Your Excel File](# "Microsoft Excel SFTP Connector"). Make sure you set the following options:
+
+   * Under ****Generate or Select Key****, choose the ****Use my own key**** option. Then paste the RSA public key you received from Adobe in the text field.
+   * Under ****Parsing Options****...
+
+     + Set the delimiter to ****Comma****.
+     + Leave ****Includes Header Row**** checked unless you have it set up to not include one in Adobe.
+2. Switch to Adobe Analytics and log into your account.
+3. Navigate to ****Tools > Data Warehouse****.
+   
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7M.png"/></Frame>
+
+4. In the ****Data Warehouse Request**** tab, enter all the parameters needed to define the report you want to send to Domo. These parameters include ****Request Name****, ****Reporting Date****, ****Segments****, ****Items****, ****Breakdowns****, ****Metrics****, etc.
+   
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7A.png"/></Frame>
+
+5. In the ****Schedule Delivery**** section at the bottom of the page, click ****Advanced Delivery Options****.
+   
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7J.png"/></Frame>
+
+6. Set delivery options as follows:
+
+   <table><thead><tr><th colspan="1" rowspan="1"><p> For this option... </p></th><th colspan="1" rowspan="1"><p>...do this </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report file name </p></td><td colspan="1" rowspan="1"><p> Select <b><b> Custom </b></b>, then enter the Domo DataSet ID in the text field with a.Excelextension. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Format </p></td><td colspan="1" rowspan="1"><p> Select <b><b> Excel </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Destination </p></td><td colspan="1" rowspan="1"><p> Select <b><b> FTP </b></b>. Then enter information in the fields as follows: </p><table><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> sftp:// <em><em> hostname </em></em> (as listed on the <b><b> How to Upload </b></b> tab in Domo; for example <a href="" target="_blank" title="sftp://modocorp.import.domo.com"> sftp://modocorp.import.domo.com </a> ) </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> 22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Directory </p></td><td colspan="1" rowspan="1"><p> Enter the <b><b> Username </b></b> value found in the <b><b> How to Upload </b></b> tab in Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the <b><b> Username </b></b> value found in the <b><b> How to Upload </b></b> tab in Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Leave this blank. Adobe will use the RSA public key you entered in step 1 above. </p></td></tr></tbody></table><p> Optionally, you can also click the <b><b> Scheduling Options </b></b> tab to specify a one-time immediate delivery or a recurring schedule. </p></td></tr></tbody></table>
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7L.png"/></Frame>
+
+7. Once you have specified all advanced delivery options, click ****Send****.
+   
+   You are taken back to the ****Data Warehouse Request**** page.
+8. Click ****Request this Report**** to save all your settings.
+   
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7C.png"/></Frame>
+
+Adobe now queues the report and delivers it to Domo when ready. It may take some time for Adobe to complete the request.

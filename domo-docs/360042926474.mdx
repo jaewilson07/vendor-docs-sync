@@ -1,0 +1,155 @@
+---
+title: "BrightEdge Connector"
+excerpt: "Connect to BrightEdge in Domo using a username and password to pull SEO metrics like keyword rankings and search volume into a DataSet."
+---
+
+## Intro
+
+BrightEdge is a content marketing platform that transforms online content such as traffic, revenue, and engagement into tangible business results. To learn more about the BrightEdge API, visit their page ([http://www.brightedge.com/technology...on/connect-api](http://www.brightedge.com/technology/integration/connect-api "http://www.brightedge.com/technology/integration/connect-api") ).
+
+You connect to your BrightEdge account in the Data Center. This topic discusses the fields and menus that are specific to the BrightEdge connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Use this connector to pull data about search engine optimization. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Keyword rankings </p></li><li><p> Competitor rankings </p></li><li><p> Search volume </p></li><li><p> Tracked searches </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Digital marketing </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 5 hours </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## Best Practices
+
+These reports can power cards individually, but oftentimes it is helpful to combine the reports using Magic ETL. This way you can look at things like your keyword ranks compared to your competitor ranks or evaluate the search volume of your top ranked keywords. For more information about Magic, see Magic Transforms.
+
+## Prerequisites
+
+To connect to your BrightEdge account and create a DataSet, you must have a BrightEdge username and password.
+
+V3 of the BrightEdge API must be enabled to access the connector. Domains must also be enabled for API V3.
+
+## Connecting to Your BrightEdge Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the BrightEdge Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your BrightEdge account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your BrightEdge username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your BrightEdge password. </td></tr></tbody></table>
+
+Once you have entered valid BrightEdge credentials, you can use the same account any time you go to create a new BrightEdge DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr>
+<th colspan="1" rowspan="1">
+<p> Menu </p>
+</th>
+<th colspan="1" rowspan="1">
+<p> Description </p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Report </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the BrightEdge report you want to run. The following reports are available: </p>
+<table border="1" cellpadding="1" cellspacing="1">
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"> Accounts </td>
+<td colspan="1" rowspan="1"> Retrieves a list of all accounts. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> BQL Query </td>
+<td colspan="1" rowspan="1"> Retrieves rank information for all your keywords. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Competitors </td>
+<td colspan="1" rowspan="1"> Retrieves a list of all competitors being tracked for your account. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Domains </td>
+<td colspan="1" rowspan="1"> Retrieves a list of all domains being tracked for your account. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Domain Ranking </td>
+<td colspan="1" rowspan="1"> Retrieves the positional rank of a domain in a given search engine, according to the domain's defined keywords. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Keywords </td>
+<td colspan="1" rowspan="1"> Retrieves a list of all keywords being tracked for your account. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Keyword Groups </td>
+<td colspan="1" rowspan="1"> Retrieves a list of all keyword groups being tracked for your account. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Keyword Ranking </td>
+<td colspan="1" rowspan="1"> Retrieves the account's ranking for a given domain, keyword or search engine. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Keyword Volume </td>
+<td colspan="1" rowspan="1"> Retrieves a list of keywords and their search volumes, organized by search engine and time. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Keywords in Keyword Groups </td>
+<td colspan="1" rowspan="1"> Returns a list of all the keywords that belong to the specified keyword group. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Search Engine </td>
+<td colspan="1" rowspan="1"> Retrieves a list of all search engines that are enabled for the specified account. </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Account </td>
+<td colspan="1" rowspan="1"> Select the account you want to retrieve data for. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Query </td>
+<td colspan="1" rowspan="1">
+<p> Enter a query using BQL language. For example: </p>
+<p>
+```json
+{
+  "dataset":"keywordgroup",
+  "dimension":["domain","search_engine"],
+  "measures":["rank_p1","revenue"],
+  "dimensionOptions":{"time":"weekly"},
+  "filter":
+}
+```
+</p>
+<p> For more information about BQL, see <a href="http://senseidb.github.io/sensei/bql.html" target="_blank" title="http://senseidb.github.io/sensei/bql.html"> http://senseidb.github.io/sensei/bql.html </a>. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Time Frequency </td>
+<td colspan="1" rowspan="1"> Select how the report data will be aggregated. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Start Date </td>
+<td colspan="1" rowspan="1"> Select the start date for the report data. Data will be returned from this date until the current date. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Search Engines </td>
+<td colspan="1" rowspan="1"> Select all search engines you want to retrieve data for. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Keyword Group </td>
+<td colspan="1" rowspan="1"> Select all keyword groups you want to retrieve data for. </td>
+</tr>
+</tbody>
+</table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Troubleshooting
+
+This connector has strict data limits. If it fails to retrieve data, reduce the time period to 90 days or less and try again. This also means that multiple pulls and appends might be needed.

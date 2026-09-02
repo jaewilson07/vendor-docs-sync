@@ -1,0 +1,26 @@
+---
+title: "MQTT Connector"
+excerpt: "Use the MQTT Connector to stream real-time IoT device data into Domo by configuring the broker host, port, and authentication certificates."
+---
+
+## Intro
+
+MQTT is a publish/subscribe, extremely simple and lightweight messaging protocol, designed for constrained devices and low-bandwidth, high-latency or unreliable networks. Connect your MQTT data to Domo using the MQTT Connector. MQTT shows your real-time data from hundreds of IoT devices, and lets you set alerts to be notified when time-sensitive metrics change.
+
+## Prerequisites
+
+No prerequisites are required to connect to your MQTT account and create a DataSet.
+
+## Connecting to Your MQTT Connector Data
+
+This section enumerates the options in the **Details** panes in the MQTT Connector page. The components of the other panes in this page, the **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Details Pane
+
+This pane contains the details that help you to connect your MTTQ data to Domo.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> MQTT Broker Host </td><td colspan="1" rowspan="1"> This field display the address of your MQTT Connector broker host. Click <b> Copy Address </b> button to copy the address. </td></tr><tr><td colspan="1" rowspan="1"> Port to Connect Domo to MQTT </td><td colspan="1" rowspan="1"> This field displays the port number that connects your MQTT Connector data to Domo. Click <b> Copy Port </b> button to copy the port number. </td></tr><tr><td colspan="1" rowspan="1"> Certs Will Expire In </td><td colspan="1" rowspan="1"> Select the number of years that you want the Certificates to work for. The certificates will expire after the selected number of years. Click <b> Download Certs </b> button to download the certificates. These certificates are required to connect a device to the Domo Broker. </td></tr><tr><td colspan="1" rowspan="1"> Require username/password? (checkbox) </td><td colspan="1" rowspan="1"> Select this checkbox if you wish to provide additional authentication by requiring MQTT Connector clients to send a username/password to connect to the Domo Broker. Certificates expires in 1 year. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username provided by MQTT Connector client. (This field appears when you select the <b> Require username/password </b> checkbox.) </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password provided by MQTT Connector client. (This field appears when you select the <b> Require username/password </b> checkbox.) </td></tr><tr><td colspan="1" rowspan="1"> Topic Handling </td><td colspan="1" rowspan="1"><p> This field allows you to handle topics. There are 3 options available from the drop-down list. </p><ul><li><b> Ignore </b> - Ignores the topic. </li><li><b> Single Column </b> - Adds the topic as a single column. </li><li><b> Multi Column </b> - Split the topic into multiple columns. </li></ul></td></tr><tr><td colspan="1" rowspan="1"> Update method </td><td colspan="1" rowspan="1"><p> When Domo retrieves your data from the source, you can determine how that new data is imported into the current DataSet. For this connector we offer Append and Replace update methods. </p><p><b> Append: </b> This method takes your new data and adds it to your current DataSet. This may create duplicate data entries. </p><p><b> Replace: </b> This method will take your current DataSet and replace it with new data. Using this may result in some data loss. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

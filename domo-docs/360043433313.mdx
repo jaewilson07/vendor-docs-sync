@@ -1,0 +1,74 @@
+---
+title: "Google Cloud Storage Connector OAuth"
+excerpt: "Reference for the legacy Google Cloud Storage OAuth connector and the Service Account connectors that replace deprecated Google OAuth connectors."
+---
+
+<Warning>
+**Important:** Due to Google's change in allowing Domo connectors to use OAuth authentication, all users must now use service account key authentication to create new data connections. All pre-existing DataSets will continue to run normally. Current Connectors that rely on Google OAuth authentication will no longer be able to power up new DataSets. These connectors include the following:
+
+* Google BigQuery
+* Google Adwords via Google BigQuery
+* [DoubleClick Campaign Manager via Google Cloud Storage Connector (DTV2)](/s/article/360042926694 "DoubleClick Campaign Manager via Google Cloud Storage Connector (DTV2)")
+* [Google Cloud Storage Connector](/s/article/360043433313 "Google Cloud Storage Connector")
+* [Google Contacts](/s/article/360043435173 "Google Contacts Connector")
+* Google Drive
+* [Google Gmail](/s/article/360042930594 "Google Gmail Connector")
+* [Google Admin SDK Reports](/s/article/360042928714 "Google Admin SDK Reports Connector")
+
+If you need to change a pre-existing Google OAuth DataSet, please use the corresponding Service Account connector. The following Service Account connectors are now available:
+
+* [Google BigQuery Service](/s/article/360043436593 "Google BigQuery Service Connector")
+* [Google Ads (fomerly AdWords) via Google BigQuery Service](/s/article/360043431253 "Google Ads via Google BigQuery Service Connector")
+* [Google Drive Service](/s/article/360042932014 "Google Drive Service Connector")
+* [Google Cloud Storage Connector OAuth Service](/s/article/360042928774 "Google Cloud Storage Service Connector")
+* [Google Contacts Service](/s/article/360042930574 "Google Contacts Service Connector")
+* [Google Gmail Service](/s/article/360043435193 "Google Gmail Service Connector")
+* [Google Admin SDK Reports Service](/s/article/360043433273 "Google Admin SDK Reports Service Connector")
+
+All other equivalent Google Service Account connectors are currently in development. Domo will communicate when these connectors become available. You will need to look for the Service Account equivalent connector in Data Center or the App Store and use that connector to get their data.
+  
+Domo recommends that you proactively repower existing Google connections by creating new DataSets utilizing the new Service Account Key connectors as the connectors become available.  Domo will notify you if any further migration changes should arise.
+</Warning>
+
+## Intro
+
+Google Cloud Storage Connector OAuth is an Internet service used to store data in Google's cloud. You can use Domo's Google Cloud Storage Connector OAuth connector to get data about project buckets and objects in Google Cloud Storage Connector OAuth. Buckets are general locations and destination for files to be stored. Projects organize the resources and permissions. Most people will use this connector to connect to the buckets that store their data.
+
+To find out more about the Google Cloud Storage Connector OAuth API, visit [https://cloud.google.com/storage/docs/json\_api/](https://cloud.google.com/storage/docs/json_api/ "https://cloud.google.com/storage/docs/json_api/").
+
+The Google Cloud Storage Connector OAuth connector is a "File" connector, meaning it retrieves files and outputs them to Domo. In the Data Center, you can access the connector page for this and other File connectors by clicking **File** in the toolbar at the top of the window.
+
+You connect to your Google Cloud Storage Connector OAuth account in the Data Center. This topic discusses the fields and menus that are specific to the Google Cloud Storage Connector OAuth connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Files of any size can be delivered to the Google Cloud Storage Connector OAuth buckets. You can list the files in a bucket or retrieve individual files. You can also use this connector to pull details about the buckets and projects associated with the bucket or project name. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> None. This connector is primarily used for grabbing files out of a cloud storage bucket. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Data specialists </p></li><li><p> Analysts </p></li><li><p> MajorDomos </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Entering credentials - 15 minutes or less </p></li><li><p> Configuring the connector - 20 minutes </p></li><li><p> Allowing the connector to run - Time varies depending on file size </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## Prerequisites
+
+To connect to a Google account and create a Google Cloud Storage Connector OAuth DataSet, you must have the password for the account you want to connect to.
+
+## Connecting to Your Google Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Google Cloud Storage Connector OAuth Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+The Domo Google Cloud Storage Connector OAuth connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Google accounts in Domo) to open the Google OAuth screen where you can select the account you want to connect to. After selecting an account, you are asked for the password for that account. Once you have entered a valid password, you can use the same account any time you go to create a new Google Cloud Storage Connector OAuth DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+<Note>
+**Note:** If you are already logged into Google when you connect in Domo, you are authenticated automatically when you click **Add account**. If you want to connect to an account that is different from the one you are logged into, you must first log out of the currently active Google account.
+</Note>
+
+### Details Pane
+
+This pane contains a primary **Report** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Storage Type </td><td colspan="1" rowspan="1"> Select whether the data you want to pull comes from a project or a bucket. </td></tr><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select a Google Cloud Storage Connector OAuth report. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Bucket Details </p></td><td colspan="1" rowspan="1"><p> Returns details about the specified bucket. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Get All Objects </p></td><td colspan="1" rowspan="1"><p> Returns the data for all the objects that belongs from the selected bucket. Only csv files will be fetched. </p></td></tr><tr><td colspan="1" rowspan="1"> Get Object </td><td colspan="1" rowspan="1"> Lets you locate a specific bucket object to pull into Domo. </td></tr><tr><td colspan="1" rowspan="1"><p> List Buckets (only available when <b> Projects </b> is selected as your <b> Storage Type </b> ) </p></td><td colspan="1" rowspan="1"><p> Returns the list of buckets in the specified project. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Objects </p></td><td colspan="1" rowspan="1"><p> Returns the list of objects in the specified bucket. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Project ID </p></td><td colspan="1" rowspan="1"><p> Enter the API ID of the project you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"> Projection </td><td colspan="1" rowspan="1"> Select the desired projection type, either <b> No ACL </b> or <b> Full </b>. </td></tr><tr><td colspan="1" rowspan="1"><p> Prefix </p></td><td colspan="1" rowspan="1"><p> Enter the prefix of the Object or Bucket name you want to retrieve data for. For example, if the Bucket name was "API-Bucket," you would enter <span class="mt-font-courier-new"> API </span> as the prefix. (The prefix is case-sensitive.) </p></td></tr><tr><td colspan="1" rowspan="1"> Versions </td><td colspan="1" rowspan="1"> Select <b> True </b> if you want object versions to appear as results in your DataSet; otherwise select <b> False </b>. </td></tr><tr><td colspan="1" rowspan="1"> Bucket Name </td><td colspan="1" rowspan="1"> Enter the name of the bucket containing the object you want to pull into Domo. </td></tr><tr><td colspan="1" rowspan="1"> Object Name </td><td colspan="1" rowspan="1"> Enter the name of the object you want to pull into Domo. You can enter full names or regular expressions. You select the desired match type in the <b> Match Type </b> menu. </td></tr><tr><td colspan="1" rowspan="1"> Match Type </td><td colspan="1" rowspan="1"><p> Select how you want to search for the object you've entered in <b> Object Name </b>. </p><ul><li><p> Select <b> Object name contains the specified string </b> if you want to search for all objects containing the specified object name. </p></li><li><p> Select <b> Object name starts with the specified string </b> if you want to search only for objects starting with the string. </p></li><li><p> Select <b> Object name with regular expression </b> if you entered a regular expression in the <b> Object Name </b> field. </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"> File Type </td><td colspan="1" rowspan="1"> Select the file type for the object you want to pull into Domo. </td></tr><tr><td colspan="1" rowspan="1"> Contains Header Row? </td><td colspan="1" rowspan="1"> Select <b> Yes </b> if the CSV file you are pulling into Domo contains a header row. If you select <b> No </b>, a header row will be generated in the new DataSet. </td></tr><tr><td colspan="1" rowspan="1"> Select the Delimiting Character </td><td colspan="1" rowspan="1"> Select the delimiter for your CSV file. </td></tr><tr><td colspan="1" rowspan="1"> File Name from Zip File </td><td colspan="1" rowspan="1"> Select the ZIP file you want to pull into Domo. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Troubleshooting
+
+* Check that you have the file name right and that you are matching on either a "starts with" or "contains."
+* Ensure you have the right permissions with the project to get to the bucket you're interested in.

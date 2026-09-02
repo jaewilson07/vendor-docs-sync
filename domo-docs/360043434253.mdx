@@ -1,0 +1,46 @@
+---
+title: "Medallia Connector"
+excerpt: "Configure the Medallia connector with OAuth endpoints, client ID, and secret to pull Experience Cloud customer feedback into Domo."
+---
+
+## Intro
+
+The Medallia Experience Cloud captures customer feedback and deliver insights and action across your organization. To learn more about the Medallia API, visit their page (https://www.medallia.com/platform/api/).
+
+You connect to your Medallia account in the Data Center. This topic discusses the fields and menus that are specific to the Medallia connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Medallia account and create a DataSet, you must have the following:
+
+* A Medallia OAuth authorization endpoint. This should be in the form
+
+  https:// *company*. [medallia.com/oauth/token](http://medallia.com/oauth/token).  You can find this in the OAuth configuration screen in Medallia.
+* A Medallia API endpoint. This should be in the form
+
+  https:// *company*. [apis.medallia.com](http://apis.medallia.com).
+* A Medallia client ID and client secret. You can find these in the Medallia OAuth client screen.
+
+## Connecting to Your Medallia Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Medallia Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Medallia account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> OAuth Authorization Endpoint </p></td><td colspan="1" rowspan="1"><p> Enter your Medallia OAuth authorization endpoint in the form <span class="mt-font-courier-new"><span class="nowiki"> https:// <em> company </em>. <a href="http://medallia.com/oauth/token" rel="noopener" target="_blank"> medallia.com/oauth/token </a></span></span>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Endpoint </p></td><td colspan="1" rowspan="1"><p> Enter your Medallia API endpoint in the form <span class="nowiki"><span class="mt-font-courier-new"> https:// <em> company </em>. <a href="http://apis.medallia.com" rel="noopener" target="_blank"> apis.medallia.com </a></span></span>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Medallia client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Medallia client secret. </p></td></tr></tbody></table>
+
+For information about obtaining these credentials, see [Prerequisites](/s/article/360043434253) above.
+
+Once you have entered valid Medallia credentials, you can use the same account any time you go to create a new Medallia DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Medallia report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Data Query </td><td colspan="1" rowspan="1"> Returns data for the provided query. </td></tr><tr><td colspan="1" rowspan="1"> MQL Query Data </td><td colspan="1" rowspan="1"> Returns data for the provided MQL (Medallia Query Language) statements. </td></tr><tr><td colspan="1" rowspan="1"> Roles </td><td colspan="1" rowspan="1"> Returns all roles in the system the authorized user has access to. </td></tr><tr><td colspan="1" rowspan="1"> User List </td><td colspan="1" rowspan="1"> Returns a list of users. </td></tr><tr><td colspan="1" rowspan="1"> User's Details </td><td colspan="1" rowspan="1"> Returns details for the specified user. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the name of the user you want to retrieve data for. </td></tr><tr><td colspan="1" rowspan="1"> Role (Optional) </td><td colspan="1" rowspan="1"> Enter a role to filter your list of users by. </td></tr><tr><td colspan="1" rowspan="1"> Roles (Optional) </td><td colspan="1" rowspan="1"> Enter a comma-separated list of roles to filter your users by. </td></tr><tr><td colspan="1" rowspan="1"> User Status </td><td colspan="1" rowspan="1"> Select a user status to filter your list of users by. </td></tr><tr><td colspan="1" rowspan="1"> MQL Query </td><td colspan="1" rowspan="1"> Enter the MQL query you want to execute. For more information about query syntax, see Medallia's developer documentation at <a href="http://developer.medallia.com/" target="_blank"> http://developer.medallia.com/ </a>. </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter the query to execute. For more information about query syntax, see Medallia's developer documentation at <a href="http://developer.medallia.com/" target="_blank"> http://developer.medallia.com/ </a>. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

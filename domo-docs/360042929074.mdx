@@ -1,0 +1,66 @@
+---
+title: "Sentry Connector"
+excerpt: "Use the Sentry connector to pull error tracking data, events, issues, and organization details into a Domo DataSet."
+---
+
+## Intro
+
+Sentry is an open-source error tracking platform that helps developers monitor and fix crashes in real time. To learn more about the Sentry API, visit their [documentation page](https://docs.sentry.io/api/auth/ "Sentry Connector").
+
+You connect to your Sentry account in the Data Center. This topic discusses the fields and menus that are specific to the Sentry connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042929074 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Sentry account and create a DataSet, you must have a Sentry API Auth Token. See Sentry's [authentication document](https://docs.sentry.io/api/auth/ "Sentry Connector") to learn how to find or create authentication tokens within Sentry.
+
+## Connecting to your Sentry Account
+
+This section enumerates the options in the ****Credentials**** and ****Details**** panes in the Sentry Connector page. The components of the other panes in this page, ****Scheduling,**** and ****Name & Describe Your DataSet****, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042929074 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Sentry account. The following table describes what is needed for each field:
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> Field </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Auth Token </td><td colspan="1" rowspan="1"> Enter your Sentry API Auth Token. For more information, see <a href="/s/article/360042929074" target="_self" title="Sentry Connector"> Prerequisites </a>, above. </td></tr></tbody></table>
+
+Once you have entered valid Sentry credentials, you can use the same account any time you go to create a new Sentry DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042929074 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> Menu </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"><p> Select the Sentry report you want to run. The following reports are available: </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"> Events Counts Organization </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a set of points representing a normalized timestamp and the number of events seen in the period. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Events Counts Project </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a set of points representing a normalized timestamp and the number of events seen in the period. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Events Counts Team </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a set of points representing a normalized timestamp and the number of events seen in the period. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Issues Events </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of issue's events. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Issues Events Entries </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of issue's events entry list. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Organization Projects </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of projects in an organization. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Organization Repositories </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of repositories in an organization. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Organization Teams </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of teams in an organization. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Organizations </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of organizations. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Projects </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of projects </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Project Feedback </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of user feedback items within this project. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Project Events </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of events bound to a project. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Project Events Entries </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of event's entries bound to a project. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Projects Issues </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of issues (groups) bound to a project. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Projects Users </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of users seen within this project. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Team Projects </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a list of projects bound to a team. </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"> Organizations </td><td colspan="1" rowspan="1"> Select the organization that you would like to include in your DataSet. <br/> 
+<Note><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><p><span><b> Note: </b> This option is available with the following reports: </span></p><ul><li><p><span> Projects Issues </span></p></li><li><p><span> Organization Projects </span></p></li><li><p><span> Organization Repositories </span></p></li><li><p><span> Organization Teams </span></p></li><li><p><span> Team Projects </span></p></li><li><p><span> Events Counts Organization </span></p></li><li><p><span> Events Counts Team </span></p></li></ul></div></div></div> </Note></td></tr></tbody><tbody><tr><td colspan="1" rowspan="1"> Projects </td><td colspan="1" rowspan="1"> Select the project that you would like to include in your DataSet. <br/> <Note><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><p><span><b> Note: </b> This option is available with the following reports: </span></p><ul><li><p> Projects Events </p></li><li><p> Project Events Entries </p></li><li><p> Projects Issues </p></li><li><p> Project Users </p></li><li><p> Project Feedback </p></li><li><p> Events Counts Project </p></li></ul></div></div></div> </Note></td></tr><tr><td colspan="1" rowspan="1"> Issue ID </td><td colspan="1" rowspan="1"> Enter the Issue ID you would like to include in your DataSet. <br/> <Note><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><p><span><b> Note: </b> This option is available with the following reports: </span></p><ul><li><p><span> Issues Events </span></p></li><li><p> Issues Events Entries </p></li></ul></div></div></div> </Note></td></tr><tr><td colspan="1" rowspan="1"> Teams </td><td colspan="1" rowspan="1"> Select the teams that you would like to include in your DataSet. <br/> <Note><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><p><span><b> Note: </b> This option is available with the following reports: </span></p><ul><li><p><span> Team Projects </span></p></li><li><p> Events Counts Team </p></li></ul></div></div></div> </Note></td></tr><tr><td colspan="1" rowspan="1"> Stat </td><td colspan="1" rowspan="1"> Select the stat for the report. <br/> <Note><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><p><span><b> Note: </b> This option is available with the following reports: </span></p><ul><li><p> Events Counts Organization </p></li><li><p> Events Counts Project </p></li><li><p> Events Counts Team </p></li></ul></div></div></div> </Note></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b><b> End Date </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b><b> Start Date </b></b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b><b> Days Back to End At </b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b> Days Back to Start From </b></b> and 5 for <b><b> Days Back to End At </b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b><b> Days Back to Start From </b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b> Days Back to Start From </b></b> and 5 for <b><b> Days Back to End At </b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042929074 "Adding a DataSet Using a Data Connector").
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need the **authentication token** associated with your Sentry account.
+
+</Accordion>
+
+<Accordion title="Where can I find my authentication token?">
+
+You can find your authentication token by logging in to the **Sentry Web UI** and navigating to  
+[https://sentry.io/auth/login/](https://sentry.io/auth/login/).
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>

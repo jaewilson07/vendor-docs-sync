@@ -1,0 +1,96 @@
+---
+title: "OfficeRnD Connector"
+excerpt: "Connect Domo to OfficeRnD with a client ID and secret to pull booking, contract, payment, office, and credit data into a DataSet."
+---
+
+## Intro
+
+The OfficeRnD co-working and flex platform helps customers book office space. It simplifies the process by automating administrative tasks, providing key details to make data-driven decisions, and delivering an amazing digital experience to customers. It helps space administrators focus on work, get access to required knowledge, and connect with like-minded professionals to enable sustainable growth in their business.
+  
+The Domo OfficeRnD connector enables you to retrieve various details about bookings, credits, contracts, offices, payments, and more. When you connect OfficeRnD with Domo, you'll see all the critical data you need to manage your workspaces along with costs and customer management. Your team will be able to use this data to have an all-in-one view of how your business is functioning and where potential problems may occur.
+  
+You can create powerful visualizations and reports to track all the data your OfficeRnD solution captures to keep your business running. Combine your OfficeRnD data with all your information on Domo to see how your workspaces affect your bottom line and plan for future business demands. To learn more about the OfficeRnD API, visit their page (https://developer.officernd.com/docs).
+
+The OfficeRnD Connector is a "Cloud App" Connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the Connector page for this and other Cloud App Connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your OfficeRnD account in the Data Center. This topic discusses the fields and menus that are specific to the our Officernd API Connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your OfficeRnD account and create a DataSet, you must have the following:
+
+* The client ID and client secret associated with y
+  our OfficeRnD API.
+* The Organization name for your OfficeRnD environment. You can find this in the API URL. For example, if your API URL is "
+  [https://app.officernd.com/api/v1/organizations/domo"](https://app.officernd.com/api/v1/organizations/domo)" then your organizations is "domo".
+
+## Connecting to Your OfficeRnD Account
+
+This section enumerates the options in the Credentials and Details panes in the OfficeRnD Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your OfficeRnD account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Enter the client ID associated with your OfficeRnD API. </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"><p> Enter the client secret associated with y <span> our OfficeRnD API. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Organization </td><td colspan="1" rowspan="1"><p> Enter t <span> he Organization name for your OfficeRnD environment. You can find this in the API URL. </span></p><p><span> For example, if your API URL is " <a href="https://app.officernd.com/api/v1/organizations/domo" rel="noopener" target="_blank"> https://app.officernd.com/api/v1/organizations/domo" </a> " then your organizations is "domo". </span></p></td></tr></tbody></table>
+
+Once you have entered valid OfficeRnD credentials, you can use the same account any time you go to create a new OfficeRnD DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the <span> OfficeRnD </span> report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><th colspan="1" rowspan="1"> Report </th><th colspan="1" rowspan="1"> Description </th></tr><tr><td colspan="1" rowspan="1"> Bookings </td><td colspan="1" rowspan="1"> Retrieves all bookings made for reservation of resources. </td></tr><tr><td colspan="1" rowspan="1"> Booking Occurrences </td><td colspan="1" rowspan="1"> Retrieves a list of all booking occurrences for a specified period. </td></tr><tr><td colspan="1" rowspan="1"> Charges </td><td colspan="1" rowspan="1"> Retrieves all charge objects. A charge object describes a single payment associated with an invoice. </td></tr><tr><td colspan="1" rowspan="1"> Checkins </td><td colspan="1" rowspan="1"> Retrieves all checkins. Checkins represent member presence at a certain office. </td></tr><tr><td colspan="1" rowspan="1"> Contracts </td><td colspan="1" rowspan="1"> Retrieves all contracts. A contract object allows one to associate contract data to the companies. </td></tr><tr><td colspan="1" rowspan="1"> Credit Accounts </td><td colspan="1" rowspan="1"> Retrieves coin credit balance for a team/member in a specific month. </td></tr><tr><td colspan="1" rowspan="1"> Fees </td><td colspan="1" rowspan="1"> Retrieves all fee objects. A fee object describes one-off charges or groups of one-off charges. </td></tr><tr><td colspan="1" rowspan="1"> Floors </td><td colspan="1" rowspan="1"> Retrieves all floors in the space. </td></tr><tr><td colspan="1" rowspan="1"> Issues </td><td colspan="1" rowspan="1"> Retrieves all issues. </td></tr><tr><td colspan="1" rowspan="1"> Members </td><td colspan="1" rowspan="1"> Retrieves all members. A member has all the member's data in a single place like memberships, invoices, charges, fees, etc. </td></tr><tr><td colspan="1" rowspan="1"> Memberships </td><td colspan="1" rowspan="1"> Retrieves all memberships. A membership object allows to assign recurring charges (price plans) to individual members or teams. </td></tr><tr><td colspan="1" rowspan="1"> Offices </td><td colspan="1" rowspan="1"> Retrieves all separate physical locations in the space. </td></tr><tr><td colspan="1" rowspan="1"> Passes </td><td colspan="1" rowspan="1"> Retrieves all passes. </td></tr><tr><td colspan="1" rowspan="1"> Payments </td><td colspan="1" rowspan="1"> Retrieves all payment objects (invoices / credit notes) </td></tr><tr><td colspan="1" rowspan="1"> Plans </td><td colspan="1" rowspan="1"> Retrieves all plans. A plan object allows to create one-off or recurring named charges. </td></tr><tr><td colspan="1" rowspan="1"> Rates </td><td colspan="1" rowspan="1"> Retrieves all resource rates. </td></tr><tr><td colspan="1" rowspan="1"> Resources </td><td colspan="1" rowspan="1"> Retrieves all types of resources. </td></tr><tr><td colspan="1" rowspan="1"> Resource Types </td><td colspan="1" rowspan="1"> Retrieves all resource types in the organization. </td></tr><tr><td colspan="1" rowspan="1"> Teams </td><td colspan="1" rowspan="1"> Retrieves all teams. </td></tr><tr><td colspan="1" rowspan="1"> Visits </td><td colspan="1" rowspan="1"> Retrieves visits in the organization. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Field To Expand </td><td colspan="1" rowspan="1"><span> Select the field that you would like to expand in the data. This will cause multiple rows to show each object in the selected field. You will not be able to expand any data, if "None" is selected. </span></td></tr><tr><td colspan="1" rowspan="1"> Date Selection Criteria </td><td colspan="1" rowspan="1"><span> Select the type of date you want to filter the data for. Select "All Data" if you don't want to filter the data or want to get all data. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Filter Data By Date </span></td><td colspan="1" rowspan="1"> S <span> elect this check box if you would like to filter the data for the selected duration. </span></td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> Select the date format for your data. </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> Select whether the report data is for a specific date or for a relative number of days back from today. </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> Select the specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for in the <span></span><b> Days Back </b><span></span> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> Select the specific or relative date range. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> Select the first date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> Select the last date in your date range using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data from (start day). Combine with <b><b><b><b> End Date </b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b> Start Date </b></b></b></b> and 5 for <b><b><b><b> End Date </b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> Enter the number of days back that you would like to get data to (end day). Combine with <b><b><b><b> Start Date </b></b></b></b> to create a range of represented days. </p><p> For example, if you entered 10 for <b><b><b><b> Start Date </b></b></b></b> and 5 for <b><b><b><b> End Date </b></b></b></b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> Specify the time period that you would like to receive data for. </td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> Select the day you would like your week to start with. </td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What endpoint is the base URL for this connector?">
+
+The base URL for the OfficeRnD connector is `https://app.officernd.com/api/v1/organizations/{orgSlug}`.
+
+</Accordion>
+
+<Accordion title="Which endpoint(s) does each report call in this connector?">
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> Bookings </td><td colspan="1" rowspan="1"> /bookings </td></tr><tr><td colspan="1" rowspan="1"> Booking Occurrences </td><td colspan="1" rowspan="1"> /bookings/occurrences </td></tr><tr><td colspan="1" rowspan="1"> Charges </td><td colspan="1" rowspan="1"> /charges </td></tr><tr><td colspan="1" rowspan="1"> Checkins </td><td colspan="1" rowspan="1"> /checkins </td></tr><tr><td colspan="1" rowspan="1"> Contracts </td><td colspan="1" rowspan="1"> /contracts </td></tr><tr><td colspan="1" rowspan="1"> Credit Accounts </td><td colspan="1" rowspan="1"> /credit-accounts/stats </td></tr><tr><td colspan="1" rowspan="1"> Fees </td><td colspan="1" rowspan="1"> /fees </td></tr><tr><td colspan="1" rowspan="1"> Floors </td><td colspan="1" rowspan="1"> /floors </td></tr><tr><td colspan="1" rowspan="1"> Issues </td><td colspan="1" rowspan="1"> /issues </td></tr><tr><td colspan="1" rowspan="1"> Members </td><td colspan="1" rowspan="1"> /members </td></tr><tr><td colspan="1" rowspan="1"> Memberships </td><td colspan="1" rowspan="1"> /memberships </td></tr><tr><td colspan="1" rowspan="1"> Offices </td><td colspan="1" rowspan="1"> /offices </td></tr><tr><td colspan="1" rowspan="1"> Passes </td><td colspan="1" rowspan="1"> /passes </td></tr><tr><td colspan="1" rowspan="1"> Payments </td><td colspan="1" rowspan="1"> /payments </td></tr><tr><td colspan="1" rowspan="1"> Plans </td><td colspan="1" rowspan="1"> /plans </td></tr><tr><td colspan="1" rowspan="1"> Rates </td><td colspan="1" rowspan="1"> /rates </td></tr><tr><td colspan="1" rowspan="1"> Resources </td><td colspan="1" rowspan="1"> /resources </td></tr><tr><td colspan="1" rowspan="1"> Resource Types </td><td colspan="1" rowspan="1"> /resource-types </td></tr><tr><td colspan="1" rowspan="1"> Teams </td><td colspan="1" rowspan="1"> /teams </td></tr><tr><td colspan="1" rowspan="1"> Visits </td><td colspan="1" rowspan="1"> /visits </td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="What kind of credentials do I need to power up this connector?">
+
+You need your client ID and client secret associated with your OfficeRnD API. You also need the organization for your OfficeRnD environment.
+
+</Accordion>
+
+<Accordion title="Where can I find my organization?">
+
+You can find your organization in the API URL.
+  
+For example, if your API URL is " [https://app.officernd.com/api/v1/organizations/domo"](https://app.officernd.com/api/v1/organizations/domo)" then your organization is "domo".
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No
+
+</Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+* Make sure your authentication remains valid.
+* Review the configuration to make sure that all required items have been selected.
+* Review the Connector history for error messages.
+* In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the Connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the timeframe that you are trying to pull.

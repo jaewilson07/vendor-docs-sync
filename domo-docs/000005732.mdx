@@ -1,0 +1,44 @@
+---
+title: "OLAP Connector"
+excerpt: "Configure the OLAP Connector with XMLA or Mondrian to query multidimensional OLAP cubes from Domo using MDX queries."
+---
+
+## Intro
+
+Online analytical processing, or OLAP, is an approach to answer multi-dimensional analytical queries swiftly in computing. Use this connector to get your OLAP data into Domo.
+
+OLAP (online analytical processing) is a computer processing technology that enables a user to easily and selectively extract and view [data](http://searchdatamanagement.techtarget.com/definition/data "data") from different perspectives.
+
+For example, a user can request that data be analyzed to display a spreadsheet showing all of a company's beach ball products sold in Florida in July, compare revenue figures with those for the same products in September, and then see a comparison of other product sales in Florida in the same period.
+
+OLAP data is stored in a multidimensional database to facilitate this analysis. Whereas a relational [relational database](http://searchsqlserver.techtarget.com/definition/relational-database "relational database") can be thought of as two-dimensional, a multidimensional database considers each data attribute (such as product, geographic sales region, and period) as a separate "dimension".
+
+OLAP connector can connect to such multidimensional databases/cubes and fetch the results using MDX query.
+
+You can connect to your OLAP account in the Data Center. This topic discusses the fields and menus specific to the OLAP connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your OLAP account and create a DataSet, you need the following:
+
+If the connection type is Xmla, you need the XMLA path, username, and password. If the connection type is Mondrian, you need the catalog name and JDBC driver.
+
+## Connecting to Your OLAP Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the OLAP Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your OLAP account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Connection Type </td><td colspan="1" rowspan="1"> Select the connection type. </td></tr><tr><td colspan="1" rowspan="1"> XMLA Path </td><td colspan="1" rowspan="1"> Enter the XMLA Path. This is required if the connection type is Xmla. </td></tr><tr><td colspan="1" rowspan="1"> Catalog Name </td><td colspan="1" rowspan="1"> Enter the Catalog name. This is required if the connection type is Mondrian. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the user name. This is required if connection type is Xmla. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password. This is required if connection type is Xmla. </td></tr><tr><td colspan="1" rowspan="1"> JDBC Driver </td><td colspan="1" rowspan="1"> Enter the JDBC Driver. This is required if connection type is Mondrian. </td></tr></tbody></table>
+
+Once you have entered valid OLAP credentials, you can use the same account at any time to create a new OLAP DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> MDX Query </td><td colspan="1" rowspan="1"> Enter the MDX Query. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

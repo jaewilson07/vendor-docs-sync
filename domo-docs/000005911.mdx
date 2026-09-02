@@ -1,0 +1,57 @@
+---
+title: "Vibe Connector"
+excerpt: "Configure Domo's Vibe Connector to ingest CTV advertising campaign performance, revenue, and attribution data using a Vibe API key."
+---
+
+## Intro
+
+The [vibe.co](http://vibe.co/) Reporting API gives you real-time visibility into CTV advertising campaign performance. By pulling real-time reporting data from your [vibe.co](http://vibe.co/) dashboard — such as purchase events, revenue impact, timestamps, and attributed campaign details — you gain a complete view of how CTV drives business outcomes.
+
+**Benefits of the Domo + [vibe.co](http://vibe.co/) connector:**
+
+- **Unified Data Centralization:** Centralize CTV campaign performance data in Domo for unified reporting.
+- **Outcome Measurement:** Measure actual revenue outcomes, moving beyond metrics like impressions or completion rates.
+- **Direct Attribution:** Attribute conversions directly to specific streaming TV and CTV placements.
+- **Automated Optimization:** Optimize media spending with automated, real-time data feeds.
+- **Performance Comparison:** Compare creator-driven and programmatic CTV performance strategies side-by-side.
+
+By connecting your [vibe.co](http://vibe.co/) account through the Domo Data Center, you can automate the data ingestion process and eliminate manual reporting requirements across all your streaming TV campaigns. For more information, refer to the [API documentation](https://help.vibe.co/en/articles/8943325-vibe-api-reporting#h_415d822295).
+
+You can connect to your Vibe account in the Data Center. This topic discusses the fields and menus that are specific to the Vibe connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Vibe account and create a DataSet, you need the API Key.
+
+### Generating Your API Key
+
+All API requests require an API token. Generate your API key directly from your Vibe account by following these steps:
+
+1. Go to **Account Settings**.
+2. In the menu, navigate to **Developer Tool** > **API Keys**.
+3. Click **Create API Key**.
+4. Enter a name for the key.
+5. The API key is generated and displayed once.
+6. Click **Copy** and immediately store the key in a secure location.
+
+<Warning>**Important:** For security reasons, the key is displayed only once. If you lose your API key, you must generate a new one.</Warning>
+
+## Connecting to Your Vibe Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Vibe Connector page. The components of the other panes on this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Vibe account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:196;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter the API Key. To generate the API Key, refer to the Prerequisites section or <a href="https://help.vibe.co/en/articles/8943325-vibe-api-reporting#h_415d822295" target="_blank"> API documentation </a>. </td></tr></tbody></table>
+
+Once you have entered valid Vibe credentials, you can use the same account at any time to create a new Vibe DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:196;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Vibe report you want to run. The following reports are available: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Details Report </p></td><td colspan="1" rowspan="1"><p> Returns a list of campaigns and strategies for an advertiser. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Create and Run Report </p></td><td colspan="1" rowspan="1"><p> Define the report dimensions and metrics, run the report, and then download the result. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Purchases Details Report </p></td><td colspan="1" rowspan="1"> Returns detailed purchase information, including timestamps, values, and associated campaign data. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Advertiser Ids Selection Criteria </p></td><td colspan="1" rowspan="1"><p> Select how you want to retrieve advertisers. </p></td></tr><tr><td colspan="1" rowspan="1"> Advertiser IDs </td><td colspan="1" rowspan="1"><p> This field appears when you select <b> Create and Run Report </b> or <b> Purchases Details Report </b>. </p><p> Select the advertisers for the report. </p></td></tr><tr><td colspan="1" rowspan="1"> Metrics </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Create and Run Report </b>. </p><p> Select the metrics for the report. </p></td></tr><tr><td colspan="1" rowspan="1"> Dimensions </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Create and Run Report </b>. </p><p> Select the dimensions for the report. </p></td></tr><tr><td colspan="1" rowspan="1"> Segment Dimensions </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Create and Run Report </b>. </p><p> Select the segment-related dimension for the report. </p></td></tr><tr><td colspan="1" rowspan="1"> Attribution Window </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Create and Run Report </b>. </p><p> Select the desired attribution window duration for web-pixel metrics. This will affect web-pixel metrics. <b> 7 days </b> is selected by default. </p></td></tr><tr><td colspan="1" rowspan="1"> Granularity </td><td colspan="1" rowspan="1"><p> This field appears when you select the <b> Create and Run Report </b>. </p><p> Select the desired time aggregation granularity. <b> Day </b> is selected by default. </p></td></tr><tr><td colspan="1" rowspan="1"> App IDs to Filter </td><td colspan="1" rowspan="1"><p> This field appears when you select both Create and Run Report and Purchases Details Report. </p><p> Select the app IDs as a filter for the report. </p></td></tr><tr><td colspan="1" rowspan="1"> Campaign IDs to Filter </td><td colspan="1" rowspan="1"><p> Select the campaign IDs as a filter for the report. </p></td></tr><tr><td colspan="1" rowspan="1"> Strategy IDs to Filter </td><td colspan="1" rowspan="1"><p> Select the strategy IDs as a filter for the report. </p></td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"><p> This field appears when you select <b> Create and Run Report </b> or <b> Purchases Details Report </b>. </p><p> Choose whether the report should cover a <b> Single Date </b> or a <b> Date Range </b>. </p><ul><li><b> Single Date: </b> Select whether the report data is for a specific date or for a relative number of days back from today. <ul><li><b> Relative Date: </b> Enter the number of days back from today. <ul><li><b> Days Back: </b> Enter the number of days relative to today for which you want to receive the data. Use 0 for today, 1 for yesterday, 7 for 7days ago, and so on. </li></ul></li><li><b> Specific Date: </b> Use the date picker to select a precise date. <ul><li><b> Date: </b> Select the precise date. (The date cannot be before January 1, 2020, and must not be a future date.) </li></ul></li></ul></li><li><p><b> Date Range: </b> Select the date range for which you want to fetch the data. The date range cannot be before January 1, 2020, and must not be a future date. </p><ul><li><p><b> Start Date: </b> Select the start date to fetch the data. </p><ul><li><b> Relative Date: </b> Enter the number of days back from today. <ul><li><b> Days Back: </b> Enter the number of days relative to today for the desired start date. For example, enter 1 for yesterday, 7 for 1 week ago, or 30 for 1 month ago. </li></ul></li><li><b> Specific Date: </b> Use the date picker to select a precise start date. <ul><li><b> Date: </b> Select the precise start date. (The date cannot be before January 1, 2020, and must not be a future date.) </li></ul></li></ul></li><li><p><b> End Date: </b> Select the end date to fetch the data. </p><ul><li><b> Relative Date: </b> Enter the number of days back from today. <ul><li><b> Days Back: </b> Enter the number of days relative to today for the desired end date. For example, enter 0 for today, or 1 for an end date of yesterday. </li></ul></li><li><b> Specific Date: </b> Use the date picker to select a precise end date. <ul><li><b> Date: </b> Select the precise end date. (The date cannot be before January 1, 2020, and must not be a future date.) </li></ul></li></ul></li></ul></li><li><b> Time Period: </b> Select the time period for data retrieval. </li></ul></td></tr><tr><td colspan="1" rowspan="1"> Timezones </td><td colspan="1" rowspan="1"><p> Select the timezone for the returned data. <b> UTC </b> is selected by default. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

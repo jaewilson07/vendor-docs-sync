@@ -1,0 +1,41 @@
+---
+title: "Totango Connector"
+excerpt: "Use the Totango connector with an app token to pull customer-success data from your Totango account into a Domo DataSet."
+---
+
+## Intro
+
+Totango is a software platform that helps recurring revenue businesses simplify the complexities of customer success. To learn more about the Totango API, visit their page ([https://support.totango.com/hc/en-us/articles/203639605-Totango-HTTP-API-Overview](https://support.totango.com/hc/en-us/articles/203639605-Totango-HTTP-API-Overview "https://totango.zendesk.com/hc/en-us/sections/200882045-Totango-Data-API") ).
+
+You connect to your Totango account in the Data Center. This topic discusses the fields and menus that are specific to the Totango connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Totango account and create a DataSet, you must have a Totango API Key. To obtain an API key, do the following:
+
+1. Sign in to **Totango**.
+2. In the upper-right corner of the page, select your username, and then open **User Profile**.
+3. Select the **Integration** tab.
+4. Copy the **API Key** displayed on the page.
+
+## Connecting to Your Totango Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Totango Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Totango account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key</p></td><td colspan="1" rowspan="1"><p> Enter your Totango API Key. For instructions on locating your API key, see <b>Prerequisites</b>. </p></td></tr></tbody></table>
+
+Once you have entered valid Totango credentials, you can use the same account any time you go to create a new Totango DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains two configuration options—a menu from which you select a report and a field in which you enter your search query.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Totango report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Accounts </td><td colspan="1" rowspan="1"> Returns accounts matching your provided search query. </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> Returns users matching your provided search query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"><p> Enter your search query. To build a search query, do the following: </p><ol><li><p> Login to Totango. </p></li><li><p> Open the <b> Accounts </b> page (for the "Accounts" report) or <b> Users </b> page (for the "Users" report). </p></li><li><p> Create a new account or user list. </p></li><li><p> Add filters and columns as desired to match your desired search parameters. </p></li><li><p> Click <b> Generate the API endpoint </b>. </p></li><li><p> Copy the code into the <b> Query </b> field in Domo. </p></li></ol></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").

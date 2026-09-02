@@ -1,0 +1,41 @@
+---
+title: "Skimlinks Connector"
+excerpt: "Connect to Skimlinks with a client ID and client secret to pull content monetization and marketing data into Domo DataSets."
+---
+
+## Intro
+
+Skimlinks is a powerful marketing tool and content monetization platform for online publishers.  To learn more about the Skimlinks API, visit their page ([http://developers.skimlinks.com/reporting.html](http://developers.skimlinks.com/reporting.html "http://developers.skimlinks.com/reporting.html") ).
+
+You connect to your Skimlinks account in the Data Center. This topic discusses the fields and menus that are specific to the Skimlinks connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Skimlinks account and create a DataSet, you must have the following:
+
+* Your Skimlinks Client ID
+* Your Skimlinks Client Secret
+
+You can learn how to obtain these keys by visiting [http://developers.skimlinks.com/reporting.html](http://developers.skimlinks.com/reporting.html "http://developers.skimlinks.com/reporting.html").
+
+## Connecting to Your Skimlinks Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Skimlinks Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Skimlinks account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your Skimlinks Client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Enter your Skimlinks Client Secret. </p></td></tr></tbody></table>
+
+Once you have entered valid Skimlinks credentials, you can use the same account any time you go to create a new Skimlinks DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Skimlinks report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"><p> Merchants </p></td><td colspan="1" rowspan="1"> Returns a complete set of Skimlinks merchants. </td></tr><tr><td colspan="1" rowspan="1"><p> Domains </p></td><td colspan="1" rowspan="1"> Returns a complete set of Skimlinks merchant domains. </td></tr><tr><td colspan="1" rowspan="1"><p> Verticals </p></td><td colspan="1" rowspan="1"> Returns a complete set of Skimlinks verticals. </td></tr><tr><td colspan="1" rowspan="1"><p> Offers </p></td><td colspan="1" rowspan="1"> Returns a complete set of Skimlinks offers. </td></tr><tr><td colspan="1" rowspan="1"><p> Search Commissions </p></td><td colspan="1" rowspan="1"> Returns Skimlinks raw commission data. </td></tr><tr><td colspan="1" rowspan="1"><p> Aggregated Reports </p></td><td colspan="1" rowspan="1"> Returns Skimlinks hub Performance reports data, aggregated by several fields. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Select the start date for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Select the end date for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date From Offset </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Date To Offset </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Date From Offset </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Date To Offset </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date To Offset </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Date From Offset </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Date From Offset </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Date To Offset </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Merchant Search </p></td><td colspan="1" rowspan="1"><p> Enter the merchant you want to import data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Category ID </p></td><td colspan="1" rowspan="1"><p> Select the category you want to import data for. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

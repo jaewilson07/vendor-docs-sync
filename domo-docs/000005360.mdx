@@ -1,0 +1,577 @@
+---
+title: "Connecting with the JSON No Code and JSON No Code OAuth connectors"
+excerpt: "Configure the JSON No Code and JSON No Code OAuth connectors to connect Domo to REST APIs that return JSON using Basic, API Key, Bearer, or OAuth 2.0."
+---
+
+## What are these connectors?
+
+The JSON No Code and JSON No Code OAuth connectors allow you to connect Domo to REST APIs that return data in a standard JSON format.  The connectors support standard authorization methods such as Basic Authentication, API key, Bearer Token or OAuth 2.0.
+
+## What you must know before you start?
+
+The information needed to power up a JSON or JSON OAuth connector is typically contained in the API documentation of the system you are trying to read. Specifically, you must know:
+
+1. How to authenticate to the API.
+2. The base URL for the API.
+3. A list of API endpoints that can be called, and which includes:
+   1. The URL for each endpoint.
+   2. Any required path parameters or query parameters, along with any optional path or query parameters for each endpoint.
+4. Pagination requirements
+5. Any rate limits imposed by the API.
+
+## Prerequisites to configure the connector
+
+If you are trying to connect to an API, you will need the following to power up either connector:
+
+1. Access to the API documentation of the API you are trying to connect.
+2. Credentials to access the data source.  You must be able to read the documentation to determine how to authenticate to the API.
+
+## Configuring the Authentication mechanism in the JSON NoCode Connector
+
+The JSON No Code Connector supports the following mechanisms to authenticate to an API:
+
+1. Basic Authentication - Use this option if the API you are connecting to requires a username and password to authenticate.
+2. API Key - Use this option if you have to pass a single String as an authenticator to the API, either as a parameter or as a header field.
+3. No authentication - Use this option if the API you are connecting does not require authentication to call the endpoints, or if you are uploading a file in JSON format.
+
+## Configuring the authentication method in the JSON No Code OAuth connector
+
+The JSON No Code OAuth connector supports 2-legged and 3-legged standard OAuth implementations.
+
+Refer the API documentation for the system you are connecting to, to determine which option you need to select.
+
+Mostly you will be asked to configure an app on the system you are trying to connect to. The app will request for a redirect URL.  For this connector, use [https://oauth.domo.com/api/data/v1/oauth/providers/json-oauth/exchange.](https://oauth.domo.com/api/data/v1/oauth/providers/json-oauth/exchange "https://oauth.domo.com/api/data/v1/oauth/providers/json-oauth/exchan")
+
+## Getting data from the API
+
+**Note:** This section assumes that you are able to successfully authenticate to the API in question.
+
+Configuring the connector to point to the correct API endpoint is done in the _Data Selection_ pane of the connector. The _Data Selection pane_ has three sections that need to be configured:
+
+(1) Connection Type (required)
+
+(2)  Request Type (required)
+
+(3) Advanced Settings (optional)
+
+### Connection Type
+
+First, you will be asked how to connect to the JSON file, and then, based on your selection, you will be prompted for further details.  The below screenshot and table shows the available connection options, and when to use them.
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009MpJ.jpg" />
+</Frame>
+
+<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:201;a">
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Connection Option </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> When to use this option </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Required information </b>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> Upload file containing JSON data </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <ul>
+          <li> Your data is in a file in JSON format </li>
+          <li> Your file is not accessible via HTTP, HTTPS or via SFTP. </li>
+          <li> Your data is static and will be manually updated. </li>
+        </ul>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <ul>
+          <li> Location of file to upload on local disk. </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> File Transfer (SFTP) </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <ul>
+          <li> Your data is in a file in JSON format. </li>
+          <li> Your file is accessible via an SFTP site that supports Basic Authentication. </li>
+        </ul>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <ul>
+          <li> The username and password for the SFTP site. </li>
+          <li> The URL to connect, which consists of the SFTP server and the file path. </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> HTTP Request </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <ul>
+          <li> Your data is accessible via an API that returns data as a JSON formatted response </li>
+          <li> Your data is not static and can change </li>
+          <li> Your data is not stored in a file </li>
+        </ul>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <ul>
+          <li> The URL of the API endpoint to connect. </li>
+          <li> The authentication mechanism required by the API. </li>
+          <li> Any headers that you will need to be sent in the request. </li>
+          <li>
+            {" "}
+            Input dataset ids, if you are using the <i> Dynamic Parameters </i> or <i> Dynamic URL </i> mode{" "}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Connecting via HTTP Request
+
+Connecting via HTTP Request to an API, allows you to call an API on a schedule, and get the freshest data available. The documentation for the API you are trying to connect to, will include information on how to make a request to the API.
+
+#### Add header
+
+If the documentation specifies that you need to add a header to any calls to API endpoints, you can add the header and the specified value by selecting the **_+ADD HEADER_** button. (**Note**: Not all APIs require headers in the request.)
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009MsX.jpg" />
+</Frame>
+
+Once you select the **_+ADD HEADER_** button, you'll be able to specify the name of the header as the _Key,_ and the value of the header to add as the _Value_. The API documentation should provide this information.
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009Mu9.jpg" />
+</Frame>
+
+For example, if the API documentation specifies that you need a header called “ **Required_header** ” with a value of “ **My_First_Header** ”, you should enter the following:
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009Mvl.jpg" />
+</Frame>
+
+You can add as many headers as required by the API and as mentioned in the API documentation.
+
+#### Specifying the request type
+
+API endpoints either require parameters as query parameters at the end of the URL, for example, [https://api.endpoint?query_parameter=some_value](https://api.endpoint?query_parameter=some_value "https://api.endpoint?query_parameter=some_value"), or as part of the URL, for example, https://api.endpoint/parameter_value.
+
+The HTTP request connection type allows you to call an API endpoint once with static parameter values or no parameter values, or multiple times with different parameter values. To determine if the endpoint you are trying to connect to requires parameter or query values, refer to the API documentation.
+
+The below table shows when to use which request type.  The examples refer to Domo's own API, documented at https://developer.domo.com/portal/8ba9aedad3679-ap-is.
+
+<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:201;a">
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Request type </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> When to use this request type </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Example </b>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> Single URL </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> Use this request type when: </p>
+        <ol>
+          <li> You only want to call this endpoint once, and/or </li>
+          <li> Any path or query parameter values are static, with the exception of date parameters. </li>
+        </ol>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <a href="https://domo.com/api/groups/v1" rel="noopener" target="_blank">
+            {" "}
+            https://domo.com/api/groups/v1{" "}
+          </a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> Dynamic URL </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> Use this request type when: </p>
+        <ol>
+          <li>
+            {" "}
+            The API endpoint requires a parameter in the path, for example, the &lt;groupId&gt; value in the example URL,
+            and{" "}
+          </li>
+          <li>
+            {" "}
+            You want to call this endpoint multiple times with different values of the path parameter in the same dataset.
+            for example, if you would like to call the endpoint once for groupId =2, once for groupId = 3, once for groupId
+            = 4.{" "}
+          </li>
+        </ol>
+        <p></p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <a href="https://domo.com/api/groups/v1/&lt;groupId&gt;" rel="noopener" target="_blank">
+            {" "}
+            https://domo.com/api/groups/v1/&lt;groupId&gt;{" "}
+          </a>{" "}
+          ;{" "}
+        </p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> Dynamic parameters </p>
+        <p></p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> Use this request when </p>
+        <ol>
+          <li> The API endpoint requires a query parameter, and </li>
+          <li>
+            {" "}
+            You want to call this endpoint multiple times but with different query parameter values every time. For example,
+            if you want to call the endpoint once with the groupName=”Eastern Sales”, and then again with the groupName=”Northern
+            Territories”{" "}
+          </li>
+        </ol>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <a href="https://domo.com/api/v1/activites?groupName=&lt;groupName&gt;" rel="noopener" target="_blank">
+            {" "}
+            https://domo.com/api/v1/activites?groupName=&lt;groupName&gt;{" "}
+          </a>{" "}
+          ;{" "}
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Configuring the Dynamic URL request type
+
+The _Dynamic URL_ option should be used if you need to call the same endpoint multiple times, and the endpoint in question has the following format.
+
+`https://base_url/<path parameter>/end_of_url`   OR
+
+`https://base_url/<path_parameters>`;
+
+To configure the connector to call an endpoint multiple times with different path parameter values each time:
+
+1. Set the _JSON File URL_ value to the part of the API that occurs before the path parameter.
+2. If the endpoint has a URL component after the path parameter, add everything after the path parameter to _Paste at the end of the URL_ box.
+3. In the “values location”, indicate whether you would like the connector to replace the “path parameter” with values from a static list defined in the connector itself, or if you would like the connector to lookup the values to be used from a dataset that you define.
+
+The following table has sample _JSON File URL_ and _Paste at the end of the URL_ configurations:
+
+<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:201;a">
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Endpoint definition </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> JSON file URL </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Path parameter </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Paste at the end of the URL </b>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <a
+            href="https://developer.domo.com/portal/1f17fb4f14577-retrieve-a-group"
+            target="_blank"
+            title="https://domo.com/api/groups/v1/{group_id}"
+          >
+            {" "}
+            https://domo.com/api/groups/v1/{group_id}{" "}
+          </a>
+        </p>
+        <p></p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <a href="https://domo.com/api/groups/v1/" rel="noopener" target="_blank">
+            {" "}
+            https://domo.com/api/groups/v1/{" "}
+          </a>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> group_id </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <a
+            href="https://developer.domo.com/portal/4ebc56e4e9771-list-stream-executions"
+            target="_blank"
+            title="https://api.domo.com/v1/streams/{STREAM_ID}/executions"
+          >
+            {" "}
+            https://api.domo.com/v1/streams/{STREAM_ID}/executions{" "}
+          </a>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <a href="https://api.domo.com/v1/streams/" rel="noopener" target="_blank">
+            {" "}
+            https://api.domo.com/v1/streams/{" "}
+          </a>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> stream_id </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> /executions </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Configuring the list of values to use for the path parameters is done in the _Values location_ section.
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009MxN.jpg" />
+</Frame>
+
+To use a static list of values in each call to the endpoint, select “Enter the values to loop through” option, and provide a comma separated list of values.  For example, in the following screenshot, the connector is configured to call the [https://domo.com/api/groups/v1/{group_id}](https://developer.domo.com/portal/1f17fb4f14577-retrieve-a-group) endpoint 4 times, replacing the `{group_id}` with the values 1,2,3, and 4 each time the connector runs.
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009MZC.jpg" />
+</Frame>
+
+If you need to use a more dynamic list of values as the path parameter value, you can have the connector read the values from a dataset, using the “Use values from an existing dataset” option.  Selecting this option will prompt you to select the dataset that has the values, as well as the column in the dataset that has the values to iterate over.
+
+**Note:** The connector will not validate the format of the values in the column selected.
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009Myz.jpg" />
+</Frame>
+
+#### Configuring the Dynamic Parameters request type
+
+The _Dynamic Parameters_ option should be used if you want to call the same endpoint multiple times, and the endpoint in question has the following format.
+
+`https://base_URL?query_parameter=<some_value>`
+
+To configure the connector to call an endpoint multiple times with values for the same query parameter key each time do the following:
+
+1. Set the _JSON File URL_ value to the part of the API endpoint that occurs before the _?query_parameter_ string.
+2. Set the _Parameter Key_ to the _query_parameter._ Do not include the “?”.
+
+Configuring the list of values to use for the path parameters is done in the _Values location_ section.  As with the dynamic path request type, you can provide the list of values the connector should use for the query parameter on each call as either a static list or by looking up the values of a column in a dataset.
+
+#### Additional options
+
+_Skip Values if the API call fails_
+
+At times, APIs are designed to throw an error if an endpoint in the API is called using an invalid path or query parameter value.  E.g. the endpoint `https://my.api.com/<number>` might only accept the values of 1, 2, or 3 for `<number>` and may throw an error if any other value is used for `<number>`.   Usually, if a connector receives an error response from an API, the connector execution will stop and an error message is logged in the DataSet History tab.  If you are using the Dynamic URL or the Dynamic parameters option to call an endpoint multiple times, it is possible that your list may contain an invalid value that causes an API error.
+
+The “Skip values if the API call fails” checkbox will force the connector to ignore any errors that are due to the API rejecting a particular parameter value.  This allows the connector to loop through all dynamic parameters until the end of the list without the connector failing on a bad value.
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009N0b.jpg" />
+</Frame>
+
+For example, if the connector is configured to `https://api.domo.com/v1/<project_id>` and the API throws an error if an invalid project_id is passed.  If the connector is configured to use the following static list of values for `<project_id>` in this order:  12, abcd, and 34, and if abcd is not a valid value for the `project_id`, having the
+_Skip Values if API call fails_ option selected, will allow the connector to proceed with the next value in the list, that is, it will move to 34.  If the option is not selected, then the connector will stop after receiving the error and will not try to call the endpoint again.
+
+#### _Add dynamic value to data_
+
+This option is available only in the Dynamic Parameters and Dynamic URL request types. If this option is checked, the connector will append a column that indicates the value of the path parameter or query parameter used to generate a row of data.   In this manner, a user can correlate the API result with the dynamic value used in the call which generated the row.
+
+If this option is checked, you will be required to provide a name for the column which cannot be the same as the name of any other column in the dataset.  If you are unsure what column names the API will return, you can either:
+
+1. Review the schema in the _Parsing_ section of the connector, OR
+2. Run the connector to get a dataset with the schema.
+
+#### _Add Body_
+
+This option is available to use with all request types.  If the API documentation specifies a payload must be included in the body of the request, you can use the _Add Body_ option to specify a static payload.
+
+_Add  Date Parameter_
+
+This option is available to be used with all request types.  Use this option if the endpoint you are connecting to, supports filtering by date as a query parameter, and you would like to specify a date range or window to pull data.
+
+**Note:** The connector are unaware if an endpoint supports date filtering, so you cannot validate the format of the date parameter. However, if you use this option, check the API documentation to determine which date format the endpoint is expecting.
+
+_Add Parameter_
+
+This option is available to be used with all request types.  This option allows you to specify one or more query parameters with **static** values, that are used every time the endpoint is called. No matter how many times the endpoint is called in a connector run, the value of the parameters configured in this section will not change.
+
+The connector will return all the data available for that endpoint in the Data Preview section.
+
+## Advanced Settings
+
+The Advanced Settings section of the connector allows you to configure additional requirements by the API.  The below table provides some guidelines on the options available, but you must check your API documentation to determine if any options apply.
+
+<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:201;a">
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Option </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Purpose </b>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Does your JSON text requires a line reader? </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          {" "}
+          If the JSON returned by the API has multiple lines, select “Yes” for this option, or select “No”. You can determine
+          whether the JSON has multiple lines by{" "}
+        </p>
+        <ol>
+          <li> Looking at the API documentation. </li>
+          <li> Looking at the Data Preview in the Parsing section. </li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Should backslash characters be escaped? </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p> Select “Yes” if your data includes blackslash (“\n”) characters. </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> How will you provide the certificate? </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          {" "}
+          Select one of the available options if the API you are connecting to requires a certificate to connect. Check your
+          API documentation to determine how to get the certificate if needed.{" "}
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          <b> Do you need to enter a rate limit for this API? </b>
+        </p>
+      </td>
+      <td colspan="1" rowspan="1" valign="top">
+        <p>
+          {" "}
+          Use this option if the API you are connecting limits how many calls to the API you can make over a given period
+          of time. Check your API documentation for this value. You can provide the limit as calls per second, calls per
+          minute or calls per hour.{" "}
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Using the URL Preview Pane
+
+The URL Preview Pane allows you to preview the call the connector will make on each run. Note that the preview does not show any Authorization headers such as API keys, tokens or username/passwords.
+
+In the case of a _Single URL,_ the preview will be static. For example  if the connector is configured as shown below:
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009N8f.jpg" />
+</Frame>
+
+Then the URL preview will appear as follows:
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009NAH.jpg" />
+</Frame>
+
+If you select _Dynamic URL_ or the _Dynamic Parameters_ option, and if you select the values as a static list, then the URL preview will show a sample call with one of the values. Hovering over the value shows a preview of the entered list. An example is shown in the below screenshot:
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009NBt.jpg" />
+</Frame>
+
+<Frame>
+  <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009NDV.jpg" />
+</Frame>
+
+## Known Limitations
+
+1. When you use Dynamic URL or the Dynamic parameter option, you can only specify one variable to use.  You cannot use more than one dynamic variable, unless one of the variables is a date filter.
+2. When you sue the Dynamic URL or the Dynamic parameter options, you may only use a dynamic path parameter or a dynamic query parameter.  At present, you cannot construct a URL that combines both.
+
+## Error Messages and Troubleshooting
+
+1. _I am looping through a dataset and my connector is failing with an error 429. What is causing this error and what should I do?_
+
+   This error occurs when the API you are connecting to has a rate limit, and you have exceeded that rate limit.  This may not happen when you are using the single URL endpoint, as you are only making one call in this case.  However, when you use the Dynamic URL or the Dynamic Parameters endpoint, you are making multiple calls to the API.   To fix this:
+
+   (i) Check your API documentation to see what rate limits are available
+
+   (ii) Set the rate limit in the Advanced Section in the connector.
+
+2. _I am using the Dynamic Parameters or the Dynamic URL request type, and I get a 401 error when the connector runs._
+
+   This error usually occurs when you are making an API call and you do not have access to that endpoint.  This error can happen when you are using a static or a dynamic request type.  If you are using a dynamic request type, it is possible that only particular dynamic values are generating this error. To troubleshoot, do the following:
+
+   1. Check the “Skip values if API call fails” and “Add dynamic value to data” options.  The “Skip values if API call fails” option will allow the connector to ignore a failed call and go to the next dynamic value.  This will allow you to determine whether the error is being generated by one particular dynamic value or if the error is due to overall access to the endpoint.  The “Add dynamic value to data” option will let you see which dynamic values are not generating an error, so you can later determine which input dynamic values are bad.  Don't forget to add a column to the dataset to store the parameter value.
+   2. Run the connector again.
+   3. Check the dataset.  If the dataset is not blank, then one or more dynamic parameters were generating the error.  Check the column you created to store the parameter value used for each call against the input dataset using a dataflow to determine which parameters caused the error.  If the dataset is blank, then either the base endpoint you are calling does not exist or your credentials do not have access to the endpoint.

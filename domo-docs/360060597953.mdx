@@ -1,0 +1,47 @@
+---
+title: "Workfront Writeback Connector"
+excerpt: "Configure Domo's Workfront Writeback Connector to write DataSet rows back to Workfront objects using ID-matched columns and your Workfront API credentials."
+---
+
+## Intro
+
+Workfront (formerly called AtTask) develops web-based work management and project management software. Use Domo's Workfront Writeback Connector to write details from a Domo dataset back to a Workfront object. To successfully use this connector, your Domo dataset must contain an 'ID' column representing the ID of the Workfront object you wish to write back to. Domo will then take any additional columns that match either the Key or Label of the specified Workfront object. Please use the Metadata reports in the Workfront Connector to get details of the schema for each object, only fields will be updated. Reference Fields and Collections should be modified as a part of their objects. Boolean must be given as a string value of "true" or "false". String array values should be passed as a comma-separated list of values without quotes or brackets. To learn more about the Workfront API, visit their page ([https://developers.attask.com/api-docs/](https://developers.attask.com/api-docs/ "https://developers.attask.com/api-docs/") ).
+
+You export the Domo data to Workfront in the Data Center. This topic discusses the fields and menus that are specific to the Workfront Writeback connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+<Note>
+  **Note:** The owner of a writeback dataset must also be an owner or co-owner of the input dataset.
+
+</Note>
+
+## Prerequisites
+
+To configure this connector, you must have the following:
+
+* The username and password you use to log into your Workfront account
+* The URL for your AtTask/Workfront server (Example:
+  [https://yourcompany.attask-ondemand.com](https://yourcompany.attask-ondemand.com "https://yourcompany.attask-ondemand.com") )
+* You can also select the API version you wish to connect to
+* API Key
+
+## Configuring the Connection
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Workfront Writeback Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Workfront account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:196;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username you use to log into your Workfront account. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password you use to log into your Workfront account. </td></tr><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Your Workfront API Key. You must update the API key here when your API key expires. You must provide a username and password OR an API Key. </td></tr><tr><td colspan="1" rowspan="1"> URL </td><td colspan="1" rowspan="1"> Enter the URL for your AtTask/Workfront server (Example, <a href="https://yourcompany.attask-ondemand.com" target="_blank" title="https://yourcompany.attask-ondemand.com"> https://yourcompany.attask-ondemand.com </a> ). </td></tr><tr><td colspan="1" rowspan="1"> API Version </td><td colspan="1" rowspan="1"> Select the API version you wish to connect to. </td></tr></tbody></table>
+
+Once you have entered valid credentials, you can use the same account any time you set up a new Domo-Workfront connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](https://domo-support.domo.com/s/article/360042926054?language=en_US "Managing User Accounts for Connectors").
+
+## Details Pane
+
+This pane contains several fields for specifying your data and indicating where it's going.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:196;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"> Select the Workfront Object you would like to write data to. </td></tr><tr><td colspan="1" rowspan="1"> DataSet ID </td><td colspan="1" rowspan="1"><p> Enter your Domo DataSet ID(GUID) located in the DataSet url. Example: <a href="https://customer.domo.com/datasources/" target="_blank" title="https://customer.domo.com/datasources/"> https://customer.domo.com/datasources/ </a><b><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee </b></b> /details/. </p><p> Your dataset must contain ID as a column, representing the ID of the object to be updated, as well as any columns that exactly match the ID or Label of the fields you wish to update. </p></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Data Connector").

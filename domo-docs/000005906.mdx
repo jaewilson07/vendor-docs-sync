@@ -1,0 +1,113 @@
+---
+title: "NetSuite SuiteAnalytics Connect OAuth Connector"
+excerpt: "Configure Domo's NetSuite SuiteAnalytics Connect OAuth Connector to pull data using JDBC connection parameters and OAuth 2.0 credentials."
+---
+
+## Intro
+
+NetSuite creates products for enterprise resource planning, financial management, e-commerce, and customer relationship management. You can use Domo's NetSuite JDBC OAuth connector to pull data from tables using custom SQL queries.
+
+You can connect to your NetSuite JDBC OAuth account in the Data Center. This topic discusses the fields and menus that are specific to the NetSuite JDBC OAuth connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your NetSuite JDBC OAuth account and create a DataSet, you need the following:
+
+* Service Host
+* Service Port
+* Service Data Source
+* Role ID
+* Account ID
+* NetSuite username
+* Consume Key/ Client ID
+* Consumer Secret/ Client Secret
+
+### Establishing SuiteAnalytics Connect for Data Access
+
+To establish a connection using **SuiteAnalytics Connect** and retrieve the necessary configuration details, follow these steps:
+
+1. **Log in** to your **NetSuite** instance.
+2. Navigate to the **Settings** menu and click **Set Up SuiteAnalytics Connect**.
+3. On the SuiteAnalytics Connect setup page:
+
+   * Select **JDBC** as your preferred connectivity option.
+   * Expand the **Default configuration** section.
+   * **Copy** the following parameters for later use:
+
+     + **Service Host**
+     + **Service Port**
+     + **Service Datasource**
+     + **Account ID**
+     + **Role ID**
+
+## Enable the OAuth 2.0 Feature
+
+Before you can begin using OAuth 2.0 in your account, you must enable the feature.
+
+#### To enable the OAuth 2.0 feature:
+
+1. Go to **Setup** > **Company** > **Enable Features**.
+
+   <Frame><img src="/images/kb/ka0Vq000000M9ZJ-00N5w00000Ri7BU-0EMVq00000Anuw9.jpg"/></Frame>
+2. Click the **SuiteCloud** subtab.
+3. In the SuiteScript section, select the following checkboxes:
+
++ **Client SuiteScript**. Select **I Agree** on the SuiteCloud Terms of Service page.
++ **Server SuiteScript**. Select **I Agree** on the SuiteCloud Terms of Service page.
+
+**Note:** You must enable both the Client SuiteScript and Server SuiteScript features to use the OAuth 2.0 feature for RESTlets.
+
+<Frame><img src="/images/kb/ka0Vq000000M9ZJ-00N5w00000Ri7BU-0EMVq00000Anv7R.jpg"/></Frame>
+4. In the **Manage Authentication** section, select the **OAuth 2.0** checkbox. Click **I Agree** on the SuiteCloud Terms of Service page.
+
+   <Frame><img src="/images/kb/ka0Vq000000M9ZJ-00N5w00000Ri7BU-0EMVq00000AncUc.jpg"/></Frame>
+5. Click **Save**.
+
+   **Note:** The **Manage OAuth 2.0 Authorized Applications** link becomes available in the Settings portlet for users with a role that has been assigned Log in Using OAuth 2.0 Access Token permission. Users can only list their own OAuth 2.0 authorized applications through this link. Administrators and users with OAuth 2.0 Authorized Applications Management permission can list all authorized applications in the account on **Setup** > **Users/Roles** > **OAuth 2.0 Authorized Applications**.
+
+## Create Integration Records for Applications to Use OAuth 2.0
+
+#### To create an integration record for an application:
+
+1. Go to **Setup** > **Integration** > **Manage Integrations** > **New**.
+2. Enter a name for your application in the **Name** field.
+3. Enter a description in the **Description** field, if required.
+4. Select Enabled in the **State** field.
+5. Enter a note in the **Note** field, if required
+6. On the **Authentication** tab, select the appropriate checkboxes for your application:
+
+   * Under OAuth 2.0 Tab
+     + Check/Enable Authorization Code Grant
+     + Enter the Redirect URI:
+
+       https://oauth.domo.com/api/data/v1/oauth/providers/netsuite-jdbc-oauth/exchange
+     + Refresh token validity (in hours): 720
+     + Scope > Check SuiteAnalytics Connect
+     + OAuth 2.0 Consent Policy > Always Ask
+
+       <Frame><img src="/images/kb/ka0Vq000000M9ZJ-00N5w00000Ri7BU-0EMVq00000Ao309.jpg"/></Frame>
+7. Click **Save**.
+
+   Once the integration is created successfully Consumer Key/Client ID & Consumer Secret/Client Secret are shown under Client Credentials Tab.
+
+   **Note**: For security reasons, the values for Client Credentials are only displayed on the initial setup page. They cannot be retrieved from the system. If you did not retain this information, you will need to reset your credentials to obtain new values. Click Edit to reset the credentials.
+
+## Connecting to Your NetSuite JDBC OAuth Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the NetSuite JDBC OAuth Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your NetSuite JDBC OAuth account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:198;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Service Host </td><td colspan="1" rowspan="1"> Enter the name of your NetSuite Service Host. For more information, see the Prerequisites section. </td></tr><tr><td colspan="1" rowspan="1"> Service Port </td><td colspan="1" rowspan="1"> Enter your NetSuite Service Port number. For more information, see the Prerequisites section. </td></tr><tr><td colspan="1" rowspan="1"> Service Data Source </td><td colspan="1" rowspan="1"> Enter the name of your NetSuite Service Data Source. For more information, see the Prerequisites section. </td></tr><tr><td colspan="1" rowspan="1"> Role ID </td><td colspan="1" rowspan="1"> Enter your NetSuite Role ID number. For more information, see the Prerequisites section. </td></tr><tr><td colspan="1" rowspan="1"> Account ID </td><td colspan="1" rowspan="1"><p> Enter your NetSuite Account ID number. For more information, see the Prerequisites section. </p></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your NetSuite username. </td></tr><tr><td colspan="1" rowspan="1"><p> Consumer Key/ Client ID </p></td><td colspan="1" rowspan="1"> Enter the Client ID associated with your NetSuite account. </td></tr><tr><td colspan="1" rowspan="1"><p> Consumer Secret/ Client Secret </p></td><td colspan="1" rowspan="1"> Enter the Client Secret associated with your NetSuite account. </td></tr></tbody></table>
+
+Once you have entered valid NetSuite JDBC OAuth credentials, you can use the same account at any time to create a new NetSuite JDBC OAuth DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:198;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"><p> To select the data you want to import, enter a <b> Structured Query Language (SQL) query </b> into the <b> Query </b> field. </p><p><b> Using the Query Helper </b></p><p> If you need assistance in creating a simple query, use the <b> Query Helper </b> : </p><ol start="1"><li><p> Select the desired database table from the dropdown menu. </p></li><li><p> Select the columns you wish to ingest into Domo. </p></li><li><p> The completed SQL query will appear in the <b> Query Helper box </b>. </p></li><li><p> Copy the generated query from the Query Helper box and paste it into the <b> Query </b> field. </p></li></ol></td></tr><tr><td colspan="1" rowspan="1"> Database Tables </td><td colspan="1" rowspan="1"><p> If you already have your query, you can ignore this section and enter it directly into the <b> Query </b> field. The <b> Query Helper </b> assists you in building a basic SQL query. </p><p><b> Steps to Generate a Query </b></p><p> Follow these steps to generate a query using the Query Helper: </p><ol start="1"><li><p> Select the database table that contains the data you want to ingest. </p><ul><li><p> A list of columns for the selected table will appear. </p></li></ul></li><li><p> Select the columns you are interested in. </p><ul><li><p> The generated SQL query will automatically appear in the <b> Query Helper box </b>. </p></li></ul></li><li><p> Copy the generated query from the Query Helper box and <b> paste </b> it into the required <b> Query </b> field at the top of the screen. </p></li></ol></td></tr><tr><td colspan="1" rowspan="1"> Table Columns </td><td colspan="1" rowspan="1"><p> You can browse and select the available columns within the table chosen from the <b> Database Tables </b> menu. Selecting a column will automatically include it in the sample SQL query that appears in the <b> Query Helper </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"> Query Helper </td><td colspan="1" rowspan="1"><p> The <b> Query Helper </b> field displays a sample SQL query based on the columns you select in the <b> Table Columns </b> field. </p><ul><li><p> When you select a column, it is immediately included in the query. Selecting additional columns adds them to the existing query. </p></li><li><p> You can edit the sample query directly in this field as needed. </p></li><li><p> After building or modifying the query here, copy it and paste it into the main <b> Query </b> field to retrieve your data. </p></li></ul></td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

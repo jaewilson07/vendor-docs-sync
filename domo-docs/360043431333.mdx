@@ -1,0 +1,144 @@
+---
+title: "HubSpot Connector"
+excerpt: "Connect Domo to HubSpot to pull reports on campaigns, contacts, blogs, lead sources, and pipeline management into a DataSet."
+---
+
+## Intro
+
+HubSpot develops software for social media and email marketing, content management, web analytics, and search engine optimization. Use Domo's HubSpot connector to compile reports about your campaigns, contacts, blogs, lead sources, and the like. To learn about the HubSpot API, visit their website ([http://developers.hubspot.com/docs/overview](http://developers.hubspot.com/docs/overview "http://developers.hubspot.com/docs/overview") ).
+
+The HubSpot connector is a "Cloud App" connector, meaning it retrieves data stored in the cloud. In the Data Center, you can access the connector page for this and other Cloud App connectors by clicking **Cloud App** in the toolbar at the top of the window.
+
+You connect to your HubSpot account in the Data Center. This topic discusses the fields and menus that are specific to the HubSpot connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Use Cases </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Compiling reports about aspects of social media and email marketing, such as campaigns, contacts, blogs, lead sources, pipeline management, etc. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Metrics </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Campaign performance </p></li><li><p> Open rates </p></li><li><p> Email bounces </p></li><li><p> Leads </p></li><li><p> MQL </p></li><li><p> SAO </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Primary Company Roles </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Marketing/sales roles </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Average Implementation Time </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Less than 1 hour </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Using the Domo HubSpot connector
+
+Follow these step-by-step instructions to configure the Domo HubSpot connector:
+
+1. Type "hubspot" in the search bar in the Domo Appstore.
+     
+   <Frame><img alt="hubspot1.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2n.png"/></Frame>
+
+   The search result will fetch the relevant connector(s) as shown below.
+     
+   <Frame><img alt="hubspot2.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2k.png"/></Frame>
+
+2. Click on the HubSpot tile.
+     
+   The HubSpot connector dashboard will open, displaying the details view for the connector.
+3. Click
+   **Get the Cards** in the upper right corner.
+     
+   <Frame><img alt="hubspot3.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2o.png"/></Frame>
+
+   The **Connect Data for your Sample App** window will pop up. To view your data, you need to connect your HubSpot account to Domo.
+4. Click
+   **Connect**.
+     
+   <Frame><img alt="hubspot4.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2r.png"/></Frame>
+
+   You are then taken to the HubSpot OAuth login window.
+     
+   <Frame><img alt="hubspot5.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2p.png"/></Frame>
+
+5. Enter your email address and password associated with your HubSpot account. Alternatively, you can use your Google account or Single sign-on for logging in.
+     
+   A list of existing accounts appears, including your own account.
+6. Select an account that you want to connect to. In this case, select the account that you logged in with.
+     
+   <Frame><img alt="hubspot6.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2e.png"/></Frame>
+
+   The **Connect data for your Sample App** window pops up. Your selected account appears in the **Connect data** field along with its Hub ID and App ID.
+     
+   <Frame><img alt="hubspot7.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2d.png"/></Frame>
+
+7. Click
+   **Finish**.
+     
+   The data connecting process will start. It might take a minute to connect.
+     
+   <Frame><img alt="hubspot8.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2t.png"/></Frame>
+
+   Once your sample app data is connected, the visual and graphical presentation of the data associated with your account will appear in a dashboard.
+     
+   The "Traffic Analytics" section displays collective data about the traffic.
+     
+   <Frame><img alt="hubspot9.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2l.png"/></Frame>
+
+   The "Deals" section displays the data related to different deals.
+     
+   <Frame><img alt="hubspot10.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2q.png"/></Frame>
+
+   The "Engagements & Contacts" section displays the data about various engagements and contacts altogether.
+     
+   <Frame><img alt="hubspot12.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2m.png"/></Frame>
+
+## Best practices
+
+* Your Hub ID is valid for one account in Domo. Creating an additional account in Domo will cause the original account to be disconnected.
+* Some reports are marked as beta. Use at your own risk, as these reports do not currently have any documentation on Hubspot's site and may be removed by Hubspot at any time.
+
+## Prerequisites
+
+To connect to your HubSpot account and create a DataSet, you must have the following:
+
+* Your Hub ID. This is located at the bottom of your HubSpot dashboard. For more information, see
+  [http://help.hubspot.com/articles/How\_To\_Doc/How-to-find-your-hub-id](http://help.hubspot.com/articles/How_To_Doc/How-to-find-your-hub-id "http://help.hubspot.com/articles/How_To_Doc/How-to-find-your-hub-id").
+* The username and password you use to log into HubSpot.
+
+## Connecting to Your HubSpot account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the HubSpot Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials pane
+
+This pane contains a single field where you enter your HubSpot Hub ID (see "Prerequisites" above for more details).  You are then taken to the HubSpot OAuth page where you are required to enter the email address and password for your HubSpot account. Once you have entered valid credentials, you can use the same account any time you go to create a new HubSpot DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector Accounts").
+
+## Details pane
+
+This pane contains a primary menu in which you select your HubSpot report. One other menu, **Contact Fields**, may appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select a HubSpot report. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> All Engagements </td><td colspan="1" rowspan="1"> Get all of the engagements in a portal. </td></tr><tr><td colspan="1" rowspan="1"> All Landing Pages </td><td colspan="1" rowspan="1"> Returns data for all of your landing pages. </td></tr><tr><td colspan="1" rowspan="1"> All Pipelines </td><td colspan="1" rowspan="1"> Returns data for all pipelines. </td></tr><tr><td colspan="1" rowspan="1"> Analytics Breakdown </td><td colspan="1" rowspan="1"> Returns analytics data broken down by the specified category. </td></tr><tr><td colspan="1" rowspan="1"> Associated Engagements </td><td colspan="1" rowspan="1"> Get associated engagements (tasks or activities) on an object in HubSpot. </td></tr><tr><td colspan="1" rowspan="1"> Blog Posts </td><td colspan="1" rowspan="1"> Returns data for all posts of your blogs. </td></tr><tr><td colspan="1" rowspan="1"> Blog Topics </td><td colspan="1" rowspan="1"> Returns data for all of your blog topics. </td></tr><tr><td colspan="1" rowspan="1"> Blogs </td><td colspan="1" rowspan="1"> Returns high-level data for all of your blogs. </td></tr><tr><td colspan="1" rowspan="1"> Broadcast Messages </td><td colspan="1" rowspan="1"> Returns all broadcast messages. </td></tr><tr><td colspan="1" rowspan="1"> Call Engagement Dispositions </td><td colspan="1" rowspan="1"> Get the possible dispositions for sales calls </td></tr><tr><td colspan="1" rowspan="1"> Campaign Events </td><td colspan="1" rowspan="1"> Returns data about specific marketing campaign events. </td></tr><tr><td colspan="1" rowspan="1"> Companies - All </td><td colspan="1" rowspan="1"> Returns data about all companies. </td></tr><tr><td colspan="1" rowspan="1"> Companies - Recent </td><td colspan="1" rowspan="1"> Returns data about companies created in last 30 days (maximum 10000 records). </td></tr><tr><td colspan="1" rowspan="1"> All Contacts </td><td colspan="1" rowspan="1"> Returns data about all your contacts. </td></tr><tr><td colspan="1" rowspan="1"> Contact Lists </td><td colspan="1" rowspan="1"> Returns data about all of your contact lists. </td></tr><tr><td colspan="1" rowspan="1"> Contact Lists - Contacts Recently Added </td><td colspan="1" rowspan="1"> Returns information about the list and contacts that were recently added to it. </td></tr><tr><td colspan="1" rowspan="1"> Contact Lists with Lifecycle Stage </td><td colspan="1" rowspan="1"> Returns contact lists with lifecycle stage field. </td></tr><tr><td colspan="1" rowspan="1"> Contacts in a List </td><td colspan="1" rowspan="1"> Returns a list of contacts from a specified List. </td></tr><tr><td colspan="1" rowspan="1"> Deals - All </td><td colspan="1" rowspan="1"> Returns data about all of your deals. </td></tr><tr><td colspan="1" rowspan="1"> Deals - Recent </td><td colspan="1" rowspan="1"> Returns data about all of your deals that are created in last 30 days. </td></tr><tr><td colspan="1" rowspan="1"> Deals With Stages </td><td colspan="1" rowspan="1"> Returns data about all of your deals and deal pipelines. </td></tr><tr><td colspan="1" rowspan="1"> Email Campaigns </td><td colspan="1" rowspan="1"> Returns data about all of your email campaigns. </td></tr><tr><td colspan="1" rowspan="1"> Email Events </td><td colspan="1" rowspan="1"> Returns data about all of your email events. </td></tr><tr><td colspan="1" rowspan="1"> Forms </td><td colspan="1" rowspan="1"> Returns high-level data about all forms you have created. </td></tr><tr><td colspan="1" rowspan="1"> Recent Engagements </td><td colspan="1" rowspan="1"> Get the most recently created or updated engagements in a portal. </td></tr><tr><td colspan="1" rowspan="1"> Subscriptions Timeline </td><td colspan="1" rowspan="1"> Returns subscriptions timeline data for the given date range. </td></tr><tr><td colspan="1" rowspan="1"> Ticket Report </td><td colspan="1" rowspan="1"> Returns the detail about ticket via the properties query parameter. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Contact Fields </p></td><td colspan="1" rowspan="1"><p> Select all fields that you want to show in your report. You must select at least one field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Expand Field </p></td><td colspan="1" rowspan="1"><p><span> Select this checkbox to get memberships data. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Form Submission Mode </span></td><td colspan="1" rowspan="1"><p><span> Specify which form submissions should be fetched. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Show List Memberships </span></td><td colspan="1" rowspan="1"><p><span> Select this checkbox to indicate whether current list memberships should be fetched. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Flatten List Memberships </span></td><td colspan="1" rowspan="1"><p><span> Select this checkbox to indicate whether there should be a row for each contact's list membership. </span></p><p><span><b> Note </b>: This can make the dataset very large. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Property Mode </span></td><td colspan="1" rowspan="1"><p><span> Select this checkbox to retrieve historical data for the 'Lifecycle Stage' property. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> List ID </span></td><td colspan="1" rowspan="1"><p><span> Select the list for which you want to get contact data. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Object Type </span></td><td colspan="1" rowspan="1"><p><span> Select the associated Object Type(Depending on the object you want to fetch engagements for). </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Breakdown By </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> Select the category to break down the analytics data. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Select properties </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> Select whether to retrieve all or some properties. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Deal Properties </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> Select the properties to retrieve. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Retrieve deal stage property history </span></td><td colspan="1" rowspan="1"><span> Select this checkbox to retrieve the deal stage's history instead of just the current value. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Object ID </span></td><td colspan="1" rowspan="1"><span> Select the associated Id. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Time Period </span></td><td colspan="1" rowspan="1"><span> Select the time period to group the analytics data. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Filter </span></td><td colspan="1" rowspan="1"><p><span> Filter the returned data to include only the specified breakdown. Provide single or multiple values for the filter. </span></p><p><span> Example: hubspot or hubspot,social,direct. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Data To </span> Retrieve </td><td colspan="1" rowspan="1"><p><span> Select whether you want to retrieve all data or only the data since the last successful run. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Object Type </span></td><td colspan="1" rowspan="1"><p><span> Select object type. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Include Inactive </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> Select include inactive option. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Inactive Owners Selection </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> Select whether to include inactive owners or not. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Ticket Properties </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> Select the ticket properties to retrieve. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+## Other panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Troubleshooting
+
+1. Review the configuration to make sure all required items have been selected.
+2. Review the connector history for error messages.
+3. To reduce API calls for reports that allow date selections ("Email Events," "Events," "Blog Topics," and "Subscription Timeline"), use
+   **Append** and choose to pull data from the last successful run instead of all data.
+4. In rare cases, you may be requesting too much information and reaching API limitations or timeouts. If this is the case, you can review the history of the connector run to see the error message and duration. If this is the case, you can reduce the number of accounts that are being pulled, choose a smaller number of metrics for the report that you are pulling, or reduce the time frame that you are trying to pull.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="What kind of credentials do I need to power up the HubSpot Connector?">
+
+You need your Hub ID, which you can find at the bottom of your HubSpot dashboard. You need to have a 'super admin' role.
+
+</Accordion>
+
+<Accordion title="What kind of HubSpot account do I need to access the API?">
+
+You need a Marketing Professional or Enterprise HubSpot account to access the API.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+No.
+
+</Accordion>
+
+<Accordion title="Can I use the same HubSpot account for multiple DataSets?">
+
+Yes.
+
+</Accordion>
+</AccordionGroup>
+

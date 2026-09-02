@@ -1,0 +1,79 @@
+---
+title: "Amazon Web Services Billing Connector"
+excerpt: "Connect Domo to AWS using access and secret keys and an S3 bucket of billing ZIP files to pull cloud spending data into a DataSet."
+---
+
+## Intro
+
+Amazon Web Services (AWS) is a collection of web services that make up a cloud computing platform by [Amazon.com](http://Amazon.com).  For more information about the AWS API, visit their website. ([http://docs.aws.amazon.com/AmazonS3/...tication2.html](http://docs.aws.amazon.com/AmazonS3/latest/dev/S3_Authentication2.html "http://docs.aws.amazon.com/AmazonS3/latest/dev/S3_Authentication2.html") )
+
+You connect to your AWS account in the Data Center. This topic discusses the fields and menus that are specific to the AWS connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your AWS account and create a DataSet, you must have the following:
+
+You must have the access rights to work with the connector
+
+* Your AWS access key
+* Your AWS secret key
+* You must have the required permission to access the connector.
+
+For information about obtaining these keys, refer to the following article: [http://docs.aws.amazon.com/AWSSimple...edentials.html](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html "http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html").
+
+You must also set up an S3 bucket with a scheduled push of ZIP files to use this connector. For more information, consult Amazon's documentation at http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports.html.
+
+## Connecting to Your AWS Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the AWS Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your AWS account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> AWS Access Key </td><td colspan="1" rowspan="1"> Enter your AWS access key. </td></tr><tr><td colspan="1" rowspan="1"> AWS Secret Key </td><td colspan="1" rowspan="1"> Enter your AWS secret key. </td></tr></tbody></table>
+
+Special characters, slashes and any other non-url compliant characters are not allowed as valid bucket names. Dash and Undescore are valid characters in the bucket name path. For more information on setting up the AWS Billing S3 bucket, please see the [API Documentation](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html").
+
+For information about obtaining these credentials, see "Prerequisites," above.
+
+Once you have entered valid AWS credentials, you can use the same account any time you go to create a new AWS DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the AWS report you want to run. Currently only a single report type is available. </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Cost and Usage </p></td><td colspan="1" rowspan="1"><p> Returns Amazon Web Services Billing cost and usage data. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Filter </p></td><td colspan="1" rowspan="1"><p> Select a filter for your report data. The following filters are available: </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> All </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Receives data for both invoiced and estimated Billing reports. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Invoiced </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Receives data for invoiced Billing report data. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Estimated </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Receives estimated Billing report data. When using this filter, you should only go back 2 months and use <b> Relative </b> mode. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Bucket Name </p></td><td colspan="1" rowspan="1"><p> Enter the name of the bucket where billing records are redirected. For example: <span class="mt-font-courier-new"> aws-billing-yourcompany </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Prefix </p></td><td colspan="1" rowspan="1"><p> Enter the Cost and Usage report prefix. For more information, consult the AWS Billing </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Name </p></td><td colspan="1" rowspan="1"><p> Select the AWS Billing Cost and Usage report name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Trobleshooting
+
+##### Error message, "Failed to authenticate. Verify the credentials and try again. Domo is ready, but the credentials you entered are invalid. Verify your account credentials and try again." appears while trying to connect to the connector.
+
+This issue is related to authentication. You must have the required permission to use this connector.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="My AWS DataSet is returning an error of “Domo is ready, but Redshift returned: ERROR: current transaction is aborted, commands ignored until end of transaction block.” What do I do?">
+
+This error is caused by a connection issue between AWS and Domo servers. This is an intermittent error that usually self-resolves. If it does not, you will need to submit a bug report to determine if the connector needs to have autocommit turned on.
+
+</Accordion>
+
+<Accordion title="Are there any API limits that I need to be aware of?">
+
+The connector only supports the Cost and Usage report. Amazon AWS is ending support for all other reports at a future date.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+Due to large API returns from Amazon AWS, the data should only be updated once per day.
+
+</Accordion>
+</AccordionGroup>
+

@@ -1,0 +1,117 @@
+---
+title: "Google Ads via Google BigQuery Service Connector"
+excerpt: "Connect Domo to Google Ads via Google BigQuery using a service account JSON key to transfer and pull project data into a DataSet."
+---
+
+<Warning>
+****Important**** ****:**** Due to Google's change in allowing Domo connectors to use OAuth authentication, all users must now use service account key authentication to create new data connections. To create new Google AdWords via Google BigQuery DataSets, use this connector. All pre-existing AdWords via BigQuery DataSets will continue to run normally.
+
+</Warning>
+
+## Intro
+
+Google Ads (formerly Google AdWords) is an online advertising service. Use Domo's Google Ads via BigQuery Service connector to transfer and pull data from a specific project into Domo. To successfully configure this connector, you must first configure a Google BigQuery script within your Google Ads account. The steps for doing this are provided later in this article.
+
+For more information about the Google Ads API, see [https://developers.google.com/adword...s/guides/start](https://developers.google.com/adwords/api/docs/guides/start "https://developers.google.com/adwords/api/docs/guides/start").
+
+This topic discusses the fields and menus that are specific to the Google Ads via Google BigQuery Service connector user interface. For general information about adding DataSets, setting update schedules, and editing DataSet information, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to a BigQuery service account, you must have a Google BigQuery service account JSON key. To generate a key, do the following:
+
+1. In the GCP Console, open the **IAM & Admin** page.
+2. Click ****Service accounts**** in the left-hand navigation pane.
+3. Select your project and click ****Open****.
+4. Click ****Create Service Account****.
+5. Enter a name and description for the service account.
+6. Click ****Create****.
+
+   <Note>
+   **Note:** You may need the “BigQuery Admin” role in the service account permissions dialog. Please consult with your Google administrator for additional guidance.
+   </Note>
+
+7. Select ****Project Owner****.
+8. Click ****Continue****.
+9. Click ****Create key****.
+10. Select  ****JSON**** as the key type.
+11. Click  ****Create****.
+
+A private key will be saved to your computer.
+
+## Connecting to Google Ads via Google BigQuery
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Google Ads via Google BigQuery Service Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to Google Ads via BigQuery. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Service Account Key JSON </p></td><td colspan="1" rowspan="1"><p> Copy and paste the JSON for your BigQuery service account key. For information about creating a key, see "Prerequisites," above. </p></td></tr></tbody></table>
+
+Once you have entered a valid key, you can use the same account any time you go to create a new Google Ads via BigQuery Service DataSet. You can manage connector accounts in the ****Accounts**** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a number of fields and menus you can use to configure your report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Project ID </p></td><td colspan="1" rowspan="1"><p> Enter the name of the specific project you want to add your DataSet to. You can find this in your Google Cloud Console in the project info. </p></td></tr><tr><td colspan="1" rowspan="1"><p> DataSet ID </p></td><td colspan="1" rowspan="1"><p> Enter a name for your DataSet. You can choose any name you want. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the AdWords report type to run. The following reports are available: </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Account Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Returns all statistics aggregated by default at the account level. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Ad Customizers Feed Item </td><td class="mt-noheading" colspan="1" rowspan="1"> Provides statistics for feed items used in Ad Customizers. Statistics are aggregated at the feed item level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Ad Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Returns all statistics aggregated at the ad level. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Ad Group Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Returns all statistics aggregated by default at the ad group level. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Age Range Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all Display Network and YouTube Network statistics aggregated by age range. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Audience Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns performance data from interests and remarketing lists for Display Network and YouTube Network ads, and remarketing lists for search ads (RLSA), aggregated at the audience level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Automatic Placements Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics aggregated at the placement level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Bid Goal Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns statistics for your portfolio bid strategies. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Budget Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Returns all statistics aggregated by default at the budget level. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Call Metrics Call Details </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns data for call tracking of call-only ads or call extensions. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Campaign Ad Schedule Target </td><td class="mt-noheading" colspan="1" rowspan="1"> Summarizes the performance of campaigns by AdSchedule criteria. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Campaign Criteria </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns campaign-level criteria. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Campaign Group Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns the overall performance statistics of campaigns that you have included in campaign groups. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Campaign Location Target </td><td class="mt-noheading" colspan="1" rowspan="1"> Summarizes the performance of campaigns by location-based campaign criteria. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Campaign Negative Keywords Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Retrieves attributes of keyword-based NegativeCampaignCriterion objects. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Campaign Negative Placements Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Retrieves attributes of placement-based NegativeCampaignCriterion objects. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Campaign Negative Locations </td><td class="mt-noheading" colspan="1" rowspan="1"> Retrieves attributes of location-based NegativeCampaignCriterion objects. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Campaign Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Returns all statistics aggregated by default at the campaign level. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Campaign Shared Set </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all relationships between SharedSet objects and campaigns. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Click Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all stats aggregated at each click level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Creative Conversion </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns statistics on free clicks. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Criteria Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics aggregated at the ad group criteria level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Destination URL </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics aggregated at the destination URL level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Display Keyword Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all Display Network and YouTube Network statistics aggregated at the keyword level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Display Topics Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all Display Network and YouTube Network statistics aggregated at the topic level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Final URL </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics aggregated at the final URL level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Gender Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics aggregated by gender along with automatic audience performance. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Geo Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics aggregated at the country/territory level, one row per country/territory. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Keywordless Category </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns keywordless ads (dynamic search ads) statistics aggregated by category. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Keywordless Query </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns keywordless ads (dynamic search ads) statistics based on search terms. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Keywords Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Returns all statistics aggregated at the keyword level. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Label </td><td class="mt-noheading" colspan="1" rowspan="1"> Lists all labels for your account. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Landing Page </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics aggregated by default by the UnexpandedFinalUrlString. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Marketplace Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics of ads displayed on the Marketplace, aggregated by default at the account level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Paid Organic Query </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns a holistic view of your search stats across ads and organic listings at the query level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Parental Status Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns statistics aggregated at the parental status level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Placeholder </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns statistics for feed-based ad extensions. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Placeholder Feed Item </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics at the feed-item level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Placement Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Returns all statistics aggregated at the placement level. </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Product Partition </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns shopping campaign statistics aggregated at the product partition (ID field) level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Search Query Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics aggregated at the search terms level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Shared Set </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all SharedSet objects that can be shareable across campaigns. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Shared Set Criteria </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns criteria for each Shared Set. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Shopping Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns shopping campaign statistics aggregated at the product (OfferId field) level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Top Content Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns statistics for top content bid modifier criteria. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> URL Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns all statistics aggregated at the URL and criterion level. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> User Ad Distance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns statistics aggregated by the user's distance from your location extensions. </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Video Performance </td><td class="mt-noheading" colspan="1" rowspan="1"> Returns statistics for your account's upgraded AdWords for Video campaigns. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Date Range </p></td><td colspan="1" rowspan="1"><p> Select the date range for the data in your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fields </p></td><td colspan="1" rowspan="1"><p> Check the boxes for all fields you want to import into your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Segments </p></td><td colspan="1" rowspan="1"><p> Check the boxes for all segments you want to import into your report. </p></td></tr></tbody></table>
+
+Once you have entered data into all of the fields and selected options from the menus, your Google Ads script will appear automatically in the **Query preview** pane. Copy this script and paste it into Google Ads as explained in the next section.
+
+## Configuring a BigQuery Script in Google Ads
+
+This section explains how to configure a BigQuery script in Google Ads. After you have configured the script, you should be able to use the BigQuery Service connector to pull in data just as you would any other connector.
+
+**To configure a BigQuery script in Google Ads,**
+
+1. Configure your connector settings as explaned above.
+2. Copy the script from the
+   **Query Preview** pane.
+3. Sign into your account in Google Ads.
+4. Click the wrench icon in the top right corner of the screen.
+   
+   <Frame><img alt="AWBQ_1.png" src="/images/kb/ka05w00000123Ij-00N5w00000Ri7BU-0EM5w000005vO2v.png"/></Frame>
+
+5. Click
+   **Scripts** (which is found under "Bulk Actions").
+   
+   <Frame><img alt="AWBQ_2.png" src="/images/kb/ka05w00000123Ij-00N5w00000Ri7BU-0EM5w000005vO3E.png"/></Frame>
+
+6. Click the plus button to create a new script.
+   
+   <Frame><img alt="AWBQ_3.png" src="/images/kb/ka05w00000123Ij-00N5w00000Ri7BU-0EM5w000005vO3C.png"/></Frame>
+
+7. Name the script, then click
+   **Authorize**.
+   
+   <Frame><img alt="AWBQ_4.png" src="/images/kb/ka05w00000123Ij-00N5w00000Ri7BU-0EM5w000005vO3B.png"/></Frame>
+
+8. Select
+   **Advanced APIs**.
+9. Check the
+   **Bigquery** box.
+   
+   <Frame><img alt="AWBQ_5.png" src="/images/kb/ka05w00000123Ij-00N5w00000Ri7BU-0EM5w000005vO3D.png"/></Frame>
+
+10. Paste the script you copied in step 4 into the textbox.
+11. Click **Preview**.
+12. (Conditional) If any error messages appear after you preview, follow their instructions.
+   
+      For example, you may be prompted to click on another link to authorize BigQuery or reauthorize.
+13. Click **Run** when your configuration is successful.
+      
+      Google Ads now takes you back to the main page, where you are prompted to set up how often a script runs.
+14. Click the pencil icon under "Frequency," then set the schedule for your script.
+      
+    <Frame><img alt="AWBQ_6.png" src="/images/kb/ka05w00000123Ij-00N5w00000Ri7BU-0EM5w000005vO3A.png"/></Frame>
+
+15. Return to the Google Ads via Google BigQuery Service connector page in Domo and continue configuring the connector.
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Troubleshooting
+
+If the data doesn't seem to be updating, make sure your Google Ads script runs before the connector runs. Otherwise, the same data will be pulled again.

@@ -1,0 +1,51 @@
+---
+title: "Presto Connector"
+excerpt: "Connect Domo to a Presto distributed SQL query engine to build DataSets from gigabyte-to-petabyte data sources via basic auth or access token."
+---
+
+## Intro
+
+Presto is an open source distributed SQL query engine for running interactive analytic queries against data sources of all sizes ranging from gigabytes to petabytes. Presto was designed and written from the ground up for interactive analytics and approaches the speed of commercial data warehouses while scaling to the size of organizations like Facebook. For more information about the Presto API, visit their website https://prestoapi.com/.
+
+The Presto connector is a "Database" connector, meaning it retrieves data from a database using a query. In the Data Center, you can access the connector page for this and other Database connectors by clicking **Database** in the toolbar at the top of the window.
+
+You connect to your Presto database in the Data Center. This topic discusses the fields and menus that are specific to the Presto connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to a Presto database and create a DataSet, you must have the following:
+
+* The user should have been granted access to query tables in the `system.jdbc` schema.
+* Username, password & access token can be found at the Presto server in the configurations.
+* The user should provide user, password if the Presto server is configured to use basic auth.
+* The user should provide an access token if the Presto server is configured for the token-based authentication.
+* The username and password you use to log into your Presto database
+* The host name for the database
+* The port number for the database
+* Your access token
+
+## Connecting to Your Presto Database
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Presto Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+<Note>
+**Note:** When using the copy/paste function for your credentials, ensure there is no whitespace at the beginning or end of the string. By accidentally pasting whitespace, it will cause the connector to error when trying to connect.
+</Note>
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your database. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> Enter the host name for the Presto database. Example: <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number for the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your Presto username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Presto password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Access Token </p></td><td colspan="1" rowspan="1"><p><span> Enter your access token. </span></p></td></tr></tbody></table>
+
+Once you have entered valid Presto credentials, you can use the same account any time you go to create a new Presto DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+In this pane you create an SQL query to pull data from your database, with or without a parameter.
+
+<table cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><span> How would you like to import data into Domo? </span></td><td colspan="1" rowspan="1"><span> Select the way you want to import your data. </span></td></tr><tr><td colspan="1" rowspan="1"><span> How would you like to build your Query? </span></td><td colspan="1" rowspan="1"><p><span> Select the Query Type. The following query types are available: </span></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> Enter the SQL query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> Select a table and fields to auto-generate your query. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter the SQL query to execute. </td></tr><tr><td colspan="1" rowspan="1"><span> How would you like to perform your partition? </span></td><td colspan="1" rowspan="1"><span> Select the way you want to perform partition. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Catalog Names </span></td><td colspan="1" rowspan="1"><span> Select the catalog. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Schema Names </span></td><td colspan="1" rowspan="1"><span> Select the schema name. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Select the tables </span></td><td colspan="1" rowspan="1"><span> Select the database table. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Table Columns </span></td><td colspan="1" rowspan="1"><span> Select all table columns you want to appear in your report. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Query Helper </span></td><td colspan="1" rowspan="1"> A query is generated based on the selected fields. Copy and paste this text into the QUERY field. You may edit this query, if desired. </td></tr><tr><td colspan="1" rowspan="1"><span> Partition Column Name </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Select partition column name. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Past Days </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Enter number of past days for which you want to get data. Value can be X, where X is a positive integer. For example: 30. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Date Format </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Select the required date format. By default <b> yyyy-MM-dd </b> will be used. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Custom Date Format </span><span><br/></span></td><td colspan="1" rowspan="1"><span> Enter the custom date format. </span></td></tr><tr><td colspan="1" rowspan="1"><span> Partition Query </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> Enter the partition query to determine the distinct partition tags. The column containing the <b> Date </b> data is your partition column. </span></p><p><span> Example: Select <b> Date </b> from Table_Name. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Upsert Key Column(s) </span></td><td colspan="1" rowspan="1"><span> Enter upsert key column name or a comma separated list of upsert key column names. <b> Required only when Update method is Merge </b>. </span></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

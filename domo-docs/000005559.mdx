@@ -1,0 +1,125 @@
+---
+title: "Use Non-aggregated Columns in Aggregated Beast Modes"
+excerpt: "Use GROUP BY and SQL techniques to combine non-aggregated columns with aggregated Beast Modes in Domo charts and queries."
+---
+
+## Intro
+
+This guide introduces using non-aggregated columns in aggregated Beast Modes. When applying non-aggregated columns to aggregated Beast Modes, it is best to have a basic to mid-level understanding of SQL and access to [Domo Support <i className="icon-arrow-square-out sm" aria-hidden="true" />](https://domo-support.domo.com/s/).
+
+---
+
+## Use the GROUP BY Function
+
+When building SQL queries that use aggregated functions and non-aggregated columns in the `SELECT` statement, all non-aggregated columns must be put in the `GROUP BY` statement of the query.
+
+The following DataSet contains a record of individual sales made by customers. The `Customer ID` column contains unique identifiers for each customer, the `Ship Mode` column contains two possible values: "Second Class" and "Standard Class," and the `Sales` column contains the value amount sold to each customer on the order.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Order ID </p></th><th colspan="1" rowspan="1"><p> Customer ID </p></th><th colspan="1" rowspan="1"><p> Ship Mode </p></th><th colspan="1" rowspan="1"><p> Sales </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 1 </p></td><td colspan="1" rowspan="1"><p> CG-12520 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 261.98 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 2 </p></td><td colspan="1" rowspan="1"><p> CG-12520 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 731.94 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 3 </p></td><td colspan="1" rowspan="1"><p> DV-13045 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 14.62 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 4 </p></td><td colspan="1" rowspan="1"><p> SO-20335 </p></td><td colspan="1" rowspan="1"><p></p><p> Standard Class </p><p></p></td><td colspan="1" rowspan="1"><p> 957.5775 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 5 </p></td><td colspan="1" rowspan="1"><p> SO-20335 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 22.368 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 6 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 48.86 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 7 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 7.28 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 8 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 907.152 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 9 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 18.504 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 10 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 114.9 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 11 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 1706.184 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 12 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 911.424 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 13 </p></td><td colspan="1" rowspan="1"><p> AA-10480 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 15.552 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 14 </p></td><td colspan="1" rowspan="1"><p> IM-15070 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 407.976 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 15 </p></td><td colspan="1" rowspan="1"><p> HP-14815 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 68.81 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 16 </p></td><td colspan="1" rowspan="1"><p> HP-14815 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 2.544 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 17 </p></td><td colspan="1" rowspan="1"><p> PK-19075 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 665.88 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 18 </p></td><td colspan="1" rowspan="1"><p> AG-10270 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 55.5 </p></td></tr></tbody></table>
+
+Using the table, we can build a single-value chart showing only the results of a Beast Mode: `Total Sales` that sums up the `Sales` column.
+
+The resulting query for the chart has the following format:
+
+```sql
+SELECT SUM(`Sales`) AS `Total Sales` FROM DataSet
+```
+
+In the example, the only value in the `SELECT` statement is the aggregated Beast Mode `Total Sales`. There are no non-aggregated columns; therefore, no `GROUP BY` statements are required.
+
+If you want to build a bar chart for the `Total Sales` Beast Mode by `Ship Mode`, you need to get the `Total Sales` for each `Ship Mode`, resulting in the following query:
+
+```sql
+SELECT `Ship Mode`, SUM(`Sales`) AS `Total Sales` FROM Dataset GROUP BY `Ship Mode`
+```
+
+The `SELECT` statement contains the aggregated Beast Mode, `Total Sales,` and the non-aggregated column, `Ship Mode.` So, the non-aggregated column, `Ship Mode,` needs to be in the `GROUP BY` statement.
+
+<Frame><img alt="" src="/images/kb/ka0Vq0000003ruD-00N5w00000Ri7BU-0EMVq0000038OZi.jpg"/></Frame>
+## Aggregations Using Non-Aggregated Columns
+
+Aggregated Beast Modes that use non-aggregated columns can be harder to work with but can still executed using the following tips.
+
+In this example, we have a Pivot Table that displays the total sales by customer with the following Beast Mode function:
+
+```
+Total Sales  
+-----------  
+SUM (`Sales`)
+```
+
+And results in the following query:
+
+```sql
+SELECT `Customer ID,` SUM(`Sales`) AS `Total Sales` FROM DataSet GROUP BY `Customer ID`
+```
+
+The query includes a Beast Mode that is an aggregation in the `SELECT` statement and a non-aggregated column `Customer ID.` For the query to function correctly, `Customer ID` must be included in the `GROUP BY` statement.
+
+In our example scenario, orders shipped using `Standard Class` shipping cost 10% more than orders shipped using `Second Class.` When building your chart, you want the total sales using the `Standard Class` to be reduced by 10%; to do this, you can change the `Total Sales` Beast Mode to reduce sales using this shipping mode by 10%.
+
+Your updated Beast Mode would look like this:
+
+```
+Total Sales  
+-----------  
+CASE  
+   WHEN `Ship Mode` = `Standard Class` THEN SUM(`Sales` *.9)  
+   WHEN 'Ship Mode` = `Second Class` THEN SUM(`Sales`)  
+END
+```
+
+This Beast Mode is considered an aggregation because, in the `THEN` statement for each `WHEN` clause, you use the aggregating function `SUM`. The `Ship Mode` function is non-aggregated, so when rebuilding the query, your pivot table should look like this:
+
+```sql
+SELECT `Customer ID`  
+CASE  
+  WHEN `Ship Mode` = `Standard Class` THEN SUM(`Sales` *.9)  
+  WHEN `Ship Mode` = `Standard Class` THEN SUM(`Sales`)  
+END AS `Total Sales`  
+FROM DataSet GROUP BY `Customer ID,` `Ship Mode`
+```
+
+Even though the `Ship Mode` column is not used directly in the `SELECT` statement, it is still used in the `SELECT` statement in the non-aggregated form through the Beast Mode `Total Sales.` For the query to function, the column `Ship Mode` must be included in the `GROUP BY` statement.
+
+Your Pivot Table should now look like this:
+
+<Frame><img alt="A white sheet with linesDescription automatically generated" src="/images/kb/ka0Vq0000003ruD-00N5w00000Ri7BU-0EMVq000002ti8v.jpg"/></Frame>
+The Pivot Table data displays the `Customer ID` BH-11710, with a \*\*\*\*\* error in the `Total Sales` column. This error occurs because the customer uses two different `Ship Mode` values in their orders. The resulting output includes two rows because the customer has values for both `Standard Class` and `Second Class.` This causes errors in the Pivot Table because it expects a single row instead of two.
+
+The `Ship Mode` column is not displayed because it is not included in the `SELECT` statement. Others viewing the table do not know the value that goes into the `Ship Mode,` nor can they see the actual `Total Sales` per customer.
+
+## Grand Total and Sub-total Rows on Tables
+
+The compute `Grand Total` row on the Pivot Table must also include a second query that allows you to get the true `Total Sales` value for all customers. Typically, when computing "total" rows, we remove the specific column from the query, but in this case, we take the main query and remove the `Customer ID.` Because the Beast Mode uses a non-aggregated column, it must be added to the `GROUP BY` statement.
+
+If we remove the `Customer ID` column, we get this query:
+
+```sql
+SELECT  
+CASE  
+   WHEN `Ship Mode` = `Standard Class` THEN SUM(`Sales` *.9)  
+   WHEN `Ship Mode` = `Second Class` THEN SUM(`Sales`)  
+END AS `Total Sales`  
+FROM DataSet GROUP BY `Ship Mode`
+```
+
+This query retrieves the `Total Sales` for all customers. However, because this Beast Mode uses a non-aggregated column, we must still include that column in the `GROUP BY` statement.
+
+This query produces the following two rows of data:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Total Sales </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 1197.424 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 5721.6075 </p></td></tr></tbody></table>
+
+The two rows include one total for each `Ship Mode` value. For a total row value, we need to have a row that is the total of both values. We must put the original query into a subquery to get this value and then total the rows.
+
+```sql
+SELECT SUM(subquery. `Total Sales`) FROM  
+(SELECT `Customer ID`,  
+CASE  
+   WHEN `Ship Mode` = `Standard Class` THEN SUM(`Sales` *.9)  
+   WHEN `Ship Mode` = `Second Class` THEN SUM(`Sales`)  
+END AS `Total Sales`  
+FROM DataSet GROUP BY `Customer ID,` `Ship Mode`) AS subquery
+```
+
+This query addresses the possibility of multiple rows per `Customer ID` and `Ship Mode,` so we must take the full table query, place it into a subquery, and compute a `SUM` based on the subquery.

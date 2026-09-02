@@ -1,0 +1,291 @@
+---
+title: "Azure Data Lake Gen2 OAuth Writeback Connector"
+excerpt: "Configure the Azure Data Lake Gen2 OAuth Writeback Connector to push Domo DataSets to Azure Data Lake Storage Gen2."
+---
+
+## Intro
+
+Azure Data Lake Storage is Microsoft's optimized storage solution for big data analytics workloads. A fundamental part of Data Lake Storage Gen2 is the addition of a hierarchical namespace to Blob storage. Use this connector to bring in data from Azure storage into Domo for creating visual insights on the data.
+
+Azure Data Lake Storage Gen2 is the world's most productive Data Lake. It makes Azure Storage the foundation for building enterprise data lakes on Azure. It allows you to manage massive amounts of data easily and helps to speed up your transition from proof of concept to production.
+
+You can connect to your Azure Data Lake Gen2 OAuth Writeback account in the Data Center. This topic discusses the fields and menus that are specific to the Azure Data Lake Gen2 OAuth Writeback connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Azure Data Lake Gen2 OAuth Writeback account and create a DataSet, you need the following:
+
+- Client ID
+- Client Secret
+- Tenant ID
+
+## Configuring Your Azure App
+
+To create a connection with your Microsoft Exchange Metrics account, you must first create a Microsoft Azure Web App to obtain the necessary client ID and secret.
+
+**To configure an Azure App**:
+
+1. Login into [Azure Portal](https://portal.azure.com/#home "https://portal.azure.com/#home").
+2. Select **Azure Active Directory > App Registrations > New Registration**.
+
+<Frame>
+  <img alt="New_registration.png" src="/images/kb/ka05w00000127Jz-00N5w00000Ri7BU-0EM5w000005vO99.png" />
+</Frame>
+
+3. Fill out the registration form as follows:
+
+- - Name: Enter the name of your application.
+  - Supported account types: Select an option to specify who can use this application or access this API.
+  - Redirect URI: Enter the redirect URI ([https://oauth.domo.com/api/data/v2/oauth/providers/adls-gen2-azure-active-directory-oauth-writeback/exchange](https://oauth.domo.com/api/data/v2/oauth/providers/adls-gen2-azure-active-directory-oauth-writeback/exchange "https://oauth.domo.com/api/data/v2/oauth/providers/adls-gen2-azure-active-directory-oauth-writeback/exchange") ). The authentication response is sent to this URI after successfully authenticating the user. Providing the URI at this stage is optional and it can be changed later, but a value is required for most of the authentication scenarios.
+
+<Frame>
+  <img
+    alt="clipboard_eac88f9aa2966a791f11417756903afc4.png"
+    src="/images/kb/ka05w00000127Jz-00N5w00000Ri7BU-0EM5w000005vO9B.png"
+  />
+</Frame>
+
+4. Click **Register**. An overview of your registered App will appear. The **Application ID** that appears here is the **Client ID** you will enter in the **Credentials** pane in Domo.
+5. Click **API Permissions >> +Add a permission**.
+6. **Request API permissions** section appears. Add the API permissions for your application.
+
+<Frame>
+  <img
+    alt="clipboard_e9ed1fc0137b700a6e1c7bb384b55b721.png"
+    src="/images/kb/ka05w00000127Jz-00N5w00000Ri7BU-0EM5w000005vO91.png"
+  />
+</Frame>
+
+7. Now, click on **Certificates and secrets**. Certificates can be used as secrets to prove the application's identity when requesting a token. Also, can be referred to as public keys.
+8. Click **+New client secret**.
+
+   <Frame>
+     <img
+       alt="clipboard_ea0abe516411f9db35904232995bd00d9.png"
+       src="/images/kb/ka0Vq0000003W6b-00N5w00000Ri7BU-0EM5w000005vO93.png"
+     />
+   </Frame>
+
+9. Specify the client secret description and the expiry period for your client secret, and click **Add**.
+10. Copy the value and paste it into the **Client Secret** field in the **Connector credentials** section in Domo.
+
+## Connecting to Your Azure Data Lake Gen2 OAuth Writeback Account
+
+Azure Data Lake Storage Gen2 supports OAuth 2.0 authentication. This section enumerates the options in the **Credentials** and **Details** panes on the Azure Data Lake Gen2 OAuth Writeback Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Azure Data Lake Gen2 OAuth Writeback account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1">
+        <p>
+          <span class="s1"> Field </span>
+        </p>
+      </th>
+      <th colspan="1" rowspan="1">
+        <p>
+          <span class="s1"> Description </span>
+        </p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Client ID{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the client ID (GUID) of the client web app obtained from the Azure Active Directory configuration.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Client Secret{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the secret key of the client web app.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Tenant ID{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p>
+          {" "}
+          Enter your Tenant ID. Navigate to 
+          <a href="http://Portal.azure.com" rel="noopener" target="_blank">
+            {" "}
+            Portal.azure.com{" "}
+          </a> 
+          &gt; Azure Active Directory &gt; Properties.{" "}
+        </p>
+        <p> The Directory ID is your Tenant ID. </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Once you have entered valid Azure Data Lake Gen2 OAuth Writeback credentials, you can use the same account at any time to create a new Azure Data Lake Gen2 OAuth Writeback DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1">
+        <p> Menu </p>
+      </th>
+      <th colspan="1" rowspan="1">
+        <p> Description </p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter Storage Account Name{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the storage account name.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter Container Name{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the Container name.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        How would you like to choose the directory name?{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select how would you like to choose the directory name.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Discover Directory Name{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the directory name.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter Directory Name{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p> Enter the directory name. </p>
+        <table>
+          <tbody>
+            <tr>
+              <td colspan="1" rowspan="1">
+                <b> test </b>
+              </td>
+              <td colspan="1" rowspan="1">
+                {" "}
+                Example for main or root directory{" "}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1" rowspan="1">
+                <b> test/test </b>
+              </td>
+              <td colspan="1" rowspan="1">
+                {" "}
+                Example for sub directory{" "}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1" rowspan="1">
+                <b> test/test/test </b>
+              </td>
+              <td colspan="1" rowspan="1">
+                {" "}
+                Example for sub-sub-directory{" "}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Input DataSet Id{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p>
+          {" "}
+          Enter your Domo DataSet ID (<abbr title="Globally Unique Identifier"> GUID </abbr> ) located in the DataSet URL.{" "}
+          <br />
+          <br /> Example:{" "}
+          <a
+            href="https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings"
+            target="_blank"
+            title="https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings"
+          >
+            {" "}
+            https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings{" "}
+          </a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select filename{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p> Specify whether you want to use the input DataSet GUID or enter a filename manually. </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        FileName{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p> Enter the output file name. </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        My Domo Input DataSet is very large{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p>
+          {" "}
+          Select this Check box if you are exporting a very large DataSet from Domo to Azure Data Lake. When this box is
+          checked, the connecter uses a different, faster process.{" "}
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

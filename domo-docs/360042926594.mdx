@@ -1,0 +1,73 @@
+---
+title: "Constant Contact Connector"
+excerpt: "Connect to Constant Contact in Domo with OAuth to pull contact activity, contact lists, and email campaign reports into a DataSet."
+---
+
+## Intro
+
+Constant Contact offers web-based email marketing services.   To learn more about the Constant Contact API, visit their page ([https://developer.constantcontact.co...ion-index.html](https://developer.constantcontact.com/docs/developer-guides/api-documentation-index.html "https://developer.constantcontact.com/docs/developer-guides/api-documentation-index.html") ).
+
+You connect to your Constant Contact account in the Data Center. This topic discusses the fields and menus that are specific to the Constant Contact connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## Prerequisites
+
+To connect to your Constant Contact account and create a DataSet, you must have your Constant Contact username and password.
+
+## Connecting to Your Constant Contact Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Constant Contact Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet,** are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials Pane
+
+The Domo Constant Contact connector uses OAuth to connect, so there is no need to enter credentials within Domo. Click **Connect** (or select **Add Account** if you have existing Constant Contact accounts in Domo) to open the Constant Contact OAuth screen where you can enter your Constant Contact username and password. Once you have entered valid Constant Contact credentials, you can use the same account any time you go to create a new Constant Contact DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a menu from which you select your desired report type, along with various options for configuring your report.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Constant Contact report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Contact Action Summary </p></td><td colspan="1" rowspan="1"><p> Returns a list of the recent emails sent to a specific contact and a summary of the actions the contact took on that email for the most recent 200 campaigns. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact Activity Details </p></td><td colspan="1" rowspan="1"><p> Returns the tracking activity data for a given account and contact. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact Lists </p></td><td colspan="1" rowspan="1"><p> Returns a list of contact lists in your account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contacts </p></td><td colspan="1" rowspan="1"><p> Returns all contacts in your account. </p></td></tr><tr><td colspan="1" rowspan="1"> Email Campaigns </td><td colspan="1" rowspan="1"> Returns all email campaigns in user's account. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Contact ID </p></td><td colspan="1" rowspan="1"><p> Select the contact you want to retrieve information for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact Status </p></td><td colspan="1" rowspan="1"><p> Select the status you want to filter your report data by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Subresource? </p></td><td colspan="1" rowspan="1"><p> Select whether you want to include subresources in your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tracking Activity Types </p></td><td colspan="1" rowspan="1"><p> Select the tracking activity types you want to retrieve data for. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Updated After Date </p></td><td colspan="1" rowspan="1"><p> Select a date. The report will return all data updated after this date. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Updated Days Back </p></td><td colspan="1" rowspan="1"><p> Enter a relative number of days back. Every time the report runs, it will return all data updated after this relative number of days. For example, if you entered <span class="mt-font-courier-new"> 7 </span>, each time the report ran it would pull data updated within the last 7 days. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> Select whether you want to pull data for a specific date or a date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> Select whether the report data is for a specific date or for a relative number of days back from today. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> Select the date for the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> Enter the number of past days that should appear in the report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the first date in your date range is a specific or relative date. You select the last date in your range in <b> End Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Specify whether the second date in your date range is a specific or relative date. You select the first date in your range in <b> Start Date </b>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> Select the first date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> Select the second date in your date range. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> Enter the number of the farthest day back that should be represented in the report. Combine with <b> Days Back to End At </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> Enter the number of the most recent day back that should be represented in the report. Combine with <b> Days Back to Start From </b> to create a range of represented days. </p><p> For example, if you entered <span class="mt-font-courier-new"> 10 </span> for <b> Days Back to Start From </b> and <span class="mt-font-courier-new"> 5 </span> for <b> Days Back to End At </b>, the report would contain data for 10 days ago up until 5 days ago. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Constant Contact API does this connector use?">
+
+This connector uses version 3 of the Constant Contact API (https://api.cc.email/v3).
+
+</Accordion>
+
+<Accordion title="What endpoint does each report call in this connector?">
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> Report Name </th><th colspan="1" rowspan="1"> Endpoint URL </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Contact Action Summary </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /reports/contact_reports/{contactId}/activity_summary </span></td></tr><tr><td colspan="1" rowspan="1"> Contact Activity Details </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /reports/contact_reports/{contactId}/activity_details </span></td></tr><tr><td colspan="1" rowspan="1"> Contact Lists </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /contact_lists </span></td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /contacts </span></td></tr><tr><td colspan="1" rowspan="1"><span> Email Campaigns </span></td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"><span> /emails </span></span></td></tr></tbody></table>
+
+</Accordion>
+
+<Accordion title="How do I know my Constant Contact credentials are secure?">
+
+The login process uses the OAuth process, so your Constant Contact credentials are never seen or stored by Domo. This keeps your login secure. You can revoke Domo's access to your account at any time.
+
+</Accordion>
+
+<Accordion title="Can I use the same account to create multiple DataSets?">
+
+Yes.
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+If the API reaches the daily call limit, the API key will not be able to make calls until 12:00 am the next day.
+
+</Accordion>
+</AccordionGroup>
+

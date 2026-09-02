@@ -1,0 +1,36 @@
+---
+title: "Anaplan Audit Service Connector"
+excerpt: "Use Domo's Anaplan Audit Service Connector to pull audit events and user lists from the Anaplan Audit API into a DataSet."
+---
+
+## Intro
+
+The Anaplan Audit API is intended as a delivery mechanism for audit logs and is designed for audit information to be pulled frequently so that you can leverage your own technology for filtering, analysis, and storage.  For more information about the Anaplan API, visit their website. ([https://docs.anaplan.apiary.io/](https://anaplan.docs.apiary.io/# "https://docs.anaplan.apiary.io/") )
+
+You connect to your Anaplan account in the Data Center. This topic discusses the fields and menus that are specific to the Anaplan Audit Service connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
+
+## Prerequisites
+
+To connect to your Anaplan account and create a DataSet, you must have your Anaplan username and password.
+
+## Connecting to your Anaplan account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Anaplan Audit Service Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
+
+### Credentials pane
+
+This pane contains fields for entering credentials to connect to your Anaplan account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter your Anaplan username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter your Anaplan password. </p></td></tr></tbody></table>
+
+Once you have entered valid Anaplan credentials, you can use the same account any time you go to create a new Anaplan Audit Service DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Anaplan report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Audit Events </p></td><td colspan="1" rowspan="1"><p> Retrieves audit events for the tenant with which your user is associated. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Retrieves a list of users based on your Anaplan authentication token. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Audit Events Response Format </p></td><td colspan="1" rowspan="1"><p> Select the Audit Events output response format, either CEF or JSON. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Type </p></td><td colspan="1" rowspan="1"><p> Select the type of events to return, either BYOK (Bring Your Own Key) or User Activity. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> Select the desired start date for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> Select the desired end date for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Interval in Hours </p></td><td colspan="1" rowspan="1"><p> Enter the hourly interval of events to return. For example, if you entered <span class="mt-font-courier-new"> 2 </span>, the report would return the previous 2 hours of events. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

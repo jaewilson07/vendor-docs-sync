@@ -1,0 +1,54 @@
+---
+title: "Kintone OAuth Connector"
+excerpt: "Connect Domo to Kintone using OAuth credentials to build reports about Kintone Apps and App Records."
+---
+
+## About
+
+Kintone is a no-code enterprise application platform for teams. Use Domo's Kintone OAuth connector to create reports about Kintone Apps and Kintone App Records. learn more about the Kintone API, see [https://kintone.dev/en/docs/kintone/rest-api/](https://kintone.dev/en/docs/kintone/rest-api/ "https://kintone.dev/en/docs/kintone/rest-api/").
+
+You can connect to your Kintone OAuth account in the Data Center. This article explains the fields and menus that are specific to the Kintone OAuth connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Kintone OAuth account and create a DataSet, you must have the following:
+
+* Instance/Domain Name
+* Client ID
+* Client Secret
+
+## Creating a Kintone App for OAuth
+
+To create a Kintone App for OAuth, follow the below steps:
+
+1. Log into the Administration Home page on cybozu.com.
+2. Click OAuth in Integrations.
+3. Click Add OAuth Client.
+4. Enter the application name, and the Redirect Endpoint as [https://oauth.domo.com/api/data/v1/oauth/providers/kintone-oauth/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/kintone-oauth/exchange "https://oauth.domo.com/api/data/v1/oauth/providers/kintone-oauth/exchange").
+
+<Frame><img alt="image-2025-01-22-14-01-31-477.png" src="/images/kb/ka0Vq0000006nHN-00N5w00000Ri7BU-0EMVq000004wBqP.jpg"/></Frame>
+
+5. Save the OAuth App, and open a edit screen of the created App.
+6. Copy the Client ID and Client Secret.
+
+## Connecting to Your Kintone OAuth Account
+
+This section lists the options in the **Credentials** and **Details** panes in the Kintone OAuth connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Kintone OAuth account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Instance/Domain Name </p></td><td colspan="1" rowspan="1"><p><span> Enter your Kintone domain name. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Enter your OAuth integration Client ID. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p><span> Enter your OAuth integration Client Secret. </span></p></td></tr></tbody></table>
+
+Once you have entered valid Kintone OAuth credentials, you can use the same account to create a new Kintone OAuth DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the <span class="s1"> Kintone OAuth </span> report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> Report Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> All Apps </td><td colspan="1" rowspan="1"> Gets the general information of multiple Apps, including the name, description, related Space, creator and updater information. </td></tr><tr><td colspan="1" rowspan="1"> All Records of 1 App </td><td colspan="1" rowspan="1"> Retrieves details of all records of an App. </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Guest Space ID </td><td colspan="1" rowspan="1"> A Guest Space Id is necessary if your application exists inside a Guest Space. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

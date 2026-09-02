@@ -1,0 +1,264 @@
+---
+title: "Google Drive Metadata Connector"
+excerpt: "Configure the Google Drive Metadata Connector to ingest file names, owners, access levels, sizes, and storage usage into Domo."
+---
+
+## Intro
+
+The Google Drive Metadata Connector fetches metadata from your Google Drive to manage files. You may retrieve this data for your Drive or choose to filter by file location or keywords within your file names.
+
+The Google Drive Metadata Connector provides a file's name, type, and owner, as well as users who have access and at what level. You will also be able to view a file's size and whether it counts towards your Google Drive's overall storage quota. You will additionally be able to see the amount of storage allotted for your Google Drive. The Google Drive Metadata Connector allows you to view your files' locations and provides a link to view that file within your Google Drive. Finally, you will also be able to view when a file was last edited. For more information on the Google Drive API, refer to [https://developers.google.com/drive/api/guides/about-sdk](https://developers.google.com/drive/api/guides/about-sdk "https://developers.google.com/drive/api/guides/about-sdk").
+
+You can connect to your Google Drive Metadata account in the Data Center. This topic discusses the fields and menus that are specific to the Google Drive Metadata connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Google Drive Metadata account and create a DataSet, you need to set up a Google Cloud Console project to handle the OAuth 2.0 process.
+
+If you already have a Google Cloud Console project setup, you either need to create a new one for the Google Drive Metadata Connector or configure it to include the following:
+
+**Authorized Domain:** [domo.com](http://domo.com)
+
+**Redirect URI:** [https://oauth.domo.com/api/data/v2/oauth/providers/google-drive-metadata-98e4dc30-1712-4b80-85ec-ed6cf3cb1e6b/exchange](https://oauth.domo.com/api/data/v2/oauth/providers/google-drive-metadata-98e4dc30-1712-4b80-85ec-ed6cf3cb1e6b/exchange "https://oauth.domo.com/api/data/v2/oauth/providers/google-drive-metadata-98e4dc30-1712-4b80-85ec-ed6cf3cb1e6b/exchange")
+
+## Setting Up a Google Cloud Console Project
+
+1. Navigate to
+   [https://cloud.google.com/cloud-console](https://cloud.google.com/cloud-console "https://cloud.google.com/cloud-console").
+2. On the top right corner of the screen, select
+   **Console**.
+3. If you are accessing Google Cloud Console for the first time, log into the correct account, select the correct country of residence, read the terms of service, and select
+   **AGREE AND CONTINUE**.
+4. On the top left corner of the screen, click the project name.
+5. If you are logging into Google Cloud Console for the first time, on the top left corner select
+   **My Project**
+   > **NEW PROJECT** (It is recommended that you enter the **Project name** as **Domo Drive Connector**).
+6. Select the
+   **Location** as applicable or select **No organization**, and click **CREATE**.
+
+The Google Cloud Console home page appears.
+
+7. On the top left corner of the screen, select the name of the project you have created.
+
+   (OR)
+
+   If you are logging into Google Cloud Console for the first time, on the top left corner select **My Project** > **NEW PROJECT** and you will find the list of projects previously created. Select the name of your project.
+
+   The created Project's home page appears.
+
+   {" "}
+   <Frame>
+     <img src="/images/kb/ka0Vq0000006fdB-00N5w00000Ri7BU-0EMVq000004rx9J.jpg" />
+   </Frame>
+
+8. Scroll below and select
+   **APIs & Services** under **Quick access**.
+
+#### Enabling APIs
+
+9. On the left navigation menu, select **APIs & Services** > **Library**.
+
+<Frame>
+  <img src="/images/kb/ka0Vq0000006fdB-00N5w00000Ri7BU-0EMVq000004rxu5.jpg" />
+</Frame>
+
+10. Scroll down the page and under
+    **Google Workspace** select **Google Drive API**.
+    The **Google Drive API** page opens.
+11. Click
+    **Enable**, which allows the API to be used with your project.
+    You will be returned to the **APIs & Services** page.
+
+#### Setting up OAuth 2.0
+
+12. In the
+    **APIs and Services page**, select **OAuth consent screen**.
+
+<Frame>
+  <img src="/images/kb/ka0Vq0000006fdB-00N5w00000Ri7BU-0EMVq000004rwpy.jpg" />
+</Frame>
+
+The **OAuth consent screen** opens.
+
+13. Under
+    **User Type**, select the **External** radio button, and click **CREATE**.
+
+A new page appears where you can configure your OAuth consent screen.
+
+14. In the
+    **App name** field, enter the app name (It is recommended that you enter the app name as **Google Drive Metadata Connector**).
+15. In the
+    **User support email** drop-down field, select the email (It is recommended to use your email, you will be able to add users in a later step).
+16. You don't have to add an
+    **App logo** or **App domain**.
+17. Under
+    **Authorized domains** section, click **+ ADD DOMAIN**, and in the **Authorized domain** field that appears enter **[domo.com](http://domo.com)**.
+18. Under
+    **Developer contact information**, enter your email address, and click **SAVE AND CONTUNUE**.
+
+The next step in the app registration process, **Scopes** appears.
+
+#### OAuth 2.0: Scopes
+
+19. Select
+    **ADD OR REMOVE SCOPES**.
+
+<Frame>
+  <img src="/images/kb/ka0Vq0000006fdB-00N5w00000Ri7BU-0EMVq000004ryer.jpg" />
+</Frame>
+
+The **Update selected scopes** window appears.
+
+20. In the
+    **Enter property name or value** search field, enter **https://www.googleapis.com/auth/drive.metadata.readonly** (this is the Google Drive Metadata scope, and must be entered exactly as provided).
+
+    <Frame>
+      <img src="/images/kb/ka0Vq0000006fdB-00N5w00000Ri7BU-0EMVq000004ryuz.jpg" />
+    </Frame>
+
+21. After entering the scope, click the suggestion under
+    **Values**.
+
+    <Frame>
+      <img src="/images/kb/ka0Vq0000006fdB-00N5w00000Ri7BU-0EMVq000004rywb.jpg" />
+    </Frame>
+
+22. Select the
+    **Google Drive API** checkbox, select **UPDATE**, and click **SAVE AND CONTINUE**. You should ensure to verify that you that the scope you entered is listed under **Your restricted scopes** section in the **Scopes** window. The scope appears as **.../auth/drive.metadata.readonly**.
+    **Note:** Its is really important that the scope is copied correctly as provided, as the scope need to match the scope used by the connector.
+
+<Frame>
+  <img src="/images/kb/ka0Vq0000006fdB-00N5w00000Ri7BU-0EMVq000004rzEL.jpg" />
+</Frame>
+
+23. Once you have confirmed that the scope has been added, click
+    **SAVE AND CONTINUE**.
+
+When you click Save And Continue the **Scopes** window closes and the the next step in the OAuth process, which is **Test Users** window opens.
+
+#### OAuth 2.0: Test Users
+
+This page enables you to configure the Test users. These users will be able to use the connector with the credentials created in this process. Up to 100 users can be added without publishing the app through Google.
+
+24. Select
+    **+ ADD USERS**.
+    The **Add users** window appears.
+25. In the
+    **Add users** window, enter the email addresses associated with the Google accounts of the users who will be able to use the credentials created in the project for the OAuth 2.0 process.
+    **Note**: It is recommended that you add anyone from your Domo Instance who will be using the connector. The list of users added will not have access to the Google Cloud Console project or your Google Drive. It only allow them to use the credentials created to complete the OAuth 2.0 process.
+26. Once you have added the necessary users, click
+    **ADD**. The users can be added or removed later as well.
+
+**Note**: Even if an email is used elsewhere (that is for the **User Support Email)**, you still need to add the user as a Test user.
+
+27. Click
+    **SAVE AND CONTINUE**.
+    The **Summary** page appears.
+
+#### OAuth 2.0: Summary
+
+28. Ensure that all the information is correct, and click
+    **BACK TO DASHBOARD**.
+    you will be navigated back to the **OAuth consent screen**.
+
+### Creating a Client ID
+
+29. In the OAuth consent screen, click
+    **Credentials**.
+
+    <Frame>
+      <img src="/images/kb/ka0Vq0000006fdB-00N5w00000Ri7BU-0EMVq000004s3kz.jpg" />
+    </Frame>
+
+30. Click
+    **+ CREATE CREDENTIALS** > **OAuth client ID**.
+31. From the
+    **Application type** drop-down list, select **Web application**.
+32. In the
+    **Name** field, enter a client name (it is recommended that you use the client name as Domo Drive Connector Client).
+33. Scroll to the
+    **Authorized redirect URIs** section, and click **+ ADD URI**.
+34. In the URIs text box, enter **https://oauth.domo.com/api/data/v2/oauth/providers/google-drive-metadata-98e4dc30-1712-4b80-85ec-ed6cf3cb1e6b/exchange**.
+35. Click
+    **CREATE**.
+36. A pop-up window appears with the generated
+    **Client ID** and **Client secret**. Ensure to save the Client ID and Client secret in a secure place, but you can also view in your cloud console by navigating back to the **Credentials** Dashboard. These credentials can also be downloaded in JSON format.
+
+## Connecting to Your Google Drive Metadata Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the Google Drive Metadata Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+Once you have entered valid Google Drive Metadata credentials, you can use the same account at any time to create a new Google Drive Metadata DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+Select the Google Drive Metadata report you want to run. The following reports are available:
+
+<table border="1" data-aura-rendered-by="33:195;a">
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <b> Menu </b>
+      </td>
+      <td colspan="1" rowspan="1">
+        <b> Description </b>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Report{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <table border="1">
+          <tbody>
+            <tr>
+              <td colspan="1" rowspan="1">
+                <b> Report Name </b>
+              </td>
+              <td colspan="1" rowspan="1">
+                <b> Description </b>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1" rowspan="1">
+                <h3> Drive </h3>
+              </td>
+              <td colspan="1" rowspan="1">
+                {" "}
+                Fetches the metadata from files within your Google Drive.{" "}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        File Name Contains{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the word(s) for which you would like to filter the file names.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        File Location{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the name of the location or the folder that contains the files for which you would like to receive the data.
+        Note that \"Shared with Me\" and \"My Drive\" are considered their own, separate locations.{" "}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").

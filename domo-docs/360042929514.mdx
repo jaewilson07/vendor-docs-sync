@@ -1,0 +1,64 @@
+---
+title: "Cordial Connector"
+excerpt: "Use Domo's Cordial connector to retrieve contacts, orders, products, automation templates, and message activity data into a DataSet."
+---
+
+## Intro
+
+Cordial lets you activate real-time data and deliver tailored messages that adapt to changing customer signals.  To learn more about the Cordial API, visit their page ([https://api.cordial.io/docs/v1/](https://api.cordial.io/docs/v1/ "https://api.cordial.io/docs/v1/") ).
+
+You connect to your Cordial account in the Data Center. This topic discusses the fields and menus that are specific to the Cordial connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your Cordial account and create a DataSet, you must have the following:
+
+* An encoded Cordial API key
+* The password for your Cordial account
+
+For information about generating a Cordial API key, see [https://support.cordial.com/hc/en-us/articles/115005365087-API-Keys](https://support.cordial.com/hc/en-us/articles/115005365087-API-Keys "https://support.cordial.com/hc/en-us/articles/115005365087-API-Keys").
+
+## Connecting to Your Cordial Account
+
+This section enumerates the options in the **Credentials** and **Details** panes in the Cordial Connector page. The components of the other panes in this page, **Scheduling** and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in greater length in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+### Credentials Pane
+
+This pane contains fields for entering credentials to connect to your Cordial account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Enter your encoded Cordial API key. For information about generating an API key, see "Prerequisites," above. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password for your Cordial account. </td></tr></tbody></table>
+
+Once you have entered valid Cordial credentials, you can use the same account any time you go to create a new Cordial DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+### Details Pane
+
+This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Cordial report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> Report Name </b></p></td><td colspan="1" rowspan="1"><p><b> Description </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Contact Attributes </p></td><td colspan="1" rowspan="1"><p> Returns a list of account contact attributes. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Lists </p></td><td colspan="1" rowspan="1"><p> Returns a list of account lists. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Automation Templates </p></td><td colspan="1" rowspan="1"><p> Returns a list of automation templates. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Batch Messages </p></td><td colspan="1" rowspan="1"><p> Returns a list of batch messages. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact Activities </p></td><td colspan="1" rowspan="1"><p> Returns a list of recent activities for your contacts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contacts </p></td><td colspan="1" rowspan="1"><p> Returns your list of contacts. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Jobs </p></td><td colspan="1" rowspan="1"><p> Returns a list of jobs. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Message Transports </p></td><td colspan="1" rowspan="1"><p> Returns a list of transports. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Orders </p></td><td colspan="1" rowspan="1"><p> Returns a list of orders. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Products </p></td><td colspan="1" rowspan="1"><p> Returns a list of products. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Supplements </p></td><td colspan="1" rowspan="1"><p> Returns a list of supplements. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Supplement Records </p></td><td colspan="1" rowspan="1"><p> Returns a list of supplement records. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Select the Type </p></td><td colspan="1" rowspan="1"><p> Select the type of account contact attributes you want to pull into Domo. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select the Index </p></td><td colspan="1" rowspan="1"><p> Select an index value of 0 or 1 for your "Account Contact Attributes" report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Active Status </p></td><td colspan="1" rowspan="1"><p> Select the desired job status for jobs listed in your "Jobs" report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Interest Name (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the interest name you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Name (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the list name you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the time you want to filter your report by. You can include modifiers such as <span class="mt-font-courier-new"> lt </span>, <span class="mt-font-courier-new"> gt </span>, <span class="mt-font-courier-new"> lte </span>, <span class="mt-font-courier-new"> gte </span>, <span class="mt-font-courier-new"> between </span>, <span class="mt-font-courier-new"> start </span>, and <span class="mt-font-courier-new"> between.end </span>. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Action (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter an action to filter your report by. This can include <span class="mt-font-courier-new"> click </span>, <span class="mt-font-courier-new"> open </span>, <span class="mt-font-courier-new"> send </span>, or any user-defined actions. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the email address (search contact primary key) you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Attribute Key (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the attribute key you want to filter your report by. This can be the key of any custom attribute set up in your system. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Key (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the include key you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Job Name (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the job name you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact ID </p></td><td colspan="1" rowspan="1"><p> Select the contact ID you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Purchase Date (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the purchase date in conjunction with <span class="mt-font-courier-new"> eq </span>, <span class="mt-font-courier-new"> lt </span>, <span class="mt-font-courier-new"> gt </span> (<span class="mt-font-courier-new"> YYYY-MM-DD HH:ii:ss </span> ). For more information, reach out to your Cordial support representative. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schedule ID </p></td><td colspan="1" rowspan="1"><p> Select the schedule you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Supplement Key </p></td><td colspan="1" rowspan="1"><p> Select the supplement key you want to filter your report by. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fields (Optional) </p></td><td colspan="1" rowspan="1"><p> Enter the names of the fields (columns) you want to appear in your report. You can separate multiple fields using a comma. </p></td></tr></tbody></table>
+
+### Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What version of the Coridal API does this connector use?">
+
+This connector uses version 1 of the Cordial API ([https://api.cordial.io/v1/](https://api.cordial.io/v1/ "https://api.cordial.io/v1/") ).
+
+</Accordion>
+
+<Accordion title="How often can the data be updated?">
+
+As often as needed.
+
+</Accordion>
+
+<Accordion title="Are there any API limits I should be aware of?">
+
+No.
+
+</Accordion>
+</AccordionGroup>
+

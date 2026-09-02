@@ -1,0 +1,33 @@
+---
+title: "Stream Chart"
+excerpt: "Build a Stream chart in Domo to show relative differences between stages as a horizontal cross between a Stacked Area chart and a Funnel chart."
+---
+
+## Intro
+
+A Stream chart is a cross between a horizontal [Stacked Area chart](/s/article/360043428033 "Stacked Area Graph") and a Funnel chart. Series data is optional in Stream chart. Series in a Stream chart, if included, are centered. They do not share the same baseline and do not overlap. These charts also do not show value data except upon mouse-over. Therefore they are most effective for showing relative differences between stages rather than representing exact amounts.
+
+This chart type is exactly the same as a [Stream Funnel chart](/s/article/360043429513 "Stream Funnel Graph") (classified in the Chart Picker as a Pie/Funnel chart rather than an Area chart) but is shown horizontally rather than vertically.
+
+The following example shows a Stream chart without series data:
+
+<Frame><img alt="stream_without_series.png" src="/images/kb/ka05w00000123mJ-00N5w00000Ri7BU-0EM5w000005vP4Q.png"/></Frame>
+Whereas the next example shows the same chart with series data applied:
+
+<Frame><img alt="stream_with_series.png" src="/images/kb/ka05w00000123mJ-00N5w00000Ri7BU-0EM5w000005vP4V.png"/></Frame>
+## Powering Stream Charts
+
+Stream charts require two columns or rows of data from your DataSet—a category column or row containing the names of each stage, and a value column or row containing the corresponding values for each stage. You can also add a column containing series data if you want. For information about value, category, and series data, see [Understanding Chart Data](/s/article/360043428693 "Understanding Chart Data").
+
+In the Analyzer, you choose the columns containing the data for your Stream chart. For more information about choosing data columns, see [Applying DataSet Columns to Your Chart](/s/article/360043428713 "Applying DataSet Columns to Your Chart").
+
+For more information about formatting charts in the Analyzer, see [Visualization Card Building Part 2: The Analyzer](/s/topic/0TO5w000000ZaoUGAS "KPI Card Building Part 2: The Analyzer").
+
+The following graphic shows you how the data from the category, value, and series columns in a typical column-based spreadsheet is converted into a Stream chart:
+
+<Frame><img alt="" src="/images/kb/ka05w00000123mJ-00N5w00000Ri7BU-0EM5w000005vP4U.png"/></Frame>
+## Customizing Stream Charts
+
+You can customize the appearance of a Funnel chart by editing its **Chart Properties**. For information about all chart properties, see [Chart Properties](/s/topic/0TO5w000000ZaodGAC "Chart Properties").
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Property </p></th><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Example </p></th></tr><tr><td colspan="1" rowspan="1"><p> General &gt; Style </p></td><td colspan="1" rowspan="1"><p> Determines the style for a Stream chart, either <b> Curved </b> (default) or <b> Flat </b>. The example shows a Stream chart that uses the "Flat" style. </p></td><td colspan="1" rowspan="1"><img alt="stream_flat.png" src="/images/kb/ka05w00000123lK-00N5w00000Ri7BU-0EM5w000005vP1H.png"/></td></tr></thead></table>

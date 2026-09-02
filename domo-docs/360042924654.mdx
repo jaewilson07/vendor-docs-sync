@@ -1,0 +1,71 @@
+---
+title: "Latitude-Longitude Route Map"
+excerpt: "Build a Latitude-Longitude Route Map that connects coordinate points with lines whose thickness reflects start and end value differences."
+---
+
+## Intro
+
+A latitude-longitude route map is a [latitude-longitude map](http://wiki.domo.com/confluence/display/DHCS/Building+a+latitude-longitude+map "Latitude-Longitude Map") in which coordinate points are connected using lines. Two value columns are required. The values in one of these columns is applied to the start points of all given connection lines, and the values in the other are applied to the end points. In the map, differences in the values of start and end points are represented by the thickness of the lines. For example, if a line started out small at the start point of a line and became bigger, this would indicate that the value became larger. If the opposite scenario were true, this would indicate that the value shrank. If the start and end points were the same, the line would have the same thickness throughout.
+
+In other respects, a latitude-longitude route map is the same as a latitude-longitude map. The provided coordinates and applied filters determine the "zoom" level of the map. For more information about filters, see [Adding Filters to Your Chart](/s/article/360042924074 "Adding Filters to Your Chart"). You can also have multiple distinct routes by uploading an optional series column.
+
+For information about world maps, see [U.S. County Map](/s/article/360042925074 "World Map").
+
+For information about troubleshooting when an area in your map does not show data but there is data, see [Troubleshooting](/s/article/360043427473 "Troubleshooting").
+
+## Understanding latitude-longitude route maps
+
+Latitude-longitude route maps require seven data columns or rows from your DataSet, and you can add an optional eighth column for series data if you want. The required columns or rows are as follows:
+
+* A column or row containing the names of each route line (for example, "Denver-Omaha").
+* A column or row containing the source latitude for each route line (that is, the latitude for the starting point in a route line).
+* A column or row containing the source longitude for each route line.
+* A column or row containing the destination latitude for each route line.
+* A column or row containing the destination longitude for each route line.
+* A column or row containing the values for each route line's starting point.
+* A column or row containing the values for each route line's ending point.
+
+Values are represented in your map by varying point sizes, each size of which corresponds to a specific range. Ranges are determined automatically based on the distribution of values in your DataSet and are represented by a legend, which is automatically included beside the map. Differences in the values of start and end point pairs are represented by the thickness of the line connecting them. If you only want to show routes between points, without worrying about values, you can do so by ensuring that all of the values in your DataSet are set to 0.
+
+You can break down route lines into color categories by adding an optional eighth column that contains series data. Series data is represented in the map by varying colors of groupings. For example, if the routes in your DataSet were broken down into two different classes, "Group A" and "Group B," the lines and points for Group A would appear orange by default, and the lines and points for Group B would appear blue. The sums for each series are shown in the map legend. If a user clicks on a point in a latitude-longitude route map with series data, the drill table that appears shows all items for that series in the map. For more information about drilling into a chart, see [Drilling into Data](/s/article/360042923994 "Drilling into Data").
+
+For information about value, category, and series data, see [Understanding Chart Data](/s/article/360043428693 "Understanding Chart Data").
+
+Latitudes and longitudes are recognizable by Domo in any of a number of different formats. For a list of accepted formats, see [Formats for latitudes and longitudes](#formats-for-latitudes-and-longitudes).
+
+## Powering latitude-longitude route maps
+
+In the Analyzer, you choose the columns containing the data for your map. For more information about choosing data columns, see [Applying DataSet Columns to Your Chart](/s/article/360043428713 "Applying DataSet Columns to Your Chart").
+
+For more information about formatting charts in the Analyzer, see [KPI Card Building Part 2: The Analyzer](/s/article/360043428673 "KPI Card Building Part 2: The Card Builder").
+
+### Example
+
+The following graphic shows you how data from a typical column-based spreadsheet is converted into a latitude-longitude route map:
+
+<Frame><img alt="" src="/images/kb/ka05w00000123nR-00N5w00000Ri7BU-0EM5w000005vP8W.png"/></Frame>
+### Formats for latitudes and longitudes
+
+Domo recognizes latitudes and longitudes written in any of the following formats:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Format Name </p></th><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Examples </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Signed degrees </p></td><td colspan="1" rowspan="1"><p> Uses the format " <code> DDD.dddd </code>." In this format, South latitudes and West longitudes are preceded by a minus sign. Latitudes range from -90 to 90, and longitudes range from -180 to 80. </p></td><td colspan="1" rowspan="1"><p><code> 41.25, -120.9762 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Degrees minutes seconds </p></td><td colspan="1" rowspan="1"><p> Uses the format " <code> DDD MM SS </code> + compass direction (<code> N </code>, <code> S </code>, <code> E </code>, or <code> W </code> )." Latitudes range from 0 to 90 and longitudes range from 0 to 180. The last degree, minute, or second or a latitude or longitude may contain a decimal portion. </p></td><td colspan="1" rowspan="1"><p><code> 41 25 01N, 120 58 57W </code></p><p><code> 41º25'01"N, 120º58'57"W </code></p><p><code> S17 33 08.352, W69 01 29.74 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Degrees minutes </p></td><td colspan="1" rowspan="1"><p> Uses the format " <code> DDD MM </code> + compass direction (<code> N </code>, <code> S </code>, <code> E </code>, or <code> W </code> )." Latitudes range from 0 to 90 and longitudes range from 0 to 180. The last degree or minute of a latitude or longitude may contain a decimal portion. </p></td><td colspan="1" rowspan="1"><p><code> 41 25N, 120 58W </code></p><p><code> 41º25'N, 120º58'W </code></p><p><code> N41 25.117, W120 58.292 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Degrees only </p></td><td colspan="1" rowspan="1"><p> Uses the format " <code> DDD </code> + compass direction (<code> N </code>, <code> S </code>, <code> E </code>, or <code> W </code> )." Latitudes may range from 0 to 90 and longitudes range from 0 to 180. The last degree of a latitude or longitude may contain a decimal portion. </p></td><td colspan="1" rowspan="1"><p><code> 41N, 120W </code></p><p><code> 41 N, 120 W </code></p><p><code> 41ºN, 120ºW </code></p><p><code> N41.092, W120.8362 </code></p></td></tr></tbody></table>
+
+## Customizing latitude-longitude route maps
+
+You can customize the appearance of a latitude-longitude route map by editing its **Chart Properties**. Properties for all chart types are listed and described in [Chart Properties](/s/article/360042925394 "Chart Properties"). Unique properties of latitude-longitude route maps include the following. You can click a thumbnail image to see a larger image.
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"> Property </th><th colspan="1" rowspan="1"> Description </th><th colspan="1" rowspan="1"> Examples </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Routes &gt; Symbol Color </p></td><td colspan="1" rowspan="1"><p> Allows you to set the color for map points and connection lines. The default is orange. If your map contains a series column, colors are determined automatically—setting this property in this case has no effect. </p></td><td colspan="1" rowspan="1"> — </td></tr><tr><td colspan="1" rowspan="1"><p> Routes &gt; Straight Routes </p></td><td colspan="1" rowspan="1"><p> When checked, route lines appear straight instead of curved (which is the default). In the first example at right, route lines appear curved; in the second example they appear straight. </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1351/straight_lines_off.png"><img alt="" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP29.png"/></a></p><p><a target="_blank" title="/@api/deki/files/1350/straight_lines_on.png"><img alt="" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP26.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Routes &gt; Symbol Transparency </p></td><td colspan="1" rowspan="1"><p> Determines the transparency for connection lines. You can select any value from "none" (totally opaque) to 80% (almost transparent). The default is "none." In the first example at right, the transparency has been set to "none"; in the second example, it has been set to 80%. </p></td><td colspan="1" rowspan="1"><p><img alt="" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP1q.png"/></p><p><a target="_blank" title="/@api/deki/files/712/latlongroute_transparency_80.png"><img alt="" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP27.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Scale &gt; Use Log Scale </p></td><td colspan="1" rowspan="1"><p> Allows you to convert your map scale to a logarithmic scale. </p></td><td colspan="1" rowspan="1"> — </td></tr><tr><td colspan="1" rowspan="1"><p> Background &gt; Color </p></td><td colspan="1" rowspan="1"><p> Lets you choose the lightness of the background. The default is <b> Very Light </b>. The example shows a map in which the background lightness has been set to <b> Medium </b>. </p></td><td colspan="1" rowspan="1"><a target="_blank" title="/@api/deki/files/707/latlongroute_background.png"><img alt="" src="/images/kb/ka05w00000123nR-00N5w00000Ri7BU-0EM5w000005vP8S.png"/></a></td></tr></tbody></table>
+
+## Aggregating rows
+
+You can aggregate like rows in a latitude-longitude route map, and the map points reflect the aggregated values. In the following example, the user uploads a DataSet with two rows for "Berlin-Paris."
+
+<Frame><img alt="" src="/images/kb/ka05w00000123nR-00N5w00000Ri7BU-0EM5w000005vP8c.png"/></Frame>
+In the map, the individual "Route 2" values for "Berlin-Paris" are aggregated, and the corresponding map point (located near "Paris") is sized larger accordingly.
+
+<Frame><img alt="" src="/images/kb/ka05w00000123nR-00N5w00000Ri7BU-0EM5w000005vP8a.png"/></Frame>
+## Drilling from map to map
+
+As with state maps and standard latitude-longitude maps that represent U.S. cities, you enable "zoomability" on routes in a latitude-longitude route map by adding the same map as a drill layer. For example, if you had a route connecting San Antonio and Dallas, you could create a drill layer. A user clicking on the route would then be taken to a zoomed-in view of the route within the state of Texas. This works *only* for routes located entirely inside of the United States.
+
+For more information about adding drill layers to a chart, see [Adding Drill Path to Your Chart](/s/article/360042924094 "Adding Drill Path to Your Chart").

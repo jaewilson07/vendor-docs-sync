@@ -1,0 +1,67 @@
+---
+title: "Changes in Account Configuration Requirements for Connectors"
+excerpt: "Reference notes about Domo-initiated updates to connector Account configurations and what Account owners can expect to receive."
+---
+
+## Intro
+
+Domo is making a change to the Account configuration options in some connectors you may be using.
+
+Existing Accounts for datasets that use these connections will be updated with the new Account setup. When this occurs, owners of updated Accounts will receive a Domo generated notice, similar to the one below, informing them that a Domo Admin has modified their Account.
+
+<Note>
+**Note:** Domo will not ask you for your password, nor will we ask you to reauthenticate your Account. Account credentials, for example, client id and secrets, username and passwords, API Keys or tokens, will remain encrypted, and will be inaccessible as part of this update.
+</Note>
+
+<Frame><img alt="Account_Edited_Domo_Admin.png" src="/images/kb/ka05w000001292v-00N5w00000Ri7BU-0EM5w000006upMe.jpg"/></Frame>
+
+## Why is Domo making these changes?
+
+Domo is constantly looking for ways to improve the customer experience. These upgrades will simplify configuration and make subsequent powering up of these connectors easier.
+
+Report configurations such as frequency and report specific parameters will not be changed or adjusted. Datasets will continue to retrieve the same information on the same schedule. The permissions on datasets will not be changed.
+
+## Who will receive these messages?
+
+For each Account that is updated, a message will be sent to the Account owner.
+
+* If a user owns two Workday accounts, they will receive one notification for each Account.
+* If a user owns a Workday Account and a JSON Advanced Account, they will receive one notification for the Workday Account and one notification for the JSON Advanced Account.
+
+<Note>
+****Note:**** Domo will not ask you to re-authenticate to the Account or ask you for your password. Any emails asking you to re-enter your password or provide your password to Domo Support should be considered malicious.
+</Note>
+
+### FAQs
+
+<AccordionGroup>
+<Accordion title="As a MajorDomo, can I opt out of these Domo-generated messages? Or can my users opt out of these messages??">
+
+Unfortunately, it is not possible to opt out of these messages.
+</Accordion>
+
+<Accordion title="When will my users start seeing these messages?">
+
+Users will start seeing the messages starting on **July 12th, 2023**.
+</Accordion>
+
+<Accordion title="If my user or myself receive these messages, what do we need to do?">
+
+No action is required on your or your user's part, if you or one of your users receives a message saying that the Account has been updated. The message is purely informational. You can run a DataSet associated with the Account to ensure that the dataset is still pulling data.
+</Accordion>
+
+<Accordion title="What happens if my user gets one of these messages and then their dataset stops running?">
+
+If the account configuration gets updated and the dataset stops running, please contact Domo Support to submit a ticket.
+</Accordion>
+
+<Accordion title="I have one connector Account I used for multiple datasets created using the same connector. I now have more than one Account and each dataset uses a different Account. What happened?">
+
+If two connectors using the same account have different values for a field being moved to the account, a new account will be created automatically with the same access settings as the original account.
+</Accordion>
+
+<Accordion title="What happens if I need assistance?">
+
+If you have any questions or need assistance, please contact [Domo Support](https://www.domo.com/client-services/domo-support).
+</Accordion>
+</AccordionGroup>

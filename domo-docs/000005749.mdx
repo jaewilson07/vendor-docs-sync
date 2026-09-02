@@ -1,0 +1,37 @@
+---
+title: "OpenText Media Management Connector"
+excerpt: "Configure the OpenText Media Management Connector to query digital asset and metadata data from the Media Management API in Domo."
+---
+
+## Intro
+
+From creation to consumption, OpenText™ Media Management provides a "single source of truth" and consolidated asset repository for marketing, branding, commerce, video, and global distribution. Use Domo's OpenText connector to query from the Media Management API.
+
+You can connect to your OpenText Media Management account in the Data Center. This topic discusses the fields and menus that are specific to the OpenText Media Management connector user interface. To add DataSets, set update schedules, and edit DataSet information, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Prerequisites
+
+To connect to your OpenText Media Management account and create a DataSet, you need the following:
+
+* Enter the URL for your OpenText Instance.
+* Enter the username and password for your OpenText account.
+
+## Connecting to Your OpenText Media Management Account
+
+This section enumerates the options in the **Credentials** and **Details** panes on the OpenText Media Management Connector page. The components of the other panes on this page, **Scheduling**, and **Name & Describe Your DataSet**, are universal across most connector types and are discussed in great detail in [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
+
+## Credentials Pane
+
+This pane contains fields for entering credentials to connect to your OpenText Media Management account. The following table describes what is needed for each field:
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Instance </td><td colspan="1" rowspan="1"> Enter the URL for your OpenText instance in the form (<a href="http://yourName.cloud.opentext.com" rel="noopener" target="_blank"> yourName.cloud.opentext.com </a> ). </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password for your OpenText account. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your OpenText username. </td></tr></tbody></table>
+
+Once you have entered valid OpenText Media Management credentials, you can use the same account at any time to create a new OpenText Media Management DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
+
+## Details Pane
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> Menu </b></td><td colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"> Select the OpenText report you want to run. </td></tr><tr><td colspan="1" rowspan="1"> Container Types </td><td colspan="1" rowspan="1"> Select a container type. </td></tr><tr><td colspan="1" rowspan="1"> Metadata Models </td><td colspan="1" rowspan="1"> Select a metadata model. </td></tr><tr><td colspan="1" rowspan="1"> Include Deleted Items? </td><td colspan="1" rowspan="1"> Select whether you want to include deleted items in the results. </td></tr><tr><td colspan="1" rowspan="1"> Start Date </td><td colspan="1" rowspan="1"> Select the report start date using relative or specific dates. Relative indicates the number of days from today or a specific date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Date </td><td colspan="1" rowspan="1"> Select the report start date using the date selector. </td></tr><tr><td colspan="1" rowspan="1"> Days back </td><td colspan="1" rowspan="1"> Enter the number of days back that you would like to get data for. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past. </td></tr></tbody></table>
+
+## Other Panes
+
+For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](https://domo-support.domo.com/s/article/360042926274?language=en_US "Adding a DataSet Using a Connector").
