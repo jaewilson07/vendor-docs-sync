@@ -1,10 +1,25 @@
-# letta-docs
+# Letta Docs Markdown Mirror
 
-Mirrored from [`letta-ai/letta-docs-md`](https://github.com/letta-ai/letta-docs-md)
-(whole repo) by `watchdog/src/trigger/vendor-docs/lettaDocsIngest.ts`
-(`jaewilson07/trigger-dev-workflows`), daily at `0 9 * * *` UTC. Replaces the
-bonker cron script `infra-bonker/.agents/runbooks/ingest-letta-docs/ingest-letta-docs.sh`
-once verified running in production.
+This repository is an automatically generated, grep-ready Markdown mirror of
+[docs.letta.com](https://docs.letta.com).
 
-This placeholder is replaced by the mirrored content on that task's first
-successful production run — see jaewilson07/trigger-dev-workflows#128.
+Start with [`llms.txt`](./llms.txt) for the documentation map, then read the
+relevant `index.md` files. The generated API reference is under `api/`.
+
+## Why there is only one commit
+
+This repository intentionally has no version history. Every publication creates
+a new root commit and force-pushes it to `main`, so a fresh clone contains only
+the current documentation snapshot and one commit.
+
+This is expected. Do not try to merge or rebase an existing checkout after an
+update. Either clone the repository again, or replace the checkout with the
+latest snapshot:
+
+```sh
+git fetch origin
+git reset --hard origin/main
+```
+
+**Do not edit this repository by hand or open pull requests.** Changes are
+replaced by the next successful docs publication.
