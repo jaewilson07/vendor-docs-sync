@@ -1,0 +1,232 @@
+---
+title: Export to blob storage
+description: Export enriched observations, scores, and legacy traces and observations to Blob Storage, e.g. S3, GCS, or Azure Blob Storage.
+sidebarTitle: Export to Blob Storage
+---
+
+import { V4CutoverDate } from "@/components/V4CutoverDate";
+
+# Export to blob storage
+
+<AvailabilityBanner
+  availability={{
+    hobby: "not-available",
+    core: "not-available",
+    pro: "team-add-on",
+    enterprise: "full",
+    selfHosted: "full",
+  }}
+/>
+
+## Overview
+
+Schedule exports to Amazon S3, S3-compatible storage, Google Cloud Storage, or Azure Blob Storage every 20 minutes, hourly, daily, or weekly.
+
+## Configure the export [#set-up-an-export]
+
+### Create the integration
+
+1. Open **Project Settings > Integrations > Blob Storage**.
+2. Select your provider and enter its bucket, path, and credentials. Self-hosters can find per-vendor bucket and credential setup on the [blob storage deployment page](/self-hosting/deployment/infrastructure/blobstorage).
+3. Choose the file format, schedule, export mode, and field groups.
+4. Enable the integration and save. The first run starts shortly afterward.
+
+<Frame className="my-10" fullWidth>
+  ![Blob storage integration setup](/images/docs/blob-storage.png)
+</Frame>
+
+<span id="export-modes" />
+
+| Setting             | Choices and behavior                                                                                                                                                                                                                                        |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Provider and access | **AWS S3**, **S3 Compatible Storage**, or **Azure Blob Storage**. Google Cloud Storage is reached through S3 Compatible Storage: set the endpoint to `https://storage.googleapis.com` and authenticate with an HMAC key pair rather than a service account. |
+| Format              | Parquet (default), CSV, JSON, or JSONL. Text formats can be gzip-compressed; Parquet uses its own encoding and compression.                                                                                                                                 |
+| Schedule            | Every 20 minutes, hourly, daily, or weekly. Each run exports one time window.                                                                                                                                                                               |
+| Export Mode         | **Full history** starts at the project's earliest data; **From setup date** starts when the integration is enabled; **From custom date** starts at a selected date. Changing this setting resets the sync position and re-scans from that point.            |
+
+<span id="file-formats" />
+
+**Parquet notes**
+
+- Observation files omit `input_price`, `output_price`, and `total_price`. Use `cost_details` and `total_cost`; trace and score fields are unaffected.
+- On self-hosted ClickHouse older than 25.11, upgrade ClickHouse or use CSV, JSON, or JSONL because incomplete Parquet output may not be reported.
+
+Use **Validate** before saving to check that Langfuse can access the target with the supplied credentials. The integration then writes all output beneath the configured prefix without changing other objects in the bucket.
+
+Langfuse writes exports to your bucket using this structure:
+
+```text
+{prefix}{project-id}/
+├── observations_v2/
+│   └── {timestamp}.{parquet|json|jsonl|csv}[.gz]
+├── scores/
+│   └── {timestamp}.{parquet|json|jsonl|csv}[.gz]
+└── manifests/
+    └── {timestamp}.json
+```
+
+### Field selection [#export-field-groups]
+
+Observation columns are configurable; score columns are fixed.
+
+<Tabs items={["Observations", "Scores"]}>
+
+<Tab>
+
+New integrations select all eleven field groups. `core` is required; disable other groups to reduce file size or omit sensitive data.
+
+| Group           | Fields                                                                                                                              |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `core`          | `end_time`, `id`, `parent_observation_id`, `project_id`, `start_time`, `trace_id`, `type`                                           |
+| `basic`         | `bookmarked`, `environment`, `is_root_observation`, `level`, `name`, `public`, `session_id`, `status_message`, `user_id`, `version` |
+| `time`          | `completion_start_time`, `created_at`, `updated_at`                                                                                 |
+| `io`            | `input`, `output`                                                                                                                   |
+| `metadata`      | `metadata`                                                                                                                          |
+| `model`         | `input_price`, `model_id`, `model_parameters`, `output_price`, `provided_model_name`, `total_price`                                 |
+| `usage`         | `cost_details`, `total_cost`, `usage_details`, `usage_pricing_tier_id`, `usage_pricing_tier_name`                                   |
+| `prompt`        | `prompt_id`, `prompt_name`, `prompt_version`                                                                                        |
+| `metrics`       | `latency`, `time_to_first_token`                                                                                                    |
+| `trace_context` | `release`, `tags`, `trace_name`                                                                                                     |
+| `tools`         | `tool_call_names`, `tool_calls`, `tool_definitions`                                                                                 |
+
+Changes apply only to future exports. See the [observation field reference](/docs/api-and-data-platform/features/blob-storage-export-fields#enriched-observations) for types and descriptions.
+
+</Tab>
+
+<Tab>
+
+Scores are always exported and their fields cannot be selected.
+
+| Category          | Fields                                                                      |
+| ----------------- | --------------------------------------------------------------------------- |
+| Identity          | `id`, `project_id`, `timestamp`, `created_at`, `updated_at`                 |
+| Context and links | `trace_id`, `observation_id`, `session_id`, `dataset_run_id`, `environment` |
+| Score             | `name`, `data_type`, `value`, `string_value`, `source`, `comment`           |
+
+See the [score field reference](/docs/api-and-data-platform/features/blob-storage-export-fields#scores) for types and descriptions.
+
+</Tab>
+
+</Tabs>
+
+### Configure through the API [#field-groups-rest-api]
+
+Use the public endpoint to read or update the integration:
+
+```http
+GET /api/public/integrations/blob-storage
+PUT /api/public/integrations/blob-storage
+```
+
+On `PUT`, `exportFieldGroups` must include `core`; omit the property to keep the current selection. `compressed` applies only to CSV, JSON, and JSONL.
+
+See the [REST API reference](https://api.reference.langfuse.com/#tag/blobstorageintegrations) for authentication, provider settings, and the complete schema.
+
+## Process exports [#consume-exports]
+
+Use each run's manifest as the unit of work.
+
+### Know when an export is complete [#run-manifest]
+
+A run is complete only when its manifest exists at `{prefix}{project-id}/manifests/{timestamp}.json`. Langfuse writes it after every data file uploads successfully.
+
+If an upload fails, no manifest is written. The run is retried and any data objects under the same keys are overwritten.
+
+When a manifest appears:
+
+1. Read `files[]`.
+2. Fetch every full object key in `files[].key`. Do not derive filenames or list table directories.
+3. Deduplicate records by ID because adjacent export windows share an inclusive boundary.
+
+| Field                    | Purpose                                                                                 |
+| ------------------------ | --------------------------------------------------------------------------------------- |
+| `window`                 | Inclusive `minTimestamp` and `maxTimestamp` for the run                                 |
+| `exportSource`, `tables` | Export source and tables included                                                       |
+| `files[]`                | Object key, table, format, compression, uploaded size, and row count for each data file |
+
+For Parquet, `files[].rowCount` is `null`; inspect the file metadata when you need a count. Ignore unknown manifest fields so additive changes do not break your parser.
+
+### Trigger your pipeline [#export-events]
+
+Subscribe to object-created events filtered to `{prefix}{project-id}/manifests/`, then fetch the manifest and process each `files[].key`.
+
+- **Amazon S3:** [S3 Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html) or [EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventBridge.html)
+- **Google Cloud Storage:** [Pub/Sub notifications](https://cloud.google.com/storage/docs/pubsub-notifications) for `OBJECT_FINALIZE`
+- **Azure Blob Storage:** [Event Grid](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview) for `Microsoft.Storage.BlobCreated`
+- **MinIO:** [bucket notifications](https://min.io/docs/minio/linux/administration/monitoring/bucket-notifications.html)
+- **Backblaze B2:** [event notifications](https://www.backblaze.com/docs/cloud-storage-event-notifications)
+
+If your S3-compatible provider has no object-created events, poll the manifest prefix and checkpoint the latest processed key. Manifest names sort by export timestamp.
+
+Make manifest processing idempotent. Provider events can be delivered more than once, and a catch-up can create several manifests close together.
+
+## Troubleshooting [#monitor-and-reconfigure]
+
+The integration settings page shows a status badge:
+
+| Badge        | Meaning                                                   |
+| ------------ | --------------------------------------------------------- |
+| **Active**   | Enabled and synced; the next run is scheduled.            |
+| **Running**  | A run is in progress.                                     |
+| **Queued**   | A run is due and waiting.                                 |
+| **Pending**  | Enabled but has not run yet.                              |
+| **Disabled** | Turned off.                                               |
+| **Error**    | The last run failed; the message and timestamp are shown. |
+
+- <span id="how-exports-run" />[Export timing, backfills, and retries](/faq/all/blob-storage-export-timing-and-retries) — Understand delays, catch-up bursts, failed runs, and retry behavior.
+- <span id="empty-files" />[Empty export files](/faq/all/blob-storage-empty-files) — Learn why files can be empty and how pipelines should handle them.
+- <span id="export-status" /><span id="re-exporting" />[Configuration changes, errors, and re-exporting](/faq/all/blob-storage-config-changes-and-errors) — Validate changes, clear sticky errors, or export historic data again.
+
+## Upgrade a legacy export [#legacy-export-sources]
+
+<Callout type="warning">
+  Complete this upgrade if your integration uses **Traces and observations
+  (legacy)** or your bucket receives `traces/` and `observations/` files. On
+  Langfuse Cloud, remaining legacy exports switch on <V4CutoverDate />. On self-hosted v4, the legacy source stops
+  producing data after the server switches to `events_only`.
+</Callout>
+
+### What changes in the exported data [#legacy-field-differences]
+
+The legacy source writes observation data to `observations/` and trace context to a separate `traces/` file, which consumers join on `trace_id`. The enriched source writes a single `observations_v2/` file in which each observation row already carries its trace context.
+
+[Field groups](#export-field-groups) select columns in both observation files. Three groups contain fewer fields in the legacy `observations/` file; the rest are identical:
+
+| Group           | `observations_v2/`                                                                                                                  | `observations/`                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `basic`         | `bookmarked`, `environment`, `is_root_observation`, `level`, `name`, `public`, `session_id`, `status_message`, `user_id`, `version` | `environment`, `level`, `name`, `status_message`, `version`                 |
+| `usage`         | `cost_details`, `total_cost`, `usage_details`, `usage_pricing_tier_id`, `usage_pricing_tier_name`                                   | Same, without `usage_pricing_tier_id`                                       |
+| `trace_context` | `release`, `tags`, `trace_name`                                                                                                     | No effect; these fields are in the `traces/` file (`name` for `trace_name`) |
+
+The `traces/` file itself has a fixed schema that field groups do not apply to. Its trace-level `input`, `output`, `metadata`, `timestamp`, and `version` have no direct equivalent in `observations_v2/`, where identically named fields hold observation-level data.
+
+For every column in each file, see the [legacy field reference](/docs/api-and-data-platform/features/blob-storage-export-fields#legacy-export-paths).
+
+### Switch to enriched observations [#upgrade-path]
+
+Most integrations can switch directly once their consumer supports the enriched layout:
+
+On self-hosted Langfuse v4, first [switch the server to `dual` write mode](/self-hosting/upgrade/upgrade-guides/upgrade-v3-to-v4#step-3) and [complete the historic data migration](/self-hosting/upgrade/upgrade-guides/upgrade-v3-to-v4#historic-data).
+
+Enriched export sources require the deployment to write the v4 events table, so they are unavailable only in `legacy` write mode. Legacy export sources are unavailable in `events_only`, which is the default. Switch the integration before the server's [`events_only` cutover](/self-hosting/upgrade/upgrade-guides/upgrade-v3-to-v4#cutover).
+
+1. **Prepare the new consumer.** Process `observations_v2/` and `scores/` from each manifest's `files[].key`. Use the [enriched field reference](/docs/api-and-data-platform/features/blob-storage-export-fields#enriched-observations).
+2. **Switch the export.** Select **Enriched observations (recommended)**.
+3. **Verify and retire legacy.** Process the next completed export with the new consumer. After it succeeds, retire the consumer that reads `traces/` and `observations/`.
+
+<Callout type="info">
+**Optional: keep both layouts during the cutover.**
+
+If your pipeline cannot tolerate a cutover gap, temporarily select **Traces and observations (legacy) and enriched observations** after step 1.
+
+This writes `observations/` and `observations_v2/` for subsequent windows only; it does not backfill earlier exports. Run both consumers until the new one is validated, then continue with step 2.
+
+Do not load both observation layouts into the same production dataset. Check the [export compatibility matrix](/docs/compatibility#filter-exports) if this option is unavailable.
+
+</Callout>
+
+**Cutover checks**
+
+- **All deployments:** `traces/` and `observations/` stop receiving files after the switch, including empty files. Use `manifests/` as the run-completion signal.
+- **Langfuse Cloud:** Ignore `DEPRECATION_NOTICE.txt` when processing exports; it is not part of a run.
+- **Self-hosted Langfuse v4:** `dual` is the only write mode in which both layouts are selectable, so the optional dual-layout validation above requires it.

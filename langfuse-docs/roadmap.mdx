@@ -1,0 +1,121 @@
+---
+title: Roadmap
+description: Explore the current product focus areas for Langfuse.
+---
+
+# Langfuse roadmap
+
+Langfuse is [open source](/open-source), and we want to be transparent about where the project is going. This page summarizes the product areas we are currently investing in.
+
+<Callout type="info">
+  This roadmap is directional, not a commitment to ship individual features or
+  dates. Priorities may evolve as we learn from users and the community.
+</Callout>
+
+## Current focus areas [#roadmap]
+
+Our goal is to make Langfuse the best open platform for understanding, evaluating, and improving AI agents (see [Why Langfuse?](/why)).
+
+### Langfuse Gateway
+
+Bring model access, observability, and governance into one Langfuse-native control plane.
+
+- Provide a thin, bring-your-own-key gateway with virtual keys and access controls across Langfuse Cloud and self-hosted deployments.
+- Connect requests directly to Langfuse tracing and cost tracking, with clear visibility into model usage and spend.
+
+### Proactive issue detection
+
+Help teams find the problems that matter without manually reviewing every trace.
+
+- Build a consistent representation of agent traces, including long-running and multi-span interactions.
+- Group interactions into recurring topics, behaviors, and failure modes, and surface the most important issues with useful summaries and examples.
+- Make it easier to turn production issues into datasets, evaluations, experiments, and improvement workflows.
+
+### Better evals and experiments
+
+Extend evaluation and experimentation workflows for increasingly complex agent systems.
+
+- Improve the evaluator foundation and use AI to generate code-based evaluators for specific use cases.
+- Evaluate complete agent trajectories and other multi-span interactions.
+- Make it easier to compare prompts, models, and runtime changes, including experiments on production traffic.
+
+### Scale and enterprise controls
+
+Expand the capabilities teams use to operate Langfuse at increasing scale in the cloud or on their own infrastructure.
+
+- Unify query behavior and improve ingestion reliability, performance, and scale for large agent workloads.
+- Make model pricing and regional matching more accurate, and clearly flag missing price definitions.
+- Improve API key management, role-based access controls, self-hosting, security, and compliance.
+
+### A clearer agent-engineering workflow
+
+Make Langfuse easier to adopt and more coherent across the full improvement loop.
+
+- Create clearer onboarding, home, agent, score, and experiment views.
+- Make Langfuse capabilities available through MCP so external agents can use them in their workflows.
+- Connect tracing, datasets, evaluations, and experiments with fewer manual steps.
+
+## Recently released [#releases]
+
+import { changelogSource } from "@/lib/source";
+import { Link } from "@/components/ui/link";
+
+export const ChangelogList = () => (
+  <ul className="list-disc list pl-6">
+    {changelogSource
+      .getPages()
+      .sort(
+        (a, b) =>
+          new Date(String(b.data.date || 0)).getTime() -
+          new Date(String(a.data.date || 0)).getTime(),
+      )
+      .slice(0, 10)
+      .map((page) => (
+        <li
+          className="my-2"
+          id={page.url.replace("/changelog/", "")}
+          key={page.url.replace("/changelog/", "")}
+        >
+          <Link href={page.url} variant="underline">
+            <span>{page.data.title}</span>
+          </Link>
+          <span className="text-primary/60 ml-2 hidden sm:inline">
+            {page.data.date
+              ? `(${new Date(String(page.data.date)).toLocaleDateString(
+                  "en-US",
+                  {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                    timeZone: "UTC",
+                  },
+                )})`
+              : null}
+          </span>
+        </li>
+      ))}
+  </ul>
+);
+
+The 10 most recent [changelog](/changelog) updates:
+
+<ChangelogList />
+
+import { ProductUpdateSignup } from "@/components/ProductUpdateSignup";
+
+<Callout type="info">
+
+Subscribe to receive occasional email updates about new features.
+
+<ProductUpdateSignup source="roadmap" className="my-3 max-w-sm" />
+
+</Callout>
+
+## Shape the roadmap [#feedback]
+
+Your feedback helps us decide what to prioritize:
+
+- Suggest a [feature or improvement](/ideas), or vote on ideas from other users.
+- Report a [bug](/new-issue).
+- Discuss your use case with the community on [Discord](/discord).
+- Join a [community hour](/events) to talk with the Langfuse team.
