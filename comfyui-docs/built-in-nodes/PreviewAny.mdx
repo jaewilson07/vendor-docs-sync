@@ -1,0 +1,26 @@
+---
+title: "PreviewAny - ComfyUI Built-in Node Documentation"
+description: "PreviewAny converts any input value into readable text so you can inspect it."
+sidebarTitle: "PreviewAny"
+icon: "circle"
+mode: wide
+---
+
+PreviewAny converts any input value into readable text so you can inspect it. Strings pass through unchanged, numbers and booleans become plain text, and other data types are serialized to JSON when possible (falling back to their plain string form if serialization fails). The resulting text is shown in the user interface and also returned as a string output for further processing.
+
+## Inputs
+
+| Parameter | Description | Data Type | Required | Range |
+| --- | --- | --- | --- | --- |
+| `source` | Accepts any input data type for preview display. If no value is provided, the preview shows 'None'. | ANY | Yes | Any data type |
+
+## Outputs
+
+| Output Name | Description | Data Type |
+| --- | --- | --- |
+| `result` | The input value converted to text format. The same text is also displayed in the user interface. | STRING |
+
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/PreviewAny/en.md)
+
+---
+**Source fingerprint (SHA-256):** `66b5283b2d7d43e679c0bc6cdcad54c92539a986763333972e722b39c7963be8`

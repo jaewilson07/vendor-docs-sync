@@ -1,0 +1,182 @@
+---
+title: "HunyuanVideo 1.5"
+description: "Learn how to use HunyuanVideo 1.5, a lightweight 8.3B parameter model for high-quality video generation on consumer GPUs"
+sidebarTitle: "HunyuanVideo 1.5"
+---
+
+import UpdateReminder from "/snippets/tutorials/update-reminder.mdx";
+
+[HunyuanVideo 1.5](https://github.com/Tencent/HunyuanVideo) is a lightweight 8.3B parameter model developed by Tencent's Hunyuan team. It delivers flagship-quality video generation on consumer GPUs (24GB VRAM), dramatically lowering the barrier to entry without compromising on quality.
+
+<UpdateReminder/>
+
+## Model highlights
+
+- **Compact powerhouse**: Delivers SOTA performance comparable to larger models while running on consumer hardware.
+- **Versatile generation**: Supports high-quality Text-to-Video and Image-to-Video (5-10s) with exceptional consistency.
+- **Precise control**: Strong instruction following for camera movements, physics, and emotional expressions.
+- **Cinematic quality**: Native 720p output (upscalable to 1080p) with professional aesthetics.
+- **Rich features**: Supports diverse styles (realistic, anime, 3D) and in-video text rendering (Chinese/English).
+
+## Common models for all workflows
+
+The following models are used in both Text-to-Video and Image-to-Video workflows. Download and save them to the specified directories:
+
+<CardGroup cols={2}>
+  <Card title="Download Qwen2.5 VL 7B" icon="download" href="https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/blob/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors?download=true">
+    qwen_2.5_vl_7b_fp8_scaled.safetensors &mdash; save to <code>ComfyUI/models/text_encoders/</code>
+  </Card>
+  <Card title="Download ByT5 Small" icon="download" href="https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/blob/main/split_files/text_encoders/byt5_small_glyphxl_fp16.safetensors?download=true">
+    byt5_small_glyphxl_fp16.safetensors &mdash; save to <code>ComfyUI/models/text_encoders/</code>
+  </Card>
+  <Card title="Download HunyuanVideo 1.5 VAE" icon="download" href="https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/blob/main/split_files/vae/hunyuanvideo15_vae_fp16.safetensors?download=true">
+    hunyuanvideo15_vae_fp16.safetensors &mdash; save to <code>ComfyUI/models/vae/</code>
+  </Card>
+</CardGroup>
+
+#### Storage
+
+```
+ComfyUI/
+├── 📂 models/
+│   ├── 📂 text_encoders/
+│   │   ├── qwen_2.5_vl_7b_fp8_scaled.safetensors
+│   │   └── byt5_small_glyphxl_fp16.safetensors
+│   └── 📂 vae/
+│       └── hunyuanvideo15_vae_fp16.safetensors
+```
+
+## Hunyuan Video 1.5 Text-to-Video Workflow
+
+HunyuanVideo 1.5 Text-to-Video generates 5-10 second videos from natural language descriptions with enhanced quality and reduced VRAM requirements.
+
+![ComfyUI Workflow - Hunyuan Video 1.5 T2V](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_hunyuan_video_1.5_720p_t2v-1.webp)
+
+<CardGroup cols={2}>
+  <Card title="Run on Comfy Cloud" icon="cloud" href="https://cloud.comfy.org/?template=video_hunyuan_video_1.5_720p_t2v&utm_source=docs&utm_medium=referral&utm_campaign=hunyuan-video-1-5">
+    Open in Comfy Cloud
+  </Card>
+  <Card title="Download Workflow" icon="download" href="https://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_hunyuan_video_1.5_720p_t2v.json">
+    Download JSON or search &quot;Hunyuan Video 1.5 T2V&quot; in Template Library
+  </Card>
+</CardGroup>
+
+### Model downloads
+
+<CardGroup cols={2}>
+  <Card title="Download T2V Diffusion Model" icon="download" href="https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/blob/main/split_files/diffusion_models/hunyuanvideo1.5_720p_t2v_fp16.safetensors?download=true">
+    hunyuanvideo1.5_720p_t2v_fp16.safetensors &mdash; save to <code>ComfyUI/models/diffusion_models/</code>
+  </Card>
+</CardGroup>
+
+#### Model storage
+
+```
+ComfyUI/
+├── 📂 models/
+│   ├── 📂 text_encoders/
+│   │   ├── qwen_2.5_vl_7b_fp8_scaled.safetensors       // Shared model
+│   │   └── byt5_small_glyphxl_fp16.safetensors           // Shared model
+│   ├── 📂 vae/
+│   │   └── hunyuanvideo15_vae_fp16.safetensors           // Shared model
+│   └── 📂 diffusion_models/
+│       └── hunyuanvideo1.5_720p_t2v_fp16.safetensors     // T2V model
+```
+
+### Steps to run the workflow
+
+1. Ensure the `DualCLIPLoader` node has loaded these models:
+   - clip_name1: `qwen_2.5_vl_7b_fp8_scaled.safetensors`
+   - clip_name2: `byt5_small_glyphxl_fp16.safetensors`
+2. Ensure the `Load Diffusion Model` node has loaded `hunyuanvideo1.5_720p_t2v_fp16.safetensors`
+3. Ensure the `Load VAE` node has loaded `hunyuanvideo15_vae_fp16.safetensors`
+4. Click the `Queue` button or use the shortcut `Ctrl(Cmd) + Enter` to run the workflow
+
+<Tip>
+The workflow includes a super-resolution upscaler node. When enabled, it uses `hunyuanvideo1.5_1080p_sr_distilled_fp16.safetensors` to upscale the output to 1080p.
+</Tip>
+
+## Hunyuan Video 1.5 Image-to-Video Workflow
+
+HunyuanVideo 1.5 Image-to-Video transforms static images into smooth, high-quality videos with improved consistency and motion dynamics.
+
+![ComfyUI Workflow - Hunyuan Video 1.5 I2V](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_hunyuan_video_1.5_720p_i2v-1.webp)
+
+<CardGroup cols={2}>
+  <Card title="Run on Comfy Cloud" icon="cloud" href="https://cloud.comfy.org/?template=video_hunyuan_video_1.5_720p_i2v&utm_source=docs&utm_medium=referral&utm_campaign=hunyuan-video-1-5">
+    Open in Comfy Cloud
+  </Card>
+  <Card title="Download Workflow" icon="download" href="https://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_hunyuan_video_1.5_720p_i2v.json">
+    Download JSON or search &quot;Hunyuan Video 1.5 I2V&quot; in Template Library
+  </Card>
+</CardGroup>
+
+**Input materials**
+
+<CardGroup cols={2}>
+  <Card title="Input Image" icon="image" href="https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/video_hunyuan_video_1.5_720p_i2v_input_image.png">
+    Download the default input image, or use your own image as the starting frame.
+  </Card>
+</CardGroup>
+
+### Model downloads
+
+<CardGroup cols={2}>
+  <Card title="Download CLIP Vision" icon="download" href="https://huggingface.co/Comfy-Org/sigclip_vision_384/blob/main/sigclip_vision_patch14_384.safetensors?download=true">
+    sigclip_vision_patch14_384.safetensors &mdash; save to <code>ComfyUI/models/clip_vision/</code>
+  </Card>
+  <Card title="Download I2V Diffusion Model" icon="download" href="https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/blob/main/split_files/diffusion_models/hunyuanvideo1.5_720p_i2v_fp16.safetensors?download=true">
+    hunyuanvideo1.5_720p_i2v_fp16.safetensors &mdash; save to <code>ComfyUI/models/diffusion_models/</code>
+  </Card>
+</CardGroup>
+
+#### Model storage
+
+```
+ComfyUI/
+├── 📂 models/
+│   ├── 📂 clip_vision/
+│   │   └── sigclip_vision_patch14_384.safetensors          // I2V vision encoder
+│   ├── 📂 text_encoders/
+│   │   ├── qwen_2.5_vl_7b_fp8_scaled.safetensors           // Shared model
+│   │   └── byt5_small_glyphxl_fp16.safetensors             // Shared model
+│   ├── 📂 vae/
+│   │   └── hunyuanvideo15_vae_fp16.safetensors             // Shared model
+│   └── 📂 diffusion_models/
+│       └── hunyuanvideo1.5_720p_i2v_fp16.safetensors       // I2V model
+```
+
+### Steps to run the workflow
+
+1. Ensure the `DualCLIPLoader` node has loaded these models:
+   - clip_name1: `qwen_2.5_vl_7b_fp8_scaled.safetensors`
+   - clip_name2: `byt5_small_glyphxl_fp16.safetensors`
+2. Ensure the `CLIPVisionLoader` node has loaded `sigclip_vision_patch14_384.safetensors`
+3. Ensure the `Load Diffusion Model` node has loaded `hunyuanvideo1.5_720p_i2v_fp16.safetensors`
+4. Ensure the `Load VAE` node has loaded `hunyuanvideo15_vae_fp16.safetensors`
+5. Click the `Queue` button or use the shortcut `Ctrl(Cmd) + Enter` to run the workflow
+
+## Super-resolution upscaler
+
+Both workflows include a super-resolution node that can upscale the output video from 720p to 1080p. This optional upscaler uses a distilled model for efficient high-resolution output.
+
+<Card title="Download 1080p Upscaler" icon="download" href="https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/blob/main/split_files/diffusion_models/hunyuanvideo1.5_1080p_sr_distilled_fp16.safetensors?download=true">
+  hunyuanvideo1.5_1080p_sr_distilled_fp16.safetensors &mdash; save to <code>ComfyUI/models/diffusion_models/</code>
+</Card>
+All shared and workflow-specific models combined:
+
+```
+ComfyUI/
+├── 📂 models/
+│   ├── 📂 clip_vision/
+│   │   └── sigclip_vision_patch14_384.safetensors
+│   ├── 📂 text_encoders/
+│   │   ├── qwen_2.5_vl_7b_fp8_scaled.safetensors
+│   │   └── byt5_small_glyphxl_fp16.safetensors
+│   ├── 📂 vae/
+│   │   └── hunyuanvideo15_vae_fp16.safetensors
+│   └── 📂 diffusion_models/
+│       ├── hunyuanvideo1.5_720p_t2v_fp16.safetensors        // T2V model
+│       ├── hunyuanvideo1.5_720p_i2v_fp16.safetensors        // I2V model
+│       └── hunyuanvideo1.5_1080p_sr_distilled_fp16.safetensors  // Upscaler
+```

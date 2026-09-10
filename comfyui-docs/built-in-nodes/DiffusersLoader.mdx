@@ -1,0 +1,28 @@
+---
+title: "DiffusersLoader - ComfyUI Built-in Node Documentation"
+description: "The DiffusersLoader node loads pre-trained models saved in the diffusers format."
+sidebarTitle: "DiffusersLoader"
+icon: "circle"
+mode: wide
+---
+
+The DiffusersLoader node loads pre-trained models saved in the diffusers format. It searches the configured `diffusers` folders for directories that contain a `model_index.json` file, lets you select one, and loads it as the MODEL, CLIP, and VAE components used in the pipeline. This node is deprecated, but remains available for compatibility with Hugging Face diffusers models.
+
+## Inputs
+
+| Parameter | Description | Data Type | Required | Range |
+|-----------|-------------|-----------|----------|-------|
+| `model_path` | The path to the diffusers model directory to load. The node automatically scans the configured diffusers folders for valid models and lists the available options. | COMBO | Yes | Multiple options available<br />(auto-populated from diffusers folders) |
+
+## Outputs
+
+| Output Name | Description | Data Type |
+|-----------|-------------|-----------|
+| `MODEL` | The loaded model component from the diffusers format. | MODEL |
+| `CLIP` | The loaded CLIP model component from the diffusers format. | CLIP |
+| `VAE` | The loaded VAE (Variational Autoencoder) component from the diffusers format. | VAE |
+
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/DiffusersLoader/en.md)
+
+---
+**Source fingerprint (SHA-256):** `75238342d05eac7528f981a2d4544accb6053891cd078a77751cc838054225d4`

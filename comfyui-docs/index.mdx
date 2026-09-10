@@ -1,0 +1,282 @@
+---
+title: "ComfyUI Official Documentation"
+description: "Official documentation for ComfyUI, the open source node-based generative AI application. Learn to build workflows for image, video, audio, and 3D generation."
+icon: "book-open"
+sidebarTitle: "Home"
+mode: "frame"
+---
+
+<div className="relative">
+{/* header */}
+<div className="w-full text-center mt-16 pb-8">
+  <div className="mt-24 text-center">
+    <img src="/logo/light.svg" className="block dark:hidden pointer-events-none mx-auto" />
+    <img src="/logo/dark.svg" className="hidden dark:block pointer-events-none mx-auto"/>
+  </div>
+  <div className="flex justify-center w-full">
+    <h1
+      style={{
+        fontSize: "18px",
+        fontWeight: "bold",
+        marginTop: "10px",
+        textAlign: "center"
+      }}
+      className="text-center"
+    >
+      ComfyUI Official Documentation
+    </h1>
+  </div>
+</div>
+{/* header end */}
+
+{/* social start */}
+<div className="text-center pb-8">
+<div className="flex gap-4 justify-center items-center">
+  <a href="https://github.com/Comfy-Org/ComfyUI/" target="_blank" className="hover:opacity-80">
+    <Icon icon="github" iconType="solid" size={32}/>
+  </a>
+  <a href="https://x.com/ComfyUI" target="_blank" className="hover:opacity-80">
+    <Icon icon="x-twitter" iconType="solid" size={32}/>
+  </a>
+  <a href="https://discord.com/invite/comfyorg" target="_blank" className="hover:opacity-80">
+    <Icon icon="discord" iconType="solid" size={32}/>
+  </a>
+  <a href="https://www.youtube.com/@comfyorg" target="_blank" className="hover:opacity-80">
+    <Icon icon="youtube" iconType="solid" size={32}/>
+  </a>
+</div>
+</div>
+{/* social end */}
+
+<div className="px-4 max-w-5xl mx-auto">
+
+<p className="max-w-xl mx-auto px-4 mb-12 text-lg text-center text-gray-500 dark:text-zinc-500">
+The most powerful open source node-based application for generative AI
+</p>
+
+{/* Getting Started Section */}
+<div className="mb-12">
+  <h2 className="text-2xl font-bold mb-6 text-center">Getting Started</h2>
+  <CardGroup cols={3}>
+    <Card
+      title="Download & Install"
+      icon="download"
+      href="/installation/system_requirements"
+    >
+      Install ComfyUI on Windows, macOS, or Linux
+    </Card>
+    <Card
+      title="First Generation"
+      icon="rocket"
+      href="/get_started/first_generation"
+    >
+      Create your first AI-generated image
+    </Card>
+    <Card
+      title="Basic Concepts"
+      icon="lightbulb"
+      href="/basic-concepts/workflow"
+    >
+      Understand workflows, nodes, and links
+    </Card>
+    <Card
+      title="Comfy Workflows"
+      icon="globe"
+      href="https://comfy.org/workflows"
+    >
+      Explore community workflows and templates from top creators
+    </Card>
+  </CardGroup>
+</div>
+
+{/* AI Agents & MCP Section */}
+<div className="mb-12">
+  <h2 className="text-2xl font-bold mb-6 text-center">AI Agents & MCP</h2>
+  <CardGroup cols={3}>
+    <Card
+      title="Agent Tools Overview"
+      icon="robot"
+      href="/agent-tools"
+    >
+      Connect AI agents via MCP for image, video, audio, and 3D generation
+    </Card>
+    <Card
+      title="Cloud MCP Server"
+      icon="server"
+      href="/agent-tools/mcp"
+    >
+      Hosted MCP at cloud.comfy.org — run workflows on Cloud GPUs
+    </Card>
+    <Card
+      title="Comfy CLI"
+      icon="terminal"
+      href="/agent-tools/cli"
+    >
+      Call partner models from the terminal with comfy generate (beta)
+    </Card>
+  </CardGroup>
+</div>
+
+{/* Comfy Router Section */}
+<div className="mb-12">
+  <h2 className="text-2xl font-bold mb-6 text-center">Comfy Router</h2>
+  <CardGroup cols={3}>
+    <Card
+      title="Quickstart"
+      icon="route"
+      href="/development/comfy-router/quickstart"
+    >
+      Call partner models through one API endpoint with a single key
+    </Card>
+    <Card
+      title="Available Models"
+      icon="layer-group"
+      href="/development/comfy-router/models"
+    >
+      Browse every model available through the Router
+    </Card>
+    <Card
+      title="API Reference"
+      icon="book"
+      href="/development/comfy-router/reference"
+    >
+      Full reference for Router endpoints, headers, and limits
+    </Card>
+  </CardGroup>
+</div>
+
+{/* Learn & Tutorials Section */}
+<div className="mb-12">
+  <h2 className="text-2xl font-bold mb-6 text-center">Learn & Tutorials</h2>
+  <CardGroup cols={3}>
+    <Card
+      title="Interface Guide"
+      icon="window-maximize"
+      href="/interface/overview"
+    >
+      Navigate the ComfyUI interface
+    </Card>
+    <Card
+      title="Tutorials"
+      icon="book-open"
+      href="/tutorials/basic/text-to-image"
+    >
+      Step-by-step guides for common tasks
+    </Card>
+    <Card
+      title="Built-in Nodes"
+      icon="diagram-project"
+      href="/built-in-nodes/overview"
+    >
+      Learn about each node in ComfyUI
+    </Card>
+  </CardGroup>
+</div>
+
+{/* Developers Section */}
+<div className="mb-12">
+  <h2 className="text-2xl font-bold mb-6 text-center">Developers</h2>
+  <CardGroup cols={3}>
+    <Card
+      title="Deploy ComfyUI"
+      icon="server"
+      href="/development/overview"
+    >
+      Run ComfyUI locally, on a server, or in the cloud
+    </Card>
+    <Card
+      title="Run Workflows"
+      icon="play"
+      href="/development/run-workflows/overview"
+    >
+      Run workflows against a deployment from your application
+    </Card>
+    <Card
+      title="Contribute"
+      icon="code-pull-request"
+      href="/community/contributing#how-to-contribute"
+    >
+      Contribute to ComfyUI development
+    </Card>
+  </CardGroup>
+</div>
+
+{/* Build Custom Nodes Section */}
+<div className="mb-12">
+  <h2 className="text-2xl font-bold mb-6 text-center">Build Custom Nodes</h2>
+  <CardGroup cols={3}>
+    <Card
+      title="Getting Started"
+      icon="puzzle-piece"
+      href="/custom-nodes/walkthrough"
+    >
+      Create your first custom node step by step
+    </Card>
+    <Card
+      title="Publish my Custom Node"
+      icon="upload"
+      href="/registry/publishing"
+    >
+      Share your custom node on the Comfy Registry
+    </Card>
+  </CardGroup>
+</div>
+
+{/* Get Help Section */}
+<div className="mb-12">
+  <h2 className="text-2xl font-bold mb-6 text-center">Get Help</h2>
+  <CardGroup cols={3}>
+      <Card
+      title="Contact Support"
+      icon="headset"
+      href="/support/contact-support"
+    >
+      Get help from our support team
+    </Card>
+    <Card
+      title="Account Management"
+      icon="user-gear"
+      href="/account/create-account"
+    >
+      Create, login, and manage your account
+    </Card>
+    <Card
+      title="Billing Support"
+      icon="credit-card"
+      href="/support/subscription/subscribing"
+    >
+      Manage subscriptions and payments
+    </Card>
+    <Card
+      title="Troubleshooting"
+      icon="circle-question"
+      href="/troubleshooting/overview"
+    >
+      Resolve common issues and errors
+    </Card>
+    <Card
+      title="Community"
+      icon="users"
+      href="/community/links"
+    >
+      Join the ComfyUI community
+    </Card>
+  </CardGroup>
+</div>
+
+{/* About ComfyUI Section */}
+<div className="text-center mt-16 mb-8">
+  <h2 className="text-2xl font-bold mb-4">About ComfyUI</h2>
+  <p className="mb-4">
+    Written by <a href="https://github.com/comfyanonymous" className="text-blue-500 dark:text-blue-400 underline hover:text-blue-600 dark:hover:text-blue-500">comfyanonymous</a> and other <a href="https://github.com/Comfy-Org/ComfyUI/graphs/contributors" className="text-blue-500 dark:text-blue-400 underline hover:text-blue-600 dark:hover:text-blue-500">contributors</a>.
+  </p>
+
+  <ul className="list-none space-y-2 max-w-2xl mx-auto">
+    <li><strong>ComfyUI</strong> is a node-based interface and inference engine for generative AI</li>
+    <li>Users can combine various AI models and operations through nodes to achieve highly customizable and controllable content generation</li>
+    <li>ComfyUI is completely open source and can run on your local device</li>
+  </ul>
+</div>
+
+</div>
+</div>

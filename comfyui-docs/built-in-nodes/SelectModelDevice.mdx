@@ -1,0 +1,42 @@
+---
+title: "SelectModelDevice - ComfyUI Built-in Node Documentation"
+description: "Documentation for SelectModelDevice node."
+sidebarTitle: "SelectModelDevice"
+icon: "circle"
+mode: wide
+---
+
+## Overview
+
+The SelectModelDevice node allows you to manually choose which device (CPU or a specific GPU) a diffusion model runs on. It can move a model to a different device, and it handles conflicts with other multi-GPU nodes automatically.
+
+## Inputs
+
+| Parameter | Description | Data Type | Required | Range |
+| --- | --- | --- | --- | --- |
+| `model` | The diffusion model to place on a specific device. | MODEL | Yes |  |
+| `device` | The target device for the model. Options are dynamically generated based on available GPUs. (default: "default") | COMBO | Yes | `"default"`<br />`"cpu"`<br />`"gpu:0"`<br />`"gpu:1"`<br />... (one `"gpu:N"` entry per detected GPU) |
+
+**Parameter Details:**
+- `"default"`: Restores the device assigned by the model loader, even if a previous SelectModelDevice node changed it.
+- `"cpu"`: Pins both the load and offload device to the CPU.
+- `"gpu:N"`: Pins the load device to the Nth available GPU (e.g., `"gpu:0"` for the first GPU). The offload device is restored to the loader's original choice.
+
+**Important Notes:**
+- If the requested device does not exist on the current machine (e.g., a workflow created on a 2-GPU machine is opened on a 1-GPU machine), the node will pass the model through unchanged and log a message instead of failing.
+- If the model is already on the requested device, the node takes a fast path and does not reload the model.
+- If the model loader does not support multi-GPU (no reload factory), the node passes the model through unchanged and logs a warning.
+- When a MultiGPU CFG Split clone already occupies the selected device, that clone is pruned so two models are not bound to the same device.
+- When a specific device is selected, the node also adjusts the model's compute dtype to one supported by that device.
+- Placing this node *after* a node that has already consumed the model (e.g., a KSampler) is not recommended, as any state changed by the prior node will be observed if the device matches the original.
+
+## Outputs
+
+| Output Name | Description | Data Type |
+| --- | --- | --- |
+| `model` | The diffusion model, now placed on the selected device. If the device was invalid or unavailable, the model is passed through unchanged. | MODEL |
+
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/SelectModelDevice/en.md)
+
+---
+**Source fingerprint (SHA-256):** `d02a8bd9612861cf696f03969fe693088351de5a72ccbd4c1aed405b104eb71e`

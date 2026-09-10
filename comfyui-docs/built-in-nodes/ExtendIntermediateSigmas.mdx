@@ -1,0 +1,32 @@
+---
+title: "ExtendIntermediateSigmas - ComfyUI Built-in Node Documentation"
+description: "The ExtendIntermediateSigmas node takes an existing sequence of sigma values and inserts additional intermediate sigma values between them."
+sidebarTitle: "ExtendIntermediateSigmas"
+icon: "circle"
+mode: wide
+---
+
+The ExtendIntermediateSigmas node takes an existing sequence of sigma values and inserts additional intermediate sigma values between them. It allows you to specify how many extra steps to add, the spacing method for interpolation, and optional start and end sigma boundaries to control where the extension occurs within the sigma sequence.
+
+## Inputs
+
+| Parameter | Description | Data Type | Required | Range |
+| --- | --- | --- | --- | --- |
+| `sigmas` | The input sigma sequence to extend with intermediate values | SIGMAS | Yes | - |
+| `steps` | Controls the number of intermediate sigma values inserted between each pair of existing sigmas. The interval between two sigmas is divided into `steps` parts, producing `steps - 1` new values per pair (default: 2, which inserts one value per pair) | INT | Yes | 1 to 100 |
+| `start_at_sigma` | Upper sigma boundary for extension - only extend sigmas below this value (default: -1.0, which means infinity) | FLOAT | Yes | -1.0 to 20000.0 |
+| `end_at_sigma` | Lower sigma boundary for extension - only extend sigmas above this value (default: 12.0) | FLOAT | Yes | 0.0 to 20000.0 |
+| `spacing` | The interpolation method for spacing the intermediate sigma values (default: "linear") | COMBO | Yes | `"linear"`<br />`"cosine"`<br />`"sine"` |
+
+**Note:** The node only inserts intermediate sigmas between existing sigma pairs where the current sigma is less than or equal to `start_at_sigma` and greater than or equal to `end_at_sigma`. When `start_at_sigma` is set to -1.0, it is treated as infinity, meaning only the `end_at_sigma` lower boundary applies.
+
+## Outputs
+
+| Output Name | Description | Data Type |
+| --- | --- | --- |
+| `sigmas` | The extended sigma sequence with additional intermediate values inserted | SIGMAS |
+
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/ExtendIntermediateSigmas/en.md)
+
+---
+**Source fingerprint (SHA-256):** `d761e82ce055bc56a551d3e446117febb2cdbd6c0286ef620d0a078c96f047ba`

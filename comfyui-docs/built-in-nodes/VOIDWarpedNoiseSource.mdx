@@ -1,0 +1,28 @@
+---
+title: "VOIDWarpedNoiseSource - ComfyUI Built-in Node Documentation"
+description: "Documentation for VOIDWarpedNoiseSource node."
+sidebarTitle: "VOIDWarpedNoiseSource"
+icon: "circle"
+mode: wide
+---
+
+## Overview
+
+This node converts a LATENT (such as the output from the VOIDWarpedNoise node) into a NOISE source. This allows you to use the warped noise with the SamplerCustomAdvanced node for more controlled image generation.
+
+## Inputs
+
+| Parameter | Description | Data Type | Required | Range |
+| --- | --- | --- | --- | --- |
+| `warped_noise` | Warped noise latent from VOIDWarpedNoise | LATENT | Yes | N/A |
+
+## Outputs
+
+| Output Name | Description | Data Type |
+| --- | --- | --- |
+| `NOISE` | A noise source that can be used with SamplerCustomAdvanced | NOISE |
+
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/VOIDWarpedNoiseSource/en.md)
+
+---
+**Source fingerprint (SHA-256):** `61d7c82cb8a2acba28f980c4c42c6d4be12788b27676a5d30885799cf9c36185`

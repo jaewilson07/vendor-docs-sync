@@ -1,0 +1,32 @@
+---
+title: "SaveLatent - ComfyUI Built-in Node Documentation"
+description: "SaveLatent saves latent tensors to disk as .latent files so they can be reused or shared later."
+sidebarTitle: "SaveLatent"
+icon: "circle"
+mode: wide
+---
+
+SaveLatent saves latent tensors to disk as `.latent` files so they can be reused or shared later. It takes latent samples, writes them to the output folder with an automatically generated name, and can embed workflow metadata such as the prompt inside the saved file. The same latent samples are also passed through unchanged for further processing.
+
+## Inputs
+
+| Parameter | Description | Data Type | Required | Range |
+| --- | --- | --- | --- | --- |
+| `samples` | The latent samples to be saved to disk. | LATENT | Yes | - |
+| `filename_prefix` | The prefix used to build the output filename. It can include subfolders, for example "latents/ComfyUI" (default: "latents/ComfyUI"). | STRING | Yes | - |
+| `prompt` | The workflow prompt, serialized as JSON and stored in the saved file metadata (hidden parameter, supplied automatically). | PROMPT | No | - |
+| `extra_pnginfo` | Additional workflow information, serialized as JSON and stored in the saved file metadata (hidden parameter, supplied automatically). | EXTRA_PNGINFO | No | - |
+
+Note: Each saved file is named using the prefix and a 5-digit counter, for example `ComfyUI_00001_.latent`, and is placed in the output directory. The file contains the latent tensor and a latent format version marker. Metadata is embedded in the saved file only when metadata support is enabled, that is, when ComfyUI is not started with the `--disable-metadata` option.
+
+## Outputs
+
+| Output Name | Description | Data Type |
+| --- | --- | --- |
+| `samples` | The same latent samples that were provided as input, passed through unchanged. | LATENT |
+| `ui` | Interface display data describing the saved file: its filename, subfolder, and output type ("output"). | UI |
+
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/SaveLatent/en.md)
+
+---
+**Source fingerprint (SHA-256):** `137d52d589d93d8229940a8572621ab6eeb25a4e13ac05172e9f8609f1af038a`

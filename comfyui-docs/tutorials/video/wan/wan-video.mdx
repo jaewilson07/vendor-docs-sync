@@ -1,0 +1,193 @@
+---
+title: "ComfyUI Wan2.1 Video Examples"
+description: "Run Wan2.1 video workflows in ComfyUI: text-to-video with the 1.3B model and image-to-video with the 14B model, including model installation."
+sidebarTitle: "Wan2.1"
+---
+
+import UpdateReminder from "/snippets/tutorials/update-reminder.mdx";
+
+Wan2.1 Video series is a video generation model open-sourced by Alibaba in February 2025 under the [Apache 2.0 license](https://github.com/Wan-Video/Wan2.1?tab=Apache-2.0-1-ov-file). 
+It offers two versions:
+- 14B (14 billion parameters) 
+- 1.3B (1.3 billion parameters)
+Covering multiple tasks including text-to-video (T2V) and image-to-video (I2V). 
+The model not only outperforms existing open-source models in performance but more importantly, its lightweight version requires only 8GB of VRAM to run, significantly lowering the barrier to entry.
+
+<video controls>
+  <source src="https://github.com/user-attachments/assets/4aca6063-60bf-4953-bfb7-e265053f49ef" type="video/mp4"/>
+</video>
+
+- [Wan2.1 Code Repository](https://github.com/Wan-Video/Wan2.1)
+- [Wan2.1 Model Repository](https://huggingface.co/Wan-AI)
+
+<UpdateReminder/>
+
+## Wan2.1 ComfyUI Native Workflow Examples
+
+<Tip>
+Please update ComfyUI to the latest version before starting the examples to make sure you have native Wan Video support.
+</Tip>
+
+## Model Installation
+
+All models mentioned in this guide can be found [here](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files). Below are the common models you'll need for the examples in this guide, which you can download in advance:
+
+Choose one version from **Text encoders** to download:
+
+<CardGroup cols={2}>
+  <Card title="umt5_xxl_fp16.safetensors" icon="download" href="https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/text_encoders/umt5_xxl_fp16.safetensors?download=true">
+    FP16 precision text encoder. Place in <code>ComfyUI/models/text_encoders/</code>
+  </Card>
+  <Card title="umt5_xxl_fp8_e4m3fn_scaled.safetensors" icon="download" href="https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors?download=true">
+    FP8 scaled text encoder. Place in <code>ComfyUI/models/text_encoders/</code>
+  </Card>
+</CardGroup>
+
+**VAE**
+
+<Card title="wan_2.1_vae.safetensors" icon="download" href="https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/vae/wan_2.1_vae.safetensors?download=true">
+    Wan2.1 VAE model. Place in <code>ComfyUI/models/vae/</code>
+</Card>
+**CLIP Vision**
+
+<Card title="clip_vision_h.safetensors" icon="download" href="https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/clip_vision/clip_vision_h.safetensors?download=true">
+    CLIP Vision model for image conditioning. Place in <code>ComfyUI/models/clip_vision/</code>
+</Card>
+File storage locations:
+```
+ComfyUI/
+├── models/
+│   ├── diffusion_models/
+│   │   └── ... (download per workflow below)
+│   ├── text_encoders/
+│   │   └── umt5_xxl_fp8_e4m3fn_scaled.safetensors
+│   ├── vae/
+│   │   └── wan_2.1_vae.safetensors
+│   └── clip_vision/
+│       └── clip_vision_h.safetensors
+```
+
+<Note>
+For diffusion models, we'll use the fp16 precision models in this guide because we've found that they perform better than the bf16 versions. If you need other precision versions, please visit [here](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models) to download them.
+</Note>
+
+## Wan2.1 Text-to-Video Workflow (1.3B)
+
+### Wan 2.1 Text to Video {#text_to_video_wan}
+
+Generate videos from text prompts using Wan 2.1.
+
+<img src="https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/text_to_video_wan-1.webp" alt="Wan 2.1 Text to Video workflow preview" />
+
+<CardGroup cols={2}>
+  <Card title="Run on Comfy Cloud" icon="cloud" href="https://cloud.comfy.org/?template=text_to_video_wan&utm_source=docs&utm_medium=referral&utm_campaign=wan-video">
+    Open in Comfy Cloud
+  </Card>
+  <Card title="Download Workflow" icon="download" href="https://github.com/Comfy-Org/workflow_templates/blob/main/templates/text_to_video_wan.json">
+    Download JSON or search &quot;Wan 2.1 Text to Video&quot; in Template Library
+  </Card>
+</CardGroup>
+
+### Model Downloads
+
+<Card title="wan2.1_t2v_1.3B_fp16.safetensors" icon="download" href="https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/diffusion_models/wan2.1_t2v_1.3B_fp16.safetensors?download=true">
+    Diffusion model for Wan2.1 Text-to-Video. Place in <code>ComfyUI/models/diffusion_models/</code>
+</Card>
+> If you need other t2v precision versions, please visit [here](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models) to download them.
+
+### Steps to Run
+
+![ComfyUI Wan2.1 Workflow Steps](/images/tutorial/video/wan/wan2.1_t2v_1.3b_flow_diagram.jpg)
+
+1. Make sure the `Load Diffusion Model` node has loaded the `wan2.1_t2v_1.3B_fp16.safetensors` model
+2. Make sure the `Load CLIP` node has loaded the `umt5_xxl_fp8_e4m3fn_scaled.safetensors` model
+3. Make sure the `Load VAE` node has loaded the `wan_2.1_vae.safetensors` model
+4. (Optional) You can modify the video dimensions in the `EmptyHunyuanLatentVideo` node if needed
+5. (Optional) If you need to modify the prompts (positive and negative), make changes in the `CLIP Text Encoder` node at number `5`
+6. Click the `Run` button or use the shortcut `Ctrl(cmd) + Enter` to execute the video generation
+
+## Wan2.1 Image-to-Video Workflow (14B)
+
+**Since Wan Video separates the 480P and 720P models**, we'll need to provide examples for both resolutions in this guide. In addition to using different models, they also have slight parameter differences.
+
+### 480P Version
+
+### Wan 2.1 Image to Video {#image_to_video_wan}
+
+Generate videos from images using Wan 2.1.
+
+<img src="https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_to_video_wan-1.webp" alt="Wan 2.1 Image to Video workflow preview" />
+
+<CardGroup cols={2}>
+  <Card title="Run on Comfy Cloud" icon="cloud" href="https://cloud.comfy.org/?template=image_to_video_wan&utm_source=docs&utm_medium=referral&utm_campaign=wan-video">
+    Open in Comfy Cloud
+  </Card>
+  <Card title="Download Workflow" icon="download" href="https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_to_video_wan.json">
+    Download JSON or search &quot;Wan 2.1 Image to Video&quot; in Template Library
+  </Card>
+</CardGroup>
+
+**Input materials**
+
+Upload this file to the matching `LoadImage` node:
+
+<CardGroup cols={2}>
+  <Card title="image_to_video_wan_start_image.png" icon="image" href="https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/image_to_video_wan_start_image.png">
+    `LoadImage` node 52 · `image_to_video_wan_start_image.png`
+  </Card>
+</CardGroup>
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '1rem', alignItems: 'start'}}>
+  <img src="https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/image_to_video_wan_start_image.png" alt="image_to_video_wan_start_image.png" style={{width: '100%', height: 'auto', objectFit: 'contain'}} />
+</div>
+#### Model Downloads
+
+<Card title="wan2.1_i2v_480p_14B_fp16.safetensors" icon="download" href="https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/diffusion_models/wan2.1_i2v_480p_14B_fp16.safetensors?download=true">
+    Diffusion model for Wan2.1 I2V 480P. Place in <code>ComfyUI/models/diffusion_models/</code>
+</Card>
+#### Steps to Run
+
+![ComfyUI Wan2.1 Workflow Steps](/images/tutorial/video/wan/wan2.1_i2v_14b_480p_flow_diagram.jpg)
+
+1. Make sure the `Load Diffusion Model` node has loaded the `wan2.1_i2v_480p_14B_fp16.safetensors` model
+2. Make sure the `Load CLIP` node has loaded the `umt5_xxl_fp8_e4m3fn_scaled.safetensors` model
+3. Make sure the `Load VAE` node has loaded the `wan_2.1_vae.safetensors` model
+4. Make sure the `Load CLIP Vision` node has loaded the `clip_vision_h.safetensors` model
+5. Upload the provided input image in the `Load Image` node
+6. (Optional) Enter the video description content you want to generate in the `CLIP Text Encoder` node
+7. (Optional) You can modify the video dimensions in the `WanImageToVideo` node if needed
+8. Click the `Run` button or use the shortcut `Ctrl(cmd) + Enter` to execute the video generation
+
+### 720P Version
+
+![Wan2.1 Image-to-Video Workflow 14B 720P](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/wan2.1/wan2.1_i2v_14b_720P.webp)
+
+<CardGroup cols={2}>
+  <Card title="Run on Comfy Cloud" icon="cloud" href="https://cloud.comfy.org/?template=image_to_video_wan&utm_source=docs&utm_medium=referral&utm_campaign=wan-video">
+    Open in Comfy Cloud
+  </Card>
+  <Card title="Download Workflow" icon="download" href="https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/wan2.1/wan2.1_i2v_14b_720P.webp">
+    Download the workflow image and drag it into ComfyUI to load the workflow
+  </Card>
+</CardGroup>
+
+<Card title="Input Image" icon="image" href="https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/wan2.1/input/magician.png">
+    Download the default input image, or use your own image.
+</Card>
+#### Model Downloads
+
+<Card title="wan2.1_i2v_720p_14B_fp16.safetensors" icon="download" href="https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/diffusion_models/wan2.1_i2v_720p_14B_fp16.safetensors?download=true">
+    Diffusion model for Wan2.1 I2V 720P. Place in <code>ComfyUI/models/diffusion_models/</code>
+</Card>
+#### Steps to Run
+
+![ComfyUI Wan2.1 Workflow Steps](/images/tutorial/video/wan/wan2.1_i2v_14b_720p_flow_diagram.jpg)
+
+1. Make sure the `Load Diffusion Model` node has loaded the `wan2.1_i2v_720p_14B_fp16.safetensors` model
+2. Make sure the `Load CLIP` node has loaded the `umt5_xxl_fp8_e4m3fn_scaled.safetensors` model
+3. Make sure the `Load VAE` node has loaded the `wan_2.1_vae.safetensors` model
+4. Make sure the `Load CLIP Vision` node has loaded the `clip_vision_h.safetensors` model
+5. Upload the provided input image in the `Load Image` node
+6. (Optional) Enter the video description content you want to generate in the `CLIP Text Encoder` node
+7. (Optional) You can modify the video dimensions in the `WanImageToVideo` node if needed
+8. Click the `Run` button or use the shortcut `Ctrl(cmd) + Enter` to execute the video generation

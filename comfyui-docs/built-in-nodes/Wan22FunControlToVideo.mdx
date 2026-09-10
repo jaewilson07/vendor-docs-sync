@@ -1,0 +1,38 @@
+---
+title: "Wan22FunControlToVideo - ComfyUI Built-in Node Documentation"
+description: "The Wan22FunControlToVideo node prepares conditioning data and an empty latent tensor for video generation with the Wan video model."
+sidebarTitle: "Wan22FunControlToVideo"
+icon: "circle"
+mode: wide
+---
+
+The Wan22FunControlToVideo node prepares conditioning data and an empty latent tensor for video generation with the Wan video model. It encodes optional reference images and control videos into latent space, attaches them to the positive and negative conditioning, and creates a zero-filled latent tensor with the correct spatial and temporal dimensions for the requested video.
+
+## Inputs
+
+| Parameter | Description | Data Type | Required | Range |
+| --- | --- | --- | --- | --- |
+| `positive` | Positive conditioning input for guiding the video generation | CONDITIONING | Yes | - |
+| `negative` | Negative conditioning input for guiding the video generation | CONDITIONING | Yes | - |
+| `vae` | VAE model used to encode images into latent space | VAE | Yes | - |
+| `width` | Width of the output video in pixels (default: 832, step: 16) | INT | Yes | 16 to MAX_RESOLUTION |
+| `height` | Height of the output video in pixels (default: 480, step: 16) | INT | Yes | 16 to MAX_RESOLUTION |
+| `length` | Number of frames in the video sequence (default: 81, step: 4) | INT | Yes | 1 to MAX_RESOLUTION |
+| `batch_size` | Number of video sequences to generate (default: 1) | INT | Yes | 1 to 4096 |
+| `ref_image` | Optional reference image that provides visual guidance for the generation | IMAGE | No | - |
+| `control_video` | Optional control video that guides the generation process | IMAGE | No | - |
+
+**Note:** The `length` parameter is processed in steps of 4 frames, and the node automatically applies temporal scaling when building the latent space. When `ref_image` is provided, only its first frame is encoded and attached to the conditioning as reference latents. When `control_video` is provided, it is trimmed to `length` frames, encoded, and placed into the concat latent used by the conditioning. The `start_image` parameter is referenced in the execution logic but is not exposed in the node's input schema.
+
+## Outputs
+
+| Output Name | Description | Data Type |
+| --- | --- | --- |
+| `positive` | Positive conditioning with video-specific latent data added, including the concat latent, mask, and optional reference latents | CONDITIONING |
+| `negative` | Negative conditioning with video-specific latent data added, including the concat latent, mask, and optional reference latents | CONDITIONING |
+| `latent` | Empty latent tensor prepared for video generation, sized according to the batch size, latent channels, length, height, and width | LATENT |
+
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/Wan22FunControlToVideo/en.md)
+
+---
+**Source fingerprint (SHA-256):** `731b848f15c13ddc662f19230acb55d195f934bad7d9ae516a288e0ed8f8d899`
