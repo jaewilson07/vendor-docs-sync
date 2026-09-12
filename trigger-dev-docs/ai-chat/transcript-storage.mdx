@@ -92,7 +92,7 @@ type TranscriptStorage<TClientData = unknown> = {
       ctx: TaskRunContext;
     },
     changeset: {
-      reason: "turn-complete" | "turn-error" | "action" | "compaction" | "recovery";
+      reason: "turn-start" | "turn-complete" | "turn-error" | "action" | "compaction" | "recovery";
       changes: TranscriptChange[];
       transcript: { entries: Array<{ id: string; final: boolean; message: UIMessage }>; state: unknown | null };
       cursors?: { lastOutEventId?: string; lastInEventId?: string };
@@ -131,11 +131,16 @@ A changeset carries the same save two ways, and a storage uses whichever suits i
 
 `transcript` is the whole conversation as it stands after those changes, `entries` plus `state`. A store that keeps the conversation as one document (object storage, a key-value store, a JSON column) writes it as-is and keeps no state of its own between saves. The default storage is exactly that: it serialises `transcript` and rewrites the blob.
 
-The changes are the intent, spelled out. A normal turn is two `put`s, the user's message and the assistant's answer. A steering message the user sent mid-turn is another `put` in the same changeset. An undo through `chat.history.slice(0, -2)` is one `truncateAfter`. A regenerate is a `truncateAfter` and a `put`. A tool approval that updates the assistant message in place is one `put` for that id. Messages are addressed by id; how you order rows is your concern.
+The changes are the intent, spelled out. A normal turn is two `put`s, the user's message and the assistant's answer, split across the turn's two saves. A steering message the user sent mid-turn is another `put` in the same changeset. An undo through `chat.history.slice(0, -2)` is one `truncateAfter`. A regenerate is a `truncateAfter` and a `put`. A tool approval that updates the assistant message in place is one `put` for that id. Messages are addressed by id; how you order rows is your concern.
+
+Every turn saves twice. The `turn-start` save carries the message being answered, before the model runs. The `turn-complete` save carries the answer. Both `put` the same user message id, and a `put` upserts, so a storage that applies changes in order needs no special handling for the repeat.
+
+The `turn-start` save is what makes a reload during an answer show the question that is being answered. It leaves `cursors` on the previous turn's position, because the answer's own cursor does not exist yet, so a reload mid-answer still resumes from the last completed turn rather than skipping chunks it never received.
 
 A few properties worth knowing:
 
-- Saves happen after the turn's answer has reached the browser, so they never delay the response. The runtime awaits each `save` before the run suspends.
+- The `turn-start` save runs alongside the model rather than before it, so it costs no time to first token. Nothing from the turn reaches the browser until it settles, which is what makes the question durable before the answer can render. A save that fails or runs long lets the answer through rather than stalling the conversation.
+- The `turn-complete` save happens after the turn's answer has reached the browser, so it never delays the response. The runtime awaits each `save` before the run suspends.
 - A `save` that throws is logged and the turn continues. The changes fold into the next changeset, and every change is idempotent, so a retried changeset converges on the same result.
 - A `load` that throws boots the run from the durable stream's recent tail rather than failing.
 
@@ -169,9 +174,15 @@ export function ChatPage({ chatId }: { chatId: string }) {
 The action receives `chatId` from the browser, so authorize it before returning: check that the signed-in user owns this chat. `defaultStorage` loads purely by `chatId` and does no tenant check of its own, so an exported action with no authorization lets any authenticated user read any chat's transcript. A custom storage can enforce tenancy inside `load` using `clientData`, but the server action is still the place to reject a `chatId` the caller may not read.
 </Warning>
 
-`limit` returns the most recent messages and a `nextCursor`; pass it as `before` for the page before that one. With the default storage, a paged read is served by the platform, so a long conversation is not downloaded in full to render its last fifty messages. When you pass `transport` and it already knows the session, the hook seeds its resume cursor from the transcript, so the live subscription opens just past the persisted history instead of replaying it.
+`limit` returns the most recent messages and a `nextCursor`; pass it as `before` for the page before that one. With the default storage, a paged read is served by the platform, so a long conversation is not downloaded in full to render its last fifty messages. A paged read returns the transcript only: `state` is always `null`, because the model lane is not part of what a page renders, and the platform reads just the bytes holding that page rather than the whole conversation. The runtime reads the state separately when it restores context at boot. When you pass `transport` and it already knows the session, the hook seeds its resume cursor from the transcript, so the live subscription opens just past the persisted history instead of replaying it.
 
 Swap `defaultStorage` for your own storage and nothing else about the read changes.
+
+<Warning>
+The saved format changed in this release, and an older SDK cannot read it. Rolling a deployment back to a version from before this release means its runs will not find a readable transcript for conversations already saved by the newer one, and will continue from the live stream tail instead, so earlier history is lost for those conversations. Roll forward rather than back, or keep your own transcript storage.
+</Warning>
+
+The default storage is deliberately basic about long conversations. Once compaction has run, it keeps roughly the last hundred messages and drops the rest, so what it rewrites on each save stops growing. A conversation that never compacts is kept whole. If your app renders history further back than that, give the agent your own storage and keep the messages yourself.
 
 ## Owning the model's context
 
@@ -207,6 +218,7 @@ A few things to get right:
 
 - Pick one view and stay with it. Apply `changes` if you store rows, write `transcript` if you store a document; don't mix them within one save.
 - `put` for a known id replaces the message in place; position and ordering don't change.
+- Order is the message's position in the transcript. A document store gets it from `transcript.entries`. A row store needs an order column set once, when a `put` first inserts an id, following the order the `put`s arrive in, and left unchanged when a later `put` replaces that id in place. Don't sort by a write timestamp: a replaced message has to keep its place, and a steering message sent mid-turn sorts before the answer it shaped even though its row is written later.
 - `truncateAfter` and `remove` are idempotent. Applying a changeset twice gives the same result as applying it once.
 - `load` with no options returns the whole conversation in order. With `limit`, return the most recent messages and a `nextCursor` (the id of the oldest returned message) when earlier messages exist.
 - Scope reads and writes by `clientData` where your backend enforces tenancy.
@@ -219,11 +231,13 @@ A few things to get right:
 
 ## Migrating from hydrateMessages
 
-`hydrateMessages` keeps working with a one-time deprecation warning. Crash recovery runs for it, but the runtime does not write to your store on its behalf. To move:
+`hydrateMessages` keeps working with a one-time deprecation warning. Crash recovery runs for it, but the runtime does not write to your store on its behalf. The move, in short:
 
-1. Implement `TranscriptStorage` over your existing tables. Your `hydrateMessages` body becomes `loadContext`; the writes you did in hooks become `save`.
+1. Implement `TranscriptStorage` over your existing tables. The writes you did in hooks become `save`; the read your hook did becomes `load`. Add `loadContext` only if your database decides what the model sees each turn.
 2. Set `storage` on the agent and remove `hydrateMessages`. Setting both is an error.
-3. Run `runTranscriptStorageTests` against your implementation.
+3. Delete the recovery, compaction and cursor code the runtime now owns, and run `runTranscriptStorageTests` against your implementation.
+
+The [migration guide](/ai-chat/migrating-from-hydrate-messages) walks through each step with code, and lists what to delete from each hook.
 
 ## See also
 
