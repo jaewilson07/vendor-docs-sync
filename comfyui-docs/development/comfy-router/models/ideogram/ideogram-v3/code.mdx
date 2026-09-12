@@ -1,22 +1,22 @@
 ---
-title: "Use P Image Ideogram with Comfy Router"
-description: "Call ideogram/p-image-ideogram through Comfy Router: endpoint, request shape and the response Router returns."
-sidebarTitle: "P Image Ideogram"
+title: "Use Ideogram V3 with Comfy Router"
+description: "Call ideogram/ideogram-v3 through Comfy Router: endpoint, request shape and the response Router returns."
+sidebarTitle: "Ideogram V3"
 ---
 
-{/* GENERATED FILE. Generated from router-schemas/ideogram/p-image-ideogram.json by `pnpm code-pages:gen`. */}
+{/* GENERATED FILE. Generated from router-schemas/ideogram/ideogram-v3.json by `pnpm code-pages:gen`. */}
 
 import RouterCodeFooter from "/snippets/comfy-router/model-code-footer.mdx";
 
-API Reference for `ideogram/p-image-ideogram`, served by Comfy Router from Ideogram.
+API Reference for `ideogram/ideogram-v3`, served by Comfy Router from Ideogram.
 
 ## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk`, `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP.
 
-**Model ID:** `ideogram/p-image-ideogram`
+**Model ID:** `ideogram/ideogram-v3`
 
-**Endpoint:** `POST https://api.comfy.org/v2/models/ideogram/p-image-ideogram`
+**Endpoint:** `POST https://api.comfy.org/v2/models/ideogram/ideogram-v3`
 
 <CodeGroup>
 ```python Python
@@ -26,9 +26,10 @@ from comfy_sdk import Comfy
 # The SDK automatically creates an idempotency key and reuses it for automatic retries.
 with Comfy() as client:
     result = client.models.run(
-        "ideogram/p-image-ideogram",
+        "ideogram/ideogram-v3",
         {
             "prompt": "A beautiful mountain landscape",
+            "rendering_speed": "TURBO",
         },
     )
 
@@ -40,19 +41,20 @@ import { comfy } from "@comfyorg/sdk";
 
 // Reads COMFY_API_KEY from the environment.
 // The SDK automatically creates an idempotency key and reuses it for automatic retries.
-const { data } = await comfy.models.run("ideogram/p-image-ideogram", {
+const { data } = await comfy.models.run("ideogram/ideogram-v3", {
   prompt: "A beautiful mountain landscape",
+  rendering_speed: "TURBO",
 });
 
 console.log(data);
 ```
 
 ```bash cURL
-curl https://api.comfy.org/v2/models/ideogram/p-image-ideogram \
+curl https://api.comfy.org/v2/models/ideogram/ideogram-v3 \
   -H "X-API-Key: $COMFY_API_KEY" \
   -H "Idempotency-Key: $(uuidgen)" \
   -H "Content-Type: application/json" \
-  -d "{\"prompt\": \"A beautiful mountain landscape\"}"
+  -d "{\"prompt\": \"A beautiful mountain landscape\", \"rendering_speed\": \"TURBO\"}"
 ```
 </CodeGroup>
 
@@ -61,34 +63,74 @@ curl https://api.comfy.org/v2/models/ideogram/p-image-ideogram \
 ### Input
 
 <ParamField body="aspect_ratio" type="string">
-  Aspect ratio in format WxH. Supported values: 1x3, 3x1, 1x2, 2x1, 9x16, 16x9, 10x16, 16x10, 2x3, 3x2, 3x4, 4x3, 4x5, 5x4, 1x1. Defaults to 1x1.
+  Aspect ratio in format WxH
 </ParamField>
 
-<ParamField body="enable_copyright_detection" type="boolean">
-  Opt into post-generation copyright detection (Hive likeness and logo checks).
+<ParamField body="color_palette" type="object">
+   
+</ParamField>
+
+<ParamField body="color_palette.members" type="object[]">
+  Explicit colors with optional weights
+</ParamField>
+
+<ParamField body="color_palette.members[].color" type="string">
+  Hexadecimal color code
+</ParamField>
+
+<ParamField body="color_palette.members[].weight" type="number">
+  Optional weight for the color (0-1)
+
+  Range: `0` to `1`
+</ParamField>
+
+<ParamField body="color_palette.name" type="string">
+  Name of the color palette
+</ParamField>
+
+<ParamField body="magic_prompt" type="string">
+  Whether to enable magic prompt enhancement
+
+  Possible values: `AUTO`, `ON`, `OFF`
+</ParamField>
+
+<ParamField body="negative_prompt" type="string">
+  Text prompt specifying what to avoid in the generation
+</ParamField>
+
+<ParamField body="num_images" type="integer">
+  Number of images to generate
+
+  Range: `1` to `…`
 </ParamField>
 
 <ParamField body="prompt" type="string" required>
-  The prompt for image generation, either natural language or an Ideogram 4.0 JSON structured prompt.
+  The text prompt for image generation
 </ParamField>
 
-<ParamField body="prompt_upsampling" type="string">
-  Prompt upsampling mode. Supported values are AUTO, ON, and OFF. Defaults to AUTO.
-</ParamField>
+<ParamField body="rendering_speed" type="string" required default="&quot;DEFAULT&quot;">
+  The rendering speed setting that controls the trade-off between generation speed and quality
 
-<ParamField body="quality" type="string">
-  Generation quality level. Supported values are VERY_LOW, LOW, MEDIUM, and HIGH. Defaults to MEDIUM.
+  Possible values: `DEFAULT`, `TURBO`, `QUALITY`
 </ParamField>
 
 <ParamField body="resolution" type="string">
-  Output resolution. Supported values are 1K and 2K. Defaults to 1K.
+  Image resolution in format WxH
 </ParamField>
 
 <ParamField body="seed" type="integer">
   Seed value for reproducible generation
 </ParamField>
 
-Generated from the schema Router serves at `GET /v2/models/ideogram/p-image-ideogram/openapi.json`, the same document it validates a call against before the request reaches the provider.
+<ParamField body="style_codes" type="string[]">
+  Array of style codes in hexadecimal format
+</ParamField>
+
+<ParamField body="style_type" type="string" default="&quot;GENERAL&quot;">
+  Possible values: `AUTO`, `GENERAL`, `REALISTIC`, `DESIGN`, `FICTION`
+</ParamField>
+
+Generated from the schema Router serves at `GET /v2/models/ideogram/ideogram-v3/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
 ### Output
 
@@ -132,7 +174,8 @@ Generated from the schema Router serves at `GET /v2/models/ideogram/p-image-ideo
 
 ```json
 {
-  "prompt": "A beautiful mountain landscape"
+  "prompt": "A beautiful mountain landscape",
+  "rendering_speed": "TURBO"
 }
 ```
 
@@ -148,7 +191,7 @@ Generated from the schema Router serves at `GET /v2/models/ideogram/p-image-ideo
       "resolution": "1024x1024",
       "seed": 918273645,
       "style_type": "REALISTIC",
-      "url": "https://example.invalid/ideogram/p-image-ideogram/generated.png"
+      "url": "https://example.invalid/ideogram/ideogram-v3/generated.png"
     }
   ]
 }
