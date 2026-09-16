@@ -30,7 +30,7 @@ Five sections are [required](#required-sections). Every other section is [option
 
 * [`admin`](#admin): Admin API auth and retention for spend limits
 * [`enforcement`](#enforcement): spend-limit fail-open or fail-closed behavior
-* [`pricing`](#pricing): contracted rates and a discount multiplier for the spend meter and for the cost figures developers see
+* [`pricing`](#pricing): contracted rates and a multiplier for the spend meter and for the cost figures developers see
 * [`models`](#models) and `auto_include_builtin_models`: admin-curated model list and per-upstream IDs
 * [`managed`](#managed): managed settings policies by IdP group
 * [`telemetry`](#telemetry): OTLP forwarding to your observability stack
@@ -453,10 +453,10 @@ pricing:
       cache_write: 4.125
 ```
 
-| Field        | Required | Description                                                                                                                                                                |
-| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `multiplier` | No       | Default `1`. The meter multiplies every metered amount by this, whether list-priced or overridden, so `0.85` bills 85% of the price. Must be greater than 0 and at most 1. |
-| `overrides`  | No       | Rows of `{upstream, model, input, output, cache_read, cache_write}` in USD per million tokens. All four rates are required. Each must be greater than 0 and at most 10000. |
+| Field        | Required | Description                                                                                                                                                                                                                     |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `multiplier` | No       | Default `1`. The meter multiplies every metered amount by this, whether list-priced or overridden, so `0.85` bills 85% of the price. Must be greater than 0 and at most 10, and a value above 1 is a [markup](#mark-prices-up). |
+| `overrides`  | No       | Rows of `{upstream, model, input, output, cache_read, cache_write}` in USD per million tokens. All four rates are required. Each must be greater than 0 and at most 10000.                                                      |
 
 How the meter matches an override row:
 
@@ -467,6 +467,23 @@ How the meter matches an override row:
 * Web-search requests stay at the \$0.01 list price; the multiplier still applies to them.
 
 For per-region rates, give each region its own named upstream and one row per upstream.
+
+#### Mark prices up
+
+With v2.1.271 or later on the gateway server, you can set `multiplier` above 1, up to 10, to meter more than the provider charges, for example an internal chargeback rate. This example meters every request at 120% of the price:
+
+```yaml theme={null}
+pricing:
+  multiplier: 1.2
+```
+
+With an [`admin:`](#admin) block, the markup also applies to spend limits. The meter counts 120% of the price, so developers reach their caps sooner. The gateway logs a warning at boot that says so.
+
+The multiplier doesn't change what the upstream provider charges for the requests.
+
+If the gateway also [sends the rates to signed-in clients](#send-the-rates-to-signed-in-clients), developers need Claude Code v2.1.271 or later to see the markup. Earlier clients ignore a `multiplier` above 1 and show costs without it.
+
+A gateway server earlier than v2.1.271 refuses to start if you set a `multiplier` above 1.
 
 #### Send the rates to signed-in clients
 
@@ -496,7 +513,7 @@ Each key under `upstream_model` must match the `name` of a configured upstream, 
 
 ### `managed`
 
-The `managed` block defines role-based access policies keyed on IdP groups or email domain. Policies are evaluated in order; the first match is selected, then merged onto the `match: {}` catch-all base described below. They are served per-user at `GET /managed/settings` with ETag/304 caching.
+The `managed` block defines role-based access policies keyed on IdP groups or email domain. Policies are evaluated in order; the first match is selected, then merged onto the `match: {}` catch-all base. They are served per-user at `GET /managed/settings` with ETag/304 caching.
 
 ```yaml theme={null}
 managed:
@@ -743,7 +760,7 @@ telemetry:
   Each destination opts into `metrics`, `logs`, and `traces` independently, and the default is metrics only. The signals differ in sensitivity:
 
   * **Metrics**: aggregate counters such as token counts, request counts, and latency
-  * **Logs and traces**: can carry full bash commands, tool inputs, and file paths, covering anything Claude Code does on a developer's machine
+  * **Logs and traces**: can carry full Bash commands, tool inputs, and file paths, covering anything Claude Code does on a developer's machine
 
   Enable logs and traces only on destinations with the access controls and retention policy that data warrants.
 </Warning>
@@ -826,6 +843,17 @@ Four optional top-level blocks, `access_control`, `limits`, `timeouts`, and `rat
 | `rate_limits`    | `device_authorization.max` / `.window_seconds` | 30 / 600 | Per-IP rate limit on the unauthenticated device-authorization endpoint. Raise for a large org behind a shared egress IP or NAT. These limits apply only to the device-grant sign-in flow, not to `/v1/messages` inference. See [User-code brute-force resistance](/docs/en/claude-apps-gateway-deploy#user-code-brute-force-resistance).                                                                                                                                                                                                                                                                                                                                                                          |
 | `rate_limits`    | `device_verify.max` / `.window_seconds`        | 10 / 600 | Per-IP rate limit on `user_code` submissions at `/device`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
+If you leave both `access_control` lists empty, which is the default, the gateway serves any client address, so only your network restricts who can reach it. That matters because a gateway can push [managed settings](#managed) that run commands on developer machines.
+
+While `allow_cidrs` is empty, the gateway warns in two places, without changing how it answers any request:
+
+* **At boot**: a warning in the operational log recommends allowing only the private ranges `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`, `100.64.0.0/10`, `127.0.0.0/8`, `::1/128`, and `fc00::/7`, plus any other internal ranges your developers connect from. If you bind the gateway to a loopback address and set neither `trusted_proxies` nor `public_url`, as in local development, the warning doesn't appear.
+* **At runtime**: the first time a request arrives from an address outside those private ranges, the gateway logs a warning and emits an [`access.public_client` audit event](/docs/en/claude-apps-gateway-deploy#logs) carrying the client IP. Both fire once per process. Link-local addresses, `169.254.0.0/16` and `fe80::/10`, don't count as public. The gateway answers `/healthz` and `/readyz` before this check runs, so health probes from public ranges don't trigger it.
+
+Both signals use the client address as the gateway resolves it. If a load balancer, port-forward, or tunnel relays traffic and isn't listed in `listen.trusted_proxies`, the gateway sees the relay's address, which is usually private, so neither the runtime warning nor a private allow list catches traffic relayed through it.
+
+Behind such a front end, set [`listen.trusted_proxies`](#listen) first so the gateway sees real client addresses, and keep the gateway and everything in front of it unreachable from the public internet regardless.
+
 ## Complete example
 
 This full reference config exercises every core section; the [HTTP tuning blocks](#http-tuning) keep their defaults. Copy it, delete what you don't need, and fill in your values. The config in the [Quickstart](/docs/en/claude-apps-gateway#quickstart) is a minimal version of this.
@@ -894,8 +922,8 @@ store:
 # enforcement:
 #   fail_closed_on_error: false
 
-# Meter at contracted rates instead of USD list price. Requires admin:.
-# With managed:, the same rates also go to signed-in clients.
+# Meter at contracted rates instead of USD list price. Requires admin: or a
+# managed: policy. With managed:, the same rates also go to signed-in clients.
 # Rates below are placeholders, not real contract prices.
 # pricing:
 #   multiplier: 0.85
@@ -993,7 +1021,7 @@ By default, a registry policy on Windows or a managed-preferences plist on macOS
 
 For Claude Desktop, set the `bootstrapUrl` key in Claude Desktop's own [managed configuration](https://claude.com/docs/third-party/claude-desktop/configuration) to `<listen.public_url>/user/bootstrap`. The sign-in flow and per-group policy then match the CLI's once a policy opts in server-side with a `desktop` key; without the opt-in, `/user/bootstrap` returns 404. See [Claude Desktop overlay](#claude-desktop-overlay) for the server-side half.
 
-[`forceLoginGatewayUrl`](/docs/en/settings-reference#forcelogingatewayurl), and the `"gateway"` value of [`forceLoginMethod`](/docs/en/settings-reference#forceloginmethod), are honored only from a managed source on the machine: `managed-settings.json`, the macOS plist or Windows HKLM registry, or a policy helper. A developer setting them in their own `~/.claude/settings.json` has no effect, and neither does setting them in the gateway payload.
+Claude Code honors [`forceLoginGatewayUrl`](/docs/en/settings-reference#forcelogingatewayurl), [`gatewayInternalNetworks`](/docs/en/settings-reference#gatewayinternalnetworks), and the `"gateway"` value of [`forceLoginMethod`](/docs/en/settings-reference#forceloginmethod) only from a managed source on the machine: `managed-settings.json`, the macOS plist or Windows HKLM registry, or a policy helper. A developer setting them in their own `~/.claude/settings.json` has no effect, and neither does setting them in the gateway payload.
 
 ## Related
 

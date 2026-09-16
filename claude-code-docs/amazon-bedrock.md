@@ -118,7 +118,7 @@ To configure Amazon Bedrock through environment variables instead of the wizard,
 Before you invoke an Anthropic model for the first time, submit use case details. You do this once per AWS account.
 
 1. Ensure you have the right IAM permissions described below
-2. Navigate to the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/)
+2. Go to the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/)
 3. Select an Anthropic model from the **Model catalog**
 4. Complete the use case form. Access is granted immediately after submission.
 
@@ -221,7 +221,7 @@ Before running the `awsAuthRefresh` command, Claude Code makes an STS `GetCaller
 
 As of Claude Code v2.1.181, the flat output from `aws configure export-credentials --format process` is also accepted, with the same keys at the top level instead of nested under `Credentials`.
 
-`Expiration` is optional. As of Claude Code v2.1.176, when the command returns a valid ISO 8601 `Expiration`, Claude Code caches the credentials until five minutes before that time. Without it, or on earlier versions, credentials are cached for one hour.
+`Expiration` is optional. When the command returns a valid ISO 8601 `Expiration`, Claude Code caches the credentials until five minutes before that time. Without it, credentials are cached for one hour.
 
 When you configure `awsCredentialExport` without `awsAuthRefresh`, Claude Code uses the exported credentials directly and doesn't re-resolve the AWS default credential provider chain at startup. Requires Claude Code v2.1.206 or later.
 
@@ -480,7 +480,7 @@ If your organization delivers the guardrail headers through a [Claude apps gatew
 
 ## Use the Mantle endpoint
 
-Mantle is an Amazon Bedrock endpoint that serves Claude models through the native Anthropic API shape rather than the Amazon Bedrock Invoke API. It uses the same AWS credentials, IAM permissions, and `awsAuthRefresh` configuration described earlier on this page.
+Mantle is an Amazon Bedrock endpoint that serves Claude models through the native Anthropic API shape rather than the Amazon Bedrock Invoke API. It uses the same [AWS credentials](#2-configure-aws-credentials), [IAM permissions](#iam-configuration), and [`awsAuthRefresh` configuration](#advanced-credential-configuration).
 
 ### Enable Mantle
 
