@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Mcp Server
 
 `mcp_servers.delete(strmcp_server_id)`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Summarize Messages
 
 `agents.messages.compact(stragent_id, MessageCompactParams**kwargs)  -> CompactionResponse`

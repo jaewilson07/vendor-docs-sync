@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Files For Folder
 
 `client.folders.files.list(stringfolderID, FileListParamsquery?, RequestOptionsoptions?): ArrayPage<FileListResponse>`

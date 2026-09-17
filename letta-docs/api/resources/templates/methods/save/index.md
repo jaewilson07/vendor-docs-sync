@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Save template version (Cloud-only)
 
 **post** `/v1/templates/{template_name}/save`

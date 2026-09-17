@@ -1,11 +1,18 @@
 ---
 title: Quickstart | Letta Docs
 description: Start the Letta App Server, connect over WebSocket, and submit input
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - cli
+    - sdk
 ---
 
 The recommended way to interface with the App Server is the [Letta Agent SDK](/agent-sdk/index.md), which provides a high-level interface over its WebSocket protocol.
 
-Alternatively, use the App Server’s [OpenAI-compatible API](/platform/app-server/quickstart#openai-compatible-api/index.md) with clients such as Open WebUI, or the [ACP adapter](/platform/acp/index.md) with ACP clients such as Zed.
+Alternatively, use the App Server’s [OpenAI-compatible API](/self-hosting/app-server/quickstart#openai-compatible-api/index.md) with clients such as Open WebUI, or the [ACP adapter](/platform/acp/index.md) with ACP clients such as Zed.
 
 For most application integrations, start with the [Letta Agent SDK quickstart](/agent-sdk/quickstart/index.md). The SDK manages App Server and provides high-level APIs for agents, sessions, turns, streaming, and approvals.
 
@@ -330,6 +337,6 @@ input
 
 ## Next steps
 
-- [Protocol lifecycle](/platform/app-server/protocol-lifecycle/index.md) - Learn the command and event flow.
-- [External tools](/platform/app-server/external-tools/index.md) - Register tools that execute in your controller.
-- [Integration patterns](/platform/app-server/integration-patterns/index.md) - Design robust controllers and team orchestrators.
+- [Protocol lifecycle](/self-hosting/app-server/protocol-lifecycle/index.md) - Learn the command and event flow.
+- [External tools](/self-hosting/app-server/external-tools/index.md) - Register tools that execute in your controller.
+- [Integration patterns](/self-hosting/app-server/integration-patterns/index.md) - Design robust controllers and team orchestrators.

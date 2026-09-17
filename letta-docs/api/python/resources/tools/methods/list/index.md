@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Tools
 
 `tools.list(ToolListParams**kwargs)  -> SyncArrayPage[Tool]`

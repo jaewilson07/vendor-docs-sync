@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Conversation
 
 **get** `/v1/conversations/{conversation_id}`

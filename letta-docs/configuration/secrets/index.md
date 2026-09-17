@@ -1,6 +1,13 @@
 ---
 title: Secrets | Letta Docs
 description: Securely store API keys and tokens for your agent to use in shell commands
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - cli
+    - desktop
 ---
 
 Secrets let your agent use sensitive values like API keys and tokens in shell commands without ever seeing the actual values. The agent writes `$SECRET_NAME` in commands, Letta Code injects the value at execution time, and scrubs it from all output before the agent sees the result.

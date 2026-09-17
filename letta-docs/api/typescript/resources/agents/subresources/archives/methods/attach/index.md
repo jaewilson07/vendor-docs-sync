@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Archive To Agent
 
 `client.agents.archives.attach(stringarchiveID, ArchiveAttachParamsparams, RequestOptionsoptions?): ArchiveAttachResponse`

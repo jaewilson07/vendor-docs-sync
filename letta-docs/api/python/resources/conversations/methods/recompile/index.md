@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Recompile Conversation
 
 `conversations.recompile(strconversation_id, ConversationRecompileParams**kwargs)  -> ConversationRecompileResponse`

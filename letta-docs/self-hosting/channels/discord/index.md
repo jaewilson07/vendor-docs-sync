@@ -1,7 +1,14 @@
 ---
 title: Discord | Letta Docs
 description: Connect Discord to a Letta agent
+applies_to:
+  backends:
+    - local
+  interfaces:
+    - cli
 ---
+
+These CLI channels support the local backend only. For cloud-hosted agents, use first-party integrations such as the [native Slack integration](/platform/cloud-agents/slack/index.md), not `letta channels`.
 
 ## 1. Create a Discord bot
 
@@ -30,7 +37,7 @@ Config is written to `~/.letta/channels/discord/accounts.json`.
 ## 3. Start the server with channels enabled
 
 ```
-letta server --channels discord
+letta server --backend local --channels discord
 ```
 
 You’ll see `[Discord] Bot started as YourBot#1234` in the output. The bot begins listening for guild messages and DMs immediately.

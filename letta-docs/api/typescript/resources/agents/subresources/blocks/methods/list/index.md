@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Blocks For Agent
 
 `client.agents.blocks.list(stringagentID, BlockListParamsquery?, RequestOptionsoptions?): ArrayPage<BlockResponse>`

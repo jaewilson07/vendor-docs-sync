@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Block
 
 `client.blocks.create(BlockCreateParamsbody, RequestOptionsoptions?): BlockResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update current template from agent file (Cloud-only)
 
 `templates.update(strtemplate_name, TemplateUpdateParams**kwargs)  -> TemplateUpdateResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Rollback template to previous version (Cloud-only)
 
 **post** `/v1/templates/{template_name}/rollback`

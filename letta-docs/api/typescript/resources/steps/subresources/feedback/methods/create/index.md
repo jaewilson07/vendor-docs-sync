@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Modify Feedback For Step
 
 `client.steps.feedback.create(stringstepID, FeedbackCreateParamsbody, RequestOptionsoptions?): Step`

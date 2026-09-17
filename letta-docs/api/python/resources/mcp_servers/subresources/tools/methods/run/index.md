@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Run Mcp Tool
 
 `mcp_servers.tools.run(strtool_id, ToolRunParams**kwargs)  -> ToolExecutionResult`

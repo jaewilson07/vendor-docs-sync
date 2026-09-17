@@ -1,6 +1,12 @@
 ---
 title: Get started | Letta Docs
 description: Set up a Letta team for your organization
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
 ---
 
 Letta for teams adds shared organizations, member management, and centralized billing.

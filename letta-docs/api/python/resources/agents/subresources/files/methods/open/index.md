@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Open File For Agent
 
 `agents.files.open(strfile_id, FileOpenParams**kwargs)  -> FileOpenResponse`

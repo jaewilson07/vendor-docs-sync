@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Embedding Models
 
 `models.embeddings.list()  -> EmbeddingListResponse`

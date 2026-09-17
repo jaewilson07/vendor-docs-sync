@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Tool From Agent
 
 **patch** `/v1/agents/{agent_id}/tools/detach/{tool_id}`

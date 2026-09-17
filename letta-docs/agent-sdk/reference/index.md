@@ -1,6 +1,12 @@
 ---
 title: Letta Agent SDK reference | Letta Docs
 description: Client methods, session interface, and option types for the Letta Agent SDK
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 Use this reference after the [Quickstart](/agent-sdk/quickstart/index.md) when you need method names, session shape, or option interfaces.

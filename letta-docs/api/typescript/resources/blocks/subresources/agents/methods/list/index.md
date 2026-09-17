@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Agents For Block
 
 `client.blocks.agents.list(stringblockID, AgentListParamsquery?, RequestOptionsoptions?): ArrayPage<AgentState>`

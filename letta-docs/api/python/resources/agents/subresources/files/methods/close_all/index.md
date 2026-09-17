@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Close All Files For Agent
 
 `agents.files.close_all(stragent_id)  -> FileCloseAllResponse`

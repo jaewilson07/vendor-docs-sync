@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Upload File To Folder
 
 `folders.files.upload(strfolder_id, FileUploadParams**kwargs)  -> FileUploadResponse`

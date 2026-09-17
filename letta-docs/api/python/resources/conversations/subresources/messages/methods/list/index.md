@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Conversation Messages
 
 `conversations.messages.list(strconversation_id, MessageListParams**kwargs)  -> SyncArrayPage[Message]`

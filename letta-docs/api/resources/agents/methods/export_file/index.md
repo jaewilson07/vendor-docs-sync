@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Export Agent
 
 **get** `/v1/agents/{agent_id}/export`

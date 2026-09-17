@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Conversation
 
 `conversations.update(strconversation_id, ConversationUpdateParams**kwargs)  -> Conversation`

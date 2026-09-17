@@ -1,6 +1,13 @@
 ---
 title: Self-hosting | Letta Docs
 description: Store agents locally or on infrastructure you control
+applies_to:
+  backends:
+    - local
+  interfaces:
+    - cli
+    - desktop
+    - sdk
 ---
 
 Letta agents can run entirely on infrastructure you control, in two shapes:
@@ -45,23 +52,23 @@ If your agents live in Letta Cloud and only need a persistent machine for files 
 
 3. **Run the Letta server**
 
-   Start the [App Server](/platform/app-server/index.md) with the local backend:
+   Start the [App Server](/self-hosting/app-server/index.md) with the local backend:
 
    ```
    letta server --backend local --listen ws://127.0.0.1:4500
    ```
 
-   The process prints the base URL and channel URLs at startup. See the [App Server quickstart](/platform/app-server/quickstart/index.md) for authentication and configuration options.
+   The process prints the base URL and channel URLs at startup. See the [App Server quickstart](/self-hosting/app-server/quickstart/index.md) for authentication and configuration options.
 
 4. **Add channels (optional)**
 
-   To make your agents reachable through messaging platforms, start a separate local server process with one or more [channels](/configuration/channels/index.md):
+   To make your agents reachable through messaging platforms, start a separate local server process with one or more [channels](/self-hosting/channels/index.md):
 
    ```
    letta server --backend local --channels slack
    ```
 
-   See the channel-specific guides for setup instructions, e.g. [Slack](/configuration/channels/slack/index.md), [Telegram](/configuration/channels/telegram/index.md), or [Discord](/configuration/channels/discord/index.md).
+   See the channel-specific guides for setup instructions, e.g. [Slack](/self-hosting/channels/slack/index.md), [Telegram](/self-hosting/channels/telegram/index.md), or [Discord](/self-hosting/channels/discord/index.md).
 
 5. **Connect via the SDK (optional)**
 
@@ -124,7 +131,7 @@ Model inference is a separate choice. If you connect a remote model provider, pr
 
 The [Letta Agent SDK](/agent-sdk/index.md) supports two backends for self-hosted setups:
 
-- **Local backend** (`backend: "local"`): The SDK starts [App Server](/platform/app-server/index.md) automatically as a subprocess on the current machine. Agent state and the execution environment stay on the machine running your code. Use this for development or single-machine deployments—no separate server process to manage.
+- **Local backend** (`backend: "local"`): The SDK starts [App Server](/self-hosting/app-server/index.md) automatically as a subprocess on the current machine. Agent state and the execution environment stay on the machine running your code. Use this for development or single-machine deployments—no separate server process to manage.
 - **Remote backend** (`backend: "remote"`): The SDK connects to an App Server you run as a separate service (`letta server --listen`). Agent state and the execution environment live on the App Server machine, so multiple clients can share the same agents and the server can run on different infrastructure than your application.
 
 * [Local backend](#tab-panel-11)
@@ -198,7 +205,7 @@ for await (const message of session.stream()) {
 
 See the [Agent SDK docs](/agent-sdk/index.md) for full setup instructions and [Deployment](/agent-sdk/deployment/index.md) for production configurations.
 
-For OpenAI-compatible clients, see the [App Server quickstart](/platform/app-server/quickstart#openai-compatible-api/index.md).
+For OpenAI-compatible clients, see the [App Server quickstart](/self-hosting/app-server/quickstart#openai-compatible-api/index.md).
 
 ## Deployment
 
@@ -267,7 +274,7 @@ const client = new LettaAgentClient({
 });
 ```
 
-App Server has shell and filesystem access on its host. Keep its token in your application’s backend or secret store rather than exposing it to browser clients. See [App Server](/platform/app-server/index.md) for protocol and authentication details.
+App Server has shell and filesystem access on its host. Keep its token in your application’s backend or secret store rather than exposing it to browser clients. See [App Server](/self-hosting/app-server/index.md) for protocol and authentication details.
 
 ## Where local state is stored
 

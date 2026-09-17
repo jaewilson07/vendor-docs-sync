@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Mcp Server
 
 `mcp_servers.create(McpServerCreateParams**kwargs)  -> McpServerCreateResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List tokens  (Cloud-only)
 
 `access_tokens.list(AccessTokenListParams**kwargs)  -> AccessTokenListResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Passages In Archive
 
 `archives.passages.create_many(strarchive_id, PassageCreateManyParams**kwargs)  -> PassageCreateManyResponse`

@@ -1,6 +1,13 @@
 ---
 title: Sessions, turns, and durability | Letta Docs
-description: The agent, conversation, and session model, and what the SDK guarantees across connections
+description: The agent, conversation, and session model, and what the SDK
+  guarantees across connections
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 An **agent** is the persistent entity with memory. A **conversation** is a thread on that agent. A **session** is the active connection you use to send messages and stream events.

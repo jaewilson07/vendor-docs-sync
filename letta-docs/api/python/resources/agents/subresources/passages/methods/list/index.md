@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Passages
 
 `agents.passages.list(stragent_id, PassageListParams**kwargs)  -> PassageListResponse`

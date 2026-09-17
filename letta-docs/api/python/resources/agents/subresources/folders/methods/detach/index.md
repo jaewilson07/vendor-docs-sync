@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Folder From Agent
 
 `agents.folders.detach(strfolder_id, FolderDetachParams**kwargs)  -> AgentState`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Passage
 
 `agents.passages.delete(strmemory_id, PassageDeleteParams**kwargs)  -> object`

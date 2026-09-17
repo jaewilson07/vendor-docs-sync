@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Passage From Archive
 
 **delete** `/v1/archives/{archive_id}/passages/{passage_id}`

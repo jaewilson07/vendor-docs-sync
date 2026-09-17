@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Archive
 
 **patch** `/v1/archives/{archive_id}`

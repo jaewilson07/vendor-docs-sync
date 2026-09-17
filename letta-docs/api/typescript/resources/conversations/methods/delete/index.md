@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Conversation
 
 `client.conversations.delete(stringconversationID, RequestOptionsoptions?): ConversationDeleteResponse`

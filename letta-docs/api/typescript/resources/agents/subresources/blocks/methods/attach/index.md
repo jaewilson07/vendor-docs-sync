@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Block To Agent
 
 `client.agents.blocks.attach(stringblockID, BlockAttachParamsparams, RequestOptionsoptions?): AgentState`

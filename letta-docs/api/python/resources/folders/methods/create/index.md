@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Folder
 
 `folders.create(FolderCreateParams**kwargs)  -> Folder`

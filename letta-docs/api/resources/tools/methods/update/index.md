@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Tool
 
 **patch** `/v1/tools/{tool_id}`

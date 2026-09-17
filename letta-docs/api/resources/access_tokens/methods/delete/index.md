@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete token  (Cloud-only)
 
 **delete** `/v1/client-side-access-tokens/{token}`

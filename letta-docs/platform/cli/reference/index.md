@@ -1,6 +1,12 @@
 ---
 title: CLI reference | Letta Docs
 description: Command-line options and flags for Letta Code
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - cli
 ---
 
 ## Essential commands

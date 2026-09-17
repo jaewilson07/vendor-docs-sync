@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Archive
 
 **get** `/v1/archives/{archive_id}`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Message
 
 **get** `/v1/messages/{message_id}`

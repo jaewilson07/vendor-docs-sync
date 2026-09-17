@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Blocks
 
 `blocks.list(BlockListParams**kwargs)  -> SyncArrayPage[BlockResponse]`

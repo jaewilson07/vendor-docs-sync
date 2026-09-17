@@ -1,6 +1,14 @@
 ---
 title: Meet your agent | Letta Docs
-description: Create your first Letta agent and verify that its memory persists across conversations.
+description: Create your first Letta agent and verify that its memory persists
+  across conversations.
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - desktop
+    - cli
 ---
 
 A Letta agent maintains persistent memory that carries from one conversation to the next. Working with it is more like working with a colleague who already knows useful context than using a tool that starts from scratch.

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Steps For Run
 
 `runs.steps.list(strrun_id, StepListParams**kwargs)  -> SyncArrayPage[Step]`

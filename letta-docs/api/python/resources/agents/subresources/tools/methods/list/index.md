@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Tools For Agent
 
 `agents.tools.list(stragent_id, ToolListParams**kwargs)  -> SyncArrayPage[Tool]`

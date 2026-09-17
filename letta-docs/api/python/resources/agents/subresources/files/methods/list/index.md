@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Files For Agent
 
 `agents.files.list(stragent_id, FileListParams**kwargs)  -> SyncNextFilesPage[FileListResponse]`

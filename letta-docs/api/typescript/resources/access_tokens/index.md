@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 # Access Tokens
 
 ## List tokens  (Cloud-only)

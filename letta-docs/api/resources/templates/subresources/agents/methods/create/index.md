@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Agents From Template
 
 **post** `/v1/templates/{template_version}/agents`

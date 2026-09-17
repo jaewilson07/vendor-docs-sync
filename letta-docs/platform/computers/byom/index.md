@@ -1,6 +1,14 @@
 ---
 title: Bring Your Own Machine (BYOM) | Letta Docs
 description: Make your computers available to Letta agents from the web or Letta app
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 Remote environments separate where you **interact** with a Letta agent from where its tools **execute**. You can chat from [chat.letta.com](https://chat.letta.com), the [Letta app](/platform/desktop-app/index.md), or another client while the agent runs shell commands, reads files, and writes code on a machine you control.
@@ -9,7 +17,7 @@ Without a remote environment, `chat.letta.com` uses a managed cloud sandbox by d
 
 Remote access requires signing in with Letta. It is not available for agents stored only on a local backend.
 
-A remote environment is different from [App Server](/platform/app-server/index.md). A remote environment connects outward to Letta Cloud and supplies tool execution for agents hosted there. App Server accepts direct connections from your application and can use either local agent state or agent state hosted in Letta Cloud. Use App Server for a directly connected application runtime; use a remote environment when you want to keep using Letta Cloud’s hosted clients and control plane.
+A remote environment is different from [App Server](/self-hosting/app-server/index.md). A remote environment connects outward to Letta Cloud and supplies tool execution for agents hosted there. App Server accepts direct connections from your application and can use either local agent state or agent state hosted in Letta Cloud. Use App Server for a directly connected application runtime; use a remote environment when you want to keep using Letta Cloud’s hosted clients and control plane.
 
 ![Remote environment selected in the Letta app](/images/letta-code-remote.jpg) ![Remote environment selected in the Letta app](/images/letta-code-remote.jpg)
 

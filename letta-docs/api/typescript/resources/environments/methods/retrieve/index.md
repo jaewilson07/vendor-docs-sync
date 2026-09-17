@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Get Environment Connection
 
 `client.environments.retrieve(stringdeviceID, RequestOptionsoptions?): EnvironmentRetrieveResponse`

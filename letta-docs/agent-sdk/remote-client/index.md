@@ -1,9 +1,15 @@
 ---
 title: Remote client API | Letta Docs
-description: Low-level hosted transport for custom clients that control Letta Code remote environments.
+description: Low-level hosted transport for custom clients that control Letta
+  Code remote environments.
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
 ---
 
-The Remote client API connects a custom client to a Letta Code remote environment through Letta’s hosted router. It carries the same runtime protocol as [Letta App Server](/platform/app-server/index.md), with hosted environment discovery, authentication, relay channels, and delivery acknowledgements around it.
+The Remote client API connects a custom client to a Letta Code remote environment through Letta’s hosted router. It carries the same runtime protocol as [Letta App Server](/self-hosting/app-server/index.md), with hosted environment discovery, authentication, relay channels, and delivery acknowledgements around it.
 
 For most applications, use the [Letta Agent SDK](/agent-sdk/index.md) with `backend: "cloud"` instead. The SDK resolves the environment, opens both hosted relay sockets, starts the runtime, handles acknowledgements and heartbeats, streams events, and synchronizes state after event gaps.
 
@@ -225,5 +231,5 @@ setInterval(() => {
 ## Protocol references
 
 - [Remote client API reference](/agent-sdk/remote-client/reference/index.md) - Hosted discovery, auth, relay channels, startup, and reliability.
-- [App Server protocol lifecycle](/platform/app-server/protocol-lifecycle/index.md) - Canonical commands, responses, approvals, and runtime events.
+- [App Server protocol lifecycle](/self-hosting/app-server/protocol-lifecycle/index.md) - Canonical commands, responses, approvals, and runtime events.
 - [Self-hosting](/self-hosting/index.md) - Run local agents on infrastructure you control and connect through App Server.

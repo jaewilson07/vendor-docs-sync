@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Message
 
 `client.messages.retrieve(stringmessageID, RequestOptionsoptions?): MessageRetrieveResponse`

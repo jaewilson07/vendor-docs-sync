@@ -1,6 +1,14 @@
 ---
 title: Pricing | Letta Docs
 description: Pricing for the Letta app, CLI, and developer usage
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 ## For Individuals

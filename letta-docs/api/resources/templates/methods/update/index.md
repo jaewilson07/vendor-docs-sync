@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update current template from agent file (Cloud-only)
 
 **patch** `/v1/templates/{template_name}`

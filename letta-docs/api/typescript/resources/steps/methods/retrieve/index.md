@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Step
 
 `client.steps.retrieve(stringstepID, RequestOptionsoptions?): Step`

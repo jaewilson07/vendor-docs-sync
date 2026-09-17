@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Summarize Messages
 
 **post** `/v1/agents/{agent_id}/summarize`

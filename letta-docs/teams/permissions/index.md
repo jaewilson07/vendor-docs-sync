@@ -1,6 +1,14 @@
 ---
 title: Configuring permissions | Letta Docs
 description: Control who can access agents and conversations in your organization
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 Joining an organization does not give a collaborator access to every agent and conversation. Letta combines organization roles with sharing controls so teammates can collaborate without making all agent activity visible to the entire organization.

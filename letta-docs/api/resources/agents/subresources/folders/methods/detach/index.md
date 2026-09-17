@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Folder From Agent
 
 **patch** `/v1/agents/{agent_id}/folders/detach/{folder_id}`

@@ -1,6 +1,14 @@
 ---
 title: Memory & dreaming | Letta Docs
 description: Initialize, teach, and improve your agent's memory over time
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
 ---
 
 Letta agents use [MemFS](/concepts/memfs/index.md), a git-backed memory filesystem that they can inspect and edit. Memory is shared across the agent’s conversations and improves as the agent learns durable information about you and its work.

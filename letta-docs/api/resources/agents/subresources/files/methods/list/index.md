@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Files For Agent
 
 **get** `/v1/agents/{agent_id}/files`

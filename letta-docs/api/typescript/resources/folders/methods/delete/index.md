@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Folder
 
 `client.folders.delete(stringfolderID, RequestOptionsoptions?): FolderDeleteResponse`

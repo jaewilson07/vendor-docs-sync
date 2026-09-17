@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Passage From Archive
 
 `archives.passages.delete(strpassage_id, PassageDeleteParams**kwargs)`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Conversation Stream
 
 `conversations.messages.stream(strconversation_id, MessageStreamParams**kwargs)  -> object`

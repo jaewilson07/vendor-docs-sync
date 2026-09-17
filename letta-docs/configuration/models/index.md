@@ -1,6 +1,14 @@
 ---
 title: Models | Letta Docs
 description: Configure models, providers, and reasoning settings in the Letta app or CLI
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
 ---
 
 Letta agents are **model-agnostic**. Agents can use Claude, GPT, Gemini, or other supported models. Users can change an agent’s underlying model at any time, even mid-conversation.

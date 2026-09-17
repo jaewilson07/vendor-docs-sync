@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Steps For Run
 
 **get** `/v1/runs/{run_id}/steps`

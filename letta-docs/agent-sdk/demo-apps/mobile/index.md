@@ -1,6 +1,12 @@
 ---
 title: Build a mobile agent app | Letta Docs
 description: Run a complete Expo mobile client for Letta Cloud or your own App Server
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 The [Agent SDK mobile app](https://github.com/letta-ai/agent-sdk-mobile-app) is a complete Expo and React Native client for persistent Letta agents. It can connect to Letta Cloud or directly to a Letta App Server running on your own computer.

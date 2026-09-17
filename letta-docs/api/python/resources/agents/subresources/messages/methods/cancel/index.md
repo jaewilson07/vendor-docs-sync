@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Cancel Message
 
 `agents.messages.cancel(stragent_id, MessageCancelParams**kwargs)  -> MessageCancelResponse`

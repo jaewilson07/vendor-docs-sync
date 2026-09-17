@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete token  (Cloud-only)
 
 `client.accessTokens.delete(stringtoken, AccessTokenDeleteParamsparams?, RequestOptionsoptions?): AccessTokenDeleteResponse`

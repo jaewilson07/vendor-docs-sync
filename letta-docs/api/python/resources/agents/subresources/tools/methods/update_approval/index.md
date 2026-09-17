@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Approval For Tool
 
 `agents.tools.update_approval(strtool_name, ToolUpdateApprovalParams**kwargs)  -> AgentState`

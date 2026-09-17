@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve File
 
 `folders.files.retrieve(strfile_id, FileRetrieveParams**kwargs)  -> FileRetrieveResponse`

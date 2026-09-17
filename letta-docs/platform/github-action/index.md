@@ -1,6 +1,11 @@
 ---
 title: GitHub action | Letta Docs
 description: Integrate Letta Code into your GitHub repository
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - cli
 ---
 
 The easiest way to set up the GitHub action is to ask a Letta agent to do it for you: open the [Letta app](/platform/desktop-app/index.md) or CLI in your repository and ask your agent to install the Letta Code GitHub action.

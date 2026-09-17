@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Search Tools
 
 `tools.search(ToolSearchParams**kwargs)  -> ToolSearchResponse`

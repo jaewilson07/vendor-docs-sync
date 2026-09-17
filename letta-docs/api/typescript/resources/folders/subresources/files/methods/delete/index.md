@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete File From Folder
 
 `client.folders.files.delete(stringfileID, FileDeleteParamsparams, RequestOptionsoptions?): void`

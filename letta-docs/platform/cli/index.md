@@ -1,6 +1,12 @@
 ---
 title: Letta CLI | Letta Docs
 description: Run the Letta CLI from your terminal
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - cli
 ---
 
 ## Install the Letta CLI

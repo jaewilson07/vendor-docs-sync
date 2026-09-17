@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Search Archival Memory
 
 `client.agents.passages.search(stringagentID, PassageSearchParamsquery, RequestOptionsoptions?): PassageSearchResponse`

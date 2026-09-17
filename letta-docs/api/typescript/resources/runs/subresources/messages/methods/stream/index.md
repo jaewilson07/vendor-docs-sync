@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Stream For Run
 
 `client.runs.messages.stream(stringrunID, MessageStreamParamsbody?, RequestOptionsoptions?): MessageStreamResponse | Stream<LettaStreamingResponse>`

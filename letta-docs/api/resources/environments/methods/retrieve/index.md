@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Get Environment Connection
 
 **get** `/v1/environments/{deviceId}`

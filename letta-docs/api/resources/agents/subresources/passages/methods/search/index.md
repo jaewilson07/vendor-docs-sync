@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Search Archival Memory
 
 **get** `/v1/agents/{agent_id}/archival-memory/search`

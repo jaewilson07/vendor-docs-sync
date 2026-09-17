@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Tools For Mcp Server
 
 `client.mcpServers.tools.list(stringmcpServerID, RequestOptionsoptions?): ToolListResponse`

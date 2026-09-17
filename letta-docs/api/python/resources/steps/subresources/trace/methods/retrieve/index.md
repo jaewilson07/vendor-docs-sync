@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Trace For Step
 
 `steps.trace.retrieve(strstep_id)  -> ProviderTrace`

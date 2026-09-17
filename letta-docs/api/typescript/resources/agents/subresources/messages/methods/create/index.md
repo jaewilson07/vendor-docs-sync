@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Message
 
 `client.agents.messages.create(stringagentID, MessageCreateParamsbody, RequestOptionsoptions?): LettaResponse | Stream<LettaStreamingResponse>`

@@ -1,6 +1,12 @@
 ---
 title: Permissions | Letta Docs
 description: Control tool use with permission modes and interactive approvals
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 The SDK gives your application two levers over what an agent’s tools can do: a session-wide **permission mode**, and a **`canUseTool` callback** that approves, denies, or edits individual tool calls — interactively, if your application involves a human.

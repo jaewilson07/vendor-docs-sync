@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Mcp Server
 
 `client.mcpServers.update(stringmcpServerID, McpServerUpdateParamsbody, RequestOptionsoptions?): McpServerUpdateResponse`

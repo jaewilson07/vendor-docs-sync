@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Folder From Agent
 
 `client.agents.folders.detach(stringfolderID, FolderDetachParamsparams, RequestOptionsoptions?): AgentState | null`

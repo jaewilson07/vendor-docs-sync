@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Messages For Step
 
 **get** `/v1/steps/{step_id}/messages`

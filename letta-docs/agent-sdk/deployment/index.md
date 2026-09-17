@@ -1,6 +1,12 @@
 ---
 title: Deploying your agents | Letta Docs
 description: Deployment patterns and client setup options for the Letta Agent SDK
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 The Letta Agent SDK is the recommended application interface across managed, local, and self-hosted deployments. The selected backend determines which underlying API or runtime transport the SDK manages for you.
@@ -186,11 +192,11 @@ With `--backend local`, agent state and the execution environment remain on the 
 
 Unlike a computer connected to Letta Cloud, App Server accepts a direct connection from your application. It does not register itself as a selectable computer in Letta Cloud’s hosted clients.
 
-For container deployment, see [Self-hosting](/self-hosting#deployment/index.md). For startup, authentication, and lower-level protocol details, see [App Server](/platform/app-server/index.md).
+For container deployment, see [Self-hosting](/self-hosting#deployment/index.md). For startup, authentication, and lower-level protocol details, see [App Server](/self-hosting/app-server/index.md).
 
 ## What to read next
 
 - [Quickstart](/agent-sdk/quickstart/index.md) — working code for each backend
 - [Sessions, turns, and durability](/agent-sdk/sessions/index.md) — what persists across connections
 - [Creating agents](/agent-sdk/agents/index.md) — per-backend MemFS locations
-- [App Server](/platform/app-server/index.md) — startup, authentication, and protocol details
+- [App Server](/self-hosting/app-server/index.md) — startup, authentication, and protocol details

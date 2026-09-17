@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete File From Folder
 
 **delete** `/v1/folders/{folder_id}/{file_id}`

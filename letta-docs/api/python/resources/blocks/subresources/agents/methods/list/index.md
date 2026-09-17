@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Agents For Block
 
 `blocks.agents.list(strblock_id, AgentListParams**kwargs)  -> SyncArrayPage[AgentState]`

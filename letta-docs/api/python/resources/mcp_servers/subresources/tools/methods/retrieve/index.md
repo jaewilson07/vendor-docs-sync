@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Mcp Tool
 
 `mcp_servers.tools.retrieve(strtool_id, ToolRetrieveParams**kwargs)  -> Tool`

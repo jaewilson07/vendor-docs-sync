@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Conversation Stream
 
 **post** `/v1/conversations/{conversation_id}/stream`

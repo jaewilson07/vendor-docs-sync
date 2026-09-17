@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Folder
 
 `folders.update(strfolder_id, FolderUpdateParams**kwargs)  -> Folder`

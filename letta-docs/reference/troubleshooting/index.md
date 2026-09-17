@@ -1,6 +1,14 @@
 ---
 title: Troubleshooting | Letta Docs
 description: Diagnose common Letta app and CLI setup, connection, and execution problems
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
 ---
 
 ## Run the built-in diagnostic

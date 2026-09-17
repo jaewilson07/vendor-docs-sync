@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Send Message to Environment
 
 `client.environments.sendMessage(stringconnectionID, EnvironmentSendMessageParamsbody, RequestOptionsoptions?): EnvironmentSendMessageResponse`

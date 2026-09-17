@@ -1,9 +1,14 @@
 ---
 title: Slack | Letta Docs
 description: Connect Slack to a Letta agent
+applies_to:
+  backends:
+    - local
+  interfaces:
+    - cli
 ---
 
-If you’re using Letta-hosted agents, use the [native Slack integration](/platform/cloud-agents/slack/index.md) instead, which is always-on and does not require running an additional gateway server.
+These CLI channels support the local backend only. For cloud-hosted agents, use first-party integrations such as the [native Slack integration](/platform/cloud-agents/slack/index.md), not `letta channels`.
 
 ## 1. Create a Slack app
 
@@ -80,7 +85,7 @@ If you choose `allowlist`, you’ll need Slack user IDs. To find a user ID: open
 ## 3. Start the server
 
 ```
-letta server --channels slack
+letta server --backend local --channels slack
 ```
 
 ## 4. Bind the Slack app to an agent

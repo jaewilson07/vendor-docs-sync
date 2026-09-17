@@ -1,6 +1,13 @@
 ---
 title: Mods | Letta Docs
 description: Customize Letta Code with trusted local code
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - cli
+    - desktop
 ---
 
 Mods run as fully trusted code inside your Letta Code process. They let your agent modify its own runtime — adding tools, commands, event hooks, permission policies, and provider adapters that take effect immediately on reload. This makes the harness self-modifying: your agent can extend its own capabilities, shape how turns and tools behave, and adapt the environment around itself over time.
@@ -19,27 +26,28 @@ For example, ask:
 Write a Letta Code mod that adds a /review command for reviewing my current git diff.
 ```
 
-Your agent can inspect any existing files in `~/.letta/mods/`, write the new mod, and tell you to run `/reload` when it is ready.
+Your agent can inspect existing mods, choose a machine-wide or agent-specific location, and tell you to run `/reload` when the mod is ready.
 
 ## Setup
 
-Mods live in your global Letta directory:
+Choose where the mod should apply:
 
-```
-~/.letta/mods/
-```
+| Location            | Scope                                            |
+| ------------------- | ------------------------------------------------ |
+| `~/.letta/mods/`    | Sessions on this computer                        |
+| `$MEMORY_DIR/mods/` | One agent, via [MemFS](/concepts/memfs/index.md) |
 
-Each `.js`, `.mjs`, `.ts`, or `.tsx` file in that directory is loaded on startup. After editing a mod, run `/reload` to reload it without restarting Letta Code.
+Letta Code loads non-hidden `.js`, `.mjs`, `.ts`, and `.tsx` files directly inside these directories on startup. Agent mods load for the active agent when its memory filesystem is enabled; project-local mods are not supported. After editing a mod, run `/reload` to reload it without restarting Letta Code.
 
 Mods are trusted code. They run locally with the same access as Letta Code, so only install or write mods you trust.
 
 ### Desktop support
 
-Mods load in the local Letta Code process used by both terminal and Desktop sessions. Mod commands, tools, event hooks, and permission rules work in both interfaces. Terminal panels and statusline renderers only appear in the terminal UI.
+Mods execute on the computer running Letta Code, including for cloud-hosted agents. Desktop listeners support commands, tools, tool/turn events, and permission rules, but not conversation lifecycle events, model/compaction events, or terminal panels. Guard registrations with `letta.capabilities` rather than assuming every host supports every API.
 
 ## Example
 
-A mod exports an `activate` function. Inside `activate`, register the capabilities you want and return a cleanup function if the mod owns timers, UI, or subscriptions.
+A mod’s default export is an activation function. Register capabilities there and return a cleanup function for registrations, timers, UI, or subscriptions. Use the callback’s `ctx` for the active agent, conversation, and working directory.
 
 \~/.letta/mods/whereami.ts
 
@@ -92,7 +100,7 @@ Subscribe to lifecycle and execution events. Some events are observe-only; other
 | `compact_start`      | Checkpoint important state before compaction evicts it                                                                 |
 | `compact_end`        | Inspect what changed, log stats, or re-inject persistent context                                                       |
 
-`llm_start`, `llm_end`, `compact_start`, and `compact_end` fire only for local agents, where inference and compaction run on your machine. For agents running through the Letta API, this work happens server-side, so these events don’t fire there.
+`llm_start`, `llm_end`, `compact_start`, and `compact_end` require a supporting host and the local backend. For cloud-hosted agents, inference and compaction happen server-side, so these events don’t fire in the local mod process.
 
 ### Permissions
 
@@ -100,7 +108,7 @@ Add dynamic allow/ask/deny policies that evaluate before a tool call is executed
 
 ### Providers
 
-Register a custom model/API provider that local agents can use. Provider mods are local-only — they do not add providers for agents running through the Letta API.
+Register a custom model/API provider for local-backend agents; this does not add a provider to Letta Cloud. In Desktop listeners, providers must be machine-wide mods: agent-scoped provider registration is unavailable. Guard registration with `letta.capabilities.providers`.
 
 ### UI
 
@@ -130,6 +138,7 @@ Manage installed packages:
 
 ```
 letta mods list                        # show mod files and installed packages
+letta mods list --agent <agent-id>     # also include this agent's MemFS mods
 letta mods enable <package-spec>
 letta mods disable <package-spec>
 letta mods update npm:@scope/package   # update to the latest version in place

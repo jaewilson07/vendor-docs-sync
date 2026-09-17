@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Passage
 
 **post** `/v1/agents/{agent_id}/archival-memory`

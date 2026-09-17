@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Mcp Servers
 
 `client.mcpServers.list(RequestOptionsoptions?): McpServerListResponse`

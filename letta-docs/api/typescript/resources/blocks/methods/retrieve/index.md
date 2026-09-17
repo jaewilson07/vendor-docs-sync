@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Block
 
 `client.blocks.retrieve(stringblockID, RequestOptionsoptions?): BlockResponse`

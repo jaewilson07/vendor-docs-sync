@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Archive
 
 `archives.update(strarchive_id, ArchiveUpdateParams**kwargs)  -> Archive`

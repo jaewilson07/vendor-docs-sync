@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Agents
 
 `agents.list(AgentListParams**kwargs)  -> SyncArrayPage[AgentState]`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Archive From Agent
 
 `agents.archives.detach(strarchive_id, ArchiveDetachParams**kwargs)  -> object`

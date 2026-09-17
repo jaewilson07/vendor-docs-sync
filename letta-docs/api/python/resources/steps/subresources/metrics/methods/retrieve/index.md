@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Metrics For Step
 
 `steps.metrics.retrieve(strstep_id)  -> MetricRetrieveResponse`

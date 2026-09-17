@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Message
 
 `messages.retrieve(strmessage_id)  -> MessageRetrieveResponse`

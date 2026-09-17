@@ -1,6 +1,14 @@
 ---
 title: Cloud agents | Letta Docs
 description: Run your stateful agents in cloud computers
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 Any Letta agent can be run on [chat.letta.com](https://chat.letta.com/) as a cloud agent, executing in a cloud sandbox instead of on your own computer.

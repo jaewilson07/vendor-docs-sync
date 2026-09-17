@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Stream For Run
 
 `runs.messages.stream(strpath_run_id, MessageStreamParams**kwargs)  -> object`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Search Archival Memory
 
 `agents.passages.search(stragent_id, PassageSearchParams**kwargs)  -> PassageSearchResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Identity To Agent
 
 **patch** `/v1/agents/{agent_id}/identities/attach/{identity_id}`

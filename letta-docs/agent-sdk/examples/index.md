@@ -1,6 +1,12 @@
 ---
 title: Examples | Letta Docs
 description: Complete example applications built on the Letta Agent SDK
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 The [SDK repository](https://github.com/letta-ai/letta-agent-sdk/tree/main/examples) ships complete, runnable example applications. Each one demonstrates a different part of the SDK surface:

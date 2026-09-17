@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Folder To Agent
 
 `agents.folders.attach(strfolder_id, FolderAttachParams**kwargs)  -> AgentState`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Archive To Agent
 
 `agents.archives.attach(strarchive_id, ArchiveAttachParams**kwargs)  -> object`

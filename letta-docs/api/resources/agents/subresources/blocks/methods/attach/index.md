@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Block To Agent
 
 **patch** `/v1/agents/{agent_id}/core-memory/blocks/attach/{block_id}`

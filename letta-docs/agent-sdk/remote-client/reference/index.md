@@ -1,11 +1,17 @@
 ---
 title: Remote client API reference | Letta Docs
-description: Hosted environment discovery, authentication, relay channels, runtime startup, and reliability.
+description: Hosted environment discovery, authentication, relay channels,
+  runtime startup, and reliability.
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
 ---
 
 Use this reference after the [Remote client API overview](/agent-sdk/remote-client/index.md).
 
-The Remote client API carries the [App Server protocol](/platform/app-server/protocol-lifecycle/index.md) through Letta’s hosted remote-environment router. This page documents the hosted transport around that shared protocol.
+The Remote client API carries the [App Server protocol](/self-hosting/app-server/protocol-lifecycle/index.md) through Letta’s hosted remote-environment router. This page documents the hosted transport around that shared protocol.
 
 | Transport                 | Socket layout                                    | How the runtime is selected                                                           |
 | ------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------- |
@@ -186,14 +192,14 @@ Each healthy channel responds with `pong`. If either channel closes, close the o
 
 After startup, use the canonical App Server protocol for runtime operations:
 
-| Task                                                                   | Canonical docs                                                                                                          |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Send a user turn                                                       | [`input` with `payload.kind: "create_message"`](/platform/app-server/protocol-lifecycle#sending-turns/index.md)         |
-| Respond to approvals                                                   | [`input` with `payload.kind: "approval_response"`](/platform/app-server/protocol-lifecycle#approval-responses/index.md) |
-| Replay state                                                           | [`sync`](/platform/app-server/protocol-lifecycle#sync/index.md)                                                         |
-| Abort active work                                                      | [`abort_message`](/platform/app-server/protocol-lifecycle#abort/index.md)                                               |
-| Handle output and runtime state                                        | [Streaming and completion](/platform/app-server/protocol-lifecycle#streaming-and-completion/index.md)                   |
-| Use filesystem, memory, model, terminal, schedule, or channel commands | [Management and computer commands](/platform/app-server/protocol-lifecycle#management-and-computer-commands/index.md)   |
+| Task                                                                   | Canonical docs                                                                                                              |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Send a user turn                                                       | [`input` with `payload.kind: "create_message"`](/self-hosting/app-server/protocol-lifecycle#sending-turns/index.md)         |
+| Respond to approvals                                                   | [`input` with `payload.kind: "approval_response"`](/self-hosting/app-server/protocol-lifecycle#approval-responses/index.md) |
+| Replay state                                                           | [`sync`](/self-hosting/app-server/protocol-lifecycle#sync/index.md)                                                         |
+| Abort active work                                                      | [`abort_message`](/self-hosting/app-server/protocol-lifecycle#abort/index.md)                                               |
+| Handle output and runtime state                                        | [Streaming and completion](/self-hosting/app-server/protocol-lifecycle#streaming-and-completion/index.md)                   |
+| Use filesystem, memory, model, terminal, schedule, or channel commands | [Management and computer commands](/self-hosting/app-server/protocol-lifecycle#management-and-computer-commands/index.md)   |
 
 The protocol is a discriminated-union event stream, not JSON-RPC. Preserve unknown fields and log unknown event types instead of crashing.
 
@@ -222,4 +228,4 @@ The protocol is a discriminated-union event stream, not JSON-RPC. Preserve unkno
 
 - [Remote client API overview](/agent-sdk/remote-client/index.md) - Hosted flow and a minimal transport example.
 - [Self-hosting](/self-hosting/index.md) - Run local agents on infrastructure you control and connect through App Server.
-- [App Server protocol lifecycle](/platform/app-server/protocol-lifecycle/index.md) - Canonical runtime commands and events.
+- [App Server protocol lifecycle](/self-hosting/app-server/protocol-lifecycle/index.md) - Canonical runtime commands and events.

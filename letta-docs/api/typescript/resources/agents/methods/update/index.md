@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Agent
 
 `client.agents.update(stringagentID, AgentUpdateParamsbody, RequestOptionsoptions?): AgentState`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Tool
 
 `tools.create(ToolCreateParams**kwargs)  -> Tool`

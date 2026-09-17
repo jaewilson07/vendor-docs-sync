@@ -1,7 +1,14 @@
 ---
 title: WhatsApp | Letta Docs
 description: Connect WhatsApp to a Letta agent
+applies_to:
+  backends:
+    - local
+  interfaces:
+    - cli
 ---
+
+These CLI channels support the local backend only. For cloud-hosted agents, use first-party integrations such as the [native Slack integration](/platform/cloud-agents/slack/index.md), not `letta channels`.
 
 WhatsApp sends through the linked WhatsApp account. Keep self-chat only enabled for personal numbers. Disable it only for a dedicated agent number, because replies will appear as that WhatsApp number.
 
@@ -31,7 +38,7 @@ Config is written to `~/.letta/channels/whatsapp/accounts.json`.
 ## 3. Start the server with WhatsApp enabled
 
 ```
-letta server --channels whatsapp
+letta server --backend local --channels whatsapp
 ```
 
 On first start, the listener prints a linked-device QR code. In WhatsApp, open **Settings > Linked Devices > Link a Device** and scan the QR code. Session state is stored under `~/.letta/channels/whatsapp/auth/`.

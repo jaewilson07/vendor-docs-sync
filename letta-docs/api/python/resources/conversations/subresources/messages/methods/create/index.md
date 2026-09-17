@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Send Conversation Message
 
 `conversations.messages.create(strconversation_id, MessageCreateParams**kwargs)  -> LettaResponse`

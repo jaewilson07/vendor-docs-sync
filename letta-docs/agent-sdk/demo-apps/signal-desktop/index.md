@@ -1,6 +1,11 @@
 ---
 title: Add agents to an existing desktop app | Letta Docs
 description: Study a Letta Agent SDK integration inside the Signal Desktop application shell
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
 ---
 
 The [Signal Desktop shell demo](https://github.com/letta-ai/signal-desktop-app) shows how to connect the Letta Agent SDK to a large existing desktop application. It keeps Signal Desktop’s contact list, conversations, composer, local message history, attachments, typing indicators, failed-send state, and retry interface while replacing the messaging backend with Letta agents and conversations.

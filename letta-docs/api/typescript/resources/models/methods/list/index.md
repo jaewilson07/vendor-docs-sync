@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Llm Models
 
 `client.models.list(ModelListParamsquery?, RequestOptionsoptions?): ModelListResponse`

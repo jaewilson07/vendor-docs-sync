@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Tools For Mcp Server
 
 **get** `/v1/mcp-servers/{mcp_server_id}/tools`

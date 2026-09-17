@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Trace For Run
 
 `runs.trace.retrieve(strrun_id, TraceRetrieveParams**kwargs)  -> TraceRetrieveResponse`

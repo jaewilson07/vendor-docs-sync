@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Folders For Agent
 
 `client.agents.folders.list(stringagentID, FolderListParamsquery?, RequestOptionsoptions?): ArrayPage<FolderListResponse>`

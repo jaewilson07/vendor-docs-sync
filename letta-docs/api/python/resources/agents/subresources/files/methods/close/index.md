@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Close File For Agent
 
 `agents.files.close(strfile_id, FileCloseParams**kwargs)  -> object`

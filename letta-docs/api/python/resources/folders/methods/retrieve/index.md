@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Folder
 
 `folders.retrieve(strfolder_id)  -> Folder`

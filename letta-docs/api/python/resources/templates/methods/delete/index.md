@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete template (Cloud-only)
 
 `templates.delete(strtemplate_name)  -> TemplateDeleteResponse`

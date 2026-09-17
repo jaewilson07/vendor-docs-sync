@@ -1,6 +1,16 @@
 ---
 title: Frequently asked questions | Letta Docs
-description: Answers to common questions about Letta apps, the CLI, App Server, memory, tools, and troubleshooting
+description: Answers to common questions about Letta apps, the CLI, App Server,
+  memory, tools, and troubleshooting
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 If you can’t find the answer to your question, join our [Discord](https://discord.gg/letta) and ask there!
@@ -26,7 +36,7 @@ The desktop app does not currently accept a self-hosted App Server URL.
 
 If you are deploying a remote App Server and want a rich UI, you can:
 
-- Enable its [OpenAI-compatible API](/platform/app-server/quickstart#openai-compatible-api/index.md) and connect a frontend such as [Open WebUI](https://openwebui.com/).
+- Enable its [OpenAI-compatible API](/self-hosting/app-server/quickstart#openai-compatible-api/index.md) and connect a frontend such as [Open WebUI](https://openwebui.com/).
 - Use the [`letta-acp` adapter](/platform/acp/index.md) with an ACP client such as [Zed](https://zed.dev/ai) or [Buzz](https://buzz.xyz/).
 - Build a custom frontend with the [Letta Agent SDK](/agent-sdk/index.md).
 
@@ -54,11 +64,11 @@ Terminal window
 letta server --listen ws://127.0.0.1:4500
 ```
 
-This listens on port `4500`, with the WebSocket available at `ws://127.0.0.1:4500/ws`. Port `4500` is an example, not a fixed default. See the [App Server quickstart](/platform/app-server/quickstart/index.md) for startup and authentication options.
+This listens on port `4500`, with the WebSocket available at `ws://127.0.0.1:4500/ws`. Port `4500` is an example, not a fixed default. See the [App Server quickstart](/self-hosting/app-server/quickstart/index.md) for startup and authentication options.
 
 ### Is there a REST API?
 
-The native App Server API is its bidirectional WebSocket protocol. For clients that expect an HTTP API, start App Server with the built-in [OpenAI-compatible API](/platform/app-server/quickstart#openai-compatible-api/index.md):
+The native App Server API is its bidirectional WebSocket protocol. For clients that expect an HTTP API, start App Server with the built-in [OpenAI-compatible API](/self-hosting/app-server/quickstart#openai-compatible-api/index.md):
 
 Terminal window
 
@@ -88,7 +98,7 @@ Use the Agent SDK for new integrations. It provides the complete harness behavio
 
 No. The Letta Agent SDK is currently available only for TypeScript.
 
-We strongly recommend using the TypeScript Agent SDK. When Python is a hard requirement, run App Server separately and connect to its [WebSocket protocol](/platform/app-server/protocol-lifecycle/index.md) with a Python WebSocket library. The TypeScript Agent SDK is fully [open source](https://github.com/letta-ai/letta-agent-sdk) and can serve as a reference implementation.
+We strongly recommend using the TypeScript Agent SDK. When Python is a hard requirement, run App Server separately and connect to its [WebSocket protocol](/self-hosting/app-server/protocol-lifecycle/index.md) with a Python WebSocket library. The TypeScript Agent SDK is fully [open source](https://github.com/letta-ai/letta-agent-sdk) and can serve as a reference implementation.
 
 ### Does the Letta Agent SDK support AgentFile (`.af`)?
 

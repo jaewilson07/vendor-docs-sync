@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Run Tool For Agent
 
 `client.agents.tools.run(stringtoolName, ToolRunParamsparams, RequestOptionsoptions?): ToolExecutionResult`

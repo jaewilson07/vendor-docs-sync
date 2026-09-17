@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Refresh Mcp Server Tools
 
 `client.mcpServers.refresh(stringmcpServerID, McpServerRefreshParamsparams?, RequestOptionsoptions?): McpServerRefreshResponse`

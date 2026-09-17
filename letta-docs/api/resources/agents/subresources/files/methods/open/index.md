@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Open File For Agent
 
 **patch** `/v1/agents/{agent_id}/files/{file_id}/open`

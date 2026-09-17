@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Conversation Messages
 
 `client.conversations.messages.list(stringconversationID, MessageListParamsquery?, RequestOptionsoptions?): ArrayPage<Message>`

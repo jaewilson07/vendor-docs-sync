@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Export Agent
 
 `agents.export_file(stragent_id, AgentExportFileParams**kwargs)  -> AgentExportFileResponse`

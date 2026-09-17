@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Search All Messages
 
 `messages.search(MessageSearchParams**kwargs)  -> MessageSearchResponse`

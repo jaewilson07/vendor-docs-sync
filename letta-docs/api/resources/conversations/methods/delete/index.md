@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Conversation
 
 **delete** `/v1/conversations/{conversation_id}`

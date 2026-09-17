@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Archive From Agent
 
 `client.agents.archives.detach(stringarchiveID, ArchiveDetachParamsparams, RequestOptionsoptions?): ArchiveDetachResponse`

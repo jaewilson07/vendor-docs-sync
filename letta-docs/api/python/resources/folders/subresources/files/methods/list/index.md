@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Files For Folder
 
 `folders.files.list(strfolder_id, FileListParams**kwargs)  -> SyncArrayPage[FileListResponse]`

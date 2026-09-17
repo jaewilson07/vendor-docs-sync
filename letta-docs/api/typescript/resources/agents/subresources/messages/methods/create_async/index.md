@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Message Async
 
 `client.agents.messages.createAsync(stringagentID, MessageCreateAsyncParamsbody, RequestOptionsoptions?): Run`

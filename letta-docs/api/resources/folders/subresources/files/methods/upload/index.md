@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Upload File To Folder
 
 **post** `/v1/folders/{folder_id}/upload`

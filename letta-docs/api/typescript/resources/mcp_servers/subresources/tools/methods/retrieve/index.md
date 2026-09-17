@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Mcp Tool
 
 `client.mcpServers.tools.retrieve(stringtoolID, ToolRetrieveParamsparams, RequestOptionsoptions?): Tool`

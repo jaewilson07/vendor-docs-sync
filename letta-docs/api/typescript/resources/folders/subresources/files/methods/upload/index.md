@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Upload File To Folder
 
 `client.folders.files.upload(stringfolderID, FileUploadParamsparams, RequestOptionsoptions?): FileUploadResponse`

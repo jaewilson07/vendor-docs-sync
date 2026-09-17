@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Run
 
 `client.runs.retrieve(stringrunID, RequestOptionsoptions?): Run`

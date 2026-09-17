@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create template (Cloud-only)
 
 `client.templates.create(TemplateCreateParamsbody, RequestOptionsoptions?): TemplateCreateResponse`

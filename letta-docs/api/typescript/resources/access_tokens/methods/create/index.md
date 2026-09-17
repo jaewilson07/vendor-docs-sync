@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create token  (Cloud-only)
 
 `client.accessTokens.create(AccessTokenCreateParamsbody, RequestOptionsoptions?): AccessTokenCreateResponse`

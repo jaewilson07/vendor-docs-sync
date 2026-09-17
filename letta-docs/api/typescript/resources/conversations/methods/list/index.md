@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Conversations
 
 `client.conversations.list(ConversationListParamsquery?, RequestOptionsoptions?): ConversationListResponse`

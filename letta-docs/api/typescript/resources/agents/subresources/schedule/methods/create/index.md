@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Schedule Agent Message
 
 `client.agents.schedule.create(stringagentID, ScheduleCreateParamsbody, RequestOptionsoptions?): ScheduleCreateResponse`

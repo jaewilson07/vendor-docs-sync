@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Tool From Agent
 
 `client.agents.tools.detach(stringtoolID, ToolDetachParamsparams, RequestOptionsoptions?): AgentState | null`

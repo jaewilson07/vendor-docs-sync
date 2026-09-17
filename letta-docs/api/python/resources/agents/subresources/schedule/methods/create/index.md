@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Schedule Agent Message
 
 `agents.schedule.create(stragent_id, ScheduleCreateParams**kwargs)  -> ScheduleCreateResponse`

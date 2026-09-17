@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve File
 
 **get** `/v1/folders/{folder_id}/files/{file_id}`

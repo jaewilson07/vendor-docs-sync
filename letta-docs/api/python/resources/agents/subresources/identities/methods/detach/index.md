@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Identity From Agent
 
 `agents.identities.detach(stridentity_id, IdentityDetachParams**kwargs)  -> object`

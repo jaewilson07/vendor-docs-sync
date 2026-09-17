@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Block
 
 `blocks.create(BlockCreateParams**kwargs)  -> BlockResponse`

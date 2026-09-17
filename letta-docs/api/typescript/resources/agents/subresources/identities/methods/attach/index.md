@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Identity To Agent
 
 `client.agents.identities.attach(stringidentityID, IdentityAttachParamsparams, RequestOptionsoptions?): IdentityAttachResponse`

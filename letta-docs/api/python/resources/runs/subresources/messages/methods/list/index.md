@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Messages For Run
 
 `runs.messages.list(strrun_id, MessageListParams**kwargs)  -> SyncArrayPage[Message]`

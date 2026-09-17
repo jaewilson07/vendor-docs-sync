@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Recompile Conversation
 
 **post** `/v1/conversations/{conversation_id}/recompile`

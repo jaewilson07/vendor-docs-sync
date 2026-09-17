@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Block
 
 `client.blocks.delete(stringblockID, RequestOptionsoptions?): BlockDeleteResponse`

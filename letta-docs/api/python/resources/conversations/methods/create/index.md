@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Conversation
 
 `conversations.create(ConversationCreateParams**kwargs)  -> Conversation`

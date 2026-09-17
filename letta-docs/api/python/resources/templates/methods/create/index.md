@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create template (Cloud-only)
 
 `templates.create(TemplateCreateParams**kwargs)  -> TemplateCreateResponse`

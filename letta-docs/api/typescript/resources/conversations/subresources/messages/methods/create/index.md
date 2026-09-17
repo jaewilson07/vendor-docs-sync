@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Send Conversation Message
 
 `client.conversations.messages.create(stringconversationID, MessageCreateParamsbody, RequestOptionsoptions?): LettaResponse | Stream<LettaStreamingResponse>`

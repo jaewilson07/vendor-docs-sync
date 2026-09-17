@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Agents From Template
 
 `client.templates.agents.create(stringtemplateVersion, AgentCreateParamsbody?, RequestOptionsoptions?): AgentCreateResponse`

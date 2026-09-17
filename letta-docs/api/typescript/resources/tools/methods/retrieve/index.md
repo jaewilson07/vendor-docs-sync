@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Tool
 
 `client.tools.retrieve(stringtoolID, RequestOptionsoptions?): Tool`

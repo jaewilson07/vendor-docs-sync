@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Agents For Block
 
 **get** `/v1/blocks/{block_id}/agents`

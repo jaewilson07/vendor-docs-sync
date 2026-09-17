@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Mcp Server
 
 `client.mcpServers.delete(stringmcpServerID, RequestOptionsoptions?): void`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Agent
 
 `agents.update(stragent_id, AgentUpdateParams**kwargs)  -> AgentState`

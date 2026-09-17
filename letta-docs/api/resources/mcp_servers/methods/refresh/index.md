@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Refresh Mcp Server Tools
 
 **patch** `/v1/mcp-servers/{mcp_server_id}/refresh`

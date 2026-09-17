@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Steps
 
 `client.steps.list(StepListParamsquery?, RequestOptionsoptions?): ArrayPage<Step>`

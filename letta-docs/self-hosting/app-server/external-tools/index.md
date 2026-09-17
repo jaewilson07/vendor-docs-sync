@@ -1,11 +1,18 @@
 ---
 title: External tools | Letta Docs
-description: Register controller-owned tools in runtime_start and handle Letta App Server tool callbacks
+description: Register controller-owned tools in runtime_start and handle Letta
+  App Server tool callbacks
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 The recommended way to interface with the App Server is the [Letta Agent SDK](/agent-sdk/index.md), which provides a high-level interface over its WebSocket protocol.
 
-Alternatively, use the App Server’s [OpenAI-compatible API](/platform/app-server/quickstart#openai-compatible-api/index.md) with clients such as Open WebUI, or the [ACP adapter](/platform/acp/index.md) with ACP clients such as Zed.
+Alternatively, use the App Server’s [OpenAI-compatible API](/self-hosting/app-server/quickstart#openai-compatible-api/index.md) with clients such as Open WebUI, or the [ACP adapter](/platform/acp/index.md) with ACP clients such as Zed.
 
 External tools let a Letta App Server controller expose application-specific abilities to the agent without adding new built-in tools or asking the agent to shell out to a CLI.
 

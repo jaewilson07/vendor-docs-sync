@@ -1,6 +1,14 @@
 ---
 title: Set up Letta | Letta Docs
-description: Install the Letta app or CLI, connect a model provider, and choose a setup that fits your workflow.
+description: Install the Letta app or CLI, connect a model provider, and choose
+  a setup that fits your workflow.
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - desktop
+    - cli
 ---
 
 The **[Letta app](/platform/desktop-app/index.md)** is the quickest way to get started. From one interface, you can create agents, inspect their memory, connect model providers, and choose where their tools run.

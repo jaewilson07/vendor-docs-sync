@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Scheduled Agent Message
 
 `agents.schedule.delete(strscheduled_message_id, ScheduleDeleteParams**kwargs)  -> ScheduleDeleteResponse`

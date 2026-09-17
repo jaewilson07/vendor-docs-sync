@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Mcp Server
 
 `client.mcpServers.retrieve(stringmcpServerID, RequestOptionsoptions?): McpServerRetrieveResponse`

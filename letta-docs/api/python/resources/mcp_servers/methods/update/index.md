@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Mcp Server
 
 `mcp_servers.update(strmcp_server_id, McpServerUpdateParams**kwargs)  -> McpServerUpdateResponse`

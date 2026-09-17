@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Rollback template to previous version (Cloud-only)
 
 `client.templates.rollback(stringtemplateName, TemplateRollbackParamsbody, RequestOptionsoptions?): TemplateRollbackResponse`

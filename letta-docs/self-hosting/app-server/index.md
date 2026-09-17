@@ -1,11 +1,18 @@
 ---
 title: Letta App Server | Letta Docs
 description: Run a Letta agent runtime for local and remote SDK sessions
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - cli
+    - sdk
 ---
 
 The recommended way to interface with the App Server is the [Letta Agent SDK](/agent-sdk/index.md), which provides a high-level interface over its WebSocket protocol.
 
-Alternatively, use the App Server’s [OpenAI-compatible API](/platform/app-server/quickstart#openai-compatible-api/index.md) with clients such as Open WebUI, or the [ACP adapter](/platform/acp/index.md) with ACP clients such as Zed.
+Alternatively, use the App Server’s [OpenAI-compatible API](/self-hosting/app-server/quickstart#openai-compatible-api/index.md) with clients such as Open WebUI, or the [ACP adapter](/platform/acp/index.md) with ACP clients such as Zed.
 
 The **Letta App Server** lets you deploy the Letta agent harness as a service. Whereas [headless mode](/platform/cli/headless/index.md) allows you to interface with Letta agents by spinning up the agent harness as a one-time ephemeral process, the App Server is an always-on service and can manage running multiple agents in parallel in a single process.
 
@@ -39,21 +46,21 @@ The `letta server --listen [url]` process exposes one bidirectional WebSocket at
 
 App Server accepts multiple concurrent clients. A client subscribes its connection to an agent and conversation by sending `runtime_start`; one connection can subscribe to multiple runtimes, and multiple connections can subscribe to the same runtime. Runtime-scoped events are sent only to subscribed clients.
 
-The server owns agent execution, tool preparation, turn queueing, and event streaming. Your application owns product state such as users, tasks, dashboards, durable results, and retry policy. See [Protocol lifecycle](/platform/app-server/protocol-lifecycle/index.md) for the command and event flow, and [Integration patterns](/platform/app-server/integration-patterns/index.md) for controller architecture guidance.
+The server owns agent execution, tool preparation, turn queueing, and event streaming. Your application owns product state such as users, tasks, dashboards, durable results, and retry policy. See [Protocol lifecycle](/self-hosting/app-server/protocol-lifecycle/index.md) for the command and event flow, and [Integration patterns](/self-hosting/app-server/integration-patterns/index.md) for controller architecture guidance.
 
 ## Direct protocol access
 
 For most application integrations, start with the [Letta Agent SDK quickstart](/agent-sdk/quickstart/index.md). It provides high-level APIs for agents, sessions, turns, streaming, and approvals.
 
-For direct TypeScript integrations, use the App Server client exported by `@letta-ai/letta-code` rather than constructing wire messages yourself. The helper opens the WebSocket, correlates `request_id` responses, subscribes runtimes, and tracks turn completion. See the [App Server quickstart](/platform/app-server/quickstart/index.md) for the connection and turn APIs.
+For direct TypeScript integrations, use the App Server client exported by `@letta-ai/letta-code` rather than constructing wire messages yourself. The helper opens the WebSocket, correlates `request_id` responses, subscribes runtimes, and tracks turn completion. See the [App Server quickstart](/self-hosting/app-server/quickstart/index.md) for the connection and turn APIs.
 
 The [Remote client API](/agent-sdk/remote-client/index.md) reaches a remote environment through Letta’s hosted router instead of connecting directly to `letta server --listen`. It carries the same runtime commands and events, with hosted discovery, authentication, and transport acknowledgements around them.
 
 ## Next steps
 
 - [Letta Agent SDK](/agent-sdk/quickstart/index.md) - Build an application with the recommended high-level interface.
-- [App Server quickstart](/platform/app-server/quickstart/index.md) - Operate App Server separately or connect to it directly.
+- [App Server quickstart](/self-hosting/app-server/quickstart/index.md) - Operate App Server separately or connect to it directly.
 - [Self-hosted deployment](/self-hosting#deployment/index.md) - Deploy App Server with Docker, Railway, or Fly.io.
-- [Protocol lifecycle](/platform/app-server/protocol-lifecycle/index.md) - Understand runtime startup, turns, sync, and abort.
-- [External tools](/platform/app-server/external-tools/index.md) - Register tools that execute in your controller.
-- [Integration patterns](/platform/app-server/integration-patterns/index.md) - Design robust controllers and multi-agent services.
+- [Protocol lifecycle](/self-hosting/app-server/protocol-lifecycle/index.md) - Understand runtime startup, turns, sync, and abort.
+- [External tools](/self-hosting/app-server/external-tools/index.md) - Register tools that execute in your controller.
+- [Integration patterns](/self-hosting/app-server/integration-patterns/index.md) - Design robust controllers and multi-agent services.

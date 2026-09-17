@@ -1,7 +1,14 @@
 ---
 title: Telegram | Letta Docs
 description: Connect Telegram to a Letta agent
+applies_to:
+  backends:
+    - local
+  interfaces:
+    - cli
 ---
+
+These CLI channels support the local backend only. For cloud-hosted agents, use first-party integrations such as the [native Slack integration](/platform/cloud-agents/slack/index.md), not `letta channels`.
 
 ## 1. Create a bot
 
@@ -27,7 +34,7 @@ Some Telegram Desktop and Web versions display Rich Messages as blank message bu
 ## 3. Start the server with channels enabled
 
 ```
-letta server --channels telegram
+letta server --backend local --channels telegram
 ```
 
 You’ll see `[Telegram] Bot started as @your_bot` in the output. The bot begins long-polling for messages immediately.

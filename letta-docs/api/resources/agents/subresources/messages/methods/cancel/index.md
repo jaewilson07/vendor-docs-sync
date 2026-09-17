@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Cancel Message
 
 **post** `/v1/agents/{agent_id}/messages/cancel`

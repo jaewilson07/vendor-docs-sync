@@ -1,6 +1,13 @@
 ---
 title: Memory | Letta Docs
-description: How a Letta agent remembers — setting memory, what stays in context, and dreaming
+description: How a Letta agent remembers — setting memory, what stays in
+  context, and dreaming
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 Memory is what makes a Letta agent stateful. An agent’s memory is its own: it persists across conversations, follows the agent between models and computers, and the agent edits it as it learns.

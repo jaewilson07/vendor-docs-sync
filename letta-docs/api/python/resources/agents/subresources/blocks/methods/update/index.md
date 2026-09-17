@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Block For Agent
 
 `agents.blocks.update(strblock_label, BlockUpdateParams**kwargs)  -> BlockResponse`

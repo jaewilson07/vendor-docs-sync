@@ -1,6 +1,14 @@
 ---
 title: The Letta Handbook | Letta Docs
 description: A practical guide to building agents that learn, adapt, and run on their own.
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
 ---
 
 The Letta Handbook is an opinionated guide to building agents that learn over time. For detailed configuration and reference material, use the [Letta app and CLI documentation](/index.md).
@@ -32,7 +40,7 @@ One agent can serve several of these roles and switch between them as needed.
 
 **Research and knowledge agents** organize and retrieve information without cluttering your active conversation. They can manage literature reviews, curate reference libraries, and synthesize findings across long projects. Structured reference files and search keep detailed material available without loading it on every turn.
 
-**Companions and creative partners** maintain persistent personalities and histories. People build long-running companion agents, roleplay characters, and collaborative fiction writers. These agents can be reached through the desktop app, CLI, or supported [Channels](/configuration/channels/index.md) such as Telegram and Discord.
+**Companions and creative partners** maintain persistent personalities and histories. People build long-running companion agents, roleplay characters, and collaborative fiction writers. Reach them through the desktop app or CLI, first-party integrations for cloud-hosted agents, or [Channels](/self-hosting/channels/index.md) such as Telegram and Discord for local-backend agents.
 
 ## Why Letta?
 

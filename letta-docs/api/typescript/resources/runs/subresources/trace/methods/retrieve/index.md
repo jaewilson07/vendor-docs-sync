@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Trace For Run
 
 `client.runs.trace.retrieve(stringrunID, TraceRetrieveParamsquery?, RequestOptionsoptions?): TraceRetrieveResponse`

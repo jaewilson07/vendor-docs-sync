@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Folder
 
 `client.folders.retrieve(stringfolderID, RequestOptionsoptions?): Folder`

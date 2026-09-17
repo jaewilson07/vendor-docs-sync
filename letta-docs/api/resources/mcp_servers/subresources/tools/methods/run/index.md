@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Run Mcp Tool
 
 **post** `/v1/mcp-servers/{mcp_server_id}/tools/{tool_id}/run`

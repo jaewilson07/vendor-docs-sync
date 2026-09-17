@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List All Messages
 
 `client.messages.list(MessageListParamsquery?, RequestOptionsoptions?): MessageListResponse`

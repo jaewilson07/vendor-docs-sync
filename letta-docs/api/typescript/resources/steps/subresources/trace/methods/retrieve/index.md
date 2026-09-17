@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Trace For Step
 
 `client.steps.trace.retrieve(stringstepID, RequestOptionsoptions?): ProviderTrace | null`

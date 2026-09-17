@@ -1,6 +1,14 @@
 ---
 title: Shared memory | Letta Docs
 description: Share Git-backed files between cloud-hosted Letta agents
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 Shared memory gives multiple agents access to the same files and working context. Each shared memory repository is a Git repository hosted in Letta Cloud and owned by your organization.

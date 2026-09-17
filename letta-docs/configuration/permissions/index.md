@@ -1,6 +1,14 @@
 ---
 title: Permissions | Letta Docs
 description: Control what tools your agent can use
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - cli
+    - desktop
+    - sdk
 ---
 
 Press `Shift+Tab` in interactive mode to cycle through `unrestricted`, `acceptEdits`, and `standard`.

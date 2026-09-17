@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Scheduled Agent Message
 
 `client.agents.schedule.retrieve(stringscheduledMessageID, ScheduleRetrieveParamsparams, RequestOptionsoptions?): ScheduleRetrieveResponse`

@@ -1,6 +1,15 @@
 ---
 title: MemFS | Letta Docs
 description: Understand the git-backed memory filesystem used by Letta agents
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 **MemFS** is how a Letta agent works with its long-term memory. The memory itself is part of the agent’s state, held in a git repository that belongs to the agent — hosted by Letta for cloud agents, alongside its conversations and configuration.

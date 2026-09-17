@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Block For Agent
 
 `client.agents.blocks.retrieve(stringblockLabel, BlockRetrieveParamsparams, RequestOptionsoptions?): BlockResponse`

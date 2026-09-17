@@ -1,6 +1,13 @@
 ---
 title: Use Letta with ACP | Letta Docs
 description: Connect Letta to clients through the Agent Client Protocol
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - cli
+    - sdk
 ---
 
 [`letta-acp`](https://github.com/letta-ai/letta-acp) exposes a stateful Letta agent through the [Agent Client Protocol](https://agentclientprotocol.com) (ACP), so any ACP-compatible client can drive it. Code editors are one common way to use ACP, but test harnesses and command-line clients such as [`acpx`](https://github.com/openclaw/acpx) can use the same adapter.
@@ -94,7 +101,7 @@ If Agent Client cannot find `npx`, use the absolute path returned by `which npx`
 
 For work in a local repository, `cloud-oauth` is usually the best fit: the agent and its memory stay on the Letta Platform while tools run against the working tree on your machine. It also uses your existing Letta CLI login session instead of storing an API key in editor settings.
 
-Use `cloud` for execution in an isolated cloud sandbox, `local` to keep agent state on your machine, or `remote` to connect to an [App Server](/platform/app-server/index.md) you operate.
+Use `cloud` for execution in an isolated cloud sandbox, `local` to keep agent state on your machine, or `remote` to connect to an [App Server](/self-hosting/app-server/index.md) you operate.
 
 ## ACP client behavior
 
@@ -115,4 +122,4 @@ Use `cloud` for execution in an isolated cloud sandbox, `local` to keep agent st
 | `LETTA_APP_SERVER_URL`      | `remote` backend URL; defaults to `ws://127.0.0.1:4500`                             |
 | `LETTA_APP_SERVER_TOKEN`    | `remote` capability token, when authentication is enabled                           |
 
-See the [`letta-acp` repository](https://github.com/letta-ai/letta-acp) for implementation details and release notes, or read the [App Server documentation](/platform/app-server/index.md) to build your own controller or editor integration.
+See the [`letta-acp` repository](https://github.com/letta-ai/letta-acp) for implementation details and release notes, or read the [App Server documentation](/self-hosting/app-server/index.md) to build your own controller or editor integration.

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Mcp Server
 
 `client.mcpServers.create(McpServerCreateParamsbody, RequestOptionsoptions?): McpServerCreateResponse`

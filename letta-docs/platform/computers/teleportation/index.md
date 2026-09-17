@@ -1,6 +1,13 @@
 ---
 title: Teleportation | Letta Docs
 description: Move an active conversation from one computer to another
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
+    - cli
 ---
 
 **Teleportation** moves an active conversation to a different computer. The agent keeps its memory and message history, and continues the task on the new computer.

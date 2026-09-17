@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Tool To Agent
 
 `client.agents.tools.attach(stringtoolID, ToolAttachParamsparams, RequestOptionsoptions?): AgentState | null`

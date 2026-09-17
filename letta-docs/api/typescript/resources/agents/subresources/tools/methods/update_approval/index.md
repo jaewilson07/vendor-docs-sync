@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Approval For Tool
 
 `client.agents.tools.updateApproval(stringtoolName, ToolUpdateApprovalParamsparams, RequestOptionsoptions?): AgentState | null`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Tools
 
 `client.tools.list(ToolListParamsquery?, RequestOptionsoptions?): ArrayPage<Tool>`

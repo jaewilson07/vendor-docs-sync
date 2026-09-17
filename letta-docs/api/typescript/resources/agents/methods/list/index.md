@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Agents
 
 `client.agents.list(AgentListParamsquery?, RequestOptionsoptions?): ArrayPage<AgentState>`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Export Agent
 
 `client.agents.exportFile(stringagentID, AgentExportFileParamsquery?, RequestOptionsoptions?): AgentExportFileResponse`

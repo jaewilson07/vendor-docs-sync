@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Conversation
 
 `client.conversations.retrieve(stringconversationID, RequestOptionsoptions?): Conversation`

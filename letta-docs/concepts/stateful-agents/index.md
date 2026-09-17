@@ -1,6 +1,15 @@
 ---
 title: Stateful agents | Letta Docs
 description: Understand how a Letta agent preserves identity and state over time
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 A **stateful agent** is a persistent AI identity with its own memory, model configuration, tools, and message history. You can return to the same agent across sessions, computers, and interfaces instead of starting from scratch each time.

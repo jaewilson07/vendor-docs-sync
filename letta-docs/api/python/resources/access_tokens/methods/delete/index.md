@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete token  (Cloud-only)
 
 `access_tokens.delete(strtoken, AccessTokenDeleteParams**kwargs)  -> object`

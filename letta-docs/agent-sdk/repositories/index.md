@@ -1,6 +1,12 @@
 ---
 title: Manage shared memory | Letta Docs
-description: Create shared memory repositories and attach them to Cloud agents with the Agent SDK
+description: Create shared memory repositories and attach them to Cloud agents
+  with the Agent SDK
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
 ---
 
 Use the Agent SDK to create shared memory repositories, manage their files, and attach them to Cloud agents. See [Shared memory](/concepts/shared-memory/index.md) for the repository model and agent-side Git workflow.

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Compact Conversation
 
 `client.conversations.messages.compact(stringconversationID, MessageCompactParamsbody?, RequestOptionsoptions?): CompactionResponse`

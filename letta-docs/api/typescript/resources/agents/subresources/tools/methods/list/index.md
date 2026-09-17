@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Tools For Agent
 
 `client.agents.tools.list(stringagentID, ToolListParamsquery?, RequestOptionsoptions?): ArrayPage<Tool>`

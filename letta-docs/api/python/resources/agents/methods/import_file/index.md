@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Import Agent
 
 `agents.import_file(AgentImportFileParams**kwargs)  -> AgentImportFileResponse`

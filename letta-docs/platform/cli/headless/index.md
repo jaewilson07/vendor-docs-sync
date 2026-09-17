@@ -1,6 +1,12 @@
 ---
 title: Headless mode | Letta Docs
 description: Run Letta Code non-interactively for scripting and automation
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - cli
 ---
 
 Headless mode allows you to run Letta Code non-interactively, making it easy to integrate into scripts, CI/CD pipelines, or compose with other UNIX tools.

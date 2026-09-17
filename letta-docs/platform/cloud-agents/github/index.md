@@ -1,6 +1,12 @@
 ---
 title: GitHub integration | Letta Docs
 description: Give your cloud agents access to your GitHub repositories
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
 ---
 
 Connect your GitHub org to Letta so that agents running on cloud computers can access your repositories to do work — sweeping bug reports, opening pull requests, or exploring your codebase.

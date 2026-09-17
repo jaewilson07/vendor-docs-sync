@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Archives
 
 `client.archives.list(ArchiveListParamsquery?, RequestOptionsoptions?): ArrayPage<Archive>`

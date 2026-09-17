@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Embedding Models
 
 `client.models.embeddings.list(RequestOptionsoptions?): EmbeddingListResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Environment Connections
 
 `client.environments.list(EnvironmentListParamsquery?, RequestOptionsoptions?): EnvironmentListResponse`

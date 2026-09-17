@@ -1,6 +1,13 @@
 ---
 title: Creating agents | Letta Docs
-description: Create agents with memory, configure skills and dreaming, and understand agent and conversation IDs
+description: Create agents with memory, configure skills and dreaming, and
+  understand agent and conversation IDs
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 Create a stateful agent with `client.createAgent()`. It returns the agent’s ID as a string, which you use to open sessions and manage the agent later.

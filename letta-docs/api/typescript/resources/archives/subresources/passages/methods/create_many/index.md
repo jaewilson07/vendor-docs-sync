@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Passages In Archive
 
 `client.archives.passages.createMany(stringarchiveID, PassageCreateManyParamsbody, RequestOptionsoptions?): PassageCreateManyResponse`

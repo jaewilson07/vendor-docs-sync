@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Agent
 
 `agents.retrieve(stragent_id, AgentRetrieveParams**kwargs)  -> AgentState`

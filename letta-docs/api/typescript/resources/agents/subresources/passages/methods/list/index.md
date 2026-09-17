@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Passages
 
 `client.agents.passages.list(stringagentID, PassageListParamsquery?, RequestOptionsoptions?): PassageListResponse`

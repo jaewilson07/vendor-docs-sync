@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Check Health
 
 `client.health(RequestOptionsoptions?): HealthResponse`

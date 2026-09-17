@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Archive
 
 `archives.create(ArchiveCreateParams**kwargs)  -> Archive`

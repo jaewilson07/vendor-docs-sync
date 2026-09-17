@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Upsert Tool
 
 `client.tools.upsert(ToolUpsertParamsbody, RequestOptionsoptions?): Tool`

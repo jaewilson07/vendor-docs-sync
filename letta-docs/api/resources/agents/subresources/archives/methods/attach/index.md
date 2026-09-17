@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Archive To Agent
 
 **patch** `/v1/agents/{agent_id}/archives/attach/{archive_id}`

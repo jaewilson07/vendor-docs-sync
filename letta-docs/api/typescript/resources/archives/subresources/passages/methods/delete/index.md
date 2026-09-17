@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Passage From Archive
 
 `client.archives.passages.delete(stringpassageID, PassageDeleteParamsparams, RequestOptionsoptions?): void`

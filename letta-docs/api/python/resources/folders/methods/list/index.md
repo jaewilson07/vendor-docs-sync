@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Folders
 
 `folders.list(FolderListParams**kwargs)  -> SyncArrayPage[Folder]`

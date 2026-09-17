@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Tool To Agent
 
 **patch** `/v1/agents/{agent_id}/tools/attach/{tool_id}`

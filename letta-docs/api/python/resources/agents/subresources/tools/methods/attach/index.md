@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Tool To Agent
 
 `agents.tools.attach(strtool_id, ToolAttachParams**kwargs)  -> AgentState`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Folders
 
 `client.folders.list(FolderListParamsquery?, RequestOptionsoptions?): ArrayPage<Folder>`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Message
 
 `agents.messages.create(stragent_id, MessageCreateParams**kwargs)  -> LettaResponse`

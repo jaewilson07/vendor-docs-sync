@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Upsert Tool
 
 `tools.upsert(ToolUpsertParams**kwargs)  -> Tool`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Import Agent
 
 `client.agents.importFile(AgentImportFileParamsparams, RequestOptionsoptions?): AgentImportFileResponse`

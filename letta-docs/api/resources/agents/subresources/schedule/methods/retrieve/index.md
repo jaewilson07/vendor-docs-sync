@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Scheduled Agent Message
 
 **get** `/v1/agents/{agent_id}/schedule/{scheduled_message_id}`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Block For Agent
 
 `agents.blocks.retrieve(strblock_label, BlockRetrieveParams**kwargs)  -> BlockResponse`

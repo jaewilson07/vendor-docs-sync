@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Scheduled Agent Messages
 
 `agents.schedule.list(stragent_id, ScheduleListParams**kwargs)  -> ScheduleListResponse`

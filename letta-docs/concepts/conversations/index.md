@@ -1,6 +1,15 @@
 ---
 title: Conversations | Letta Docs
 description: Work with one agent across independent message threads
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 A **conversation** is a message thread with an agent. One agent can have many conversations, and every conversation uses the same agent identity and long-term memory.

@@ -1,7 +1,14 @@
 ---
 title: Custom channels | Letta Docs
 description: Build a custom messaging channel for Letta agents
+applies_to:
+  backends:
+    - local
+  interfaces:
+    - cli
 ---
+
+These CLI channels support the local backend only. For cloud-hosted agents, use first-party integrations such as the [native Slack integration](/platform/cloud-agents/slack/index.md), not `letta channels`.
 
 Custom channels let you connect a Letta agent to a messaging platform that is not bundled with the Letta CLI. A custom channel runs as a local adapter under `~/.letta/channels/<channel-id>/`, receives inbound messages from your platform, routes them to an agent conversation, and lets the agent reply through the `MessageChannel` tool.
 
@@ -223,7 +230,7 @@ letta channels install matrix-community
 For headless deployments, you can install runtimes as the server starts:
 
 ```
-letta server --channels matrix-community --install-channel-runtimes
+letta server --backend local --channels matrix-community --install-channel-runtimes
 ```
 
 Runtime dependencies should resolve from the channel runtime directory, not from parent project or development `node_modules` folders. This keeps custom channels portable across machines.
@@ -233,13 +240,13 @@ Runtime dependencies should resolve from the channel runtime directory, not from
 Run the Letta CLI with your channel enabled:
 
 ```
-letta server --channels matrix-community
+letta server --backend local --channels matrix-community
 ```
 
 You can enable multiple channels with a comma-separated list:
 
 ```
-letta server --channels telegram,matrix-community
+letta server --backend local --channels telegram,matrix-community
 ```
 
 ## Pair or route a chat
@@ -289,6 +296,6 @@ If messages arrive but replies fail, check that `messageActions` is present and 
 
 ## Related docs
 
-- [Channels](/configuration/channels/index.md)
+- [Channels](/self-hosting/channels/index.md)
 - [Headless mode](/platform/cli/headless/index.md)
 - [CLI reference](/platform/cli/reference/index.md)

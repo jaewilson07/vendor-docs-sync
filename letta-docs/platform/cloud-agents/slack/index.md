@@ -1,6 +1,12 @@
 ---
 title: Slack integration | Letta Docs
 description: Bring your Letta agents to Slack with the native integration
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
 ---
 
 Bring your Letta agents to Slack with Letta’s native Slack integration. Agents connected to Slack are always-on: mention them in a channel or thread and they’ll respond, using their cloud computer to do real work.

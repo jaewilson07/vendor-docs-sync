@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Identity From Agent
 
 `client.agents.identities.detach(stringidentityID, IdentityDetachParamsparams, RequestOptionsoptions?): IdentityDetachResponse`

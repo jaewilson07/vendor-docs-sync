@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Send Conversation Message
 
 **post** `/v1/conversations/{conversation_id}/messages`

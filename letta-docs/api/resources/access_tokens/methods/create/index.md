@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create token  (Cloud-only)
 
 **post** `/v1/client-side-access-tokens`

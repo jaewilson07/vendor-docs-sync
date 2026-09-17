@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Conversation
 
 `client.conversations.create(ConversationCreateParamsparams, RequestOptionsoptions?): Conversation`

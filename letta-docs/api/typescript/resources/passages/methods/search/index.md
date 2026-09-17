@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Search Passages
 
 `client.passages.search(PassageSearchParamsbody, RequestOptionsoptions?): PassageSearchResponse`

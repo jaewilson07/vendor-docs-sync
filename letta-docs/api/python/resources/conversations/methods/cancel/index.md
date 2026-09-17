@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Cancel Conversation
 
 `conversations.cancel(strconversation_id, ConversationCancelParams**kwargs)  -> ConversationCancelResponse`

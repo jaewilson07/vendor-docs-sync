@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Block
 
 `blocks.update(strblock_id, BlockUpdateParams**kwargs)  -> BlockResponse`

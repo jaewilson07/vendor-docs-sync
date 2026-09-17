@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List All Messages
 
 `messages.list(MessageListParams**kwargs)  -> MessageListResponse`

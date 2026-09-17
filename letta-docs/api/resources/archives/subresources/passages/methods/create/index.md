@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Passage In Archive
 
 **post** `/v1/archives/{archive_id}/passages`

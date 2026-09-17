@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Agent
 
 `client.agents.retrieve(stringagentID, AgentRetrieveParamsquery?, RequestOptionsoptions?): AgentState`

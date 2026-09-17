@@ -1,6 +1,14 @@
 ---
 title: Schedules | Letta Docs
 description: Schedule one-time or recurring prompts for Letta agents
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
 ---
 
 Scheduled tasks allow you to automate prompts to your agent on a recurring schedule or at a specific time in the future.

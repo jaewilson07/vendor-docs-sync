@@ -1,6 +1,15 @@
 ---
 title: Subagents | Letta Docs
 description: Specialized agents for task decomposition and parallel execution
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 Subagents are specialized agents that your main agent can spawn to handle complex tasks autonomously. By delegating work to focused subagents, your main agent can keep its context window clean and make use of parallelism to divide and conquer tasks.

@@ -1,22 +1,27 @@
 ---
 title: Channels | Letta Docs
 description: Connect external messaging platforms to your Letta agents
+applies_to:
+  backends:
+    - local
+  interfaces:
+    - cli
 ---
 
-If you’re using Letta-hosted agents, use the [native Slack integration](/platform/cloud-agents/slack/index.md) instead, which is always-on and does not require running an additional gateway server.
+These CLI channels support the local backend only. For cloud-hosted agents, use first-party integrations such as the [native Slack integration](/platform/cloud-agents/slack/index.md), not `letta channels`.
 
-Channels let your Letta agent receive and respond to messages from external platforms like Telegram, Slack, Discord, WhatsApp, and Signal. Messages from the platform flow into the agent’s conversation, and the agent replies using the `MessageChannel` tool.
+Channels let your local Letta agent receive and respond to messages from external platforms like Telegram, Slack, Discord, WhatsApp, and Signal. Messages from the platform flow into the agent’s conversation, and the agent replies using the `MessageChannel` tool.
 
 ## Getting started
 
-You can set up channels via the [Letta app](/platform/desktop-app/index.md) or the CLI. The app provides a visual setup flow in the **Channels** sidebar tab. For CLI setup, choose a channel-specific guide:
+Choose a channel-specific CLI guide below. Run these commands on the machine that stores your local agents:
 
-- [Slack](/configuration/channels/slack/index.md)
-- [Telegram](/configuration/channels/telegram/index.md)
-- [Discord](/configuration/channels/discord/index.md)
-- [WhatsApp](/configuration/channels/whatsapp/index.md)
-- [Signal](/configuration/channels/signal/index.md)
-- [Custom channels](/configuration/channels/custom/index.md)
+- [Slack](/self-hosting/channels/slack/index.md)
+- [Telegram](/self-hosting/channels/telegram/index.md)
+- [Discord](/self-hosting/channels/discord/index.md)
+- [WhatsApp](/self-hosting/channels/whatsapp/index.md)
+- [Signal](/self-hosting/channels/signal/index.md)
+- [Custom channels](/self-hosting/channels/custom/index.md)
 
 ## Channel slash commands
 
@@ -30,7 +35,6 @@ After a chat is connected, you can send these slash commands as normal messages 
 | `/pause`      | Pause agent replies for the current routed chat               |
 | `/resume`     | Resume agent replies for the current routed chat              |
 | `/cancel`     | Cancel the in-progress agent turn for the current routed chat |
-| `/chat`       | Show the Letta web chat link for the current route            |
 | `/reflection` | Start a memory reflection pass for the current routed chat    |
 | `/reflect`    | Alias for `/reflection`                                       |
 
@@ -190,7 +194,7 @@ For server/Docker deployments without interactive setup:
 2. Start with the `--install-channel-runtimes` flag to auto-install dependencies:
 
 ```
-letta server --channels telegram --install-channel-runtimes
+letta server --backend local --channels telegram --install-channel-runtimes
 ```
 
 Or install runtimes separately:
@@ -205,7 +209,6 @@ letta channels install telegram
 | ----------------------- | ---------------------------------------------------- |
 | `LETTA_AGENT_ID`        | Default agent ID for `pair` and `route add` commands |
 | `LETTA_CONVERSATION_ID` | Default conversation ID (fallback: `"default"`)      |
-| `LETTA_API_KEY`         | API key for `letta server` authentication            |
 
 Access-control allowlists can also be configured via environment variables — see [Environment variable allowlists](#environment-variable-allowlists).
 
@@ -217,14 +220,6 @@ Access-control allowlists can also be configured via environment variables — s
 | `~/.letta/channels/<ch>/routing.yaml`  | Route table (chat ID to agent/conversation binding)                                                |
 | `~/.letta/channels/<ch>/pairing.yaml`  | Pending and approved pairings                                                                      |
 
-## Connection lifecycle
+## Running the channel server
 
-Channels integrate with the `letta server` WebSocket connection:
-
-- On **connect**: channel adapters register their message handler and flush any buffered messages
-- On **disconnect**: adapters pause delivery but keep polling/listening. Messages buffer until reconnection.
-- On **shutdown**: adapters stop cleanly
-
-This means if `letta server` briefly loses its WebSocket connection, no Telegram, Slack, Discord, WhatsApp, or Signal messages are dropped — they buffer and deliver when the connection restores.
-
-You can also configure channels on [remote devices](/platform/computers/byom/index.md) — simply swap the selected device in the Connections menu of the Letta app.
+Keep `letta server --backend local --channels <channel>` running on the machine that stores your agents. To host channels on another machine, use a [self-hosted deployment](/self-hosting/index.md), not a computer connected to Letta Cloud.

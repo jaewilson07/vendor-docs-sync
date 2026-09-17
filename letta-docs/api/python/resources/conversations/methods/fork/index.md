@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Fork Conversation
 
 `conversations.fork(strconversation_id, ConversationForkParams**kwargs)  -> Conversation`

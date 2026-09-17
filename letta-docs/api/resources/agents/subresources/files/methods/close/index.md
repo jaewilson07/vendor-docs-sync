@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Close File For Agent
 
 **patch** `/v1/agents/{agent_id}/files/{file_id}/close`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Mcp Server
 
 **delete** `/v1/mcp-servers/{mcp_server_id}`

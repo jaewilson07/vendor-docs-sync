@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Usage For Run
 
 **get** `/v1/runs/{run_id}/usage`

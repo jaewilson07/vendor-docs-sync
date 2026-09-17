@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Run Tool For Agent
 
 `agents.tools.run(strtool_name, ToolRunParams**kwargs)  -> ToolExecutionResult`

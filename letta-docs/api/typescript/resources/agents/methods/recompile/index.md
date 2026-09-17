@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Recompile Agent
 
 `client.agents.recompile(stringagentID, AgentRecompileParamsparams?, RequestOptionsoptions?): AgentRecompileResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Folder To Agent
 
 `client.agents.folders.attach(stringfolderID, FolderAttachParamsparams, RequestOptionsoptions?): AgentState | null`

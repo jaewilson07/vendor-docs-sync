@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Modify Feedback For Step
 
 **patch** `/v1/steps/{step_id}/feedback`

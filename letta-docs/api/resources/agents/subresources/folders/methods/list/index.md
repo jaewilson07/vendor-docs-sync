@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Folders For Agent
 
 **get** `/v1/agents/{agent_id}/folders`

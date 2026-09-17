@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Tool From Agent
 
 `agents.tools.detach(strtool_id, ToolDetachParams**kwargs)  -> AgentState`

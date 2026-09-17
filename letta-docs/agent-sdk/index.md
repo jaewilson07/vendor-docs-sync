@@ -1,6 +1,13 @@
 ---
 title: Letta Agent SDK overview | Letta Docs
-description: The SDK for stateful agents — create an agent once, then resume it from anywhere
+description: The SDK for stateful agents — create an agent once, then resume it
+  from anywhere
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 The **Letta Agent SDK** is the SDK for [stateful agents](/concepts/stateful-agents/index.md): create an agent once, then resume it from anywhere. Each agent has its own identity and long-term memory, and keeps both across conversations, models, and the computers it runs on.
@@ -40,7 +47,7 @@ for await (const message of session.stream()) {
 
 - A JavaScript or TypeScript project
 - A [Letta API key](https://platform.letta.com/api-keys) for the cloud backend; the local backend needs no account
-- Node.js 22.19+ only if you run the agent runtime yourself — the local backend, or a self-hosted [App Server](/platform/app-server/index.md)
+- Node.js 22.19+ only if you run the agent runtime yourself — the local backend, or a self-hosted [App Server](/self-hosting/app-server/index.md)
 
 ## Choose your next step
 

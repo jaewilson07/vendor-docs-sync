@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Message Streaming
 
 **post** `/v1/agents/{agent_id}/messages/stream`

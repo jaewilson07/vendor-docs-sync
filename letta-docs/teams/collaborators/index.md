@@ -1,6 +1,12 @@
 ---
 title: Adding collaborators | Letta Docs
 description: Invite teammates to work with agents in your Letta organization
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
 ---
 
 Add collaborators from your organization settings in the [Letta Platform](https://platform.letta.com). Membership lets teammates use the same organization while keeping each person’s agents and conversations private by default.

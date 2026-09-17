@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Blocks
 
 `client.blocks.list(BlockListParamsquery?, RequestOptionsoptions?): ArrayPage<BlockResponse>`

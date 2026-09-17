@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Conversation
 
 **patch** `/v1/conversations/{conversation_id}`

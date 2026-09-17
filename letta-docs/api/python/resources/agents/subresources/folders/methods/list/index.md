@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Folders For Agent
 
 `agents.folders.list(stragent_id, FolderListParams**kwargs)  -> SyncArrayPage[FolderListResponse]`

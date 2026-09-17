@@ -1,6 +1,15 @@
 ---
 title: Letta Documentation | Letta Docs
 description: The platform for building stateful agents
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 Letta agents learn from experience and improve with use. The Letta agent harness is fully [open source](https://github.com/letta-ai/letta-code) and builds on our lab’s [latest research](https://www.letta.com/research) in AI memory and continual learning.
@@ -27,7 +36,7 @@ Use the [Letta app](/platform/desktop-app/index.md) to work with local files, ad
 
 ### ”I want an AI coworker in Slack, Telegram, or Discord”
 
-Follow the [Channels guide](/configuration/channels/index.md) to connect an agent, then use an [always-on computer](/platform/computers/byom#always-on-cloud-vm-deployment/index.md) to keep it available.
+For cloud-hosted agents, use the [Slack integration](/platform/cloud-agents/slack/index.md). For local-backend agents, follow the [Channels guide](/self-hosting/channels/index.md) and keep the channel server running on infrastructure you manage.
 
 ### ”I want to automate recurring work”
 
@@ -35,7 +44,7 @@ Explore [Schedules](/configuration/schedules/index.md) for recurring prompts, [S
 
 ### ”I’m building an application with stateful agents”
 
-Start with the [Letta Agent SDK](/agent-sdk/quickstart/index.md), then choose between managed deployment with Letta Cloud or running the complete runtime yourself with the [Letta App Server](/platform/app-server/index.md).
+Start with the [Letta Agent SDK](/agent-sdk/quickstart/index.md), then choose between managed deployment with Letta Cloud or running the complete runtime yourself with the [Letta App Server](/self-hosting/app-server/index.md).
 
 ## Explore further
 

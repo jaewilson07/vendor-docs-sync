@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Messages
 
 `client.agents.messages.list(stringagentID, MessageListParamsquery?, RequestOptionsoptions?): ArrayPage<Message>`

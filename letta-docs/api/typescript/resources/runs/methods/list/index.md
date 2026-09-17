@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Runs
 
 `client.runs.list(RunListParamsquery?, RequestOptionsoptions?): ArrayPage<Run>`

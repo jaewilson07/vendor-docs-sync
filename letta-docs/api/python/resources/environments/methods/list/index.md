@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Environment Connections
 
 `environments.list(EnvironmentListParams**kwargs)  -> EnvironmentListResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Tool
 
 `client.tools.update(stringtoolID, ToolUpdateParamsbody, RequestOptionsoptions?): Tool`

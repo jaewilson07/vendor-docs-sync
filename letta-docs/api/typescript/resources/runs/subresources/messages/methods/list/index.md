@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Messages For Run
 
 `client.runs.messages.list(stringrunID, MessageListParamsquery?, RequestOptionsoptions?): ArrayPage<Message>`

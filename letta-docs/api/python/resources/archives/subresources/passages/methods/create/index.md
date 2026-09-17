@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Passage In Archive
 
 `archives.passages.create(strarchive_id, PassageCreateParams**kwargs)  -> Passage`

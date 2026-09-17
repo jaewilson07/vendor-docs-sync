@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Fork Conversation
 
 `client.conversations.fork(stringconversationID, ConversationForkParamsparams?, RequestOptionsoptions?): Conversation`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Conversation Messages
 
 **get** `/v1/conversations/{conversation_id}/messages`

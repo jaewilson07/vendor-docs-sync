@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Llm Models
 
 `models.list(ModelListParams**kwargs)  -> ModelListResponse`

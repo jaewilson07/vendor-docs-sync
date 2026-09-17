@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Block
 
 `blocks.retrieve(strblock_id)  -> BlockResponse`

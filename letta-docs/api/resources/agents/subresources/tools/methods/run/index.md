@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Run Tool For Agent
 
 **post** `/v1/agents/{agent_id}/tools/{tool_name}/run`

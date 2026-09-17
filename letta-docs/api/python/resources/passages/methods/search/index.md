@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Search Passages
 
 `passages.search(PassageSearchParams**kwargs)  -> PassageSearchResponse`

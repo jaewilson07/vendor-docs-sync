@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Tags
 
 `tags.list(TagListParams**kwargs)  -> TagListResponse`

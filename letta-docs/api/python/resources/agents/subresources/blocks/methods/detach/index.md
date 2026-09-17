@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Block From Agent
 
 `agents.blocks.detach(strblock_id, BlockDetachParams**kwargs)  -> AgentState`

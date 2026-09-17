@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Conversations
 
 `conversations.list(ConversationListParams**kwargs)  -> ConversationListResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Conversation Stream
 
 `client.conversations.messages.stream(stringconversationID, MessageStreamParamsbody?, RequestOptionsoptions?): MessageStreamResponse | Stream<LettaStreamingResponse>`

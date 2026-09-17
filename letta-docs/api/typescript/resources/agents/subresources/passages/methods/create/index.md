@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Passage
 
 `client.agents.passages.create(stringagentID, PassageCreateParamsbody, RequestOptionsoptions?): PassageCreateResponse`

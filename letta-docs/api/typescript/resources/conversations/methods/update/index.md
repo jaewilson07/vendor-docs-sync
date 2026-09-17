@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Conversation
 
 `client.conversations.update(stringconversationID, ConversationUpdateParamsbody, RequestOptionsoptions?): Conversation`

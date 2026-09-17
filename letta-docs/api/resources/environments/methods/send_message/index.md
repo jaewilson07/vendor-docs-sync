@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Send Message to Environment
 
 **post** `/v1/environments/{connectionId}/messages`

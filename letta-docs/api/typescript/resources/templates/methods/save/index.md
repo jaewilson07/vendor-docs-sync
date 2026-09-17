@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Save template version (Cloud-only)
 
 `client.templates.save(stringtemplateName, TemplateSaveParamsbody?, RequestOptionsoptions?): TemplateSaveResponse`

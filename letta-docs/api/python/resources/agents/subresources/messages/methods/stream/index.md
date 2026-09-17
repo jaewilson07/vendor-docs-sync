@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Message Streaming
 
 `agents.messages.stream(stragent_id, MessageStreamParams**kwargs)  -> LettaStreamingResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Tools For Mcp Server
 
 `mcp_servers.tools.list(strmcp_server_id)  -> ToolListResponse`

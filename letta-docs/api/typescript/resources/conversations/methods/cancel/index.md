@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Cancel Conversation
 
 `client.conversations.cancel(stringconversationID, ConversationCancelParamsparams?, RequestOptionsoptions?): ConversationCancelResponse`

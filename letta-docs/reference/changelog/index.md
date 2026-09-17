@@ -1,6 +1,15 @@
 ---
 title: Changelog | Letta Docs
 description: Release notes and version history for Letta Code
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 Notable changes to Letta Code are documented here. Documentation may be delayed - for a fully up-to-date reference, check the Letta Code [GitHub releases page](https://github.com/letta-ai/letta-code/releases).

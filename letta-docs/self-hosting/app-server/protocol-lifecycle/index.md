@@ -1,11 +1,18 @@
 ---
 title: Protocol lifecycle | Letta Docs
-description: Understand the Letta App Server WebSocket connection, runtime_start, input, sync, abort, and event handling
+description: Understand the Letta App Server WebSocket connection,
+  runtime_start, input, sync, abort, and event handling
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 The recommended way to interface with the App Server is the [Letta Agent SDK](/agent-sdk/index.md), which provides a high-level interface over its WebSocket protocol.
 
-Alternatively, use the App Server’s [OpenAI-compatible API](/platform/app-server/quickstart#openai-compatible-api/index.md) with clients such as Open WebUI, or the [ACP adapter](/platform/acp/index.md) with ACP clients such as Zed.
+Alternatively, use the App Server’s [OpenAI-compatible API](/self-hosting/app-server/quickstart#openai-compatible-api/index.md) with clients such as Open WebUI, or the [ACP adapter](/platform/acp/index.md) with ACP clients such as Zed.
 
 The Letta App Server uses one bidirectional WebSocket. Every command, response, and event is a JSON object with a `type` field. Commands that expect a direct response include a `request_id`; runtime events include sequencing and idempotency metadata.
 

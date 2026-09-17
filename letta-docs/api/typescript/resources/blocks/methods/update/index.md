@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Block
 
 `client.blocks.update(stringblockID, BlockUpdateParamsbody, RequestOptionsoptions?): BlockResponse`

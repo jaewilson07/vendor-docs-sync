@@ -1,6 +1,12 @@
 ---
 title: Browser and React Native | Letta Docs
 description: Use the Agent SDK in browser, Expo, and React Native applications
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 Browser, Expo, and React Native applications must import the SDK from `@letta-ai/letta-agent-sdk/client`:

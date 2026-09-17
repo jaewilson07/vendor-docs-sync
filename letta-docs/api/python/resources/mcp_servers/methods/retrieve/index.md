@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Mcp Server
 
 `mcp_servers.retrieve(strmcp_server_id)  -> McpServerRetrieveResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete Passage
 
 `client.agents.passages.delete(stringmemoryID, PassageDeleteParamsparams, RequestOptionsoptions?): PassageDeleteResponse`

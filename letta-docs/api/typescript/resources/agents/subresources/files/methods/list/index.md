@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Files For Agent
 
 `client.agents.files.list(stringagentID, FileListParamsquery?, RequestOptionsoptions?): NextFilesPage<FileListResponse>`

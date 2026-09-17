@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Message Async
 
 **post** `/v1/agents/{agent_id}/messages/async`

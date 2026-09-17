@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Delete File From Folder
 
 `folders.files.delete(strfile_id, FileDeleteParams**kwargs)`

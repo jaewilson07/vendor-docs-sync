@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Tool
 
 `tools.update(strtool_id, ToolUpdateParams**kwargs)  -> Tool`

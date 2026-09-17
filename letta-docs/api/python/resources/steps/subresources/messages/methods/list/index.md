@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Messages For Step
 
 `steps.messages.list(strstep_id, MessageListParams**kwargs)  -> SyncArrayPage[MessageListResponse]`

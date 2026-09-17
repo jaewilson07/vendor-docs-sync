@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Archive
 
 `client.archives.retrieve(stringarchiveID, RequestOptionsoptions?): Archive`

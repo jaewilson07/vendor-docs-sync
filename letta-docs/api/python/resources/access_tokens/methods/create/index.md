@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create token  (Cloud-only)
 
 `access_tokens.create(AccessTokenCreateParams**kwargs)  -> AccessTokenCreateResponse`

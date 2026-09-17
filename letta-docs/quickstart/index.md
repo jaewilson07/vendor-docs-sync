@@ -1,6 +1,14 @@
 ---
 title: Quickstart | Letta Docs
 description: Get started with the Letta app, CLI, or web app
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
 ---
 
 Choose the desktop app, CLI, or web app to get started. The desktop app and CLI can use your existing API keys and coding plans, while the web app runs agents in a cloud sandbox with no local setup.

@@ -1,6 +1,15 @@
 ---
 title: Terminology | Letta Docs
 description: Canonical names for Letta products, runtimes, and agents
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 Letta’s products share a stateful agent runtime, but differ in how you interact with them, where agent state is stored, and where tools execute. This page defines the names used throughout the documentation.

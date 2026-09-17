@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Compact Conversation
 
 **post** `/v1/conversations/{conversation_id}/compact`

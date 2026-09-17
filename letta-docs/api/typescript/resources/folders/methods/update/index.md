@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Update Folder
 
 `client.folders.update(stringfolderID, FolderUpdateParamsbody, RequestOptionsoptions?): Folder`

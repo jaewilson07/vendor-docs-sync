@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Reset Messages
 
 `agents.messages.reset(stragent_id, MessageResetParams**kwargs)  -> AgentState`

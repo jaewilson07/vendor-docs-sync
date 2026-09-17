@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Recompile Conversation
 
 `client.conversations.recompile(stringconversationID, ConversationRecompileParamsparams?, RequestOptionsoptions?): ConversationRecompileResponse`

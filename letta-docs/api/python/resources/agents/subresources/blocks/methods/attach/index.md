@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Block To Agent
 
 `agents.blocks.attach(strblock_id, BlockAttachParams**kwargs)  -> AgentState`

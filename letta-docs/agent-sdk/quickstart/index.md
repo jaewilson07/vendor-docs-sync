@@ -1,13 +1,19 @@
 ---
 title: Letta Agent SDK quickstart | Letta Docs
 description: Learn the basics of the SDK
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 ## Quickstart
 
 Use the Agent SDK to build stateful agents for applications, from personal assistants to digital employees. Create an agent, start a session, and stream its response with JavaScript or TypeScript.
 
-Python applications must use the [App Server WebSocket protocol](/platform/app-server/protocol-lifecycle/index.md) directly.
+Python applications must use the [App Server WebSocket protocol](/self-hosting/app-server/protocol-lifecycle/index.md) directly.
 
 - [Managed cloud](#tab-panel-0)
 - [Local](#tab-panel-1)
@@ -187,7 +193,7 @@ Use [shared memory repositories](/agent-sdk/repositories/index.md) to give Cloud
    letta server --backend local --listen ws://127.0.0.1:4500
    ```
 
-   App Server can also use the cloud backend when you want the execution environment on this machine while agent state remains hosted in Letta Cloud. See [App Server](/platform/app-server/index.md) for deployment and authentication options.
+   App Server can also use the cloud backend when you want the execution environment on this machine while agent state remains hosted in Letta Cloud. See [App Server](/self-hosting/app-server/index.md) for deployment and authentication options.
 
 2) **Install the SDK**
 

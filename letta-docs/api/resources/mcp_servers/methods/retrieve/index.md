@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Mcp Server
 
 **get** `/v1/mcp-servers/{mcp_server_id}`

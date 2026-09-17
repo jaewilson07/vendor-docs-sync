@@ -1,6 +1,14 @@
 ---
 title: Cloud sandboxes | Letta Docs
 description: Run a Letta agent in an isolated computer managed by Letta
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 A **cloud sandbox** is an isolated computer provisioned for a Letta agent session. It gives the agent a shell and filesystem without requiring you to configure a local or remote machine.

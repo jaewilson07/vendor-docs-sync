@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Usage For Run
 
 `runs.usage.retrieve(strrun_id)  -> UsageRetrieveResponse`

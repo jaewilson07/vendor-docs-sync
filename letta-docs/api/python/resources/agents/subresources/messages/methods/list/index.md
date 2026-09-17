@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Messages
 
 `agents.messages.list(stragent_id, MessageListParams**kwargs)  -> SyncArrayPage[Message]`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Retrieve Archive
 
 `archives.retrieve(strarchive_id)  -> Archive`

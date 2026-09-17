@@ -1,7 +1,14 @@
 ---
 title: Signal | Letta Docs
 description: Connect Signal to a Letta agent
+applies_to:
+  backends:
+    - local
+  interfaces:
+    - cli
 ---
+
+These CLI channels support the local backend only. For cloud-hosted agents, use first-party integrations such as the [native Slack integration](/platform/cloud-agents/slack/index.md), not `letta channels`.
 
 Signal support uses a local `signal-cli` bridge. Use a dedicated Signal number when possible. If you connect a personal number, enable `self_chat_mode` and talk to the agent through Signal’s Note to Self / self-chat.
 
@@ -31,7 +38,7 @@ Config is written to `~/.letta/channels/signal/accounts.json`.
 ## 3. Start the server with Signal enabled
 
 ```
-letta server --channels signal
+letta server --backend local --channels signal
 ```
 
 ## 4. Pair or route a chat

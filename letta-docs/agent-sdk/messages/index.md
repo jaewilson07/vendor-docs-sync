@@ -1,6 +1,12 @@
 ---
 title: Sending messages | Letta Docs
 description: Stream turns and process reasoning, assistant messages, tool calls, and results
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 Send a message with `session.send()` and read the response with `session.stream()`. The stream yields typed events for the whole turn — reasoning, assistant text, tool calls, tool results — and terminates after the turn’s `result` message, so each turn is one `send()` plus one `for await` loop.

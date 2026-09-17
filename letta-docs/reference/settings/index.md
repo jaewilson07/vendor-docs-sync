@@ -1,6 +1,13 @@
 ---
 title: Configuration | Letta Docs
 description: Configure Letta Code settings and preferences
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - desktop
+    - cli
 ---
 
 Letta Code uses a hierarchical configuration system with global and project-level settings.

@@ -1,6 +1,12 @@
 ---
 title: Letta app | Letta Docs
 description: Use the Letta app on macOS, Windows, or Linux
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - desktop
 ---
 
 The Letta app is your personal command center for your stateful agents. Everything about an agent is visible in one place: you can chat with it, and view and edit its memory, schedules, channels, and skills.
@@ -35,7 +41,7 @@ The built-in file viewer lets you browse the working directory on the selected c
 
 ## Configure channels
 
-Use the **Channels** page to connect your agent to [external messaging channels](/configuration/channels/index.md) like Telegram, Slack, Discord, and WhatsApp. Each channel can be toggled on or off, configured with its own management permissions, and opened directly as a conversation.
+Use the **Channels** page to connect your cloud-hosted agent through first-party integrations such as the [native Slack integration](/platform/cloud-agents/slack/index.md). For local-backend agents, see the separate [Channels CLI](/self-hosting/channels/index.md) guides. Each channel can be toggled on or off, configured with its own management permissions, and opened directly as a conversation.
 
 ![Configuring Slack and Discord channels in the Letta app](/images/desktop/channel-config.png)
 

@@ -1,6 +1,15 @@
 ---
 title: Skills | Letta Docs
 description: Create and use reusable skills to extend your agent's capabilities
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 The Letta agent harness implements the open [Agent Skills](https://agentskills.io) standard. Skills are portable across the Letta app and CLI, Codex, Claude Code, Hermes Agent, OpenClaw, and other compatible agents.

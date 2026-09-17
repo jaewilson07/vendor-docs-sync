@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List Agents For Folder
 
 `folders.agents.list(strfolder_id, AgentListParams**kwargs)  -> AgentListResponse`

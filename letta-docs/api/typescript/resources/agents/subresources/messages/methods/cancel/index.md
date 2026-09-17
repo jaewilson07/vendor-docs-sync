@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Cancel Message
 
 `client.agents.messages.cancel(stringagentID, MessageCancelParamsbody?, RequestOptionsoptions?): MessageCancelResponse`

@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Send Message to Environment
 
 `environments.send_message(strconnection_id, EnvironmentSendMessageParams**kwargs)  -> EnvironmentSendMessageResponse`

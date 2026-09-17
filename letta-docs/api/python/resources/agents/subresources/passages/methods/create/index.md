@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Create Passage
 
 `agents.passages.create(stragent_id, PassageCreateParams**kwargs)  -> PassageCreateResponse`

@@ -1,6 +1,12 @@
 ---
 title: Build a React chat UI | Letta Docs
 description: Build and customize a persistent React chat with the Letta Agent SDK
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 This tutorial teaches you how to build a React chat application for one persistent Letta agent. The demo agent can answer questions, reason, and use web tools. Its conversations remain available after the user reloads the page.

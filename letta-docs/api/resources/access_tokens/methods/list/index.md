@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## List tokens  (Cloud-only)
 
 **get** `/v1/client-side-access-tokens`

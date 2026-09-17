@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Reset Messages
 
 `client.agents.messages.reset(stringagentID, MessageResetParamsbody, RequestOptionsoptions?): AgentState | null`

@@ -1,6 +1,12 @@
 ---
 title: MCP and client tools | Letta Docs
 description: Connect Letta Agent SDK sessions to stdio, HTTP, and SSE MCP servers
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - sdk
 ---
 
 The Agent SDK can expose two kinds of tools through your Node.js process:

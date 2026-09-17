@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Refresh Mcp Server Tools
 
 `mcp_servers.refresh(strmcp_server_id, McpServerRefreshParams**kwargs)  -> object`

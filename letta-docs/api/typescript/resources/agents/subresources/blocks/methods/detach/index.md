@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Detach Block From Agent
 
 `client.agents.blocks.detach(stringblockID, BlockDetachParamsparams, RequestOptionsoptions?): AgentState`

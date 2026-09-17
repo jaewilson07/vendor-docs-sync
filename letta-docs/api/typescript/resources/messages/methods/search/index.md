@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Search All Messages
 
 `client.messages.search(MessageSearchParamsbody, RequestOptionsoptions?): MessageSearchResponse`

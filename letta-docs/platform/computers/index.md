@@ -1,6 +1,15 @@
 ---
 title: Computers | Letta Docs
 description: Choose where Letta agents run tools and access files
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - web
+    - desktop
+    - cli
+    - sdk
 ---
 
 A **computer** is the execution environment where a Letta agent runs shell commands, reads and writes files, and uses local tools. The agent’s identity and memory are separate from the computer, so a signed-in agent can move between environments without losing what it knows.

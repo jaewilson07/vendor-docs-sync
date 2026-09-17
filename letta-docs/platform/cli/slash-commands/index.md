@@ -1,6 +1,12 @@
 ---
 title: Slash commands | Letta Docs
 description: Control Letta Code's behavior during an interactive session with slash commands
+applies_to:
+  backends:
+    - cloud
+    - local
+  interfaces:
+    - cli
 ---
 
 Control Letta Code’s behavior during an interactive session with slash commands. Press `Tab` to autocomplete command names.

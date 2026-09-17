@@ -1,3 +1,11 @@
+---
+applies_to:
+  backends:
+    - cloud
+  interfaces:
+    - sdk
+---
+
 ## Attach Identity To Agent
 
 `agents.identities.attach(stridentity_id, IdentityAttachParams**kwargs)  -> object`
