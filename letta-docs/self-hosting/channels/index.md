@@ -14,6 +14,8 @@ Channels let your local Letta agent receive and respond to messages from externa
 
 ## Getting started
 
+[]()
+
 Choose a channel-specific CLI guide below. Run these commands on the machine that stores your local agents:
 
 - [Slack](/self-hosting/channels/slack/index.md)
