@@ -28,13 +28,12 @@ These work on every provider:
 * [CLI](/docs/en/quickstart) and [Agent SDK](/docs/en/agent-sdk/overview)
 * [VS Code](/docs/en/vs-code) and [JetBrains](/docs/en/jetbrains) extensions
 * [Subagents](/docs/en/sub-agents), [hooks](/docs/en/hooks-guide), [commands](/docs/en/commands), and [skills](/docs/en/skills)
-* [CLAUDE.md memory](/docs/en/memory), [plugins](/docs/en/plugins), and [MCP servers](/docs/en/mcp)
+* [CLAUDE.md memory](/docs/en/memory), [plugins](/docs/en/plugins/overview), and [MCP servers](/docs/en/mcp)
 * [Checkpoints](/docs/en/checkpointing), [sandboxing](/docs/en/sandboxing), and [Workflows](/docs/en/workflows)
 * [OpenTelemetry metrics](/docs/en/monitoring-usage) and the [managed settings file](/docs/en/managed-settings#delivery-mechanisms)
 
 These have provider-specific differences:
 
-* **CLAUDE.md memory**: `CLAUDE.md` files load on every provider. Reading [`AGENTS.md` files](/docs/en/memory#agents-md) as project instructions also requires a session that [fetches feature flags](/docs/en/env-vars#features-that-need-feature-flag-fetching)
 * **MCP servers**: [connectors from claude.ai](/docs/en/mcp#use-mcp-servers-from-claude-ai) load only when your claude.ai subscription is the active authentication method. [Tool search](/docs/en/mcp#configure-tool-search) is off by default when `ANTHROPIC_BASE_URL` points to a non-first-party host, and isn't supported on Google Cloud's Agent Platform models earlier than the Claude 4.5 generation or on Microsoft Foundry [deployments hosted on Azure](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry#hosting-options)
 * **Subagents**: the built-in [Explore subagent](/docs/en/sub-agents#built-in-subagents) caps its inherited model at Opus on the Claude API, and inherits the main conversation's model directly on any other provider, including Claude Platform on AWS
 * **[Commands](/docs/en/commands#all-commands)**:
