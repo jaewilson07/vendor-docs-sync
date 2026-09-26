@@ -1,0 +1,18 @@
+---
+title: Migrate
+menuTitle: Migrate
+description:  Instructions for migrating from one Loki implementation to another
+weight: 300
+---
+
+# Migrate
+
+This section contains instructions for migrating from one Loki implementation to another.
+
+- [Migrate](migrate-to-alloy/) to Alloy.
+- [Migrate](migrate-to-tsdb/) to TSDB index.
+- [Migrate](migrate-storage-clients/) from the legacy storage clients to the Thanos object storage client.
+- [Migrate](ssd-to-distributed/) from a simple scalable deployment to a microservices deployment.
+- [Migrate](ssd-to-ha-monolithic/) from a simple scalable deployment to a highly available monolithic deployment.
+- [Migrate](migrate-to-three-scalable-targets/)  from the two target Helm chart to the three target scalable configuration Helm chart.
+- [Migrate](migrate-from-distributed/) from the `loki-distributed` Helm chart to the `loki` Helm chart.

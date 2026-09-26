@@ -1,0 +1,134 @@
+---
+title: Manage storage
+menuTitle: Storage
+description: Describes the Loki storage needs and supported stores.
+---
+# Manage storage
+
+You can read a high level overview of Loki storage [here](https://grafana.com/docs/loki/<LOKI_VERSION>/configure/storage/)
+
+Grafana Loki needs to store two different types of data: **chunks** and **indexes**.
+
+When using Accelerated Search (experimental), then a third data type is used: **bloom blocks**.
+
+Loki receives logs in separate streams, where each stream is uniquely identified
+by its tenant ID and its set of labels. As log entries from a stream arrive,
+they are compressed as **chunks** and saved in the chunks store. See [chunk
+format](#chunk-format) for how chunks are stored internally.
+
+The **index** stores each stream's label set and links them to the individual
+chunks. Refer to the Loki [configuration](https://grafana.com/docs/loki/<LOKI_VERSION>/configure/) for
+details on how to configure the storage and the index.
+
+For more information:
+
+- [Retention](https://grafana.com/docs/loki/<LOKI_VERSION>/operations/storage/retention/)
+- [Logs Deletion](https://grafana.com/docs/loki/<LOKI_VERSION>/operations/storage/logs-deletion/)
+
+## Store Types
+
+### ✅ Supported index stores
+
+- [Single Store TSDB](https://grafana.com/docs/loki/<LOKI_VERSION>/operations/storage/tsdb/) index store which stores TSDB index files in the object store. This is the recommended index store for Loki 2.8 and newer.
+
+### ✅ Supported and recommended chunks stores
+
+- [Amazon Simple Storage Service (S3)](https://aws.amazon.com/s3)
+- [Google Cloud Storage (GCS)](https://cloud.google.com/storage/)
+- [Microsoft Azure Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs)
+- [IBM Cloud Object Storage (COS)](https://www.ibm.com/cloud/object-storage)
+- [Baidu Object Storage](https://intl.cloud.baidu.com/product/bos.html)
+- [Alibaba Object Storage Service (OSS)](https://www.alibabacloud.com/product/object-storage-service)
+
+### ⚠️ Supported chunks stores, not typically recommended for production use
+
+- [Filesystem](filesystem/) (please read more about the filesystem to understand the pros/cons before using with production data)
+- S3 API compatible storage, such as [MinIO](https://min.io/)
+
+## Cloud Storage Permissions
+
+### S3
+
+When using S3 as object storage, the following permissions are needed:
+
+- `s3:ListBucket`
+- `s3:PutObject`
+- `s3:GetObject`
+
+Resources: `arn:aws:s3:::<bucket_name>`, `arn:aws:s3:::<bucket_name>/*`
+
+See the [AWS deployment section](https://grafana.com/docs/loki/<LOKI_VERSION>/configure/storage/#aws-deployment-s3-single-store) on the storage page for a detailed setup guide.
+
+##### IAM
+
+- `iam:GetRole`
+- `iam:PassRole`
+
+Resources: `arn:aws:iam::<aws_account_id>:role/<role_name>`
+
+### IBM Cloud Object Storage
+
+When using IBM Cloud Object Storage (COS) as object storage, IAM `Writer` role is needed.
+
+See the [IBM Cloud Object Storage section](https://grafana.com/docs/loki/<LOKI_VERSION>/configure/storage/#ibm-deployment-cos-single-store) on the storage page for a detailed setup guide.
+
+## Index Format
+
+For the on-disk binary layout of the index files, see [TSDB index format](https://grafana.com/docs/loki/<LOKI_VERSION>/reference/tsdb-index-format/).
+
+## Chunk Format
+
+```
+// Header
++-----------------------------------+
+| Magic Number (uint32, 4 bytes)    |
++-----------------------------------+
+| Version (1 byte)                  |
++-----------------------------------+
+| Encoding (1 byte)                 |
++-----------------------------------+
+
+// Blocks
++--------------------+----------------------------+
+| block 1 (n bytes)  | checksum (uint32, 4 bytes) |
++--------------------+----------------------------+
+| block 2 (n bytes)  | checksum (uint32, 4 bytes) |
++--------------------+----------------------------+
+| ...                                             |
++--------------------+----------------------------+
+| block N (n bytes)  | checksum (uint32, 4 bytes) |
++--------------------+----------------------------+
+
+// Metas
++------------------------------------------------------------------------------------------------------------------------+
+| #blocks (uvarint)                                                                                                      |
++--------------------+-----------------+-----------------+------------------+---------------+----------------------------+
+| #entries (uvarint) | minTs (uvarint) | maxTs (uvarint) | offset (uvarint) | len (uvarint) | uncompressedSize (uvarint) |
++--------------------+-----------------+-----------------+------------------+---------------+----------------------------+
+| #entries (uvarint) | minTs (uvarint) | maxTs (uvarint) | offset (uvarint) | len (uvarint) | uncompressedSize (uvarint) |
++--------------------+-----------------+-----------------+------------------+---------------+----------------------------+
+| ...                                                                                                                    |
++--------------------+-----------------+-----------------+------------------+---------------+----------------------------+
+| #entries (uvarint) | minTs (uvarint) | maxTs (uvarint) | offset (uvarint) | len (uvarint) | uncompressedSize (uvarint) |
++--------------------+-----------------+-----------------+------------------+---------------+----------------------------+
+| checksum (uint32, 4 bytes)                                                                                             | 
++------------------------------------------------------------------------------------------------------------------------+
+
+// Structured Metadata
++---------------------------------+
+| #labels (uvarint)               |
++---------------+-----------------+
+| len (uvarint) | value (n bytes) |
++---------------+-----------------+
+| ...                             |
++---------------+-----------------+
+| checksum (uint32, 4 bytes)      |
++---------------------------------+
+
+// Footer
++-----------------------+--------------------------+
+| len (uint64, 8 bytes) | offset (uint64, 8 bytes) |   // offset to Structured Metadata
++-----------------------+--------------------------+
+| len (uint64, 8 bytes) | offset (uint64, 8 bytes) |   // offset to Metas
++-----------------------+--------------------------+
+```
