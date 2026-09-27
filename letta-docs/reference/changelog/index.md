@@ -18,6 +18,660 @@ Notable changes to Letta Code are documented here. Documentation may be delayed 
 
 Letta Code versions 0.26.0 through 0.28.13 used **Constellation** for cloud-hosted agents and related sign-in and backend UI. The terminology was retired after 0.28.13 ([#3431](https://github.com/letta-ai/letta-code/pull/3431)). See [Terminology](/reference/terminology#constellation/index.md) for current equivalents.
 
+## 0.33.2
+
+- Added schema validation for Workflow agent results ([#4707](https://github.com/letta-ai/letta-code/pull/4707))
+- Improved memory initialization using workflow analysis ([#4643](https://github.com/letta-ai/letta-code/pull/4643))
+- Fixed unbounded harness log growth with size caps, managed Cloud schedule durability, and Cloud message enqueue retries after shutdown rejection ([#4696](https://github.com/letta-ai/letta-code/pull/4696), [#4722](https://github.com/letta-ai/letta-code/pull/4722), [#4728](https://github.com/letta-ai/letta-code/pull/4728))
+- Removed tools that were outside the toolset catalog ([#4603](https://github.com/letta-ai/letta-code/pull/4603))
+
+## 0.33.1
+
+- Added Claude Code and Codex subagent workers, the Wake tool for timed follow-ups, and structured-output support display and filtering in the model selector ([#4694](https://github.com/letta-ai/letta-code/pull/4694), [#4704](https://github.com/letta-ai/letta-code/pull/4704), [#4703](https://github.com/letta-ai/letta-code/pull/4703))
+- Fixed composer input history growth (now capped at 500 entries), cloud tool-return clipping in transcripts, acting-user identity preservation after teleport, steering-message acknowledgment, replies landing before the next tool call, SDK tool availability in agent-free turns, model overrides in new headless conversations, launch-time credential retention for tool-output redaction, and empty acting-user telemetry snapshots ([#4661](https://github.com/letta-ai/letta-code/pull/4661), [#4675](https://github.com/letta-ai/letta-code/pull/4675), [#4681](https://github.com/letta-ai/letta-code/pull/4681), [#4702](https://github.com/letta-ai/letta-code/pull/4702), [#4708](https://github.com/letta-ai/letta-code/pull/4708), [#4709](https://github.com/letta-ai/letta-code/pull/4709), [#4699](https://github.com/letta-ai/letta-code/pull/4699), [#4714](https://github.com/letta-ai/letta-code/pull/4714), [#4706](https://github.com/letta-ai/letta-code/pull/4706))
+- Improved agent coordination focus and reduced the web bundle by keeping the diff viewer external to `letta.js` ([#4700](https://github.com/letta-ai/letta-code/pull/4700), [#4685](https://github.com/letta-ai/letta-code/pull/4685))
+- Removed the dispatching-coding-agents builtin skill ([#4715](https://github.com/letta-ai/letta-code/pull/4715))
+
+## 0.33.0
+
+- Added a background worker for incidental memory upkeep and post-turn Git-conflict repair, and exposed running workflows through the protocol ([#4628](https://github.com/letta-ai/letta-code/pull/4628), [#4634](https://github.com/letta-ai/letta-code/pull/4634), [#4652](https://github.com/letta-ai/letta-code/pull/4652))
+- Fixed preservation of effort-suffixed model pins at subagent spawn and redaction of ambient runtime credentials in tool output ([#4663](https://github.com/letta-ai/letta-code/pull/4663), [#4657](https://github.com/letta-ai/letta-code/pull/4657))
+
+## 0.32.19
+
+- Added live workflow status rows under the input ([#4583](https://github.com/letta-ai/letta-code/pull/4583))
+- Fixed installations by pinning a compatible Ink runtime ([#4653](https://github.com/letta-ai/letta-code/pull/4653))
+- Improved memory usage by keeping tool output line buffers only for Bash ([#4646](https://github.com/letta-ai/letta-code/pull/4646))
+
+## 0.32.18
+
+- Added Claude Opus 5.5 model support ([#4642](https://github.com/letta-ai/letta-code/pull/4642))
+- Changed the TUI to hide system reminders and collapse thinking by default ([#4032](https://github.com/letta-ai/letta-code/pull/4032))
+- Improved agent memory: new Cloud agents are created on the MemFS v2 root layout, concurrent harness writes to a memory checkout are serialized, and delegated memory upkeep runs in a silent background worker ([#4644](https://github.com/letta-ai/letta-code/pull/4644), [#4626](https://github.com/letta-ai/letta-code/pull/4626), [#4627](https://github.com/letta-ai/letta-code/pull/4627))
+- Fixed Cloud system prompt default inheritance, subagent initial input IDs and SendAgentMessage child tracking, missing image-resize worker reporting, OpenAI toolset detection by provider type, and GPT-6 Sol/Luna none-effort and GPT-6 max-effort recognition ([#4611](https://github.com/letta-ai/letta-code/pull/4611), [#4617](https://github.com/letta-ai/letta-code/pull/4617), [#4616](https://github.com/letta-ai/letta-code/pull/4616), [#4596](https://github.com/letta-ai/letta-code/pull/4596), [#4607](https://github.com/letta-ai/letta-code/pull/4607), [#4631](https://github.com/letta-ai/letta-code/pull/4631))
+
+## 0.32.16
+
+- Changed startup to default to the Cloud backend ([#4584](https://github.com/letta-ai/letta-code/pull/4584))
+- Added subagent launching from App Server clients and a CLI report of configured agent permissions, including peer names ([#4606](https://github.com/letta-ai/letta-code/pull/4606), [#4609](https://github.com/letta-ai/letta-code/pull/4609), [#4615](https://github.com/letta-ai/letta-code/pull/4615))
+- Fixed client notifications after post-turn memory pushes, truncated MCP CLI output, and local schedules running on the local listener ([#4592](https://github.com/letta-ai/letta-code/pull/4592), [#4553](https://github.com/letta-ai/letta-code/pull/4553), [#4161](https://github.com/letta-ai/letta-code/pull/4161))
+- Removed the BYOK triangle indicator from the prompt footer ([#4608](https://github.com/letta-ai/letta-code/pull/4608))
+
+## 0.32.15
+
+- Changed the Workflow tool to a thin wrapper around the Agent SDK `query()` ([#4531](https://github.com/letta-ai/letta-code/pull/4531))
+- Added structured output schema forwarding in the App Server protocol ([#4586](https://github.com/letta-ai/letta-code/pull/4586))
+
+## 0.32.14
+
+- Added Grok OAuth sign-in for Cloud agents and subscription OAuth token support on `connect_provider` ([#4543](https://github.com/letta-ai/letta-code/pull/4543), [#4547](https://github.com/letta-ai/letta-code/pull/4547))
+- Added a warning for Windows agents against redirecting native stderr in Bash tool commands ([#4511](https://github.com/letta-ai/letta-code/pull/4511))
+- Changed `/dream` and `/reflect` to route by reflection ownership, kept the model selector’s ten most recent models, and aligned tool overflow output with Claude ([#4450](https://github.com/letta-ai/letta-code/pull/4450), [#4542](https://github.com/letta-ai/letta-code/pull/4542), [#4537](https://github.com/letta-ai/letta-code/pull/4537))
+- Improved first-run registration: no name prompt, the sign-in page opens automatically, and the computer points back at the browser once registered ([#4538](https://github.com/letta-ai/letta-code/pull/4538), [#4554](https://github.com/letta-ai/letta-code/pull/4554))
+- Removed the `/remember` command, the Gemini and codex\_snake toolsets, and the shadow suffix from generated subagent names ([#4525](https://github.com/letta-ai/letta-code/pull/4525), [#4506](https://github.com/letta-ai/letta-code/pull/4506), [#4546](https://github.com/letta-ai/letta-code/pull/4546))
+- Fixed headless response-state reuse for automatic tool continuations and remote startup authorization as the sender ([#4524](https://github.com/letta-ai/letta-code/pull/4524), [#4530](https://github.com/letta-ai/letta-code/pull/4530))
+- Fixed `letta memory pull` settings initialization, multiline YAML skill descriptions, stream sequence cursors leaking across runs, pasted multi-read input commits, monitors lost across turn interrupts, reflection sandbox failure semantics, streamed assistant identities in local mode, worktree creation with repository checkout filters, and agent IDs in fork and recall launch receipts ([#4500](https://github.com/letta-ai/letta-code/pull/4500), [#4516](https://github.com/letta-ai/letta-code/pull/4516), [#4528](https://github.com/letta-ai/letta-code/pull/4528), [#4517](https://github.com/letta-ai/letta-code/pull/4517), [#4548](https://github.com/letta-ai/letta-code/pull/4548), [#4527](https://github.com/letta-ai/letta-code/pull/4527), [#4329](https://github.com/letta-ai/letta-code/pull/4329), [#4509](https://github.com/letta-ai/letta-code/pull/4509), [#4557](https://github.com/letta-ai/letta-code/pull/4557))
+
+## 0.32.13
+
+- Added self-contained Python wheels as an install option ([#4518](https://github.com/letta-ai/letta-code/pull/4518))
+- Fixed agent discovery as the current sender, process tree termination for stopped subagents, MemFS attached sync on the local backend, channel gateway restarts after unexpected exits, and restored the local ChatGPT reasoning picker ([#4483](https://github.com/letta-ai/letta-code/pull/4483), [#4497](https://github.com/letta-ai/letta-code/pull/4497), [#4504](https://github.com/letta-ai/letta-code/pull/4504), [#4478](https://github.com/letta-ai/letta-code/pull/4478), [#4474](https://github.com/letta-ai/letta-code/pull/4474))
+
+## 0.32.12
+
+- Added `letta usage` to show credits and model quota ([#4481](https://github.com/letta-ai/letta-code/pull/4481))
+- Fixed listener recovery across Cloud API deployment interruptions, Desktop credential forwarding to subagent launches, stale Slack status writes and relinquishment, and blocked source input after a teleport disconnect before handoff ([#3875](https://github.com/letta-ai/letta-code/pull/3875), [#4486](https://github.com/letta-ai/letta-code/pull/4486), [#4461](https://github.com/letta-ai/letta-code/pull/4461), [#4299](https://github.com/letta-ai/letta-code/pull/4299))
+- Removed the obsolete MCP conversion skill ([#4484](https://github.com/letta-ai/letta-code/pull/4484))
+
+## 0.32.11
+
+- Changed subagent naming so subagents are named as their parent’s shadows ([#4458](https://github.com/letta-ai/letta-code/pull/4458))
+- Renamed the channel routing config from `routing.yaml` to `routing.json` with automatic migration from legacy files ([#3232](https://github.com/letta-ai/letta-code/pull/3232))
+- Fixed shared memory repository cloning blocking startup, MemFS Git retries on HTTP 503 failures, App Server heartbeat probe counting, schedules preserving the requesting user, subagent task sender identification, configuration loss during ChatGPT account rotation, remote completion notifications, explicit pi-ai sampling options in local mode, routed tool ownership, and teleport resume when the source ends its turn ([#4438](https://github.com/letta-ai/letta-code/pull/4438), [#4463](https://github.com/letta-ai/letta-code/pull/4463), [#4291](https://github.com/letta-ai/letta-code/pull/4291), [#4456](https://github.com/letta-ai/letta-code/pull/4456), [#4471](https://github.com/letta-ai/letta-code/pull/4471), [#4451](https://github.com/letta-ai/letta-code/pull/4451), [#4466](https://github.com/letta-ai/letta-code/pull/4466), [#4455](https://github.com/letta-ai/letta-code/pull/4455), [#4473](https://github.com/letta-ai/letta-code/pull/4473), [#4477](https://github.com/letta-ai/letta-code/pull/4477))
+
+## 0.32.10
+
+- Fixed resuming locally recorded work after a process restart and teleport runtime reminders now delivered as user messages ([#4444](https://github.com/letta-ai/letta-code/pull/4444), [#4448](https://github.com/letta-ai/letta-code/pull/4448))
+
+## 0.32.9
+
+- Added curated agent names drawn from Fallout, Dune, and sci-fi classics ([#4441](https://github.com/letta-ai/letta-code/pull/4441))
+- Fixed interrupted-turn resume to run only on the execution owner, included the conversation ID in background Task returns, handled secrets rejection during startup, and narrowed letta-guide self-configuration triggers ([#4431](https://github.com/letta-ai/letta-code/pull/4431), [#4440](https://github.com/letta-ai/letta-code/pull/4440), [#4443](https://github.com/letta-ai/letta-code/pull/4443), [#4446](https://github.com/letta-ai/letta-code/pull/4446))
+
+## 0.32.8
+
+- Added distinct sci-fi names for new subagents ([#4416](https://github.com/letta-ai/letta-code/pull/4416))
+- Fixed message request retries when a gateway returns an HTML page, approval UI crashes from malformed questions, rejection of sends to the current conversation, teleport ownership during approval recovery, and queued messages stuck behind sender holds ([#4419](https://github.com/letta-ai/letta-code/pull/4419), [#4422](https://github.com/letta-ai/letta-code/pull/4422), [#4425](https://github.com/letta-ai/letta-code/pull/4425), [#4426](https://github.com/letta-ai/letta-code/pull/4426), [#4423](https://github.com/letta-ai/letta-code/pull/4423))
+
+## 0.32.7
+
+- Fixed optional computer value handling in CLI and tool message sends, startup recovery racing an active teleport handoff, and stale approvals being auto-finished on a teleport destination ([#4409](https://github.com/letta-ai/letta-code/pull/4409), [#4408](https://github.com/letta-ai/letta-code/pull/4408), [#4410](https://github.com/letta-ai/letta-code/pull/4410))
+
+## 0.32.6
+
+- Added readable agent message receipts in the TUI ([#4403](https://github.com/letta-ai/letta-code/pull/4403))
+- Fixed interrupted-turn resume after restarts, with retries across a cloud-api restart and resume on the first sync ([#4401](https://github.com/letta-ai/letta-code/pull/4401), [#4404](https://github.com/letta-ai/letta-code/pull/4404))
+
+## 0.32.5
+
+- Fixed MCP attachments to refresh before each turn ([#4398](https://github.com/letta-ai/letta-code/pull/4398))
+
+## 0.32.4
+
+- Added Cloud message enqueueing with a `--no-wait` flag, the SendAgentMessage tool for agent coordination, and doctor investigation of agent behavior from conversation evidence ([#4383](https://github.com/letta-ai/letta-code/pull/4383), [#4392](https://github.com/letta-ai/letta-code/pull/4392), [#4375](https://github.com/letta-ai/letta-code/pull/4375))
+- Fixed conversation monitors not cancelling on interrupt, resuming teleported turns after reconnect, child agents running through their listener, and message steering blocked by background notifications ([#4377](https://github.com/letta-ai/letta-code/pull/4377), [#4384](https://github.com/letta-ai/letta-code/pull/4384), [#4389](https://github.com/letta-ai/letta-code/pull/4389), [#4391](https://github.com/letta-ai/letta-code/pull/4391))
+
+## 0.32.3
+
+- Added sandbox file transfer targeting for another conversation and simplified sandbox targeting with cross-computer guidance ([#4370](https://github.com/letta-ai/letta-code/pull/4370), [#4371](https://github.com/letta-ai/letta-code/pull/4371))
+- Fixed flickering parallel tool status titles and lost activity status in Slack, duplicate computer listeners, queued senders leaking into active continuations, and image-generation credits reported only when asked ([#4376](https://github.com/letta-ai/letta-code/pull/4376), [#4380](https://github.com/letta-ai/letta-code/pull/4380), [#4378](https://github.com/letta-ai/letta-code/pull/4378), [#4379](https://github.com/letta-ai/letta-code/pull/4379), [#4382](https://github.com/letta-ai/letta-code/pull/4382))
+
+## 0.32.2
+
+- Added host-provided Slack conversation binding actions and an experimental unified Letta toolset ([#4358](https://github.com/letta-ai/letta-code/pull/4358), [#4217](https://github.com/letta-ai/letta-code/pull/4217))
+- Removed the deprecated AgentFile import and export commands ([#4354](https://github.com/letta-ai/letta-code/pull/4354))
+- Fixed subagent retries losing memoryScope when a provider is unsupported, reflection losing full tool call arguments, agent-limit errors now linking to Chat, unfinished requests lost across queued messages, and queued turn separation by acting user ([#4205](https://github.com/letta-ai/letta-code/pull/4205), [#4087](https://github.com/letta-ai/letta-code/pull/4087), [#4356](https://github.com/letta-ai/letta-code/pull/4356), [#4331](https://github.com/letta-ai/letta-code/pull/4331), [#4357](https://github.com/letta-ai/letta-code/pull/4357))
+
+## 0.32.1
+
+- Added `letta model` get, list, and set commands ([#4339](https://github.com/letta-ai/letta-code/pull/4339))
+- Improved headless `--computer` routing to infer the ambient agent, agent notifications when available skills change, and proactive learning from human feedback ([#4343](https://github.com/letta-ai/letta-code/pull/4343), [#4330](https://github.com/letta-ai/letta-code/pull/4330), [#4346](https://github.com/letta-ai/letta-code/pull/4346))
+- Fixed OpenCode Go session headers, agent tag and memory block retrieval, catalog and BYOK model selection in Slack, teleport Cloud destinations staying API-backed, ChatGPT plan rotation skipping exhausted plans, subagent acting user preservation, and rejection of local channel moves at the teleport source ([#4290](https://github.com/letta-ai/letta-code/pull/4290), [#4341](https://github.com/letta-ai/letta-code/pull/4341), [#4340](https://github.com/letta-ai/letta-code/pull/4340), [#4344](https://github.com/letta-ai/letta-code/pull/4344), [#4342](https://github.com/letta-ai/letta-code/pull/4342), [#4334](https://github.com/letta-ai/letta-code/pull/4334), [#4347](https://github.com/letta-ai/letta-code/pull/4347))
+
+## 0.32.0
+
+- Added default MemFS v2 budget enforcement and renewed Desktop credential acceptance without restarting ([#4185](https://github.com/letta-ai/letta-code/pull/4185), [#4309](https://github.com/letta-ai/letta-code/pull/4309))
+- Changed interrupt handling to park queued user messages, with `resume_queue` to resume them ([#4213](https://github.com/letta-ai/letta-code/pull/4213))
+- Fixed teleport channel-bound moves until MessageChannel can follow, Slack commands handled before thread routing, LS relative paths resolved from the runtime working directory, background tracking of GitHub PR commands that hit a timeout, Esc interrupts draining queued notifications, and streamed quota errors retained for ChatGPT plan rotation ([#4223](https://github.com/letta-ai/letta-code/pull/4223), [#4306](https://github.com/letta-ai/letta-code/pull/4306), [#4298](https://github.com/letta-ai/letta-code/pull/4298), [#4285](https://github.com/letta-ai/letta-code/pull/4285), [#4201](https://github.com/letta-ai/letta-code/pull/4201), [#4317](https://github.com/letta-ai/letta-code/pull/4317))
+
+## 0.31.14
+
+- Added the ability to cancel Monitors from connected clients ([#4280](https://github.com/letta-ai/letta-code/pull/4280))
+- Fixed memory refreshes during reflection prompting for credentials and added backoff for failed memory integration retries ([#4277](https://github.com/letta-ai/letta-code/pull/4277), [#4276](https://github.com/letta-ai/letta-code/pull/4276))
+- Fixed forwarded Discord messages not being delivered ([#4212](https://github.com/letta-ai/letta-code/pull/4212))
+- Improved model provider compatibility by upgrading pi-ai to 0.85.1 ([#4237](https://github.com/letta-ai/letta-code/pull/4237))
+
+## 0.31.13
+
+- Added Slack workspace custom emoji discovery, the hidden `clear-messages` command, notifications when yielded exec commands finish, automatic backgrounding of slow Bash commands, and an official Docker Hub container image ([#4203](https://github.com/letta-ai/letta-code/pull/4203), [#4215](https://github.com/letta-ai/letta-code/pull/4215), [#4219](https://github.com/letta-ai/letta-code/pull/4219), [#4220](https://github.com/letta-ai/letta-code/pull/4220), [#4260](https://github.com/letta-ai/letta-code/pull/4260))
+- Fixed operational logs leaking into the status UI, MiniMax BYOK reasoning tier resolution, subagent default conversations resuming with the wrong agent ID, and Monitor tool descriptions ([#4209](https://github.com/letta-ai/letta-code/pull/4209), [#4184](https://github.com/letta-ai/letta-code/pull/4184), [#4228](https://github.com/letta-ai/letta-code/pull/4228), [#4268](https://github.com/letta-ai/letta-code/pull/4268))
+- Changed the minimum supported runtime to Bun 1.3.2 ([#4231](https://github.com/letta-ai/letta-code/pull/4231))
+- Improved API and listener efficiency by coalescing in-flight agent retrievals and loading device Git status asynchronously ([#4208](https://github.com/letta-ai/letta-code/pull/4208), [#4230](https://github.com/letta-ai/letta-code/pull/4230))
+
+## 0.31.12
+
+- Changed remote routing to standardize on computers and routed client-local MCP tools through the unified CLI ([#4194](https://github.com/letta-ai/letta-code/pull/4194), [#4182](https://github.com/letta-ai/letta-code/pull/4182))
+- Fixed behavioral corrections being submitted as product feedback instead of memory edits, and ChatGPT plan rotation applying beyond the active turn ([#4190](https://github.com/letta-ai/letta-code/pull/4190), [#4202](https://github.com/letta-ai/letta-code/pull/4202))
+
+## 0.31.11
+
+- Added MCP tool discoverability through the using-mcp-tools skill, an MCP servers reminder, and `letta mcp` search and schema commands, plus source and client metadata on agent feedback reports ([#4167](https://github.com/letta-ai/letta-code/pull/4167), [#4152](https://github.com/letta-ai/letta-code/pull/4152))
+- Removed the `letta cloud-mcp` command ([#4167](https://github.com/letta-ai/letta-code/pull/4167))
+
+## 0.31.10
+
+- Fixed the Task tool advertising its computer parameter on non-Cloud backends ([#4177](https://github.com/letta-ai/letta-code/pull/4177))
+
+## 0.31.9
+
+- Added a computer parameter to the Agent tool for running subagents on connected computers ([#4170](https://github.com/letta-ai/letta-code/pull/4170))
+- Fixed teleporting default conversations and resuming the source conversation after a failed teleport handoff ([#4160](https://github.com/letta-ai/letta-code/pull/4160), [#4164](https://github.com/letta-ai/letta-code/pull/4164))
+- Fixed headless environment-routed turns dropping the client tool allowlist and timing out after 10 minutes (turns now wait on environment liveness) ([#4171](https://github.com/letta-ai/letta-code/pull/4171), [#4172](https://github.com/letta-ai/letta-code/pull/4172), [#4174](https://github.com/letta-ai/letta-code/pull/4174))
+
+## 0.31.8
+
+- Added a unified `letta mcp` CLI with an agent tool search command, a built-in browser-use skill, and an exported default memory constraints policy ([#4151](https://github.com/letta-ai/letta-code/pull/4151), [#4155](https://github.com/letta-ai/letta-code/pull/4155), [#4137](https://github.com/letta-ai/letta-code/pull/4137), [#4140](https://github.com/letta-ai/letta-code/pull/4140))
+- Changed subagent launches to always run in the background ([#4138](https://github.com/letta-ai/letta-code/pull/4138))
+- Fixed permission allow-rule matching for commands with trailing `&&` or `||`, memory token estimates missing MemFS v2 core files, model overrides on forked subagents, and completed ChatGPT OAuth sessions not persisting ([#4131](https://github.com/letta-ai/letta-code/pull/4131), [#4147](https://github.com/letta-ai/letta-code/pull/4147), [#4154](https://github.com/letta-ai/letta-code/pull/4154), [#4048](https://github.com/letta-ai/letta-code/pull/4048))
+
+## 0.31.7
+
+- Fixed agent secrets retrieval to use the dedicated endpoint and routed all docs.letta.com reads through the letta-guide skill ([#4132](https://github.com/letta-ai/letta-code/pull/4132), [#4128](https://github.com/letta-ai/letta-code/pull/4128))
+
+## 0.31.6
+
+- Added automatic pushing of committed shared memory changes, agent-submitted user feedback, and enforcement of configurable memory limits ([#4103](https://github.com/letta-ai/letta-code/pull/4103), [#4104](https://github.com/letta-ai/letta-code/pull/4104), [#4105](https://github.com/letta-ai/letta-code/pull/4105))
+- Removed the unused `dream` CLI subcommand ([#4092](https://github.com/letta-ai/letta-code/pull/4092))
+- Fixed shared memory frontmatter validation, reflection retries for invalid models, and best-effort tool bootstrap failures leaking into headless output ([#4102](https://github.com/letta-ai/letta-code/pull/4102), [#4101](https://github.com/letta-ai/letta-code/pull/4101), [#4088](https://github.com/letta-ai/letta-code/pull/4088))
+- Improved model provider compatibility by upgrading pi-ai to 0.84.4 and removing the temporary OpenRouter thinking-level patch ([#4108](https://github.com/letta-ai/letta-code/pull/4108))
+
+## 0.31.5
+
+- Fixed incomplete root-layout memory prompts ([#4093](https://github.com/letta-ai/letta-code/pull/4093))
+
+## 0.31.4
+
+- Added a configurable memory layout and agent-origin attribution for headless session telemetry ([#4085](https://github.com/letta-ai/letta-code/pull/4085), [#4082](https://github.com/letta-ai/letta-code/pull/4082))
+- Fixed ChatGPT OAuth reasoning effort not persisting ([#4064](https://github.com/letta-ai/letta-code/pull/4064))
+
+## 0.31.3
+
+- Renamed `letta server-mcp` to `letta cloud-mcp` ([#4074](https://github.com/letta-ai/letta-code/pull/4074))
+- Fixed the using-server-mcp skill being shown to local agents, and corrected the self-configuration, messaging-agents, finding-agents, and desktop preferences skills ([#4073](https://github.com/letta-ai/letta-code/pull/4073), [#4068](https://github.com/letta-ai/letta-code/pull/4068), [#4069](https://github.com/letta-ai/letta-code/pull/4069), [#4067](https://github.com/letta-ai/letta-code/pull/4067), [#4066](https://github.com/letta-ai/letta-code/pull/4066))
+
+## 0.31.2
+
+- Added the `letta server-mcp` CLI and a skill for agent-connected MCP servers ([#4047](https://github.com/letta-ai/letta-code/pull/4047))
+- Fixed PowerShell command hooks not preserving native exit codes ([#4007](https://github.com/letta-ai/letta-code/pull/4007))
+
+## 0.31.1
+
+- Fixed runtime support for scoped managed workloads ([#4062](https://github.com/letta-ai/letta-code/pull/4062))
+
+## 0.31.0
+
+- Added pause and resume commands for scheduled tasks, a scheduled skill staleness watcher, and cloud-agent classification for OpenRouter traffic in local mode ([#4051](https://github.com/letta-ai/letta-code/pull/4051), [#4060](https://github.com/letta-ai/letta-code/pull/4060), [#3978](https://github.com/letta-ai/letta-code/pull/3978))
+- Fixed the reasoning picker not appearing for local ChatGPT OAuth, the Tutor profile asset failing to load, channel lifecycle hooks blocking delivery queues, and repeated environment reminders in the listener ([#4026](https://github.com/letta-ai/letta-code/pull/4026), [#4031](https://github.com/letta-ai/letta-code/pull/4031), [#4044](https://github.com/letta-ai/letta-code/pull/4044), [#4059](https://github.com/letta-ai/letta-code/pull/4059))
+- Fixed nested skills not using their frontmatter names and tightened memory-sync, dispatch model catalog, and MemFS repair guidance in bundled skills ([#4057](https://github.com/letta-ai/letta-code/pull/4057), [#4053](https://github.com/letta-ai/letta-code/pull/4053), [#4054](https://github.com/letta-ai/letta-code/pull/4054), [#4055](https://github.com/letta-ai/letta-code/pull/4055))
+- Improved message routing for channel chats without threads ([#4027](https://github.com/letta-ai/letta-code/pull/4027))
+
+## 0.30.32
+
+- Added OpenRouter provider support with API key and OAuth sign-in, agent-free conversation runtimes in the app server, and a `letta secret` CLI subcommand for managing secrets ([#3979](https://github.com/letta-ai/letta-code/pull/3979), [#3878](https://github.com/letta-ai/letta-code/pull/3878), [#4023](https://github.com/letta-ai/letta-code/pull/4023))
+- Fixed replay of recovered approval requests, memory commands running before MemFS sync completes, Ctrl-C interrupts in non-TTY sessions, Telegram chat ID validation, restored source file size checks, and silent stream recovery now being surfaced ([#4014](https://github.com/letta-ai/letta-code/pull/4014), [#4010](https://github.com/letta-ai/letta-code/pull/4010), [#4020](https://github.com/letta-ai/letta-code/pull/4020), [#4001](https://github.com/letta-ai/letta-code/pull/4001), [#4021](https://github.com/letta-ai/letta-code/pull/4021), [#4024](https://github.com/letta-ai/letta-code/pull/4024))
+- Improved secret usage guidance in reminders and model provider compatibility by upgrading pi-ai to 0.84.3 ([#4019](https://github.com/letta-ai/letta-code/pull/4019), [#4011](https://github.com/letta-ai/letta-code/pull/4011))
+
+## 0.30.31
+
+- Fixed injected skill context messages leaking into the conversation view, mandatory reasoning metadata on local OpenRouter connections, and mod registry updates now batched during lifecycle events ([#4000](https://github.com/letta-ai/letta-code/pull/4000), [#4012](https://github.com/letta-ai/letta-code/pull/4012), [#3964](https://github.com/letta-ai/letta-code/pull/3964))
+
+## 0.30.30
+
+- Fixed client context restored after compaction, custom compaction prompts kept during the automatic full-summarization fallback, duplicate MemFS upstream configuration, and ChatGPT quota errors preserved so plan rotation can trigger ([#3974](https://github.com/letta-ai/letta-code/pull/3974), [#3977](https://github.com/letta-ai/letta-code/pull/3977), [#3984](https://github.com/letta-ai/letta-code/pull/3984), [#3990](https://github.com/letta-ai/letta-code/pull/3990))
+- Fixed approval state only published while an approval is pending, approval classification outcome reporting, provider-aware toolset selection, bundled skill resources exposed on activation, and recovery when a completed turn loses its terminal stream events ([#3983](https://github.com/letta-ai/letta-code/pull/3983), [#3985](https://github.com/letta-ai/letta-code/pull/3985), [#3981](https://github.com/letta-ai/letta-code/pull/3981), [#3992](https://github.com/letta-ai/letta-code/pull/3992), [#3982](https://github.com/letta-ai/letta-code/pull/3982))
+- Fixed interrupts stopping TaskOutput waits and cancelling remaining blocking work, and clarified Bash tool working-directory semantics ([#3995](https://github.com/letta-ai/letta-code/pull/3995), [#3996](https://github.com/letta-ai/letta-code/pull/3996), [#3994](https://github.com/letta-ai/letta-code/pull/3994))
+
+## 0.30.29
+
+- Added loading skills from attached shared memory ([#3965](https://github.com/letta-ai/letta-code/pull/3965))
+- Fixed duplicate Telegram terminal notices, recovery of unrouted Discord threads, memory refresh before reflection integration, approval boundary state publishing, and image processing on Linux Desktop ([#3958](https://github.com/letta-ai/letta-code/pull/3958), [#3959](https://github.com/letta-ai/letta-code/pull/3959), [#3961](https://github.com/letta-ai/letta-code/pull/3961), [#3962](https://github.com/letta-ai/letta-code/pull/3962), [#3967](https://github.com/letta-ai/letta-code/pull/3967))
+- Improved model provider compatibility by upgrading pi-ai to 0.84.2 ([#3903](https://github.com/letta-ai/letta-code/pull/3903))
+
+## 0.30.28
+
+- Added Grok subscription OAuth sign-in in local mode ([#3942](https://github.com/letta-ai/letta-code/pull/3942))
+- Fixed secret injection for braced `${NAME}` shell references, resuming tasks after teleport, queue snapshot broadcasts when removing a missing item, exact run-to-send correlations, and runtime status re-emitted at turn boundaries ([#3920](https://github.com/letta-ai/letta-code/pull/3920), [#3939](https://github.com/letta-ai/letta-code/pull/3939), [#3923](https://github.com/letta-ai/letta-code/pull/3923), [#3904](https://github.com/letta-ai/letta-code/pull/3904), [#3924](https://github.com/letta-ai/letta-code/pull/3924))
+- Improved system prompt wording to reduce repetition ([#3938](https://github.com/letta-ai/letta-code/pull/3938))
+
+## 0.30.27
+
+- Added automatic rotation to the next ChatGPT plan when quota is exhausted mid-turn ([#3911](https://github.com/letta-ai/letta-code/pull/3911))
+- Fixed `apply_patch` rejecting duplicate resolved paths and headless runs following turns across task notifications ([#3916](https://github.com/letta-ai/letta-code/pull/3916), [#3917](https://github.com/letta-ai/letta-code/pull/3917))
+
+## 0.30.26
+
+- Added teleporting conversations to Desktop Local ([#3899](https://github.com/letta-ai/letta-code/pull/3899))
+- Added shared Slack attachment handling and Telegram channel primitives for external channel hosts ([#3890](https://github.com/letta-ai/letta-code/pull/3890), [#3889](https://github.com/letta-ai/letta-code/pull/3889))
+- Fixed remapping unsupported minimal reasoning effort for GPT-5.6, recovery of turns whose message stream dies silently mid-run, removal of models dropped from the hosted catalog, and the `xhigh` tier labeled Extra High when the catalog has a max tier ([#3877](https://github.com/letta-ai/letta-code/pull/3877), [#3882](https://github.com/letta-ai/letta-code/pull/3882), [#3887](https://github.com/letta-ai/letta-code/pull/3887), [#3896](https://github.com/letta-ai/letta-code/pull/3896))
+- Fixed approvals distinguishing dropped tool arguments from model omissions, subagent-created PRs appearing on parent conversations, and isolation of channel startup failures on restore ([#3886](https://github.com/letta-ai/letta-code/pull/3886), [#3891](https://github.com/letta-ai/letta-code/pull/3891), [#3908](https://github.com/letta-ai/letta-code/pull/3908))
+
+## 0.30.25
+
+- Improved skill loading performance by avoiding request-time filesystem scans ([#3872](https://github.com/letta-ai/letta-code/pull/3872))
+- Fixed headless ephemeral tools derived from the conversation model, contained background output write failures, and split-socket pairing across listener reconnects ([#3871](https://github.com/letta-ai/letta-code/pull/3871), [#3873](https://github.com/letta-ai/letta-code/pull/3873), [#3880](https://github.com/letta-ai/letta-code/pull/3880))
+
+## 0.30.24
+
+- Added agent-free ephemeral conversations in headless mode and a `SetWorkingDirectory` tool for changing the working directory between shell commands ([#3817](https://github.com/letta-ai/letta-code/pull/3817), [#3868](https://github.com/letta-ai/letta-code/pull/3868))
+- Fixed queued sender attribution on continuations and restored queued delivery metadata ([#3866](https://github.com/letta-ai/letta-code/pull/3866), [#3869](https://github.com/letta-ai/letta-code/pull/3869))
+
+## 0.30.23
+
+- Added an official container image and proactive monitoring behavior for long-running work ([#3855](https://github.com/letta-ai/letta-code/pull/3855), [#3858](https://github.com/letta-ai/letta-code/pull/3858))
+- Fixed teleport continuation retries to be idempotent ([#3865](https://github.com/letta-ai/letta-code/pull/3865))
+
+## 0.30.22
+
+- Added in-place working directory updates for running sessions and safe gateway handoff when teleporting channel conversations ([#3847](https://github.com/letta-ai/letta-code/pull/3847), [#3846](https://github.com/letta-ai/letta-code/pull/3846))
+- Fixed preserving image results from external tools, tracking PRs created after heredocs, secret redaction scoped to each tool invocation, and retrying safe Cloud API shutdown rejections ([#3848](https://github.com/letta-ai/letta-code/pull/3848), [#3851](https://github.com/letta-ai/letta-code/pull/3851), [#3849](https://github.com/letta-ai/letta-code/pull/3849), [#3852](https://github.com/letta-ai/letta-code/pull/3852))
+
+## 0.30.21
+
+- Added runtime workspace sandboxes in the app server and mod-driven conversation title refreshes in the active TUI ([#3827](https://github.com/letta-ai/letta-code/pull/3827), [#3837](https://github.com/letta-ai/letta-code/pull/3837))
+- Fixed TUI provider validation against supplied base URLs, Slack user mentions preserved in prompts, headless `can_use_tool` deny interrupts, and Ollama reporting its served context window instead of the GGUF maximum ([#3812](https://github.com/letta-ai/letta-code/pull/3812), [#3832](https://github.com/letta-ai/letta-code/pull/3832), [#3592](https://github.com/letta-ai/letta-code/pull/3592), [#3838](https://github.com/letta-ai/letta-code/pull/3838))
+- Removed repeated delivery reminders and minimized post-send confirmations in channels ([#3834](https://github.com/letta-ai/letta-code/pull/3834), [#3835](https://github.com/letta-ai/letta-code/pull/3835))
+
+## 0.30.20
+
+- Added teleporting conversations between environments, with a skill guiding teleport workflows ([#3813](https://github.com/letta-ai/letta-code/pull/3813), [#3814](https://github.com/letta-ai/letta-code/pull/3814))
+- Improved CLI startup time by lazily initializing the syntax highlighter ([#3824](https://github.com/letta-ai/letta-code/pull/3824))
+- Fixed environment response correlation in headless mode, project settings loaded for sandbox transfers, output limits preserved when resuming agents, and mod-provided model providers during reflection ([#3805](https://github.com/letta-ai/letta-code/pull/3805), [#3809](https://github.com/letta-ai/letta-code/pull/3809), [#3810](https://github.com/letta-ai/letta-code/pull/3810), [#3815](https://github.com/letta-ai/letta-code/pull/3815))
+- Fixed the Read tool’s line-number prefix matching Claude Code, `TaskUpdate` aligned with Anthropic’s schema, stale LS/MultiEdit/`TodoWrite` tools dropped from built-in subagents, subagent forks inheriting the parent toolset, and proactive Slack thread continuity ([#3816](https://github.com/letta-ai/letta-code/pull/3816), [#3819](https://github.com/letta-ai/letta-code/pull/3819), [#3823](https://github.com/letta-ai/letta-code/pull/3823), [#3826](https://github.com/letta-ai/letta-code/pull/3826), [#3820](https://github.com/letta-ai/letta-code/pull/3820))
+
+## 0.30.19
+
+- Added sandbox file transfer commands to the CLI ([#3800](https://github.com/letta-ai/letta-code/pull/3800))
+- Fixed headless runs targeting the conversation’s cloud sandbox and typing indicators staying active across queued channel turns ([#3801](https://github.com/letta-ai/letta-code/pull/3801), [#3786](https://github.com/letta-ai/letta-code/pull/3786))
+- Improved Bash and BashOutput tool descriptions to route long-running monitoring to the Monitor tool ([#3785](https://github.com/letta-ai/letta-code/pull/3785))
+
+## 0.30.18
+
+- No notable user-facing changes in this release
+
+## 0.30.17
+
+- Added shared Slack ingress and model picker primitives for external channel hosts ([#3776](https://github.com/letta-ai/letta-code/pull/3776))
+
+## 0.30.16
+
+- Fixed worktree path normalization on Windows, preserved Monitor output truncation markers, and approval-first turn input ordering in mods ([#3764](https://github.com/letta-ai/letta-code/pull/3764), [#3765](https://github.com/letta-ai/letta-code/pull/3765), [#3774](https://github.com/letta-ai/letta-code/pull/3774))
+
+## 0.30.15
+
+- Added hot-reloading of agent records from disk in local mode ([#3760](https://github.com/letta-ai/letta-code/pull/3760))
+- Fixed sender attribution on live user echoes, empty Monitor source placeholders, API key validation against the supplied base URL when connecting providers, and unexpected git fetch prompts from worktrees ([#3755](https://github.com/letta-ai/letta-code/pull/3755), [#3756](https://github.com/letta-ai/letta-code/pull/3756), [#3716](https://github.com/letta-ai/letta-code/pull/3716), [#3761](https://github.com/letta-ai/letta-code/pull/3761))
+
+## 0.30.14
+
+- Added an `ExitWorktree` tool for leaving or cleaning up a worktree, with compact result summaries in the CLI, and event monitors ([#3747](https://github.com/letta-ai/letta-code/pull/3747), [#3752](https://github.com/letta-ai/letta-code/pull/3752), [#3751](https://github.com/letta-ai/letta-code/pull/3751))
+- Added shared Slack reaction ingress policy and MessageChannel result classification for external channel hosts ([#3753](https://github.com/letta-ai/letta-code/pull/3753), [#3754](https://github.com/letta-ai/letta-code/pull/3754))
+
+## 0.30.13
+
+- Added GitHub PR tracking on conversations ([#3746](https://github.com/letta-ai/letta-code/pull/3746))
+- Fixed general-purpose subagents inheriting the parent model, acting-user attribution on direct turns, and task notifications delivered when a background Bash command exits ([#3743](https://github.com/letta-ai/letta-code/pull/3743), [#3742](https://github.com/letta-ai/letta-code/pull/3742), [#3741](https://github.com/letta-ai/letta-code/pull/3741))
+
+## 0.30.12
+
+- Added user-only mod notifications surfaced in Desktop ([#3713](https://github.com/letta-ai/letta-code/pull/3713))
+- Added a shared runtime-command executor and host-extra command definitions for external channel hosts ([#3733](https://github.com/letta-ai/letta-code/pull/3733), [#3740](https://github.com/letta-ai/letta-code/pull/3740))
+- Fixed toolset details leaking into model updates, injected skill messages streaming live, recovered AskUserQuestion approvals re-presented after restart, root agent instructions loaded in worktrees, and manual toolsets scoped to conversations ([#3735](https://github.com/letta-ai/letta-code/pull/3735), [#3734](https://github.com/letta-ai/letta-code/pull/3734), [#3738](https://github.com/letta-ai/letta-code/pull/3738), [#3736](https://github.com/letta-ai/letta-code/pull/3736), [#3739](https://github.com/letta-ai/letta-code/pull/3739))
+
+## 0.30.11
+
+- Changed scheduled conversations to be tagged instead of prefixed in the title ([#3731](https://github.com/letta-ai/letta-code/pull/3731))
+- Added lifecycle-error formatting and the slash-command surface for external channel hosts ([#3726](https://github.com/letta-ai/letta-code/pull/3726), [#3729](https://github.com/letta-ai/letta-code/pull/3729))
+- Fixed duplicate outbound channel actions, environment skills registered in agent context, and channel-created conversations pinned to the agent’s current model ([#3704](https://github.com/letta-ai/letta-code/pull/3704), [#3728](https://github.com/letta-ai/letta-code/pull/3728), [#3732](https://github.com/letta-ai/letta-code/pull/3732))
+
+## 0.30.10
+
+- Added support for skill directories provided by the connected environment ([#3722](https://github.com/letta-ai/letta-code/pull/3722))
+- Fixed loading bundled client tools named in the allowlist ([#3721](https://github.com/letta-ai/letta-code/pull/3721))
+
+## 0.30.9
+
+- Changed channel-created conversations to use conversation tags instead of source prefixes ([#3708](https://github.com/letta-ai/letta-code/pull/3708))
+- Removed the experimental Responses WebSocket flag ([#3568](https://github.com/letta-ai/letta-code/pull/3568))
+- Fixed model refresh after turn-start mods and the first provider retry now being shown ([#3702](https://github.com/letta-ai/letta-code/pull/3702), [#3706](https://github.com/letta-ai/letta-code/pull/3706))
+- Fixed force-killing timed-out shell process trees, split stream socket liveness, direct turns staying on the process transport, and aborting wedged HTTP reads after a terminal SSE sequence ([#3714](https://github.com/letta-ai/letta-code/pull/3714), [#3718](https://github.com/letta-ai/letta-code/pull/3718), [#3717](https://github.com/letta-ai/letta-code/pull/3717), [#3720](https://github.com/letta-ai/letta-code/pull/3720))
+
+## 0.30.8
+
+- Changed conversation title generation to use Luna ([#3701](https://github.com/letta-ai/letta-code/pull/3701))
+- Fixed headless retries of dropped streams on the active run, provider-aware auto toolsets, batched gateway runtime tool registration, channels waiting for the final turn lifecycle event, canonical notification envelopes, and preserved terminal error details ([#3694](https://github.com/letta-ai/letta-code/pull/3694), [#3698](https://github.com/letta-ai/letta-code/pull/3698), [#3693](https://github.com/letta-ai/letta-code/pull/3693), [#3696](https://github.com/letta-ai/letta-code/pull/3696), [#3700](https://github.com/letta-ai/letta-code/pull/3700), [#3699](https://github.com/letta-ai/letta-code/pull/3699))
+
+## 0.30.7
+
+- Fixed tool lifecycle events to preserve real message IDs ([#3685](https://github.com/letta-ai/letta-code/pull/3685))
+
+## 0.30.6
+
+- Added per-channel Slack mention gating so the agent only responds when mentioned in configured channels ([#3658](https://github.com/letta-ai/letta-code/pull/3658))
+- Changed cron mechanics guidance to live in the scheduling-tasks skill ([#3683](https://github.com/letta-ai/letta-code/pull/3683))
+- Fixed the self-hosted registration override, OpenAI-compatible providers on the local backend, cron preserving active listener execution, and cron falling back to a local schedule when Cloud can’t reach the computer ([#3663](https://github.com/letta-ai/letta-code/pull/3663), [#3674](https://github.com/letta-ai/letta-code/pull/3674), [#3665](https://github.com/letta-ai/letta-code/pull/3665), [#3682](https://github.com/letta-ai/letta-code/pull/3682))
+- Fixed agent MemFS access in mod callbacks, reflection child processes isolated from mods, external tools bridged on remote connections, MemFS resetting inherited credential helpers, and terminal turn errors forwarded and sanitized ([#3673](https://github.com/letta-ai/letta-code/pull/3673), [#3676](https://github.com/letta-ai/letta-code/pull/3676), [#3679](https://github.com/letta-ai/letta-code/pull/3679), [#3670](https://github.com/letta-ai/letta-code/pull/3670), [#3678](https://github.com/letta-ai/letta-code/pull/3678), [#3680](https://github.com/letta-ai/letta-code/pull/3680))
+
+## 0.30.5
+
+- Added stateless sessions with existing agents and a `letta shared-memory` CLI subcommand with a git-first shared memory skill ([#3664](https://github.com/letta-ai/letta-code/pull/3664), [#3653](https://github.com/letta-ai/letta-code/pull/3653))
+- Fixed `xhigh` reasoning tiers for the new Opus and Sonnet models, preserving the local backend after login, queued notification identity, and distinguishing switches to existing worktrees ([#3545](https://github.com/letta-ai/letta-code/pull/3545), [#3648](https://github.com/letta-ai/letta-code/pull/3648), [#3629](https://github.com/letta-ai/letta-code/pull/3629), [#3571](https://github.com/letta-ai/letta-code/pull/3571))
+- Improved the reflection worktree integration flow ([#3534](https://github.com/letta-ai/letta-code/pull/3534))
+
+## 0.30.4
+
+- Added WhatsApp messaging controls and lifecycle hardening, stateful Responses chaining in the app server, and base64 encoding for the `read_file` device command ([#3650](https://github.com/letta-ai/letta-code/pull/3650), [#3639](https://github.com/letta-ai/letta-code/pull/3639), [#3649](https://github.com/letta-ai/letta-code/pull/3649))
+- Fixed OAuth provider identity in the model selector and app-server tool execution without a relay connection ([#3651](https://github.com/letta-ai/letta-code/pull/3651), [#3654](https://github.com/letta-ai/letta-code/pull/3654))
+
+## 0.30.3
+
+- No notable user-facing changes in this release
+
+## 0.30.2
+
+- Fixed schedule listing to never silently omit Cloud schedules, and added a remove alias and name-based addressing for schedules ([#3623](https://github.com/letta-ai/letta-code/pull/3623))
+- Fixed honoring managed runtime device identity ([#3624](https://github.com/letta-ai/letta-code/pull/3624))
+
+## 0.30.1
+
+- Added a shared scheduled-task prompt contract ([#3621](https://github.com/letta-ai/letta-code/pull/3621))
+
+## 0.30.0
+
+- Added request-scoped client toolsets in the Agent SDK ([#3609](https://github.com/letta-ai/letta-code/pull/3609))
+- Fixed package manager shim launching on Windows, unavailable memory block counts omitted, stalled split-stream reconnect recovery, and headless mode rejecting implicit positional prompts ([#3600](https://github.com/letta-ai/letta-code/pull/3600), [#3607](https://github.com/letta-ai/letta-code/pull/3607), [#3598](https://github.com/letta-ai/letta-code/pull/3598), [#3611](https://github.com/letta-ai/letta-code/pull/3611))
+
+## 0.29.13
+
+- Added metadata-only overrides for subagents and surfaced server-side MCP servers in `/mcp` ([#3556](https://github.com/letta-ai/letta-code/pull/3556), [#3570](https://github.com/letta-ai/letta-code/pull/3570))
+- Improved WhatsApp identity handling by canonicalizing LID identities ([#3599](https://github.com/letta-ai/letta-code/pull/3599))
+- Fixed Fast OAuth provider identity preservation, concurrent local git config changes on the memory repo, and reflection prompts on Windows shells ([#3561](https://github.com/letta-ai/letta-code/pull/3561), [#3563](https://github.com/letta-ai/letta-code/pull/3563), [#3566](https://github.com/letta-ai/letta-code/pull/3566))
+
+## 0.29.12
+
+- Added Claude Opus 5 model support and per-agent client-side MCP servers with OAuth ([#3550](https://github.com/letta-ai/letta-code/pull/3550), [#3549](https://github.com/letta-ai/letta-code/pull/3549))
+- Fixed shared channel reload command routing, repeated bot thread context in Slack, oversized persisted channel reminders, the Slack loading message limit, and reusable MCP client declarations ([#3528](https://github.com/letta-ai/letta-code/pull/3528), [#3551](https://github.com/letta-ai/letta-code/pull/3551), [#3552](https://github.com/letta-ai/letta-code/pull/3552), [#3553](https://github.com/letta-ai/letta-code/pull/3553), [#3557](https://github.com/letta-ai/letta-code/pull/3557))
+
+## 0.29.11
+
+- Fixed automatic titles for empty specified conversations, in-flight turns lost across relay reconnects, and false pong timeouts under event-loop stalls ([#3542](https://github.com/letta-ai/letta-code/pull/3542), [#3522](https://github.com/letta-ai/letta-code/pull/3522), [#3547](https://github.com/letta-ai/letta-code/pull/3547))
+
+## 0.29.10
+
+- Added shared cloud agents to the agent list, a built-in shared-memory management skill for cloud agents, and OpenAI Responses API support in the app server ([#3537](https://github.com/letta-ai/letta-code/pull/3537), [#3299](https://github.com/letta-ai/letta-code/pull/3299), [#3538](https://github.com/letta-ai/letta-code/pull/3538))
+
+## 0.29.9
+
+- Added a strict permissions mode that forces all tools through approval ([#3533](https://github.com/letta-ai/letta-code/pull/3533))
+
+## 0.29.8
+
+- Fixed shared memory prompt guidance so it only applies to hosted agents ([#3531](https://github.com/letta-ai/letta-code/pull/3531))
+
+## 0.29.7
+
+- Added support for concurrent app-server WebSocket clients ([#3524](https://github.com/letta-ai/letta-code/pull/3524))
+- Fixed terminal startup to probe for an existing shell instead of assuming `/bin/zsh` ([#3529](https://github.com/letta-ai/letta-code/pull/3529))
+
+## 0.29.6
+
+- Added explicit Discord bot handoffs and a confinement launcher for memory workers ([#3426](https://github.com/letta-ai/letta-code/pull/3426), [#3525](https://github.com/letta-ai/letta-code/pull/3525))
+- Fixed Telegram private bot topics and missing pagination metadata from `conversation_messages_list` ([#3211](https://github.com/letta-ai/letta-code/pull/3211), [#3526](https://github.com/letta-ai/letta-code/pull/3526))
+
+## 0.29.5
+
+- Fixed in-flight mod reload registrations and selectors not refreshing after mod provider registration ([#3501](https://github.com/letta-ai/letta-code/pull/3501), [#3503](https://github.com/letta-ai/letta-code/pull/3503))
+
+## 0.29.4
+
+- Fixed default Ollama context windows now capped at 128K, authenticated native websocket origins in the app server, AppleDouble agent sidecar files on macOS, compaction not triggering before output headroom is exhausted, and inconsistent endpoint context defaults ([#3512](https://github.com/letta-ai/letta-code/pull/3512), [#3511](https://github.com/letta-ai/letta-code/pull/3511), [#3514](https://github.com/letta-ai/letta-code/pull/3514), [#3516](https://github.com/letta-ai/letta-code/pull/3516), [#3513](https://github.com/letta-ai/letta-code/pull/3513))
+
+## 0.29.3
+
+- Fixed the app-server client contract so external clients can consume it ([#3502](https://github.com/letta-ai/letta-code/pull/3502))
+
+## 0.29.2
+
+- Added external client capability discovery to the app server ([#3500](https://github.com/letta-ai/letta-code/pull/3500))
+- Fixed on-demand llama.cpp router models not appearing in local mode and fenced remote interrupt cancellation ([#3496](https://github.com/letta-ai/letta-code/pull/3496), [#3495](https://github.com/letta-ai/letta-code/pull/3495))
+
+## 0.29.1
+
+- Fixed OAuth flows not being registered in the standalone CLI bundle ([#3492](https://github.com/letta-ai/letta-code/pull/3492))
+
+## 0.29.0
+
+- Added BYOK OpenAI reasoning controls and responsive markdown table rendering in the CLI ([#3484](https://github.com/letta-ai/letta-code/pull/3484), [#3487](https://github.com/letta-ai/letta-code/pull/3487))
+- Improved app-server protocol clients to inherit harness tool defaults, agents passing secrets into the programs they run, and skill dispatch guidance ([#3479](https://github.com/letta-ai/letta-code/pull/3479), [#3483](https://github.com/letta-ai/letta-code/pull/3483), [#3486](https://github.com/letta-ai/letta-code/pull/3486))
+- Fixed adjacent reasoning headings rendering without separation ([#3485](https://github.com/letta-ai/letta-code/pull/3485))
+
+## 0.28.18
+
+- Added review of historical coding-agent sessions via @letta-ai/trajectory and surfaced OpenRouter reasoning effort levels ([#3459](https://github.com/letta-ai/letta-code/pull/3459), [#3469](https://github.com/letta-ai/letta-code/pull/3469))
+- Improved reflection transcript handling with centralized normalization ([#3467](https://github.com/letta-ai/letta-code/pull/3467))
+- Fixed clamping total tool return size before it reaches the model and scrubbing secrets from overflow file content ([#3470](https://github.com/letta-ai/letta-code/pull/3470), [#3471](https://github.com/letta-ai/letta-code/pull/3471))
+
+## 0.28.17
+
+- Added an OpenAI-compatible API for the App Server behind `--openai-api` ([#3427](https://github.com/letta-ai/letta-code/pull/3427))
+- Added a seeded Tutor profile picture and refreshed the curated model catalog from the cloud catalog endpoint ([#3458](https://github.com/letta-ai/letta-code/pull/3458), [#3390](https://github.com/letta-ai/letta-code/pull/3390))
+- Fixed listener identity handling with a spawner-assigned identity hook, no spawner identity inheritance, and no duplicate standalone listeners ([#3453](https://github.com/letta-ai/letta-code/pull/3453), [#3462](https://github.com/letta-ai/letta-code/pull/3462), [#3460](https://github.com/letta-ai/letta-code/pull/3460))
+- Fixed the base URL field for local endpoint providers and pointed users at `--backend local` for local-only connect providers ([#3456](https://github.com/letta-ai/letta-code/pull/3456), [#3457](https://github.com/letta-ai/letta-code/pull/3457))
+
+## 0.28.16
+
+- Added task-first Tutor guidance, active config inspection, and a dedicated Tutor human prompt ([#3442](https://github.com/letta-ai/letta-code/pull/3442), [#3375](https://github.com/letta-ai/letta-code/pull/3375))
+- Removed Constellation terminology from the CLI ([#3431](https://github.com/letta-ai/letta-code/pull/3431))
+- Fixed transient OAuth response handling, eager React resolution for mods in packaged runtimes, and isolation of image processing diagnostics ([#3425](https://github.com/letta-ai/letta-code/pull/3425), [#3439](https://github.com/letta-ai/letta-code/pull/3439), [#3434](https://github.com/letta-ai/letta-code/pull/3434))
+- Fixed the denial reason shown when stale approvals auto-close ([#3444](https://github.com/letta-ai/letta-code/pull/3444))
+
+## 0.28.15
+
+- Added Gemini 3.6 Flash on cloud ([#3441](https://github.com/letta-ai/letta-code/pull/3441))
+- Fixed actionable errors for transient channel failures, cron field value range validation, Slack channel reply block reuse, and search results in the resume picker ([#3443](https://github.com/letta-ai/letta-code/pull/3443), [#3233](https://github.com/letta-ai/letta-code/pull/3233), [#3445](https://github.com/letta-ai/letta-code/pull/3445), [#3413](https://github.com/letta-ai/letta-code/pull/3413))
+
+## 0.28.14
+
+- Changed `letta cron` to route through durable Cloud schedules by default ([#3407](https://github.com/letta-ai/letta-code/pull/3407))
+- Renamed the cron `--target-device` flag to `--computer` and added pre-validation against non-targetable list entries ([#3432](https://github.com/letta-ai/letta-code/pull/3432), [#3428](https://github.com/letta-ai/letta-code/pull/3428))
+- Added centralized sender access control, command tiers, and `/whoami` for channels ([#3430](https://github.com/letta-ai/letta-code/pull/3430))
+- Added a bundled letta-guide skill for answering Letta product questions from live docs ([#3440](https://github.com/letta-ai/letta-code/pull/3440))
+- Fixed the Slack model picker layout and hardened channel pairing code generation ([#3429](https://github.com/letta-ai/letta-code/pull/3429), [#3433](https://github.com/letta-ai/letta-code/pull/3433))
+
+## 0.28.13
+
+- Fixed resuming project sessions before pinned agents ([#3418](https://github.com/letta-ai/letta-code/pull/3418))
+
+## 0.28.12
+
+- Added a self-configuration skill ([#3401](https://github.com/letta-ai/letta-code/pull/3401))
+- Changed the App Server entry point to the unified `letta server` command ([#3415](https://github.com/letta-ai/letta-code/pull/3415))
+- Fixed rebuilding stale approval input on resync in headless mode, hiding generic tool activity from Slack status, and exposing cloud as the backend name ([#3403](https://github.com/letta-ai/letta-code/pull/3403), [#3408](https://github.com/letta-ai/letta-code/pull/3408), [#3416](https://github.com/letta-ai/letta-code/pull/3416))
+
+## 0.28.11
+
+- Fixed GPT-5.6 context windows with explicit 1M variants and stopped omitting the context window limit on model-bearing updates ([#3383](https://github.com/letta-ai/letta-code/pull/3383), [#3386](https://github.com/letta-ai/letta-code/pull/3386))
+- Fixed Slack file downloads wedging turns on slow or stalled transfers, Kimi K3 reasoning controls, and subagent results lost to silent stdout truncation ([#3382](https://github.com/letta-ai/letta-code/pull/3382), [#3387](https://github.com/letta-ai/letta-code/pull/3387), [#3303](https://github.com/letta-ai/letta-code/pull/3303))
+
+## 0.28.10
+
+- Added Kimi K3 model presets ([#3384](https://github.com/letta-ai/letta-code/pull/3384))
+
+## 0.28.9
+
+- Added a feedback command for channels ([#3373](https://github.com/letta-ai/letta-code/pull/3373))
+- Fixed preserving unresolved secret refs in channels, saving `base_url` for local providers, loading agent-scoped MemFS mods in listener sessions, honoring runtime skill sources in the App Server, and emitting the subagent `conversation_id` in state snapshots ([#3371](https://github.com/letta-ai/letta-code/pull/3371), [#3331](https://github.com/letta-ai/letta-code/pull/3331), [#3344](https://github.com/letta-ai/letta-code/pull/3344), [#3370](https://github.com/letta-ai/letta-code/pull/3370), [#3240](https://github.com/letta-ai/letta-code/pull/3240))
+
+## 0.28.8
+
+- Added back GPT-5.6 Luna ChatGPT OAuth and OAuth 2.1 support in the mcp-http skill helper ([#3349](https://github.com/letta-ai/letta-code/pull/3349), [#3368](https://github.com/letta-ai/letta-code/pull/3368))
+- Removed skill invocation arguments ([#3365](https://github.com/letta-ai/letta-code/pull/3365))
+- Fixed the context-limit reset message for uncatalogued models, included authoritative time in scheduled cron prompts, and allowed explicitly mentioned bots in Slack ([#3350](https://github.com/letta-ai/letta-code/pull/3350), [#3348](https://github.com/letta-ai/letta-code/pull/3348), [#3366](https://github.com/letta-ai/letta-code/pull/3366))
+
+## 0.28.7
+
+- Fixed repairing stale conversation working directories and preserving image policy across turn retries ([#3318](https://github.com/letta-ai/letta-code/pull/3318), [#3360](https://github.com/letta-ai/letta-code/pull/3360))
+
+## 0.28.6
+
+- Added tags to onboarding-created agents ([#3356](https://github.com/letta-ai/letta-code/pull/3356))
+- Fixed preserving access to oversized Slack attachments ([#3345](https://github.com/letta-ai/letta-code/pull/3345))
+- Fixed local-mode model handling: isolated per-conversation model token settings, preserved provider length stop reasons, and stopped treating output limits as context overflow ([#3353](https://github.com/letta-ai/letta-code/pull/3353), [#3354](https://github.com/letta-ai/letta-code/pull/3354), [#3355](https://github.com/letta-ai/letta-code/pull/3355))
+- Fixed authoritative executing tool IDs on listener loop state, App Server websocket disconnect visibility, and send-boundary image normalization ([#3352](https://github.com/letta-ai/letta-code/pull/3352), [#3358](https://github.com/letta-ai/letta-code/pull/3358), [#3357](https://github.com/letta-ai/letta-code/pull/3357))
+
+## 0.28.5
+
+- Added `--prompt` and `--system` reflection overrides for dreaming ([#3313](https://github.com/letta-ai/letta-code/pull/3313))
+- Fixed grouping contiguous reasoning blocks in local mode, updating the in-flight turn tool context when EnterWorktree switches the working directory in listener sessions, preserving OAuth credentials across listener reconnects, and routing web links to current surfaces ([#3327](https://github.com/letta-ai/letta-code/pull/3327), [#3339](https://github.com/letta-ai/letta-code/pull/3339), [#3341](https://github.com/letta-ai/letta-code/pull/3341), [#3328](https://github.com/letta-ai/letta-code/pull/3328))
+
+## 0.28.4
+
+- Added model presentation presets ([#3326](https://github.com/letta-ai/letta-code/pull/3326))
+- Fixed local mode using the native model inventory with curated presets and stopped GPG-signing harness git commits in memory repos ([#3321](https://github.com/letta-ai/letta-code/pull/3321), [#3322](https://github.com/letta-ai/letta-code/pull/3322))
+
+## 0.28.3
+
+- Fixed preserving user message correlation IDs in local mode ([#3317](https://github.com/letta-ai/letta-code/pull/3317))
+
+## 0.28.2
+
+- Fixed local mode preserving canonical providers during model carryover, preventing one-token llama.cpp responses, and omitting the unavailable GPT-5.6 Luna OAuth model ([#3136](https://github.com/letta-ai/letta-code/pull/3136), [#3314](https://github.com/letta-ai/letta-code/pull/3314), [#3304](https://github.com/letta-ai/letta-code/pull/3304))
+
+## 0.28.1
+
+- Added a reflection model override for dreaming ([#3306](https://github.com/letta-ai/letta-code/pull/3306))
+- Fixed Slack acknowledgements for long-running work ([#3307](https://github.com/letta-ai/letta-code/pull/3307))
+
+## 0.28.0
+
+- Added GPT-5.6 model support in local mode, GPT-5.6 ChatGPT OAuth presets, and an OpenAI-compatible provider connection ([#3294](https://github.com/letta-ai/letta-code/pull/3294), [#3297](https://github.com/letta-ai/letta-code/pull/3297), [#3283](https://github.com/letta-ai/letta-code/pull/3283))
+- Improved Slack progress to ride the assistant status line with markdown replies and web footnotes ([#3279](https://github.com/letta-ai/letta-code/pull/3279))
+
+## 0.27.30
+
+- Added GPT-5.6 and Grok 4.5 model support, per-account Slack text progress mode, and memfs-less worker agents with explicit per-session memory scopes ([#3277](https://github.com/letta-ai/letta-code/pull/3277), [#3285](https://github.com/letta-ai/letta-code/pull/3285), [#3290](https://github.com/letta-ai/letta-code/pull/3290))
+- Fixed Slack progress cards staying open on non-root replies, duplicate `markdown_text` in stopped streams, dead-stream rewrites reduced to a single terminal summary line, and attachments hydrated from thread broadcast messages ([#3272](https://github.com/letta-ai/letta-code/pull/3272), [#3275](https://github.com/letta-ai/letta-code/pull/3275), [#3276](https://github.com/letta-ai/letta-code/pull/3276), [#3281](https://github.com/letta-ai/letta-code/pull/3281))
+- Fixed cancellation of in-flight headless turns on SIGINT, waiting for the final assistant response in environment-routed runs, and patch context mismatch diagnostics ([#2884](https://github.com/letta-ai/letta-code/pull/2884), [#3239](https://github.com/letta-ai/letta-code/pull/3239), [#3271](https://github.com/letta-ai/letta-code/pull/3271))
+
+## 0.27.29
+
+- Improved `letta dream --to` to skip creating a placeholder doc when nothing is learned and to write more concise, timeless AGENTS.md entries ([#3264](https://github.com/letta-ai/letta-code/pull/3264), [#3266](https://github.com/letta-ai/letta-code/pull/3266))
+- Fixed tool error output leaking into progress row titles, orphaned Slack progress streams, and stale model availability across provider reconnects ([#3263](https://github.com/letta-ai/letta-code/pull/3263), [#3265](https://github.com/letta-ai/letta-code/pull/3265), [#3267](https://github.com/letta-ai/letta-code/pull/3267))
+- Removed the experimental node integration; `x-letta-node` is now only enabled via the `LETTA_NODE` environment variable ([#3262](https://github.com/letta-ai/letta-code/pull/3262))
+
+## 0.27.28
+
+- Added `letta dream --to` for agentic AGENTS.md maintenance (synced into MemFS `system/` before reflecting) and `letta dream --from` for reflecting on external sources via an adapter framework ([#3245](https://github.com/letta-ai/letta-code/pull/3245), [#3249](https://github.com/letta-ai/letta-code/pull/3249), [#3251](https://github.com/letta-ai/letta-code/pull/3251))
+- Added rich live Slack progress cards and local tool calls and returns in headless stream-json output ([#3029](https://github.com/letta-ai/letta-code/pull/3029), [#3242](https://github.com/letta-ai/letta-code/pull/3242))
+- Changed the shell tool to require a `description` parameter across toolsets ([#3254](https://github.com/letta-ai/letta-code/pull/3254))
+- Fixed Slack progress cards stuck on dead streams, inbound Slack attachments inlined as base64 images, bidirectional interrupts in headless mode, and Bash recovery from deleted working directories ([#2631](https://github.com/letta-ai/letta-code/pull/2631), [#3238](https://github.com/letta-ai/letta-code/pull/3238), [#3255](https://github.com/letta-ai/letta-code/pull/3255), [#3260](https://github.com/letta-ai/letta-code/pull/3260))
+
+## 0.27.27
+
+- Added the `letta dream` subcommand for non-interactive reflection ([#3212](https://github.com/letta-ai/letta-code/pull/3212))
+- Fixed memory write/delete responses and `memory_updated` events firing before the MemFS push completed ([#3243](https://github.com/letta-ai/letta-code/pull/3243))
+
+## 0.27.26
+
+- Added environment routing for headless messages, Slack auto-subscription to threads the agent sends messages to, and isolation of reflection MemFS writes in worktrees ([#3073](https://github.com/letta-ai/letta-code/pull/3073), [#3125](https://github.com/letta-ai/letta-code/pull/3125), [#3229](https://github.com/letta-ai/letta-code/pull/3229))
+- Fixed non-retryable LLM errors being retried ([#3230](https://github.com/letta-ai/letta-code/pull/3230))
+
+## 0.27.25
+
+- Added acting-user attribution when the listener creates or forks conversations ([#3224](https://github.com/letta-ai/letta-code/pull/3224))
+- Fixed skill loading to enforce the `name` frontmatter field ([#3218](https://github.com/letta-ai/letta-code/pull/3218))
+
+## 0.27.24
+
+- Added Tutor as the default agent for brand-new accounts ([#3220](https://github.com/letta-ai/letta-code/pull/3220))
+- Improved the featured model list to current-generation models and the built-in review prompt ([#3219](https://github.com/letta-ai/letta-code/pull/3219), [#3222](https://github.com/letta-ai/letta-code/pull/3222))
+- Fixed MemFS sync after skill installs, media in Slack thread context, and manual memory commit guidance ([#2936](https://github.com/letta-ai/letta-code/pull/2936), [#3156](https://github.com/letta-ai/letta-code/pull/3156), [#3187](https://github.com/letta-ai/letta-code/pull/3187))
+
+## 0.27.23
+
+- Changed the product status row into a built-in product-status panel ([#3203](https://github.com/letta-ai/letta-code/pull/3203))
+- Fixed the deprecated `--no-memfs` flag to be accepted as a hidden no-op for version compatibility ([#3213](https://github.com/letta-ai/letta-code/pull/3213))
+
+## 0.27.22
+
+- Changed the cross-agent shell sandbox to opt-in while keeping the memory-subagent sandbox on by default ([#3209](https://github.com/letta-ai/letta-code/pull/3209))
+- Fixed channel lifecycle errors to include run IDs ([#3183](https://github.com/letta-ai/letta-code/pull/3183))
+
+## 0.27.21
+
+- Added `exec_command` descriptions, stable listener instance IDs when registering environments, image assets in `list_memory` responses, conversation summaries and `agentId` in mod contexts, and agent creation presets exported as `@letta-ai/letta-code/agent-presets` ([#3130](https://github.com/letta-ai/letta-code/pull/3130), [#3193](https://github.com/letta-ai/letta-code/pull/3193), [#3197](https://github.com/letta-ai/letta-code/pull/3197), [#3200](https://github.com/letta-ai/letta-code/pull/3200), [#3204](https://github.com/letta-ai/letta-code/pull/3204), [#3206](https://github.com/letta-ai/letta-code/pull/3206))
+- Changed subagents to run in the background by default, made MemFS mandatory with all non-MemFS opt-outs removed, and switched statusline panels to `ModContext` ([#3161](https://github.com/letta-ai/letta-code/pull/3161), [#3189](https://github.com/letta-ai/letta-code/pull/3189), [#3202](https://github.com/letta-ai/letta-code/pull/3202))
+- Removed built-in goal mode ([#2792](https://github.com/letta-ai/letta-code/pull/2792))
+- Fixed validation of auto-approved tool arguments, discovered local models in the model selector’s recommended tab, local favorites and favorite-backed pins in pinned agents, ChatGPT OAuth provider typing for OpenAI Codex, mod permissions in the listener/desktop runtime, queued reflection launch gating, app-server approval control requests, and startup MemFS enablement ([#3160](https://github.com/letta-ai/letta-code/pull/3160), [#3175](https://github.com/letta-ai/letta-code/pull/3175), [#3176](https://github.com/letta-ai/letta-code/pull/3176), [#3182](https://github.com/letta-ai/letta-code/pull/3182), [#3184](https://github.com/letta-ai/letta-code/pull/3184), [#3185](https://github.com/letta-ai/letta-code/pull/3185), [#3191](https://github.com/letta-ai/letta-code/pull/3191), [#3196](https://github.com/letta-ai/letta-code/pull/3196), [#3199](https://github.com/letta-ai/letta-code/pull/3199), [#3205](https://github.com/letta-ai/letta-code/pull/3205))
+
+## 0.27.20
+
+- Added `llm_end` mod events for provider errors ([#3164](https://github.com/letta-ai/letta-code/pull/3164))
+- Fixed reaping of half-open sockets on both listener transports ([#3143](https://github.com/letta-ai/letta-code/pull/3143))
+
+## 0.27.19
+
+- Added Claude Sonnet 5 as the new default Sonnet model, autodetection of local model endpoints, `~` and `$VAR` expansion in `file_path` for Read/Write/Edit, syncing of attached repositories, `turn_start` cancellation and tool arguments in `tool_end` mod events, local filesystem mod learning, experimental desktop artifact file tools, an app-server conversation list client helper, and OpenRouter app attribution headers ([#2833](https://github.com/letta-ai/letta-code/pull/2833), [#3123](https://github.com/letta-ai/letta-code/pull/3123), [#3142](https://github.com/letta-ai/letta-code/pull/3142), [#3144](https://github.com/letta-ai/letta-code/pull/3144), [#3146](https://github.com/letta-ai/letta-code/pull/3146), [#3148](https://github.com/letta-ai/letta-code/pull/3148), [#3149](https://github.com/letta-ai/letta-code/pull/3149), [#3154](https://github.com/letta-ai/letta-code/pull/3154), [#3157](https://github.com/letta-ai/letta-code/pull/3157), [#3158](https://github.com/letta-ai/letta-code/pull/3158))
+- Improved cohesion across the system prompt, tool descriptions, and the cron reminder ([#2808](https://github.com/letta-ai/letta-code/pull/2808))
+- Fixed dreaming link visibility in tmux, Discord thread creation to respect the `auto_thread_on_mention` setting, stale mod dependency cache symlinks, full context in panel renders, bare `exit` routing before queueing, omitted `multiSelect` in AskUserQuestion, canonical project skills in the Skill tool, boot-directory fallback when the persisted working directory is deleted, fork subagents linked to their forked conversation, system memory path guidance, and orphaned CLI processes exiting when the parent dies ([#3099](https://github.com/letta-ai/letta-code/pull/3099), [#3103](https://github.com/letta-ai/letta-code/pull/3103), [#3117](https://github.com/letta-ai/letta-code/pull/3117), [#3120](https://github.com/letta-ai/letta-code/pull/3120), [#3122](https://github.com/letta-ai/letta-code/pull/3122), [#3126](https://github.com/letta-ai/letta-code/pull/3126), [#3127](https://github.com/letta-ai/letta-code/pull/3127), [#3131](https://github.com/letta-ai/letta-code/pull/3131), [#3145](https://github.com/letta-ai/letta-code/pull/3145), [#3147](https://github.com/letta-ai/letta-code/pull/3147), [#3152](https://github.com/letta-ai/letta-code/pull/3152))
+
+## 0.27.18
+
+- Added `tool_end` mod events with result modification, local-backend `compact_start`/`compact_end` and `llm_start`/`llm_end` events, `tool_start`/`tool_end` delivery on desktop, a `turn_end` continue effect for the listener, render-function panels, `updateLlmConfig` on the mod conversation handle for model/reasoning/context window changes, and mod slash commands advertised to clients via `mod_commands` ([#3087](https://github.com/letta-ai/letta-code/pull/3087), [#3092](https://github.com/letta-ai/letta-code/pull/3092), [#3096](https://github.com/letta-ai/letta-code/pull/3096), [#3097](https://github.com/letta-ai/letta-code/pull/3097), [#3101](https://github.com/letta-ai/letta-code/pull/3101), [#3102](https://github.com/letta-ai/letta-code/pull/3102), [#3107](https://github.com/letta-ai/letta-code/pull/3107), [#3112](https://github.com/letta-ai/letta-code/pull/3112))
+- Changed the statusline API to signed-order panels and removed the memory permission mode ([#3093](https://github.com/letta-ai/letta-code/pull/3093), [#3104](https://github.com/letta-ai/letta-code/pull/3104))
+- Fixed panel renders decoupled from input keystroke churn, Discord typing indicators while turns process, wide-character and emoji-aware panel widths, and diagnostics for invalid panel renderers ([#3057](https://github.com/letta-ai/letta-code/pull/3057), [#3094](https://github.com/letta-ai/letta-code/pull/3094), [#3105](https://github.com/letta-ai/letta-code/pull/3105), [#3113](https://github.com/letta-ai/letta-code/pull/3113))
+
+## 0.27.17
+
+- Added a `turn_end` mod event with a continue effect across the CLI, headless mode, and the desktop listener, the `letta/glm` model preset, and a default-on kernel filesystem sandbox for cross-agent isolation ([#2853](https://github.com/letta-ai/letta-code/pull/2853), [#3070](https://github.com/letta-ai/letta-code/pull/3070), [#3077](https://github.com/letta-ai/letta-code/pull/3077), [#3080](https://github.com/letta-ai/letta-code/pull/3080), [#3082](https://github.com/letta-ai/letta-code/pull/3082))
+- Improved the reflection prompt and exposed the Edit tool to the reflection agent ([#2789](https://github.com/letta-ai/letta-code/pull/2789), [#3088](https://github.com/letta-ai/letta-code/pull/3088))
+- Fixed pinned-agent scoping and resuming a single existing pin, and ChatGPT Plus/Pro provider type inference on desktop ([#3081](https://github.com/letta-ai/letta-code/pull/3081), [#3083](https://github.com/letta-ai/letta-code/pull/3083))
+
+## 0.27.16
+
+- Added mod package management for npm, GitHub, and git packages, secrets exposed to mod tool invocations, a result effect on the `tool_start` mod event, and automatic provisioning, entry, and locking in CreateWorktree ([#3046](https://github.com/letta-ai/letta-code/pull/3046), [#3055](https://github.com/letta-ai/letta-code/pull/3055), [#3058](https://github.com/letta-ai/letta-code/pull/3058), [#3062](https://github.com/letta-ai/letta-code/pull/3062), [#3074](https://github.com/letta-ai/letta-code/pull/3074), [#3075](https://github.com/letta-ai/letta-code/pull/3075))
+- Fixed desktop toolset refresh to use the selected provider ([#3067](https://github.com/letta-ai/letta-code/pull/3067))
+
+## 0.27.15
+
+- Added mod packages: scaffold, install (local and npm), manage, list, and validate mod packages, plus agent-scoped MemFS mods ([#3030](https://github.com/letta-ai/letta-code/pull/3030), [#3031](https://github.com/letta-ai/letta-code/pull/3031), [#3032](https://github.com/letta-ai/letta-code/pull/3032), [#3033](https://github.com/letta-ai/letta-code/pull/3033), [#3036](https://github.com/letta-ai/letta-code/pull/3036), [#3038](https://github.com/letta-ai/letta-code/pull/3038), [#3039](https://github.com/letta-ai/letta-code/pull/3039), [#3040](https://github.com/letta-ai/letta-code/pull/3040), [#3054](https://github.com/letta-ai/letta-code/pull/3054))
+- Added manual multi-transcript reflection, ChatGPT OAuth provider aliases, local agent secret storage, and parent tags on subagents ([#2600](https://github.com/letta-ai/letta-code/pull/2600), [#2971](https://github.com/letta-ai/letta-code/pull/2971), [#3021](https://github.com/letta-ai/letta-code/pull/3021), [#3052](https://github.com/letta-ai/letta-code/pull/3052))
+- Fixed hidden agents appearing in local listings, rehydrating bot-authored Slack thread context, keeping MessageChannel for scoped no-tool turns, retrying skipped auto-reflection launches, loading legacy extensions alongside mods, subagent prompt state over websocket, and preserving BYOK reasoning settings on desktop and in the TUI ([#2912](https://github.com/letta-ai/letta-code/pull/2912), [#2968](https://github.com/letta-ai/letta-code/pull/2968), [#3014](https://github.com/letta-ai/letta-code/pull/3014), [#3022](https://github.com/letta-ai/letta-code/pull/3022), [#3034](https://github.com/letta-ai/letta-code/pull/3034), [#3047](https://github.com/letta-ai/letta-code/pull/3047), [#3049](https://github.com/letta-ai/letta-code/pull/3049), [#3051](https://github.com/letta-ai/letta-code/pull/3051))
+
+## 0.27.14
+
+- Improved agent pins in settings ([#2951](https://github.com/letta-ai/letta-code/pull/2951))
+- Fixed channel conversation working-directory mappings and stale approval loop status in the app server ([#2944](https://github.com/letta-ai/letta-code/pull/2944), [#3012](https://github.com/letta-ai/letta-code/pull/3012))
+
+## 0.27.13
+
+- Added a Codex-style websocket auth guard to the app server ([#3008](https://github.com/letta-ai/letta-code/pull/3008))
+
+## 0.27.12
+
+- Added a first-party Signal channel, Slack reaction and listen-mode controls, Kimi 2.7 model support, and the `turn_start` event for listener mods ([#2931](https://github.com/letta-ai/letta-code/pull/2931), [#2933](https://github.com/letta-ai/letta-code/pull/2933), [#2998](https://github.com/letta-ai/letta-code/pull/2998), [#3002](https://github.com/letta-ai/letta-code/pull/3002))
+- Improved reflection task notifications with the reflection agent ID and warnings on UTF-8 memory writes ([#2956](https://github.com/letta-ai/letta-code/pull/2956), [#2980](https://github.com/letta-ai/letta-code/pull/2980))
+- Fixed stale in-context messages on resume, forked conversations overwriting existing conversations, restored channel accounts scoped by backend, active-shell detection for startup notes, session tool filters applied to client snapshots, secrets reminders refreshing after changes, app-server `runTurn` approval terminality, and hidden console windows for git context on Windows ([#2960](https://github.com/letta-ai/letta-code/pull/2960), [#2962](https://github.com/letta-ai/letta-code/pull/2962), [#2965](https://github.com/letta-ai/letta-code/pull/2965), [#2967](https://github.com/letta-ai/letta-code/pull/2967), [#2972](https://github.com/letta-ai/letta-code/pull/2972), [#2991](https://github.com/letta-ai/letta-code/pull/2991), [#2999](https://github.com/letta-ai/letta-code/pull/2999), [#3006](https://github.com/letta-ai/letta-code/pull/3006))
+
 ## 0.27.11
 
 - Added mod event propagation through listener tool-preparation paths and surfaced GLM 5.2 for zAI local connections ([#2949](https://github.com/letta-ai/letta-code/pull/2949), [#2957](https://github.com/letta-ai/letta-code/pull/2957))
