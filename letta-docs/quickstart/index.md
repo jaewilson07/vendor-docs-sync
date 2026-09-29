@@ -21,9 +21,9 @@ Choose the desktop app, CLI, or web app to get started. The desktop app and CLI 
 
 1. **Download and install the Letta app**
 
-   [Download for macOS ](#)
+   [Download for macOS (Apple Silicon) ](https://download.letta.com/mac/dmg/arm64)
 
-   Available for [macOS (Apple Silicon)](https://download.letta.com/mac/dmg/arm64), [Windows (x64)](https://download.letta.com/windows/nsis/x64), [Windows (ARM64)](https://download.letta.com/windows/nsis/arm64), [Linux (AppImage, x64)](https://download.letta.com/linux/appImage/x64), and [Linux (AppImage, ARM64)](https://download.letta.com/linux/appImage/arm64)
+   Available for [macOS (Apple Silicon)](https://download.letta.com/mac/dmg/arm64)
 
 2. **Open the Letta app**
 

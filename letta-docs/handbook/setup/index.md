@@ -21,13 +21,7 @@ The desktop app supports both locally stored agents and agents backed up to your
 
 ### 1. Download and install the app
 
-Download the Letta app for your platform:
-
-- [macOS, Apple silicon](https://download.letta.com/mac/dmg/arm64)
-- [Windows, x64](https://download.letta.com/windows/nsis/x64)
-- [Windows, ARM64](https://download.letta.com/windows/nsis/arm64)
-- [Linux, x64 AppImage](https://download.letta.com/linux/appImage/x64)
-- [Linux, ARM64 AppImage](https://download.letta.com/linux/appImage/arm64)
+Download the Letta app for [macOS (Apple Silicon)](https://download.letta.com/mac/dmg/arm64).
 
 Launch the app after installation.
 

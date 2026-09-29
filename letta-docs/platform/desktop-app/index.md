@@ -1,6 +1,6 @@
 ---
 title: Letta app | Letta Docs
-description: Use the Letta app on macOS, Windows, or Linux
+description: Use the Letta app on macOS (Apple Silicon)
 applies_to:
   backends:
     - cloud
@@ -17,7 +17,7 @@ Your agents aren’t tied to your desktop, either. The same agent can run on you
 
 ## Getting started
 
-[  macOS Apple Silicon ](https://download.letta.com/mac/dmg/arm64)[  macOS Intel (x64) ](https://download.letta.com/mac/dmg/x64)[  Windows x64 ](https://download.letta.com/windows/nsis/x64)[  Windows ARM64 ](https://download.letta.com/windows/nsis/arm64)[  Linux AppImage, x64 ](https://download.letta.com/linux/appImage/x64)[  Linux AppImage, ARM64](https://download.letta.com/linux/appImage/arm64)
+[  macOS Apple Silicon](https://download.letta.com/mac/dmg/arm64)
 
 Once installed, follow the [quickstart](/quickstart/index.md) to connect model providers and send your first message.
 
