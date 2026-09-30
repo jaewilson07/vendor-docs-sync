@@ -21,6 +21,10 @@ All traffic from deployments created after January 6, 2025 comes through a NAT g
 
 Use the following static IP addresses to allowlist traffic for each region:
 
+<Note>
+Other LangSmith services egress from a [separate IP list](/langsmith/cloud#egress-from-langchain-saas).
+</Note>
+
 | GCP US         | GCP EU         | GCP APAC       | AWS US        |
 | -------------- | -------------- | -------------- | ------------- |
 | 35.197.29.146  | 34.90.213.236  | 34.40.236.16   | 3.13.80.97    |
@@ -103,6 +107,12 @@ Runtime compute and memory are the total vCPU and memory provisioned across a de
 </Note>
 
 For the price of each size, see the [pricing page](https://www.langchain.com/pricing), which includes a deployment cost calculator. For how Serverless and Dedicated deployments are billed, see [Manage billing](/langsmith/billing#langsmith-deployment-billing).
+
+#### Run multiple agents on one deployment
+
+Deployments are [billed on the resources they consume](/langsmith/billing#langsmith-deployment-billing), not on the number of agents they serve. To run several agents on the resources of one deployment, [define multiple graphs](/langsmith/application-structure#define-multiple-graphs-in-one-deployment) in one `langgraph.json`. This works well for Dedicated: one always-on instance with its own database can host several production agents.
+
+All graphs in a deployment share its compute, database, autoscaling, and deployment type. They also ship together as one revision. Give an agent its own deployment when it needs a different size, latency profile, or isolation from the other agents.
 
 ## Database provisioning
 
