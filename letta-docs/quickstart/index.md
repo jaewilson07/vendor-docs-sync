@@ -27,7 +27,7 @@ Choose the desktop app, CLI, or web app to get started. The desktop app and CLI 
 
 2. **Open the Letta app**
 
-   Launch the app and select “Skip login”.
+   Launch the app and select “Continue locally” (or “Sign in” to use Letta Cloud).
 
    Click “Connect model providers” in the bottom-left menu to add external API keys and coding plans.
 
@@ -66,7 +66,7 @@ Choose the desktop app, CLI, or web app to get started. The desktop app and CLI 
 
    You’re ready to chat! Try asking your agent to explore your codebase or run `/init` to bootstrap its memory.
 
-   Use `/new` to start a new conversation (or `letta --new`), `/resume` to swap conversations, `/agent` to swap agents, and `/model` to swap models. View the [CLI reference](/platform/cli/reference/index.md) to see the full list of CLI commands.
+   Use `/new` to start a new conversation (or `letta --new`), `/resume` to swap conversations, `/agents` to swap agents, and `/model` to swap models. View the [CLI reference](/platform/cli/reference/index.md) to see the full list of CLI commands.
 
 5) **Optional: sign in with Letta**
 
@@ -153,11 +153,7 @@ You can also just ask your agent to install a skill from a GitHub URL, or browse
 
 ### Learning
 
-Your agent learns how to behave from you. Give it feedback in plain language (“be more concise”, “always run the tests before committing”) and it will update its memory to match. When it makes a mistake it should never repeat, use `/remember` to make the correction durable:
-
-```
-> /remember always use pnpm in this project, never npm
-```
+Your agent learns how to behave from you. Give it feedback in plain language (“be more concise”, “always run the tests before committing”) and it will update its memory to match. When it makes a mistake it should never repeat, tell it directly (“remember to always use pnpm in this project, never npm”) and it will write that to memory.
 
 Your agent also has full access to all prior conversation data, which it can search via tools, [skills](/configuration/skills/index.md), and [subagents](/configuration/subagents#built-in-subagents/index.md). If you’ve discussed something before, your agent can find it (e.g. “*We definitely fixed a similar bug before, do you remember what the solution was?*”).
 
@@ -172,7 +168,6 @@ You’ll likely want to use the following essential commands when using the Lett
 | `shift-tab`        | Toggle permission modes                        | Press `Shift+Tab`                        |
 | `/init`            | Run deep memory initialization (or re-init)    | `> /init`                                |
 | `/doctor`          | Audit and refine memory structure              | `> /doctor`                              |
-| `/remember`        | Teach your agent something                     | `> /remember always use pnpm`            |
 | `/memory`          | View and manage memory blocks                  | `> /memory`                              |
 | `/model`           | Switch the LLM model                           | `> /model`                               |
 | `/search`          | Search past messages                           | `> /search auth bug`                     |

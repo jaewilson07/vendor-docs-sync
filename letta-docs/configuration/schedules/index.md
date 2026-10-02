@@ -17,27 +17,23 @@ Your agent can also schedule tasks itself. Simply ask it in chat.
 
 ## Where tasks run
 
-When you schedule a task (`letta cron add`), Letta runs the prompt **where you are working by default**:
+When you schedule a task (`letta cron add`), Letta stores it based on **where you are working**:
 
-- **From a connected computer** (laptop, VM, remote server): The schedule is stored in Letta Cloud, but triggers the prompt on your machine so your agent has access to your local files and tools.
-- **From a Cloud sandbox**: Runs in the managed [cloud sandbox](/platform/computers/cloud-sandboxes/index.md).
-- **From an unconnected computer**: Creates a local schedule that runs only while your session is active.
+- **From a Cloud sandbox**: The schedule is stored in Letta Cloud and runs in the managed [cloud sandbox](/platform/computers/cloud-sandboxes/index.md).
+- **From any other computer** (laptop, VM, remote server): Creates a local schedule that runs only while a Letta session is active on that computer.
 
 ### Choosing an execution target
 
-You can override where a task runs using CLI flags:
-
-- `--computer <deviceId>`: Target a specific connected computer (find IDs with `letta environments list`). If the machine is offline when the schedule fires, it falls back to the Cloud sandbox.
-- `--runner cloud`: Force execution in the managed Cloud sandbox.
-- `--runner local`: Store the schedule strictly on your local machine. It only fires while a Letta session is running and never falls back to the cloud.
+From a Cloud sandbox, use `--computer <deviceId>` to target a specific connected computer (find IDs with `letta computers list`). If the machine is offline when the schedule fires, it falls back to the Cloud sandbox.
 
 Terminal window
 
 ```
-# Target a specific connected server
+# Target a specific connected server (from a Cloud sandbox)
 letta cron add \
   --agent agent-123 \
   --name "server-check" \
+  --description "Hourly server health check" \
   --prompt "Check system health and report any disk warnings." \
   --every 1h \
   --computer <deviceId>
@@ -60,6 +56,7 @@ Terminal window
 letta cron add \
   --agent agent-123 \
   --name "deploy-reminder" \
+  --description "Staging metrics reminder" \
   --prompt "Remind me to check staging metrics before deploying." \
   --at "in 45m" \
   --conversation self
@@ -67,14 +64,14 @@ letta cron add \
 
 ## Cloud vs. local schedules
 
-|                       | Cloud schedules (Default)                                  | Local schedules (`--runner local`)                     |
+|                       | Cloud schedules (Cloud sandbox)                            | Local schedules (other computers)                      |
 | :-------------------- | :--------------------------------------------------------- | :----------------------------------------------------- |
-| **Where it’s stored** | Letta Cloud                                                | Local machine (`~/.letta/cron.json`)                   |
+| **Where it’s stored** | Letta Cloud                                                | Local machine (`~/.letta/crons.json`)                  |
 | **When it fires**     | Always (server-side timer)                                 | Only while a Letta app, CLI, or server process is open |
 | **Timezone**          | Recurring `--cron` runs in **UTC**                         | Evaluated in your **local machine timezone**           |
 | **Offline behavior**  | Runs on targeted machine; falls back to sandbox if offline | Pauses until you restart Letta                         |
 
-Local-backend agents always use local schedules; passing `--runner cloud` or `--computer` returns an error. If creating a cloud schedule fails, Letta never silently falls back to local storage.
+Passing `--computer` from any other computer returns an error. If creating a cloud schedule fails, Letta never silently falls back to local storage.
 
 ## Common CLI commands
 
@@ -82,11 +79,11 @@ Terminal window
 
 ```
 # Add a recurring task (weekdays at 9am UTC)
-letta cron add --name "daily-brief" --cron "0 9 * * 1-5" --prompt "Prepare morning briefing."
+letta cron add --name "daily-brief" --description "Weekday morning briefing" --cron "0 9 * * 1-5" --prompt "Prepare morning briefing."
 
 
 # Add a one-time reminder
-letta cron add --name "standup" --at "10:00am" --prompt "Summarize yesterday's commits."
+letta cron add --name "standup" --description "Daily standup summary" --at "10:00am" --prompt "Summarize yesterday's commits."
 
 
 # List scheduled tasks
@@ -120,4 +117,4 @@ For the full command table and options, see the [CLI reference](/platform/cli/re
 
 - **`--computer` says my machine is not connected**
 
-  - The computer must appear in `letta environments list` as a connected machine. Run `letta server` on it (or enable remote access in the Letta app) to connect it to your Letta account.
+  - The computer must appear in `letta computers list` as a connected machine. Run `letta server` on it (or enable remote access in the Letta app) to connect it to your Letta account. `--computer` only works from a Cloud sandbox.

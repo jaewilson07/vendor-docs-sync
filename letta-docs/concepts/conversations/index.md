@@ -22,7 +22,7 @@ Choosing when to start a new conversation is up to user preference. There is no 
 
 ## Start and resume conversations
 
-When you run `letta` without arguments, the CLI resumes the default conversation with your last-used agent.
+When you run `letta` without arguments, the CLI resumes the last conversation for the current project with your last-used agent.
 
 Start a new conversation from the CLI:
 

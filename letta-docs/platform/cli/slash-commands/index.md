@@ -17,19 +17,19 @@ Commands are also available from autocomplete: type `/` in an interactive CLI se
 
 ### Common session commands
 
-| Command            | Description                                               |
-| ------------------ | --------------------------------------------------------- |
-| `/agents`          | Browse agents (pinned, Letta Code, all)                   |
-| `/model`           | Switch model                                              |
-| `/init`            | Initialize or re-initialize your agent’s memory           |
-| `/doctor`          | Audit and refine your memory structure                    |
-| `/remember [text]` | Ask the agent to remember something from the conversation |
-| `/memory`          | View your agent’s memory                                  |
-| `/palace`          | Open the Memory Palace in your browser                    |
-| `/search [query]`  | Search messages across agents                             |
-| `/connect`         | Connect LLM API keys and coding plans                     |
-| `/clear`           | Clear in-context messages                                 |
-| `/chdir <path>`    | Change the working directory for the current TUI session  |
+| Command             | Description                                               |
+| ------------------- | --------------------------------------------------------- |
+| `/agents`           | Browse agents (pinned, Letta Code, all)                   |
+| `/model`            | Switch model                                              |
+| `/init`             | Initialize or re-initialize your agent’s memory           |
+| `/doctor [symptom]` | Investigate an agent issue in this conversation           |
+| `/remember [text]`  | Ask the agent to remember something from the conversation |
+| `/memory`           | View your agent’s memory                                  |
+| `/palace`           | Open the Memory Palace in your browser                    |
+| `/search [query]`   | Search messages across agents                             |
+| `/connect`          | Connect LLM API keys and coding plans                     |
+| `/clear`            | Clear in-context messages                                 |
+| `/chdir <path>`     | Change the working directory for the current TUI session  |
 
 ### Agent and conversation management
 
@@ -39,32 +39,32 @@ Commands are also available from autocomplete: type `/` in an interactive CLI se
 | `/resume [id]`                                   | Browse and resume past conversations, or switch directly by ID  |
 | `/fork`                                          | Fork the current conversation                                   |
 | `/btw <question>`                                | Fork the conversation and ask a side question in the background |
-| `/pin [-l]`                                      | Pin the current agent globally, or locally with `-l`            |
-| `/unpin [-l]`                                    | Unpin the current agent globally, or locally with `-l`          |
+| `/pin [name]`                                    | Pin the current agent, optionally renaming it first             |
+| `/unpin`                                         | Unpin the current agent                                         |
 | `/rename agent [name]` or `/rename convo [name]` | Rename the current agent or conversation                        |
 | `/description <text>`                            | Update the current agent’s description                          |
 | `/export`                                        | Export the current agent as an AgentFile (`.af`)                |
 
 ### Memory, tools, and configuration
 
-| Command                                               | Description                                            |
-| ----------------------------------------------------- | ------------------------------------------------------ |
-| `/reflect [transcript_file]`                          | Launch a reflection agent                              |
-| `/sleeptime`                                          | Configure reflection trigger settings                  |
-| `/compaction`                                         | Configure compaction mode settings                     |
-| `/compact [all\|sliding_window]`                      | Summarize conversation history immediately             |
-| `/memfs [enable\|disable\|sync\|reset]`               | Manage filesystem-backed memory                        |
-| `/toolset`                                            | Switch toolset (`default`, `codex`, or `gemini`)       |
-| `/experiments`                                        | Toggle local experiments                               |
-| `/reload`                                             | Reload settings and restart TUI effects                |
-| `/system`                                             | Switch system prompt                                   |
-| `/personality`                                        | Switch to a personality preset                         |
-| `/subagents`                                          | Manage custom subagents                                |
-| `/mcp`                                                | Manage MCP servers                                     |
-| `/secret <set\|list\|unset> [key] [value]`            | Manage secrets for shell commands                      |
-| `/skills`                                             | Browse available skills by source                      |
-| `/skill-creator [description]`                        | Enter guided skill creation mode                       |
-| `/memory-repository <set\|unset\|status\|push> [url]` | Push the agent memory repo to an additional git remote |
+| Command                                               | Description                                                     |
+| ----------------------------------------------------- | --------------------------------------------------------------- |
+| `/reflect [transcript_file]`                          | Launch a reflection agent                                       |
+| `/sleeptime`                                          | Configure reflection trigger settings                           |
+| `/compaction`                                         | Configure compaction mode settings                              |
+| `/compact [all\|sliding_window]`                      | Summarize conversation history immediately                      |
+| `/memfs [status\|enable\|sync\|reset]`                | Manage filesystem-backed memory                                 |
+| `/toolset`                                            | Switch toolset (`auto`, `letta`, `default`, `codex`, or `none`) |
+| `/experiments`                                        | Toggle local experiments                                        |
+| `/reload`                                             | Reload settings and local mods                                  |
+| `/system`                                             | Switch system prompt                                            |
+| `/personality`                                        | Switch to a personality preset                                  |
+| `/subagents`                                          | Manage custom subagents                                         |
+| `/mcp`                                                | Manage MCP servers                                              |
+| `/secret <set\|list\|unset> [key] [value]`            | Manage secrets for shell commands                               |
+| `/skills`                                             | Browse available skills by source                               |
+| `/skill-creator [description]`                        | Enter guided skill creation mode                                |
+| `/memory-repository <set\|unset\|status\|push> [url]` | Push the agent memory repo to an additional git remote          |
 
 ### Interface and maintenance
 
@@ -83,7 +83,6 @@ Commands are also available from autocomplete: type `/` in an interactive CLI se
 | `/ade`                                 | Open the current agent in ADE in your browser             |
 | `/install-github-app`                  | Set up the Letta Code GitHub Action in this repository    |
 | `/login`                               | Sign in with Letta                                        |
-| `/disconnect <provider>`               | Disconnect an existing provider account                   |
 | `/bg`                                  | Show background shell processes                           |
 | `/exit`                                | Exit this session                                         |
 | `/logout`                              | Clear credentials and exit                                |
@@ -100,7 +99,7 @@ Terminal window
 /statusline show my git branch, current model, and remaining context
 ```
 
-Custom statuslines are global and live at `~/.letta/extensions/statusline.tsx`. They render while the input row is idle; safety prompts and transient CLI hints can still temporarily replace them. If you edit the file by hand, run `/reload` to reload it.
+Custom statuslines are global and live at `~/.letta/mods/statusline.tsx`. They render while the input row is idle; safety prompts and transient CLI hints can still temporarily replace them. If you edit the file by hand, run `/reload` to reload it.
 
 ## Goal mode
 

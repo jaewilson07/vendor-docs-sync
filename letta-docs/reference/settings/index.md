@@ -32,7 +32,7 @@ letta --backend local
 
 ### Sign in with Letta
 
-Choose **Sign in with Letta** during first-run setup when you want agents backed up to the cloud and available from `chat.letta.com`, the desktop app, remote environments, schedules, or messaging integrations.
+Choose **Sign in with Letta** during first-run setup when you want agents backed up to the cloud and available from `chat.letta.com`, the desktop app, connected computers, schedules, or messaging integrations.
 
 You can force the Letta-hosted backend with:
 
@@ -74,7 +74,7 @@ Available presets:
 | `claude`               | Vanilla Claude-flavored source personality                       |
 | `codex`                | Vanilla Codex-flavored source personality                        |
 
-The `tutorial`, `linus`, and `kawaii` presets also include onboarding memory by default. The `tutorial` preset is paired with the built-in `letta-help` skill, which guides new users through memory, delegation, tools, skills, search, subagents, and schedules one step at a time.
+The `tutorial` preset also includes onboarding memory by default.
 
 ## Configuration files
 
@@ -84,21 +84,7 @@ Applies to all projects:
 
 ```
 {
-  "tokenStreaming": true,
-  "globalSharedBlockIds": {
-    "persona": "block-id-...",
-    "human": "block-id-..."
-  }
-}
-```
-
-### Project settings (`.letta/settings.local.json`)
-
-Personal, gitignored - your agent for this project:
-
-```
-{
-  "lastAgent": "agent-id-..."
+  "tokenStreaming": true
 }
 ```
 
@@ -114,24 +100,9 @@ Can be committed to share with your team:
 }
 ```
 
-### File search tuning (`~/.letta/.lettasettings`)
-
-Letta Code also creates a user-local `~/.letta/.lettasettings` file for tuning indexed `@` file search behavior:
-
-\~/.letta/.lettasettings
-
-```
-MAX_ENTRIES=50000
-```
-
-- `MAX_ENTRIES` controls how many files are kept in the in-memory `@` search cache.
-- Raise it for very large repositories if you want more files instantly available in autocomplete.
-- Lower it on constrained machines to reduce memory usage.
-- Restart Letta Code after changing this file.
-
 ### File search exclusions (`.letta/.lettaignore`)
 
-Use `.letta/.lettaignore` to exclude files and directories from indexed `@` file search and disk-scan fallback:
+Use `.letta/.lettaignore` to exclude files and directories from App Server file listing and search:
 
 ```
 node_modules
@@ -144,21 +115,17 @@ src/generated/**
 - One glob pattern per line
 - `#` starts a comment
 - Negation patterns like `!foo` are not currently supported
-- Letta Code creates this file automatically with common defaults on first run
 
 You can commit `.letta/.lettaignore` if you want your team to share the same search exclusions.
 
 ## Settings reference
 
-| Setting                | Type       | Description                                                           |
-| ---------------------- | ---------- | --------------------------------------------------------------------- |
-| `tokenStreaming`       | `boolean`  | Enable real-time token streaming                                      |
-| `showCompactions`      | `boolean`  | Show compaction event messages in the conversation (default: `false`) |
-| `enableSleeptime`      | `boolean`  | Enable sleeptime agents for passive memory updates (default: `false`) |
-| `lastAgent`            | `string`   | ID of last used agent (for auto-resume)                               |
-| `globalSharedBlockIds` | `object`   | IDs of global memory blocks                                           |
-| `permissions.allow`    | `string[]` | Patterns to auto-allow                                                |
-| `permissions.deny`     | `string[]` | Patterns to always deny                                               |
+| Setting             | Type       | Description                                                           |
+| ------------------- | ---------- | --------------------------------------------------------------------- |
+| `tokenStreaming`    | `boolean`  | Enable real-time token streaming                                      |
+| `showCompactions`   | `boolean`  | Show compaction event messages in the conversation (default: `false`) |
+| `permissions.allow` | `string[]` | Patterns to auto-allow                                                |
+| `permissions.deny`  | `string[]` | Patterns to always deny                                               |
 
 ## Environment variables
 

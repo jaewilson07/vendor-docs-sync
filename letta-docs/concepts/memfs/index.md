@@ -18,14 +18,15 @@ MemFS **projects** that repository onto whatever computer the agent is running o
 
 MemFS is also called a [context repository](https://www.letta.com/blog/context-repositories).
 
-Memory is addressed by path: the memory labelled `system/persona` is projected to `system/persona.md`. Choosing a label is choosing where the memory lives and whether it stays in context.
+Memory is addressed by path: the memory labelled `persona` is projected to `persona.md`. Choosing a label is choosing where the memory lives and whether it stays in context.
 
 ## Memory structure
 
-Each memory is projected as Markdown with YAML frontmatter:
+Each memory except a `MEMORY.md` index is projected as Markdown with YAML frontmatter:
 
 ```
 ---
+name: persona
 description: "Who I am, what I value, and how I approach working with people."
 ---
 
@@ -33,16 +34,17 @@ description: "Who I am, what I value, and how I approach working with people."
 I am a Letta agent. I remember durable preferences and improve with use.
 ```
 
-Files under `system/` are loaded into the agent’s system prompt on every turn. Use this directory for the agent’s identity, important user preferences, durable project facts, and critical workflow rules.
+Files at the memory root are loaded into the agent’s system prompt on every turn. Use them for the agent’s identity, important user preferences, durable project facts, and critical workflow rules. Older agents use a `system/` directory instead.
 
-Files outside `system/` stay out of context until they are needed. The file tree itself is always in the system prompt, so directory and file names act as signposts the agent follows to read the right file. This keeps the active context lean while preserving deeper reference material.
+Directories with their own `MEMORY.md` index stay out of context until they are needed. The root `MEMORY.md` lists them, so directory and file names act as signposts the agent follows to read the right file. This keeps the active context lean while preserving deeper reference material.
 
 ```
 $MEMORY_DIR/
-├── system/
-│   ├── persona.md
-│   └── human.md
+├── MEMORY.md
+├── persona.md
+├── human.md
 ├── reference/
+│   ├── MEMORY.md
 │   └── project-notes.md
 └── skills/
     └── my-skill/

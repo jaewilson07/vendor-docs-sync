@@ -68,13 +68,14 @@ The setup script creates one Cloud agent with the free `letta/auto` model. It gi
 node --env-file=.env.local scripts/create-agent.mjs
 ```
 
-Your environment file now contains both values that the server routes need:
+The chat has no approval interface, so it refuses every tool that `LETTA_AUTO_APPROVE_TOOLS` does not list. Your environment file now contains the values that the server routes need:
 
 .env.local
 
 ```
 LETTA_API_KEY=your-key-here
 LETTA_CHAT_AGENT_ID=agent-...
+LETTA_AUTO_APPROVE_TOOLS=web_search,fetch_webpage
 ```
 
 The application creates many conversations on this one agent. Each conversation has its own transcript, while the agent remains the same.
@@ -131,7 +132,7 @@ The hook also adds the user message and an empty assistant message to React stat
 
 ### 2. The server sends and streams the turn
 
-`app/api/chat/route.ts` verifies that the conversation belongs to the configured agent. It then resumes that conversation, sends the user message, and reads the session stream.
+`app/api/chat/route.ts` verifies that the conversation belongs to the configured agent. It then resumes that conversation with a `canUseTool` policy, recovers pending approvals, sends the user message, and reads the session stream.
 
 One `session.stream()` iteration returns one typed SDK message. For example:
 
@@ -146,49 +147,29 @@ One `session.stream()` iteration returns one typed SDK message. For example:
 }
 ```
 
-The route handles text, reasoning, tool calls, tool results, errors, and the terminal result in one loop:
+The route handles errors and the terminal result in one loop. It passes every other message to the SDK transcript accumulator:
 
 ```
 streamMessages: for await (const message of session.stream()) {
   switch (message.type) {
-    case "assistant":
-      writeEvent(controller, encoder, {
-        type: "assistant",
-        content: message.content,
-      });
-      break;
-
-
-    case "reasoning":
-      writeEvent(controller, encoder, {
-        type: "reasoning",
-        content: message.content,
-      });
-      break;
-
-
-    case "tool_call":
-      writeEvent(controller, encoder, {
-        type: "tool_call",
-        id: message.toolCallId,
-        name: message.toolName,
-        input: message.toolInput,
-        inputFragment: message.rawArguments ?? "",
-      });
-      break;
-
-
-    case "tool_result":
-      writeEvent(controller, encoder, {
-        type: "tool_result",
-        id: message.toolCallId,
-        isError: message.isError,
-      });
+    case "error":
+      failure = message.errorDetail ?? message.message;
       break;
 
 
     case "result":
+      if (!message.success) {
+        failure =
+          failure ?? message.errorDetail ?? message.errorCode ?? "Turn failed.";
+      }
       break streamMessages;
+
+
+    default:
+      if (message.type === "retry") failure = undefined;
+      for (const event of projection.project(message)) {
+        writeEvent(controller, encoder, event);
+      }
   }
 }
 ```
@@ -199,7 +180,7 @@ The browser receives only the fields that it displays. The API key and raw tool 
 
 ### 3. React builds one ordered transcript
 
-The server sends rows, not raw SDK messages, and `lib/letta/browser-events.ts` merges each one into the transcript by its stable key. The display model mirrors the SDK’s own transcript rows:
+The server sends rows, not raw SDK messages, and `lib/letta/browser-events.ts` merges each one into the transcript by its stable key or `otid`. The display model mirrors the SDK’s own transcript rows:
 
 ```
 type BrowserRow =
@@ -224,7 +205,7 @@ reasoning → text → parallel tools → reasoning → text
 
 Separate text and tool sections move later text above earlier tool calls.
 
-Tool arguments can arrive in several `rawArguments` fragments. The reducer joins fragments with the same tool-call ID. It also groups consecutive tools and settles any remaining running tool when the turn ends.
+Tool arguments can arrive in several `rawArguments` fragments. The accumulator on the server joins fragments with the same tool-call ID, so the reducer only merges reconciled rows.
 
 ### 4. A reload rebuilds the same transcript
 

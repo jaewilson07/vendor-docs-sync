@@ -10,7 +10,7 @@ applies_to:
 
 These CLI channels support the local backend only. For cloud-hosted agents, use first-party integrations such as the [native Slack integration](/platform/cloud-agents/slack/index.md), not `letta channels`.
 
-Channels let your local Letta agent receive and respond to messages from external platforms like Telegram, Slack, Discord, WhatsApp, and Signal. Messages from the platform flow into the agent’s conversation, and the agent replies using the `MessageChannel` tool.
+Channels let your local Letta agent receive and respond to messages from external platforms like Telegram, Slack, Discord, WhatsApp, and Signal. Messages from the platform flow into the agent’s conversation, and the agent replies using either the `MessageChannel` tool or opt-in [automatic reply relay](/self-hosting/channels/reply-relay/index.md).
 
 ## Getting started
 
@@ -55,22 +55,22 @@ flowchart LR
         Registry["Channel registry"]
         Queue["Message queue"]
         Agent["Agent"]
-        Tool["MessageChannel tool"]
+        Delivery["Reply delivery"]
     end
 
     TG -->|"Inbound message"| Adapter
     Adapter --> Registry
     Registry -->|"XML-wrapped message"| Queue
     Queue --> Agent
-    Agent -->|"Tool call"| Tool
-    Tool -->|"Outbound reply"| TG
+    Agent -->|"Tool call or finalized message"| Delivery
+    Delivery -->|"Outbound reply"| TG
 ```
 
 1. The **adapter** receives messages from the platform (Telegram uses long-polling, Slack uses Socket Mode, Discord uses the gateway WebSocket, WhatsApp uses a linked-device WebSocket session, and Signal uses a local `signal-cli` bridge)
 2. The **registry** checks sender access (DM policy, group policy, allowlists), looks up the route, and formats the message as XML
 3. The message enters the agent’s **queue** as a `channel` source item
-4. The agent processes it and calls the **MessageChannel** tool to reply
-5. The tool converts markdown to platform-safe formatting and sends through the adapter
+4. The agent processes it and replies using the **MessageChannel** tool (default tool mode) or [automatic reply relay](/self-hosting/channels/reply-relay/index.md) (relay mode)
+5. Outbound replies convert markdown to platform-safe formatting and send through the adapter
 
 ## Access control
 

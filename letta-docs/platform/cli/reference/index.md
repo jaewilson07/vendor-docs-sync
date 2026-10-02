@@ -20,7 +20,6 @@ You’ll likely want to use the following essential commands when using Letta Co
 | `shift-tab`        | Toggle permission modes                        | Press `Shift+Tab`                        |
 | `/init`            | Run deep memory initialization (or re-init)    | `> /init`                                |
 | `/doctor`          | Audit and refine memory structure              | `> /doctor`                              |
-| `/remember`        | Teach your agent something                     | `> /remember always use pnpm`            |
 | `/memory`          | View your agent’s memory                       | `> /memory`                              |
 | `/model`           | Switch the LLM model                           | `> /model`                               |
 | `/login`           | Sign in with Letta                             | `> /login`                               |
@@ -49,9 +48,7 @@ letta [options] [-p "prompt"]
 | `letta --new`                         | Start a new conversation (for concurrent sessions)                                                            |
 | `letta --resume`, `-r`                | Open conversation selector to browse and resume past sessions                                                 |
 | `letta --conversation <id>`, `--conv` | Resume a specific conversation by ID                                                                          |
-| `letta --default`                     | Use agent’s default conversation (requires `--agent` or `--name`)                                             |
-| `letta -n "Name" --default`           | Use default conversation of agent by name                                                                     |
-| `letta --conv default --agent <id>`   | Same as above (explicit form)                                                                                 |
+| `letta --conv default --agent <id>`   | Use agent’s default conversation                                                                              |
 | `letta --conv <agent-id>`             | Shorthand: use default conversation of specified agent                                                        |
 | `letta --new-agent`                   | Force create a new agent                                                                                      |
 | `letta --import <path>`               | Create new agent from an [AgentFile](/v1-sdk/concepts/agent-file/index.md) (.af) or registry (`@author/name`) |
@@ -75,22 +72,21 @@ Use `letta backend` to show the saved default, `letta backend cloud` or `letta b
 
 ## Model and configuration
 
-| Flag                           | Description                                                      |
-| ------------------------------ | ---------------------------------------------------------------- |
-| `--model <model>`, `-m`        | Specify model (e.g., `sonnet`, `auto`, `gpt-5-codex`)            |
-| `--embedding <model>`          | Specify embedding model for new agents                           |
-| `--system <preset>`            | Use a system prompt preset (e.g., `letta-claude`, `codex`)       |
-| `--system-custom <text>`       | Use a custom system prompt string (for new agents)               |
-| `--personality <name>`         | Personality preset for `--new-agent`                             |
-| `--toolset <name>`             | Force toolset: `default`, `codex`, or `gemini`                   |
-| `--skills <path>`              | Custom skills directory                                          |
-| `--skill-sources <csv>`        | Skill sources: `all,bundled,global,agent,project`                |
-| `--no-skills`                  | Disable all skill sources                                        |
-| `--no-bundled-skills`          | Disable bundled skills only                                      |
-| `--no-system-info-reminder`    | Disable first-turn environment reminder (device/git/cwd context) |
-| `--reflection-trigger <mode>`  | Sleeptime trigger: `off`, `step-count`, `compaction-event`       |
-| `--reflection-behavior <mode>` | Deprecated - accepted for compatibility but ignored              |
-| `--reflection-step-count <n>`  | Sleeptime step-count interval (positive integer)                 |
+| Flag                          | Description                                                                 |
+| ----------------------------- | --------------------------------------------------------------------------- |
+| `--model <model>`, `-m`       | Specify model (e.g., `sonnet`, `auto`, `gpt-5-codex`)                       |
+| `--embedding <model>`         | Specify embedding model for new agents                                      |
+| `--system <preset>`           | Use a system prompt preset (e.g., `letta`, `source-claude`, `source-codex`) |
+| `--system-custom <text>`      | Use a custom system prompt string (for new agents)                          |
+| `--personality <name>`        | Personality preset for `--new-agent`                                        |
+| `--toolset <name>`            | Force toolset: `auto`, `letta`, `none`, `default`, or `codex`               |
+| `--skills <path>`             | Custom skills directory                                                     |
+| `--skill-sources <csv>`       | Skill sources: `all,bundled,global,agent,project`                           |
+| `--no-skills`                 | Disable all skill sources                                                   |
+| `--no-bundled-skills`         | Disable bundled skills only                                                 |
+| `--no-system-info-reminder`   | Disable first-turn environment reminder (device/git/cwd context)            |
+| `--reflection-trigger <mode>` | Sleeptime trigger: `off`, `step-count`, `compaction-event`                  |
+| `--reflection-step-count <n>` | Sleeptime step-count interval (positive integer)                            |
 
 The `--model` flag can be inconsistent when resuming sessions. Use the `/model` command instead to change models during an interactive session.
 
@@ -120,23 +116,19 @@ Run Letta Code non-interactively for automation and CI/CD. See [Headless mode](/
 
 ## Memory configuration
 
-Configure memory blocks when creating new agents.
+Configure memory when creating new agents.
 
-| Flag                            | Description                                                    |
-| ------------------------------- | -------------------------------------------------------------- |
-| `--init-blocks <names>`         | Comma-separated preset block names (e.g., `"persona,project"`) |
-| `--base-tools <names>`          | Comma-separated base tools to attach when using `--new-agent`  |
-| `--memory-blocks <json>`        | JSON array of custom memory blocks                             |
-| `--block-value <label>=<value>` | Set value for a preset block (can be specified multiple times) |
-| `--memfs`                       | Enable Memory Filesystem for this agent                        |
-| `--no-memfs`                    | Disable Memory Filesystem for this agent                       |
+| Flag                   | Description                                                   |
+| ---------------------- | ------------------------------------------------------------- |
+| `--base-tools <names>` | Comma-separated base tools to attach when using `--new-agent` |
+| `--memfs`              | Enable Memory Filesystem for this agent                       |
 
 ## Maintenance
 
 | Flag                                            | Description                                                                                                               |
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `letta update`                                  | Manually check and install updates                                                                                        |
-| `letta server [options]`                        | Register this environment as a cloud listener                                                                             |
+| `letta server [options]`                        | Connect this computer to Letta Cloud                                                                                      |
 | `letta remote [options]`                        | Alias for `letta server`                                                                                                  |
 | `letta connect <provider> [options]`            | Connect provider auth from CLI (same provider flow as `/connect`)                                                         |
 | `letta install <source> [--agent <id>]`         | Install a skill (GitHub, Hermes, ClawHub) into an agent MemFS, or install an npm packaged mod globally (`npm:@scope/pkg`) |
@@ -151,14 +143,14 @@ Configure memory blocks when creating new agents.
 
 ## Scheduling
 
-Use `letta cron` to register one-time or recurring prompts for an agent. For cloud agents, a schedule with no runner or computer flags targets the current computer if it is connected and online, or the managed [cloud sandbox](/platform/computers/cloud-sandboxes/index.md) if created in a sandbox. Unregistered or offline computers create a local schedule with a warning. Local agents always use local schedules. See [Scheduling](/configuration/schedules/index.md) for the full guide.
+Use `letta cron` to register one-time or recurring prompts for an agent. Schedules created in a managed [cloud sandbox](/platform/computers/cloud-sandboxes/index.md) are cloud schedules. Schedules created anywhere else are local to the current computer. See [Scheduling](/configuration/schedules/index.md) for the full guide.
 
 | Command                                                                                          | Description                                                       |
 | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
 | `letta cron add --name <name> --description <text> --prompt <text> --every <interval> [options]` | Create a recurring task from an interval like `5m`, `2h`, or `1d` |
 | `letta cron add --name <name> --description <text> --prompt <text> --at <time> [options]`        | Create a one-time task for a time like `"3:00pm"` or `"in 45m"`   |
 | `letta cron add --name <name> --description <text> --prompt <text> --cron "<expr>" [options]`    | Create a recurring task from a raw 5-field cron expression        |
-| `letta cron list [--agent <id>] [--conversation <id>] [--runner local\|cloud]`                   | List tasks, optionally filtered by agent, conversation, or runner |
+| `letta cron list [--agent <id>] [--conversation <id>]`                                           | List tasks, optionally filtered by agent or conversation          |
 | `letta cron get <id>`                                                                            | Show task details                                                 |
 | `letta cron runs --id <id>`                                                                      | Show run history for a task                                       |
 | `letta cron delete <id>`                                                                         | Delete one task                                                   |
@@ -176,9 +168,7 @@ Required fields for `letta cron add`:
 
 Optional flags for `letta cron add`:
 
-- `--runner cloud`: create a cloud schedule; without `--computer`, it runs in the managed cloud sandbox
-- `--runner local`: store the schedule on the current computer; only fires while a Letta app, CLI session, or `letta server` process is running
-- `--computer <deviceId>`: create a cloud schedule targeted to a specific connected computer (deviceId from `letta environments list`), with sandbox fallback if offline. Takes precedence over `--runner cloud`
+- `--computer <deviceId>`: run the cloud schedule on a specific connected computer (deviceId from `letta computers list`), with sandbox fallback if offline. Only available from a managed cloud sandbox
 - `--conversation default`: send every fire to the agent’s default conversation
 - `--conversation <id>`: send every fire to one conversation
 - `--conversation self`: capture `LETTA_CONVERSATION_ID` from the active conversation (requires an active conversation)
@@ -212,7 +202,7 @@ These commands print JSON and are intended for scripting and automation.
 | `letta shared-memory history <name-or-id> [options]`        | List repository commits                                               |
 | `letta teleport list`                                       | List computers this conversation can teleport to                      |
 | `letta teleport cloud`                                      | Move the conversation to its cloud sandbox                            |
-| `letta teleport <environment>`                              | Move the conversation to a connected computer                         |
+| `letta teleport <computer>`                                 | Move the conversation to a connected computer                         |
 | `letta sandbox upload <local-path>`                         | Upload a file to the conversation’s cloud sandbox                     |
 | `letta sandbox download <path> [--to <local-path>]`         | Download a file from the conversation’s cloud sandbox                 |
 

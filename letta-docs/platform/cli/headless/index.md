@@ -51,7 +51,7 @@ Ephemeral runs accept direct one-shot prompts only. The `--ephemeral` flag canno
 
 - Agent creation or selection (`--agent`, `--name`, `--conversation`, `--new-agent`, `--new`, `--import`, `--resume`, `--personality`, or `--base-tools`)
 - State options (`--stateless`, `--memfs`, or `--memfs-startup`)
-- Remote environment routing (`--environment` or `--env`)
+- Computer routing (`--computer`)
 - Bidirectional mode (`--input-format stream-json`)
 
 ### Local backend
@@ -73,19 +73,19 @@ export LETTA_LOCAL_BACKEND_DIR="$(mktemp -d)"
 letta --backend local -p "Inspect this project"
 ```
 
-### Remote environment routing
+### Computer routing
 
-Headless mode normally runs in the current Letta Code process. Use `--environment` (or `--env`) to route a one-off prompt through another registered environment by name, device ID, or connection ID:
+Headless mode normally runs in the current Letta Code process. Use `--computer` to route a one-off prompt through another connected computer by name, device ID, or connection ID:
 
-Run on a registered environment
+Run on a connected computer
 
 ```
-letta -p "Run the test suite" --environment work-laptop
+letta -p "Run the test suite" --computer work-laptop
 ```
 
-Use `--environment cloud` to start or reuse the agent’s cloud sandbox. Run `letta environments list` (or `letta envs list`) to find online environments, and `letta environments current` to show this machine’s registered environment.
+Use `--computer cloud` to start or reuse the agent’s cloud sandbox. Run `letta computers list` to find online computers, and `letta computers current` to show this computer.
 
-Environment-routed prompts use the target environment’s local context and cannot be combined with `--input-format stream-json`.
+Computer-routed prompts use the target computer’s local context and cannot be combined with `--input-format stream-json`.
 
 ## Output formats
 
@@ -427,7 +427,7 @@ Customize the agent’s system prompt when creating new agents:
 Use a preset
 
 ```
-letta -p "..." --new-agent --system letta-claude
+letta -p "..." --new-agent --system letta
 ```
 
 Use a custom prompt
@@ -438,52 +438,11 @@ letta -p "..." --new-agent --system-custom "You are a Python expert who writes c
 
 **Available presets:**
 
-- `default` - Letta-tuned system prompt
-- `letta-claude` - Full Letta Code prompt (Claude-optimized)
-- `letta-codex` - Full Letta Code prompt (Codex-optimized)
-- `letta-gemini` - Full Letta Code prompt (Gemini-optimized)
-- `claude` - Basic Claude (no skills/memory instructions)
-- `codex` - Basic Codex
-- `gemini` - Basic Gemini
-
-### Memory block configuration
-
-Customize which memory blocks the agent uses:
-
-Specify which preset blocks to include
-
-```
-letta -p "..." --new-agent --init-blocks "persona,project"
-```
-
-Set values for preset blocks
-
-```
-letta -p "..." --new-agent --init-blocks "persona,project" \
-  --block-value persona="You are a Go expert" \
-  --block-value project="CLI tool for Docker"
-```
-
-Use completely custom memory blocks (JSON)
-
-```
-letta -p "..." --new-agent --memory-blocks '[
-  {"label": "context", "value": "API documentation for Acme Corp..."},
-  {"label": "rules", "value": "Always use TypeScript"}
-]'
-```
-
-No optional blocks (only core blocks)
-
-```
-letta -p "..." --new-agent --init-blocks ""
-```
-
-**Available preset blocks:**
-
-- `persona` - Agent’s personality and behavior
-- `human` - Information about the user
-- `project` - Current project context
+- `default` - Same as `letta`
+- `letta` - Full Letta Code prompt
+- `source-claude` - Original Claude Code prompt (for benchmarking)
+- `source-codex` - Original Codex prompt (for benchmarking)
+- `source-gemini` - Original Gemini CLI prompt (for benchmarking)
 
 ### Toolset override
 
@@ -493,7 +452,7 @@ Terminal window
 
 ```
 letta -p "..." --toolset codex    # Codex-style tools
-letta -p "..." --toolset gemini   # Gemini-style tools
+letta -p "..." --toolset letta    # Unified Letta tools
 letta -p "..." --toolset default  # Default Letta tools
 ```
 
@@ -526,22 +485,6 @@ Replace system prompt entirely
 
 ```
 letta -p "..." --system-custom "You are a helpful assistant that only responds in haiku."
-```
-
-### Memory block configuration
-
-Configure memory blocks when creating agents:
-
-Set memory blocks via JSON
-
-```
-letta -p "..." --new-agent --memory-blocks '{"persona": "You are a code reviewer", "project": "React app"}'
-```
-
-Set individual block values
-
-```
-letta -p "..." --block-value "persona=You are a security auditor" --block-value "project=Backend API"
 ```
 
 ## Examples
