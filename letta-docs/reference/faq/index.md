@@ -19,20 +19,17 @@ If you can’t find the answer to your question, join our [Discord](https://disc
 
 ### How can I use the web app with local agents?
 
-The web app works only with agents hosted in Letta Cloud. You can still run those agents on your own computer: install the Letta CLI or desktop app, sign in, and select the agent. The agent’s state remains in Letta Cloud while its tools run on the computer where you started the CLI or app.
+The web app works only with agents hosted in Letta Cloud. You can still run those agents on your own computer: install the Letta CLI, sign in, and select the agent. The agent’s state remains in Letta Cloud while its tools run on the computer where you started the CLI.
 
 To build your own web app for agents stored on your device, use the [Letta Agent SDK](/agent-sdk/index.md) with a [self-hosted App Server](/self-hosting/index.md). Authenticated browser clients need a trusted backend or WebSocket proxy between the browser and App Server.
 
-## Desktop app
+## Desktop app and other UIs
 
-### Does the desktop app connect to remote App Servers?
+### What happened to the previous desktop app?
 
-No. The desktop app currently supports two backends:
+The previous Electron-based desktop app is deprecated and will stop working. Use [chat.letta.com](https://chat.letta.com), which you can [install as a desktop app](/platform/letta-desktop/index.md). To work with local files and tools, use the [Letta CLI](/platform/cli/index.md).
 
-- **Letta Cloud:** Agent state is stored in Letta Cloud, while tools can run on the current computer or a [connected computer](/platform/computers/index.md).
-- **Local:** Agent state and tools stay on the computer running the desktop app.
-
-The desktop app does not currently accept a self-hosted App Server URL.
+### How do I use a remote App Server with a rich UI?
 
 If you are deploying a remote App Server and want a rich UI, you can:
 
@@ -46,7 +43,7 @@ The [`letta-oss-ui`](https://github.com/letta-ai/letta-oss-ui) repository is an 
 
 ### Can I connect the CLI to a remote App Server?
 
-No. Like the desktop app, the CLI supports agents hosted in Letta Cloud and local agents stored on the same machine as the CLI. It does not currently accept a self-hosted App Server URL.
+No. The CLI supports agents hosted in Letta Cloud and local agents stored on the same machine as the CLI. It does not currently accept a self-hosted App Server URL.
 
 For a remote App Server using the local backend, SSH into that machine and run `letta` there to use the same locally stored agents.
 
@@ -150,4 +147,4 @@ If you still cannot recover, report the issue with the `/feedback` command.
 
 This error means the client sent an approval response or tool result for a call that the Letta API no longer considers pending. It can happen after a dropped connection, a duplicated response, or another client resolving the same approval first. The CLI and app normally recover automatically.
 
-If the error repeats, close duplicate clients and restart the affected CLI or desktop app so it can reload the conversation’s current state. If you still cannot recover, report the issue with the `/feedback` command.
+If the error repeats, close duplicate clients and restart the affected CLI or reload the web app so it can reload the conversation’s current state. If you still cannot recover, report the issue with the `/feedback` command.

@@ -23,8 +23,6 @@ Since Letta agents are stateful, they still have the same memory even when worki
 
 ## Running cloud agents
 
-If you’re using the [desktop app](/platform/desktop-app/index.md), your agent will execute on your local computer by default — for example, allowing it to access local files or programs installed on your local machine. You can replace the “Local” selection with “Cloud” in the dropdown under your chat window to move your agent to the cloud.
-
 If you log into our web app at [chat.letta.com](https://chat.letta.com), your agent will execute on a **cloud computer** (or “cloud sandbox”) by default. Agents can also run on other registered computers.
 
 You can always change the computer an agent is running from (e.g. “teleporting” from local to cloud). Agents will not lose their session history or memory when moving across computers.
@@ -59,4 +57,4 @@ To run the agent on a specific machine instead of a sandbox, pass a `computer` s
 
 ## Bring your own computers
 
-To make a computer available from [chat.letta.com](https://chat.letta.com), install the Letta CLI on that computer, then run `letta server` to connect it to your Letta account. You can also install the desktop app and select “Allow remote access”. For more information, see [Bring your own machine](/platform/computers/byom/index.md).
+To make a computer available from [chat.letta.com](https://chat.letta.com), install the Letta CLI on that computer, then run `letta server` to connect it to your Letta account. For more information, see [Bring your own machine](/platform/computers/byom/index.md).

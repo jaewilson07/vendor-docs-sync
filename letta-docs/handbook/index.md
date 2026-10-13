@@ -11,7 +11,7 @@ applies_to:
     - cli
 ---
 
-The Letta Handbook is an opinionated guide to building agents that learn over time. For detailed configuration and reference material, use the [Letta app and CLI documentation](/index.md).
+The Letta Handbook is an opinionated guide to building agents that learn over time. For detailed configuration and reference material, use the [Letta documentation](/index.md).
 
 Most AI tools preserve chat history, but chat history is not the same as durable memory. A Letta agent can maintain and edit useful information about you, its work, and its environment across conversations.
 
@@ -25,7 +25,7 @@ Letta agents are most commonly used as coding agents that learn projects in deta
 
 The handbook follows the arc of working with one agent over time. You can apply the same principles when working with multiple agents.
 
-1. **[Set up Letta](/handbook/setup/index.md)**: Install the Letta app, connect a model provider, and prepare your workspace.
+1. **[Set up Letta](/handbook/setup/index.md)**: Start with the web app or CLI, connect a model provider, and prepare your workspace.
 2. **[Meet your agent](/handbook/meet-your-agent/index.md)**: Create your first agent, introduce yourself, and confirm that memory persists.
 
 More chapters are coming soon.
@@ -40,7 +40,7 @@ One agent can serve several of these roles and switch between them as needed.
 
 **Research and knowledge agents** organize and retrieve information without cluttering your active conversation. They can manage literature reviews, curate reference libraries, and synthesize findings across long projects. Structured reference files and search keep detailed material available without loading it on every turn.
 
-**Companions and creative partners** maintain persistent personalities and histories. People build long-running companion agents, roleplay characters, and collaborative fiction writers. Reach them through the desktop app or CLI, first-party integrations for cloud-hosted agents, or [Channels](/self-hosting/channels/index.md) such as Telegram and Discord for local-backend agents.
+**Companions and creative partners** maintain persistent personalities and histories. People build long-running companion agents, roleplay characters, and collaborative fiction writers. Reach them through the web app or CLI, first-party integrations for cloud-hosted agents, or [Channels](/self-hosting/channels/index.md) such as Telegram and Discord for local-backend agents.
 
 ## Why Letta?
 
@@ -50,8 +50,8 @@ If you are tired of explaining the same context to an AI over and over, Letta is
 - **Model flexibility**: Your agent’s saved memory is not tied to one model provider. You can switch among supported models without recreating the agent, although different models may behave differently.
 - **Skills that grow**: Your agent can learn repeatable workflows as skills and improve those skills over time.
 - **Proactive agency**: With schedules, Channels, and a runtime that stays online, an agent can perform recurring work and report back when something needs attention.
-- **Available across environments**: Sign in with Letta to carry the same agent memory and conversations across the desktop app, CLI, web chat, remote machines, and supported messaging integrations.
-- **Local when you want it**: The Letta app and CLI can run agents without a Letta account using local state, connected model providers, or local inference. Agent memory remains directly inspectable on your machine.
+- **Available across environments**: Sign in with Letta to carry the same agent memory and conversations across the CLI, web app, remote machines, and supported messaging integrations.
+- **Local when you want it**: The Letta CLI can run agents without a Letta account using local state, connected model providers, or local inference. Agent memory remains directly inspectable on your machine.
 
 ## Next step
 

@@ -57,6 +57,6 @@ If you have issues registering your OpenAI-compatible endpoint, please reach out
 
 ### ”Can I add my own ChatGPT / Codex / zAI / etc plans?”
 
-Yes - all standard BYOK model providers are supported on Letta Teams plans. Some OAuth-specific providers (such as ChatGPT plans) may need to be configured via the desktop app or CLI.
+Yes - all standard BYOK model providers are supported on Letta Teams plans. Some OAuth-specific providers (such as ChatGPT plans) may need to be configured via the CLI.
 
 If you have issues configuring BYOK providers, please reach out to support for assistance.

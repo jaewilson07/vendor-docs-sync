@@ -6,7 +6,6 @@ applies_to:
     - cloud
     - local
   interfaces:
-    - desktop
     - cli
 ---
 
@@ -32,7 +31,7 @@ letta --backend local
 
 ### Sign in with Letta
 
-Choose **Sign in with Letta** during first-run setup when you want agents backed up to the cloud and available from `chat.letta.com`, the desktop app, connected computers, schedules, or messaging integrations.
+Choose **Sign in with Letta** during first-run setup when you want agents backed up to the cloud and available from `chat.letta.com`, connected computers, schedules, or messaging integrations.
 
 You can force the Letta-hosted backend with:
 

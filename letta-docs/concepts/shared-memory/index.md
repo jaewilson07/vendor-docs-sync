@@ -55,7 +55,7 @@ letta shared-memory attach team-memory --agent <agent-id>
 letta shared-memory attach team-memory --agent <other-agent-id>
 ```
 
-The web and desktop apps can also create and attach shared memories. Applications can manage persistent repository attachments with the [Agent SDK](/agent-sdk/repositories/index.md).
+The web app can also create and attach shared memories. Applications can manage persistent repository attachments with the [Agent SDK](/agent-sdk/repositories/index.md).
 
 Cloud agents can also use the bundled `managing-shared-memory` skill to create, attach, detach, synchronize, and inspect repository history.
 

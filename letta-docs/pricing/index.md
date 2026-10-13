@@ -1,6 +1,6 @@
 ---
 title: Pricing | Letta Docs
-description: Pricing for the Letta app, CLI, and developer usage
+description: Pricing for the Letta web app, CLI, and developer usage
 applies_to:
   backends:
     - cloud
@@ -29,9 +29,9 @@ Developer plans are usage-based for teams building on the Letta API with API key
 
 ## Plans
 
-- [Personal Plans](#tab-panel-5)
-- [Developer Plans](#tab-panel-6)
-- [Teams / Enterprise](#tab-panel-7)
+- [Personal Plans](#tab-panel-4)
+- [Developer Plans](#tab-panel-5)
+- [Teams / Enterprise](#tab-panel-6)
 
 ### Free
 
@@ -114,7 +114,7 @@ Your ideal plan will vary depending on how you use your agents. Workloads that i
 - **Casual coding users** (a few hours per day): Typically \~$100/mo+ usage
 - **Power users** (long sessions, many parallel agents): Often approach or exceed $200+/mo in total usage
 
-For agent power users (many hours of coding per day, or heavy automated use), we highly recommend combining the Letta app or CLI with an external coding plan, such as the [zAI coding plan](https://z.ai/subscribe), or [ChatGPT coding plan](https://chatgpt.com/codex/pricing/) (ChatGPT Plus/Pro).
+For agent power users (many hours of coding per day, or heavy automated use), we highly recommend combining the Letta CLI with an external coding plan, such as the [zAI coding plan](https://z.ai/subscribe), or [ChatGPT coding plan](https://chatgpt.com/codex/pricing/) (ChatGPT Plus/Pro).
 
 ### What happens when I reach my Letta Auto limit?
 
@@ -130,15 +130,15 @@ Yes. All plans support bringing your own API keys (BYOK). When you connect your 
 
 What’s the difference between Personal Plans and Developer Plans?
 
-Personal Plans are for individual, hands-on use via the Letta app, CLI, or web app. They provide usage quotas that reset monthly. Personal Plan quotas require OAuth authentication through the Letta app, CLI, or web app.
+Personal Plans are for individual, hands-on use via the Letta CLI or web app. They provide usage quotas that reset monthly. Personal Plan quotas require OAuth authentication through the Letta CLI or web app.
 
 Developer Plans are for developers and teams building applications on top of the Letta API with automated workloads. They use API key authentication with purely usage-based credit pricing.
 
-Can I use a Developer Plan with the Letta app or CLI?
+Can I use a Developer Plan with the Letta web app or CLI?
 
-Yes. You can use a Developer Plan with the Letta app or CLI; usage will draw down credits from your balance.
+Yes. You can use a Developer Plan with the Letta web app or CLI; usage will draw down credits from your balance.
 
-We recommend most Letta app and CLI users choose Personal Plans. Personal Plans include Letta Auto quota and can enable auto top-up or additional usage when quota is exceeded.
+We recommend most Letta web app and CLI users choose Personal Plans. Personal Plans include Letta Auto quota and can enable auto top-up or additional usage when quota is exceeded.
 
 What are credits?
 

@@ -1,6 +1,6 @@
 ---
 title: Bring Your Own Machine (BYOM) | Letta Docs
-description: Make your computers available to Letta agents from the web or Letta app
+description: Make your computers available to Letta agents from the web app
 applies_to:
   backends:
     - cloud
@@ -11,7 +11,7 @@ applies_to:
     - sdk
 ---
 
-Remote environments separate where you **interact** with a Letta agent from where its tools **execute**. You can chat from [chat.letta.com](https://chat.letta.com), the [Letta app](/platform/desktop-app/index.md), or another client while the agent runs shell commands, reads files, and writes code on a machine you control.
+Remote environments separate where you **interact** with a Letta agent from where its tools **execute**. You can chat from [chat.letta.com](https://chat.letta.com) or another client while the agent runs shell commands, reads files, and writes code on a machine you control.
 
 Without a remote environment, `chat.letta.com` uses a managed cloud sandbox by default. With a remote environment, you can select a named machine — your laptop, a workstation, or a cloud VM — and run the agent there instead.
 
@@ -19,15 +19,15 @@ Remote access requires signing in with Letta. It is not available for agents sto
 
 A remote environment is different from [App Server](/self-hosting/app-server/index.md). A remote environment connects outward to Letta Cloud and supplies tool execution for agents hosted there. App Server accepts direct connections from your application and can use either local agent state or agent state hosted in Letta Cloud. Use App Server for a directly connected application runtime; use a remote environment when you want to keep using Letta Cloud’s hosted clients and control plane.
 
-![Remote environment selected in the Letta app](/images/letta-code-remote.jpg) ![Remote environment selected in the Letta app](/images/letta-code-remote.jpg)
+![Remote environment selected in the Letta web app](/images/letta-code-remote.jpg) ![Remote environment selected in the Letta web app](/images/letta-code-remote.jpg)
 
 ## How it works
 
 A remote environment is a running Letta Code process that connects a machine to your Letta account.
 
-1. You start the Letta app with remote access enabled, or run `letta server` on a machine.
+1. You run `letta server` on a machine.
 2. The machine opens an outbound WebSocket connection to Letta Cloud and appears as a selectable environment.
-3. You choose that environment from `chat.letta.com` or the Letta app.
+3. You choose that environment from `chat.letta.com`.
 4. Tool calls execute on the selected machine, with the same human-in-the-loop approvals used by local agent sessions.
 
 The agent’s memory and conversation history stay with the agent. The environment only determines where tools run. That means you can move the same conversation between a cloud sandbox, your laptop, and a remote VM without starting over. See [Teleportation](/platform/computers/teleportation/index.md) for moving a conversation mid-task.
@@ -36,20 +36,11 @@ The agent’s memory and conversation history stay with the agent. The environme
 
 Use a remote environment when the agent needs access to a persistent computer outside the default sandbox, e.g. a long-running dev server or GPU workstation.
 
-For quick browser or mobile sessions that do not need a specific machine, the default execution environment is often sufficient; on web/mobile, the default execution environment is a cloud sandbox, and in the Letta app or CLI it is your local machine.
+For quick browser or mobile sessions that do not need a specific machine, the default execution environment is often sufficient; on web/mobile, the default execution environment is a cloud sandbox, and in the CLI it is your local machine.
 
 ## Quickstart
 
-- [Desktop App](#tab-panel-3)
-- [CLI](#tab-panel-4)
-
-1. Install the [Letta app](/quickstart/index.md).
-
-2. Open app settings and enable **Allow remote access**.
-
-3. Open [chat.letta.com](https://chat.letta.com) from another device and select your desktop environment from the environment picker.
-
-For example, if you enable remote access on your home PC, you can chat with agents from your phone while tool execution happens on your home PC, as long as the Letta app is running there.
+- [CLI](#tab-panel-3)
 
 1. Install the Letta CLI and log in:
 
@@ -64,7 +55,7 @@ For example, if you enable remote access on your home PC, you can chat with agen
    letta server --env-name "work-laptop"
    ```
 
-3. Open [chat.letta.com](https://chat.letta.com) or the Letta app and select `work-laptop` from the environment picker.
+3. Open [chat.letta.com](https://chat.letta.com) and select `work-laptop` from the environment picker.
 
 ## Always-on cloud VM deployment
 

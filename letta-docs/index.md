@@ -18,7 +18,7 @@ Use Letta to create coding agents, personal assistants, AI coworkers, and statef
 
 [Get started with Letta →](/quickstart/index.md)
 
-![Letta app](/images/letta-agent-chat.png)![Letta app](/images/letta-agent-chat-dark.png)
+![Letta](/images/letta-agent-chat.png)![Letta](/images/letta-agent-chat-dark.png)
 
 ## Getting started
 
@@ -32,7 +32,7 @@ Start with the [quickstart](/quickstart/index.md), choose an [LLM provider](/con
 
 ### ”I want a personal assistant for work”
 
-Use the [Letta app](/platform/desktop-app/index.md) to work with local files, add integrations with [Skills](/configuration/skills/index.md), and automate recurring tasks with [Schedules](/configuration/schedules/index.md).
+Use the [Letta CLI](/platform/cli/index.md) to work with local files, add integrations with [Skills](/configuration/skills/index.md), and automate recurring tasks with [Schedules](/configuration/schedules/index.md).
 
 ### ”I want an AI coworker in Slack, Telegram, or Discord”
 
@@ -52,7 +52,7 @@ Start with the [Letta Agent SDK](/agent-sdk/quickstart/index.md), then choose be
 
 ### [Quickstart guide](/quickstart/index.md)
 
-[Download the Letta app or try the Letta CLI.](/quickstart/index.md)
+[Start with the Letta web app or CLI.](/quickstart/index.md)
 
 [Memory](/configuration/memory/index.md)
 

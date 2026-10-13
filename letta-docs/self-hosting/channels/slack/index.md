@@ -98,8 +98,6 @@ letta channels bind --channel slack --agent <your-agent-id>
 
 The `--agent` flag defaults to the `LETTA_AGENT_ID` env var. If you have multiple Slack accounts configured, pass `--account-id` to specify which one.
 
-You can also bind from the [Letta app](/platform/desktop-app/index.md) under **Connections > Slack**.
-
 ## 5. Chat
 
 Once bound, DM the app or `@mention` it in a channel to start chatting.

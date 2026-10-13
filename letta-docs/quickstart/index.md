@@ -1,6 +1,6 @@
 ---
 title: Quickstart | Letta Docs
-description: Get started with the Letta app, CLI, or web app
+description: Get started with the Letta web app or CLI
 applies_to:
   backends:
     - cloud
@@ -11,29 +11,36 @@ applies_to:
     - cli
 ---
 
-Choose the desktop app, CLI, or web app to get started. The desktop app and CLI can use your existing API keys and coding plans, while the web app runs agents in a cloud sandbox with no local setup.
+Choose the web app or CLI to get started. The web app runs agents in a cloud sandbox with no local setup, while the CLI runs agents on your computer and can use your existing API keys and coding plans.
 
 ## Setup
 
-- [Desktop App](#tab-panel-8)
-- [CLI](#tab-panel-9)
-- [Cloud Agents](#tab-panel-10)
+- [Web App](#tab-panel-7)
+- [CLI](#tab-panel-8)
 
-1. **Download and install the Letta app**
+1. **Open the Letta web app and sign in**
 
-   [Download for macOS (Apple Silicon) ](https://download.letta.com/mac/dmg/arm64)
+   Visit [chat.letta.com](https://chat.letta.com) from your browser or phone and sign in with your Letta account. If you don’t have one, you’ll be prompted to create a free account. You can also [install it as a desktop app](/platform/letta-desktop/index.md).
 
-   Available for [macOS (Apple Silicon)](https://download.letta.com/mac/dmg/arm64)
+2. **Select your agent and conversation**
 
-2. **Open the Letta app**
+   Brand-new accounts start in Tutor, an onboarding agent. You can also create or switch agents and conversations from the sidebar.
 
-   Launch the app and select “Continue locally” (or “Sign in” to use Letta Cloud).
+3. **Choose where your agent runs**
 
-   Click “Connect model providers” in the bottom-left menu to add external API keys and coding plans.
+   The web app uses a managed [cloud sandbox](/platform/computers/cloud-sandboxes/index.md) by default, so you can start without configuring a computer. To give your agent access to files and tools on your laptop, workstation, or cloud VM, [connect your own machine](/platform/computers/byom/index.md) and select it from the environment picker.
 
-3. **Select your agent and conversation**
+4. **Send your first message**
 
-   Brand-new accounts start in Tutor, an onboarding agent. You can also create or switch agents later. To start chatting with an agent, enter the main chat, or create a new conversation.
+   You’re ready to chat! Try asking your agent to research a topic, create a file, or run `/init` to bootstrap its memory.
+
+5. **Connect your GitHub (optional)**
+
+   Sync your GitHub org to Letta on the [Integrations](https://chat.letta.com/preferences/integrations) page. By configuring your GitHub, agents in your Letta org running on cloud computers will be able to access your GitHub repos to do work.
+
+6. **Connect your Slack (optional)**
+
+   You can easily bring your Letta agents to Slack with Letta’s native Slack integration. Simply visit an agent that you want to connect to Slack on [chat.letta.com](https://chat.letta.com), then click the `Connections` tab to configure a Slack app for that agent.
 
 1) **Install the Letta CLI**
 
@@ -71,30 +78,6 @@ Choose the desktop app, CLI, or web app to get started. The desktop app and CLI 
 5) **Optional: sign in with Letta**
 
    Run `/login` to back up your agents to the cloud and make them available from any device, including [chat.letta.com](https://chat.letta.com). If you continue without an account, your agents are stored only on local disk and may require manual backups.
-
-1. **Open the Letta web app and sign in**
-
-   Visit [chat.letta.com](https://chat.letta.com) from your browser or phone and sign in with your Letta account. If you don’t have one, you’ll be prompted to create a free account.
-
-2. **Select your agent and conversation**
-
-   Brand-new accounts start in Tutor, an onboarding agent. You can also create or switch agents and conversations from the sidebar.
-
-3. **Choose where your agent runs**
-
-   The web app uses a managed [cloud sandbox](/platform/computers/cloud-sandboxes/index.md) by default, so you can start without configuring a computer. To give your agent access to files and tools on your laptop, workstation, or cloud VM, [connect your own machine](/platform/computers/byom/index.md) and select it from the environment picker.
-
-4. **Send your first message**
-
-   You’re ready to chat! Try asking your agent to research a topic, create a file, or run `/init` to bootstrap its memory.
-
-5. **Connect your GitHub (optional)**
-
-   Sync your GitHub org to Letta on the [Integrations](https://chat.letta.com/preferences/integrations) page. By configuring your GitHub, agents in your Letta org running on cloud computers will be able to access your GitHub repos to do work.
-
-6. **Connect your Slack (optional)**
-
-   You can easily bring your Letta agents to Slack with Letta’s native Slack integration. Simply visit an agent that you want to connect to Slack on [chat.letta.com](https://chat.letta.com), then click the `Connections` tab to configure a Slack app for that agent.
 
 ## First steps
 

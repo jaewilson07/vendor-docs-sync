@@ -18,13 +18,13 @@ A **computer** is the execution environment where a Letta agent runs shell comma
 
 | Environment                                                   | Best for                                             | Setup                                     |
 | ------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------- |
-| Current computer                                              | Working directly with local files and tools          | Use the desktop app or CLI                |
+| Current computer                                              | Working directly with local files and tools          | Use the CLI                               |
 | [Cloud sandbox](/platform/computers/cloud-sandboxes/index.md) | Quick tasks in an isolated managed environment       | Selected automatically in the web app     |
 | [Your own remote machine](/platform/computers/byom/index.md)  | Long-running work or access to a specific filesystem | Connect the machine to your Letta account |
 
 ## Current computer
 
-The desktop app and CLI can run tools directly on the machine in front of you. The agent sees the working directory you select and uses that machine’s shell, files, credentials, and installed software, subject to your permission settings.
+The CLI can run tools directly on the machine in front of you. The agent sees the working directory you select and uses that machine’s shell, files, credentials, and installed software, subject to your permission settings.
 
 ## Cloud sandboxes
 

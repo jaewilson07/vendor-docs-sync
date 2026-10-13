@@ -7,17 +7,17 @@ applies_to:
     - cloud
     - local
   interfaces:
-    - desktop
+    - web
     - cli
 ---
 
 A Letta agent maintains persistent memory that carries from one conversation to the next. Working with it is more like working with a colleague who already knows useful context than using a tool that starts from scratch.
 
-This page uses the desktop app to create an agent, introduce yourself, inspect a memory update, and confirm that the memory is available in a new conversation. CLI users can perform the same test with their current agent and the `/new` command.
+This page uses the [web app](https://chat.letta.com) to create an agent, introduce yourself, inspect a memory update, and confirm that the memory is available in a new conversation. CLI users can perform the same test with their current agent and the `/new` command.
 
 ## Create a new agent
 
-In the desktop app, click **Create agent**.
+In the web app, click **Create agent**.
 
 ![Create an agent button](/images/handbook/create-agent-button.png)
 
@@ -33,8 +33,8 @@ The app offers three templates:
 
 ### Cloud vs. local storage
 
-- **Cloud**: The agent’s state is backed up to your Letta account and is available through the desktop app, CLI, [chat.letta.com](https://chat.letta.com), and supported remote environments.
-- **Local**: The agent’s state lives on the current computer and does not require a Letta account. You are responsible for backing it up.
+- **Cloud**: The agent’s state is backed up to your Letta account and is available through the web app, CLI, and supported remote environments.
+- **Local**: Available only in the [Letta CLI](/platform/cli/index.md). The agent’s state lives on the current computer and does not require a Letta account. You are responsible for backing it up.
 
 For this walkthrough, select **Tutor** and create a Cloud agent so you can access it from different environments.
 

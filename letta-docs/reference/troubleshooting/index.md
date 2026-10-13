@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting | Letta Docs
-description: Diagnose common Letta app and CLI setup, connection, and execution problems
+description: Diagnose common Letta web app and CLI setup, connection, and execution problems
 applies_to:
   backends:
     - cloud
@@ -29,13 +29,13 @@ See [Local setup](/self-hosting/index.md) for local storage paths and backup gui
 
 ## A computer is unavailable in the web app
 
-The desktop app or `letta server` process must remain running on that computer. Check its network connection, then restart the process if the environment does not reconnect.
+The `letta server` process must remain running on that computer. Check its network connection, then restart the process if the environment does not reconnect.
 
 See [Bring your own machine](/platform/computers/byom/index.md) for setup and connection details.
 
 ## A command is waiting for approval
 
-The Letta app and CLI ask before tools perform actions that are not covered by an allow rule. Review the pending action in the interface, or update your permission settings when the action should be allowed consistently.
+The Letta web app and CLI ask before tools perform actions that are not covered by an allow rule. Review the pending action in the interface, or update your permission settings when the action should be allowed consistently.
 
 See [Permissions](/configuration/permissions/index.md).
 

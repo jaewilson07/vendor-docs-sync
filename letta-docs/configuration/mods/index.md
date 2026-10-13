@@ -7,7 +7,6 @@ applies_to:
     - local
   interfaces:
     - cli
-    - desktop
 ---
 
 Mods run as fully trusted code inside your Letta Code process. They let your agent modify its own runtime — adding tools, commands, event hooks, permission policies, and provider adapters that take effect immediately on reload. This makes the harness self-modifying: your agent can extend its own capabilities, shape how turns and tools behave, and adapt the environment around itself over time.

@@ -8,7 +8,7 @@ applies_to:
     - cli
 ---
 
-The easiest way to set up the GitHub action is to ask a Letta agent to do it for you: open the [Letta app](/platform/desktop-app/index.md) or CLI in your repository and ask your agent to install the Letta Code GitHub action.
+The easiest way to set up the GitHub action is to ask a Letta agent to do it for you: open the [Letta CLI](/platform/cli/index.md) in your repository and ask your agent to install the Letta Code GitHub action.
 
 The [Letta Code GitHub action](https://github.com/letta-ai/letta-code-action) lets you trigger Letta agents directly from GitHub issues and pull requests. Mention `@letta-code` in any comment to get help with code questions, implementation, and reviews.
 

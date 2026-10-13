@@ -52,8 +52,6 @@ letta channels bind --channel discord --agent <your-agent-id>
 
 The `--agent` flag defaults to the `LETTA_AGENT_ID` env var. If you have multiple Discord bots configured, pass `--account-id` to specify which one.
 
-You can also bind from the [Letta app](/platform/desktop-app/index.md) under **Connections > Discord**.
-
 ## 5. Chat
 
 Once bound, DM the bot, `@mention` it in a channel, or send a message in a guild channel configured with `open` mode to start chatting.
@@ -116,8 +114,6 @@ Use `"*"` in the map as a wildcard default for visible guild channels:
 ```
 
 For thread messages, the Discord channel adapter checks the parent guild channel when available.
-
-Or set allowed channels from the [Letta app](/platform/desktop-app/index.md) under **Connections > Discord > Manage > Bot settings > Allowed guild channels**.
 
 To find a channel ID, enable Developer Mode in Discord (User Settings → Advanced), then right-click the channel and choose **Copy Channel ID**. Leave `allowed_channels` empty or unset to listen in every channel the bot can see.
 

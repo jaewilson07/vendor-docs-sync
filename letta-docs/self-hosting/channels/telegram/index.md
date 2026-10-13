@@ -41,7 +41,7 @@ You’ll see `[Telegram] Bot started as @your_bot` in the output. The bot begins
 
 ## 4. Pair a Telegram chat to an agent
 
-Send any message to your bot from Telegram. With the default `pairing` policy, the bot replies with a pairing code and instructions to complete setup in the Letta app or CLI.
+Send any message to your bot from Telegram. With the default `pairing` policy, the bot replies with a pairing code and instructions to complete setup in the CLI.
 
 You can complete the pairing from the CLI:
 

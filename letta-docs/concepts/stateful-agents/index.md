@@ -28,7 +28,7 @@ Memory is shared across an agent’s conversations. A preference learned in one 
 
 ## Switching agents
 
-Use `/agents` in the CLI to browse and switch agents. Pin an agent with `/pin` or the favorite control in the desktop app so it is easier to find later.
+Use `/agents` in the CLI to browse and switch agents. Pin an agent with `/pin` so it is easier to find later.
 
 ```
 > /agents
@@ -39,6 +39,6 @@ Use separate agents when you want independent identities or memory. Use separate
 
 ## Where agents are stored
 
-When you sign in with Letta, your agents are backed up to the cloud and available through the desktop app, CLI, and web app. You can run the same agent on any connected [computer](/platform/computers/index.md).
+When you sign in with Letta, your agents are backed up to the cloud and available through the CLI and web app. You can run the same agent on any connected [computer](/platform/computers/index.md).
 
 Agents created without a Letta account are stored only on local disk. They cannot be accessed remotely through the web app and may require manual backups. See [Local setup](/self-hosting/index.md).

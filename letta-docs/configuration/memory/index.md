@@ -31,7 +31,7 @@ Your agent updates memory when it learns something durable. You can also teach i
 > /remember always use pnpm in this repo
 ```
 
-The agent decides where the lesson belongs and commits the update to MemFS. Use the memory viewer in the desktop app or inspect `$MEMORY_DIR` directly to review what it saved.
+The agent decides where the lesson belongs and commits the update to MemFS. Run `/memory` in the CLI or inspect `$MEMORY_DIR` directly to review what it saved.
 
 ## Dreaming
 

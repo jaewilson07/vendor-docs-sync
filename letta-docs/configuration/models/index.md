@@ -1,6 +1,6 @@
 ---
 title: Models | Letta Docs
-description: Configure models, providers, and reasoning settings in the Letta app or CLI
+description: Configure models, providers, and reasoning settings in the Letta web app or CLI
 applies_to:
   backends:
     - cloud
@@ -29,11 +29,11 @@ Agents hosted in Letta Cloud come pre-configured with web search and web fetch t
 
 ## Connecting model providers
 
-The Letta app, CLI, and web interfaces support a wide variety of LLM providers and coding subscription plans (such as ChatGPT Plus/Pro and zAI).
+The Letta CLI and web app support a wide variety of LLM providers and coding subscription plans (such as ChatGPT Plus/Pro and zAI).
 
 You can connect providers using your preferred interface:
 
-- **CLI or Desktop app**: Run `/connect` in interactive mode or `letta connect` from the terminal.
+- **CLI**: Run `/connect` in interactive mode or `letta connect` from the terminal.
 - **Letta Platform**: Open your project’s [Models page](https://platform.letta.com/projects/default-project/models) and select **Add LLM API key**. For ChatGPT Plus or Pro, choose **ChatGPT/Codex Sub**, select **Get device code**, and complete the login.
 - **Letta Chat**: Configure models and credentials under [Preferences > Models](https://chat.letta.com/preferences/models).
 

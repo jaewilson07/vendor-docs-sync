@@ -14,7 +14,7 @@ Custom channels let you connect a Letta agent to a messaging platform that is no
 
 Channels are different from skills. A skill gives an agent a reusable capability or action set, such as how to read from or post to a service. A channel is the communication medium itself: the delivery surface for inbound messages, outbound replies, account routing, and chat pairing. For example, a Slack skill might describe how to use Slack-related tools, while a Slack channel is the live messaging connection that receives Slack messages and sends replies.
 
-Custom channels are headless. They participate in routing, pairing, and `MessageChannel`, but they do not get custom setup screens in the Letta app. If a channel needs a first-party setup UI, Slack/Discord-style auto-routing, rich protocol-specific account snapshots, or compatibility migrations, it should be built as a bundled channel instead.
+Custom channels are headless. They participate in routing, pairing, and `MessageChannel`, but they do not get custom setup screens. If a channel needs a first-party setup UI, Slack/Discord-style auto-routing, rich protocol-specific account snapshots, or compatibility migrations, it should be built as a bundled channel instead.
 
 ## When to use a custom channel
 

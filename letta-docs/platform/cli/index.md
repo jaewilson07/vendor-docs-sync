@@ -56,6 +56,6 @@ Requires Node.js 22.19+
 
 5. **Optional: sign in with Letta**
 
-   Run `/login` to back up your agents to the cloud and make them available through `chat.letta.com`, the desktop app, remote machines, and messaging integrations. Free accounts support up to three agents.
+   Run `/login` to back up your agents to the cloud and make them available through `chat.letta.com`, remote machines, and messaging integrations. Free accounts support up to three agents.
 
 You can also run the CLI in [headless mode](/platform/cli/headless/index.md) for automations.

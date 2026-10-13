@@ -6,24 +6,22 @@ applies_to:
     - local
   interfaces:
     - cli
-    - desktop
     - sdk
 ---
 
 Letta agents can run entirely on infrastructure you control, in two shapes:
 
-- **Local runtime**: The CLI runs agents in-process. The desktop app uses a background App Server on your machine. In both cases, all agent state, including messages, memory, and provider connections, stays on-device, and no Letta account is required.
+- **Local runtime**: The CLI runs agents in-process. All agent state, including messages, memory, and provider connections, stays on-device, and no Letta account is required.
 - **Self-hosted App Server**: Run the Letta App Server to host local agents on a central, always-on machine and expose them to client applications through the [Agent SDK](/agent-sdk/index.md). Run messaging channels in a separate server process on the same machine.
 
-**Limitations of self-hosting:** Built-in tools run where the agent harness runs: on the local machine for the CLI and desktop app, or on the machine running App Server. When you connect through the Agent SDK, [client tools and MCP tools](/agent-sdk/mcp/index.md) can instead run through the SDK host or a configured MCP server. Self-hosted agents cannot be accessed through chat.letta.com and are not automatically backed up. Back up their state manually if you need to preserve or move it.
+**Limitations of self-hosting:** Built-in tools run where the agent harness runs: on the local machine for the CLI, or on the machine running App Server. When you connect through the Agent SDK, [client tools and MCP tools](/agent-sdk/mcp/index.md) can instead run through the SDK host or a configured MCP server. Self-hosted agents cannot be accessed through chat.letta.com and are not automatically backed up. Back up their state manually if you need to preserve or move it.
 
 If your agents live in Letta Cloud and only need a persistent machine for files and tools, [deploy a computer](/platform/computers/byom/index.md) instead. The computer appears in Letta’s computer picker while agent state remains in Letta Cloud.
 
 ## Setup
 
-- [App Server](#tab-panel-13)
-- [CLI](#tab-panel-14)
-- [Desktop App](#tab-panel-15)
+- [App Server](#tab-panel-11)
+- [CLI](#tab-panel-12)
 
 1. **Install the Letta CLI**
 
@@ -113,18 +111,6 @@ If your agents live in Letta Cloud and only need a persistent machine for files 
    letta
    ```
 
-1. **Download and install the Letta app**
-
-   [Download for macOS (Apple Silicon) ](https://download.letta.com/mac/dmg/arm64)
-
-   Available for [macOS (Apple Silicon)](https://download.letta.com/mac/dmg/arm64)
-
-2. **Open the Letta app and connect models**
-
-   Launch the app and select “Skip login” (this will store agents locally).
-
-   Click “Connect model providers” in the bottom-left menu to add external API keys, coding plans, or locally running model endpoints.
-
 Model inference is a separate choice. If you connect a remote model provider, prompts still go to that provider. To keep inference local too, connect a local provider such as Ollama, LM Studio, or llama.cpp. See [Local models](/configuration/models#local-models/index.md) for both local and cloud-hosted setup options.
 
 ## Agent SDK
@@ -134,8 +120,8 @@ The [Letta Agent SDK](/agent-sdk/index.md) supports two backends for self-hosted
 - **Local backend** (`backend: "local"`): The SDK starts [App Server](/self-hosting/app-server/index.md) automatically as a subprocess on the current machine. Agent state and the execution environment stay on the machine running your code. Use this for development or single-machine deployments—no separate server process to manage.
 - **Remote backend** (`backend: "remote"`): The SDK connects to an App Server you run as a separate service (`letta server --listen`). Agent state and the execution environment live on the App Server machine, so multiple clients can share the same agents and the server can run on different infrastructure than your application.
 
-* [Local backend](#tab-panel-11)
-* [Remote backend](#tab-panel-12)
+* [Local backend](#tab-panel-9)
+* [Remote backend](#tab-panel-10)
 
 ```
 import { LettaAgentClient } from "@letta-ai/letta-agent-sdk";

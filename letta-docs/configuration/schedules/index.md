@@ -64,12 +64,12 @@ letta cron add \
 
 ## Cloud vs. local schedules
 
-|                       | Cloud schedules (Cloud sandbox)                            | Local schedules (other computers)                      |
-| :-------------------- | :--------------------------------------------------------- | :----------------------------------------------------- |
-| **Where it’s stored** | Letta Cloud                                                | Local machine (`~/.letta/crons.json`)                  |
-| **When it fires**     | Always (server-side timer)                                 | Only while a Letta app, CLI, or server process is open |
-| **Timezone**          | Recurring `--cron` runs in **UTC**                         | Evaluated in your **local machine timezone**           |
-| **Offline behavior**  | Runs on targeted machine; falls back to sandbox if offline | Pauses until you restart Letta                         |
+|                       | Cloud schedules (Cloud sandbox)                            | Local schedules (other computers)            |
+| :-------------------- | :--------------------------------------------------------- | :------------------------------------------- |
+| **Where it’s stored** | Letta Cloud                                                | Local machine (`~/.letta/crons.json`)        |
+| **When it fires**     | Always (server-side timer)                                 | Only while a CLI or server process is open   |
+| **Timezone**          | Recurring `--cron` runs in **UTC**                         | Evaluated in your **local machine timezone** |
+| **Offline behavior**  | Runs on targeted machine; falls back to sandbox if offline | Pauses until you restart Letta               |
 
 Passing `--computer` from any other computer returns an error. If creating a cloud schedule fails, Letta never silently falls back to local storage.
 
@@ -117,4 +117,4 @@ For the full command table and options, see the [CLI reference](/platform/cli/re
 
 - **`--computer` says my machine is not connected**
 
-  - The computer must appear in `letta computers list` as a connected machine. Run `letta server` on it (or enable remote access in the Letta app) to connect it to your Letta account. `--computer` only works from a Cloud sandbox.
+  - The computer must appear in `letta computers list` as a connected machine. Run `letta server` on it to connect it to your Letta account. `--computer` only works from a Cloud sandbox.

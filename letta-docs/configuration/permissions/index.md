@@ -7,7 +7,6 @@ applies_to:
     - local
   interfaces:
     - cli
-    - desktop
     - sdk
 ---
 

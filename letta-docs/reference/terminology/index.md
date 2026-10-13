@@ -22,7 +22,7 @@ In these docs, **Letta** is the umbrella name for the company and its ecosystem,
 
 ## Letta agent harness
 
-The **Letta agent harness** is the runtime that drives an agent, connects LLMs to persisted context, manages turns, and executes tools. The Letta app, Letta CLI, Letta Agent SDK, and Letta App Server provide different ways to interact with or deploy the harness. Unlike other agent harnesses, Letta’s agent harness is designed for *stateful* agents and is purpose-built to enable agents to build and maintain a consistent yet evolving identity over time (see the [Context Constitution](https://www.letta.com/blog/context-constitution/) for more on stateful agents and identity).
+The **Letta agent harness** is the runtime that drives an agent, connects LLMs to persisted context, manages turns, and executes tools. The Letta web app, Letta CLI, Letta Agent SDK, and Letta App Server provide different ways to interact with or deploy the harness. Unlike other agent harnesses, Letta’s agent harness is designed for *stateful* agents and is purpose-built to enable agents to build and maintain a consistent yet evolving identity over time (see the [Context Constitution](https://www.letta.com/blog/context-constitution/) for more on stateful agents and identity).
 
 The harness is also called **Letta Code** or the **Letta Code harness**. The Letta CLI, also called the Letta Code CLI, is a minimal terminal interface around the harness. The “Code” in the name refers to code execution: instead of requiring developers to add capabilities primarily by writing server-side tools in TypeScript or Python, the harness executes a preset suite of general-purpose tools client-side and uses [skills as the primary extension mechanism](https://www.letta.com/blog/our-next-phase/). For example, agents can run Bash commands directly on a computer. Although it is particularly strong at software engineering—it was the top OSS model-agnostic harness on Terminal-Bench at [release](https://www.letta.com/blog/letta-code/)—Letta Code is a general-purpose harness designed for many kinds of stateful agents.
 
@@ -40,9 +40,9 @@ A **local agent** or “self-hosted” agent is an agent whose state is stored b
 
 A cloud-hosted agent can work on any supported computer (or “execution environment”) without moving its identity or memory out of Letta Cloud. Choosing a computer determines where tools execute, not where the agent’s persistent state is stored.
 
-For example, a cloud-hosted agent can operate in a cloud sandbox in one conversation, and then be “teleported” onto the user’s local device with the desktop app - the same stateful agent (with the same memory and message history), but running in two execution environments. See [Computers](/platform/computers/index.md) for setup guidance.
+For example, a cloud-hosted agent can operate in a cloud sandbox in one conversation, and then be “teleported” onto the user’s local device with the Letta CLI - the same stateful agent (with the same memory and message history), but running in two execution environments. See [Computers](/platform/computers/index.md) for setup guidance.
 
-Manage API keys, models, usage and billing, and organization settings for Letta Cloud through the web console at [platform.letta.com](https://platform.letta.com). [chat.letta.com](https://chat.letta.com) hosts the Letta web app, which provides the same chat interface for interacting with Letta agents as the desktop app. Common settings, such as model-provider connections, are available directly in both apps.
+Manage API keys, models, usage and billing, and organization settings for Letta Cloud through the web console at [platform.letta.com](https://platform.letta.com). [chat.letta.com](https://chat.letta.com) hosts the Letta web app, which you can also [install as a desktop app](/platform/letta-desktop/index.md). Common settings, such as model-provider connections, are available directly in the web app.
 
 ### Letta API
 
