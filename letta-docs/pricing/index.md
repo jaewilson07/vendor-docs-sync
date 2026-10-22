@@ -40,6 +40,7 @@ Get started at no cost.
 $0 /month
 
 - Limited agents
+- 5 MiB of storage per memory repository
 - Limited usage of Letta Auto
 - Bring your own API keys and external coding plans
 
@@ -54,6 +55,7 @@ $20 /month
 - Letta Auto weekly + monthly quota
 - Pay-as-you-go overage
 - Up to 20 stateful agents
+- 50 MiB of storage per memory repository
 
 [Get Pro ↗](https://platform.letta.com/settings/organization/usage)
 

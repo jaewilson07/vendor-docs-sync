@@ -27,7 +27,7 @@ To build your own web app for agents stored on your device, use the [Letta Agent
 
 ### What happened to the previous desktop app?
 
-The previous Electron-based desktop app is deprecated and will stop working. Use [chat.letta.com](https://chat.letta.com), which you can [install as a desktop app](/platform/letta-desktop/index.md). To work with local files and tools, use the [Letta CLI](/platform/cli/index.md).
+The previous Electron-based desktop app was deprecated on October 12, 2026 and no longer runs. Use [chat.letta.com](https://chat.letta.com), which you can [install as a desktop app](/platform/letta-desktop/index.md). Your local agents still exist; [keep using them in the Letta CLI](/platform/letta-desktop#keep-using-your-local-agents/index.md).
 
 ### How do I use a remote App Server with a rich UI?
 

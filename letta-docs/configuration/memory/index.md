@@ -45,4 +45,12 @@ Select **Agent reviews before applying** to have your agent review and revise pr
 
 For larger cleanups, ask the agent to reorganize its memory. The memory workflow backs up the current repository before splitting large files, merging duplicates, or restructuring the hierarchy.
 
+### Cloud memory storage
+
+The [Free plan](/pricing/index.md) includes **5 MiB per memory repository**; Pro includes **50 MiB per memory repository**. This counts the files in each branch or tag’s latest snapshot, not Git history. The allowance applies separately to each repository, including shared memory.
+
+Keep durable knowledge in memory and store bulky datasets, archives, media, and project files elsewhere. You can ask your agent:
+
+> Check your memory repository’s tracked-file size and largest files. Propose moving bulky files to a private external repository or other durable storage, keeping concise summaries and retrieval links in memory. Ask me to approve the destination, verify the uploaded copies before removing the originals, then commit and push the cleanup and report the before-and-after sizes.
+
 See [MemFS](/concepts/memfs/index.md) for the directory structure, versioning model, synchronization behavior, and agent-owned skills.

@@ -4,9 +4,11 @@ description: Install chat.letta.com as a desktop app
 applies_to:
   backends:
     - cloud
+    - local
   interfaces:
     - web
     - desktop
+    - cli
 ---
 
 Letta Desktop is [chat.letta.com](https://chat.letta.com) installed as a desktop app. It opens in its own window, with its own dock or taskbar icon, and launches like any other app. Under the hood, it is a progressive web app (PWA), so it stays up to date with the web app.
@@ -33,6 +35,10 @@ Requires macOS Sonoma 14 or later.
 
 Firefox can install web apps only on Windows (Firefox 143 or later). On macOS or Linux, use Chrome, Edge, or Safari.
 
-## Local development
+## Keep using your local agents
 
-Unlike the legacy desktop app, the Letta desktop PWA app only works with signed in accounts (agents synced to Letta Cloud). To run agents with the local backend, where all agent state is stored on a local machine, use the [Letta CLI](/platform/cli/index.md), [Agent SDK](/agent-sdk/index.md), or create a custom UI on the [App Server](/self-hosting/app-server/index.md) (see our [mobile app](/agent-sdk/demo-apps/mobile/index.md) example as a reference).
+The previous Letta Code Desktop app was deprecated on October 12, 2026 and no longer runs. Your local agents still exist: Desktop and the [Letta CLI](/platform/cli/index.md) share `~/.letta/lc-local-backend` by default.
+
+Install the CLI, then run `letta --backend local` and use `/agents` to pick an existing local agent. To resume it directly, run `letta --agent agent-local-<id>` with its full agent ID (also available in the `/agents` list).
+
+The desktop PWA requires a signed-in Letta Cloud account. For local agents, use the CLI, [Agent SDK](/agent-sdk/index.md), or a custom UI on the [App Server](/self-hosting/app-server/index.md).
