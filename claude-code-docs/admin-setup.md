@@ -10,9 +10,9 @@ Claude Code enforces organization policy through managed settings that take prec
 
 This page walks through the deployment decisions in order. Each row links to the section below and to the reference page for that area.
 
-<Note>
-  SSO, SCIM provisioning, and seat assignment are configured at the Claude account level. See the [Claude Enterprise Administrator Guide](https://claude.com/resources/tutorials/claude-enterprise-administrator-guide) and [seat assignment](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan) for those steps.
-</Note>
+> [!NOTE]
+>
+> SSO, SCIM provisioning, and seat assignment are configured at the Claude account level. See the [Claude Enterprise Administrator Guide](https://claude.com/resources/tutorials/claude-enterprise-administrator-guide) and [seat assignment](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan) for those steps.
 
 | Decision | What you're choosing | Reference |
 | :- | :- | :- |
@@ -34,7 +34,7 @@ Claude Code connects to Claude through one of several API providers. Your choice
 | Google Cloud's Agent Platform | You want to inherit existing GCP compliance controls and billing |
 | Microsoft Foundry | You want to inherit existing Azure compliance controls and billing |
 
-Some Claude Code features require a claude.ai account. [Cloud sessions](/docs/en/claude-code-on-the-web), [Routines](/docs/en/routines), [Code Review](/docs/en/code-review), [Remote Control](/docs/en/remote-control), and the [Chrome extension](/docs/en/chrome) aren't available through Console API keys or cloud-provider credentials alone. If you deploy through Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry, plan whether developers also need Claude for Teams or Enterprise seats. Each feature page lists its plan requirements.
+Some Claude Code features require a claude.ai account. [Cloud sessions](/docs/en/claude-code-on-the-web), [cloud scheduled tasks](/docs/en/routines), [Code Review](/docs/en/code-review), [Remote Control](/docs/en/remote-control), and the [Chrome extension](/docs/en/chrome) aren't available through Console API keys or cloud-provider credentials alone. If you deploy through Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry, plan whether developers also need Claude for Teams or Enterprise seats. Each feature page lists its plan requirements.
 
 For the full provider comparison covering authentication, regions, and feature parity, see the [enterprise deployment overview](/docs/en/third-party-integrations). Each provider's auth setup is in [Authentication](/docs/en/authentication).
 
@@ -47,8 +47,8 @@ Managed settings define organization policy. Claude Code checks the four sources
 | Mechanism | Delivery | Priority | Platforms |
 | :- | :- | :- | :- |
 | Server-managed | claude.ai admin console, or a self-hosted [Claude apps gateway](/docs/en/claude-apps-gateway) for gateway sign-ins | Highest | All |
-| plist / registry policy | macOS: `com.anthropic.claudecode` plist<br />Windows: `HKLM\SOFTWARE\Policies\ClaudeCode` | High | macOS, Windows |
-| File-based managed | macOS: `/Library/Application Support/ClaudeCode/managed-settings.json`<br />Linux and WSL: `/etc/claude-code/managed-settings.json`<br />Windows: `C:\Program Files\ClaudeCode\managed-settings.json` | Medium | All |
+| plist / registry policy | macOS: `com.anthropic.claudecode` plist Windows: `HKLM\SOFTWARE\Policies\ClaudeCode` | High | macOS, Windows |
+| File-based managed | macOS: `/Library/Application Support/ClaudeCode/managed-settings.json` Linux and WSL: `/etc/claude-code/managed-settings.json` Windows: `C:\Program Files\ClaudeCode\managed-settings.json` | Medium | All |
 | Windows user registry | `HKCU\SOFTWARE\Policies\ClaudeCode` | Lowest | Windows only |
 
 Claude Code fetches server-managed settings at startup and refreshes them hourly during the session, with no endpoint infrastructure to deploy. Delivery through the claude.ai admin console requires a Claude for Teams or Enterprise plan. Deployments on Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry can get the same remote delivery by running a [Claude apps gateway](/docs/en/claude-apps-gateway), or use one of the file-based or OS-level mechanisms instead.
@@ -91,7 +91,7 @@ Managed settings can lock down tools, sandbox execution, restrict MCP servers an
 | [Permission lockdown](/docs/en/permissions#managed-only-settings) | Make managed settings the [only settings source of permission rules](/docs/en/settings-reference#allowmanagedpermissionrulesonly). Disable `--dangerously-skip-permissions` | `allowManagedPermissionRulesOnly`, `permissions.disableBypassPermissionsMode` |
 | [Starting permission mode](/docs/en/permission-modes#which-mode-a-session-starts-in) | Choose the permission mode your developers' terminal sessions start in instead of the built-in starting permission mode, or remove auto mode. [Switch permission modes](/docs/en/permission-modes#switch-permission-modes) lists when the VS Code extension reads a `defaultMode` you set | `permissions.defaultMode`, `permissions.disableAutoMode` |
 | [Sandboxing](/docs/en/sandboxing) | OS-level filesystem and network isolation with domain allowlists | `sandbox.enabled`, `sandbox.network.allowedDomains` |
-| [Managed policy CLAUDE.md](/docs/en/memory#deploy-organization-wide-claude-md) | Org-wide instructions loaded in every session, can't be excluded | File at the managed policy path |
+| [Managed policy CLAUDE.md](/docs/en/memory#deploy-organization-wide-claude-md) | Organization-wide behavioral guidance for Claude rather than a client-enforced rule | File at the managed policy path |
 | [MCP server control](/docs/en/managed-mcp) | Restrict which MCP servers users can add or connect to, deploy a fixed set, or provide remote servers to every user alongside their own | `allowedMcpServers`, `deniedMcpServers`, `allowManagedMcpServersOnly`, `managedMcpServers`, or a deployed `managed-mcp.json` file |
 | [Plugin marketplace control](/docs/en/plugins/org#restrict-what-users-can-install) | Restrict which marketplace sources users can add and install from, reject the CLI flags that sideload plugins, agents, and MCP servers for a single run, block [`command` plugin sources](/docs/en/plugins/marketplace-reference#command-plugin-source), and allowlist which marketplaces' plugins can be suggested | `strictKnownMarketplaces`, `blockedMarketplaces`, `disableSideloadFlags`, `disableCommandPluginSources`, `pluginSuggestionMarketplaces` |
 | [Customization lockdown](/docs/en/settings-reference#strictpluginonlycustomization) | Block skills, agents, hooks, and MCP servers from user and project sources, so they can only come from plugins or managed settings. Locking skills also stops the [skills your developers enable on claude.ai](/docs/en/skills#where-synced-skills-load) from syncing | `strictPluginOnlyCustomization` |

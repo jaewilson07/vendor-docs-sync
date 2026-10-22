@@ -6,9 +6,9 @@
 
 > Run a deep, multi-agent code review in the cloud with /code-review ultra to find and verify bugs before you merge.
 
-<Note>
-  Ultrareview is a research preview feature. The feature, pricing, and availability may change based on feedback. The command is `/code-review ultra`. When ultrareview is available to your account, `/ultrareview` is an alias.
-</Note>
+> [!NOTE]
+>
+> Ultrareview is a research preview feature. The feature, pricing, and availability may change based on feedback. The command is `/code-review ultra`. When ultrareview is available to your account, `/ultrareview` is an alias.
 
 Ultrareview is a deep code review that runs as a [cloud session](/docs/en/claude-code-on-the-web) on Anthropic's infrastructure. When you run `/code-review ultra`, Claude Code launches a fleet of reviewer agents in a cloud sandbox to find bugs in your branch or pull request.
 
@@ -18,7 +18,7 @@ Compared to a local `/code-review`, ultrareview offers:
 * **Broader coverage**: a larger fleet of reviewer agents explores the change in parallel, which surfaces issues that a local review can miss
 * **No local resource use**: the review runs entirely in a cloud sandbox, so your terminal stays free for other work while it runs
 
-Ultrareview requires authentication with a claude.ai account because it runs as a cloud session on Anthropic's infrastructure. If you are signed in with an API key only, run `/login` and authenticate with claude.ai first. Ultrareview is not available when using Claude Code with Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry, and it is not available to organizations that have enabled Zero Data Retention or have the [HIPAA configuration](/docs/en/hipaa-setup) applied. When ultrareview is not available, `/code-review ultra` runs a local review in your session instead.
+Ultrareview requires authentication with a claude.ai account because it runs as a cloud session on Anthropic's infrastructure. If you are signed in with an API key only, run `/login` and authenticate with claude.ai first. Ultrareview is not available when using Claude Code with Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry, and it is not available to organizations that have enabled Zero Data Retention or have the [HIPAA configuration](/docs/en/hipaa-setup) applied. In these cases, `/code-review ultra` runs a local review in your session instead. Organizations that use [customer-managed encryption keys](https://platform.claude.com/docs/en/manage-claude/cmek) (CMEK) can't run ultrareview. To review your changes locally, run `/code-review`.
 
 ## Run ultrareview from the CLI
 
@@ -95,9 +95,9 @@ The review still covers your current branch, the same scope as running with no a
 
 Claude Code treats your text as a note only when it has more than one word and isn't a branch name or PR reference. It reads a single word as a branch name or PR reference, so a mistyped branch name gets the closest-branch error from [Review against a different base](#review-against-a-different-base) instead of launching with a note. If your text combines a PR reference with other words, such as `check PR 123 again`, Claude Code doesn't launch either; it asks you to rerun with the PR number alone to review that PR, or without the reference to review your current branch.
 
-<Tip>
-  If your repository is too large to bundle, Claude Code prompts you to use PR mode instead. For a repository on `github.com`, push your branch and open a draft PR, then run `/code-review ultra <PR-number>`.
-</Tip>
+> [!TIP]
+>
+> If your repository is too large to bundle, Claude Code prompts you to use PR mode instead. For a repository on `github.com`, push your branch and open a draft PR, then run `/code-review ultra <PR-number>`.
 
 ### Diff limits and fallbacks
 
@@ -133,7 +133,7 @@ Claude Code asks you to confirm usage-credits billing once per conversation: whe
 
 ## Track a running review
 
-A review typically takes 5 to 10 minutes. The review runs as a background task, so you can keep working in your session or start other commands. If you chose to [post the findings to the pull request](#post-findings-to-the-pull-request), keep the session open until the review finishes; if the session ends first, Claude Code posts nothing.
+A review typically takes 15 to 25 minutes. The review runs as a background task, so you can keep working in your session or start other commands. If you chose to [post the findings to the pull request](#post-findings-to-the-pull-request), keep the session open until the review finishes; if the session ends first, Claude Code posts nothing.
 
 Use `/tasks` to see running and completed reviews, open the detail view for a review, or stop a review that is in progress. If you stop a review, Claude Code archives the cloud session and doesn't return partial findings.
 
@@ -196,7 +196,7 @@ Both reviews examine code, but you use them at different stages of your workflow
 | Target | your working diff, a pull request, a branch, or a path | your working diff or a pull request |
 | Runs | locally in your session | in a cloud sandbox |
 | Depth | scales with the effort argument | multi-agent fleet with independent verification |
-| Duration | seconds to a few minutes | roughly 5 to 10 minutes |
+| Duration | seconds to a few minutes | roughly 15 to 25 minutes |
 | Cost | counts toward normal usage | free runs, then roughly \$5 to \$25 per review as usage credits |
 | Best for | quick feedback while iterating | pre-merge confidence on substantial changes |
 

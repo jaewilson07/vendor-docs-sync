@@ -10,9 +10,9 @@ Claude Code supports various enterprise network and security configurations thro
 
 Set these environment variables before you launch Claude Code. Variables exported in your shell are read once at startup, so a running session doesn't pick up later changes to your shell environment.
 
-<Note>
-  All environment variables shown on this page can also be configured in [`settings.json`](/docs/en/settings).
-</Note>
+> [!NOTE]
+>
+> All environment variables shown on this page can also be configured in [`settings.json`](/docs/en/settings).
 
 ## Proxy configuration
 
@@ -39,9 +39,9 @@ Lowercase variants also work, and Claude Code uses the first one that's set in t
 
 Claude Code never sends its WebSocket connections to `localhost`, `::1`, or `127.0.0.0/8` through the proxy, so you don't need a loopback entry in `NO_PROXY` for them.
 
-<Note>
-  Claude Code does not support SOCKS proxies.
-</Note>
+> [!NOTE]
+>
+> Claude Code does not support SOCKS proxies.
 
 ### Basic authentication
 
@@ -51,13 +51,13 @@ If your proxy requires basic authentication, include credentials in the proxy UR
 export HTTPS_PROXY=http://username:password@proxy.example.com:8080
 ```
 
-<Warning>
-  Avoid hardcoding passwords in scripts. Use environment variables or secure credential storage instead.
-</Warning>
+> [!WARNING]
+>
+> Avoid hardcoding passwords in scripts. Use environment variables or secure credential storage instead.
 
-<Tip>
-  For proxies requiring advanced authentication (NTLM, Kerberos, etc.), consider using an LLM Gateway service that supports your authentication method.
-</Tip>
+> [!TIP]
+>
+> For proxies requiring advanced authentication (NTLM, Kerberos, etc.), consider using an LLM Gateway service that supports your authentication method.
 
 ## CA certificate store
 
@@ -77,9 +77,9 @@ To trust only the OS certificate store:
 export CLAUDE_CODE_CERT_STORE=system
 ```
 
-<Note>
-  `CLAUDE_CODE_CERT_STORE` has no dedicated `settings.json` schema key. Set it via the `env` block in `~/.claude/settings.json` or directly in the process environment.
-</Note>
+> [!NOTE]
+>
+> `CLAUDE_CODE_CERT_STORE` has no dedicated `settings.json` schema key. Set it via the `env` block in `~/.claude/settings.json` or directly in the process environment.
 
 ## Custom CA certificates
 
@@ -175,20 +175,23 @@ Some organizations require every Claude Code process to start through a corporat
 
 Set the [`processWrapper`](/docs/en/settings-reference#processwrapper) setting to prefix the supervisor, its workers, and the other background processes listed under [What the launcher covers](/docs/en/corporate-launcher#what-the-launcher-covers) with your launcher. The equivalent [`CLAUDE_CODE_PROCESS_WRAPPER`](/docs/en/env-vars) environment variable takes precedence when both are set, and it is subject to the same rule: deliver it through managed settings or `~/.claude/settings.json`, not a shell export. [Run Claude Code behind a corporate launcher](/docs/en/corporate-launcher) covers the contract the launcher must satisfy, what it does and doesn't reach, and how to roll it out.
 
-<Note>
-  An already-running supervisor keeps the launch configuration it started with. After deploying the launcher setting, run [`claude daemon stop --any`](/docs/en/agent-view#the-supervisor-process) so the next `claude agents` or `--bg` starts a supervisor that honors it.
-</Note>
+> [!NOTE]
+>
+> An already-running supervisor keeps the launch configuration it started with. After deploying the launcher setting, run [`claude daemon stop --any`](/docs/en/agent-view#the-supervisor-process) so the next `claude agents` or `--bg` starts a supervisor that honors it.
 
 ## Streaming idle watchdogs
 
-Claude Code runs four independent timers that abort a streaming model response when it goes quiet, so a dead connection fails and retries instead of hanging. The first-byte deadline covers the wait for response headers, before any of the response has arrived. Each of the other three watches a live response for a different signal.
+Claude Code runs four independent timers that abort a streaming model response when it goes quiet, so a dead connection fails and retries instead of hanging. A request that gets no response headers at all ends in one of two ways:
+
+* **Where the first-byte deadline runs**: the first attempt ends at that deadline. To change it, set `CLAUDE_STREAM_FIRST_BYTE_TIMEOUT_MS`. For the retry's wait, see [No response from API](/docs/en/errors#no-response-from-api).
+* **On the other connections**: the request ends after 5 to 6 minutes, when the body idle timeout fires, unless you turned that timeout off. To end it sooner, lower `API_TIMEOUT_MS`.
 
 | Timer | Aborts when | Runs on | Default timeout |
 | :- | :- | :- | :- |
-| First-byte deadline | No response headers arrive after Claude Code sends the request | Direct Anthropic API and [Claude Platform on AWS](/docs/en/claude-platform-on-aws), including through an HTTPS proxy, but not when `ANTHROPIC_BASE_URL` or `ANTHROPIC_AWS_BASE_URL` routes them through a [gateway](/docs/en/gateways). Opt-in on Amazon Bedrock with `CLAUDE_ENABLE_BYTE_WATCHDOG_BEDROCK=1`; doesn't run on Google Cloud's Agent Platform or Microsoft Foundry | 180 seconds on the direct Anthropic API, 300 seconds elsewhere, plus one second per 32KB of request body |
-| Event-level watchdog | No response events parse. Where the byte-level watchdog runs on a connection other than Amazon Bedrock, arriving bytes, including keep-alive pings, also reset this watchdog, for up to about five minutes without a parsed event | Every provider | 300 seconds |
-| Byte-level watchdog | No bytes arrive on the wire, including SSE keep-alive pings | Direct Anthropic API, [Claude Platform on AWS](/docs/en/claude-platform-on-aws), and [gateway](/docs/en/gateways) connections, including a custom `ANTHROPIC_BASE_URL`. Opt-in on Amazon Bedrock `vnd.amazon.eventstream` responses with `CLAUDE_ENABLE_BYTE_WATCHDOG_BEDROCK=1`; doesn't run on Google Cloud's Agent Platform or Microsoft Foundry | 180 seconds on the direct Anthropic API. Through a custom `ANTHROPIC_BASE_URL`, 180 seconds when Claude Code has [fetched feature flags](/docs/en/env-vars#features-that-need-feature-flag-fetching) and 300 seconds when it hasn't. 300 seconds elsewhere |
-| Body idle timeout | No bytes arrive for 5 minutes | Providers other than the direct Anthropic API, Claude Platform on AWS, and Amazon Bedrock with `CLAUDE_ENABLE_BYTE_WATCHDOG_BEDROCK=1` set, unless [`API_FORCE_IDLE_TIMEOUT`](/docs/en/env-vars) changes that | 5 minutes |
+| First-byte deadline | No response headers arrive after Claude Code sends the request | Direct Anthropic API and [Claude Platform on AWS](/docs/en/claude-platform-on-aws), including through an HTTPS proxy, but not when `ANTHROPIC_BASE_URL` or `ANTHROPIC_AWS_BASE_URL` routes them through a [gateway](/docs/en/gateways). Opt-in on Amazon Bedrock with `CLAUDE_ENABLE_BYTE_WATCHDOG_BEDROCK=1`; doesn't run on Google Cloud's Agent Platform or Microsoft Foundry, or in a [Claude apps gateway](/docs/en/claude-apps-gateway) session | 180 seconds on the direct Anthropic API, 300 seconds elsewhere, plus one second per 32KB of request body |
+| Event-level watchdog | No response events parse. Where the byte-level watchdog runs on a connection other than Amazon Bedrock, arriving bytes, including keep-alive pings, also reset this watchdog, for a limited time without a parsed event. That time is about five minutes when bytes arrive at least every 10 seconds. On a Claude apps gateway's 15-second pings it is about 7.5 minutes, so a pings-only stream ends after about 12.5 minutes at the default timeout. | Every provider | 300 seconds |
+| Byte-level watchdog | No bytes arrive on the wire, including SSE keep-alive pings | Direct Anthropic API, [Claude Platform on AWS](/docs/en/claude-platform-on-aws), and [gateway](/docs/en/gateways) connections, including a custom `ANTHROPIC_BASE_URL`. Opt-in on Amazon Bedrock `vnd.amazon.eventstream` responses with `CLAUDE_ENABLE_BYTE_WATCHDOG_BEDROCK=1`; doesn't run on Google Cloud's Agent Platform or Microsoft Foundry | 180 seconds on the direct Anthropic API. 300 seconds on Claude Platform on AWS, on Amazon Bedrock, in a [Claude apps gateway](/docs/en/claude-apps-gateway) session, and through a custom `ANTHROPIC_BASE_URL` |
+| Body idle timeout | No bytes arrive for 5 minutes, counting the wait for response headers | Providers other than the direct Anthropic API, Claude Platform on AWS, and Amazon Bedrock with `CLAUDE_ENABLE_BYTE_WATCHDOG_BEDROCK=1` set, unless [`API_FORCE_IDLE_TIMEOUT`](/docs/en/env-vars) changes that | 5 minutes |
 
 If you set `CLAUDE_ENABLE_BYTE_WATCHDOG_BEDROCK=1`, the byte-level watchdog replaces the body idle timeout on Bedrock rather than running alongside it. `CLAUDE_STREAM_IDLE_TIMEOUT_MS` then also governs how long a Bedrock stream may stay silent before Claude Code treats the connection as dead, within the limits listed below. Arriving bytes still don't reset the event-level watchdog on Bedrock. With debug logging on, each Bedrock stream then logs a debug message that starts with `wire-heartbeat: _chunkTimes absent`.
 
@@ -198,6 +201,7 @@ Configure the timers with these variables, each detailed in the [environment var
 * `CLAUDE_STREAM_IDLE_TIMEOUT_MS` sets both watchdogs' timeout. Claude Code raises values below 5 minutes to 5 minutes, and caps the value at 30 minutes for the byte-level watchdog.
 * `CLAUDE_BYTE_STREAM_IDLE_TIMEOUT_MS` sets the byte-level watchdog's timeout without changing the event-level watchdog's, clamped to between 10 seconds and 30 minutes, and takes precedence over `CLAUDE_STREAM_IDLE_TIMEOUT_MS` for that watchdog.
 * `CLAUDE_STREAM_FIRST_BYTE_TIMEOUT_MS` sets the first-byte deadline directly. Leave it unset and Claude Code uses the byte-level watchdog's timeout, so `CLAUDE_STREAM_IDLE_TIMEOUT_MS` and `CLAUDE_BYTE_STREAM_IDLE_TIMEOUT_MS` change the deadline too. For the clamps, the upload allowance, the `API_TIMEOUT_MS` cap, and how long the retry waits after a no-response abort, see [No response from API](/docs/en/errors#no-response-from-api).
+* `API_TIMEOUT_MS` limits the wait for response headers, not how long a response streams after them. Where the first-byte deadline doesn't run, such as a Claude apps gateway session, set it below `300000`, which is 5 minutes, to retry an unanswered request sooner. Keep it above the longest wait for headers, and the longest [non-streaming request](/docs/en/errors#streaming-response-ended-before-any-complete-data-was-received), that you expect: a request that needs longer times out again on each retry.
 * `API_FORCE_IDLE_TIMEOUT` set to `0` turns the body idle timeout off, and set to `1` turns it on for every provider. The watchdogs run independently of it, so to let a stream pause longer than their thresholds, also raise or disable them.
 
 When a watchdog aborts a stalled stream, Claude Code treats the abort as a mid-stream failure, and what you see depends on how far the response had got. Claude Code retries the request or ends the turn with an error, keeps the completed output and shows an [incomplete-response notice](/docs/en/errors#the-response-above-may-be-incomplete), or ends the turn normally. [Automatic retries](/docs/en/errors#automatic-retries) says where each outcome applies.
@@ -216,6 +220,7 @@ Claude Code requires access to the following URLs. Allowlist these in your proxy
 | `claude.ai` | claude.ai account authentication |
 | `claude.com` | claude.ai account sign-in opens a `claude.com` page in the browser, which redirects to `claude.ai`; pre-approved WebFetch documentation lookups also reach this host from the CLI |
 | `platform.claude.com` | Anthropic Console account authentication. OAuth token exchange, refresh, and revocation also go to this host for claude.ai accounts, so both Console and claude.ai sign-ins require it |
+| `sso.claude.com` | Part of the browser sign-in flow for organizations that use single sign-on (SSO). If a proxy blocks this host, those sign-ins can fail |
 | `mcp-proxy.anthropic.com` | [MCP connectors from claude.ai](/docs/en/mcp#use-mcp-servers-from-claude-ai), including connectors an organization administrator configures. Connector traffic routes through this proxy; connectors are enabled by default for claude.ai-authenticated users. To stop Claude Code from fetching them, set [`ENABLE_CLAUDEAI_MCP_SERVERS=false`](/docs/en/env-vars) or the [`disableClaudeAiConnectors`](/docs/en/settings-reference#disableclaudeaiconnectors) setting |
 | `downloads.claude.ai` | Plugin executable downloads; native installer, native auto-updater, and update version checks |
 | `storage.googleapis.com` | Plugin install counts and metadata shown in `/plugin` |

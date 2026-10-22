@@ -10,14 +10,14 @@ Managed settings let you decide which plugins Claude Code installs and allows on
 
 This page is for administrators, and the settings here govern Claude Code.
 
-<Note>
-  These cases are covered on other pages:
-
-  * **Installing plugins for yourself**: start at [Install plugins](/docs/en/plugins/install)
-  * **Controlling which plugins members can use in claude.ai and Cowork**: see [Manage plugins for your organization](https://claude.com/docs/plugins/admin) on claude.com
-  * **Rolling one plugin out to claude.ai, Cowork, and Claude Code together**: see [Choose a rollout route](https://claude.com/docs/plugins/org-rollout#choose-a-rollout-route) on claude.com
-  * **The plugins page in claude.ai's admin settings**: [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory) turns plugins on for members' claude.ai accounts, and those reach Claude Code as [synced plugins](/docs/en/plugins/loading#synced-plugins). It doesn't set any of the keys on this page
-</Note>
+> [!NOTE]
+>
+> These cases are covered on other pages:
+>
+> * **Installing plugins for yourself**: start at [Install plugins](/docs/en/plugins/install)
+> * **Controlling which plugins members can use in claude.ai and Cowork**: see [Manage plugins for your organization](https://claude.com/docs/plugins/admin) on claude.com
+> * **Rolling one plugin out to claude.ai, Cowork, and Claude Code together**: see [Choose a rollout route](https://claude.com/docs/plugins/org-rollout#choose-a-rollout-route) on claude.com
+> * **The plugins page in claude.ai's admin settings**: [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory) turns plugins on for members' claude.ai accounts, and those reach Claude Code as [synced plugins](/docs/en/plugins/loading#synced-plugins). It doesn't set any of the keys on this page
 
 The sections follow the order most rollouts take: [require plugins](#pre-install-and-require-plugins) for everyone or per repository, [seed containers and CI](#seed-containers-and-ci), [restrict](#restrict-what-users-can-install) what users can add on their own, [set update policy](#set-update-policy), then [audit](#audit-and-review) what's installed. To review every policy key in one place, see the [control matrix](#control-matrix).
 
@@ -120,30 +120,28 @@ For container images and CI runners that can't clone at runtime, pre-populate a 
 
 A seed also serves users who have no git-host account.
 
-<Note>
-  In CI/CD environments, configure a git credential helper before installing plugins from private repositories. On GitHub Actions, export a token with read access to the marketplace repository as `GH_TOKEN`, then run `gh auth setup-git`. The default workflow token can only access the workflow's own repository, so a private marketplace in another repository needs a personal access token or app token.
-</Note>
+> [!NOTE]
+>
+> In CI/CD environments, configure a git credential helper before installing plugins from private repositories. On GitHub Actions, export a token with read access to the marketplace repository as `GH_TOKEN`, then run `gh auth setup-git`. The default workflow token can only access the workflow's own repository, so a private marketplace in another repository needs a personal access token or app token.
 
-<Steps>
-  <Step title="Install into the seed at build time">
-    Set `CLAUDE_CODE_PLUGIN_CACHE_DIR` to the seed path so the marketplace and plugins install there instead of `~/.claude/plugins`:
+**1. Install into the seed at build time**
 
-    ```bash theme={null}
-    CLAUDE_CODE_PLUGIN_CACHE_DIR=/opt/claude-seed claude plugin marketplace add your-org/your-marketplace
-    CLAUDE_CODE_PLUGIN_CACHE_DIR=/opt/claude-seed claude plugin install code-formatter@your-marketplace
-    ```
+Set `CLAUDE_CODE_PLUGIN_CACHE_DIR` to the seed path so the marketplace and plugins install there instead of `~/.claude/plugins`:
 
-    The seed has the same layout as `~/.claude/plugins`: `known_marketplaces.json`, `marketplaces/<name>/`, and `cache/<marketplace>/<plugin>/<version>/`. You can mount the seed at a different path than you built it at.
-  </Step>
+```bash theme={null}
+CLAUDE_CODE_PLUGIN_CACHE_DIR=/opt/claude-seed claude plugin marketplace add your-org/your-marketplace
+CLAUDE_CODE_PLUGIN_CACHE_DIR=/opt/claude-seed claude plugin install code-formatter@your-marketplace
+```
 
-  <Step title="Point the runtime at the seed">
-    Set `CLAUDE_CODE_PLUGIN_SEED_DIR=/opt/claude-seed` in the container's environment. To use several seeds, separate their paths with `:` on Unix or `;` on Windows. Claude Code uses the first seed that contains a given marketplace or plugin cache.
-  </Step>
+The seed has the same layout as `~/.claude/plugins`: `known_marketplaces.json`, `marketplaces/<name>/`, and `cache/<marketplace>/<plugin>/<version>/`. You can mount the seed at a different path than you built it at.
 
-  <Step title="Enable the plugins">
-    The plugins in a seed aren't enabled on their own. Set `enabledPlugins` for each seed plugin you want loaded, in managed settings or in the repository's `.claude/settings.json`.
-  </Step>
-</Steps>
+**2. Point the runtime at the seed**
+
+Set `CLAUDE_CODE_PLUGIN_SEED_DIR=/opt/claude-seed` in the container's environment. To use several seeds, separate their paths with `:` on Unix or `;` on Windows. Claude Code uses the first seed that contains a given marketplace or plugin cache.
+
+**3. Enable the plugins**
+
+The plugins in a seed aren't enabled on their own. Set `enabledPlugins` for each seed plugin you want loaded, in managed settings or in the repository's `.claude/settings.json`.
 
 To verify a seed, run `claude -p` with `--output-format stream-json --verbose` in the image. In the `init` event's `plugins` list, each loaded plugin's `path` is under the seed, such as `/opt/claude-seed/cache/your-marketplace/code-formatter/1.0.0`.
 
@@ -187,7 +185,7 @@ The table lists each plugin policy key, what it enforces, and what it can't do.
 | `disableSideloadFlags` | Rejects `--plugin-dir`, `--plugin-url`, `--agents`, the Agent SDK `plugins` option, and non-SDK `--mcp-config` at startup, and rejects folders named in the [`CLAUDE_CODE_PLUGIN_DIRS`](/docs/en/env-vars#variables) variable the same way | Doesn't restrict `.mcp.json`, `claude mcp add`, or SDK-provided servers. Pair it with [`allowedMcpServers`](/docs/en/managed-mcp) |
 | `disableCommandPluginSources` | Blocks plugins with a `command` source from installing, updating, or loading. A `command` source is one whose plugin directory is produced by running a command on the machine. When unset, it takes the value of `allowManagedHooksOnly` | Doesn't affect other source types |
 | `allowManagedHooksOnly` | Restricts which hooks run. See [`allowManagedHooksOnly`](/docs/en/settings-reference#allowmanagedhooksonly) | Doesn't trust hooks from plugins users enable themselves |
-| `strictPluginOnlyCustomization` | Blocks skills, agents, hooks, and MCP servers that don't come from a plugin, managed settings, or Claude Code's built-ins. Set `true` to cover all four types, or an array of `skills`, `agents`, `hooks`, and `mcp` values such as `["skills", "hooks"]` to cover some | Doesn't restrict which plugins users install. Pair it with `strictKnownMarketplaces` |
+| `strictPluginOnlyCustomization` | Blocks skills, agents, hooks, and MCP servers that don't come from a plugin, managed settings, or Claude Code's built-ins. It also stops [skills-directory plugins](#keep-skills-directory-plugins-loading) loading. Set `true` to cover all four types, or an array of `skills`, `agents`, `hooks`, and `mcp` values such as `["skills", "hooks"]` to cover some | Doesn't restrict which plugins users install. Pair it with `strictKnownMarketplaces` |
 | `pluginSuggestionMarketplaces` | Marketplaces whose plugins may appear as install suggestions. See [Recommend plugins](#recommend-plugins) | Doesn't affect the built-in tips |
 | `pluginTrustMessage` | Appends your text to the trust warning that `/plugin` shows before a plugin installs | Doesn't change the warning's own text |
 | `allowedChannelPlugins` | Replaces the default list of plugins allowed to push channel messages. Requires `channelsEnabled: true` | See [Restrict which channel plugins can run](/docs/en/channels#restrict-which-channel-plugins-can-run) |
@@ -221,7 +219,7 @@ Set the allowlist to a list of these source objects. Most entries match exactly,
 * **`file` and `directory`**: `{ "source": "file", "path": "/opt/marketplace/marketplace.json" }` or `{ "source": "directory", "path": "/opt/marketplace/plugins" }`, with absolute paths.
 * **`hostPattern`**: `{ "source": "hostPattern", "hostPattern": "^github\\.example\\.com$" }`, matched against the host of `github`, `git`, and `url` sources. The pattern matches anywhere in the hostname, so anchor it with `^` and `$` as shown to match the whole host. A `github` source always counts as `github.com`. Use a `hostPattern` entry for a GitHub Enterprise Server or GitLab host where developers create their own marketplaces. The [GHES page](/docs/en/github-enterprise-server#allowlist-ghes-marketplaces-in-managed-settings) has the worked example.
 * **`pathPattern`**: `{ "source": "pathPattern", "pathPattern": "^/opt/approved/" }`, matched against the `path` of `file` and `directory` sources. The pattern matches anywhere in the path, so start it with `^` to pin a directory prefix. `".*"` allows every local path.
-* **`skills-dir`**: `{ "source": "skills-dir" }` keeps [skills-directory plugins](#keep-skills-directory-plugins-loading) loading while an allowlist is set, and matches no marketplace.
+* **`skills-dir`**: `{ "source": "skills-dir" }` matches no marketplace. For what it does, see [Keep skills-directory plugins loading](#keep-skills-directory-plugins-loading).
 
 #### How entries match
 
@@ -235,7 +233,7 @@ Owner-wildcard entries follow the exact rules for `ref` and match any `path` ins
 
 #### Keep skills-directory plugins loading
 
-Skills-directory plugins are the plugins users keep under `~/.claude/skills/` or a project's `.claude/skills/` in folders that carry a `.claude-plugin/plugin.json`. If you set any allowlist without a `{ "source": "skills-dir" }` entry, they stop loading. Plain [skills](/docs/en/skills), meaning a `SKILL.md` without that manifest, keep loading.
+Skills-directory plugins are the plugins users keep under `~/.claude/skills/` or a project's `.claude/skills/` in folders that carry a `.claude-plugin/plugin.json`. If you set any allowlist without a `{ "source": "skills-dir" }` entry, they stop loading. If you lock any customization type with [`strictPluginOnlyCustomization`](/docs/en/settings-reference#strictpluginonlycustomization), they stop loading whether or not the entry is present. The allowlist doesn't apply to plain [skills](/docs/en/skills), meaning a `SKILL.md` without that manifest.
 
 #### Marketplaces hosted on claude.ai
 
@@ -301,7 +299,7 @@ Most organizations allow the official marketplace and their own, and register bo
 
 On a machine with this policy, adding any source outside the list, for example `/plugin marketplace add https://example.com/other-marketplace.git`, fails with a message containing `is blocked by enterprise policy` followed by the allowed sources. `claude --plugin-dir ./x` exits with a message naming `disableSideloadFlags`.
 
-The `{ "source": "skills-dir" }` entry keeps [skills-directory plugins](#keep-skills-directory-plugins-loading) loading under this allowlist. Remove that entry and they stop loading.
+If you remove the `{ "source": "skills-dir" }` entry from this allowlist, [skills-directory plugins](#keep-skills-directory-plugins-loading) stop loading.
 
 Register both marketplaces with explicit `extraKnownMarketplaces` entries, as this policy does, rather than relying on the allowlist or on the official marketplace registering itself:
 

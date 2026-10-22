@@ -12,12 +12,12 @@ A marketplace source is a separate object that says where Claude Code fetches th
 
 This reference is for marketplace maintainers who need an exact field name or value, and for administrators who need to know which `source` values are valid in [`extraKnownMarketplaces`](/docs/en/settings-reference#extraknownmarketplaces), [`strictKnownMarketplaces`](/docs/en/settings-reference#strictknownmarketplaces), and [`blockedMarketplaces`](/docs/en/plugins/org#restrict-what-users-can-install).
 
-<Note>
-  These cases are covered on other pages:
-
-  * **Building or hosting a marketplace**: see [Create a marketplace](/docs/en/plugins/create-marketplace) and [Host and maintain a marketplace](/docs/en/plugins/host-marketplace)
-  * **Allowlist and blocklist recipes**: see [Manage plugins for your organization](/docs/en/plugins/org)
-</Note>
+> [!NOTE]
+>
+> These cases are covered on other pages:
+>
+> * **Building or hosting a marketplace**: see [Create a marketplace](/docs/en/plugins/create-marketplace) and [Host and maintain a marketplace](/docs/en/plugins/host-marketplace)
+> * **Allowlist and blocklist recipes**: see [Manage plugins for your organization](/docs/en/plugins/org)
 
 Find the section for what you're writing or reading:
 
@@ -44,7 +44,7 @@ You can't give your marketplace any of the following names:
 * **Community marketplace names**: `claude-community`, `claude-plugins-community`, and `healthcare`. Reserved under the same rule as the official names.
 * **Plugin directory names**: `anthropic-plugin-directory` and `claude-plugin-directory`. Reserved under the same rule as the official names.
 * **Names that impersonate an official marketplace**: names such as `official-claude-plugins` or `claude-plugins-v2`, and any name containing a non-ASCII character. The error is `Marketplace name impersonates an official Anthropic/Claude marketplace`. A control or bidirectional-formatting character in a name also reports `Marketplace name cannot contain control or bidirectional-formatting characters`. A marketplace already registered under such a name stops loading, along with its plugins.
-* <span id="reserved-name-spellings" />**Another spelling of a reserved name**: a name that differs from a reserved name only by a trailing dot, or by a symbol other than an underscore in place of a hyphen, so `claude.code.plugins` counts as `claude-code-plugins`. Adding the marketplace fails with [`is another spelling of "<reserved>", a reserved marketplace name`](/docs/en/errors#marketplace-name-is-another-spelling-of-a-reserved-name), and a marketplace already registered under one stops loading. This check requires Claude Code v2.1.280 or later.
+* **Another spelling of a reserved name**: a name that differs from a reserved name only by a trailing dot, or by a symbol other than an underscore in place of a hyphen, so `claude.code.plugins` counts as `claude-code-plugins`. Adding the marketplace fails with [`is another spelling of "<reserved>", a reserved marketplace name`](/docs/en/errors#marketplace-name-is-another-spelling-of-a-reserved-name), and a marketplace already registered under one stops loading. This check requires Claude Code v2.1.280 or later.
 * **Names Claude Code uses for plugins that don't come from a marketplace**: `inline` for plugins loaded with [`--plugin-dir`](/docs/en/cli-reference), `builtin` for built-in plugins, `skills-dir` for plugins auto-loaded from [`.claude/skills/`](/docs/en/skills), and `synced` for plugins synced from your claude.ai account. `claude-plugin-test` is also reserved. `skills-dir` also appears as `{"source": "skills-dir"}` in `strictKnownMarketplaces` and `blockedMarketplaces`, described under [Source values valid only in policy lists](#source-values-valid-only-in-policy-lists).
 * **`npm`, `pip`, `uv`, `cargo`, `github`, and `gh`**: reserved in any casing. This check requires Claude Code v2.1.275 or later.
 * **Member names that every JavaScript object has**: `constructor`, `hasOwnProperty`, `isPrototypeOf`, `propertyIsEnumerable`, `toLocaleString`, `toString`, and `valueOf`. `claude plugin marketplace add` refuses a marketplace that uses one with [`Claude Code reserves this name and cannot register a marketplace under it`](/docs/en/plugins/troubleshooting#claude-code-reserves-this-name). This check requires Claude Code v2.1.296 or later.
@@ -98,9 +98,7 @@ The table lists the entry's own fields and the manifest fields whose meaning cha
 | `headers` | object | HTTP headers Claude Code sends when it downloads this entry's [archive](#archive-plugin-source). A header set here replaces a header of the same name from the marketplace source's [`headers`](#fields-by-type). Requires Claude Code v2.1.238 or later |
 | `headersHelper` | string | Command that prints this entry's archive-download headers as one JSON object, for a credential that expires. The entry must also set [`"strict": false`](#strict-mode). Requires Claude Code v2.1.238 or later. See [Authenticate archive downloads](/docs/en/plugins/host-marketplace#authenticate-archive-downloads) |
 
-<h3 id="entry-and-plugin-json">
-  How an entry combines with plugin.json
-</h3>
+### How an entry combines with plugin.json
 
 The entry's fields apply differently to a fetched plugin that has its own `.claude-plugin/plugin.json` and to one that doesn't:
 
@@ -362,7 +360,7 @@ The table lists every marketplace source type with its fields, the `claude plugi
 | `file` | `path` | A path to a `.json` file | Loads | Allows the same path | Blocks the same path |
 | `directory` | `path` | A path to a directory | Loads | Allows the same path | Blocks the same path |
 | `settings` | `name`, `plugins`, `owner` | Not produced | Loads | Allows an entry with the same `name` and identical `plugins` | Blocks the same `name` |
-| `skills-dir` | none | Not produced | Fails to load: `Unsupported marketplace source type` | Keeps [skills-directory plugins](/docs/en/plugins/org#keep-skills-directory-plugins-loading) loading while an allowlist is set. See [Source values valid only in policy lists](#source-values-valid-only-in-policy-lists) | Stops skills-directory plugins from loading |
+| `skills-dir` | none | Not produced | Fails to load: `Unsupported marketplace source type` | Allows [skills-directory plugins](/docs/en/plugins/org#keep-skills-directory-plugins-loading). See [Source values valid only in policy lists](#source-values-valid-only-in-policy-lists) | Stops skills-directory plugins from loading |
 | `hostPattern` | `hostPattern` | Not produced | Fails to load: `Unsupported marketplace source type` | Allows `github`, `git`, and `url` sources whose host matches | Blocks those sources |
 | `pathPattern` | `pathPattern` | Not produced | Fails to load: `Unsupported marketplace source type` | Allows `file` and `directory` sources whose `path` matches | Blocks those sources |
 
@@ -391,7 +389,7 @@ The table lists each marketplace source field that has a default, a constraint, 
 `hostPattern`, `pathPattern`, `skills-dir`, and the `owner/*` form of `repo` are valid only in the two policy lists, `strictKnownMarketplaces` and `blockedMarketplaces`:
 
 * **`hostPattern` and `pathPattern`**: regular expressions Claude Code tests against a source before it fetches from it.
-* **`skills-dir`**: not a source. If you set `strictKnownMarketplaces` at all, [skills-directory plugins](/docs/en/plugins/org#keep-skills-directory-plugins-loading) stop loading until you add `{"source": "skills-dir"}` to that list.
+* **`skills-dir`**: not a source. If you set `strictKnownMarketplaces` without a `{"source": "skills-dir"}` entry, [skills-directory plugins](/docs/en/plugins/org#keep-skills-directory-plugins-loading) stop loading. If you lock any customization type with [`strictPluginOnlyCustomization`](/docs/en/settings-reference#strictpluginonlycustomization), they stop loading whether or not the entry is present.
 * **`owner/*`**: as a `github` `repo` value, matches every repository under exactly that GitHub owner. Requires Claude Code v2.1.223 or later.
 
 For match order, exact-`ref` semantics, and recipes, see [Manage plugins for your organization](/docs/en/plugins/org).

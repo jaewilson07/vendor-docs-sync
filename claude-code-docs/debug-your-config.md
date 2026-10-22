@@ -33,9 +33,9 @@ If `/context` confirms the file loaded but Claude still isn't following a partic
 
 Adherence drops when an instruction is vague enough to interpret multiple ways, when two files give conflicting direction, or when the file has grown long enough that individual rules get less attention. [Write effective instructions](/docs/en/memory#write-effective-instructions) covers the specificity, size, and structure patterns that keep adherence high.
 
-<Note>
-  CLAUDE.md and permissions solve different problems. CLAUDE.md tells Claude how your project works so it makes good decisions. [Permissions](/docs/en/permissions) and [hooks](/docs/en/hooks) enforce limits regardless of what Claude decides. Use CLAUDE.md for "we do it this way here." Use permissions or hooks for security boundaries and anything that must never happen, where you need a guarantee instead of guidance.
-</Note>
+> [!NOTE]
+>
+> CLAUDE.md and permissions solve different problems. CLAUDE.md tells Claude how your project works so it makes good decisions. [Permissions](/docs/en/permissions) and [hooks](/docs/en/hooks) enforce limits regardless of what Claude decides. Use CLAUDE.md for "we do it this way here." Use permissions or hooks for security boundaries and anything that must never happen, where you need a guarantee instead of guidance.
 
 ## Check resolved settings
 
@@ -61,6 +61,7 @@ Run `/hooks` to list every hook registered for the current session, grouped by e
 
 * The hook is defined in a standalone file. Hooks go under the `"hooks"` key in a [settings file](/docs/en/settings#settings-files).
 * The `matcher` value is an array instead of a single string. Claude Code lists the entry as an invalid setting when you start an interactive session and in `claude doctor`. If the array is under `PreToolUse` or `PermissionRequest`, none of that file's other hooks load either.
+* The hook is in a skill's frontmatter, and neither you nor Claude has invoked the skill yet in this session. Invoke it or ask Claude to, then run `/hooks` again. If the hook still doesn't appear, check for other causes, such as [frontmatter that didn't parse](/docs/en/skills#skill-not-triggering) or one of the [limits on skill hooks](/docs/en/hooks#limits-on-skill-hooks).
 
 If the hook appears but doesn't fire, the matcher is the usual cause. Check it for these mistakes:
 
@@ -90,58 +91,52 @@ Safe mode still applies managed hooks and settings policy from your organization
 
 If the problem persists in safe mode, or your settings themselves are suspect, start a session with none of your own configuration and check whether the problem follows.
 
-<Steps>
-  <Step title="Create an empty directory and change into it">
-    In your shell, with no Claude Code session running, create the directory and move into it:
+**1. Create an empty directory and change into it**
 
-    <Tabs>
-      <Tab title="Bash or Zsh">
-        ```bash theme={null}
-        mkdir -p ~/claude-clean/empty && cd ~/claude-clean/empty
-        ```
-      </Tab>
+In your shell, with no Claude Code session running, create the directory and move into it:
 
-      <Tab title="PowerShell">
-        ```powershell theme={null}
-        New-Item -ItemType Directory -Force "$HOME/claude-clean/empty" | Out-Null
-        Set-Location "$HOME/claude-clean/empty"
-        ```
-      </Tab>
-    </Tabs>
-  </Step>
+**Bash or Zsh**
 
-  <Step title="Start Claude Code with a clean configuration directory">
-    From the same shell, set [`CLAUDE_CONFIG_DIR`](/docs/en/env-vars) to a fresh directory in place of `~/.claude`, and pass [`--setting-sources user`](/docs/en/cli-reference#cli-flags) to turn off project configuration such as `.claude/settings.json`, `CLAUDE.md`, and `.mcp.json`:
+```bash theme={null}
+mkdir -p ~/claude-clean/empty && cd ~/claude-clean/empty
+```
 
-    <Tabs>
-      <Tab title="Bash or Zsh">
-        The variable applies to this one launch.
+**PowerShell**
 
-        ```bash theme={null}
-        CLAUDE_CONFIG_DIR=~/claude-clean/config claude --setting-sources user
-        ```
-      </Tab>
+```powershell theme={null}
+New-Item -ItemType Directory -Force "$HOME/claude-clean/empty" | Out-Null
+Set-Location "$HOME/claude-clean/empty"
+```
 
-      <Tab title="PowerShell">
-        The variable stays set for the rest of this PowerShell session, so later `claude` launches in the same window keep using the clean directory. To return to your usual directory, run `Remove-Item Env:CLAUDE_CONFIG_DIR` before the next launch.
+**2. Start Claude Code with a clean configuration directory**
 
-        ```powershell theme={null}
-        $env:CLAUDE_CONFIG_DIR = "$HOME/claude-clean/config"
-        claude --setting-sources user
-        ```
-      </Tab>
-    </Tabs>
+From the same shell, set [`CLAUDE_CONFIG_DIR`](/docs/en/env-vars) to a fresh directory in place of `~/.claude`, and pass [`--setting-sources user`](/docs/en/cli-reference#cli-flags) to turn off project configuration such as `.claude/settings.json`, `CLAUDE.md`, and `.mcp.json`:
 
-    On the first launch, you go through the first-run setup screens again, a sign that the clean configuration directory is in effect. Managed settings still apply, and [connectors](/docs/en/mcp#use-mcp-servers-from-claude-ai) still load if you log in with a claude.ai account.
-  </Step>
+**Bash or Zsh**
 
-  <Step title="Reproduce the problem">
-    Repeat what triggered the problem in the clean session:
+The variable applies to this one launch.
 
-    * **Problem gone**: the cause is in your user or project configuration. Copy `~/.claude.json` and the files in `~/.claude` into `~/claude-clean/config` one at a time. If none brings the problem back, go to your project directory in the same shell and start Claude Code without `--setting-sources user`. In Bash or Zsh, run `CLAUDE_CONFIG_DIR=~/claude-clean/config claude`. In PowerShell, the variable is still set, so run `claude`.
-    * **Problem persists**: the cause is outside your user and project configuration. Run `/status` in the session to check for managed settings, check your shell for [environment variables](/docs/en/env-vars), then see [Troubleshooting](/docs/en/troubleshooting).
-  </Step>
-</Steps>
+```bash theme={null}
+CLAUDE_CONFIG_DIR=~/claude-clean/config claude --setting-sources user
+```
+
+**PowerShell**
+
+The variable stays set for the rest of this PowerShell session, so later `claude` launches in the same window keep using the clean directory. To return to your usual directory, run `Remove-Item Env:CLAUDE_CONFIG_DIR` before the next launch.
+
+```powershell theme={null}
+$env:CLAUDE_CONFIG_DIR = "$HOME/claude-clean/config"
+claude --setting-sources user
+```
+
+On the first launch, you go through the first-run setup screens again, a sign that the clean configuration directory is in effect. Managed settings still apply, and [connectors](/docs/en/mcp#use-mcp-servers-from-claude-ai) still load if you log in with a claude.ai account.
+
+**3. Reproduce the problem**
+
+Repeat what triggered the problem in the clean session:
+
+* **Problem gone**: the cause is in your user or project configuration. Copy `~/.claude.json` and the files in `~/.claude` into `~/claude-clean/config` one at a time. If none brings the problem back, go to your project directory in the same shell and start Claude Code without `--setting-sources user`. In Bash or Zsh, run `CLAUDE_CONFIG_DIR=~/claude-clean/config claude`. In PowerShell, the variable is still set, so run `claude`.
+* **Problem persists**: the cause is outside your user and project configuration. Run `/status` in the session to check for managed settings, check your shell for [environment variables](/docs/en/env-vars), then see [Troubleshooting](/docs/en/troubleshooting).
 
 ## Check common causes
 
@@ -158,7 +153,7 @@ Most configuration surprises trace back to a small set of location and syntax ru
 | Skill doesn't appear in `/skills` | Skill file is at `.claude/skills/name.md` instead of in a folder | Use a folder with `SKILL.md` inside: `.claude/skills/name/SKILL.md`. |
 | Skill appears in `/skills` but Claude never invokes it | Skill has `disable-model-invocation: true` in its frontmatter, or its description doesn't match how you phrase the request | Check the badge in `/skills`: a "user-only" label means Claude won't trigger it on its own. See [skill invocation](/docs/en/skills). |
 | Subdirectory `CLAUDE.md` instructions seem ignored | Subdirectory files load on demand, not at session start | To load a subdirectory's `CLAUDE.md`, ask Claude to read another file in that subdirectory. See [when subdirectory files load](/docs/en/memory#how-claude-md-files-load). |
-| Subagent ignores `CLAUDE.md` instructions | The built-in Explore and Plan agents skip `CLAUDE.md`. A custom subagent loads it the same way the main conversation does, unless its definition sets [`omitClaudeMd`](/docs/en/sub-agents#supported-frontmatter-fields) | For Explore or Plan, restate the instruction in your delegating prompt. For a subagent that sets `omitClaudeMd`, remove the field. For any other custom subagent, put critical instructions in the agent file body, which becomes the agent's system prompt. See [what loads at startup](/docs/en/sub-agents#what-loads-at-startup). |
+| Subagent ignores `CLAUDE.md` instructions | The built-in Explore and Plan agents skip `CLAUDE.md` at startup. A custom subagent loads it the same way the main conversation does, unless it has [`omitClaudeMd`](/docs/en/sub-agents#supported-frontmatter-fields) set in its definition | For Explore or Plan, restate the instruction in your delegating prompt. For a subagent that sets `omitClaudeMd`, remove the field. For any other custom subagent, put critical instructions in the agent file body, which becomes the agent's system prompt. See [what loads at startup](/docs/en/sub-agents#what-loads-at-startup). |
 | Cleanup logic never runs at session end | No `SessionEnd` hook configured | Add a `SessionEnd` hook in `settings.json`. See the [hook events list](/docs/en/hooks#hook-events). |
 | MCP servers in `.mcp.json` never load | File is under `.claude/`, or its servers sit under a top-level `servers` key, as in VS Code's `mcp.json`, instead of `mcpServers` | Project MCP config goes at the repository root as `.mcp.json`, not inside `.claude/`, with servers under the `mcpServers` key. See [MCP configuration](/docs/en/mcp). |
 | MCP servers added under `mcpServers` in `settings.json` never appear | `settings.json` does not read an `mcpServers` key | Define project servers in `.mcp.json` at the repository root, or run `claude mcp add --scope user` for user-scoped servers. See [MCP configuration](/docs/en/mcp). |

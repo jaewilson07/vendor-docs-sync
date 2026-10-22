@@ -6,17 +6,17 @@
 
 > Enable a smoother, flicker-free rendering mode with mouse support and stable memory usage in long conversations.
 
-<Note>
-  Fullscreen rendering is a [research preview](#research-preview). Whether you [start in fullscreen or in the classic renderer](#fullscreen-by-default) depends on your setup. Run `/tui fullscreen` or `/tui default` to switch in your current conversation. Behavior may change based on feedback.
-</Note>
+> [!NOTE]
+>
+> Fullscreen rendering is a [research preview](#research-preview). Whether you [start in fullscreen or in the classic renderer](#fullscreen-by-default) depends on your setup. Run `/tui fullscreen` or `/tui default` to switch in your current conversation. Behavior may change based on feedback.
 
 Fullscreen rendering is an alternative rendering path for the Claude Code CLI that eliminates flicker, keeps memory usage flat in long conversations, and adds mouse support. It draws the interface on the terminal's alternate screen buffer, like `vim` or `htop`, and only renders messages that are currently visible. This reduces the amount of data sent to your terminal on each update.
 
 The difference is most noticeable in terminal emulators where rendering throughput is the bottleneck, such as the VS Code integrated terminal, tmux, and iTerm2. If your terminal scroll position jumps to the top while Claude is working, or the screen flashes as tool output streams in, this mode addresses those.
 
-<Note>
-  The term fullscreen describes how Claude Code takes over the terminal's drawing surface, the way `vim` does. It has nothing to do with maximizing your terminal window, and works at any window size.
-</Note>
+> [!NOTE]
+>
+> The term fullscreen describes how Claude Code takes over the terminal's drawing surface, the way `vim` does. It has nothing to do with maximizing your terminal window, and works at any window size.
 
 ## Enable fullscreen rendering
 
@@ -32,6 +32,7 @@ Claude Code carries these into the relaunched session:
 * Your [permission mode](/docs/en/permission-modes) and [effort level](/docs/en/model-config#adjust-effort-level)
 * The model you last picked with [`/model`](/docs/en/model-config#setting-your-model)
 * Rules you passed with [`--allowed-tools` or `--disallowed-tools`](/docs/en/cli-reference#cli-flags), and your `--agent`, `--agents`, `--append-system-prompt`, and `--system-prompt-snapshot` flags
+* A `--chrome` or `--no-chrome` flag you launched with, so [Chrome integration](/docs/en/chrome) stays on or off as you chose for this session
 
 Claude Code declines to relaunch if the session has a restriction it can't pass to the restarted process. Restrictions it can't pass include:
 
@@ -93,7 +94,7 @@ Fullscreen rendering captures mouse events and handles them inside Claude Code:
 * **Click in the prompt input** to position your cursor anywhere in the text you're typing.
 * **Click a suggestion in the `/` command or `@` file list** to accept it. Hovering highlights the row under your cursor.
 * **Click an option in a select menu** to choose it. This covers permission prompts, `/model`, `/config`, and other dialogs that show a list of options.
-* **Click an option in a multi-select menu** to toggle it, and click the submit button to confirm your choices. Clicking a free-text row, such as the `Other` row in a multiple-choice question, focuses its input field so you can type an answer. Requires Claude Code v2.1.208 or later.
+* **Click an option in a multi-select menu** to toggle it, and click the submit button to confirm your choices. Clicking a free-text row, such as the `Other` row in a multiple-choice question, focuses its input field so you can type an answer.
 * **Click a setting's value in the `/config` panel** to change it, and scroll the settings list with the mouse wheel. Requires Claude Code v2.1.271 or later.
 * **Scroll a select or multi-select menu with the mouse wheel** when it has more options than it shows at once, such as the `/model` list in a short terminal window. The wheel scrolls the list while the pointer is over its options. Requires Claude Code v2.1.280 or later.
 * **Scroll an overflowing list with its scrollbar.** In list panels such as `/skills`, `/mcp`, and `/plugin`'s Installed list, a scrollbar appears beside a list with more rows than fit while the pointer is over it. Click the track to jump to that point, or drag the thumb. Requires Claude Code v2.1.281 or later.
@@ -136,7 +137,7 @@ Fullscreen rendering handles scrolling inside the app. Use these shortcuts to na
 | `Ctrl+End` | Jump to the latest message and re-enable auto-follow |
 | Mouse wheel | Scroll a few lines at a time |
 
-You can scroll back to the start of the session even after [compaction](/docs/en/context-window#what-survives-compaction). Claude continues working from the compaction summary, but Claude Code keeps every earlier message in the fullscreen scrollback across repeated compactions.
+If you close a [compacted](/docs/en/context-window#what-survives-compaction) session and [resume](/docs/en/sessions#what-a-resumed-session-restores) it, scrolling up stops at the `Conversation compacted` row, and your earlier messages stay on disk in the [transcript file](/docs/en/sessions#where-transcripts-are-stored). To get a detail from those messages, ask Claude to look it up in that file.
 
 On keyboards without dedicated `PgUp`, `PgDn`, `Home`, or `End` keys, like MacBook keyboards, hold `Fn` with the arrow keys: `Fn+↑` sends `PgUp`, `Fn+↓` sends `PgDn`, `Fn+←` sends `Home`, and `Fn+→` sends `End`. `Ctrl+Fn+→` doesn't reach Claude Code on macOS, so a MacBook keyboard has no working jump-to-bottom chord by default. Instead, use one of these options:
 
@@ -298,9 +299,7 @@ CLAUDE_CODE_ALT_SCREEN_FULL_REPAINT=1 claude
 
 On Windows, Claude Code already enables full repaint automatically for background sessions and [agent view](/docs/en/agent-view), so you only need to set the variable for an interactive fullscreen session you launched directly.
 
-<h3 id="fullscreen-renderer-didnt-finish-starting">
-  `Claude Code's fullscreen renderer didn't finish starting last time` appears at startup
-</h3>
+### `Claude Code's fullscreen renderer didn't finish starting last time` appears at startup
 
 If a fullscreen session on this machine crashes before it has started successfully, Claude Code starts your next session in the classic renderer and prints one of two lines. A session has started successfully once it has drawn its first frame and then either stayed up for 10 seconds or you ended it with `/exit`, Ctrl+C, or Ctrl+D. The line you see tells you what Claude Code does after this session:
 

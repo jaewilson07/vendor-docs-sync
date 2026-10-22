@@ -8,17 +8,17 @@
 
 ## Keyboard shortcuts
 
-<Note>
-  Keyboard shortcuts may vary by platform and terminal. In [fullscreen rendering](/docs/en/fullscreen), press `?` in the transcript viewer to see available shortcuts there.
-
-  **macOS users**: Option/Alt key shortcuts (`Alt+B`, `Alt+F`, `Alt+D`, `Alt+Y`, `Alt+P`) require configuring Option as Meta in your terminal. See [Enable Option key shortcuts on macOS](/docs/en/terminal-config#enable-option-key-shortcuts-on-macos) for the setting in each terminal.
-</Note>
+> [!NOTE]
+>
+> Keyboard shortcuts may vary by platform and terminal. In [fullscreen rendering](/docs/en/fullscreen), press `?` in the transcript viewer to see available shortcuts there.
+>
+> **macOS users**: Option/Alt key shortcuts (`Alt+B`, `Alt+F`, `Alt+D`, `Alt+Y`, `Alt+P`) require configuring Option as Meta in your terminal. See [Enable Option key shortcuts on macOS](/docs/en/terminal-config#enable-option-key-shortcuts-on-macos) for the setting in each terminal.
 
 ### General controls
 
 | Shortcut | Description | Context |
 | :- | :- | :- |
-| `Ctrl+C` | Interrupt, or clear input | Interrupts a running operation. If nothing is running, the first press clears the prompt input and a second press exits Claude Code. Press `Up` while the prompt is still empty to bring the cleared draft back, which requires Claude Code v2.1.288 or later |
+| `Ctrl+C` | Interrupt, or clear input | Interrupts a running operation. If nothing is running, the first press clears the prompt input and a second press exits Claude Code. To get a cleared draft back, see [Bring back a cleared draft](#bring-back-a-cleared-draft) |
 | `Ctrl+X Ctrl+K` | Stop all running [background subagents](/docs/en/sub-agents#run-subagents-in-foreground-or-background) in this session, and turn off [artifact auto-replies](/docs/en/artifacts#let-claude-reply-to-comments-on-its-own) for the rest of it. Press twice within 3 seconds to confirm. You can press it while a background subagent's permission prompt is open | Subagent control |
 | `Ctrl+D` | Exit Claude Code session | The first press shows a confirmation hint and a second press within 800ms exits. When the prompt has text, `Ctrl+D` deletes the character after the cursor instead |
 | `Ctrl+G` or `Ctrl+X Ctrl+E` | Open in default text editor | Edit your prompt or custom response in your default text editor. `Ctrl+X Ctrl+E` is the readline-native binding. Turn on **Show last response in external editor** in `/config` to prepend Claude's previous reply as `#`-commented context above your prompt; Claude Code strips the comment block when you save |
@@ -57,9 +57,7 @@
 | `Alt+D` | Delete to end of word | Deletes to the end of the current word, or to the end of the next word when the cursor is between words. Stores deleted text for pasting. Requires [Option as Meta](#keyboard-shortcuts) on macOS |
 | `Ctrl+_` or `Ctrl+Shift+-` | Undo last input edit | Restores the previous input text and cursor position |
 
-<h3 id="make-ctrl-w-delete-back-to-whitespace">
-  Word boundaries in editing shortcuts
-</h3>
+### Word boundaries in editing shortcuts
 
 The word shortcuts `Alt+B`, `Alt+F`, `Alt+D`, `Option+Delete`, and `Ctrl+Backspace` treat a word as a run of letters and digits, so punctuation such as `_`, `.`, and `/` separates words. With `src/utils/foo.ts` in the prompt, repeated presses of `Alt+B` stop at the start of `ts`, `foo`, `utils`, and `src`.
 
@@ -157,7 +155,7 @@ Claude Code keeps your vim mode and cursor position when you toggle the [transcr
 
 ### Remap INSERT-mode key sequences
 
-The [`vimInsertModeRemaps`](/docs/en/settings-reference#viminsertmoderemaps) setting maps a two-key INSERT-mode sequence to Escape, so a mapping like `jj` returns you to NORMAL mode. Requires Claude Code v2.1.208 or later.
+The [`vimInsertModeRemaps`](/docs/en/settings-reference#viminsertmoderemaps) setting maps a two-key INSERT-mode sequence to Escape, so a mapping like `jj` returns you to NORMAL mode.
 
 The following `~/.claude/settings.json` example turns on vim mode and maps `jj` to Escape:
 
@@ -194,11 +192,12 @@ Claude Code reads this setting from your user settings file, the `--settings` fl
 | `T{char}` | Jump to just after previous occurrence of character on the current line |
 | `;` | Repeat last f/F/t/T motion |
 | `,` | Repeat last f/F/t/T motion in reverse |
+| `%` | Jump to the matching `()`, `[]`, or `{}` bracket, starting from the next bracket on the current line when the cursor isn't on a bracket. Requires Claude Code v2.1.301 or later |
 | `/` | Open reverse history search, same as `Ctrl+R`. The empty search prompt shows a hint: press `Esc` then `i` then `/` to open the command menu instead |
 
-<Note>
-  In vim NORMAL mode, if the cursor is at the beginning or end of input and can't move further, `j`/`k` and `↑`/`↓` navigate command history instead. `←` on an empty prompt opens [agent view](/docs/en/agent-view) from NORMAL mode as well as INSERT; before v2.1.219, `←` on an empty prompt did nothing in NORMAL mode.
-</Note>
+> [!NOTE]
+>
+> In vim NORMAL mode, if the cursor is at the beginning or end of input and can't move further, `j`/`k` and `↑`/`↓` navigate command history instead. `←` on an empty prompt opens [agent view](/docs/en/agent-view) from NORMAL mode as well as INSERT; before v2.1.219, `←` on an empty prompt did nothing in NORMAL mode.
 
 ### Editing (NORMAL mode)
 
@@ -213,11 +212,12 @@ Claude Code reads this setting from your user settings file, the `--settings` fl
 | `dj`/`dk` | Delete the current line and the line below or above |
 | `dgg`/`dG` | Delete from the current line to the first or last line |
 | `d0`/`c0`/`y0` | Delete, change, or yank from the cursor back to the beginning of the line. Requires Claude Code v2.1.281 or later |
+| `d%`/`c%`/`y%` | Delete, change, or yank from the cursor through the bracket that `%` jumps to. Requires Claude Code v2.1.301 or later |
 | `cc` | Change line |
 | `C` | Change to end of line |
 | `cw`/`ce`/`cb` | Change word/to end/back |
-| `s` | Substitute character: delete the character under the cursor and enter INSERT mode. Requires Claude Code v2.1.211 or later |
-| `S` | Substitute line: clear the line and enter INSERT mode. Requires Claude Code v2.1.211 or later |
+| `s` | Substitute character: delete the character under the cursor and enter INSERT mode |
+| `S` | Substitute line: clear the line and enter INSERT mode |
 | `yy`/`Y` | Yank (copy) line |
 | `yw`/`ye`/`yb` | Yank word/to end/back |
 | `p` | Paste after cursor |
@@ -262,6 +262,12 @@ Press `v` for character-wise selection or `V` for line-wise selection. Motions e
 
 Block-wise visual mode with `Ctrl+V` is not supported.
 
+### Cancel a question in vim mode
+
+When you're typing your own answer in the `Other` row of a [question Claude asks](/docs/en/tools-reference#askuserquestion-tool-behavior), press `Esc` twice to cancel the question.
+
+To cancel with a single key press instead, [bind another key to cancel the question](/docs/en/keybindings#cancel-a-question-with-one-key-press).
+
 ## Command history
 
 Claude Code keeps a history of the prompts you type, and Up-arrow recall reaches prompts from past sessions of the same project:
@@ -271,6 +277,13 @@ Claude Code keeps a history of the prompts you type, and Up-arrow recall reaches
 * Submitting the same prompt twice in a row records one history entry, so pressing Up steps to the previous distinct prompt
 * When you recall a prompt that included pasted text, Claude Code sends the full pasted content again when you resubmit. If the content has since been [cleaned up](/docs/en/claude-directory#cleaned-up-automatically), Claude Code doesn't send the literal `[Pasted text #N]` string; see [Paste large content](/docs/en/terminal-config#paste-large-content) for what happens to the prompt
 * History expansion with `!` is disabled by default
+
+### Bring back a cleared draft
+
+To get back a draft you cleared with `Ctrl+C`, press `Up`, either right away or after you've sent a message or command:
+
+* **Right after clearing the draft**: press `Up` once while the prompt is still empty. Requires Claude Code v2.1.288 or later.
+* **After sending a message or command**: press `Up` to step back to the draft. Claude Code keeps the ten most recent cleared drafts for the current session, with their pasted text and images, and discards them when you exit. Requires Claude Code v2.1.292 or later.
 
 ### Reverse search with Ctrl+R
 
@@ -386,6 +399,15 @@ Claude Code runs some commands as soon as you send them instead of queueing them
 * [`/effort`](/docs/en/model-config#adjust-effort-level): once you confirm the [cache warning](/docs/en/prompt-caching#changing-effort-level), if Claude Code shows one, Claude Code applies your change to the next request it makes in that turn
 * [`/fast`](/docs/en/fast-mode#toggle-fast-mode): Claude Code keeps the fast mode setting that was active when the turn started, so your speed change applies from your next turn. If your current model doesn't support fast mode, turning it on also [switches your model](/docs/en/prompt-caching#turning-on-fast-mode), and Claude Code uses the new model from its next request in that turn
 
+### Background a session with messages queued
+
+When the session moves to the background after you [press `←`](/docs/en/agent-view#switch-sessions-without-leaving-the-terminal), the messages you had queued move with it. Claude reads them there in the order you sent them.
+
+Commands and `!` shell commands can't move, and neither can some messages, such as one with an [IDE selection](/docs/en/vs-code#the-built-in-ide-mcp-server) attached. If you press `←` while one of them is queued, the session stays in the foreground and a notice that begins `Cannot open agents` appears. To background the session, get the entry out of the queue and then press `←` again:
+
+* **Commands and `!` shell commands**: wait for them to run at the end of the turn, or [take them back](#take-back-what-you-queued) and clear the input box. While anything else is queued, you can't take `!` shell commands back, so wait for them to run.
+* **Messages that can't move**: wait until Claude has read them
+
 ### Take back what you queued
 
 Press `Up` from the first line of the input box to take back the queued messages and commands. Claude Code removes them from the queue and puts them in the input box, one per line, ahead of any text you had typed. Edit the text and press `Enter` to queue it again as one entry, or clear the input box to drop it.
@@ -415,7 +437,7 @@ Claude Code also skips individual suggestions in several situations, including:
 * After the first turn of a conversation, in some sessions
 * The previous response ended in an error
 * While you're in plan mode
-* Your account is close to or at its usage limit. To keep suggestions on until you reach the limit, set [`CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION`](/docs/en/env-vars) to `true`. Before v2.1.238, Claude Code skipped them near the limit even with the variable set to `true`
+* Your account is close to or at its usage limit. To keep this skip from applying until you reach the limit, set [`CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION`](/docs/en/env-vars) to `true`. Before v2.1.238, Claude Code skipped suggestions near the limit even with the variable set to `true`
 * In an [agent team](/docs/en/agent-teams), in teammates' sessions by default. The lead's session shows suggestions
 
 The notice `Showing fewer prompt suggestions · use one to bring them back` means Claude Code is showing suggestions less often because you left many in a row unused. To return to the usual frequency, use a suggestion or set [`CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION`](/docs/en/env-vars) to `true`.
@@ -434,6 +456,60 @@ To disable prompt suggestions entirely, use any of the following:
   ```
 
 To turn prompt suggestions off across an organization, set `promptSuggestionEnabled` to `false` in [managed settings](/docs/en/managed-settings). Also set `CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION` to `false` under the managed [`env`](/docs/en/settings-reference#env) key so that users can't re-enable them with their own environment variable.
+
+## You should know suggestions
+
+"You should know" looks for one thing you should know but might have missed, such as a tradeoff Claude chose without calling it out or a result that may be off. When it finds one, it shows a short note above the prompt input:
+
+```text theme={null}
+✦ Heads up · There was a change to how folder sharing starts in June, which may have bumped usage metrics artificially.
+  1: Learn more   2: Knew this already   0: Dismiss
+```
+
+It's one of Claude Code's [built-in mods](/docs/en/plugins/mods/overview#mods-built-into-claude-code), a plugin built into Claude Code that is off by default. Requires Claude Code v2.1.287 or later.
+
+While it's on, a side agent rereads the conversation from time to time as Claude works through a longer task. The side agent is a separate request to the same model and has no tools, so it can't read files, run commands, or change what Claude does.
+
+If the mod is available for your organization, `/plugin` lists it when you connect to the Claude API directly with a claude.ai account or a Console API key. It doesn't when you connect through an [LLM gateway](/docs/en/llm-gateway) or a [Claude apps gateway](/docs/en/claude-apps-gateway), or get your key from an [`apiKeyHelper`](/docs/en/settings-reference#apikeyhelper). Even with a direct connection, these sessions don't list it:
+
+* A session that [doesn't fetch the feature flags](/docs/en/env-vars#features-that-need-feature-flag-fetching) the mod depends on, such as one with `DISABLE_TELEMETRY` set
+* A [first session after an install or upgrade](/docs/en/env-vars#first-session-after-an-install-or-upgrade) whose flags haven't arrived yet
+
+To turn it on, run this at the Claude Code prompt:
+
+```text theme={null}
+/plugin enable cc-plugin-you-should-know@builtin
+```
+
+Where `/plugin` doesn't list the mod, the enable command answers `Plugin "cc-plugin-you-should-know@builtin" is not installed in this project`.
+
+### Cost of checks
+
+While the mod is on, checks are background requests to the same model your session is using, and they count toward your plan's usage limits or your API costs. Each check sends what's already in Claude's context, meaning the conversation so far with its tool results, followed by the mod's own instructions and the text of your recent notes. The conversation part is read from the session's [prompt cache](/docs/en/prompt-caching) on the same terms as Claude's own next request. The instructions, several thousand tokens of them, and the side agent's reply are billed in full on every check.
+
+To watch the checks happen, set [`CLAUDE_CODE_YOU_SHOULD_KNOW_DEBUG=1`](/docs/en/env-vars) in your shell before you start Claude Code.
+
+### Answer a note
+
+Type the choice's digit on its own into an empty prompt input. A note offers these choices:
+
+* **Learn more**: opens a short explanation under the note, with its own choices:
+  * **Understood**: closes it and marks the topic as known
+  * **Chat in main session**: quotes the note into your prompt input so you can add a question and send it to Claude
+  * **Dismiss**: closes it without marking the topic as known
+* **Knew this already**: closes the note and marks the topic as known.
+* **Dismiss**: closes the note.
+
+The main agent doesn't see a note unless you send it with **Chat in main session**.
+
+Claude Code keeps your recent notes and the topics you marked as known in a file whose name starts with `cc-plugin-you-should-know` under `~/.claude/plugins/store/`. Each check, in this session and later ones, lists them to the side agent as ones not to repeat. Claude Code deletes the file once it has gone [`cleanupPeriodDays`](/docs/en/settings-reference#cleanupperioddays) without a session reading or writing it. To clear them sooner, delete that file while no session is running.
+
+### Turn off You should know
+
+To turn off You should know, use either of the following:
+
+* At the Claude Code prompt, run `/plugin disable cc-plugin-you-should-know@builtin`, or turn it off from the **Installed** tab of `/plugin`
+* After you choose **Dismiss** on a note without opening **Learn more** first, choose **Turn off suggestions** on the `Dismissed.` line, which clears after 20 seconds
 
 ## Emoji shortcodes
 
@@ -461,43 +537,41 @@ Spell checking is off by default, and Claude Code checks nothing in [screen read
 
 Claude Code reads the [`spellcheck`](/docs/en/settings-reference#spellcheck) setting from three places, and ignores it in a project's `.claude/settings.json` and `.claude/settings.local.json`. Turn it on from whichever one you use:
 
-<Tabs>
-  <Tab title="User settings">
-    Add `spellcheck` to `~/.claude/settings.json`. It applies in every project you open, like the rest of your [user settings](/docs/en/settings#where-settings-live):
+**User settings**
 
-    ```json theme={null}
-    {
-      "spellcheck": { "enabled": true }
-    }
-    ```
-  </Tab>
+Add `spellcheck` to `~/.claude/settings.json`. It applies in every project you open, like the rest of your [user settings](/docs/en/settings#where-settings-live):
 
-  <Tab title="Command line">
-    Save `spellcheck` in a JSON file, such as `spellcheck.json`:
+```json theme={null}
+{
+  "spellcheck": { "enabled": true }
+}
+```
 
-    ```json theme={null}
-    {
-      "spellcheck": { "enabled": true }
-    }
-    ```
+**Command line**
 
-    Then pass the file to `--settings`. It applies to that session only:
+Save `spellcheck` in a JSON file, such as `spellcheck.json`:
 
-    ```bash theme={null}
-    claude --settings spellcheck.json
-    ```
-  </Tab>
+```json theme={null}
+{
+  "spellcheck": { "enabled": true }
+}
+```
 
-  <Tab title="Managed settings">
-    Add `spellcheck` to one of your organization's [managed settings sources](/docs/en/permissions#managed-settings). It applies to every user who receives those settings, and they can't turn it off:
+Then pass the file to `--settings`. It applies to that session only:
 
-    ```json theme={null}
-    {
-      "spellcheck": { "enabled": true }
-    }
-    ```
-  </Tab>
-</Tabs>
+```bash theme={null}
+claude --settings spellcheck.json
+```
+
+**Managed settings**
+
+Add `spellcheck` to one of your organization's [managed settings sources](/docs/en/permissions#managed-settings). It applies to every user who receives those settings, and they can't turn it off:
+
+```json theme={null}
+{
+  "spellcheck": { "enabled": true }
+}
+```
 
 To check that spell checking is on, type a misspelled word and a space. Claude Code underlines the word. If it doesn't, see [When Claude Code underlines nothing](#when-claude-code-underlines-nothing). To turn spell checking off again, set `enabled` to `false` in the same place, or remove `spellcheck`.
 
@@ -617,7 +691,7 @@ In the [VS Code extension](/docs/en/vs-code#use-the-prompt-box)'s chat panel, `/
 
 Your five newest earlier side questions appear as a dimmed list above the current answer, with a count of any older ones. They stay out of the conversation history.
 
-To return to the overlay after dismissing it, run `/btw` with no question. The overlay reopens on your most recent exchange. Before v2.1.212, `/btw` without a question printed a usage message instead.
+To return to the overlay after dismissing it, run `/btw` with no question. The overlay reopens on your most recent exchange.
 
 Once the answer appears, the overlay accepts these keys.
 
@@ -650,7 +724,7 @@ The list fills only in sessions that have the task-tracking tools, which Claude 
 
 When you return to the terminal after stepping away, Claude Code shows a one-line recap of what happened in the session so far. The recap generates in the background once at least three minutes have passed since the last completed turn and the terminal is unfocused, so it's ready when you switch back. Recaps only appear once the session has at least three turns, and never twice in a row.
 
-Run `/recap` to generate a summary on demand. It runs only when you ask for it yourself. When it arrives in a message relayed from a Slack, Teams, or project thread, or in a prompt a routine sent, you get a [notice](/docs/en/errors#recap-only-runs-when-you-ask-for-it-yourself) instead of a recap.
+Run `/recap` to generate a summary on demand. It runs only when you ask for it yourself. When it arrives in a message relayed from a Slack, Teams, or project thread, you get a [notice](/docs/en/errors#recap-only-runs-when-you-ask-for-it-yourself) instead of a recap. You also get the notice when `/recap` arrives in a prompt a cloud scheduled task sent.
 
 Session recap is on by default for every plan and provider. To turn automatic recaps off, open `/config` and turn off **Session recap**. The automatic recap never appears in non-interactive mode. Claude Code caps both automatic recaps and `/recap` output at 400 characters.
 
@@ -728,13 +802,13 @@ Claude Code renders the badge as a hyperlink even when it can't detect hyperlink
 
 When you set [`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`](/docs/en/env-vars), Claude Code doesn't check pull request or merge request status.
 
-<Note>
-  PR status for GitHub repositories needs a GitHub token. Claude Code finds one based on the remote's host:
-
-  * **github.com**: `GH_TOKEN` or `GITHUB_TOKEN`, or the token saved by `gh auth login`. Without one, the footer shows `install gh for PR status` when the `gh` CLI isn't installed, or `gh auth login for PR status` when it is
-  * **A GitHub Enterprise host set as `GH_HOST`**: `GH_ENTERPRISE_TOKEN` or `GITHUB_ENTERPRISE_TOKEN`, or the token saved by `gh auth login --hostname <host>`. Without one, the footer shows the same hints
-  * **Any other GitHub host**: the token saved by `gh auth login --hostname <host>`. Without one, Claude Code shows no badge and no hint
-</Note>
+> [!NOTE]
+>
+> PR status for GitHub repositories needs a GitHub token. Claude Code finds one based on the remote's host:
+>
+> * **github.com**: `GH_TOKEN` or `GITHUB_TOKEN`, or the token saved by `gh auth login`. Without one, the footer shows `install gh for PR status` when the `gh` CLI isn't installed, or `gh auth login for PR status` when it is
+> * **A GitHub Enterprise host set as `GH_HOST`**: `GH_ENTERPRISE_TOKEN` or `GITHUB_ENTERPRISE_TOKEN`, or the token saved by `gh auth login --hostname <host>`. Without one, the footer shows the same hints
+> * **Any other GitHub host**: the token saved by `gh auth login --hostname <host>`. Without one, Claude Code shows no badge and no hint
 
 ### GitLab merge requests
 

@@ -65,9 +65,9 @@ on('tool.call', { tool: 'mcp__my-mod__ticket' }, async ($, e) => {
 
 When you ask about a ticket, Claude can call `mcp__my-mod__ticket` with its id. The second hook fetches the ticket and returns the response body, which Claude reads as the tool's result. When the server answers with an error status, Claude reads `Lookup failed with status` and the number.
 
-<Tip>
-  When [MCP tool search](/docs/en/mcp#scale-with-mcp-tool-search) defers a registered tool, Claude sees its name but not its description until it searches for it. If Claude should consider the tool on every turn, add [`isDeferred: false`](/docs/en/plugins/mods/reference#tools) to the registration to [load the full tool upfront](/docs/en/mcp#exempt-a-server-from-deferral). The field requires Claude Code v2.1.293 or later, and earlier versions ignore it.
-</Tip>
+> [!TIP]
+>
+> When [MCP tool search](/docs/en/mcp#scale-with-mcp-tool-search) defers a registered tool, Claude sees its name but not its description until it searches for it. If Claude should consider the tool on every turn, add [`isDeferred: false`](/docs/en/plugins/mods/reference#tools) to the registration to [load the full tool upfront](/docs/en/mcp#exempt-a-server-from-deferral). The field requires Claude Code v2.1.293 or later, and earlier versions ignore it.
 
 ## Call a model
 
@@ -122,9 +122,9 @@ A Claude API failure doesn't reject the call, so check `r.isAnswered`, and read 
 
 To set a breakpoint, pass `prompt` as an array of `{ text }` blocks instead of a string, and add `cache: true` to the last block of the static content. Claude Code sends that block with the API's `cache_control` field. `system` takes the same array form. To decide between them, see [Choose between `prompt` and `system`](#choose-between-prompt-and-system).
 
-<Note>
-  Arrays of blocks require Claude Code v2.1.292 or later. Earlier versions reject an array in `prompt` with an error that ends with `takes { model, prompt } (host check)`, and they leave an array in `system` out of the request.
-</Note>
+> [!NOTE]
+>
+> Arrays of blocks require Claude Code v2.1.292 or later. Earlier versions reject an array in `prompt` with an error that ends with `takes { model, prompt } (host check)`, and they leave an array in `system` out of the request.
 
 This version of the [`/triage` hook](#send-one-prompt) sends a long set of labeling rules before the text to label, with a breakpoint after the rules. `RULES` is a string of your own:
 
@@ -211,6 +211,44 @@ A background job can show the user something without starting a turn. Each of th
 | `$.ui.status(text)` | One line under the prompt that stays until you change it. It starts with `⚠` and the mod's name, as in `⚠ my-mod: checks: 3 passing`. |
 | `$.ui.toast(text)` | A toast notification with the mod's name that disappears after a few seconds. It's a box at the top right in [fullscreen rendering](/docs/en/fullscreen), and one line at the right under the prompt in the classic renderer. |
 | `$.ui.log(text)` | A dim line in the transcript that Claude doesn't read. It starts with `●` and the mod's name, as in `● my-mod: build finished`. |
+| `$.ui.notify(text)` | A notification from their terminal, outside Claude Code, sent the way their [`preferredNotifChannel`](/docs/en/settings-reference#preferrednotifchannel) setting says. The mod's name is its title unless you pass a non-empty `{ title }`, which is shown as you give it. |
+
+`$.ui.notify` is the only one of these that answers. It resolves to `{ isSent: true, channel }` when the user's channel wrote the notification to their terminal. `channel` is the setting's value that sent it, such as `kitty` or `terminal_bell`. The `terminal_bell` channel rings the bell and shows neither your text nor the title.
+
+Otherwise the call resolves to `{ isSent: false, reason }`:
+
+| `reason` | Meaning |
+| :- | :- |
+| `disabled` | The user set `preferredNotifChannel` to `notifications_disabled` |
+| `no-channel` | The setting is `auto` and their terminal has no notification Claude Code can send |
+| `no-surface` | The session has no terminal, as in a `-p` run, the Agent SDK, the desktop app, the VS Code extension, or a cloud session. Also the answer to a call made before the session starts, while your mod is loading, and to a call made while Claude Code is exiting |
+| `refused` | Another mod's hook on `ui.notify` answered in Claude Code's place without sending |
+
+The call rejects instead of resolving when `text` isn't a string, when another mod's hook on `ui.notify` returns `{ deny }`, or when writing to the terminal fails.
+
+Your mod can't choose the channel, and Claude Code doesn't limit how often a mod notifies. The user's setting is the only switch.
+
+When the call reaches a running session, the user's [`Notification` hooks](/docs/en/hooks#notification) run with the type `plugin_notification`. They run even when the answer is `disabled`, and in a session with no terminal, where the answer is `no-surface`. No hook runs for a call made before the session starts or while Claude Code is exiting. The hook your mod called `$.ui.notify` from is left out of that run, so a `classic.Notification` hook that notifies isn't called again for its own notification.
+
+A terminal doesn't report whether it showed the notification, so `isSent: true` means it was sent, not that the user saw it.
+
+This example notifies when the main conversation's turn ends without an interruption, and falls back to a toast when no notification with text went out. It doesn't wait for the notification before passing the event on, because the user's `Notification` hooks run first and can take a while:
+
+```javascript theme={null}
+on('turn.complete', ($, e, next) => {
+  const isMainTurn = e.agentId === undefined && !e.isAborted
+  const fallBack = () => $.ui.toast('Turn finished')
+  if (isMainTurn) {
+    $.ui.notify('Turn finished').then(sent => {
+      const hasText = sent.isSent && sent.channel !== 'terminal_bell'
+      if (!hasText) fallBack()
+    }, fallBack)
+  }
+  return next(e)
+})
+```
+
+In the [VS Code extension](/docs/en/plugins/mods/interface#draw-in-the-vs-code-extension), status lines and toasts show above the prompt box instead, and log lines in the conversation.
 
 ### Start a turn from a background job
 
@@ -219,6 +257,89 @@ When a background job finds something that needs Claude's attention, it can star
 ### Stop background work
 
 Timers stop when the module reloads. For long-running work inside a hook, [`next.signal`](/docs/en/plugins/mods/reference#the-hook-function) is an `AbortSignal` that aborts when the event your hook is handling is abandoned, for example when the user interrupts, so pass it to anything long-running.
+
+### Calls and background work after the user interrupts a turn
+
+The reason `the session was stopped and nobody has sent input since` in a result or error means the user stopped a running turn, such as with Esc or **Stop**. After that interruption, calls that start new work in the session are refused until the user's next input, such as a message at the prompt.
+
+Apart from `$.prompt.submit` and `$.command.run`, this handling of calls and background work after an interruption requires Claude Code v2.1.304 or later.
+
+#### Retry a refused or dropped call
+
+Make a refused or dropped call again from a [`turn.complete`](/docs/en/plugins/mods/events#follow-a-turn) hook. Calls stay refused until the user's next input, and nothing queues or repeats them for you.
+
+When a call's result or error contains one of these strings, keep its arguments for a later retry:
+
+* **`the session was stopped and nobody has sent input since`**: the call was refused
+* **`was removed from the queue before it ran`**: the prompt or command left the queue without running and was dropped, for example when the user stopped the turn
+
+In this example, call `submitPrompt` from your background job in place of [`$.prompt.submit`](#start-a-turn-from-a-background-job). Put the `pendingText` variable and the `submitPrompt` function above [`register`](/docs/en/plugins/mods/reference#files), and the `turn.complete` hook inside it, because [validation](/docs/en/plugins/mods/create#check-what-claude-code-reads-from-your-mod) refuses `$` passed to a function declared inside `register`. When the result or the error carries one of those strings, `submitPrompt` keeps the text in `pendingText` for the `turn.complete` hook to submit again:
+
+```javascript theme={null}
+// The text of the last refused or dropped prompt, or null
+let pendingText = null
+
+async function submitPrompt($, text) {
+  let reason
+  try {
+    const result = await $.prompt.submit({ text })
+    reason = result?.drop ?? ''
+  } catch (error) {
+    reason = String(error?.message ?? error)
+  }
+  if (reason.includes('the session was stopped and nobody has sent input since') ||
+      reason.includes('was removed from the queue before it ran')) {
+    pendingText = text
+  }
+  // Any other result or error isn't retried
+}
+
+on('turn.complete', async ($, e, next) => {
+  if (pendingText !== null) {
+    const text = pendingText
+    // Empty pendingText before retrying, so that a second run of this hook
+    // doesn't submit the same text.
+    pendingText = null
+    // Not awaited: the hook would stay open until the new turn starts
+    submitPrompt($, text)
+  }
+  return next(e)
+})
+```
+
+Before the user's next input, `turn.complete` can fire for the interrupted turn itself and for a subagent's turn, and calls made then are refused again. In that case `submitPrompt` keeps the text for a later `turn.complete`.
+
+For a call that rejects, such as `$.command.run`, catch the error and test its message the way `submitPrompt` tests `reason`.
+
+#### What refused calls return
+
+In the results, `<reason>` stands for `the session was stopped and nobody has sent input since`:
+
+| Some refused calls | Result until the user's next input |
+| :- | :- |
+| `$.prompt.submit` | Resolves with `{ drop: '<reason>' }` and queues no prompt |
+| `$.command.run` | Rejects with an error whose message ends with `<reason>` |
+| [`$.agent.spawn`](/docs/en/plugins/mods/reference#mods-api-methods) | Resolves with `{ deny: '<reason>' }` and starts no subagent |
+| `$.session.send` to a subagent that finished | Resolves with `{ isDelivered: false, reason: 'Agent "<id>" was not resumed: <reason>.' }`, where `<id>` is the subagent's id. A subagent that's still running receives the message. |
+| `$.session.send` to an [agent team](/docs/en/agent-teams) teammate | Resolves with `{ isDelivered: false, reason: 'Teammate "<name>" was not messaged: <reason>.' }`, where `<name>` is the teammate's name |
+| [`$.tool.call`](/docs/en/plugins/mods/reference#mods-api-methods) of Bash with `run_in_background: true`, Monitor, or CronCreate | Resolves with `{ deny: '<tool> was not run: it starts background work, a schedule or a goal, and <reason>' }`, where `<tool>` is the tool's name |
+
+Along with these `$.session.send` and `$.tool.call` results, the user can see the [`Stopped:` toast](/docs/en/plugins/mods/troubleshoot#stopped-type-a-message-to-continue).
+
+#### Work your mod started before the interruption
+
+After the user stops a running turn, for example with Esc, some work your mod had already started is dropped and some waits for the user's next input.
+
+| Work | What happens until the user's next input | What to do |
+| :- | :- | :- |
+| A prompt from `$.prompt.submit` still in the queue | Dropped. The call resolves with `{ drop: 'the prompt was removed from the queue before it ran' }`. | Submit it again as [Retry a refused or dropped call](#retry-a-refused-or-dropped-call) shows |
+| A command from `$.command.run` still in the queue | Dropped. The call rejects with an error whose message includes `the command was removed from the queue before it ran`. | Run it again as [Retry a refused or dropped call](#retry-a-refused-or-dropped-call) shows |
+| A one-time job scheduled with a tool such as CronCreate that comes due before the user's next input | Starts no turn then, and runs after that input | Nothing needed |
+| A recurring job scheduled with a tool such as CronCreate that comes due before the user's next input | Starts no turn then. The job loses that run and keeps its schedule. | Nothing needed |
+| An event from a monitor your mod started | The monitor keeps running. An event the monitor raises before the user's next input is dropped, except the notice that the monitor ended, which arrives after that input. | Nothing can be done |
+| A subagent your mod spawned and later resumed with `$.session.send` that finishes before the user's next input | Its finish notice waits, and reaches the conversation after that input | Nothing needed |
+
+When a scheduled job comes due or a monitor raises an event before the user's next input, the user can see the [`Stopped:` toast](/docs/en/plugins/mods/troubleshoot#stopped-type-a-message-to-continue).
 
 ## Send and receive messages between sessions
 
