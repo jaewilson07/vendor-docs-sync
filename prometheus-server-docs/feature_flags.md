@@ -53,6 +53,24 @@ The Prometheus server exposes two counters for observability: `prometheus_engine
 When disabled in either the engine or the query, per-step statistics are not
 computed at all.
 
+## Unquoted UTF-8 names in PromQL
+
+`--enable-feature=promql-unquoted-utf8-names`
+
+Allows Unicode letters and dots after the first character in unquoted metric and
+label names. For example:
+
+```promql
+http.server.request.duration{service.name="api"}
+温度{場所="東京"}
+sum by (service.name) (rate(http.server.requests[5m]))
+requests_total + on (service.name) group_left (équipe) service_info
+```
+
+See [metric and label names](querying/basics.md#metric-and-label-names) for the
+character rules and compatibility details. This flag is also supported by
+promtool when checking or testing rules and parsing or formatting queries.
+
 ## Experimental PromQL functions
 
 `--enable-feature=promql-experimental-functions`
@@ -352,8 +370,10 @@ single client can then request the entire index in one response.
 `--enable-feature=openmetrics2`
 
 Enables scraping targets that expose the [OpenMetrics 2.0](https://prometheus.io/docs/specs/om/open_metrics_spec_2_0/)
-text format, advertised with the `application/openmetrics-text; version=2.0.0`
-content type.
+text format, advertised with the `application/openmetrics-text; version=2.0.0` or
+`application/openmetrics-text; version=2.0.0-rc` content type. To negotiate OpenMetrics 2.0
+with scrape targets, add `OpenMetricsText2.0.0` and `OpenMetricsText2.0.0-rc` to
+`scrape_protocols` in the configuration.
 
 OpenMetrics 2.0 support is **experimental**. The parser is not stable
 yet, so expositions that Prometheus accepts today may be rejected by a later release.
