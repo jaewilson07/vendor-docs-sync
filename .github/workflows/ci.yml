@@ -1,0 +1,64 @@
+# Lightweight CI for a mirrored-docs repo: there is no code to test, so this checks the things that can
+# actually break here: the manifest parses, no oversized blobs, and no credentials leaked into the mirror.
+# `ci-ok` is the aggregate gate. NOTE: the Trigger.dev mirror tasks push to main; if branch protection
+# requires `ci-ok` the pusher must be allowed to bypass it.
+# runs-on: CI_RUNS_ON repo variable (JSON string or array); unset falls back to the self-hosted homelab runners.
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  hygiene:
+    name: Mirror hygiene
+    runs-on: ${{ fromJSON(vars.CI_RUNS_ON || '["self-hosted","homelab"]') }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: JSON files parse
+        run: |
+          status=0
+          for f in $(git ls-files '*.json'); do
+            python3 -c 'import json,sys; json.load(open(sys.argv[1]))' "$f" || { echo "::error file=$f::invalid JSON"; status=1; }
+          done
+          exit "$status"
+
+      - name: No oversized files (>20 MB)
+        run: |
+          big=$(git ls-files -z | xargs -0 -r du -k 2>/dev/null | awk '$1 > 20480 {print $2}')
+          if [ -n "$big" ]; then echo "::error::Files over 20 MB:"; echo "$big"; exit 1; fi
+
+      - name: No committed credentials
+        run: |
+          # High-confidence token shapes only; vendor docs legitimately contain example PEM headers.
+          if git grep -InE '(ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{50,}|xox[baprs]-[0-9]{10,}-[0-9]{10,}-[A-Za-z0-9]{20,}|sk-ant-[A-Za-z0-9_-]{30,})' | cut -c1-60; [ "${PIPESTATUS[0]}" -eq 0 ]; then
+            echo "::error::Possible credential committed (locations above, content truncated)"
+            exit 1
+          fi
+
+  # The only check branch protection needs to require.
+  ci-ok:
+    name: ci-ok
+    if: always()
+    needs: [hygiene]
+    runs-on: ${{ fromJSON(vars.CI_RUNS_ON || '["self-hosted","homelab"]') }}
+    steps:
+      - name: All required jobs passed or were skipped
+        env:
+          FAILED: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        run: |
+          if [ "$FAILED" = "true" ]; then
+            echo "::error::A CI job failed or was cancelled."
+            exit 1
+          fi
