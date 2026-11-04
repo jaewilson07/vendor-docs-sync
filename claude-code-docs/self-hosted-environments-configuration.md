@@ -16,7 +16,14 @@ A few hook environment variables on this page still use `pool`, such as `CLAUDE_
 
 ## Wrapper scripts
 
-Use a wrapper script when each session needs setup the runner can't do on its own: provisioning short-lived credentials scoped to the session creator, exporting environment-specific secrets, preparing language toolchains, or applying resource limits around the child process. The runner starts your wrapper in place of the Claude Code binary, once per session. End the wrapper by `exec`-ing into `$CLAUDE_RUNNER_CLAUDE_BIN`, the runner's own binary, so signals and exit codes propagate correctly.
+Use a wrapper script when each session needs setup the runner can't do on its own:
+
+* Provisioning short-lived credentials scoped to the session creator
+* Exporting environment-specific secrets
+* Preparing language toolchains
+* Applying resource limits around the child process
+
+The runner starts your wrapper in place of the Claude Code binary each time it starts a session, including when a session resumes or is requeued. End the wrapper by `exec`-ing into `$CLAUDE_RUNNER_CLAUDE_BIN`, the runner's own binary, so signals and exit codes propagate correctly.
 
 Point `--exec-path`, or `SELF_HOSTED_RUNNER_EXEC_PATH`, at the wrapper when you start the runner, replacing `<writable-dir>` as the [quickstart](https://code.claude.com/docs/en/self-hosted-environments-quickstart.md#set-up-manually) describes:
 
@@ -139,7 +146,9 @@ These hooks are distinct from [Claude Code hooks](https://code.claude.com/docs/e
 
 ### checkout
 
-Runs once per repository, in place of the runner's built-in clone and fetch. Use the hook to clone from a read-through mirror that you reach over HTTPS or SSH, seed a working tree from an archive, or apply per-session git auth. The runner sets these variables, and may set other `CLAUDE_RUNNER_` variables that the table doesn't list:
+Runs for each repository each time the runner starts a session, including when the session resumes or is requeued, in place of the runner's built-in clone and fetch. Use the hook to clone from a read-through mirror that you reach over HTTPS or SSH, seed a working tree from an archive, or apply per-session git auth.
+
+The runner sets these variables, and may set other `CLAUDE_RUNNER_` variables that the table doesn't list:
 
 | Variable | Description |
 | :- | :- |
@@ -179,7 +188,12 @@ When the hook succeeds, the runner removes the checkout path after the session e
 
 ### post-session
 
-Runs once per session, after the Claude Code child has exited and before the runner tears the workspace down. This hook is your only chance to save uncommitted work: at `--capacity` above one, the runner deletes per-session worktrees right after the hook returns, and at `--capacity 1` the reused [canonical clone](https://code.claude.com/docs/en/self-hosted-environments-deploy.md#reuse-a-pre-warmed-checkout) is hard-reset when the next session starts, so uncommitted tracked changes don't survive on either path. Typical uses are pushing a snapshot branch of uncommitted changes, archiving logs, or emitting a session-ended event to your own systems.
+Runs after the Claude Code child has exited and before the runner tears the workspace down. This hook is your only chance to save uncommitted work, because uncommitted tracked changes don't survive on either path:
+
+* **At `--capacity` above one**: the runner deletes per-session worktrees right after the hook returns
+* **At `--capacity 1`**: the reused [canonical clone](https://code.claude.com/docs/en/self-hosted-environments-deploy.md#reuse-a-pre-warmed-checkout) is hard-reset when the next session starts
+
+Typical uses are pushing a snapshot branch of uncommitted changes, archiving logs, or emitting a session-ended event to your own systems.
 
 The hook fires on every session end where a child process was spawned, whatever the cause; the `CLAUDE_RUNNER_EXIT_REASON` values below enumerate the cases. It can't fire when the runner terminates abruptly, such as a VM preemption or a power loss; if you need guarantees against abrupt termination, snapshot periodically from inside the session with a Claude Code `PostToolUse` hook instead. The runner sets:
 
@@ -275,7 +289,7 @@ Before v2.1.280, the runner set none of these settings, and under `--configure-g
 
 ### command
 
-Runs once per session after checkout, in place of the built-in child spawn. The hook receives the same environment as a [wrapper script](#wrapper-scripts) and should `exec` into `"$CLAUDE_RUNNER_CLAUDE_BIN"` the same way. Use the `command` hook to keep all customization in one hooks directory; use `--exec-path` when the wrapper lives elsewhere. If `--exec-path` is also set, the flag takes precedence and the `command` hook is ignored.
+Runs after checkout each time a session starts or resumes, in place of the built-in child spawn. The hook receives the same environment as a [wrapper script](#wrapper-scripts) and should `exec` into `"$CLAUDE_RUNNER_CLAUDE_BIN"` the same way. Use the `command` hook to keep all customization in one hooks directory; use `--exec-path` when the wrapper lives elsewhere. If `--exec-path` is also set, the flag takes precedence and the `command` hook is ignored.
 
 Always `exec` the runner's own binary rather than a PATH-resolved `claude`; otherwise you defeat [version pinning](https://code.claude.com/docs/en/self-hosted-environments-deploy.md#pin-the-version).
 
@@ -458,6 +472,29 @@ These lines change how the rest of the hook behaves, so check it for each of the
 
 To confirm the trap works, add a line directly below the `trap` line that calls a command that doesn't exist, such as `no-such-command`. Run the hook file from your shell and check that `echo $?` prints `1`, then remove the line.
 
+#### Find out why a spawn request was sent
+
+Your hook receives the reason for each spawn request in `CLAUDE_RUNNER_SPAWN_REASON`, so you can log why the hook ran, together with `CLAUDE_RUNNER_SESSION_UUID`. Requires Claude Code v2.1.318 or later on the orchestrator. Read it as `"${CLAUDE_RUNNER_SPAWN_REASON:-}"`, because it can be unset, and start the runner whatever the value is. If your hook branches on it, keep a default branch, because Anthropic can add values.
+
+To find the reason for earlier requests, search the log of every orchestrator replica for `session=` and the session's `CLAUDE_RUNNER_SESSION_UUID`, not its `session_...` ID. The `ok session=` and `nack session=` lines show the value of `CLAUDE_RUNNER_SPAWN_REASON` after `reason=`, or `reason=-` if it was unset:
+
+* **`[runner:orchestrator] ok session=`**: the hook exited 0
+* **`[runner:orchestrator] nack session=`**: the orchestrator is reporting a failed spawn request to Anthropic
+
+Each value gives only the last cause that Anthropic recorded for the session, not its history:
+
+| Value | What happened | What to check |
+| :- | :- | :- |
+| `session_created` | This is the first spawn request for a new session | Nothing. Don't rely on it to spot a session's first request, because the first request your hook sees can carry `runner_lost` after a fixed-fleet or standby runner held the session. |
+| `no_runner_registered` | No runner registered for the previous request within `--expected-spawn-seconds`, and Anthropic recorded no failure report for it | `stop: no nack for session=` or `nack failed session=` among the session's earlier lines means that no failure report was recorded. Read any hook error before it, and if the orchestrator was stopping, see [Stop or restart the orchestrator](#stop-or-restart-the-orchestrator). After an `ok session=` line, check that its runner started and registered within `--expected-spawn-seconds`. If no replica logged the request, check your orchestrators for restarts and `poll failed` lines. |
+| `hook_failed` | Your orchestrator reported that the previous request failed and can be retried, for example because your hook exited 1 or was still running when `--hook-timeout` ended. The value is the same when your orchestrator returns a request to Anthropic without running the hook, for example while the orchestrator is stopping. | Find the session's last `[runner:orchestrator] nack session=` or `stop: handing back session=` line before this request. The spawn error that the orchestrator sent follows the `reason=` value and can continue onto the following lines. A `handing back session=` line means that the orchestrator was stopping and didn't run the hook, so the hook has nothing to fix. |
+| `runner_lost` | The runner that held the session stopped reporting to Anthropic, deregistered, or was deleted | Find what stopped the runner or cut it off from Anthropic, such as a node eviction, an out-of-memory kill, a spot reclaim, or your own rollout or scale-down |
+| `runner_reported_failure` | The previous runner reported that the session failed on it, for example during checkout | Read the previous runner's log. If many sessions get this value, check the image and the repository setup. |
+| `resumed` | The session was paused and now needs a runner again. For example, its runner released it under [`--release-idle-session-min`](#make-on-demand-runners-exit-when-idle), and later it received a new message. | Nothing |
+| `requeued` | The session was put back in the queue, for example when an Owner selected **Retry** or a blocked session received a new message | If the same session keeps getting this value, read the error on its `nack session=` lines. If its hook exited 0, read the runner's log. |
+| `server_retry` | Anthropic gave up on the previous request or on starting the session on its runner, and is retrying. Your hook didn't fail. | Nothing for a single request. If the value keeps appearing, on one session or across many, report it to [your Anthropic account team](https://code.claude.com/docs/en/self-hosted-environments-deploy.md#report-an-issue). |
+| `prewarm` | This is a pre-warming request, with no session yet | Nothing |
+
 ### Stop or restart the orchestrator
 
 To stop or restart the orchestrator without cutting off running `spawn-runner` hooks, start it with [`--shutdown-drain-sec`](https://code.claude.com/docs/en/self-hosted-environments-reference#orchestrator-cli-flags). On `SIGTERM` it then gives running hooks up to the number of seconds you set to finish. To choose the value and set up your process supervisor to match, see [Size `--shutdown-drain-sec` and the orchestrator's stop timeout](#size-shutdown-drain-sec-and-the-supervisors-stop-timeout-for-the-orchestrator).
@@ -523,7 +560,7 @@ Check the method you choose against these runner behaviors:
 
 * **Metadata endpoint**: if you deny sessions the [cloud metadata endpoint](https://code.claude.com/docs/en/self-hosted-environments-deploy.md#harden-your-deployment) outright, credentials served from it, such as an instance profile, don't reach Claude Code either. A file-based web identity, such as IAM Roles for Service Accounts (IRSA) on Amazon EKS or a Workload Identity Federation credential file, doesn't depend on it.
 * **Renewal**: a session can outlive a credential, so use a method that renews itself, such as a file-based web identity
-* **Wrapper script**: the runner starts your [wrapper script](#provision-credentials-scoped-to-the-session-creator) once per session, so credentials it exports aren't renewed. Claude Code reads AWS credentials from its environment, so if your wrapper already exports AWS credentials for other work, Claude Code can sign model requests with them.
+* **Wrapper script**: credential values your [wrapper script](#provision-credentials-scoped-to-the-session-creator) exports aren't renewed while Claude Code runs, so for a long session, use a method that renews itself. Claude Code reads AWS credentials from its environment, so if your wrapper already exports AWS credentials for other work, Claude Code can sign model requests with them.
 
 **3. Set one provider's variables in the runner's environment**
 
