@@ -9,14 +9,13 @@ applies_to:
     - desktop
 ---
 
-Add collaborators from your organization settings in the [Letta Platform](https://platform.letta.com). Membership lets teammates use the same organization while keeping each person’s agents and conversations private by default.
+Add collaborators from your organization settings in the [Letta web app](https://chat.letta.com). Membership lets teammates use the same organization while keeping each person’s agents and conversations private by default.
 
 ## Invite a collaborator
 
-1. Open [organization settings](https://platform.letta.com/settings/organization).
-2. Open the members page.
-3. Select **Invite member** and enter the collaborator’s work email.
-4. Send them the generated invitation link.
+1. Open the [organization members page](https://chat.letta.com/preferences/organization/members).
+2. Select **Invite member** and enter the collaborator’s work email.
+3. Send them the generated invitation link.
 
 After accepting the invitation, the collaborator joins as an Editor. An Admin can change their role from the member’s actions menu.
 

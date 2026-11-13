@@ -212,18 +212,18 @@ Note: For user → agent headless prompts, use `letta -p`. For agent → agent h
 
 ## Environment variables
 
-| Variable                  | Description                                                                                                  |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `LETTA_API_KEY`           | API key for authentication (get yours at [platform.letta.com/api-keys](https://platform.letta.com/api-keys)) |
-| `LETTA_BASE_URL`          | Base URL for self-hosted Letta server (e.g., `http://localhost:8283`)                                        |
-| `LETTA_LOCAL_BACKEND_DIR` | Storage directory for local agent state. Defaults to `~/.letta/lc-local-backend`                             |
-| `LETTA_DEBUG`             | Set to `1` to enable debug logging                                                                           |
-| `LETTA_CODE_TELEM`        | Set to `0` to disable anonymous telemetry                                                                    |
-| `LETTA_PACKAGE_MANAGER`   | Override detected package manager for auto-updates (`npm`, `bun`, or `pnpm`)                                 |
-| `DISABLE_AUTOUPDATER`     | Set to `1` to disable auto-updates                                                                           |
-| `MEMORY_DIR`              | Absolute path to the agent’s memory directory (set automatically in shell tools)                             |
-| `AGENT_ID`                | Current agent ID (set automatically in shell tools)                                                          |
-| `CONVERSATION_ID`         | Current conversation ID (set automatically in shell tools)                                                   |
+| Variable                  | Description                                                                                                                  |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `LETTA_API_KEY`           | API key for authentication (get yours at [chat.letta.com/preferences/api-keys](https://chat.letta.com/preferences/api-keys)) |
+| `LETTA_BASE_URL`          | Base URL for self-hosted Letta server (e.g., `http://localhost:8283`)                                                        |
+| `LETTA_LOCAL_BACKEND_DIR` | Storage directory for local agent state. Defaults to `~/.letta/lc-local-backend`                                             |
+| `LETTA_DEBUG`             | Set to `1` to enable debug logging                                                                                           |
+| `LETTA_CODE_TELEM`        | Set to `0` to disable anonymous telemetry                                                                                    |
+| `LETTA_PACKAGE_MANAGER`   | Override detected package manager for auto-updates (`npm`, `bun`, or `pnpm`)                                                 |
+| `DISABLE_AUTOUPDATER`     | Set to `1` to disable auto-updates                                                                                           |
+| `MEMORY_DIR`              | Absolute path to the agent’s memory directory (set automatically in shell tools)                                             |
+| `AGENT_ID`                | Current agent ID (set automatically in shell tools)                                                                          |
+| `CONVERSATION_ID`         | Current conversation ID (set automatically in shell tools)                                                                   |
 
 Set these in your shell profile (`~/.bashrc`, `~/.zshrc`) or `.env` file:
 

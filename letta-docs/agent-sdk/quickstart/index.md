@@ -21,7 +21,7 @@ Python applications must use the [App Server WebSocket protocol](/self-hosting/a
 
 1. **Get an API key**
 
-   Create an API key from [platform.letta.com/api-keys](https://platform.letta.com/api-keys) and set it as an environment variable:
+   Create an API key from [chat.letta.com/preferences/api-keys](https://chat.letta.com/preferences/api-keys) and set it as an environment variable:
 
    ```
    export LETTA_API_KEY='your-api-key-here'

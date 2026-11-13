@@ -20,12 +20,12 @@ If your agents live in Letta Cloud and only need a persistent machine for files 
 
 ## Setup
 
-- [App Server](#tab-panel-11)
-- [CLI](#tab-panel-12)
+- [App Server](#tab-panel-10)
+- [CLI](#tab-panel-11)
 
-1. **Install the Letta CLI**
+1. **Install the Letta Code CLI**
 
-   Run the following command to install the Letta CLI via your terminal (requires [Node.js](https://nodejs.org/en/download) version 22.19+):
+   Run the following command to install the Letta Code CLI via your terminal (requires [Node.js](https://nodejs.org/en/download) version 22.19+):
 
    ```
    npm install -g @letta-ai/letta-code
@@ -48,7 +48,7 @@ If your agents live in Letta Cloud and only need a persistent machine for files 
 
    See [Models](/configuration/models/index.md) for the full list of supported providers.
 
-3. **Run the Letta server**
+3. **Run the Letta App Server**
 
    Start the [App Server](/self-hosting/app-server/index.md) with the local backend:
 
@@ -84,21 +84,21 @@ If your agents live in Letta Cloud and only need a persistent machine for files 
 
    See the [Agent SDK](#agent-sdk) section below for a full example.
 
-1) **Install the Letta CLI**
+1) **Install the Letta Code CLI**
 
-   Run the following command to install the Letta CLI via your terminal (requires [Node.js](https://nodejs.org/en/download) version 22.19+):
+   Run the following command to install the Letta Code CLI via your terminal (requires [Node.js](https://nodejs.org/en/download) version 22.19+):
 
    ```
    npm install -g @letta-ai/letta-code
    ```
 
-   To launch the Letta CLI, run:
+   To launch the Letta Code CLI, run:
 
    ```
    letta
    ```
 
-   If you’re running the Letta CLI interactively for the first time, a Tutor agent will be auto-created for you.
+   If you’re running the Letta Code CLI interactively for the first time, a Tutor agent will be auto-created for you.
 
 2) **Connect to LLM providers**
 
@@ -120,8 +120,8 @@ The [Letta Agent SDK](/agent-sdk/index.md) supports two backends for self-hosted
 - **Local backend** (`backend: "local"`): The SDK starts [App Server](/self-hosting/app-server/index.md) automatically as a subprocess on the current machine. Agent state and the execution environment stay on the machine running your code. Use this for development or single-machine deployments—no separate server process to manage.
 - **Remote backend** (`backend: "remote"`): The SDK connects to an App Server you run as a separate service (`letta server --listen`). Agent state and the execution environment live on the App Server machine, so multiple clients can share the same agents and the server can run on different infrastructure than your application.
 
-* [Local backend](#tab-panel-9)
-* [Remote backend](#tab-panel-10)
+* [Local backend](#tab-panel-8)
+* [Remote backend](#tab-panel-9)
 
 ```
 import { LettaAgentClient } from "@letta-ai/letta-agent-sdk";

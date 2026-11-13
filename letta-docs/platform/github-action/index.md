@@ -8,13 +8,13 @@ applies_to:
     - cli
 ---
 
-The easiest way to set up the GitHub action is to ask a Letta agent to do it for you: open the [Letta CLI](/platform/cli/index.md) in your repository and ask your agent to install the Letta Code GitHub action.
+The easiest way to set up the GitHub action is to ask a Letta agent to do it for you: open the [Letta Code CLI](/platform/cli/index.md) in your repository and ask your agent to install the Letta Code GitHub action.
 
 The [Letta Code GitHub action](https://github.com/letta-ai/letta-code-action) lets you trigger Letta agents directly from GitHub issues and pull requests. Mention `@letta-code` in any comment to get help with code questions, implementation, and reviews.
 
 ## Quick start
 
-1. Get an API key from [platform.letta.com/api-keys](https://platform.letta.com/api-keys)
+1. Get an API key from [chat.letta.com/preferences/api-keys](https://chat.letta.com/preferences/api-keys)
 2. Add `LETTA_API_KEY` to your repository secrets
 3. Create `.github/workflows/letta.yml`:
 
@@ -103,7 +103,7 @@ You can continue the conversation locally using the CLI command shown.
 | `model`                    | Model to use (`opus`, `sonnet`, `haiku`, `auto`, `gpt-4.1`) | `opus`        |
 | `assignee_trigger`         | Username that triggers when assigned                        | None          |
 | `label_trigger`            | Label that triggers the action                              | `letta-code`  |
-| `path_to_letta_executable` | Path to a custom Letta CLI                                  | None          |
+| `path_to_letta_executable` | Path to a custom Letta Code CLI                             | None          |
 | `allowed_bots`             | Comma-separated bot usernames allowed to trigger (or `*`)   | None          |
 | `allowed_non_write_users`  | Users allowed without write permissions                     | None          |
 
@@ -123,7 +123,7 @@ This is useful when you want the agent to have shared memory across all reposito
 
 ### Using the latest CLI
 
-To ensure you’re using the latest Letta CLI:
+To ensure you’re using the latest Letta Code CLI:
 
 ```
 steps:

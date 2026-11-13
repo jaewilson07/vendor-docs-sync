@@ -46,7 +46,7 @@ for await (const message of session.stream()) {
 ## What you need
 
 - A JavaScript or TypeScript project
-- A [Letta API key](https://platform.letta.com/api-keys) for the cloud backend; the local backend needs no account
+- A [Letta API key](https://chat.letta.com/preferences/api-keys) for the cloud backend; the local backend needs no account
 - Node.js 22.19+ only if you run the agent runtime yourself — the local backend, or a self-hosted [App Server](/self-hosting/app-server/index.md)
 
 ## Choose your next step

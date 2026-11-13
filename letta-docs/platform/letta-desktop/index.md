@@ -37,7 +37,7 @@ Firefox can install web apps only on Windows (Firefox 143 or later). On macOS or
 
 ## Keep using your local agents
 
-The previous Letta Code Desktop app was deprecated on October 12, 2026 and no longer runs. Your local agents still exist: Desktop and the [Letta CLI](/platform/cli/index.md) share `~/.letta/lc-local-backend` by default.
+The previous Letta Code Desktop app was deprecated on October 12, 2026 and no longer runs. Your local agents still exist: Desktop and the [Letta Code CLI](/platform/cli/index.md) share `~/.letta/lc-local-backend` by default.
 
 Install the CLI, then run `letta --backend local` and use `/agents` to pick an existing local agent. To resume it directly, run `letta --agent agent-local-<id>` with its full agent ID (also available in the `/agents` list).
 

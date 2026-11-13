@@ -14,25 +14,31 @@ applies_to:
 
 Subagents are specialized agents that your main agent can spawn to handle complex tasks autonomously. By delegating work to focused subagents, your main agent can keep its context window clean and make use of parallelism to divide and conquer tasks.
 
-The Letta agent harness includes [seven built-in subagent types](#built-in-subagents) optimized for common workflows, and you can [create custom subagents](#creating-custom-subagents) for specialized tasks.
+The Letta Code harness includes [built-in subagents](#built-in-subagents) optimized for common workflows, and you can [create custom subagents](#creating-custom-subagents) for specialized tasks.
 
 ## How it works
 
-Your main agent can launch subagents using a specialized subagent tool. When the subagent tool is called, the Letta agent harness launches a new subagent in a subprocess.
+Your main agent launches subagents with the `Agent` tool. By default, a new subagent forks the main agent’s conversation, so it starts with full context. Set `fork_context: false` to start one with only the prompt.
 
 The subagent runs autonomously with its own system prompt, tools, and model. The final message from the subagent is returned to the main agent, which keeps the main agent’s context clean.
 
-For example, if the main agent wants to understand where a certain function is located in the codebase, it can launch a `general-purpose` subagent to search. That subagent may use hundreds of thousands of tokens to read hundreds of files, but the main agent will only see the final answer - saving the main agent from unnecessary context “pollution” from tool calls and returns.
+For example, if the main agent wants to understand where a certain function is located in the codebase, it can launch a subagent to search. That subagent may use hundreds of thousands of tokens to read hundreds of files, but the main agent will only see the final answer - saving the main agent from unnecessary context “pollution” from tool calls and returns.
 
 ### Background subagents
 
-By default, launching a subagent blocks: the subagent tool does not return until the subagent finishes. Background subagents flip this around: the main agent can call subagents in “background mode”, and the main agent is free to continue its own work while the subagent runs.
+Subagents run in the background: the `Agent` tool returns a receipt with a task ID right away, and the main agent continues its own work while the subagent runs.
 
 When the subagent finishes, a completion notification is automatically injected into the conversation, and the main agent can read the result.
 
-### Launching stateful agents as subagents
+### Ephemeral conversations
 
-By default, the built-in subagents are not reused - they are created fresh on each invocation.
+On Letta Cloud, a fresh subagent that does not fork the main agent’s conversation runs as an ephemeral conversation linked to the main agent, rather than as a separate agent. It uses the main agent’s MCP servers and secrets, and its receipt carries a conversation ID instead of a new agent ID. Subagents on the local backend or on another computer still run as their own agent.
+
+- **Follow up:** the main agent calls `SendAgentMessage` with the subagent’s conversation ID to steer it while it works or send it a new task.
+- **Reply to the main agent:** a subagent calls `SendAgentMessage` without an agent or conversation ID to message the agent that launched it. Its final report reaches the main agent automatically.
+- **Stop:** the main agent calls `TaskStop` with the subagent’s task ID.
+
+### Launching stateful agents as subagents
 
 It is also possible to deploy an arbitrary Letta agent as a subagent by specifying its `agent_id`. This lets your main agent invoke other agents—with their own rich memories, personalities, and skillsets—as subagents that can read, write, and edit code.
 
@@ -50,17 +56,15 @@ If you don’t remember their agent ID, your main agent can also use the built-i
 
 ## Built-in subagents
 
-Each subagent has a recommended model, but the Letta agent harness now resolves built-in subagents to `auto` or `auto-fast` by default when available. You can still override the model with prompting (for example, `Spawn a recall agent with Opus`).
+Subagents without a configured model inherit the main agent’s model. When launching without a preset, the main agent can set `model` (for example, `Spawn a subagent with Opus`).
 
-| Subagent           | Purpose                                                                | Recommended model | Access     |
-| ------------------ | ---------------------------------------------------------------------- | ----------------- | ---------- |
-| `fork`             | Fork the parent conversation with full context and tools               | `inherit`         | Read/write |
-| `general-purpose`  | Full implementation - research, plan, and make changes                 | `auto`            | Read/write |
-| `history-analyzer` | Migrate conversation history from Claude Code or Codex into memory     | `auto`            | Read/write |
-| `init`             | Fast initialization of agent memory from the current project           | `auto-fast`       | Read/write |
-| `memory`           | Reorganize memory blocks into a cleaner hierarchy with less redundancy | `auto`            | Read/write |
-| `recall`           | Search conversation history for past discussions and decisions         | `auto-fast`       | Read-only  |
-| `reflection`       | Background “sleep-time” memory consolidation from recent conversations | `auto`            | Read/write |
+`recall` is the only built-in preset the main agent can select with `subagent_type`; [custom subagents](#creating-custom-subagents) can be selected the same way. The harness launches `init` and `reflection` itself.
+
+| Subagent     | Purpose                                                                | Access     |
+| ------------ | ---------------------------------------------------------------------- | ---------- |
+| `recall`     | Search conversation history for past discussions and decisions         | Read-only  |
+| `init`       | Fast initialization of agent memory from the current project           | Read/write |
+| `reflection` | Background “sleep-time” memory consolidation from recent conversations | Read/write |
 
 ## Creating custom subagents
 
@@ -117,7 +121,7 @@ You are a security code reviewer.
 | Field          | Required | Description                                                                                      |
 | -------------- | -------- | ------------------------------------------------------------------------------------------------ |
 | `name`         | Yes      | Unique identifier (lowercase, hyphens allowed). Must start with a letter.                        |
-| `description`  | Yes      | When to use this subagent (shown in Task tool and /subagents)                                    |
+| `description`  | Yes      | When to use this subagent (shown in the `Agent` tool and /subagents)                             |
 | `tools`        | No       | Comma-separated list of allowed tools, or `all`. Defaults to `all`.                              |
 | `model`        | No       | Model to use (e.g., `haiku`, `sonnet`, `opus`). Defaults to inheriting from main agent.          |
 | `memoryBlocks` | No       | Which memory blocks the subagent can access: specific list, `all`, or `none`. Defaults to `all`. |
@@ -125,13 +129,12 @@ You are a security code reviewer.
 
 ### Model and toolset behavior
 
-For the main interactive agent, switching models with `/model` can automatically switch toolsets when toolset mode is `auto` (see [Models and Toolsets](/configuration/models/index.md)).
+For the main interactive agent, switching models with `/model` can automatically switch toolsets (see [Models and Toolsets](/configuration/models/index.md)).
 
 For subagents, `model` and `tools` are configured independently:
 
 - `model` selects which model the subagent runs on.
 - `tools` defines which tools the subagent is allowed to use.
-- Deployment access level (`subagent_type`, currently only `general-purpose` when deploying an existing agent) also constrains tool access.
 
 Changing a subagent’s `model` does not automatically change its configured tools.
 
@@ -145,4 +148,4 @@ Custom subagents override built-ins with the same name. Project-level subagents 
 
 ### Access levels
 
-When deploying an existing agent (via `agent_id`), `subagent_type` must currently be `general-purpose`. That is the only access level accepted on that path. When creating a fresh subagent from a built-in type, the `subagent_type` selects which built-in is used and inherits that built-in’s configured tools and read/write scope. If `subagent_type` is omitted on the deploy path, it defaults to `general-purpose`.
+When creating a subagent from a preset, `subagent_type` selects the preset, which sets its tools, model, and read/write scope; other launch options are ignored. To deploy an existing agent, pass its `agent_id` and omit `subagent_type`.

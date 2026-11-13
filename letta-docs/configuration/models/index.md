@@ -23,25 +23,24 @@ Use the `/model` command to switch models during a session. This opens a model s
 
 Different models are trained to work best with different tools. For example, GPT models from OpenAI are trained to use a patch-based editing tool, while Claude models work better with string-based edit tools.
 
-The Letta agent harness handles this automatically with dynamic **toolsets** - tool configurations optimized for each model family. When you switch models with `/model`, the toolset switches automatically. If you want to force a specific toolset, use the `/toolset` command.
+The Letta Code harness handles this automatically with dynamic **toolsets** - tool configurations optimized for each model family. When you switch models with `/model`, the toolset switches automatically. If you want to force a specific toolset, use the `/toolset` command.
 
 Agents hosted in Letta Cloud come pre-configured with web search and web fetch tools. If you’re running agents using the local backend, you can set up your own web search utilities using custom [skills](/configuration/skills/index.md).
 
 ## Connecting model providers
 
-The Letta CLI and web app support a wide variety of LLM providers and coding subscription plans (such as ChatGPT Plus/Pro and zAI).
+The Letta Code CLI and web app support a wide variety of LLM providers and coding subscription plans (such as ChatGPT Plus/Pro and zAI).
 
 You can connect providers using your preferred interface:
 
 - **CLI**: Run `/connect` in interactive mode or `letta connect` from the terminal.
-- **Letta Platform**: Open your project’s [Models page](https://platform.letta.com/projects/default-project/models) and select **Add LLM API key**. For ChatGPT Plus or Pro, choose **ChatGPT/Codex Sub**, select **Get device code**, and complete the login.
-- **Letta Chat**: Configure models and credentials under [Preferences > Models](https://chat.letta.com/preferences/models).
+- **Letta web app**: Open [Preferences > Models](https://chat.letta.com/preferences/models) and select **Add LLM API key**. For ChatGPT Plus or Pro, choose **ChatGPT/Codex Sub**, select **Get device code**, and complete the login.
 
-To view your available models, run `/model` in the CLI or inspect the Models tab in the Platform.
+To view your available models, run `/model` in the CLI or open the Models page in the web app.
 
 Local providers are configured on your machine. When you sign in with Letta, `/connect` also lets you configure providers for agents backed up to the cloud.
 
-Cloud providers are managed through Letta’s LLM gateway. The gateway supports a smaller provider set than local setup; direct integrations with local inference providers such as LM Studio, Ollama, and llama.cpp are available only for local agents. You can pay for LLM gateway usage with pay-as-you-go credits from the [usage page](https://platform.letta.com/settings/organization/usage).
+Cloud providers are managed through Letta’s LLM gateway. The gateway supports a smaller provider set than local setup; direct integrations with local inference providers such as LM Studio, Ollama, and llama.cpp are available only for local agents. You can pay for LLM gateway usage with pay-as-you-go credits from the [usage page](https://chat.letta.com/preferences/usage).
 
 ## Local models
 

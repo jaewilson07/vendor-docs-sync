@@ -19,7 +19,7 @@ If you can’t find the answer to your question, join our [Discord](https://disc
 
 ### How can I use the web app with local agents?
 
-The web app works only with agents hosted in Letta Cloud. You can still run those agents on your own computer: install the Letta CLI, sign in, and select the agent. The agent’s state remains in Letta Cloud while its tools run on the computer where you started the CLI.
+The web app works only with agents hosted in Letta Cloud. You can still run those agents on your own computer: install the Letta Code CLI, sign in, and select the agent. The agent’s state remains in Letta Cloud while its tools run on the computer where you started the CLI.
 
 To build your own web app for agents stored on your device, use the [Letta Agent SDK](/agent-sdk/index.md) with a [self-hosted App Server](/self-hosting/index.md). Authenticated browser clients need a trusted backend or WebSocket proxy between the browser and App Server.
 
@@ -27,7 +27,7 @@ To build your own web app for agents stored on your device, use the [Letta Agent
 
 ### What happened to the previous desktop app?
 
-The previous Electron-based desktop app was deprecated on October 12, 2026 and no longer runs. Use [chat.letta.com](https://chat.letta.com), which you can [install as a desktop app](/platform/letta-desktop/index.md). Your local agents still exist; [keep using them in the Letta CLI](/platform/letta-desktop#keep-using-your-local-agents/index.md).
+The previous Electron-based desktop app was deprecated on October 12, 2026 and no longer runs. Use [chat.letta.com](https://chat.letta.com), which you can [install as a desktop app](/platform/letta-desktop/index.md). Your local agents still exist; [keep using them in the Letta Code CLI](/platform/letta-desktop#keep-using-your-local-agents/index.md).
 
 ### How do I use a remote App Server with a rich UI?
 
@@ -85,7 +85,7 @@ Set [`ENABLE_FORWARD_USER_INFO_HEADERS=true`](https://docs.openwebui.com/referen
 
 ### What is the difference between the Letta Agent SDK and the Letta client SDK?
 
-The Letta Agent SDK (`@letta-ai/letta-agent-sdk`) is a high-level TypeScript interface to the Letta agent harness. It manages sessions, turns, streaming, approvals, local tools, and execution environments across four deployment patterns: a fully local runtime, a self-hosted App Server, Letta Cloud with managed sandboxes, and Letta Cloud with a connected computer.
+The Letta Agent SDK (`@letta-ai/letta-agent-sdk`) is a high-level TypeScript interface to the Letta Code harness. It manages sessions, turns, streaming, approvals, local tools, and execution environments across four deployment patterns: a fully local runtime, a self-hosted App Server, Letta Cloud with managed sandboxes, and Letta Cloud with a connected computer.
 
 The Letta client SDKs—`@letta-ai/letta-client` on npm and `letta-client` on PyPI—are generated, lower-level wrappers around the Letta REST API. The Agent SDK uses the TypeScript client internally when its backend is Letta Cloud, but application developers should not build directly on the generated client SDKs.
 
@@ -119,7 +119,7 @@ We recommend using [chat.letta.com](https://chat.letta.com) on your mobile devic
 
 ### Is web search built into Letta agents, the CLI, and the app?
 
-Agents created in Letta Cloud through the Letta CLI or apps include the `web_search` and `fetch_webpage` tools by default. They also have access to a built-in image-generation skill—ask the agent to generate an image, and it will load the skill when needed.
+Agents created in Letta Cloud through the Letta Code CLI or apps include the `web_search` and `fetch_webpage` tools by default. They also have access to a built-in image-generation skill—ask the agent to generate an image, and it will load the skill when needed.
 
 Local agents do not include managed model credentials or built-in web-search and image-generation services. You must connect a model provider and add any additional capabilities yourself. You can do this with skills, MCP servers, or mods; the [web search mod](https://github.com/letta-ai/mods/tree/main/packages/web-search) is one example.
 

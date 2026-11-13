@@ -12,11 +12,11 @@ applies_to:
     - sdk
 ---
 
-Letta agents learn from experience and improve with use. The Letta agent harness is fully [open source](https://github.com/letta-ai/letta-code) and builds on our lab’s [latest research](https://www.letta.com/research) in AI memory and continual learning.
+Letta agents learn from experience and improve with use. The Letta Code harness is fully [open source](https://github.com/letta-ai/letta-code) and builds on our lab’s [latest research](https://www.letta.com/research) in AI memory and continual learning.
 
-Use Letta to create coding agents, personal assistants, AI coworkers, and stateful agents embedded in your own applications.
+Use Letta Code to create coding agents, personal assistants, AI coworkers, and stateful agents embedded in your own applications.
 
-[Get started with Letta →](/quickstart/index.md)
+[Get started with Letta Code →](/quickstart/index.md)
 
 ![Letta](/images/letta-agent-chat.png)![Letta](/images/letta-agent-chat-dark.png)
 
@@ -32,7 +32,7 @@ Start with the [quickstart](/quickstart/index.md), choose an [LLM provider](/con
 
 ### ”I want a personal assistant for work”
 
-Use the [Letta CLI](/platform/cli/index.md) to work with local files, add integrations with [Skills](/configuration/skills/index.md), and automate recurring tasks with [Schedules](/configuration/schedules/index.md).
+Use the [Letta Code CLI](/platform/cli/index.md) to work with local files, add integrations with [Skills](/configuration/skills/index.md), and automate recurring tasks with [Schedules](/configuration/schedules/index.md).
 
 ### ”I want an AI coworker in Slack, Telegram, or Discord”
 

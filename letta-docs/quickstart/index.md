@@ -15,8 +15,8 @@ Choose the web app or CLI to get started. The web app runs agents in a cloud san
 
 ## Setup
 
-- [Web App](#tab-panel-7)
-- [CLI](#tab-panel-8)
+- [Web App](#tab-panel-6)
+- [CLI](#tab-panel-7)
 
 1. **Open the Letta web app and sign in**
 
@@ -42,21 +42,21 @@ Choose the web app or CLI to get started. The web app runs agents in a cloud san
 
    You can easily bring your Letta agents to Slack with Letta’s native Slack integration. Simply visit an agent that you want to connect to Slack on [chat.letta.com](https://chat.letta.com), then click the `Connections` tab to configure a Slack app for that agent.
 
-1) **Install the Letta CLI**
+1) **Install the Letta Code CLI**
 
-   Run the following command to install the Letta CLI via your terminal (requires [Node.js](https://nodejs.org/en/download) version 22.19+):
+   Run the following command to install the Letta Code CLI via your terminal (requires [Node.js](https://nodejs.org/en/download) version 22.19+):
 
    ```
    npm install -g @letta-ai/letta-code
    ```
 
-   To launch the Letta CLI, run:
+   To launch the Letta Code CLI, run:
 
    ```
    letta
    ```
 
-   If you’re running the Letta CLI interactively for the first time, a Tutor agent will be auto-created for you.
+   If you’re running the Letta Code CLI interactively for the first time, a Tutor agent will be auto-created for you.
 
 2) **Connect to LLM providers**
 
@@ -109,7 +109,7 @@ Once you have an agent, start customizing its behavior and capabilities.
 
 ### Mods
 
-The Letta agent harness is intentionally minimal so you can add your preferred set of features through [Mods](/configuration/mods/index.md).
+The Letta Code harness is intentionally minimal so you can add your preferred set of features through [Mods](/configuration/mods/index.md).
 
 Mods are trusted code that let an agent modify the runtime it executes in — adding tools, commands, and UI, or changing how context is fed into the model. Browse the [Mods catalog](https://www.letta.com/agent/mods/) to see what’s available. A few recommended mods to start with:
 
@@ -125,7 +125,7 @@ You can also ask your agent to write custom mods for you - agents are aware of m
 
 ### Skills
 
-[Skills](/configuration/skills/index.md) are reusable instructions your agent loads when relevant—API patterns, workflows, or specialized procedures. Letta implements the open [Agent Skills](https://agentskills.io) standard, so you can install skills built for other agents, including Hermes (`official/...`) and OpenClaw (`clawhub/...`) skills:
+[Skills](/configuration/skills/index.md) are reusable instructions your agent loads when relevant—API patterns, workflows, or specialized procedures. Letta Code implements the open [Agent Skills](https://agentskills.io) standard, so you can install skills built for other agents, including Hermes (`official/...`) and OpenClaw (`clawhub/...`) skills:
 
 ```
 letta install official/<skill-name>   # Hermes-style official skill
@@ -142,7 +142,7 @@ Your agent also has full access to all prior conversation data, which it can sea
 
 ## Essential commands
 
-You’ll likely want to use the following essential commands when using the Letta CLI:
+You’ll likely want to use the following essential commands when using the Letta Code CLI:
 
 | Command            | What it does                                   | Example                                  |
 | ------------------ | ---------------------------------------------- | ---------------------------------------- |

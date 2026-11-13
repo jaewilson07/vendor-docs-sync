@@ -57,4 +57,4 @@ To run the agent on a specific machine instead of a sandbox, pass a `computer` s
 
 ## Bring your own computers
 
-To make a computer available from [chat.letta.com](https://chat.letta.com), install the Letta CLI on that computer, then run `letta server` to connect it to your Letta account. For more information, see [Bring your own machine](/platform/computers/byom/index.md).
+To make a computer available from [chat.letta.com](https://chat.letta.com), install the Letta Code CLI on that computer, then run `letta server` to connect it to your Letta account. For more information, see [Bring your own machine](/platform/computers/byom/index.md).

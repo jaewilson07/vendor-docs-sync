@@ -29,7 +29,7 @@ The interactive wizard will:
 
 Config is written to `~/.letta/channels/telegram/accounts.json`.
 
-Some Telegram Desktop and Web versions display Rich Messages as blank message bubbles. Answer **no** when setup asks whether to use Rich Messages if you need these clients. For an existing account, set `rich_private_chat_default` to `false` in `~/.letta/channels/telegram/accounts.json`. Preserve every other account field and restart the channel server. Letta will then use standard Telegram messages with HTML formatting.
+Some Telegram Desktop and Web versions display Rich Messages as blank message bubbles. Answer **no** when setup asks whether to use Rich Messages if you need these clients. For an existing account, set `rich_private_chat_default` to `false` in `~/.letta/channels/telegram/accounts.json`. Preserve every other account field and restart the channel server. Letta Code will then use standard Telegram messages with HTML formatting.
 
 ## 3. Start the server with channels enabled
 

@@ -21,7 +21,7 @@ Each organization member has a role that grants a set of organization-wide permi
 - **Editor** members can create and manage resources, but only see their own agents and conversations plus agents shared with the organization.
 - **Analyst** members have read and messaging access, subject to the same agent and conversation visibility rules.
 
-Invited collaborators join as Editors by default. An Admin can change a member’s role from the members page in [organization settings](https://platform.letta.com/settings/organization).
+Invited collaborators join as Editors by default. An Admin can change a member’s role from the [organization members page](https://chat.letta.com/preferences/organization/members).
 
 ## Agent access
 

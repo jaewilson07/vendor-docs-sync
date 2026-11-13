@@ -1,6 +1,6 @@
 ---
-title: Use Letta with ACP | Letta Docs
-description: Connect Letta to clients through the Agent Client Protocol
+title: Use Letta Code with ACP | Letta Docs
+description: Connect Letta Code to clients through the Agent Client Protocol
 applies_to:
   backends:
     - cloud
@@ -92,14 +92,14 @@ If Agent Client cannot find `npx`, use the absolute path returned by `which npx`
 
 `LETTA_ACP_BACKEND` controls where agent state is stored and where built-in tools such as `Read` and `Bash` execute.
 
-| Backend           | Agent state                   | Built-in tools run | Auth                         |
-| ----------------- | ----------------------------- | ------------------ | ---------------------------- |
-| `cloud-oauth`     | Letta Platform                | your machine       | `/login` in the Letta CLI    |
-| `cloud`           | Letta Platform                | cloud sandbox      | `LETTA_API_KEY`              |
-| `local` (default) | your machine                  | your machine       | local model setup            |
-| `remote`          | configured by your App Server | App Server machine | capability token, if enabled |
+| Backend           | Agent state                   | Built-in tools run | Auth                           |
+| ----------------- | ----------------------------- | ------------------ | ------------------------------ |
+| `cloud-oauth`     | Letta Cloud                   | your machine       | `/login` in the Letta Code CLI |
+| `cloud`           | Letta Cloud                   | cloud sandbox      | `LETTA_API_KEY`                |
+| `local` (default) | your machine                  | your machine       | local model setup              |
+| `remote`          | configured by your App Server | App Server machine | capability token, if enabled   |
 
-For work in a local repository, `cloud-oauth` is usually the best fit: the agent and its memory stay on the Letta Platform while tools run against the working tree on your machine. It also uses your existing Letta CLI login session instead of storing an API key in editor settings.
+For work in a local repository, `cloud-oauth` is usually the best fit: the agent and its memory stay in Letta Cloud while tools run against the working tree on your machine. It also uses your existing Letta Code CLI login session instead of storing an API key in editor settings.
 
 Use `cloud` for execution in an isolated cloud sandbox, `local` to keep agent state on your machine, or `remote` to connect to an [App Server](/self-hosting/app-server/index.md) you operate.
 
@@ -108,7 +108,7 @@ Use `cloud` for execution in an isolated cloud sandbox, `local` to keep agent st
 - **Sessions:** Each ACP session maps to a Letta conversation and can be resumed after the adapter restarts.
 - **Approvals:** Tool approvals use the client’s native permission prompts. Clients that support session modes can switch between `standard`, `acceptEdits`, and `unrestricted` behavior.
 - **Client files:** When the client provides filesystem capabilities, the agent can read files with `read_editor_buffer` and write through the client with `write_via_editor`. Built-in tools still run in the location shown above.
-- **Slash commands:** Clients can expose supported Letta commands such as `/model`, `/compact`, `/init`, and `/remember`, along with discovered skills. Use the client UI instead of TUI-only commands such as `/resume` or `/login`.
+- **Slash commands:** Clients can expose supported Letta Code commands such as `/model`, `/compact`, `/init`, and `/remember`, along with discovered skills. Use the client UI instead of TUI-only commands such as `/resume` or `/login`.
 
 ## Configuration
 

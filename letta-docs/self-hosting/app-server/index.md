@@ -1,6 +1,6 @@
 ---
 title: Letta App Server | Letta Docs
-description: Run a Letta agent runtime for local and remote SDK sessions
+description: Run a Letta Code runtime for local and remote SDK sessions
 applies_to:
   backends:
     - cloud
@@ -14,7 +14,7 @@ The recommended way to interface with the App Server is the [Letta Agent SDK](/a
 
 Alternatively, use the App Server’s [OpenAI-compatible API](/self-hosting/app-server/quickstart#openai-compatible-api/index.md) with clients such as Open WebUI, or the [ACP adapter](/platform/acp/index.md) with ACP clients such as Zed.
 
-The **Letta App Server** lets you deploy the Letta agent harness as a service. Whereas [headless mode](/platform/cli/headless/index.md) allows you to interface with Letta agents by spinning up the agent harness as a one-time ephemeral process, the App Server is an always-on service and can manage running multiple agents in parallel in a single process.
+The **Letta App Server** lets you deploy the Letta Code harness as a service. Whereas [headless mode](/platform/cli/headless/index.md) allows you to interface with Letta agents by spinning up the agent harness as a one-time ephemeral process, the App Server is an always-on service and can manage running multiple agents in parallel in a single process.
 
 You can interact with agents running on the Letta App Server through the Letta Agent SDK or directly through its WebSocket protocol.
 
@@ -28,15 +28,15 @@ A [computer connected to Letta Cloud](/platform/computers/byom/index.md) is a se
 
 ### Enabling programmatic remote access for self-hosted (local) agents
 
-If you are running Letta fully locally (your agent state is stored on local disk instead of on Letta Cloud), you can use the Letta App Server to enable interacting with your agents over a remote connection. For example, if you run the App Server on a remote VPC and use the `local` App Server backend, you can expose agents stored on the VPC remotely to external clients (e.g. a web app, or a UI running on your local laptop).
+If you are running Letta Code fully locally (your agent state is stored on local disk instead of on Letta Cloud), you can use the Letta App Server to enable interacting with your agents over a remote connection. For example, if you run the App Server on a remote VPC and use the `local` App Server backend, you can expose agents stored on the VPC remotely to external clients (e.g. a web app, or a UI running on your local laptop).
 
 ### Understanding local vs cloud-hosted agent state
 
 Where an agent’s state is stored can be different from its execution environment (where the harness runs). The `backend` mode of the App Server refers to where the agent state is stored, either in Letta Cloud (`cloud`) or on the local machine (`local`).
 
-When you use Letta Cloud, your agents’ state (message history and memories) is stored in the cloud. This is what enables easy access or “teleportation” of the same agent to and from any device. When you use the Letta CLI, you are creating an execution environment that your cloud-hosted agent can run in - your agent will run commands that execute on your local machine, but the state of the agent is stored in the cloud. A [computer](/platform/computers/byom/index.md) and an App Server using `--backend cloud` can both execute tools for cloud-hosted agents, but they expose different connection models.
+When you use Letta Cloud, your agents’ state (message history and memories) is stored in the cloud. This is what enables easy access or “teleportation” of the same agent to and from any device. When you use the Letta Code CLI, you are creating an execution environment that your cloud-hosted agent can run in - your agent will run commands that execute on your local machine, but the state of the agent is stored in the cloud. A [computer](/platform/computers/byom/index.md) and an App Server using `--backend cloud` can both execute tools for cloud-hosted agents, but they expose different connection models.
 
-When you use Letta’s local backend mode, your agents’ state is stored locally on the same disk where you run the agent harness. That means when running the App Server with the `local` backend, the App Server will read and write the agent state from the local `~/.letta/lc-local-backend` directory.
+When you use Letta Code’s local backend mode, your agents’ state is stored locally on the same disk where you run the agent harness. That means when running the App Server with the `local` backend, the App Server will read and write the agent state from the local `~/.letta/lc-local-backend` directory.
 
 ## How it works
 

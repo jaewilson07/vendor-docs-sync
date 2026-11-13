@@ -23,7 +23,7 @@ signal-cli -c ~/.local/share/signal-cli-letta daemon \
   --ignore-stories
 ```
 
-Keep the daemon running while Letta is running. The Signal channel expects the runtime JSON-RPC/SSE endpoints at `/api/v1/check`, `/api/v1/rpc`, and `/api/v1/events`.
+Keep the daemon running while Letta Code is running. The Signal channel expects the runtime JSON-RPC/SSE endpoints at `/api/v1/check`, `/api/v1/rpc`, and `/api/v1/events`.
 
 ## 2. Configure
 
@@ -59,4 +59,4 @@ You can also pair from an active agent session:
 /channels signal pair B5ZR5H
 ```
 
-For personal-number setups, keep `self_chat_mode` enabled. In self-chat mode, Letta only routes Note to Self/self-chat messages and rejects outbound sends to other recipients.
+For personal-number setups, keep `self_chat_mode` enabled. In self-chat mode, Letta Code only routes Note to Self/self-chat messages and rejects outbound sends to other recipients.

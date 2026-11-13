@@ -17,7 +17,7 @@ To give a Letta agent access to external MCP tools instead, see [MCP tools in th
 
 ## Connect a client
 
-Create an API key in [Letta Platform](https://platform.letta.com) and send it as a bearer token:
+Create an [API key](https://chat.letta.com/preferences/api-keys) in the Letta web app and send it as a bearer token:
 
 Cursor: .cursor/mcp.json
 

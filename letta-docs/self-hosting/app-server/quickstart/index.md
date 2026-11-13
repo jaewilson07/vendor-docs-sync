@@ -18,7 +18,7 @@ For most application integrations, start with the [Letta Agent SDK quickstart](/
 
 Continue with this guide when you need to operate App Server separately or connect to its protocol directly. The examples use the local backend so agent state and the execution environment remain on the App Server machine.
 
-## Install the Letta CLI
+## Install the Letta Code CLI
 
 Terminal window
 

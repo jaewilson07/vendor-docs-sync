@@ -36,7 +36,7 @@ View the complete project on [GitHub](https://github.com/letta-ai/letta-agent-sd
 
 Run the project before you study its parts. This gives each later section a visible result to explain.
 
-You need Node.js 22.19 or later and a [Letta API key](https://platform.letta.com/api-keys).
+You need Node.js 22.19 or later and a [Letta API key](https://chat.letta.com/preferences/api-keys).
 
 ### 1. Clone and install
 

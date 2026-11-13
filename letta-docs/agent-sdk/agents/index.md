@@ -87,7 +87,7 @@ When the same skill ID appears in multiple sources, the more specific one wins: 
 
 ### Give an agent its own skills
 
-Agent-owned skills live in the agent’s MemFS under `skills/<name>/SKILL.md`, so they are versioned with the agent’s memory and follow it across machines. Install one from GitHub, a registry, or a URL with the Letta CLI:
+Agent-owned skills live in the agent’s MemFS under `skills/<name>/SKILL.md`, so they are versioned with the agent’s memory and follow it across machines. Install one from GitHub, a registry, or a URL with the Letta Code CLI:
 
 ```
 # GitHub repo, tree URL, SKILL.md URL, or owner/repo/path shorthand
@@ -102,13 +102,13 @@ The install is committed to the agent’s MemFS git repository and, for cloud ag
 
 ### Use skills from `npx skills` or your repository
 
-Vercel’s [`npx skills add`](https://github.com/vercel-labs/skills) installs skills into the cross-tool `.agents/skills/` project directory — which is exactly what Letta’s `project` source reads, so those skills work in sessions whose `cwd` is that project with no extra configuration:
+Vercel’s [`npx skills add`](https://github.com/vercel-labs/skills) installs skills into the cross-tool `.agents/skills/` project directory — which is exactly what Letta Code’s `project` source reads, so those skills work in sessions whose `cwd` is that project with no extra configuration:
 
 ```
 npx skills add vercel-labs/agent-skills
 ```
 
-The same applies to skills you commit to a repository yourself: put them under `.agents/skills/<name>/SKILL.md` and any session working in that checkout picks them up. Letta does not read other tools’ agent-specific directories (`.claude/skills/`, `~/.config/agents/skills/` — where `npx skills add -g` installs), so use the universal `.agents/skills/` project directory, or copy to `~/.letta/skills/` for machine-wide skills.
+The same applies to skills you commit to a repository yourself: put them under `.agents/skills/<name>/SKILL.md` and any session working in that checkout picks them up. Letta Code does not read other tools’ agent-specific directories (`.claude/skills/`, `~/.config/agents/skills/` — where `npx skills add -g` installs), so use the universal `.agents/skills/` project directory, or copy to `~/.letta/skills/` for machine-wide skills.
 
 ## Other creation options
 

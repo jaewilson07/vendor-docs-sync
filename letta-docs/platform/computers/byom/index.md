@@ -42,7 +42,7 @@ For quick browser or mobile sessions that do not need a specific machine, the de
 
 - [CLI](#tab-panel-3)
 
-1. Install the Letta CLI and log in:
+1. Install the Letta Code CLI and log in:
 
    ```
    npm install -g @letta-ai/letta-code
@@ -67,7 +67,7 @@ There are two ways to authenticate a remote `letta server`:
 
 **Option A: OAuth device flow (recommended).** If no API key is set, `letta server` starts an OAuth login flow and prints an authorization URL to stdout.
 
-**Option B: API key ([Developer Plans](/pricing/index.md) only).** Set `LETTA_API_KEY` as an environment variable before running `letta server`.
+**Option B: API key.** Set `LETTA_API_KEY` as an environment variable before running `letta server`.
 
 With OAuth, the server prints an authorization URL on startup:
 
@@ -84,7 +84,7 @@ Waiting for authorization...
 
 Open the URL in your browser, approve the request, and the server connects. Credentials are persisted to disk, so subsequent restarts authenticate automatically.
 
-If you use OAuth on a remote machine or container, make sure `~/.letta/` lives on persistent storage. That is where Letta stores fallback auth state when no system keychain is available.
+If you use OAuth on a remote machine or container, make sure `~/.letta/` lives on persistent storage. That is where Letta Code stores fallback auth state when no system keychain is available.
 
 ### DigitalOcean
 

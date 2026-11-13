@@ -12,17 +12,17 @@ applies_to:
     - sdk
 ---
 
-The Letta agent harness implements the open [Agent Skills](https://agentskills.io) standard. Skills are portable across Letta, Codex, Claude Code, Hermes Agent, OpenClaw, and other compatible agents.
+The Letta Code harness implements the open [Agent Skills](https://agentskills.io) standard. Skills are portable across Letta Code, Codex, Claude Code, Hermes Agent, OpenClaw, and other compatible agents.
 
 Skills are directories containing instructions and resources that your agent can load when relevant. Think of them as reusable capability packages for specialized tasks — API integrations, testing workflows, deployment procedures.
 
 Skills can include executable scripts in addition to instructions and reference files. A skill can call an external API directly, use an SDK, or connect to an MCP server by having the agent run its bundled scripts with the tools available on the selected computer. API access follows the agent’s [permissions](/configuration/permissions/index.md); store credentials as [secrets](/configuration/secrets/index.md) instead of putting them in the skill.
 
-In most agents, skills are “device-bound” - they are stored on the machine the agent is running on, so if your agent moves machines, it loses the skills. In Letta, agents can write skills into their own memory systems, so that skills persist with the agent as part of its identity.
+In most agents, skills are “device-bound” - they are stored on the machine the agent is running on, so if your agent moves machines, it loses the skills. In Letta Code, agents can write skills into their own memory systems, so that skills persist with the agent as part of its identity.
 
 ## Skill scopes
 
-Agents are able to use skills from the current project (project-scoped skills), their own memory (agent-scoped skills), and skills provided automatically by the Letta harness (bundled skills). Letta automatically registers skills from the current project (`.agents/skills`), current computer (`~/.letta/skills`), and current agent.
+Agents are able to use skills from the current project (project-scoped skills), their own memory (agent-scoped skills), and skills provided automatically by the Letta Code harness (bundled skills). Letta Code automatically registers skills from the current project (`.agents/skills`), current computer (`~/.letta/skills`), and current agent.
 
 ```
 flowchart TD
@@ -56,7 +56,7 @@ Letta agents have skills that are part of their identity, that they manage over 
 
 ### Project-scoped skills
 
-Project-scoped skills are your standard skills in the local directory at `.agents/skills`. Project-scoped skills are specific to that project, and typically managed in the project’s repository (e.g. GitHub). These skills are *not* managed by Letta, and belong to the project not the agent. Use project-scoped skills for project-specific information or workflows.
+Project-scoped skills are your standard skills in the local directory at `.agents/skills`. Project-scoped skills are specific to that project, and typically managed in the project’s repository (e.g. GitHub). These skills are *not* managed by Letta Code, and belong to the project not the agent. Use project-scoped skills for project-specific information or workflows.
 
 ### Computer-scoped skills
 
@@ -64,7 +64,7 @@ You can also install skills globally for a computer by placing skills in `~/.let
 
 ### Bundled skills
 
-The Letta harness bundles built-in skills for capabilities such as memory management, search, mods, self-configuration, and cross-agent communication.
+The Letta Code harness bundles built-in skills for capabilities such as memory management, search, mods, self-configuration, and cross-agent communication.
 
 ## Installing new skills
 

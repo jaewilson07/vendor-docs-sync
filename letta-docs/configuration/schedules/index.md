@@ -17,10 +17,10 @@ Your agent can also schedule tasks itself. Simply ask it in chat.
 
 ## Where tasks run
 
-When you schedule a task (`letta cron add`), Letta stores it based on **where you are working**:
+When you schedule a task (`letta cron add`), Letta Code stores it based on **where you are working**:
 
 - **From a Cloud sandbox**: The schedule is stored in Letta Cloud and runs in the managed [cloud sandbox](/platform/computers/cloud-sandboxes/index.md).
-- **From any other computer** (laptop, VM, remote server): Creates a local schedule that runs only while a Letta session is active on that computer.
+- **From any other computer** (laptop, VM, remote server): Creates a local schedule that runs only while a Letta Code session is active on that computer.
 
 ### Choosing an execution target
 
@@ -69,9 +69,9 @@ letta cron add \
 | **Where it’s stored** | Letta Cloud                                                | Local machine (`~/.letta/crons.json`)        |
 | **When it fires**     | Always (server-side timer)                                 | Only while a CLI or server process is open   |
 | **Timezone**          | Recurring `--cron` runs in **UTC**                         | Evaluated in your **local machine timezone** |
-| **Offline behavior**  | Runs on targeted machine; falls back to sandbox if offline | Pauses until you restart Letta               |
+| **Offline behavior**  | Runs on targeted machine; falls back to sandbox if offline | Pauses until you restart Letta Code          |
 
-Passing `--computer` from any other computer returns an error. If creating a cloud schedule fails, Letta never silently falls back to local storage.
+Passing `--computer` from any other computer returns an error. If creating a cloud schedule fails, Letta Code never silently falls back to local storage.
 
 ## Common CLI commands
 
@@ -104,7 +104,7 @@ For the full command table and options, see the [CLI reference](/platform/cli/re
 
 - **My task never ran**
 
-  - Run `letta cron list --agent <id>` and check the task’s `runner` field. A `local` task only fires while a Letta session is connected on the computer that owns it.
+  - Run `letta cron list --agent <id>` and check the task’s `runner` field. A `local` task only fires while a Letta Code session is connected on the computer that owns it.
   - For a `cloud` task, check its run history with `letta cron runs --id <id>`.
 
 - **My one-time local task disappeared without running**

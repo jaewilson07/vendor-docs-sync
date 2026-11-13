@@ -1,6 +1,6 @@
 ---
-title: Letta CLI | Letta Docs
-description: Run the Letta CLI from your terminal
+title: Letta Code CLI | Letta Docs
+description: Run the Letta Code CLI from your terminal
 applies_to:
   backends:
     - cloud
@@ -9,19 +9,19 @@ applies_to:
     - cli
 ---
 
-## Install the Letta CLI
+## Install the Letta Code CLI
 
 Requires Node.js 22.19+
 
 `npm install -g @letta-ai/letta-code`
 
-![Letta CLI](/letta-code-demo.gif)
+![Letta Code CLI](/letta-code-demo.gif)
 
 ## Getting started
 
-1. **Install the Letta CLI**
+1. **Install the Letta Code CLI**
 
-   Run the following command to install the Letta CLI via your terminal (requires [Node.js](https://nodejs.org/en/download) version 22.19+):
+   Run the following command to install the Letta Code CLI via your terminal (requires [Node.js](https://nodejs.org/en/download) version 22.19+):
 
    ```
    npm install -g @letta-ai/letta-code
@@ -41,13 +41,13 @@ Requires Node.js 22.19+
 
    If `npm install -g` fails with `EACCES`, don’t use `sudo`: root ownership prevents the CLI’s `npm install -g` self-updates. Use uv/pipx, a user-owned npm prefix, or nvm.
 
-   To launch the Letta CLI, run:
+   To launch the Letta Code CLI, run:
 
    ```
    letta
    ```
 
-   If you’re running the Letta CLI for the first time, a new local agent will be auto-created for you. This default local mode stores agent state on your machine and does not require a Letta login.
+   If you’re running the Letta Code CLI for the first time, a new local agent will be auto-created for you. This default local mode stores agent state on your machine and does not require a Letta login.
 
    If you have an older version of Node.js installed, `npm install -g` may silently install an older version of Letta Code that is compatible with your Node version. To ensure you get the latest version, make sure your Node.js is 22.19 or newer. You can check with `node --version`.
 

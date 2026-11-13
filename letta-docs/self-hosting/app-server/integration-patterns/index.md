@@ -26,7 +26,7 @@ Your controller should own product state and use App Server to run Letta agents.
 | Direct protocol control of a separately operated runtime                 | App Server client or protocol                          |
 | Direct protocol control of a Letta-hosted remote environment             | [Remote client API](/agent-sdk/remote-client/index.md) |
 | Direct server-side agent API without local computer-use tools            | [Letta API client SDKs](/v1-sdk/client-sdks/index.md)  |
-| Human terminal workflow                                                  | Letta CLI                                              |
+| Human terminal workflow                                                  | Letta Code CLI                                         |
 | Human workflow through an ACP-compatible client                          | [Agent Client Protocol (ACP)](/platform/acp/index.md)  |
 
 Use the App Server client or protocol directly when you need to control runtime lifecycle, stream detailed events, or expose controller-owned tools beyond what the Agent SDK provides.
@@ -122,7 +122,7 @@ Good candidates:
 - `read_dashboard_state`
 - `send_user_notification`
 
-Avoid adding protocol commands for these unless multiple independent clients need the same primitive and the behavior belongs in the Letta agent harness.
+Avoid adding protocol commands for these unless multiple independent clients need the same primitive and the behavior belongs in the Letta Code harness.
 
 ## Reconnect and replay pattern
 

@@ -10,7 +10,7 @@ applies_to:
 
 These CLI channels support the local backend only. For cloud-hosted agents, use first-party integrations such as the [native Slack integration](/platform/cloud-agents/slack/index.md), not `letta channels`.
 
-Custom channels let you connect a Letta agent to a messaging platform that is not bundled with the Letta CLI. A custom channel runs as a local adapter under `~/.letta/channels/<channel-id>/`, receives inbound messages from your platform, routes them to an agent conversation, and lets the agent reply through the `MessageChannel` tool.
+Custom channels let you connect a Letta agent to a messaging platform that is not bundled with the Letta Code CLI. A custom channel runs as a local adapter under `~/.letta/channels/<channel-id>/`, receives inbound messages from your platform, routes them to an agent conversation, and lets the agent reply through the `MessageChannel` tool.
 
 Channels are different from skills. A skill gives an agent a reusable capability or action set, such as how to read from or post to a service. A channel is the communication medium itself: the delivery surface for inbound messages, outbound replies, account routing, and chat pairing. For example, a Slack skill might describe how to use Slack-related tools, while a Slack channel is the live messaging connection that receives Slack messages and sends replies.
 
@@ -25,7 +25,7 @@ Use a custom channel for:
 - Channels that can use generic pairing or route files
 - Headless deployments where operators are comfortable editing JSON/YAML
 
-Do not use a custom channel to override a bundled channel. The Letta CLI ignores custom channel IDs that collide with first-party channels such as `telegram`, `slack`, `discord`, `whatsapp`, and `signal`. Use a distinct ID like `matrix-community`, `signal-test`, or `custom-chat`.
+Do not use a custom channel to override a bundled channel. The Letta Code CLI ignores custom channel IDs that collide with first-party channels such as `telegram`, `slack`, `discord`, `whatsapp`, and `signal`. Use a distinct ID like `matrix-community`, `signal-test`, or `custom-chat`.
 
 ## Directory layout
 
@@ -56,7 +56,7 @@ The required files are:
 
 ## Create `channel.json`
 
-`channel.json` tells the Letta CLI how to load your channel adapter:
+`channel.json` tells the Letta Code CLI how to load your channel adapter:
 
 ```
 {
@@ -237,7 +237,7 @@ Runtime dependencies should resolve from the channel runtime directory, not from
 
 ## Start the channel
 
-Run the Letta CLI with your channel enabled:
+Run the Letta Code CLI with your channel enabled:
 
 ```
 letta server --backend local --channels matrix-community
