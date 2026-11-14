@@ -260,10 +260,9 @@ Inspect the model catalog and update the model between turns:
 ```
 const catalog = await session.listModels();
 // catalog.entries[0] → {
-//   id: "auto", handle: "letta/auto", label: "Auto",
-//   description: "Automatically select the best model",
-//   isDefault: true, isFeatured: true, free: true,
-//   updateArgs: { parallel_tool_calls: true, context_window: 140000, … }
+//   id: "opus", handle: "anthropic/claude-opus-4-8", label: "Opus 4.8",
+//   description: "Opus 4.8 (high reasoning)", isFeatured: true,
+//   updateArgs: { context_window: 200000, reasoning_effort: "high", … }
 // }
 const target = catalog.entries.find(
   (entry) => entry.handle === "anthropic/claude-opus-4-8",

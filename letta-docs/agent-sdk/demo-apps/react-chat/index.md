@@ -62,7 +62,7 @@ The variable does not use a `NEXT_PUBLIC_` prefix. Next.js keeps the key on the 
 
 ### 3. Create the demo agent
 
-The setup script creates one Cloud agent with the free `letta/auto` model. It gives the agent a research persona and stores the new agent ID in `.env.local`. Run the script once:
+The setup script creates one Cloud agent with a research persona and stores the new agent ID in `.env.local`. Set `model` in `scripts/create-agent.mjs` to a model your account can use, such as `anthropic/claude-opus-4-8`, then run the script once:
 
 ```
 node --env-file=.env.local scripts/create-agent.mjs
@@ -184,7 +184,12 @@ The server sends rows, not raw SDK messages, and `lib/letta/browser-events.ts` m
 
 ```
 type BrowserRow =
-  | { kind: "user" | "assistant" | "reasoning"; key: string; text: string; otid?: string }
+  | {
+      kind: "user" | "assistant" | "reasoning";
+      key: string;
+      text: string;
+      otid?: string;
+    }
   | {
       kind: "tool_call";
       key: string;
