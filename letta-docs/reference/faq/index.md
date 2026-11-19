@@ -99,9 +99,9 @@ We strongly recommend using the TypeScript Agent SDK. When Python is a hard requ
 
 ### Does the Letta Agent SDK support AgentFile (`.af`)?
 
-Not directly. The Agent SDK does not currently expose AgentFile import or export methods.
+No. The Agent SDK does not support AgentFile import or export, and support has been removed from Letta Code and Letta Cloud. Letta Code removed `--import`, `--from-af`, `/export`, and `/download` in v0.32.2.
 
-For agents hosted in Letta Cloud, import an [AgentFile](/v1-sdk/concepts/agent-file/index.md) with `letta --import path/to/agent.af`, then pass the imported agent ID to the Agent SDK. AgentFile import and export are not currently supported by the Agent SDK’s fully local backend or by a self-hosted App Server using the local backend.
+For Cloud agents, use the [Cloud agent backup workflow](https://github.com/letta-ai/agent-v1-to-v2-migration-guide/tree/main/.agents/skills/backing-up-cloud-agents). Restore creates a new agent with saved settings and MemFS history, but an empty chat; saved messages remain in the backup for reference only. Memory import/export and conversation transcript export are unaffected.
 
 ## Miscellaneous
 

@@ -42,21 +42,20 @@ Terminal window
 letta [options] [-p "prompt"]
 ```
 
-| Flag                                  | Description                                                                                                   |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `letta`                               | Resume the default conversation with last-used agent                                                          |
-| `letta --new`                         | Start a new conversation (for concurrent sessions)                                                            |
-| `letta --resume`, `-r`                | Open conversation selector to browse and resume past sessions                                                 |
-| `letta --conversation <id>`, `--conv` | Resume a specific conversation by ID                                                                          |
-| `letta --conv default --agent <id>`   | Use agent’s default conversation                                                                              |
-| `letta --conv <agent-id>`             | Shorthand: use default conversation of specified agent                                                        |
-| `letta --new-agent`                   | Force create a new agent                                                                                      |
-| `letta --import <path>`               | Create new agent from an [AgentFile](/v1-sdk/concepts/agent-file/index.md) (.af) or registry (`@author/name`) |
-| `letta --agent <id>`, `-a`            | Use a specific agent by ID                                                                                    |
-| `letta --name <name>`, `-n`           | Resume agent by name (matches pinned or recent agents)                                                        |
-| `letta --info`                        | Show project info, skills directory, and pinned agents (without starting session)                             |
-| `letta --help`                        | Show help                                                                                                     |
-| `letta --version`                     | Show version                                                                                                  |
+| Flag                                  | Description                                                                       |
+| ------------------------------------- | --------------------------------------------------------------------------------- |
+| `letta`                               | Resume the default conversation with last-used agent                              |
+| `letta --new`                         | Start a new conversation (for concurrent sessions)                                |
+| `letta --resume`, `-r`                | Open conversation selector to browse and resume past sessions                     |
+| `letta --conversation <id>`, `--conv` | Resume a specific conversation by ID                                              |
+| `letta --conv default --agent <id>`   | Use agent’s default conversation                                                  |
+| `letta --conv <agent-id>`             | Shorthand: use default conversation of specified agent                            |
+| `letta --new-agent`                   | Force create a new agent                                                          |
+| `letta --agent <id>`, `-a`            | Use a specific agent by ID                                                        |
+| `letta --name <name>`, `-n`           | Resume agent by name (matches pinned or recent agents)                            |
+| `letta --info`                        | Show project info, skills directory, and pinned agents (without starting session) |
+| `letta --help`                        | Show help                                                                         |
+| `letta --version`                     | Show version                                                                      |
 
 ## Backend selection
 

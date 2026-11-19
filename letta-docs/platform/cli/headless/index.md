@@ -49,7 +49,7 @@ On the Cloud backend, ephemeral runs use your saved login, create an isolated ag
 
 Ephemeral runs accept direct one-shot prompts only. The `--ephemeral` flag cannot be combined with:
 
-- Agent creation or selection (`--agent`, `--name`, `--conversation`, `--new-agent`, `--new`, `--import`, `--resume`, `--personality`, or `--base-tools`)
+- Agent creation or selection (`--agent`, `--name`, `--conversation`, `--new-agent`, `--new`, `--resume`, `--personality`, or `--base-tools`)
 - State options (`--stateless`, `--memfs`, or `--memfs-startup`)
 - Computer routing (`--computer`)
 - Bidirectional mode (`--input-format stream-json`)
@@ -464,17 +464,6 @@ Specify which base tools to attach
 
 ```
 letta -p "..." --new-agent --base-tools "memory,web_search"
-```
-
-### Create from AgentFile
-
-Create an agent from an AgentFile template or the agent registry:
-
-Terminal window
-
-```
-letta -p "..." --import ./my-agent.af
-letta -p "..." --import @author/agent-name
 ```
 
 ### System prompt configuration

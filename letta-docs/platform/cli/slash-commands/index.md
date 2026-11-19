@@ -43,7 +43,6 @@ Commands are also available from autocomplete: type `/` in an interactive CLI se
 | `/unpin`                                         | Unpin the current agent                                         |
 | `/rename agent [name]` or `/rename convo [name]` | Rename the current agent or conversation                        |
 | `/description <text>`                            | Update the current agent’s description                          |
-| `/export`                                        | Export the current agent as an AgentFile (`.af`)                |
 
 ### Memory, tools, and configuration
 
