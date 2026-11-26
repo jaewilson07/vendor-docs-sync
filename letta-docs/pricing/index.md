@@ -37,7 +37,7 @@ $0 /month
 - Up to 3 stateful agents
 - 5 MiB of storage per memory repository
 - Bring your own API keys and external coding plans
-- Purchase credits for Letta-hosted models
+- Purchase credits for Letta-hosted models and cloud sandboxes
 
 [View quickstart ↗](/quickstart/index.md)
 
@@ -80,6 +80,18 @@ Custom
 [Contact us ↗](https://forms.letta.com/request-demo)
 
 If you would like to configure managed per-seat pricing for your business, please [contact us](mailto:support@letta.com?subject=Letta%20Code%20Enterprise%20Pricing%20Inquiry).
+
+### Cloud sandbox runtime
+
+Free accounts can purchase and use runtime credits without Pro. 1,000 credits = $1.
+
+| Size    | Price per running hour |
+| ------- | ---------------------- |
+| Regular | $0.24                  |
+| Large   | $0.47                  |
+| Xlarge  | $0.70                  |
+
+Runtime is prorated by running time, with no included free runtime allowance. Stopped sandbox storage is not charged.
 
 ### How much usage do I need?
 
