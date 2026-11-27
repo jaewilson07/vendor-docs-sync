@@ -1354,9 +1354,9 @@ dataobj:
       [max_concurrent_sweeps: <int> | default = 4]
 
       # Experimental: Log a summary and examples of the deletion candidates,
-      # instead of deleting them. A candidate is an object that no table of
-      # contents (ToC) file could reach in two sweeps, at least 23 hours apart.
-      # Only true is supported.
+      # instead of deleting them. If false, delete the candidates. A candidate
+      # is an object that no table of contents (ToC) file could reach in two
+      # sweeps, at least 23 hours apart.
       # CLI flag: -dataobj.compaction.deletion-sweep.dry-run
       [dry_run: <boolean> | default = true]
 
@@ -4057,6 +4057,14 @@ wal:
 # CLI flag: -ingester.shutdown-marker-path
 [shutdown_marker_path: <string> | default = ""]
 
+# Accept GET requests on the /flush and /ingester/shutdown endpoints. Both
+# endpoints change the ingester's state, so a GET request, for example from a
+# crawler or a read-only client, can flush or shut down the ingester. Set to
+# false to accept only POST requests. Kubernetes httpGet lifecycle hooks send
+# GET requests and need this option enabled.
+# CLI flag: -ingester.get-request-for-flush-and-shutdown-enabled
+[get_request_for_flush_and_shutdown_enabled: <boolean> | default = true]
+
 # Interval at which the ingester ownedStreamService checks for changes in the
 # ring to recalculate owned streams.
 # CLI flag: -ingester.owned-streams-check-interval
@@ -4721,9 +4729,9 @@ shard_streams:
 # Experimental. Whether the dataobj deletion sweep runs for the tenant. A sweep
 # finds the objects of the tenant that no table of contents (ToC) file can
 # reach. An object that two sweeps, at least 23 hours apart, both find
-# unreachable is a deletion candidate. Sweeps log a summary and examples of the
-# candidates, and delete nothing. The sweep also needs
-# -dataobj.compaction.deletion-sweep.enabled.
+# unreachable is a deletion candidate. Sweeps delete the candidates, or only log
+# them if -dataobj.compaction.deletion-sweep.dry-run is true. The sweep also
+# needs -dataobj.compaction.deletion-sweep.enabled.
 # CLI flag: -dataobj-compaction.deletion-sweep.enable
 [dataobj_deletion_sweep_enabled: <boolean> | default = false]
 
@@ -4906,6 +4914,11 @@ otlp_config:
 # override is set, the encryption context will not be provided to S3. Ignored if
 # the SSE type override is not set.
 [s3_sse_kms_encryption_context: <string> | default = ""]
+
+# Experimental: Comma-separated names of structured metadata columns that get no
+# bloom filter in the data object index. An empty value denies no column.
+# CLI flag: -limits.dataobj-bloom-deny-list
+[dataobj_bloom_deny_list: <string> | default = "observed_timestamp"]
 ```
 
 ### local_storage_config
@@ -6423,8 +6436,10 @@ http_config:
 [signature_version: <string> | default = "v4"]
 
 # The S3 storage class which objects will use. Supported values are: STANDARD,
-# STANDARD_IA, REDUCED_REDUNDANCY. REDUCED_REDUNDANCY is only intended for use
-# with MinIO.
+# STANDARD_IA, GLACIER_IR, INTELLIGENT_TIERING, REDUCED_REDUNDANCY.
+# REDUCED_REDUNDANCY is only intended for use with MinIO. Grafana Labs has only
+# tested Loki with STANDARD and STANDARD_IA; use GLACIER_IR and
+# INTELLIGENT_TIERING at your own risk.
 # CLI flag: -<prefix>.s3.storage-class
 [storage_class: <string> | default = "STANDARD"]
 
@@ -7304,8 +7319,10 @@ s3:
 
   # The S3 storage class to use, not set by default. Details can be found at
   # https://aws.amazon.com/s3/storage-classes/. Supported values are: STANDARD,
-  # STANDARD_IA, REDUCED_REDUNDANCY. REDUCED_REDUNDANCY is only intended for use
-  # with MinIO.
+  # STANDARD_IA, GLACIER_IR, INTELLIGENT_TIERING, REDUCED_REDUNDANCY.
+  # REDUCED_REDUNDANCY is only intended for use with MinIO. Grafana Labs has
+  # only tested Loki with STANDARD and STANDARD_IA; use GLACIER_IR and
+  # INTELLIGENT_TIERING at your own risk.
   # CLI flag: -<prefix>.s3.storage-class
   [storage_class: <string> | default = ""]
 
