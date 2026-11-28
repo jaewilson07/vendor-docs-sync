@@ -485,7 +485,9 @@ Inclusive on both ends.
 
 `month_range`: A list of calendar months identified by a case-insensitive name (e.g. 'January') or by number,
 where January = 1. Ranges are also accepted. For example, `['1:3', 'may:august', 'december']`.
-Inclusive on both ends.
+Inclusive on both ends. The range may also wrap around the end of the year, e.g. `november:february`
+covers November, December, January, and February. Like the other fields, it is matched against the
+month alone, so together with `years: ['2026']` it covers January, February, November, and December of 2026.
 
 `year_range`: A numerical list of years. Ranges are accepted. For example, `['2020:2022', '2030']`.
 Inclusive on both ends.
@@ -1898,6 +1900,29 @@ attributes:
 # AWS External ID used when assuming a role.
 # Can only be used with role_arn.
 [ external_id: <string> ]
+
+# AWS STS RoleSessionName used when assuming a role.
+# Can only be used with role_arn. Must match the AWS constraint: 2-64 characters
+# consisting of word characters and +=,.@-
+# Provides stable session identifiers in CloudTrail for audit tracing when
+# Alertmanager assumes a shared IAM role.
+[ session_name: <string> ]
+
+# AWS STS session tags used when assuming a role.
+# Can only be used with role_arn. Tag keys must be non-empty and ≤ 128 characters.
+# Tag values must be ≤ 256 characters. Maximum of 50 tags (AWS STS limit).
+# Tags with the reserved "aws:" prefix are not allowed.
+# Both keys and values must match: [\p{L}\p{Z}\p{N}_.:/=+-@]+
+# Tag keys are case-insensitive in AWS; keys that differ only by case (e.g.
+# "team" and "Team") are rejected.
+#
+# Session tags propagate to supported AWS services from the assumed role and
+# can be used in IAM trust-policy conditions (sts:TagSession condition keys).
+#
+# Requires both sts:AssumeRole and sts:TagSession permissions in the IAM policy
+# of the calling principal and in the trust policy of the assumed role.
+tags:
+  [ <string>: <string> ... ]
 ```
 
 ### `<telegram_config>`
