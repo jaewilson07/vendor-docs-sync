@@ -3182,6 +3182,13 @@ ring:
 # CLI flag: -distributor.push-worker-count
 [push_worker_count: <int> | default = 256]
 
+# Experimental. Pack each push into contiguous shards using the effective
+# shard_streams.desired_rate as the expanded-byte target per output shard,
+# capped by the recommended shard count. Applies to all tenants. Not a hard size
+# or rate limit. A zero desired_rate disables packing.
+# CLI flag: -distributor.pack-streams
+[pack_streams: <boolean> | default = false]
+
 # The maximum number of inflight bytes at a time. 0 means disabled.
 # CLI flag: -distributor.max-inflight-bytes
 [max_inflight_bytes: <int> | default = 0]
@@ -4734,6 +4741,14 @@ shard_streams:
 # needs -dataobj.compaction.deletion-sweep.enabled.
 # CLI flag: -dataobj-compaction.deletion-sweep.enable
 [dataobj_deletion_sweep_enabled: <boolean> | default = false]
+
+# Experimental. Exclusive upper bound of the uncompressed size of a run that
+# dataobj log compaction writes for the tenant. Log compaction merges runs of a
+# similar size in groups. It merges a group only if the summed size of its runs
+# is below this value, and otherwise keeps the runs as they are. Units are
+# powers of 2, so 1TB is 2^40 bytes. 0 means no maximum.
+# CLI flag: -dataobj-compaction.max-logs-run-size-uncompressed-bytes
+[dataobj_compaction_max_logs_run_size_uncompressed_bytes: <int> | default = 8TB]
 
 # Deprecated: Bloom planning strategy to use in bloom creation. Can be one of:
 # 'split_keyspace_by_factor', 'split_by_series_chunks_size'
